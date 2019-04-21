@@ -1,10 +1,22 @@
-
+p
 /* .container-fluid {
   padding-left: 0 !important;
   padding-right: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 } */
+
+.container {
+  width: 100%;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+.pr-5, .px-5 {
+  padding-right: 1rem!important;
+  padding-left: 1rem!important;
+}
 :root {
 
   --grey-l4: #f7f7f7;
@@ -950,12 +962,24 @@ toc-nav  scrollspy
    Timeline
  */
 
- @media (max-width: 1025px) {
+@media (max-width: 1025px) {
+  .post-main-wrapper {
+      margin: 0;
+      overflow-y: hidden;
+  }
+  .single-post {
+    margin: 0;
+  }
+  .row {
+    margin: 0;
+  }
   .stepper.timeline li {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
     -ms-flex-align: end;
-    align-items: flex-end; } }
+    align-items: flex-end;
+  }
+}
 
 .stepper.timeline li a {
   padding: 0px 24px;
