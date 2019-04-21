@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Rem Blog</title>
-    <link>http://huangno1.github.org/series/</link>
+    <link>https://huangno1.github.io/series/</link>
     <description>Recent content in Series on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Sat, 20 Apr 2019 14:22:18 +0800</lastBuildDate>
     
-	<atom:link href="http://huangno1.github.org/series/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://huangno1.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux</title>
-      <link>http://huangno1.github.org/series/linux/</link>
+      <link>https://huangno1.github.io/series/linux/</link>
       <pubDate>Sat, 20 Apr 2019 14:22:18 +0800</pubDate>
       
-      <guid>http://huangno1.github.org/series/linux/</guid>
+      <guid>https://huangno1.github.io/series/linux/</guid>
       <description></description>
     </item>
     

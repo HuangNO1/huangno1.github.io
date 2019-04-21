@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Rem Blog</title>
-    <link>http://huangno1.github.org/categories/</link>
+    <link>https://huangno1.github.io/categories/</link>
     <description>Recent content in Categories on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Sat, 20 Apr 2019 14:22:18 +0800</lastBuildDate>
     
-	<atom:link href="http://huangno1.github.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://huangno1.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Archlinux</title>
-      <link>http://huangno1.github.org/categories/archlinux/</link>
+      <link>https://huangno1.github.io/categories/archlinux/</link>
       <pubDate>Sat, 20 Apr 2019 14:22:18 +0800</pubDate>
       
-      <guid>http://huangno1.github.org/categories/archlinux/</guid>
+      <guid>https://huangno1.github.io/categories/archlinux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test</title>
-      <link>http://huangno1.github.org/categories/test/</link>
+      <link>https://huangno1.github.io/categories/test/</link>
       <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
       
-      <guid>http://huangno1.github.org/categories/test/</guid>
+      <guid>https://huangno1.github.io/categories/test/</guid>
       <description></description>
     </item>
     
