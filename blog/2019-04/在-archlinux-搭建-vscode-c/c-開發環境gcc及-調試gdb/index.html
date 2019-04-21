@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Rem">
+  <meta name="description" content="第一篇文章">
+  
+  <meta property="og:title" content="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" />
+<meta property="og:description" content="第一篇文章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://huangno1.github.org/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
+<meta property="article:published_time" content="2019-04-20T14:22:18&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-20T14:22:18&#43;08:00"/>
+
+
+
+  <title>
+  
+       在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB） | Rem Blog 
+  
+  </title>
+
+  <link rel="canonical" href="http://huangno1.github.org/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/">
+
+  
+  
+
+  
+  <link href="http://huangno1.github.org/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="http://huangno1.github.org/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="http://huangno1.github.org/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="http://huangno1.github.org/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="http://huangno1.github.org/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="http://huangno1.github.org/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="http://huangno1.github.org/img/zheng.png"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="http://huangno1.github.org/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="http://huangno1.github.org/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="http://huangno1.github.org/">
+          
+        <img class="avatar" src="http://huangno1.github.org/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Rem</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="http://huangno1.github.org/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="http://huangno1.github.org/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="http://huangno1.github.org/moment/" >Moment  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="http://huangno1.github.org/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('http://huangno1.github.org/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('http://huangno1.github.org/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="http://huangno1.github.org/">
+          
+            <img class="pull-right avatar avatar-md" src="http://huangno1.github.org/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="http://huangno1.github.org/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Rem Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/HuangNO1" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+              <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+                <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="http://huangno1.github.org/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
+      
+    
+    
+      
+        <li><a href="http://huangno1.github.org/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>Linux</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Apr 20, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>6 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<!-- 在 Archlinux 搭建 VScode C/C++ 開發環境（GCC）及 調試（GDB）
+=== -->
+
+<p>2019/04/09 edited by Huang Po-Hsun</p>
+
+<p>相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 <code>Linux</code> 中的 <code>GDB</code> 配置在 <code>VScode</code> 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 <code>Linux</code> 環境下從安裝 <code>VScode</code> 到配置環境變量與 <code>GDB</code> 調試。</p>
+
+<h2 id="肥宅的-linux-發行版資訊">肥宅的 Linux 發行版資訊</h2>
+
+<p>肥宅使用的發行版是 <code>ArchLinux</code>，圖形界面是 <code>KDE Plasma</code>。</p>
+
+<p><img src="index/1.png" alt="" /></p>
+
+<h2 id="下載安裝-vscode">下載安裝 VScode</h2>
+
+<h3 id="在-konsole-輸入下載指令">在 <code>Konsole</code> 輸入下載指令</h3>
+
+<pre><code class="language-bash">sudo pacman -S code
+</code></pre>
+
+<blockquote>
+<p>註：因爲圖形界面的使用者一定是一般使用者，不可能是<strong>超級使用者</strong>，所以在輸 <code>pacman</code> 前面要加上 <code>sudo</code>。</p>
+</blockquote>
+
+<p><img src="index/2.png" alt="" /></p>
+
+<p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
+
+<h2 id="下載-gcc-gdb">下載 GCC GDB</h2>
+
+<blockquote>
+<p>註：肥宅是在 <code>Windows OS</code> 用習慣了 <code>MinGW-w64</code>，但在 <code>Linux</code> 這樣配置並不是很好的選擇，如果你使用 <code>GCC</code> 或 <code>Clang</code> 會跟 <code>Linux</code> 兼容性高。<code>MinGW-w64</code> 軟件包包含 <code>gcc</code> <code>g++</code> <code>GDB</code>&hellip;等內容及 <code>API</code>。</p>
+
+<p>在這裡肥宅使用 <code>GCC</code> 與 <code>GDB</code></p>
+</blockquote>
+
+<h3 id="在-konsole-輸入下載指令-1">在 <code>Konsole</code> 輸入下載指令</h3>
+
+<h3 id="gcc">GCC</h3>
+
+<pre><code class="language-bash">sudo pacman -S gcc
+</code></pre>
+
+<p><img src="index/3.png" alt="" /></p>
+
+<p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
+
+<h3 id="gdb">GDB</h3>
+
+<pre><code class="language-bash">sudo pacman -S gdb
+</code></pre>
+
+<p><img src="index/4.png" alt="" /></p>
+
+<p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
+
+<h4 id="補充">補充：</h4>
+
+<blockquote>
+<p>註：有些小白可能不懂，在此肥宅附上 WIKI 連結</p>
+</blockquote>
+
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/GCC">GCC-維基百科，自由的百科全書</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Clang">Clang-維基百科，自由的百科全書</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/MinGW">MinGW-維基百科，自由的百科全書</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/GNU%E4%BE%A6%E9%94%99%E5%99%A8">GDB-維基百科，自由的百科全書</a></li>
+</ul>
+
+<p>什麼？！你還是不懂？
+<img src="index/5.png" alt="" /></p>
+
+<h2 id="安裝-vscode-插件">安裝 VScode 插件</h2>
+
+<h3 id="安裝自己使用的語言並-reload">安裝自己使用的語言並 Reload</h3>
+
+<p>在插件搜尋處搜尋自己要的語言，像肥宅我是用<strong>繁體中文</strong>，所以只要在搜尋處打上 <code>traditional</code> 就會出現安裝插件，按下 <code>Install</code>，並等它裝好 <code>Reload</code>就會切換到自己想要的語言界面，如果你想裝的是<strong>簡體中文</strong>，可以輸入 <code>simplified</code>，其實你只要輸入 <code>Chinese</code> 的 <code>ch</code> 基本繁體簡體都會顯示出來。</p>
+
+<p><img src="index/6.png" alt="" /></p>
+
+<h3 id="安裝-c-c-插件">安裝 C/C++ 插件</h3>
+
+<p>搜尋 <code>C/C++</code> 並安裝</p>
+
+<p><img src="index/7.png" alt="" /></p>
+
+<p><strong>其餘插件推薦請參考 <a href="https://hackmd.io/s/B1LNZviPE">Visual Studio Code 推薦使用插件</a></strong></p>
+
+<h2 id="vscode-一些設定參考">VScode 一些設定參考</h2>
+
+<p>點擊左下角滾輪中的設定，再點擊右上角的 <code>{}</code>，可進入 <code>settings.json</code>。</p>
+
+<p><img src="index/8.png" alt="" /></p>
+
+<h3 id="settings-json">settings.json</h3>
+
+<pre><code class="language-jsonld=">{
+    &quot;workbench.colorTheme&quot;: &quot;One Dark Pro&quot;,
+    &quot;workbench.iconTheme&quot;: &quot;vscode-icons&quot;,
+    &quot;terminal.integrated.fontFamily&quot;: &quot;Source Code Pro&quot;,
+    &quot;code-runner.runInTerminal&quot;: true,
+    &quot;code-runner.saveFileBeforeRun&quot;: true,
+    &quot;code-runner.clearPreviousOutput&quot;: true,
+    &quot;typescript.locale&quot;: &quot;zh-TW&quot;,
+    &quot;code-runner.fileDirectoryAsCwd&quot;: true,
+    &quot;editor.fontLigatures&quot;: true,
+    &quot;editor.fontFamily&quot;: &quot;'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Source Code Pro'&quot;,
+    &quot;terminal.integrated.rendererType&quot;: &quot;canvas&quot;,
+    &quot;files.autoSave&quot;: &quot;afterDelay&quot;,
+    &quot;editor.fontSize&quot;: 16,
+    &quot;C_Cpp.default.intelliSenseMode&quot;: &quot;clang-x64&quot;
+}
+</code></pre>
+
+<blockquote>
+<p>註：肥宅有裝 code-runer 插件，所以設定中有這個 code-runner。這裡不需要各位去複製貼上，只是給大家參考肥宅用了那些主題與插件。像肥宅目前使用 <code>One Dark Pro</code> 佈置主題。</p>
+</blockquote>
+
+<p><strong>注意：第 5 行的設定很重要，因為當你裝完 <code>code-runner</code> 時預設是不能在終端機輸入，所以才將 <code>code-runner.runInTerminal</code> 參數設為 <code>true</code></strong></p>
+
+<h2 id="配置-gdb-調試">配置 GDB 調試</h2>
+
+<p>這時你的電腦已配置了 <code>gcc</code> <code>g++</code> 的環境變數，但你並還沒將其 IDE 完全配好，如果沒配好會出現一些問題，像肥宅在寫 <code>C</code> 敲上 <code>#include &lt;stdio.h&gt;</code> 時底部會出現<strong>綠色的波浪線</strong>，因爲沒將頭文件 <code>*.h</code> 都載入，雖然不影響編譯執行，但總會覺得很礙眼，感覺有瑕疵，在這裡肥宅一次幫各位解決。</p>
+
+<blockquote>
+<p>註：下圖為綠色波浪底線示意圖</p>
+</blockquote>
+
+<p><img src="index/9.png" alt="" /></p>
+
+<p>讓我們開始配置吧~</p>
+
+<blockquote>
+<p>註：建議各位將所有代碼集中在一個資料夾方便管理，並有序分類。</p>
+</blockquote>
+
+<p><img src="index/10.png" alt="" /></p>
+
+<blockquote>
+<p>註：這裡使用的是 <code>Dolphin</code> 來檢視檔案，類似 <code>Windows OS</code> 的檔案總管，這裡就不介紹這個。</p>
+</blockquote>
+
+<p><img src="index/11.png" alt="" /></p>
+
+<blockquote>
+<p>註：資料夾名或檔案名開頭是 <code>.</code> 的話會隱藏的，e.g. <code>.vscode</code> <code>.git</code> ，必須開啟可以顯示的設定才能看到。</p>
+</blockquote>
+
+<p>請於<strong>代碼根目錄</strong>（也就是你使用 <code>VScode</code> 打開的資料夾）先將<strong>隱藏的檔案</strong>可以顯示，這裡因爲是肥宅先配置好的所以才會看到 <code>.vscode</code>，請在這新建個資料夾，資料夾名叫 <code>.vscode</code>，並分別新建四個文件，分別是</p>
+
+<blockquote>
+<p>註：像肥宅在 <code>VScode</code> 開啟的資料夾是 <code>Study</code>，所以肥宅在 <code>Study</code> 這個資料夾目錄中新增名為 <code>.vscode</code> 的資料夾，並進入此資料夾新建四個檔案</p>
+</blockquote>
+
+<ul>
+<li>settings.json</li>
+<li>c_cpp_properties.json</li>
+<li>launch.json</li>
+<li>task.json</li>
+</ul>
+
+<p>接著分別填入以下內容</p>
+
+<h3 id="settings-json-1">settings.json</h3>
+
+<hr />
+
+<pre><code class="language-jsonld=">{
+    &quot;files.defaultLanguage&quot;: &quot;cpp&quot;, // ctrl+N新建文件后默认的语言
+    &quot;editor.formatOnType&quot;: true, // 输入时就进行格式化，默认触发字符较少，分号可以触发
+    &quot;editor.formatOnSave&quot;: true, // 每次存檔時，自動執行自動排版功能
+    &quot;editor.snippetSuggestions&quot;: &quot;top&quot;, // snippets代码优先显示补全
+    &quot;code-runner.runInTerminal&quot;: true, // 设置成false会在“输出”中输出，无法输入
+    &quot;code-runner.executorMap&quot;: {
+        &quot;c&quot;: &quot;cd $dir &amp;&amp; gcc $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt.out&quot;,
+        &quot;cpp&quot;: &quot;cd $dir &amp;&amp; g++ $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt.out&quot;
+    }, // 设置code runner的命令行
+    &quot;code-runner.saveFileBeforeRun&quot;: true, // run code前保存
+    &quot;code-runner.preserveFocus&quot;: true, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+    &quot;code-runner.clearPreviousOutput&quot;: false, // 每次run code前清空属于code runner的终端消息
+    &quot;C_Cpp.clang_format_sortIncludes&quot;: true, // 格式化时调整include的顺序（按字母排序）
+    &quot;C_Cpp.intelliSenseEngine&quot;: &quot;Default&quot;, // 可以为Default或Tag Parser，后者较老，功能较简单。具体差别参考cpptools扩展文档
+}
+</code></pre>
+
+<blockquote>
+<p>註：在 <code>Linux</code> 中輸出檔的副檔名是 <code>*.out</code>，有別於 <code>Windows</code> 的 <code>*.exe</code></p>
+</blockquote>
+
+<p><strong>注意：第八行與第九行的是 <code>code-runner</code> 插件的編譯執行命令行，因為是在 <code>Linux</code> 下編譯執行，所以肥宅在後面 <code>fileNameWithoutExt</code> 變數後面從 <code>.exe</code> 改成 <code>.out</code>，這樣在使用 <code>code-runner</code> 插件時幫你自動生成的輸出檔副檔名是 <code>*.out</code></strong></p>
+
+<h3 id="c-cpp-properties-json">c_cpp_properties.json</h3>
+
+<hr />
+
+<pre><code class="language-jsonld=">{
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Linux&quot;,
+            &quot;includePath&quot;: [
+                &quot;${workspaceFolder}/**&quot;,
+                &quot;/usr/include&quot;,
+                &quot;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/include/&quot;
+            ],
+            &quot;cStandard&quot;: &quot;c11&quot;,
+            &quot;cppStandard&quot;: &quot;c++17&quot;,
+            &quot;intelliSenseMode&quot;: &quot;gcc-x64&quot;,
+            &quot;defines&quot;: [
+                &quot;_DEBUG&quot;,
+                &quot;UNICODE&quot;,
+                &quot;__GNUC__=7&quot;,
+                &quot;__cdecl=__attribute__((__cdecl__))&quot;
+            ],
+            &quot;browse&quot;: {
+                &quot;path&quot;: [
+                    &quot;${workspaceFolder}&quot;,
+                    &quot;/usr/include&quot;,
+                    &quot;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/include/&quot;,
+                    &quot;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed/&quot;,
+                    &quot;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/install-tools/include/&quot;
+                ],
+                &quot;limitSymbolsToIncludedHeaders&quot;: true,
+                &quot;databaseFilename&quot;: &quot;&quot;
+            }
+        }
+    ],
+    &quot;version&quot;: 4
+}
+</code></pre>
+
+<blockquote>
+<p>註：肥宅之前就是這裡沒配置好（第 5 行的 <code>&quot;includePath&quot;</code>）所以才會在 <code>#include &lt;stdio.h&gt;</code> 這行底部出現綠色波浪</p>
+</blockquote>
+
+<p><strong>注意：肥宅 GCC 的版本是 8.2.1，所以如果你的版本改跟我不一樣請修改成你的當前版本，這裡最重要的是路徑不能有錯。也許你的路徑可能跟我不一樣，這些都可以在 <code>root</code> 根目錄中找到，請自行尋找與修改。</strong></p>
+
+<h3 id="launch-json">launch.json</h3>
+
+<hr />
+
+<pre><code class="language-jsonld=">{
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Run C&quot;,
+            &quot;type&quot;: &quot;cppdbg&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;,
+            &quot;args&quot;: [],
+            &quot;stopAtEntry&quot;: false,
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;environment&quot;: [],
+            &quot;externalConsole&quot;: false,
+            &quot;MIMode&quot;: &quot;gdb&quot;,
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: false
+                }
+            ],
+            &quot;preLaunchTask&quot;: &quot;build &amp; run file C&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Run C++&quot;,
+            &quot;type&quot;: &quot;cppdbg&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;,
+            &quot;args&quot;: [],
+            &quot;stopAtEntry&quot;: false,
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;environment&quot;: [],
+            &quot;externalConsole&quot;: false,
+            &quot;MIMode&quot;: &quot;gdb&quot;,
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: false
+                }
+            ],
+            &quot;preLaunchTask&quot;: &quot;build &amp; run file C++&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Debug C&quot;,
+            &quot;type&quot;: &quot;cppdbg&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;,
+            &quot;args&quot;: [],
+            &quot;stopAtEntry&quot;: false,
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;environment&quot;: [],
+            &quot;externalConsole&quot;: false,
+            &quot;MIMode&quot;: &quot;gdb&quot;,
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: false
+                }
+            ],
+            &quot;preLaunchTask&quot;: &quot;build &amp; debug file C&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Debug C++&quot;,
+            &quot;type&quot;: &quot;cppdbg&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;,
+            &quot;args&quot;: [],
+            &quot;stopAtEntry&quot;: false,
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;environment&quot;: [],
+            &quot;externalConsole&quot;: false,
+            &quot;MIMode&quot;: &quot;gdb&quot;,
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: false
+                }
+            ],
+            &quot;preLaunchTask&quot;: &quot;build &amp; debug file C++&quot;
+        }
+    ]
+}
+</code></pre>
+
+<blockquote>
+<p>註：在分 <code>C/C++</code> 的配置時可以分開，一個是 <code>gcc</code> 一個是 <code>g++</code>，然而有些人直接全部都是用 <code>g++</code> 編譯，這樣也可以，只是不能使用 <code>gcc</code> 去編譯 <code>C++</code>。由於肥宅有強迫症，所以分成四個部份。</p>
+</blockquote>
+
+<p><strong>注意：這裡肥宅分了四個類型，分別是 <code>Run C</code> <code>Run C++</code> <code>Debug C</code> <code>Debug C++</code>，
+其中每一個 <code>&quot;program&quot;</code> （進行調試的程序路徑）參數都是
+<code>&quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;</code>，
+<code>&quot;preLaunchTask&quot;</code> 的值則是對應到 <code>task.json</code> 的 <code>&quot;label&quot;</code>，如果兩者對應的名稱出錯在調試時會出現找不到對應名稱的錯誤訊息，要你開啟 <code>launch.json</code> 重新設定。</strong></p>
+
+<h3 id="tasks-json">tasks.json</h3>
+
+<hr />
+
+<pre><code class="language-jsonld=">{
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;build &amp; debug file C&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;gcc&quot;,
+            &quot;args&quot;: [
+                &quot;-g&quot;,
+                &quot;${file}&quot;,
+                &quot;-o&quot;,
+                &quot;${fileBasenameNoExtension}.out&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+        },
+        {
+            &quot;label&quot;: &quot;build &amp; debug file C++&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;g++&quot;,
+            &quot;args&quot;: [
+                &quot;-g&quot;,
+                &quot;${file}&quot;,
+                &quot;-o&quot;,
+                &quot;${fileBasenameNoExtension}.out&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+        },
+        {
+            &quot;label&quot;: &quot;build &amp; run file C&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;gcc&quot;,
+            &quot;args&quot;: [
+                &quot;${file}&quot;,
+                &quot;-o&quot;,
+                &quot;${fileBasenameNoExtension}.out&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+        },
+        {
+            &quot;label&quot;: &quot;build &amp; run file C++&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;g++&quot;,
+            &quot;args&quot;: [
+                &quot;${file}&quot;,
+                &quot;-o&quot;,
+                &quot;${fileBasenameNoExtension}.out&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+        }
+    ]
+}
+</code></pre>
+
+<blockquote>
+<p>註：<code>-g</code> 是調試的意思，<code>-o</code> 是輸出的意思。</p>
+</blockquote>
+
+<p><strong>注意：每個 <code>&quot;args&quot;</code> 參數中的 <code>&quot;${fileBasenameNoExtension}.out&quot;</code> 要特別注意尾端改成<code>.out</code>。</strong></p>
+
+<h2 id="調試畫面">調試畫面</h2>
+
+<p>配置完後，你可以在調試欄看到 <code>Run C</code> <code>Run C++</code> <code>Debug C</code> <code>Debug C++</code> 選項。</p>
+
+<p>肥宅現在要調試 <code>1.c</code> 這個檔案，可以在代碼中設置<strong>斷點</strong>，並選擇 <code>Debug C</code>。</p>
+
+<p><img src="index/12.png" alt="" /></p>
+
+<blockquote>
+<p>註：調試快捷鍵 <code>F5</code></p>
+</blockquote>
+
+<p><img src="index/13.png" alt="" /></p>
+
+<p>左側可以看到變數的值</p>
+
+<blockquote>
+<p>註：肥宅已在 <code>launch.json</code> 中設定 <code>&quot;externalConsole&quot;: false</code>，因爲這個設定的意思是使格外彈出個 <code>Konsole</code>，這功能只能在 <code>Windows OS</code> 中改成 <code>true</code></p>
+</blockquote>
+
+<h2 id="純手工編譯執行">純手工編譯執行</h2>
+
+<p>假設有個檔名叫 <code>1</code>，副檔名可以是 <code>*.c</code> 或 <code>*.cpp</code></p>
+
+<h3 id="c">C</h3>
+
+<p>編譯標準 C99</p>
+
+<pre><code class="language-bash">gcc -std=c99 1.c -o 1.out
+</code></pre>
+
+<p>執行</p>
+
+<pre><code class="language-bash">./1.out
+</code></pre>
+
+<h3 id="c-1">C++</h3>
+
+<p>編譯標準 C++11</p>
+
+<pre><code class="language-bash">g++ -std=c++11 1.cpp -o 1.out
+</code></pre>
+
+<p>執行</p>
+
+<pre><code class="language-bash">./1.out
+</code></pre>
+
+<h3 id="如果有引入其他自定義的標頭檔之實現檔">如果有引入其他自定義的標頭檔之實現檔</h3>
+
+<p>編譯時加入參數
+e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標頭檔，並且將 <code>Circle.h</code> 標頭檔的實現部份寫在 <code>Circle.cpp</code></p>
+
+<p>編譯</p>
+
+<pre><code class="language-bash">gcc -std=c99 main.c Circle.cpp -o main.out
+</code></pre>
+
+<p>執行</p>
+
+<pre><code class="language-bash">./main.out
+</code></pre>
+
+<h5 id="copy-copyright-by-huang-po-hsun">&copy;copyright by Huang Po-Hsun</h5>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="http://huangno1.github.org/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="http://huangno1.github.org/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="http://huangno1.github.org/tags/vscode" role="button">Vscode </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%82%a5%e5%ae%85%e7%9a%84-linux-%e7%99%bc%e8%a1%8c%e7%89%88%e8%b3%87%e8%a8%8a">
+												 肥宅的 Linux 發行版資訊
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89%e5%ae%89%e8%a3%9d-vscode">
+												 下載安裝 VScode
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%9c%a8-konsole-%e8%bc%b8%e5%85%a5%e4%b8%8b%e8%bc%89%e6%8c%87%e4%bb%a4">
+												 在 Konsole 輸入下載指令
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89-gcc-gdb">
+												 下載 GCC GDB
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%9c%a8-konsole-%e8%bc%b8%e5%85%a5%e4%b8%8b%e8%bc%89%e6%8c%87%e4%bb%a4-1">
+												 在 Konsole 輸入下載指令
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#gcc">
+												 GCC
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#gdb">
+												 GDB
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%a3%9c%e5%85%85">
+												 補充：
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d-vscode-%e6%8f%92%e4%bb%b6">
+												 安裝 VScode 插件
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d%e8%87%aa%e5%b7%b1%e4%bd%bf%e7%94%a8%e7%9a%84%e8%aa%9e%e8%a8%80%e4%b8%a6-reload">
+												 安裝自己使用的語言並 Reload
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d-c-c-%e6%8f%92%e4%bb%b6">
+												 安裝 C/C&#43;&#43; 插件
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#vscode-%e4%b8%80%e4%ba%9b%e8%a8%ad%e5%ae%9a%e5%8f%83%e8%80%83">
+												 VScode 一些設定參考
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#settings-json">
+												 settings.json
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%85%8d%e7%bd%ae-gdb-%e8%aa%bf%e8%a9%a6">
+												 配置 GDB 調試
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#settings-json-1">
+												 settings.json
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#c-cpp-properties-json">
+												 c_cpp_properties.json
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#launch-json">
+												 launch.json
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#tasks-json">
+												 tasks.json
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%aa%bf%e8%a9%a6%e7%95%ab%e9%9d%a2">
+												 調試畫面
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%b4%94%e6%89%8b%e5%b7%a5%e7%b7%a8%e8%ad%af%e5%9f%b7%e8%a1%8c">
+												 純手工編譯執行
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#c">
+												 C
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#c-1">
+												 C&#43;&#43;
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%a6%82%e6%9e%9c%e6%9c%89%e5%bc%95%e5%85%a5%e5%85%b6%e4%bb%96%e8%87%aa%e5%ae%9a%e7%be%a9%e7%9a%84%e6%a8%99%e9%a0%ad%e6%aa%94%e4%b9%8b%e5%af%a6%e7%8f%be%e6%aa%94">
+												 如果有引入其他自定義的標頭檔之實現檔
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/HuangNO1 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+      <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook-f mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+        <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="http://huangno1.github.org/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="http://huangno1.github.org/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="http://huangno1.github.org/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="http://huangno1.github.org/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="http://huangno1.github.org/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="http://huangno1.github.org/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="http://huangno1.github.org/js/main.js"></script>
+
+
+
+  
+  <script src="http://huangno1.github.org/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script src="http://huangno1.github.org/js/vendors/katex/katex.min.js"> </script>
+  <script src="http://huangno1.github.org/js/vendors/katex/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body);
+      });
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>

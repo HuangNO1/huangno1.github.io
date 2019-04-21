@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Rem Blog</title>
+    <link>http://huangno1.github.org/series/linux/</link>
+    <description>Recent content in Linux on Rem Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 20 Apr 2019 14:22:18 +0800</lastBuildDate>
+    
+	<atom:link href="http://huangno1.github.org/series/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</title>
+      <link>http://huangno1.github.org/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/</link>
+      <pubDate>Sat, 20 Apr 2019 14:22:18 +0800</pubDate>
+      
+      <guid>http://huangno1.github.org/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/</guid>
+      <description>2019/04/09 edited by Huang Po-Hsun 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。 肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。 下載安裝 VScode 在 Konsole 輸入下載指令 sudo pacman -S code 註：因爲圖形界面的使用者一定是一般使</description>
+    </item>
+    
+  </channel>
+</rss>
