@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Archlinux on Rem Blog</title>
+    <title>ArchLinux on Rem Blog</title>
     <link>https://huangno1.github.io/categories/archlinux/</link>
-    <description>Recent content in Archlinux on Rem Blog</description>
+    <description>Recent content in ArchLinux on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Sat, 20 Apr 2019 14:22:18 +0800</lastBuildDate>
