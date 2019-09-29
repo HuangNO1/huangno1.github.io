@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Rem">
+  <meta name="description" content="第二篇文章">
+  
+  <meta property="og:title" content="Archlinux 安裝" />
+<meta property="og:description" content="第二篇文章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D/" />
+<meta property="article:published_time" content="2019-09-28T15:24:28+08:00" />
+<meta property="article:modified_time" content="2019-09-28T15:24:28+08:00" />
+
+
+
+  <title>
+  
+       Archlinux 安裝 | Rem Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D/">
+
+  
+  
+
+  
+  <link href="https://huangno1.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://huangno1.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://huangno1.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://huangno1.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://huangno1.github.io/img/zheng.png"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://huangno1.github.io/">
+          
+        <img class="avatar" src="https://huangno1.github.io/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Rem</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://huangno1.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://huangno1.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://huangno1.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://huangno1.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Rem Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/HuangNO1" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+              <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+                <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
+      
+    
+    
+      
+        <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>Linux</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">Archlinux 安裝</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Sep 28, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>3 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>2019/09/28 edited by Huang Po-Hsun</p>
+
+<p><img src="https://i.loli.net/2019/09/29/4GuroyLhaBXediw.png" alt="0.png" /></p>
+
+<h2 id="前言">前言</h2>
+
+<p>我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。</p>
+
+<p>由於我的電腦型號是<strong>聯想 y7000p</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch WIKI Installation guide</a> 的安裝指南已經很詳細了，但對於剛接觸的我根本是火星文 :(</p>
+
+<h2 id="安裝前準備">安裝前準備</h2>
+
+<h3 id="1-至-清華大學-archlinux-軟件鏡像站-https-mirrors-tuna-tsinghua-edu-cn-archlinux-iso-latest-下載最新版的-archlinux-ios-鏡像">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 <code>archlinux*.ios</code> 鏡像</h3>
+
+<p><img src="https://i.loli.net/2019/09/29/28CjvXVRUZJzqQ3.png" alt="1.png" /></p>
+
+<h3 id="2-下載-rufus-https-rufus-ie-用來匯入-archlinux-鏡像至-usb">2. 下載 <a href="https://rufus.ie/">Rufus</a> - 用來匯入 Archlinux 鏡像至 USB</h3>
+
+<p><img src="https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.png" alt="2.png" /></p>
+
+<h3 id="3-準備一個至少-8g-的-usb">3. 準備一個至少 8G 的 USB</h3>
+
+<p>使用 Rufus 將 Arch 鏡像匯入在目標 USB 裝置。</p>
+
+<blockquote>
+<p>註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。</p>
+</blockquote>
+
+<p>e.g.</p>
+
+<p><img src="https://i.loli.net/2019/09/29/jR5FbkuUCPIMvXh.png" alt="3.png" /></p>
+
+<h3 id="4-分割磁區">4. 分割磁區</h3>
+
+<p><strong>在固態硬碟割出 40GB 空間（40GB <code>root</code>），在虛擬硬碟割出102GB 空間（2GB <code>swap</code>, 100GB <code>home</code>）</strong>，此時別格式化割出來的磁區，讓它們保持為<strong>未配置狀態</strong>。</p>
+
+<p>在 Windows 工作列的 <code>win</code> 圖標上點擊滑鼠右鍵選擇<strong>磁區管理</strong>，將自己的磁區切割，現在大部份的電腦是 110GB 左右的固態 SSD 和 1TB 左右的虛擬硬碟，當然少部份例外，我建議固態硬碟割出至少 40GB 給 <code>/root</code> 根目錄（類似 Windows的 C槽），接著可以在虛擬硬碟割出 100GB 以上給 <code>/home</code> 家目錄，當然也有特殊情況，像我的室友他電腦只有固態 SSD 所以只能割固態硬碟給 <code>/home</code>，我室友我幫他割了 30GB 給 <code>/root</code>，40GB 給 <code>/home</code>，2GB 給 <code>swap</code>。</p>
+
+<blockquote>
+<p>註：我強烈不建議將 Linux 灌在 <strong>USB</strong> 上或是像<strong>移動固態 SSD</strong> 等移動裝置上，首先在啟動上很不方便，每次都要進入 Bios 調整開機順序，又容易電腦卡頓，電腦容易發燙，加上電源的耗電速度快等因素，其實我就在我室友的移動固態 SSD 上嘗試過，甚至安裝失敗，連圖形界面都進不去。</p>
+</blockquote>
+
+<p>磁區管理示意圖：</p>
+
+<p><img src="https://i.loli.net/2019/09/29/leD4jbfzrPEIig6.jpg" alt="4.png" /></p>
+
+<p>在磁區上點擊滑鼠右鍵選擇<strong>壓縮磁碟</strong>，應你的需求壓縮適當大小的磁區。</p>
+
+<h3 id="5-usb-使用-uefi-方式開機">5. USB 使用 UEFI 方式開機</h3>
+
+<p><strong>進入 Bios，調整 Boot 開機順序，改為你的 USB 優先開機，開機模式為 UEFI</strong></p>
+
+<p>每台電腦進入 Bios 的方法都不同，像我的電腦是聯想 y7000p，所以我在開機時一直按住 <code>Fn + F2</code> ，就能進入 Bios 調整開機順序，因為幫室友們裝了 Arch，所以 ThinkPad 是 <code>F1</code>，華碩是按 <code>Esc</code> 或 <code>F2</code>，小米是 <code>F2</code>，我記得小米筆電進入 Bios 還需要輸入 Password，有點麻煩就是了。當然還是勸大家上網搜一下自己電腦型號的進入 Bios 快捷建。</p>
+
+<p>成功進入 USB 後選擇第一個選項 <code>Boot Arch Linux (X86_64)</code> 按 <code>Enter</code> 進入，當你看到 <code>root #</code> 就代表你已經進入 USB 裡的 Arch 安裝鏡像。</p>
+
+<blockquote>
+<p>註：切記要是 UEFI 開機，因為我們最後要在 Bios 安裝引導程序，來引導我們開機選擇進入的 OS。如果沒有使用 UEFi 開機的話會裝不上引導程序 <code>grub</code>。</p>
+</blockquote>
+
+<p><img src="https://imgpoi.com/i/71GFNM.png" alt="5.png" /></p>
+
+<h3 id="確認連到網路">確認連到網路</h3>
+
+<p>在安裝過程我們需要用到網路，我們需要確認我們連的到網路，輸入以下指令</p>
+
+<pre><code class="language-zsh">ping baidu.com # 確認是否可連上百度
+</code></pre>
+
+<p>如果你的結果與下圖相同則代表你已連上了網路，按下 <code>Ctrl + C</code> 中止命令，</p>
+
+<p><img src="https://i.loli.net/2019/09/29/2XAfjoPpSaJDu4d.png" alt="6.png" /></p>
+
+<p>如果無法從 <code>baidu.com</code> 接收 <code>packets</code>，<strong>掉包率（packets loss）100%</strong>，代表你沒有連上網路，這時我建議插網線連有線網路，不建議連無線網路，因為在無線網路使用上會出些問題，不建議新手使用，我最常用的方法是將使用<strong>數據線</strong>將電腦與手機連結，然後手機開 <strong>USB 共用網路</strong>，手機可以連行動數據或 WiFi 給電腦網路。</p>
+
+<ol>
+<li><p>插上網線</p>
+
+<pre><code class="language-zsh">ip link #顯示自己的網路接口
+</code></pre></li>
+</ol>
+
+<p><img src="https://i.loli.net/2019/09/29/aILSzq6P5vWg8uG.png" alt="7.png" /></p>
+
+<p><code>enp7s0</code> 是我的有線接口，<code>wlp0s20f3</code> 是我的無線接口，當然這些接口名稱會隨著電腦不同而不同但大多相似。</p>
+
+<pre><code class="language-zsh">ip link set enp7s0 up # 將有線接口打開
+dhcpcd enp7s0 # 連接接口
+ping baidu.com # 再測試一次是否連網
+</code></pre>
+
+<p>以上如果沒問題就可跳過用手機共用網路步驟</p>
+
+<ol>
+<li>用數據線將手機與電腦連結，並開啟 USB 共用網路
+<img src="https://i.loli.net/2019/09/29/RmvsnrfoKt5caUH.png" alt="8.png" /></li>
+</ol>
+
+<h5 id="copy-copyright-by-huang-po-hsun">&copy;copyright by Huang Po-Hsun</h5>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%89%8d%e8%a8%80">
+												 前言
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d%e5%89%8d%e6%ba%96%e5%82%99">
+												 安裝前準備
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#1-%e8%87%b3-%e6%b8%85%e8%8f%af%e5%a4%a7%e5%ad%b8-archlinux-%e8%bb%9f%e4%bb%b6%e9%8f%a1%e5%83%8f%e7%ab%99-https-mirrors-tuna-tsinghua-edu-cn-archlinux-iso-latest-%e4%b8%8b%e8%bc%89%e6%9c%80%e6%96%b0%e7%89%88%e7%9a%84-archlinux-ios-%e9%8f%a1%e5%83%8f">
+												 1. 至 清華大學 Archlinux 軟件鏡像站下載最新版的 archlinux*.ios 鏡像
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#2-%e4%b8%8b%e8%bc%89-rufus-https-rufus-ie-%e7%94%a8%e4%be%86%e5%8c%af%e5%85%a5-archlinux-%e9%8f%a1%e5%83%8f%e8%87%b3-usb">
+												 2. 下載 Rufus - 用來匯入 Archlinux 鏡像至 USB
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#3-%e6%ba%96%e5%82%99%e4%b8%80%e5%80%8b%e8%87%b3%e5%b0%91-8g-%e7%9a%84-usb">
+												 3. 準備一個至少 8G 的 USB
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#4-%e5%88%86%e5%89%b2%e7%a3%81%e5%8d%80">
+												 4. 分割磁區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#5-usb-%e4%bd%bf%e7%94%a8-uefi-%e6%96%b9%e5%bc%8f%e9%96%8b%e6%a9%9f">
+												 5. USB 使用 UEFI 方式開機
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%a2%ba%e8%aa%8d%e9%80%a3%e5%88%b0%e7%b6%b2%e8%b7%af">
+												 確認連到網路
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/HuangNO1 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+      <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook-f mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+        <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://huangno1.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script src="https://huangno1.github.io/js/vendors/katex/katex.min.js"> </script>
+  <script src="https://huangno1.github.io/js/vendors/katex/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body);
+      });
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
