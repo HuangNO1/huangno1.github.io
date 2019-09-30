@@ -293,7 +293,7 @@
 
     
       <li class="middot"></li>
-      <li>7 minutes read</li>
+      <li>9 minutes read</li>
     
   </ul>
   
@@ -312,17 +312,17 @@
 
 <p>我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。</p>
 
-<p>由於我的電腦型號是<strong>聯想 y7000p</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch WIKI Installation guide</a> 的安裝指南已經很詳細了，但對於剛接觸的我根本是火星文 :(</p>
+<p>由於我的電腦型號是<strong>聯想 y7000p</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide - ArchWiki</a> 的安裝指南已經很詳細了，但對於剛接觸的我根本是火星文 :(</p>
 
 <h2 id="安裝前準備">安裝前準備</h2>
 
-<h3 id="1-至-清華大學-archlinux-軟件鏡像站-https-mirrors-tuna-tsinghua-edu-cn-archlinux-iso-latest-下載最新版的-archlinux-ios-鏡像">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 <code>archlinux*.ios</code> 鏡像</h3>
+<h3 id="1-至-清華大學-archlinux-軟件鏡像站-https-mirrors-tuna-tsinghua-edu-cn-archlinux-iso-latest-下載最新版的-archlinux-ios-鏡像">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 archlinux*.ios 鏡像</h3>
 
 <p><img src="https://i.loli.net/2019/09/29/28CjvXVRUZJzqQ3.png" alt="1.png" /></p>
 
 <h3 id="2-下載-rufus-https-rufus-ie-用來匯入-archlinux-鏡像至-usb">2. 下載 <a href="https://rufus.ie/">Rufus</a> - 用來匯入 Archlinux 鏡像至 USB</h3>
 
-<p><img src="https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.png" alt="2.png" /></p>
+<p><img src="https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.，png" alt="2.png" /></p>
 
 <h3 id="3-準備一個至少-8g-的-usb">3. 準備一個至少 8G 的 USB</h3>
 
@@ -340,7 +340,7 @@
 
 <p><strong>在固態硬碟割出 40GB 空間（40GB <code>root</code>），在虛擬硬碟割出102GB 空間（2GB <code>swap</code>, 100GB <code>home</code>）</strong>，此時別格式化割出來的磁區，讓它們保持為<strong>未配置狀態</strong>。</p>
 
-<p>在 Windows 工作列的 <code>win</code> 圖標上點擊滑鼠右鍵選擇<strong>磁區管理</strong>，將自己的磁區切割，現在大部份的電腦是 110GB 左右的固態 SSD 和 1TB 左右的虛擬硬碟，當然少部份例外，我建議固態硬碟割出至少 40GB 給 <code>/root</code> 根目錄（類似 Windows的 C槽），接著可以在虛擬硬碟割出 100GB 以上給 <code>/home</code> 家目錄，當然也有特殊情況，像我的室友他電腦只有固態 SSD 所以只能割固態硬碟給 <code>/home</code>，我室友我幫他割了 30GB 給 <code>/root</code>，40GB 給 <code>/home</code>，2GB 給 <code>swap</code>。</p>
+<p>在 Windows 工作列的 <code>win</code> 圖標上點擊滑鼠右鍵選擇<strong>磁區管理</strong>，將自己的磁區切割，現在大部份的電腦是 110GB 左右的固態 SSD 和 1TB 左右的虛擬硬碟，當然少部份例外，我建議固態硬碟割出至少 40GB 給 <code>/root</code> 根目錄（類似 Windows的 C槽），接著可以在虛擬硬碟割出 100GB 以上給 <code>/home</code> 家目錄，也有特殊情況，像我的室友他電腦只有固態 SSD 所以只能割固態硬碟給 <code>/home</code>，我室友我幫他割了 30GB 給 <code>/root</code>，40GB 給 <code>/home</code>，2GB 給 <code>swap</code>。</p>
 
 <blockquote>
 <p>註：我強烈不建議將 Linux 灌在 <strong>USB</strong> 上或是像<strong>移動固態 SSD</strong> 等移動裝置上，首先在啟動上很不方便，每次都要進入 Bios 調整開機順序，又容易電腦卡頓，電腦容易發燙，加上電源的耗電速度快等因素，其實我就在我室友的移動固態 SSD 上嘗試過，甚至安裝失敗，連圖形界面都進不去。</p>
@@ -411,14 +411,14 @@ dhcpcd enp0s20f0u1 # 連接手機的有線接口
 ping baidu.com # 測試是否連上網路
 </code></pre>
 
-<p>通常到這裡網路是連上的，如果還連不上那可能就要連無線 WiFi 了，我就不多說明了，可以參考 <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch WiKi</a> 和 <a href="http://irislr.me/2017/01/07/linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%89%E7%BA%BF%EF%BC%86%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5/">某網友的 Blog</a> 和 <a href="https://www.itread01.com/p/149560.html">某教程網</a> 有提及，因為之前我幫我朋友安裝 Archlinux 時要連無線 WiFi 時搞了很久，還出了錯誤，最後直接使用手機的共用網路才解決。</p>
+<p>通常到這裡網路是連上的，如果還連不上那可能就要連無線 WiFi 了，我就不多說明了，可以參考 <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Wireless network configuration (简体中文) - ArchWiki</a> 和 <a href="http://irislr.me/2017/01/07/linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%89%E7%BA%BF%EF%BC%86%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5/">某網友的 Blog</a> 和 <a href="https://www.itread01.com/p/149560.html">某教程網</a> 有提及，因為之前我幫我朋友安裝 Archlinux 時要連無線 WiFi 時搞了很久，還出了錯誤，最後直接使用手機的共用網路才解決。</p>
 
 <h3 id="7-更新系統時間">7. 更新系統時間</h3>
 
 <p>使用 <code>timedatectl</code> 確保系統時間是準確的，後面我們在<strong>同步數據庫</strong>時需要系統時間與網路時間的同步。</p>
 
 <blockquote>
-<p>註：這移步真的很重要，我之前因為忘了這一步驟導致數據庫無法同步，開啟時間同步後還要重裝一次系統 <code>pacman -S linux</code></p>
+<p>註：這一步真的很重要，我之前因為忘了這一步驟導致數據庫無法同步，開啟時間同步後還要進入 <code>Chroot</code> 重裝一次系統 <code>pacman -S linux</code></p>
 </blockquote>
 
 <pre><code class="language-zsh">timedatectl set-ntp true # 開啟時間同步
@@ -433,7 +433,7 @@ timedatectl status # 檢查服務狀態
 
 <p><strong>我們使用 <code>cfdisk</code> 來分割磁區</strong></p>
 
-<p>Arch WiKi 建議的分區參考</p>
+<p>ArchWiki 建議的分區參考</p>
 
 <p><img src="https://i.loli.net/2019/09/30/dQUhfT6SNIAPq4D.png" alt="10.png" /></p>
 
@@ -471,7 +471,7 @@ timedatectl status # 檢查服務狀態
 <p>示意圖我就不放了，方式都跟上個步驟大同小異，分別割出 2GB <code>Type</code> 為 <code>Linux Swap</code> 和 100GB <code>Type</code> 為 <code>Linux home</code> 的分區。</p>
 
 <blockquote>
-<p>註：有些人的電腦可能不知道沒有我上述講的類型，如果找不到沒有 <code>Linux root (ARM-64)</code>、<code>Linux root (X86)</code>、<code>Linux home</code>，可以將 <code>Type</code> 改成 <code>Linux filesystem</code>，只是 <code>EFI System</code> 與 <code>Linux swap</code> 不能這樣搞，而且這兩類型是找得到的。</p>
+<p>註：有些人的電腦可能沒有我上述講的類型，如果找不到 <code>Linux root (ARM-64)</code>、<code>Linux root (X86)</code>、<code>Linux home</code>，可以將 <code>Type</code> 改成 <code>Linux filesystem</code>，只是 <code>EFI System</code> 與 <code>Linux swap</code> 不能這樣搞，而且這兩類型是找得到的。</p>
 </blockquote>
 
 <h3 id="9-格式化磁區">9. 格式化磁區</h3>
@@ -480,6 +480,8 @@ timedatectl status # 檢查服務狀態
 
 <blockquote>
 <p>註：我們假設你分割出的 40GB 固態硬碟空間磁區代號為 <code>nvme0n1p5</code>，<code>boot</code> 為 <code>nvme0n1p1</code>，2GB <code>Swap</code> 為 <code>sda3</code> ，100GB <code>home</code> 為 <code>sda4</code>。</p>
+
+<p>註：<code>mkfs.ext4</code> 的創建方式與 <code>mkfs.fat</code> 的差別在於前者有創建 <code>journal</code> 日誌，後者沒有。注意：文件系統一定要創建日誌，不然個人的資料可能會造成損失等後果。</p>
 </blockquote>
 
 <ul>
@@ -488,13 +490,7 @@ timedatectl status # 檢查服務狀態
 <pre><code class="language-zsh">mkfs.ext4 /dev/nvme0n1p5 #格式化 root
 mkfs.ext4 /dev/sda4 #格式化 home
 </code></pre></li>
-</ul>
 
-<blockquote>
-<p>註：<code>mkfs.ext4</code> 的創建方式與 <code>mkfs.fat</code> 的差別在於前者有創建 <code>journal</code> 日誌，後者沒有。注意：文件系統一定要創建日誌，不然個人的資料可能會造成損失等後果。</p>
-</blockquote>
-
-<ul>
 <li><p>EFI 系統分區 <code>boot</code></p>
 
 <pre><code class="language-zsh">mkfs.fat -F32 /dev/nvme0n1p1 # 格式化 boot
@@ -554,10 +550,152 @@ lsblk # 查看分區無誤
 </blockquote>
 
 <pre><code class="language-zsh">ping baidu.com # 確認此時你是連上網的
-pacstrap /mnt base
+pacstrap /mnt base # 安裝基本系統
 </code></pre>
 
-<p>如果你是第二次裝 ArchLinuc 的小夥伴，你可能會遇到下載完後安裝時</p>
+<p>如果你是第二次裝 ArchLinux 的小夥伴，你執行以上指令可能會遇到下載完後安裝時，顯示 <code>/boot/vmlinuz-linux</code> 已存在，所以無法安裝，這時執行以下指令。</p>
+
+<pre><code class="language-zsh">rm /boot/vmlinuz-linux # 刪除該檔案
+pacstrap /mnt base # 安裝基本系統
+</code></pre>
+
+<h2 id="配置系統">配置系統</h2>
+
+<h3 id="1-fastab">1. Fastab</h3>
+
+<p>執行以下指令生成 <code>fstab</code> 文件（用 <code>-U</code> 或 <code>-L</code> 選項設置 UUID 或卷標）</p>
+
+<pre><code class="language-zsh">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab # 生成 fstab 文件
+</code></pre>
+
+<p><strong>我個人強烈建議生成完 <code>fstab</code> 後使用 <code>Vim</code> 查看內容，尤其是重裝 Arch 和重新分配磁區的人一定要查看這份文件。</strong></p>
+
+<blockquote>
+<p>註：我之前因為將 <code>/root</code> 掛載在虛擬硬碟，所以在 Linux 環境下電腦特別卡，在重灌一次後因為沒有重新砍掉 <code>fstab</code> 文件生成一次，所以上一次安裝時的設定即使執行生成 <code>fstab</code> 文件指令，還是會保留設定無法去除，只是添加了設定，無法覆蓋源設定，造成第二次還是那麼卡。</p>
+</blockquote>
+
+<pre><code class="language-zsh">vim /mnt/etc/fstab # 查看 fstab 文件
+</code></pre>
+
+<p>請確認這份文件裡只有四份資料（如果有多分割幾個磁區，就可能不是只有四份，你掛載幾個目錄就有幾份資料，不能多不能少）</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">file system</th>
+<th align="center">dir</th>
+<th align="center">type</th>
+<th align="center">options</th>
+<th align="left">dump</th>
+<th align="center">pass</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">/dev/nvme0n1p5</td>
+<td align="center">/</td>
+<td align="center">ext4</td>
+<td align="center">rw,relatime</td>
+<td align="left">0</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">/dev/sda3</td>
+<td align="center">UUID=bcdb5959-181b-4a68-94e3-f5b79c0a14a8</td>
+<td align="center">/home</td>
+<td align="center">ext4</td>
+<td align="left">rw,relatime</td>
+<td align="center">0</td>
+</tr>
+
+<tr>
+<td align="center">/dev/nvme0n1p1 LABEL=SYSTEM_DRV</td>
+<td align="center">UUID=1258-CD76</td>
+<td align="center">/boot</td>
+<td align="center">vfat</td>
+<td align="left">rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro</td>
+<td align="center">0</td>
+</tr>
+
+<tr>
+<td align="center">/dev/sda4</td>
+<td align="center">UUID=867cc6ea-05af-4676-b36f-875dd7570a38</td>
+<td align="center">none</td>
+<td align="center">swap</td>
+<td align="left">defaults</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://i.loli.net/2019/09/30/cnKvMBOuLbl7x9Q.png" alt="15.png" /></p>
+
+<p>如果你的文件有問題且資料混亂執行以下指令。</p>
+
+<pre><code class="language-zsh">rm /mnt/etc/fstab # 移除原文件
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab # 生成 fstab 文件
+</code></pre>
+
+<p>再次用 <code>Vim</code> 確認無誤之後，就可進入下一步</p>
+
+<h3 id="2-進入-chroot">2. 進入 Chroot</h3>
+
+<p><code>Change root</code> 到新安裝的系統，顧名思義就是進入電腦以安裝好的地址修先級越高。</p>
+
+<pre><code class="language-zsh">vim /etc/pacman.d/mirrorlist # 編輯文件
+</code></pre>
+
+<p>關於 Vim 的編輯指令可參考 <a href="https://gitbook.tw/chapters/command-line/vim-introduction.html">超簡明 Vim 操作介紹</a>，用起來其實不難。</p>
+
+<p><img src="https://i.loli.net/2019/09/30/tj7PcF9vMVKZ3Bh.png" alt="13.png" /></p>
+
+<p>關於 Vim 移動整行的指令</p>
+
+<pre><code class="language-vim">:12, 13 move 6 # 將第 12, 13 行剪貼至第 6 行
+</code></pre>
+
+<p>像我目前所在的地區為 China，所以我將 China 的鏡像源都移至最開頭。</p>
+
+<p><img src="https://i.loli.net/2019/09/30/8jfCaXqbSOEWT5M.png" alt="14.png" /></p>
+
+<p>編輯好並確認無誤後退出 Vim 編輯器。系統，目前我們所在的地方是 USB，如果沒進入 <code>Chroot</code> 就進行安裝和設定就等於裝在你的 USB 上。</p>
+
+<blockquote>
+<p>註：如果重裝系統或是需要重新插上 USB 做些設定設定，像我通常就發生在磁區分割錯誤或目錄掛載錯誤或 Windows 系統更新後引導程序設定檔被砍，需要先將所有的分區先掛載，再進入 <code>Chroot</code> 才會顯示你電腦裡的磁區，<strong>再次強調，先掛載 <code>/mnt</code></strong>。</p>
+</blockquote>
+
+<pre><code class="language-zsh">arch-chroot /mnt # 進入 Chroot
+</code></pre>
+
+<h3 id="3-時區">3. 時區</h3>
+
+<p>設置時區，</p>
+
+<pre><code class="language-zsh">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime # 設置時區
+</code></pre>
+
+<h3 id="4-添加本地語系">4. 添加本地語系</h3>
+
+<h3 id="5-主機名稱與網路">5. 主機名稱與網路</h3>
+
+<h3 id="6-initramfs">6. Initramfs</h3>
+
+<h3 id="7-設定-root-超級使用者-密碼">7. 設定 Root (超級使用者) 密碼</h3>
+
+<h2 id="重啟電腦">重啟電腦</h2>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide (简体中文) - ArchWiki</a></li>
+<li><a href="https://gitbook.tw/chapters/command-line/vim-introduction.html">超簡明 Vim 操作介紹 - 為你自己學 Git</a></li>
+<li><a href="https://www.v2ex.com/t/49043">请问vim如何移动当前行向上或向下？不用选中 - V2EX</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/EFI_system_partition_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">EFI system partition (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Network configuration (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.gentoo.org/wiki/Initramfs/Guide/zh-cn">Initramfs/指南 - gentoo linux</a></li>
+</ul>
 
 <h5 id="copy-copyright-by-huang-po-hsun">&copy;copyright by Huang Po-Hsun</h5>
 
@@ -1009,6 +1147,254 @@ pacstrap /mnt base
 								
 								
 									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%85%8d%e7%bd%ae%e7%b3%bb%e7%b5%b1">
+												 配置系統
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#1-fastab">
+												 1. Fastab
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#2-%e9%80%b2%e5%85%a5-chroot">
+												 2. 進入 Chroot
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#3-%e6%99%82%e5%8d%80">
+												 3. 時區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#4-%e6%b7%bb%e5%8a%a0%e6%9c%ac%e5%9c%b0%e8%aa%9e%e7%b3%bb">
+												 4. 添加本地語系
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#5-%e4%b8%bb%e6%a9%9f%e5%90%8d%e7%a8%b1%e8%88%87%e7%b6%b2%e8%b7%af">
+												 5. 主機名稱與網路
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#6-initramfs">
+												 6. Initramfs
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#7-%e8%a8%ad%e5%ae%9a-root-%e8%b6%85%e7%b4%9a%e4%bd%bf%e7%94%a8%e8%80%85-%e5%af%86%e7%a2%bc">
+												 7. 設定 Root (超級使用者) 密碼
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%87%8d%e5%95%9f%e9%9b%bb%e8%85%a6">
+												 重啟電腦
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#reference">
+												 Reference
+											</a>
+										</li>
+						 
+								
 								
 									</ul>
 								
