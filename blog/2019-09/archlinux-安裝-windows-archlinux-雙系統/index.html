@@ -686,12 +686,11 @@ zh_CN.GB18030 GB18030
 zh_CN.GBK GBK
 zh_TW.EUC-TW EUC-TW
 zh_TW.UTF-8 UTF-8
-​```
+</code></pre>
 
-執行 `locale-gen` 生成 `locale` 訊息。
+<p>執行 <code>locale-gen</code> 生成 <code>locale</code> 訊息。</p>
 
-​```zsh
- locale-gen # 生成 locale 訊息
+<pre><code class="language-zsh"> locale-gen # 生成 locale 訊息
 </code></pre>
 
 <p>接著創建 <code>locale.conf</code> 檔案並編輯 <code>LANG</code> 這一個<strong>語言環境</strong>環境變量為英語 <code>en_US.UTF-8</code>，如果你設為中文的話會造成 tty 出現亂碼。</p>
