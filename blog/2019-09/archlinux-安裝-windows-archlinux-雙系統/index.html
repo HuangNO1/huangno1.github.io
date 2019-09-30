@@ -594,11 +594,11 @@ pacstrap /mnt base # 安裝基本系統
 <tbody>
 <tr>
 <td align="center">/dev/nvme0n1p5</td>
+<td align="center">UUID=a48c597a-d1f2-4f4a-82f8-ba96114912f1</td>
 <td align="center">/</td>
 <td align="center">ext4</td>
-<td align="center">rw,relatime</td>
-<td align="left">0</td>
-<td align="center">1</td>
+<td align="left">rw,relatime</td>
+<td align="center">0 1</td>
 </tr>
 
 <tr>
@@ -607,7 +607,7 @@ pacstrap /mnt base # 安裝基本系統
 <td align="center">/home</td>
 <td align="center">ext4</td>
 <td align="left">rw,relatime</td>
-<td align="center">0</td>
+<td align="center">0 2</td>
 </tr>
 
 <tr>
@@ -616,7 +616,7 @@ pacstrap /mnt base # 安裝基本系統
 <td align="center">/boot</td>
 <td align="center">vfat</td>
 <td align="left">rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro</td>
-<td align="center">0</td>
+<td align="center">0 2</td>
 </tr>
 
 <tr>
@@ -625,7 +625,7 @@ pacstrap /mnt base # 安裝基本系統
 <td align="center">none</td>
 <td align="center">swap</td>
 <td align="left">defaults</td>
-<td align="center">0</td>
+<td align="center">0 0</td>
 </tr>
 </tbody>
 </table>
