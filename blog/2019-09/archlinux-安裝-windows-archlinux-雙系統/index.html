@@ -644,7 +644,7 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab # 生成 fstab 文件
 
 <h3 id="2-進入-chroot">2. 進入 Chroot</h3>
 
-<p><code>Change root</code> 到新安裝的系統，顧名思義就是進入電腦以安裝好的系統，目前我們所在的地方是 USB，如果沒進入 <code>Chroot</code> 就進行安裝和設定就等於安裝和設定在安裝引導程序你的 USB 上。</p>
+<p><code>Change root</code> 到新安裝的系統，顧名思義就是進入電腦以安裝好的系統，目前我們所在的地方是 USB，如果沒進入 <code>Chroot</code> 就進行安裝和設定就等於安裝和設定在你的 USB 上。</p>
 
 <blockquote>
 <p>註：如果重裝系統或是需要重新插上 USB 做些設定，像我通常就發生在磁區分割錯誤或目錄掛載錯誤或 Windows 系統更新後引導程序設定檔被砍，需要先將所有的分區先掛載，再進入 <code>Chroot</code> 才會顯示你電腦裡的磁區，<strong>再次強調，先掛載 <code>/mnt</code></strong>。</p>
@@ -665,7 +665,7 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab # 生成 fstab 文件
 <pre><code class="language-zsh">ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 </code></pre>
 
-<p>執行 <code>hwclock</code> 生成 <code>/etc/adjtime</code></p>
+<p>執行 <code>hwclock</code> 生成 <code>/etc/adjtime</code>。</p>
 
 <pre><code class="language-zsh">hwclock --systohc # 生成 /etc/adjtime
 </code></pre>
@@ -686,7 +686,7 @@ zh_CN.GB18030 GB18030
 zh_CN.GBK GBK
 zh_TW.EUC-TW EUC-TW
 zh_TW.UTF-8 UTF-8
-​```安裝引導程序
+​```
 
 執行 `locale-gen` 生成 `locale` 訊息。
 
@@ -711,7 +711,7 @@ zh_TW.UTF-8 UTF-8
 <pre><code class="language-zsh">vim /etc/hostname # 創建 hostname 文件
 </code></pre>
 
-<p>直接在 <code>hostname</code> 填入你主機名稱，<code>myhostname</code>是你的主機安裝引導程序名。</p>
+<p>直接在 <code>hostname</code> 填入你主機名稱，<code>myhostname</code>是你的主機名。</p>
 
 <pre><code class="language-vim">myhostname # 你的主機名稱
 </code></pre>
@@ -759,7 +759,7 @@ zh_TW.UTF-8 UTF-8
 <p><code>grub</code> 是引導程序，<code>os-prober</code>是可以偵測其他操作系統的軟體包，<code>efibootmgr</code>可以操控 UEFI 固件啟動管理器設置的工具。</p>
 
 <blockquote>
-<p>註：請確定你是<strong>以 UEFI 模式開機</strong>，不然會一直報錯 <code>efi variables are not supported on this system</code>。這時你就必須重新開機進入 BIOS 調整開機模式再進到 Arch Linux 安裝碟安裝 grub。也請確定你的 <strong>Boot 是掛載在 EFI System 磁區</strong>，不然你無法產生 grub 設定檔。</p>
+<p>註：請確定你是<strong>以 UEFI 模式開機</strong>，不然會一直報錯 <code>efi variables are not supported on this system</code>。這時你就必須重新開機進入 BIOS 調整開機模式再進到 Arch Linux 安裝碟安裝 grub。也請確定你的 <strong>Boot 是掛載在 EFI System 磁區</strong>，不然你無法產生 grub 設定檔，原因在於我們是要掛載在 Boot，但因為 Boot 沒掛載到 EFI 磁區，所以在 EFI 磁區找不到 Boot，產生路徑錯誤。</p>
 </blockquote>
 
 <pre><code class="language-zsh">sudo pacman -Syu # 現在更新一下系統
