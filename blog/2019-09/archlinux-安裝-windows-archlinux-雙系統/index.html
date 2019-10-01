@@ -581,56 +581,7 @@ pacstrap /mnt base # 安裝基本系統
 
 <p>請確認這份文件裡只有四份資料（如果有多分割幾個磁區，就可能不是只有四份，你掛載幾個目錄就有幾份資料，不能多不能少）。</p>
 
-<table>
-<thead>
-<tr>
-<th align="center">file system</th>
-<th align="center">dir</th>
-<th align="center">type</th>
-<th align="center">options</th>
-<th align="left">dump</th>
-<th align="center">pass</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">/dev/nvme0n1p5</td>
-<td align="center">UUID=a48c597a-d1f2-4f4a-82f8-ba96114912f1</td>
-<td align="center">/</td>
-<td align="center">ext4</td>
-<td align="left">rw,relatime</td>
-<td align="center">0 1</td>
-</tr>
-
-<tr>
-<td align="center">/dev/sda3</td>
-<td align="center">UUID=bcdb5959-181b-4a68-94e3-f5b79c0a14a8</td>
-<td align="center">/home</td>
-<td align="center">ext4</td>
-<td align="left">rw,relatime</td>
-<td align="center">0 2</td>
-</tr>
-
-<tr>
-<td align="center">/dev/nvme0n1p1 LABEL=SYSTEM_DRV</td>
-<td align="center">UUID=1258-CD76</td>
-<td align="center">/boot</td>
-<td align="center">vfat</td>
-<td align="left">rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro</td>
-<td align="center">0 2</td>
-</tr>
-
-<tr>
-<td align="center">/dev/sda4</td>
-<td align="center">UUID=867cc6ea-05af-4676-b36f-875dd7570a38</td>
-<td align="center">none</td>
-<td align="center">swap</td>
-<td align="left">defaults</td>
-<td align="center">0 0</td>
-</tr>
-</tbody>
-</table>
+<p><img src="https://i.loli.net/2019/10/01/S9YdZyhaDmctb1R.png" alt="table.png" /></p>
 
 <p><img src="https://i.loli.net/2019/09/30/cnKvMBOuLbl7x9Q.png" alt="15.png" /></p>
 
