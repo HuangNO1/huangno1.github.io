@@ -8,8 +8,18 @@
   </url>
   
   <url>
+    <loc>https://huangno1.github.io/blog/2019-09/%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</loc>
+    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/</loc>
     <lastmod>2019-04-20T14:22:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/categories/archlinux/</loc>
+    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
   </url>
   
   <url>
@@ -18,7 +28,7 @@
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/categories/archlinux/</loc>
+    <loc>https://huangno1.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2019-09-28T15:24:28+08:00</lastmod>
   </url>
   
@@ -49,6 +59,11 @@
   
   <url>
     <loc>https://huangno1.github.io/tags/</loc>
+    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-09-28T15:24:28+08:00</lastmod>
   </url>
   
