@@ -1194,3 +1194,7 @@ toc-nav  scrollspy
   color: #666 !important;
   font-style: normal;
 }
+
+.mb-4, .my-4 {
+  margin-bottom: 7rem !important;
+}
