@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
+    <loc>https://huangno1.github.io/blog/2019-10/c-%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</loc>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/blog/2019-09/%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</loc>
+    <loc>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</loc>
     <lastmod>2019-09-28T15:24:28+08:00</lastmod>
   </url>
   
@@ -18,27 +18,47 @@
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/tags/archlinux/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://huangno1.github.io/categories/archlinux/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/series/c/c&#43;&#43;/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/categories/</loc>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/</loc>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/series/</loc>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/</loc>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/archlinux/</loc>
     <lastmod>2019-09-28T15:24:28+08:00</lastmod>
   </url>
   
@@ -49,26 +69,6 @@
   
   <url>
     <loc>https://huangno1.github.io/series/linux/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://huangno1.github.io/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://huangno1.github.io/series/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://huangno1.github.io/tags/</loc>
-    <lastmod>2019-09-28T15:24:28+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-09-28T15:24:28+08:00</lastmod>
   </url>
   

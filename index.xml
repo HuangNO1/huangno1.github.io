@@ -6,10 +6,19 @@
     <description>Recent content on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 28 Sep 2019 15:24:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Oct 2019 12:24:00 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43; 關於某小數轉進制的題目-解題經驗</title>
+      <link>https://huangno1.github.io/blog/2019-10/c-%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</link>
+      <pubDate>Fri, 11 Oct 2019 12:24:00 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2019-10/c-%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</guid>
+      <description>2019/10/11 edited by Huang Po-Hsun 最近我朋友問了我一個關於一個小數轉進制的題目，雖然我當時很忙，但最後我還是抽出了時間幫忙解決，解題的一開始我以為題目挺簡單的，但在解題過程發現還蠻多小技巧要使用，我會在這篇文章分享我的解題過程。 題目 我先給各位看一下題目。 Objective Programming using basic data types and control structures. Specification Write a program which converts a base-S floating point number with value in the range [0,1) to its equivalent base-D representation, where S, D =2, … , 10. You program should be able to convert an input number with at least 8 significant digits而且. Hint: Use input/output manipulators std::setw, std::setfill, and std::setprecision to format the output. Sample run Base conversion for numbers [0,1) with at least 8</description>
+    </item>
     
     <item>
       <title>Archlinux 安裝 - Windows &amp; Archlinux 雙系統</title>
@@ -18,15 +27,6 @@
       
       <guid>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</guid>
       <description>2019/09/28 edited by Huang Po-Hsun 前言 我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。 由於我的電腦型號是聯想 y7000p，所以遇到的坑真的很多，我會按特殊情況講解，雖然 Installation guide - ArchWiki 的安裝指南已經很詳細了，但對於剛接觸的新手</description>
-    </item>
-    
-    <item>
-      <title>關於某小數轉進制的題目-解題經驗</title>
-      <link>https://huangno1.github.io/blog/2019-09/%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</link>
-      <pubDate>Sat, 28 Sep 2019 15:24:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/blog/2019-09/%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/</guid>
-      <description>2019/10/11 edited by Huang Po-Hsun</description>
     </item>
     
     <item>

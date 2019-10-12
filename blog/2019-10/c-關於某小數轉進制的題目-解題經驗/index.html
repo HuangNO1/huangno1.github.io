@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Rem">
+  <meta name="description" content="第三篇文章">
+  
+  <meta property="og:title" content="C&#43;&#43; 關於某小數轉進制的題目-解題經驗" />
+<meta property="og:description" content="第三篇文章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/blog/2019-10/c-%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/" />
+<meta property="article:published_time" content="2019-10-11T12:24:00+08:00" />
+<meta property="article:modified_time" content="2019-10-11T12:24:00+08:00" />
+
+
+  
+  
+  
+  
+
+  <title>
+  
+       C&#43;&#43; 關於某小數轉進制的題目-解題經驗 | Rem Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://huangno1.github.io/blog/2019-10/c-%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/">
+
+  
+  
+
+  
+  <link href="https://huangno1.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://huangno1.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://huangno1.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://huangno1.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://huangno1.github.io/img/zheng.png"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/css/vendors/highlight/github-gist.css">
+  
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-138697151-2');
+  </script>
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://huangno1.github.io/">
+          
+        <img class="avatar" src="https://huangno1.github.io/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Rem</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://huangno1.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://huangno1.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://huangno1.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://huangno1.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Rem Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/HuangNO1" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+              <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+                <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
+      
+    
+    
+      
+        <li><a href="https://huangno1.github.io/series/c/c&#43;&#43;"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>c/c&#43;&#43;</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">C&#43;&#43; 關於某小數轉進制的題目-解題經驗</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Oct 11, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>5 minutes read</li>
+    
+  </ul>
+  
+    <div class="view">
+      <img src="https://huangno1.github.io/images/blog/2019-10/Positional-Numeral-Systems-Conversion.png" />
+    </div>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>2019/10/11 edited by Huang Po-Hsun</p>
+
+<p>最近我朋友問了我一個關於一個小數轉進制的題目，雖然我當時很忙，但最後我還是抽出了時間幫忙解決，解題的一開始我以為題目挺簡單的，但在解題過程發現還蠻多小技巧要使用，我會在這篇文章分享我的解題過程。</p>
+
+<h2 id="題目">題目</h2>
+
+<p>我先給各位看一下題目。</p>
+
+<pre><code>Objective
+
+Programming using basic data types and control structures.
+
+Specification
+
+Write a program which converts a base-S floating point number with value in the range [0,1) to its equivalent base-D representation, where S, D =2, … , 10.
+
+You program should be able to convert an input number with at least 8 significant digits而且.
+
+Hint: Use input/output manipulators std::setw, std::setfill, and std::setprecision to format the output.  
+
+Sample run
+
+Base conversion for numbers  [0,1)  with at least 8 significant digits.
+
+Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):
+
+Input S: 4
+
+Input D: 9
+
+Input a number [0,1)in base-4: 0.12341234
+
+Error: 0.12341234 is an invalid base-4 number
+
+Input a valid base-4 number: 0.12301230
+
+0.12301230(4) is equivalent to 0.42352295(10) &amp; 0.37266541(9)
+
+Process another Conversion or Quit? (C/Q) C
+
+Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):
+
+Input S: 8
+
+Input D: 5
+
+Input a number in base-8: 0.66666666
+
+0.66666666(8) is equivalent to 0.85714281(10) &amp; 0.41203241(5)
+
+Process another Conversion or Quit? (C/Q) Q
+
+Note:
+
+Ÿ  Download the grade sheet as the cover page of your homework report.
+
+Ÿ  You may check the base converter for the assessment of your results. 
+</code></pre>
+
+<h2 id="題目理解">題目理解</h2>
+
+<p>這題目要我們先輸入我們想要轉換的進制，從 <code>base-S</code> 進制轉成 <code>base-D</code> 進制，接著要輸入一個至少小數點後有 8 位的小數，首先判斷該小數是否是否符合 <code>base-S</code> 的進制，如果不符合就重輸入，符合就轉進制，最後格式化分別輸出 10 進制與 <code>base-D</code> 進制的小數。</p>
+
+<h2 id="程序設計思路">程序設計思路</h2>
+
+<ol>
+<li><p>在決定小數的類型時，我們需要知道：</p>
+
+<ul>
+<li><strong>float 類型的有效數字為 6 ~ 7 位</strong></li>
+<li><strong>double 有效數字 15 ~ 16 位</strong></li>
+<li><strong>long double 有效數字 18 ~ 19 位</strong></li>
+</ul>
+
+<p>根據題目要求<strong>至少輸入小數點後有 8 位有效數字</strong>，我們應該選擇 <strong>double 類型</strong>為我們的小數類型。</p></li>
+
+<li><p>在全程<strong>使用 double 類型的變數存取小數</strong>時，會遇到數字精確度的問題，也就是在取小數位數時或是在轉換時數字的累加上，極有可能碰到數字尾部（有效數字外）出現了不知所然的位數，導致精確度不準確，也順帶影響運算結果。</p>
+
+<p>為了避免這種情況，我們需要<strong>使用 String 類型來存取我們輸入的小數</strong>，以獲取我們輸入時的<strong>小數位數</strong>有多少，再利用位數使用循環將字符串轉成 double 類型，這一步我們主要就是<strong>小數位數</strong>，後面關於進制檢查與轉換都要用到小數位數。</p></li>
+
+<li><p>在依序獲取小數每位數字時，可以先乘 10，再使用 <code>(int)</code> 強制轉換類型取得整數部份，將乘 10 的小數減去整數部份，持續循環。</p></li>
+
+<li><p>題意不會要我們轉換 10 進制以上的小數（2 &lt;= S &lt;= 10, 2 &lt;= D &lt;= 10），這代表我們不需要擔心遇到英文字母，但遇到了其實也不麻煩，只要在轉換的地方添加字母條件去-  判斷是否為字母。</p></li>
+
+<li><p>我們需要優先將小數轉成 10 進制，再轉成其他進制，這樣會有效讓我們去設計算法，如果是設計一個函式通用所有的轉制會很吃力。</p></li>
+
+<li><p>從非 10 進制轉換到 10 進制的演算法，我們使用<strong>指數加權法</strong>：</p>
+
+<blockquote>
+<p>註：來源參考 - <a href="https://notfalse.net/17/positional-numeral-systems-conversion">進制轉換 (二進制、八進制、十進制、十六進制) - NotFalse 技術客
+</a></p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2019/10/12/gCaNOBKlFHQLTYR.png" alt="2.png" /></p>
+
+<p>e.g.</p>
+
+<p><img src="https://i.loli.net/2019/10/12/a4pIUlMhuyXnd1q.png" alt="3.png" /></p>
+
+<p>代碼實現</p>
+
+<pre><code class="language-C++">int n = -1; // the power of n
+double base10 = 0; // copy convert1
+
+// Continuously taking decimal places
+// convert to base-10
+for(int i = 0; i &lt; significant; i++)
+{
+    number *= 10;
+    *convert1 += (int)number * pow(S, n);
+    // e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
+    number -= (int)number;
+    n -= 1;
+}
+</code></pre></li>
+
+<li><p>從 10 進制轉成非 10 進制的演算法，我們使用<strong>餘數乘積法</strong>：</p>
+
+<blockquote>
+<p>註：來源參考 - <a href="https://www.cnblogs.com/upzone/articles/1389365.html">十进制小数转二进制小数方法</a></p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2019/10/12/gemP2szRhtbqQN5.png" alt="4.png" /></p>
+
+<p>e.g.</p>
+
+<p><img src="https://i.loli.net/2019/10/12/LnUhtAbpQO6ME1Z.png" alt="5.png" /></p>
+
+<p>代碼實現</p>
+
+<pre><code class="language-C++">base10 = *convert1; // copy
+n = -1; // init
+// Continuously taking decimal places
+// convert base-10 to base-D
+/*
+Because the precision of double is 16 , 
+so multiply it by 17 and execute at least 17 times,
+otherwise it will enter an infinite loop.
+ */
+for(int i = 0; i &lt; 17; i++)
+{
+    base10 *= D;
+
+    *convert2 += (int)base10 * pow(10, n);
+    base10 -= (int)base10;
+    n -= 1;
+
+    if(base10 == 0) // End early
+    {
+        break;
+    }
+}
+</code></pre></li>
+
+<li><p>在輸出時使用 API 提供的函式格式化。</p>
+
+<pre><code class="language-C++">cout &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(8);
+</code></pre></li>
+
+<li><p>使用 GDB 進行調試，這樣能快速找到代碼問題。</p></li>
+</ol>
+
+<h2 id="functions">Functions</h2>
+
+<ul>
+<li>int main() ：主程序</li>
+<li>double Scan(string, int *)：輸入 string 的小數，轉換成 double 類型，並計算輸入小數的小數位數</li>
+<li>bool isValid(double, int, int)：判斷輸入的小數是否符合 base-S 進制</li>
+<li>void convert(double, int, int, double *, double *, int)：先將小數轉成 10 進制，再轉成 base-D 進制</li>
+</ul>
+
+<h2 id="流程圖">流程圖</h2>
+
+<p>此圖為我設計的流程圖。</p>
+
+<blockquote>
+<p>註：不知道為什麼我從 <a href="https://www.draw.io/">draw.io</a> 導出的圖片在 linux 下會跑版，格式亂了╮(╯_╰)╭
+最後只好使用截圖工具</p>
+</blockquote>
+
+<p><img src="https://i.loli.net/2019/10/12/Mk8dPmIKag2Ll47.png" alt="1.png" /></p>
+
+<h2 id="源代碼">源代碼</h2>
+
+<p>這裡還是強調一下，寫代碼時<strong>註解真的很重要</strong>，你的代碼不僅是要你自己可以快速釐清自己的代碼，不然一段時間後自己再看自己寫的內容又看不懂，而且要讓看你代碼的人能看懂。</p>
+
+<pre><code class="language-C++">#include&lt;iostream&gt;
+#include&lt;math.h&gt;
+#include&lt;iomanip&gt;
+#include&lt;string&gt;
+#include&lt;stdlib.h&gt;
+
+using namespace std;
+
+double Scan(string, int*); // count significant
+bool isValid(double, int, int); // Judge the number's correctness (Base-S)
+void convert(double, int, int, double *, double *, int); // convert the number from Base-S to Base-D and Base-10
+
+int main()
+{
+    // initialize
+    double number = 0; // The number we need to input
+    int S = 0; // base-S
+    int D = 0; // base-D
+    char isQuit = 'C'; // Judge whether to leave
+    double convert1 = 0, convert2 = 0; // the result from convert()
+    string count; // The number we need to input
+    int significant = 0; // the number's significant
+
+    // loop, if isQuit's value is 'Q',break it.
+    while(isQuit == 'C')
+    {
+        // description
+        cout &lt;&lt; &quot;Base conversion for numbers  [0,1)  with at least 8 significant digits.\n&quot;;
+        cout &lt;&lt; &quot;Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):\n&quot;;
+        // input Base-S
+        cout &lt;&lt; &quot;Input S: &quot;;
+        cin &gt;&gt; S;
+        // input Base-D
+        cout &lt;&lt; &quot;Input D: &quot;;
+        cin &gt;&gt; D;
+        fflush(stdin);
+    
+        // loop
+        while(1)
+        {
+            // input number
+            cout &lt;&lt; &quot;Input a valid base-&quot; &lt;&lt; S &lt;&lt; &quot; number: &quot;;
+            // cin &gt;&gt; number;
+            number = Scan(count, &amp;significant);
+            if(isValid(number, S, significant)) // number is valid
+            {
+                break;
+            }
+            else // number is invalid
+            {
+                cout &lt;&lt; &quot;Error: &quot; &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(8)
+                 &lt;&lt; number &lt;&lt; &quot; is an invalid base-&quot; &lt;&lt; S &lt;&lt; &quot; number\n&quot;;
+            }
+        }
+    
+        convert(number, S, D, &amp;convert1, &amp;convert2, significant); // convert
+    
+        // output the result
+        cout &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(8) 
+        &lt;&lt; number &lt;&lt; &quot;(&quot; &lt;&lt; S &lt;&lt;&quot;) is equivalent to &quot;
+        &lt;&lt; convert1 &lt;&lt;&quot;(10) &amp; &quot;&lt;&lt; convert2 &lt;&lt;&quot;(&quot;&lt;&lt; D &lt;&lt; &quot;)&quot;&lt;&lt;endl;
+    
+        // input isQuit
+        cout &lt;&lt; &quot;Process another Conversion or Quit? (C/Q) -&gt; &quot;;
+        cin &gt;&gt; isQuit;
+        // Letters into uppercase
+        isQuit = toupper(isQuit);
+    
+        // initialize the values
+        convert1 = 0;
+        convert2 = 0;
+        significant = 0;
+    }
+    system(&quot;pause&quot;);
+    return 0;
+}
+
+double Scan(string count, int *significant)
+{
+    *significant = 0;
+    double number = 0; // we need to enter
+    int N = -1;
+
+    cin &gt;&gt; count; // enter the string
+    fflush(stdin);
+    
+    for(int i = 2; i &lt; count.length(); i++) // use count's length to loop
+    {
+        *significant += 1; // count significant
+    
+        number += (count[i] - '0') * pow(10, N); // char -&gt; double
+        N -=1;
+    }
+    return number;
+}
+
+bool isValid(double number, int S, int significant)
+{
+    double swapDouble = 0;
+
+    // Continuously taking decimal places
+    for(int i = 0; i &lt; significant; i++)
+    {
+        number *= 10;
+        if((int)number &gt;= S) // not meets Base-S
+        {
+            return false; // invalid
+        }
+        else
+        {
+            swapDouble = (double)((int)number);
+            number -= swapDouble;
+        }
+    }
+    return true; // valid
+}
+
+void convert(double number, int S, int D, double *convert1, double *convert2, int significant)
+{
+    int n = -1; // the power of n
+    double base10 = 0; // copy convert1
+
+    // Continuously taking decimal places
+    // convert to base-10
+    /* 
+    Reference
+    https://notfalse.net/17/positional-numeral-systems-conversion
+     */
+    for(int i = 0; i &lt; significant; i++)
+    {
+        number *= 10;
+        *convert1 += (int)number * pow(S, n);
+        // e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
+        number -= (int)number;
+        n -= 1;
+    }
+    base10 = *convert1; // copy
+    n = -1; // init
+    // Continuously taking decimal places
+    // convert base-10 to base-D
+    /*
+    Because the precision of double is 16 , 
+    so multiply it by 17 and execute at least 17 times,
+    otherwise it will enter an infinite loop.
+    
+    Reference
+    https://www.cnblogs.com/upzone/articles/1389365.html 
+    
+     */
+    for(int i = 0; i &lt; 17; i++)
+    {
+        base10 *= D;
+    
+        *convert2 += (int)base10 * pow(10, n);
+        base10 -= (int)base10;
+        n -= 1;
+    
+        if(base10 == 0) // End early
+        {
+            break;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="運行結果">運行結果</h2>
+
+<p><img src="https://i.loli.net/2019/10/12/mDT1RaHxQUXrzf4.png" alt="6.png" /></p>
+
+<h2 id="結論">結論</h2>
+
+<p>測試輸入測資，輸出與測資結果相同。</p>
+
+<p>相信這題能幫助許多人能對小數進制轉換這類題目有所了解，並增進程序設計中的核心 &ndash; 演算法。祝各位學習順利，我也建議各位多主動做題目，積極去學習，這樣才會有所成長。</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><p><a href="https://cg2010studio.com/2012/03/30/cc-%E6%B5%AE%E9%BB%9E%E6%95%B8%E7%B2%BE%E6%BA%96%E5%BA%A6-floating-point-precision/">[C&amp;C++] 浮點數精準度 (Floating-Point Precision) - 逍遙文工作室</a></p></li>
+
+<li><p><a href="https://notfalse.net/17/positional-numeral-systems-conversion">進制轉換 (二進制、八進制、十進制、十六進制) - NotFalse 技術客</a></p></li>
+
+<li><p><a href="https://www.cnblogs.com/upzone/articles/1389365.html">十进制小数转二进制小数方法</a></p></li>
+</ul>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/c&#43;&#43;" role="button">C&#43;&#43; </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95" role="button">演算法 </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>Archlinux 安裝 - Windows &amp; Archlinux 雙系統</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%a1%8c%e7%9b%ae">
+												 題目
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%a1%8c%e7%9b%ae%e7%90%86%e8%a7%a3">
+												 題目理解
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%a8%8b%e5%ba%8f%e8%a8%ad%e8%a8%88%e6%80%9d%e8%b7%af">
+												 程序設計思路
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#functions">
+												 Functions
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%b5%81%e7%a8%8b%e5%9c%96">
+												 流程圖
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%ba%90%e4%bb%a3%e7%a2%bc">
+												 源代碼
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%81%8b%e8%a1%8c%e7%b5%90%e6%9e%9c">
+												 運行結果
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%b5%90%e8%ab%96">
+												 結論
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#reference">
+												 Reference
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/HuangNO1 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+      <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook-f mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+        <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://huangno1.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script src="https://huangno1.github.io/js/vendors/katex/katex.min.js"> </script>
+  <script src="https://huangno1.github.io/js/vendors/katex/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body);
+      });
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
