@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Moment Code on Rem Blog</title>
+    <title>Moment on Rem Blog</title>
     <link>https://huangno1.github.io/moment/</link>
-    <description>Recent content in Moment Code on Rem Blog</description>
+    <description>Recent content in Moment on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 19 Aug 2015 20:29:37 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 13 Sep 2018 20:31:21 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/moment/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Moment Test</title>
-      <link>https://huangno1.github.io/moment/test/</link>
-      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
+      <title>影片賞析 -- 小丑（Joker）</title>
+      <link>https://huangno1.github.io/moment/2019-10/</link>
+      <pubDate>Sun, 13 Oct 2019 14:22:18 +0800</pubDate>
       
-      <guid>https://huangno1.github.io/moment/test/</guid>
-      <description>The Hitchhiker&amp;rsquo;s Guide to the Galaxy is a comedy science fiction series created by Douglas Adams. Originally a radio comedy broadcast on BBC Radio 4 in 1978, it was later adapted to other formats, and over several years it gradually became an international multi-media phenomenon. Adaptations have included stage shows, a &amp;ldquo;trilogy&amp;rdquo; of five books published between 1979 and 1992, a sixth novel penned by Eoin Colfer in 2009, a 1981 TV series, a 1984 computer game, and three series of three-part comic book adaptations of the first three novels published by DC Comics between 1993 and 1996. There were also two series of towels, produced by Beer-Davies, that are considered by some fans to be an &amp;ldquo;official version&amp;rdquo; of The Hitchhiker&amp;rsquo;s Guide to the Galaxy, as they include text from the first novel.
-Movie A Hollywood-funded film version, produced and filmed in the UK, was released in April 2005, and radio adaptations of the third, fourth, and fifth novels were broadcast from 2004 to 2005. Adams did many of these adaptations, including the novels, the TV series, the computer game, and the earliest drafts of the Hollywood film’s screenplay, and some of the stage shows introduced new material written by Adams.</description>
+      <guid>https://huangno1.github.io/moment/2019-10/</guid>
+      <description>2019/10/13 edited by Huang Po-Hsun 前言 近期，全球上映了一部電影 &amp;ndash; 《小丑》（英語：Joker，香港譯《JOKER小丑》，中國大陸譯《小丑》）是一部於 2019 年上映的美國心理驚悚片，改編自DC漫畫旗下的同名角色，這部電影的預告片極為令人驚嘆，深層的黑暗、社會的底層、現實的矛盾&amp;hellip;&amp;hellip;等都驅使著我期待著這部電影上映，可惜的是我現在於大陸唸書，這部電影大陸不會上映，畢竟這是部充滿反社會負面情緒的電影 (◞‸◟)，</description>
     </item>
     
   </channel>

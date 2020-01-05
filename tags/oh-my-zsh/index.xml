@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oh-my-zsh on Rem Blog</title>
+    <link>https://huangno1.github.io/tags/oh-my-zsh/</link>
+    <description>Recent content in oh-my-zsh on Rem Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 05 Jan 2020 15:26:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://huangno1.github.io/tags/oh-my-zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Archlinux 安裝 Part 4 - 程序員終端標配 oh-my-zsh</title>
+      <link>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/</link>
+      <pubDate>Sun, 05 Jan 2020 15:26:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/</guid>
+      <description>2020/01/05 edited by Huang Po-Hsun 前言 我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 Bash，然而 bash 過於單調，也沒有自動補全，這時我們就需要開源項目 oh-my-zsh，在這篇教學我會寫一下，我配置 oh-my-zsh 的過程。 我的 Konsole Konsole 透明度設置 在標題欄點擊滑鼠右鍵。 在外觀與修復中，可以調整透明度。我調成不透明度 80%。 安裝 zsh sudo pacman -S zsh 查看系統當前使用的 Shell echo $SHELL # 查看指令 /bin/bash # 輸出結果 看系統是否裝了 zsh cat /etc/shells # 輸入指令 # Pathnames of valid login shells. # See shells(5) for details. /bin/sh</description>
+    </item>
+    
+  </channel>
+</rss>

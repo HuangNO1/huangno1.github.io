@@ -131,6 +131,11 @@
           
              
             <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/moment/" >Moment  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
               <a class="nav-link" href="https://huangno1.github.io/about/" >About  </a>
             </li>
           
@@ -320,16 +325,10 @@
 
 
           <div class="post-content markdown">
-            
-
-<p>2019/10/11 edited by Huang Po-Hsun</p>
-
+            <p>2019/10/11 edited by Huang Po-Hsun</p>
 <p>最近我朋友問了我一個關於一個小數轉進制的題目，雖然我當時很忙，但最後我還是抽出了時間幫忙解決，解題的一開始我以為題目挺簡單的，但在解題過程發現還蠻多小技巧要使用，我會在這篇文章分享我的解題過程。</p>
-
-<h2 id="題目">題目</h2>
-
+<h2 id="heading">題目</h2>
 <p>我先給各位看一下題目。</p>
-
 <pre><code>Objective
 
 Programming using basic data types and control structures.
@@ -379,318 +378,293 @@ Note:
 Ÿ  Download the grade sheet as the cover page of your homework report.
 
 Ÿ  You may check the base converter for the assessment of your results. 
-</code></pre>
-
-<h2 id="題目理解">題目理解</h2>
-
+</code></pre><h2 id="heading-1">題目理解</h2>
 <p>這題目要我們先輸入我們想要轉換的進制，從 <code>base-S</code> 進制轉成 <code>base-D</code> 進制，接著要輸入一個至少小數點後有 8 位的小數，首先判斷該小數是否是否符合 <code>base-S</code> 的進制，如果不符合就重輸入，符合就轉進制，最後格式化分別輸出 10 進制與 <code>base-D</code> 進制的小數。</p>
-
-<h2 id="程序設計思路">程序設計思路</h2>
-
+<h2 id="heading-2">程序設計思路</h2>
 <ol>
-<li><p>在決定小數的類型時，我們需要知道：</p>
-
+<li>
+<p>在決定小數的類型時，我們需要知道：</p>
 <ul>
 <li><strong>float 類型的有效數字為 6 ~ 7 位</strong></li>
 <li><strong>double 有效數字 15 ~ 16 位</strong></li>
 <li><strong>long double 有效數字 18 ~ 19 位</strong></li>
 </ul>
-
-<p>根據題目要求<strong>至少輸入小數點後有 8 位有效數字</strong>，我們應該選擇 <strong>double 類型</strong>為我們的小數類型。</p></li>
-
-<li><p>在全程<strong>使用 double 類型的變數存取小數</strong>時，會遇到數字精確度的問題，也就是在取小數位數時或是在轉換時數字的累加上，極有可能碰到數字尾部（有效數字外）出現了不知所然的位數，導致精確度不準確，也順帶影響運算結果。</p>
-
-<p>為了避免這種情況，我們需要<strong>使用 String 類型來存取我們輸入的小數</strong>，以獲取我們輸入時的<strong>小數位數</strong>有多少，再利用位數使用循環將字符串轉成 double 類型，這一步我們主要就是<strong>小數位數</strong>，後面關於進制檢查與轉換都要用到小數位數。</p></li>
-
-<li><p>在依序獲取小數每位數字時，可以先乘 10，再使用 <code>(int)</code> 強制轉換類型取得整數部份，將乘 10 的小數減去整數部份，持續循環。</p></li>
-
-<li><p>題意不會要我們轉換 10 進制以上的小數（2 &lt;= S &lt;= 10, 2 &lt;= D &lt;= 10），這代表我們不需要擔心遇到英文字母，但遇到了其實也不麻煩，只要在轉換的地方添加字母條件去-  判斷是否為字母。</p></li>
-
-<li><p>我們需要優先將小數轉成 10 進制，再轉成其他進制，這樣會有效讓我們去設計算法，如果是設計一個函式通用所有的轉制會很吃力。</p></li>
-
-<li><p>從非 10 進制轉換到 10 進制的演算法，我們使用<strong>指數加權法</strong>：</p>
-
+<p>根據題目要求<strong>至少輸入小數點後有 8 位有效數字</strong>，我們應該選擇 <strong>double 類型</strong>為我們的小數類型。</p>
+</li>
+<li>
+<p>在全程<strong>使用 double 類型的變數存取小數</strong>時，會遇到數字精確度的問題，也就是在取小數位數時或是在轉換時數字的累加上，極有可能碰到數字尾部（有效數字外）出現了不知所然的位數，導致精確度不準確，也順帶影響運算結果。</p>
+<p>為了避免這種情況，我們需要<strong>使用 String 類型來存取我們輸入的小數</strong>，以獲取我們輸入時的<strong>小數位數</strong>有多少，再利用位數使用循環將字符串轉成 double 類型，這一步我們主要就是<strong>小數位數</strong>，後面關於進制檢查與轉換都要用到小數位數。</p>
+</li>
+<li>
+<p>在依序獲取小數每位數字時，可以先乘 10，再使用 <code>(int)</code> 強制轉換類型取得整數部份，將乘 10 的小數減去整數部份，持續循環。</p>
+</li>
+<li>
+<p>題意不會要我們轉換 10 進制以上的小數（2 &lt;= S &lt;= 10, 2 &lt;= D &lt;= 10），這代表我們不需要擔心遇到英文字母，但遇到了其實也不麻煩，只要在轉換的地方添加字母條件去-  判斷是否為字母。</p>
+</li>
+<li>
+<p>我們需要優先將小數轉成 10 進制，再轉成其他進制，這樣會有效讓我們去設計算法，如果是設計一個函式通用所有的轉制會很吃力。</p>
+</li>
+<li>
+<p>從非 10 進制轉換到 10 進制的演算法，我們使用<strong>指數加權法</strong>：</p>
 <blockquote>
 <p>註：來源參考 - <a href="https://notfalse.net/17/positional-numeral-systems-conversion">進制轉換 (二進制、八進制、十進制、十六進制) - NotFalse 技術客
 </a></p>
 </blockquote>
-
-<p><img src="https://i.loli.net/2019/10/12/gCaNOBKlFHQLTYR.png" alt="2.png" /></p>
-
+<p><img src="https://i.loli.net/2019/10/12/gCaNOBKlFHQLTYR.png" alt="2.png"></p>
 <p>e.g.</p>
-
-<p><img src="https://i.loli.net/2019/10/12/a4pIUlMhuyXnd1q.png" alt="3.png" /></p>
-
+<p><img src="https://i.loli.net/2019/10/12/a4pIUlMhuyXnd1q.png" alt="3.png"></p>
 <p>代碼實現</p>
-
-<pre><code class="language-C++">int n = -1; // the power of n
-double base10 = 0; // copy convert1
-
-// Continuously taking decimal places
-// convert to base-10
-for(int i = 0; i &lt; significant; i++)
-{
-    number *= 10;
-    *convert1 += (int)number * pow(S, n);
-    // e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
-    number -= (int)number;
-    n -= 1;
-}
-</code></pre></li>
-
-<li><p>從 10 進制轉成非 10 進制的演算法，我們使用<strong>餘數乘積法</strong>：</p>
-
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// the power of n
+</span><span class="c1"></span>    <span class="kt">double</span> <span class="n">base10</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// copy convert1
+</span><span class="c1"></span>
+    <span class="c1">// Continuously taking decimal places
+</span><span class="c1"></span>    <span class="c1">// convert to base-10
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">number</span> <span class="o">*</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">convert1</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
+        <span class="c1">// e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
+</span><span class="c1"></span>        <span class="n">number</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div><ol start="7">
+<li>
+<p>從 10 進制轉成非 10 進制的演算法，我們使用<strong>餘數乘積法</strong>：</p>
 <blockquote>
 <p>註：來源參考 - <a href="https://www.cnblogs.com/upzone/articles/1389365.html">十进制小数转二进制小数方法</a></p>
 </blockquote>
-
-<p><img src="https://i.loli.net/2019/10/12/gemP2szRhtbqQN5.png" alt="4.png" /></p>
-
+<p><img src="https://i.loli.net/2019/10/12/gemP2szRhtbqQN5.png" alt="4.png"></p>
 <p>e.g.</p>
-
-<p><img src="https://i.loli.net/2019/10/12/LnUhtAbpQO6ME1Z.png" alt="5.png" /></p>
-
+<p><img src="https://i.loli.net/2019/10/12/LnUhtAbpQO6ME1Z.png" alt="5.png"></p>
 <p>代碼實現</p>
-
-<pre><code class="language-C++">base10 = *convert1; // copy
-n = -1; // init
-// Continuously taking decimal places
-// convert base-10 to base-D
-/*
-Because the precision of double is 16 , 
-so multiply it by 17 and execute at least 17 times,
-otherwise it will enter an infinite loop.
- */
-for(int i = 0; i &lt; 17; i++)
-{
-    base10 *= D;
-
-    *convert2 += (int)base10 * pow(10, n);
-    base10 -= (int)base10;
-    n -= 1;
-
-    if(base10 == 0) // End early
-    {
-        break;
-    }
-}
-</code></pre></li>
-
-<li><p>在輸出時使用 API 提供的函式格式化。</p>
-
-<pre><code class="language-C++">cout &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(8);
-</code></pre></li>
-
-<li><p>使用 GDB 進行調試，這樣能快速找到代碼問題。</p></li>
+</li>
 </ol>
+<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="n">base10</span> <span class="o">=</span> <span class="o">*</span><span class="n">convert1</span><span class="p">;</span> <span class="c1">// copy
+</span><span class="c1"></span>    <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// init
+</span><span class="c1"></span>    <span class="c1">// Continuously taking decimal places
+</span><span class="c1"></span>    <span class="c1">// convert base-10 to base-D
+</span><span class="c1"></span>    <span class="cm">/*
+</span><span class="cm">    Because the precision of double is 16 , 
+</span><span class="cm">    so multiply it by 17 and execute at least 17 times,
+</span><span class="cm">    otherwise it will enter an infinite loop.
+</span><span class="cm">     */</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">base10</span> <span class="o">*</span><span class="o">=</span> <span class="n">D</span><span class="p">;</span>
 
+        <span class="o">*</span><span class="n">convert2</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">base10</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">base10</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// End early
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div><ol start="8">
+<li>在輸出時使用 API 提供的函式格式化。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">:</span><span class="o">:</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><ol start="9">
+<li>使用 GDB 進行調試，這樣能快速找到代碼問題。</li>
+</ol>
 <h2 id="functions">Functions</h2>
-
 <ul>
 <li>int main() ：主程序</li>
 <li>double Scan(string, int *)：輸入 string 的小數，轉換成 double 類型，並計算輸入小數的小數位數</li>
 <li>bool isValid(double, int, int)：判斷輸入的小數是否符合 base-S 進制</li>
 <li>void convert(double, int, int, double *, double *, int)：先將小數轉成 10 進制，再轉成 base-D 進制</li>
 </ul>
-
-<h2 id="流程圖">流程圖</h2>
-
+<h2 id="heading-3">流程圖</h2>
 <p>此圖為我設計的流程圖。</p>
-
 <blockquote>
 <p>註：不知道為什麼我從 <a href="https://www.draw.io/">draw.io</a> 導出的圖片在 linux 下會跑版，格式亂了╮(╯_╰)╭
 最後只好使用截圖工具</p>
 </blockquote>
-
-<p><img src="https://i.loli.net/2019/10/12/Mk8dPmIKag2Ll47.png" alt="1.png" /></p>
-
-<h2 id="源代碼">源代碼</h2>
-
+<p><img src="https://i.loli.net/2019/10/12/Mk8dPmIKag2Ll47.png" alt="1.png"></p>
+<h2 id="heading-4">源代碼</h2>
 <p>這裡還是強調一下，寫代碼時<strong>註解真的很重要</strong>，你的代碼不僅是要你自己可以快速釐清自己的代碼，不然一段時間後自己再看自己寫的內容又看不懂，而且要讓看你代碼的人能看懂。</p>
+<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;math.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;iomanip&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<pre><code class="language-C++">#include&lt;iostream&gt;
-#include&lt;math.h&gt;
-#include&lt;iomanip&gt;
-#include&lt;string&gt;
-#include&lt;stdlib.h&gt;
-
-using namespace std;
-
-double Scan(string, int*); // count significant
-bool isValid(double, int, int); // Judge the number's correctness (Base-S)
-void convert(double, int, int, double *, double *, int); // convert the number from Base-S to Base-D and Base-10
-
-int main()
-{
-    // initialize
-    double number = 0; // The number we need to input
-    int S = 0; // base-S
-    int D = 0; // base-D
-    char isQuit = 'C'; // Judge whether to leave
-    double convert1 = 0, convert2 = 0; // the result from convert()
-    string count; // The number we need to input
-    int significant = 0; // the number's significant
-
-    // loop, if isQuit's value is 'Q',break it.
-    while(isQuit == 'C')
-    {
-        // description
-        cout &lt;&lt; &quot;Base conversion for numbers  [0,1)  with at least 8 significant digits.\n&quot;;
-        cout &lt;&lt; &quot;Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):\n&quot;;
-        // input Base-S
-        cout &lt;&lt; &quot;Input S: &quot;;
-        cin &gt;&gt; S;
-        // input Base-D
-        cout &lt;&lt; &quot;Input D: &quot;;
-        cin &gt;&gt; D;
-        fflush(stdin);
+<span class="kt">double</span> <span class="nf">Scan</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="p">;</span> <span class="c1">// count significant
+</span><span class="c1"></span><span class="kt">bool</span> <span class="nf">isValid</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Judge the number&#39;s correctness (Base-S)
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">convert</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="p">;</span> <span class="c1">// convert the number from Base-S to Base-D and Base-10
+</span><span class="c1"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// initialize
+</span><span class="c1"></span>    <span class="kt">double</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// The number we need to input
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">S</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// base-S
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// base-D
+</span><span class="c1"></span>    <span class="kt">char</span> <span class="n">isQuit</span> <span class="o">=</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">C</span><span class="sc">&#39;</span><span class="p">;</span> <span class="c1">// Judge whether to leave
+</span><span class="c1"></span>    <span class="kt">double</span> <span class="n">convert1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">convert2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// the result from convert()
+</span><span class="c1"></span>    <span class="n">string</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// The number we need to input
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">significant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// the number&#39;s significant
+</span><span class="c1"></span>
+    <span class="c1">// loop, if isQuit&#39;s value is &#39;Q&#39;,break it.
+</span><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="n">isQuit</span> <span class="o">=</span><span class="o">=</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">C</span><span class="sc">&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// description
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Base conversion for numbers  [0,1)  with at least 8 significant digits.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+        <span class="c1">// input Base-S
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Input S: </span><span class="s">&#34;</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">;</span>
+        <span class="c1">// input Base-D
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Input D: </span><span class="s">&#34;</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">D</span><span class="p">;</span>
+        <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span><span class="p">;</span>
     
-        // loop
-        while(1)
-        {
-            // input number
-            cout &lt;&lt; &quot;Input a valid base-&quot; &lt;&lt; S &lt;&lt; &quot; number: &quot;;
-            // cin &gt;&gt; number;
-            number = Scan(count, &amp;significant);
-            if(isValid(number, S, significant)) // number is valid
-            {
-                break;
-            }
-            else // number is invalid
-            {
-                cout &lt;&lt; &quot;Error: &quot; &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(8)
-                 &lt;&lt; number &lt;&lt; &quot; is an invalid base-&quot; &lt;&lt; S &lt;&lt; &quot; number\n&quot;;
-            }
-        }
+        <span class="c1">// loop
+</span><span class="c1"></span>        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// input number
+</span><span class="c1"></span>            <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Input a valid base-</span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">S</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> number: </span><span class="s">&#34;</span><span class="p">;</span>
+            <span class="c1">// cin &gt;&gt; number;
+</span><span class="c1"></span>            <span class="n">number</span> <span class="o">=</span> <span class="n">Scan</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">significant</span><span class="p">)</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">significant</span><span class="p">)</span><span class="p">)</span> <span class="c1">// number is valid
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="c1">// number is invalid
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Error: </span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">:</span><span class="o">:</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+                 <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">number</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> is an invalid base-</span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">S</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> number</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
     
-        convert(number, S, D, &amp;convert1, &amp;convert2, significant); // convert
+        <span class="n">convert</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">convert1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">convert2</span><span class="p">,</span> <span class="n">significant</span><span class="p">)</span><span class="p">;</span> <span class="c1">// convert
+</span><span class="c1"></span>    
+        <span class="c1">// output the result
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">:</span><span class="o">:</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> 
+        <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">number</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">(</span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">S</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="sa"></span><span class="s">&#34;</span><span class="s">) is equivalent to </span><span class="s">&#34;</span>
+        <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">convert1</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="sa"></span><span class="s">&#34;</span><span class="s">(10) &amp; </span><span class="s">&#34;</span><span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">convert2</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="sa"></span><span class="s">&#34;</span><span class="s">(</span><span class="s">&#34;</span><span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">D</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">)</span><span class="s">&#34;</span><span class="o">&lt;</span><span class="o">&lt;</span><span class="n">endl</span><span class="p">;</span>
     
-        // output the result
-        cout &lt;&lt; setiosflags(ios::fixed) &lt;&lt; setprecision(8) 
-        &lt;&lt; number &lt;&lt; &quot;(&quot; &lt;&lt; S &lt;&lt;&quot;) is equivalent to &quot;
-        &lt;&lt; convert1 &lt;&lt;&quot;(10) &amp; &quot;&lt;&lt; convert2 &lt;&lt;&quot;(&quot;&lt;&lt; D &lt;&lt; &quot;)&quot;&lt;&lt;endl;
+        <span class="c1">// input isQuit
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Process another Conversion or Quit? (C/Q) -&gt; </span><span class="s">&#34;</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">isQuit</span><span class="p">;</span>
+        <span class="c1">// Letters into uppercase
+</span><span class="c1"></span>        <span class="n">isQuit</span> <span class="o">=</span> <span class="n">toupper</span><span class="p">(</span><span class="n">isQuit</span><span class="p">)</span><span class="p">;</span>
     
-        // input isQuit
-        cout &lt;&lt; &quot;Process another Conversion or Quit? (C/Q) -&gt; &quot;;
-        cin &gt;&gt; isQuit;
-        // Letters into uppercase
-        isQuit = toupper(isQuit);
+        <span class="c1">// initialize the values
+</span><span class="c1"></span>        <span class="n">convert1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">convert2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">significant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">system</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">pause</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="nf">Scan</span><span class="p">(</span><span class="n">string</span> <span class="n">count</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">significant</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">*</span><span class="n">significant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// we need to enter
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// enter the string
+</span><span class="c1"></span>    <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span><span class="p">;</span>
     
-        // initialize the values
-        convert1 = 0;
-        convert2 = 0;
-        significant = 0;
-    }
-    system(&quot;pause&quot;);
-    return 0;
-}
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="c1">// use count&#39;s length to loop
+</span><span class="c1"></span>    <span class="p">{</span>
+        <span class="o">*</span><span class="n">significant</span> <span class="o">+</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// count significant
+</span><span class="c1"></span>    
+        <span class="n">number</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span><span class="p">;</span> <span class="c1">// char -&gt; double
+</span><span class="c1"></span>        <span class="n">N</span> <span class="o">-</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">number</span><span class="p">;</span>
+<span class="p">}</span>
 
-double Scan(string count, int *significant)
-{
-    *significant = 0;
-    double number = 0; // we need to enter
-    int N = -1;
+<span class="kt">bool</span> <span class="nf">isValid</span><span class="p">(</span><span class="kt">double</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">S</span><span class="p">,</span> <span class="kt">int</span> <span class="n">significant</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">swapDouble</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    cin &gt;&gt; count; // enter the string
-    fflush(stdin);
+    <span class="c1">// Continuously taking decimal places
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">number</span> <span class="o">*</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">S</span><span class="p">)</span> <span class="c1">// not meets Base-S
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// invalid
+</span><span class="c1"></span>        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">swapDouble</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="p">(</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">number</span> <span class="o">-</span><span class="o">=</span> <span class="n">swapDouble</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// valid
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">convert</span><span class="p">(</span><span class="kt">double</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">S</span><span class="p">,</span> <span class="kt">int</span> <span class="n">D</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">convert1</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">convert2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">significant</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// the power of n
+</span><span class="c1"></span>    <span class="kt">double</span> <span class="n">base10</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// copy convert1
+</span><span class="c1"></span>
+    <span class="c1">// Continuously taking decimal places
+</span><span class="c1"></span>    <span class="c1">// convert to base-10
+</span><span class="c1"></span>    <span class="cm">/* 
+</span><span class="cm">    Reference
+</span><span class="cm">    https://notfalse.net/17/positional-numeral-systems-conversion
+</span><span class="cm">     */</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">number</span> <span class="o">*</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">convert1</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
+        <span class="c1">// e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
+</span><span class="c1"></span>        <span class="n">number</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">base10</span> <span class="o">=</span> <span class="o">*</span><span class="n">convert1</span><span class="p">;</span> <span class="c1">// copy
+</span><span class="c1"></span>    <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// init
+</span><span class="c1"></span>    <span class="c1">// Continuously taking decimal places
+</span><span class="c1"></span>    <span class="c1">// convert base-10 to base-D
+</span><span class="c1"></span>    <span class="cm">/*
+</span><span class="cm">    Because the precision of double is 16 , 
+</span><span class="cm">    so multiply it by 17 and execute at least 17 times,
+</span><span class="cm">    otherwise it will enter an infinite loop.
+</span><span class="cm">    
+</span><span class="cm">    Reference
+</span><span class="cm">    https://www.cnblogs.com/upzone/articles/1389365.html 
+</span><span class="cm">    
+</span><span class="cm">     */</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">base10</span> <span class="o">*</span><span class="o">=</span> <span class="n">D</span><span class="p">;</span>
     
-    for(int i = 2; i &lt; count.length(); i++) // use count's length to loop
-    {
-        *significant += 1; // count significant
+        <span class="o">*</span><span class="n">convert2</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">base10</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     
-        number += (count[i] - '0') * pow(10, N); // char -&gt; double
-        N -=1;
-    }
-    return number;
-}
-
-bool isValid(double number, int S, int significant)
-{
-    double swapDouble = 0;
-
-    // Continuously taking decimal places
-    for(int i = 0; i &lt; significant; i++)
-    {
-        number *= 10;
-        if((int)number &gt;= S) // not meets Base-S
-        {
-            return false; // invalid
-        }
-        else
-        {
-            swapDouble = (double)((int)number);
-            number -= swapDouble;
-        }
-    }
-    return true; // valid
-}
-
-void convert(double number, int S, int D, double *convert1, double *convert2, int significant)
-{
-    int n = -1; // the power of n
-    double base10 = 0; // copy convert1
-
-    // Continuously taking decimal places
-    // convert to base-10
-    /* 
-    Reference
-    https://notfalse.net/17/positional-numeral-systems-conversion
-     */
-    for(int i = 0; i &lt; significant; i++)
-    {
-        number *= 10;
-        *convert1 += (int)number * pow(S, n);
-        // e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
-        number -= (int)number;
-        n -= 1;
-    }
-    base10 = *convert1; // copy
-    n = -1; // init
-    // Continuously taking decimal places
-    // convert base-10 to base-D
-    /*
-    Because the precision of double is 16 , 
-    so multiply it by 17 and execute at least 17 times,
-    otherwise it will enter an infinite loop.
-    
-    Reference
-    https://www.cnblogs.com/upzone/articles/1389365.html 
-    
-     */
-    for(int i = 0; i &lt; 17; i++)
-    {
-        base10 *= D;
-    
-        *convert2 += (int)base10 * pow(10, n);
-        base10 -= (int)base10;
-        n -= 1;
-    
-        if(base10 == 0) // End early
-        {
-            break;
-        }
-    }
-}
-</code></pre>
-
-<h2 id="運行結果">運行結果</h2>
-
-<p><img src="https://i.loli.net/2019/10/12/mDT1RaHxQUXrzf4.png" alt="6.png" /></p>
-
-<h2 id="結論">結論</h2>
-
+        <span class="k">if</span><span class="p">(</span><span class="n">base10</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// End early
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="heading-5">運行結果</h2>
+<p><img src="https://i.loli.net/2019/10/12/mDT1RaHxQUXrzf4.png" alt="6.png"></p>
+<h2 id="heading-6">結論</h2>
 <p>測試輸入測資，輸出與測資結果相同。</p>
-
 <p>相信這題能幫助許多人能對小數進制轉換這類題目有所了解，並增進程序設計中的核心 &ndash; 演算法。祝各位學習順利，我也建議各位多主動做題目，積極去學習，這樣才會有所成長。</p>
-
 <h2 id="reference">Reference</h2>
-
 <ul>
-<li><p><a href="https://cg2010studio.com/2012/03/30/cc-%E6%B5%AE%E9%BB%9E%E6%95%B8%E7%B2%BE%E6%BA%96%E5%BA%A6-floating-point-precision/">[C&amp;C++] 浮點數精準度 (Floating-Point Precision) - 逍遙文工作室</a></p></li>
-
-<li><p><a href="https://notfalse.net/17/positional-numeral-systems-conversion">進制轉換 (二進制、八進制、十進制、十六進制) - NotFalse 技術客</a></p></li>
-
-<li><p><a href="https://www.cnblogs.com/upzone/articles/1389365.html">十进制小数转二进制小数方法</a></p></li>
+<li>
+<p><a href="https://cg2010studio.com/2012/03/30/cc-%E6%B5%AE%E9%BB%9E%E6%95%B8%E7%B2%BE%E6%BA%96%E5%BA%A6-floating-point-precision/">[C&amp;C++] 浮點數精準度 (Floating-Point Precision) - 逍遙文工作室</a></p>
+</li>
+<li>
+<p><a href="https://notfalse.net/17/positional-numeral-systems-conversion">進制轉換 (二進制、八進制、十進制、十六進制) - NotFalse 技術客</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/upzone/articles/1389365.html">十进制小数转二进制小数方法</a></p>
+</li>
 </ul>
 
           </div>
@@ -724,16 +698,23 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
           <div class="row pt-3">
             <div class="col-md-6">
               
-                <a href=https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/ class="post-meta">Previous
+                <a href=https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/ class="post-meta">Previous
                   <div class="pt-2 pb-5 d-flex">
                     <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
-                    <span>Archlinux 安裝 - Windows &amp; Archlinux 雙系統</span>
+                    <span>Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統</span>
                   </div>
                 </a>
               
             </div>
             
             <div class="col-md-6 text-right" >
+              
+                <a href=https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/ class="post-meta">Next
+                  <div class="pt-2 pb-5 flex-reverse">
+                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                    <span>Archlinux 安裝 Part 2 - 安裝後工作</span>
+                  </div>
+                </a>
               
             </div>
           </div>
@@ -779,7 +760,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e9%a1%8c%e7%9b%ae">
+						 					<a class="nav-link" href="#heading">
 												 題目
 											</a>
 										</li>
@@ -801,7 +782,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e9%a1%8c%e7%9b%ae%e7%90%86%e8%a7%a3">
+						 					<a class="nav-link" href="#heading-1">
 												 題目理解
 											</a>
 										</li>
@@ -823,7 +804,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e7%a8%8b%e5%ba%8f%e8%a8%ad%e8%a8%88%e6%80%9d%e8%b7%af">
+						 					<a class="nav-link" href="#heading-2">
 												 程序設計思路
 											</a>
 										</li>
@@ -867,7 +848,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e6%b5%81%e7%a8%8b%e5%9c%96">
+						 					<a class="nav-link" href="#heading-3">
 												 流程圖
 											</a>
 										</li>
@@ -889,7 +870,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e6%ba%90%e4%bb%a3%e7%a2%bc">
+						 					<a class="nav-link" href="#heading-4">
 												 源代碼
 											</a>
 										</li>
@@ -911,7 +892,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e9%81%8b%e8%a1%8c%e7%b5%90%e6%9e%9c">
+						 					<a class="nav-link" href="#heading-5">
 												 運行結果
 											</a>
 										</li>
@@ -933,7 +914,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e7%b5%90%e8%ab%96">
+						 					<a class="nav-link" href="#heading-6">
 												 結論
 											</a>
 										</li>
@@ -1026,7 +1007,7 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
   
   <div class="copyright py-4">
     
-    <span>  2016 - 2019 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+    <span>  2016 - 2020 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
   </div>
   
 

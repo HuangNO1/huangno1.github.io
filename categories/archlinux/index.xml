@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ArchLinux on Rem Blog</title>
@@ -6,17 +6,44 @@
     <description>Recent content in ArchLinux on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 28 Sep 2019 15:24:28 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 15:26:28 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/categories/archlinux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Archlinux 安裝 - Windows &amp; Archlinux 雙系統</title>
-      <link>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</link>
+      <title>Archlinux 安裝 Part 4 - 程序員終端標配 oh-my-zsh</title>
+      <link>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/</link>
+      <pubDate>Sun, 05 Jan 2020 15:26:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/</guid>
+      <description>2020/01/05 edited by Huang Po-Hsun 前言 我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 Bash，然而 bash 過於單調，也沒有自動補全，這時我們就需要開源項目 oh-my-zsh，在這篇教學我會寫一下，我配置 oh-my-zsh 的過程。 我的 Konsole Konsole 透明度設置 在標題欄點擊滑鼠右鍵。 在外觀與修復中，可以調整透明度。我調成不透明度 80%。 安裝 zsh sudo pacman -S zsh 查看系統當前使用的 Shell echo $SHELL # 查看指令 /bin/bash # 輸出結果 看系統是否裝了 zsh cat /etc/shells # 輸入指令 # Pathnames of valid login shells. # See shells(5) for details. /bin/sh</description>
+    </item>
+    
+    <item>
+      <title>Archlinux 安裝 Part 3 - 基本軟體包安裝與 Mac 風界面設計</title>
+      <link>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/</link>
+      <pubDate>Sun, 05 Jan 2020 15:25:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/</guid>
+      <description>2020/01/05 edited by Huang Po-Hsun 前言 我們在 Part 2 中已將基本的圖形界面以及中文字體等配置好，接下來我會在這篇中推薦一些實用的軟體與界面風格。 文本編輯器 Kate 可作為記事本使用。 sudo pacman -S kate Typora 美化你的文本，編寫 Markdowm 語言，具有跨平台優點，Linux 上的 *.docx 拿到 Windows 上的 Office 容易走版，使用 Markdown 寫的文件不會有這問題。 sudo pacman -S typora Visual Studio Code 一個輕快的編輯器，讓你的開發效率迅速提升。 在 AUR 中 VScode 軟體包稱作 code。 sudo pacman -S code 辦公軟體 WPS Office 作為在 Linux 上的最佳 MS 替代品，因為 MS 的</description>
+    </item>
+    
+    <item>
+      <title>Archlinux 安裝 Part 2 - 安裝後工作</title>
+      <link>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/</link>
+      <pubDate>Sat, 04 Jan 2020 15:24:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/</guid>
+      <description>2020/01/04 edited by Huang Po-Hsun 前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。 確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。 ping baidu.com # 確認連網 添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。 另一方面，我們無法使用超級使用者進入圖形界面。 註：將以</description>
+    </item>
+    
+    <item>
+      <title>Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統</title>
+      <link>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</link>
       <pubDate>Sat, 28 Sep 2019 15:24:28 +0800</pubDate>
       
-      <guid>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</guid>
+      <guid>https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/</guid>
       <description>2019/09/28 edited by Huang Po-Hsun 前言 我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。 由於我的電腦型號是聯想 y7000p，所以遇到的坑真的很多，我會按特殊情況講解，雖然 Installation guide - ArchWiki 的安裝指南已經很詳細了，但對於剛接觸的新手</description>
     </item>
     

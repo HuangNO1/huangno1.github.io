@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Rem">
+  <meta name="description" content="第二篇文章">
+  
+  <meta property="og:title" content="Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統" />
+<meta property="og:description" content="第二篇文章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" />
+<meta property="article:published_time" content="2019-09-28T15:24:28+08:00" />
+<meta property="article:modified_time" content="2019-09-28T15:24:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
+
+
+  
+  
+  
+  
+
+  <title>
+  
+       Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統 | Rem Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/">
+
+  
+  
+
+  
+  <link href="https://huangno1.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://huangno1.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://huangno1.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://huangno1.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://huangno1.github.io/img/zheng.png"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/css/vendors/highlight/github-gist.css">
+  
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-138697151-2');
+  </script>
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://huangno1.github.io/">
+          
+        <img class="avatar" src="https://huangno1.github.io/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Rem</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://huangno1.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/moment/" >Moment  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://huangno1.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://huangno1.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://huangno1.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Rem Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/HuangNO1" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+              <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+                <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
+      
+    
+    
+      
+        <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Sep 28, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>12 minutes read</li>
+    
+  </ul>
+  
+    <div class="view">
+      <img src="https://huangno1.github.io/images/blog/2019-09/archlinux.png" />
+    </div>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            <p>2019/09/28 edited by Huang Po-Hsun</p>
+<!-- raw HTML omitted -->
+<h2 id="heading">前言</h2>
+<p>我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。</p>
+<p>由於我的電腦型號是<strong>聯想 y7000p</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide - ArchWiki</a> 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(</p>
+<p>因為我這是專給小白寫的文章，所以寫了很多細節和注意點，如果你是高手，覺得我寫了很多廢話，那請你忍耐吧，也可以選擇不看我的文章，直接去看 ArchWiki。</p>
+<h2 id="heading-1">安裝前準備</h2>
+<h3 id="1---archlinux-httpsmirrorstunatsinghuaeducnarchlinuxisolatest-archlinuxios-">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 archlinux*.ios 鏡像</h3>
+<p><img src="https://i.loli.net/2019/09/29/28CjvXVRUZJzqQ3.png" alt="1.png"></p>
+<h3 id="2--rufushttpsrufusie----archlinux--usb">2. 下載 <a href="https://rufus.ie/">Rufus</a> - 用來匯入 Archlinux 鏡像至 USB</h3>
+<p><img src="https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.png" alt="2.png"></p>
+<h3 id="3--8g--usb">3. 準備一個至少 8G 的 USB</h3>
+<p>使用 Rufus 將 Arch 鏡像匯入在目標 USB 裝置。</p>
+<blockquote>
+<p>註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。</p>
+</blockquote>
+<p>e.g.</p>
+<p><img src="https://i.loli.net/2019/09/29/jR5FbkuUCPIMvXh.png" alt="3.png"></p>
+<h3 id="4-">4. 分割磁區</h3>
+<p><strong>我們假設在固態硬碟割出 40GB 空間（40GB <code>root</code>），在虛擬硬碟割出102GB 空間（2GB <code>swap</code>, 100GB <code>home</code>）</strong>，此時別格式化割出來的磁區，讓它們保持為<strong>未配置狀態</strong>。</p>
+<p>在 Windows 工作列的 <code>win</code> 圖標上點擊滑鼠右鍵選擇<strong>磁區管理</strong>，將自己的磁區切割，現在大部份的電腦是 110GB 左右的固態 SSD 和 1TB 左右的虛擬硬碟，當然少部份例外，我建議固態硬碟割出至少 40GB 給 <code>/root</code> 根目錄（類似 Windows的 C槽），接著可以在虛擬硬碟割出 100GB 以上給 <code>/home</code> 家目錄，也有特殊情況，像我的室友他電腦只有固態 SSD 所以只能割固態硬碟給 <code>/home</code>，我室友我幫他割了 30GB 給 <code>/root</code>，40GB 給 <code>/home</code>，2GB 給 <code>swap</code>。</p>
+<blockquote>
+<p>註：我強烈不建議將 Linux 灌在 <strong>USB</strong> 上或是像<strong>移動固態 SSD</strong> 等移動裝置上，首先在啟動上很不方便，每次都要進入 BIOS 調整開機順序，又容易電腦卡頓，電腦容易發燙，加上電源的耗電速度快等因素，其實我就在我室友的移動固態 SSD 上嘗試過，甚至安裝失敗，連圖形界面都進不去。</p>
+</blockquote>
+<p>磁區管理示意圖：</p>
+<p><img src="https://i.loli.net/2019/09/29/leD4jbfzrPEIig6.jpg" alt="4.png"></p>
+<p>在磁區上點擊滑鼠右鍵選擇<strong>壓縮磁碟</strong>，應你的需求壓縮適當大小的磁區。</p>
+<h3 id="5-usb--uefi-">5. USB 使用 UEFI 方式開機</h3>
+<p><strong>進入 BIOS，調整 Boot 開機順序，改為你的 USB 優先開機，主機與 USB 開機模式為 UEFI</strong></p>
+<p>每台電腦進入 BIOS 的方法都不同，像我的電腦是聯想 y7000p，所以我在開機時一直按住 <code>Fn + F2</code> ，就能進入 BIOS 調整開機順序，因為幫室友們裝了 Arch，所以 ThinkPad 是 <code>F1</code>，華碩是按 <code>Esc</code> 或 <code>F2</code>，小米是 <code>F2</code>，我記得小米筆電進入 BIOS 還需要輸入 Password，有點麻煩就是了。當然還是勸大家上網搜一下自己電腦型號的進入 BIOS 快捷建。不好意思，我因為 linux 無法掛載我的移動 SSD，具體是因為我之前想將 arch 灌到 SSD 上，後來覺得使用上麻煩所以放棄了， 所以我先將該磁區刪除再新增，</p>
+<p>成功進入 USB 後選擇第一個選項 <code>Boot Arch Linux (X86_64)</code> 按 <code>Enter</code> 進入，當你看到 <code>root #</code> 就代表你已經進入 USB 裡的 Arch 安裝鏡像。</p>
+<blockquote>
+<p>註：切記要是 <strong>UEFI 開機</strong>，因為我們最後要在 BIOS 安裝引導程序，來引導我們開機選擇進入的 OS。如果沒有使用 UEFI 開機的話會裝不上引導程序 <code>grub</code>。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/09/30/q4zMECx7tpkNLK1.png" alt="5.png"></p>
+<h3 id="6-">6. 確認連到網路</h3>
+<p>在安裝過程我們需要用到網路，我們需要確認我們連的到網路，輸入以下指令</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認是否可連上百度</span>
+</code></pre></div><p>如果你的結果與下圖相同則代表你已連上了網路，按下 <code>Ctrl + C</code> 中止命令，</p>
+<p><img src="https://i.loli.net/2019/09/29/2XAfjoPpSaJDu4d.png" alt="6.png"></p>
+<p>如果無法從 <code>baidu.com</code> 接收 <code>packets</code>，<strong>掉包率（packets loss）100%</strong>，代表你沒有連上網路，這時我建議插網線連有線網路，不建議連無線網路，因為在無線網路使用上會出些問題，不建議新手使用，我最常用的方法是將使用<strong>數據線</strong>將電腦與手機連結，然後手機開 <strong>USB 共用網路</strong>，手機可以連行動數據或 WiFi 給電腦網路。</p>
+<p>1.插上網線</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="c1">#顯示自己的網路接口</span>
+</code></pre></div><p><img src="https://i.loli.net/2019/09/29/aILSzq6P5vWg8uG.png" alt="7.png"></p>
+<p><code>enp7s0</code> 是我的有線接口，<code>wlp0s20f3</code> 是我的無線接口，當然這些接口名稱會隨著電腦不同而不同但大多相似。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="nb">set</span> enp7s0 up <span class="c1"># 將有線接口打開</span>
+dhcpcd enp7s0 <span class="c1"># 連接接口</span>
+ping baidu.com <span class="c1"># 再測試一次是否連網</span>
+</code></pre></div><p>以上如果沒問題就可跳過用手機共用網路步驟</p>
+<p>2.用數據線將手機與電腦連結，並開啟 USB 共用網路</p>
+<p>輸入 <code>ip link</code> 後出現了新的有線接口 <code>enp0s20f0u1</code>，此為你的手機網路接口。</p>
+<blockquote>
+<p>註：通常自己電腦的有線網路接口名稱比手機的網路接口名稱短。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/09/29/RmvsnrfoKt5caUH.png" alt="8.png"></p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="nb">set</span> enp7s0 down <span class="c1"># 關閉自己電腦的有線接口</span>
+ip link <span class="nb">set</span> enp0s20f0u1 up <span class="c1"># 開啟手機的有線接口</span>
+dhcpcd enp0s20f0u1 <span class="c1"># 連接手機的有線接口</span>
+ping baidu.com <span class="c1"># 測試是否連上網路</span>
+</code></pre></div><p>通常到這裡網路是連上的，如果還連不上那可能就要連無線 WiFi 了，我就不多說明了，可以參考 <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Wireless network configuration (简体中文) - ArchWiki</a> 和 <a href="http://irislr.me/2017/01/07/linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%89%E7%BA%BF%EF%BC%86%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5/">某網友的 Blog</a> 和 <a href="https://www.itread01.com/p/149560.html">某教程網</a> 有提及，因為之前我幫我朋友安裝 Archlinux 時要連無線 WiFi 時搞了很久，還出了錯誤，最後直接使用手機的共用網路才解決。</p>
+<h3 id="7-">7. 更新系統時間</h3>
+<p>使用 <code>timedatectl</code> 確保系統時間是準確的，後面我們在<strong>同步數據庫</strong>時需要系統時間與網路時間的同步。</p>
+<blockquote>
+<p>註：這一步真的很重要，我之前因為忘了這一步驟導致數據庫無法同步，開啟時間同步後還要進入 <code>Chroot</code> 重裝一次系統 <code>pacman -S linux</code></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">timedatectl set-ntp <span class="nb">true</span> <span class="c1"># 開啟時間同步</span>
+timedatectl status <span class="c1"># 檢查服務狀態</span>
+</code></pre></div><p><img src="https://i.loli.net/2019/09/30/C5vDyeu6cOnIgs4.png" alt="9.png"></p>
+<p>請確保 <code>NTP service</code> 狀態為 <code>active</code>，且確定自己的系統時間是否正確。</p>
+<h3 id="8-">8. 分割磁區</h3>
+<p><strong>我們使用 <code>cfdisk</code> 來分割磁區</strong></p>
+<p>ArchWiki 建議的分區參考</p>
+<p><img src="https://i.loli.net/2019/09/30/dQUhfT6SNIAPq4D.png" alt="10.png"></p>
+<p>我們已經在 Windows 分割好了我們的磁區。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">lsblk <span class="c1"># 檢查磁區狀態</span>
+</code></pre></div><p><img src="https://i.loli.net/2019/09/30/NMrOdjfom7FBA54.png" alt="11.png"></p>
+<p>以上是我的磁區狀態，因為我是已經裝好了系統，所以會顯示這樣的狀態，但你現在的狀態是不會顯示出你切割出來的磁區，這裡<strong>記得你的磁區大小</strong>以便在這裡辨認出你的磁區哪些是固態硬碟和虛擬硬碟。</p>
+<blockquote>
+<p>註：有些指南標示 <code>/dev/sdX</code> 的 <code>sdX</code> 意思是你的磁區代號，有些電腦的固態硬碟代號是 <code>sdb</code> 或是 <code>nvme0n1</code>，虛擬硬碟通常代號是 <code>sda</code>，你可以將 <code>sdX</code> 當成一個代稱，因為沒人保證你電腦裡的硬碟的代號為何，像我有個室友他電腦的固態硬碟是 <code>sdb</code>。</p>
+<p>在輸入路徑時可以搭配 <code>Tab</code> 鍵快速輸入，輸入開頭先按一次 <code>Tab</code>，如果指令行下出現許多路徑可按兩次 <code>Tab</code> 選取。</p>
+</blockquote>
+<p><strong>在這裡我們假設你的固態硬碟是 <code>nvme0n1</code> - 割出 40GB 給 <code>root</code>，虛擬硬碟是 <code>sda</code> - 割出 102GB</strong>。輸入以下指令進入管理磁區界面。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">cfdisk /dev/nvme0n1 <span class="c1"># 管理固態硬碟磁區</span>
+</code></pre></div><p><img src="https://i.loli.net/2019/09/30/Mm78ohqWiusweDQ.png" alt="12.png"></p>
+<p>這裡是管理你的固態硬碟界面。先使用上下鍵調到你割出來的 <code>Free Space</code> 40GB，左右鍵調到 <code>New</code> 按下 <code>Enter</code>，輸好要分配出的大小再按 <code>Enter</code> 將空間分配出來，接著左右鍵調到 <code>Type</code>，<strong>選取 <code>Linux root (ARM-64)</code></strong>，這是 64 bit 的系統，如果你的電腦是 32 bit 請選擇 <code>Linux root (X86)</code>，接著<strong>確認你的磁區上面有個磁區類型是 <code>EFI System</code> ，並記住磁區代號或大小</strong>，這裡是要掛載 <code>boot</code> 的磁區，如果沒有的話請找到可以自己在割出大概從某個磁區割出 250MB 調整類型為 <code>EFI System</code> 分區。接著左右鍵調到 <code>Write</code> 寫入設定，輸入 <code>yes</code> 按下 <code>Enter</code>，確認無誤後可以按下 <code>Quit</code> 離開此界面，再次 輸入 <code>lsblk</code> 就可以在 <code>/dev/nvme0n1</code> 看到你分割出的空間了。</p>
+<blockquote>
+<p>註：記得一定要寫入，我之前很多次都忘了寫入，重搞了幾次。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">cfdisk /dev/sda <span class="c1"># 管理虛擬硬碟磁區</span>
+</code></pre></div><p>示意圖我就不放了，方式都跟上個步驟大同小異，分別割出 2GB <code>Type</code> 為 <code>Linux Swap</code> 和 100GB <code>Type</code> 為 <code>Linux home</code> 的分區。</p>
+<blockquote>
+<p>註：有些人的電腦可能沒有我上述講的類型，如果找不到 <code>Linux root (ARM-64)</code>、<code>Linux root (X86)</code>、<code>Linux home</code>，可以將 <code>Type</code> 改成 <code>Linux filesystem</code>，只是 <code>EFI System</code> 與 <code>Linux swap</code> 不能這樣搞，而且這兩類型是找得到的。</p>
+</blockquote>
+<h3 id="9-">9. 格式化磁區</h3>
+<p>當分區建好後，我們需要對此格式化。每種類型的磁區格式化方式都不相同。</p>
+<blockquote>
+<p>註：我們假設你分割出的 40GB 固態硬碟空間磁區代號為 <code>nvme0n1p5</code>，<code>boot</code> 為 <code>nvme0n1p1</code>，2GB <code>Swap</code> 為 <code>sda3</code> ，100GB <code>home</code> 為 <code>sda4</code>。</p>
+<p>註：<code>mkfs.ext4</code> 的創建方式與 <code>mkfs.fat</code> 的差別在於前者有創建 <code>journal</code> 日誌，後者沒有。注意：文件系統一定要創建日誌，不然個人的資料可能會造成損失等後果。</p>
+</blockquote>
+<ul>
+<li>文件系統 <code>root</code> 與 <code>home</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.ext4 /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
+mkfs.ext4 /dev/sda4 <span class="c1">#格式化 home</span>
+</code></pre></div><ul>
+<li>EFI 系統分區 <code>boot</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.fat -F32 /dev/nvme0n1p1 <span class="c1"># 格式化 boot</span>
+</code></pre></div><ul>
+<li>置換空間 <code>swap</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkswap /dev/sda3 <span class="c1"># 格式化 swap</span>
+swapon /dev/sda3 <span class="c1"># 掛載置換空間</span>
+</code></pre></div><h3 id="10-">10. 掛載分區</h3>
+<p>因為根目錄 <code>/mnt</code> 已在你的 USB 存在，所以不需要創建。<strong>注意：必須優先掛載 <code>/mnt</code> 再掛載其它目錄</strong>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mount /dev/nvme0n1p5 /mnt <span class="c1"># 掛載根目錄 root</span>
+mkdir /mnt/boot <span class="c1"># 創建 /boot 目錄</span>
+mount /dev/nvme0np1 /mnt/boot <span class="c1"># 掛載 /boot</span>
+mkdir /mnt/home <span class="c1"># 創建 /home 目錄</span>
+mount /dev/sda4 /mnt/home <span class="c1"># 掛載 /home</span>
+lsblk <span class="c1"># 查看分區無誤</span>
+</code></pre></div><p>掛載好後，接下來 <code>genfstab</code> 將會自動檢測掛載的文件系統和置換空間。</p>
+<h2 id="heading-2">安裝</h2>
+<h3 id="1-">1. 選擇鏡像</h3>
+<p>編輯 <code>/etc/pacman.d/mirrorlist</code> 文件，將你的所在的鏡像地址優先排在前面，在列表中越前面的地址修先級越高。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/pacman.d/mirrorlist <span class="c1"># 編輯文件</span>
+</code></pre></div><p>關於 Vim 的編輯指令可參考 <a href="https://gitbook.tw/chapters/command-line/vim-introduction.html">超簡明 Vim 操作介紹</a>，用起來其實不難。</p>
+<p><img src="https://i.loli.net/2019/09/30/tj7PcF9vMVKZ3Bh.png" alt="13.png"></p>
+<p>關於 Vim 移動整行的指令</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">12</span><span class="p">,</span> <span class="m">13</span> <span class="nx">move</span> <span class="m">6</span> # <span class="nx">將第</span> <span class="m">12</span><span class="p">,</span> <span class="m">13</span> <span class="nx">行剪貼至第</span> <span class="m">6</span> <span class="nx">行</span><span class="err">
+</span></code></pre></div><p>像我目前所在的地區為 China，所以我將 China 的鏡像源都移至最開頭。</p>
+<p><img src="https://i.loli.net/2019/09/30/8jfCaXqbSOEWT5M.png" alt="14.png"></p>
+<p>編輯好並確認無誤後退出 Vim 編輯器。</p>
+<h3 id="2-">2. 安裝基本系統</h3>
+<p>使用 <code>pacstrap</code> 腳本安裝 <code>base</code> 組：</p>
+<blockquote>
+<p>註：在這裡請勿必確認你的 <code>/boot</code> 是掛載在 <code>EFI Syetem</code> 分區上，不然後面需要進入 <code>Chroot</code> 執行 <code>pacman -S linux</code> 重裝系統。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認此時你是連上網的</span>
+pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</span>
+</code></pre></div><p>如果你是第二次裝 ArchLinux 的小夥伴，你執行以上指令可能會遇到下載完後安裝時，顯示 <code>/boot/vmlinuz-linux</code> 已存在，所以無法安裝，這時執行以下指令。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">rm /boot/vmlinuz-linux <span class="c1"># 刪除該檔案</span>
+pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</span>
+</code></pre></div><blockquote>
+<p>註：pacstrap 的安裝指令我在 2020/01/04 更新，因為幫同學重灌 ArchLinux 時發現指令變了，目前最新本的 ArchLinux 發行版指令是 <code>pacstrap /mnt base linux linux-firmware</code>。</p>
+</blockquote>
+<h2 id="heading-3">配置系統</h2>
+<h3 id="1-fastab">1. Fastab</h3>
+<p>執行以下指令生成 <code>fstab</code> 文件（用 <code>-U</code> 或 <code>-L</code> 選項設置 UUID 或卷標）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
+</code></pre></div><p><strong>我個人強烈建議生成完 <code>fstab</code> 後使用 Vim 查看內容，尤其是重裝 Arch 和重新分配磁區的人一定要查看這份文件。</strong></p>
+<blockquote>
+<p>註：我之前因為將 <code>/root</code> 掛載在虛擬硬碟，所以在 Linux 環境下電腦特別卡，在重灌一次後因為沒有重新砍掉 <code>fstab</code> 文件生成一次，所以上一次安裝時的設定即使執行生成 <code>fstab</code> 文件指令，還是會保留設定無法去除，只是添加了設定，無法覆蓋源設定，造成第二次還是那麼卡。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /mnt/etc/fstab <span class="c1"># 查看 fstab 文件</span>
+</code></pre></div><p>請確認這份文件裡只有四份資料（如果有多分割幾個磁區，就可能不是只有四份，你掛載幾個目錄就有幾份資料，不能多不能少）。</p>
+<p><img src="https://i.loli.net/2019/10/01/S9YdZyhaDmctb1R.png" alt="table.png"></p>
+<p><img src="https://i.loli.net/2019/09/30/cnKvMBOuLbl7x9Q.png" alt="15.png"></p>
+<p>如果你的文件有問題且資料混亂執行以下指令。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">rm /mnt/etc/fstab <span class="c1"># 移除原文件</span>
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
+</code></pre></div><p>再次用 Vim 確認無誤之後，就可進入下一步。</p>
+<h3 id="2--chroot">2. 進入 Chroot</h3>
+<p><code>Change root</code> 到新安裝的系統，顧名思義就是進入電腦以安裝好的系統，目前我們所在的地方是 USB，如果沒進入 <code>Chroot</code> 就進行安裝和設定就等於安裝和設定在你的 USB 上。</p>
+<blockquote>
+<p>註：如果重裝系統或是需要重新插上 USB 做些設定，像我通常就發生在磁區分割錯誤或目錄掛載錯誤或 Windows 系統更新後引導程序設定檔被砍，需要先將所有的分區先掛載，再進入 <code>Chroot</code> 才會顯示你電腦裡的磁區，<strong>再次強調，先掛載 <code>/mnt</code></strong>。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
+</code></pre></div><h3 id="3-">3. 時區</h3>
+<p>設置時區，<code>Region</code> 為你所在的洲，<code>City</code> 為你所在城市。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime <span class="c1"># 設置時區</span>
+</code></pre></div><p>我設定的是台北時間。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+</code></pre></div><p>執行 <code> hwclock</code> 生成 <code>/etc/adjtime</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">hwclock --systohc <span class="c1"># 生成 /etc/adjtime</span>
+</code></pre></div><p>這個指令假定硬件時間已經設置為 <code>UTF</code> 時間。</p>
+<h3 id="4--1">4. 添加本地語系</h3>
+<p>編輯 <code>locale.gen</code> 把自己要用的語言註解去掉，也就是去掉開頭的 <code>#</code>，一定要取消註解 <code>en_US.UTF-8 UTF-8</code>，建議取消註解<strong>帶 <code>UTF-8</code> 的語言</strong>，<strong>把 GBK 和 BIG5 註解去掉可以支援更多字</strong>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/locale.gen <span class="c1"># 編輯 locale.gen</span>
+</code></pre></div><p>以下是我要取消註解的語言，因為我繁體字和簡體字都很常用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> <span class="nx">UTF</span><span class="m">-8</span><span class="err">
+</span><span class="err"></span><span class="nx">zh_CN</span>.<span class="nx">GB18030</span> <span class="nx">GB18030</span><span class="err">
+</span><span class="err"></span><span class="nx">zh_CN</span>.<span class="nx">GBK</span> <span class="nx">GBK</span><span class="err">
+</span><span class="err"></span><span class="nx">zh_TW</span>.<span class="nx">EUC</span><span class="p">-</span><span class="nx">TW</span> <span class="nx">EUC</span><span class="p">-</span><span class="nx">TW</span><span class="err">
+</span><span class="err"></span><span class="nx">zh_TW</span>.<span class="nx">UTF</span><span class="m">-8</span> <span class="nx">UTF</span><span class="m">-8</span><span class="err">
+</span></code></pre></div><p>執行 <code>locale-gen</code> 生成 <code>locale</code> 訊息。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"> locale-gen <span class="c1"># 生成 locale 訊息</span>
+</code></pre></div><p>接著創建 <code>locale.conf</code> 檔案並編輯 <code>LANG</code> 這一個<strong>語言環境</strong>環境變量為英語 <code>en_US.UTF-8</code>，如果你設為中文的話會造成 tty 出現亂碼。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/locale.conf <span class="c1"># 創建並編輯 locale.conf</span>
+</code></pre></div><p>修改語言環境。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">LANG</span><span class="p">=</span><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> # <span class="nx">變量設為英語</span><span class="err">
+</span></code></pre></div><h3 id="5-">5. 主機名稱與網路</h3>
+<p>創建 <code>hostname</code> 文件設置你的主機名稱。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hostname <span class="c1"># 創建 hostname 文件</span>
+</code></pre></div><p>直接在 <code>hostname</code> 填入你主機名稱，<code>myhostname</code>是你的主機名。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">myhostname</span> # <span class="nx">你的主機名稱</span><span class="err">
+</span></code></pre></div><p>添加對應訊息到 <code>hosts(5)</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hosts <span class="c1"># 編輯 hosts</span>
+</code></pre></div><p>寫入以下內容，將 <code>myhostname</code> 修改成你前面設定的主機名稱。</p>
+<blockquote>
+<p>註：如果系統有一個永久的 IP 地址，請使用這個永久的 IP 地址，而不是 <code>127.0.1.1</code>。</p>
+<p>像我就沒有設永久 IP，所以直接編輯成以下內容。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="m">127</span>.<span class="m">0</span>.<span class="m">0</span>.<span class="m">1</span>	<span class="nx">localhost</span><span class="err">
+</span><span class="err"></span><span class="p">:</span>:<span class="m">1</span>		<span class="nx">localhost</span><span class="err">
+</span><span class="err"></span><span class="m">127</span>.<span class="m">0</span>.<span class="m">1</span>.<span class="m">1</span>	<span class="nx">myhostname</span>.<span class="nx">localdomain</span>	<span class="nx">myhostname</span><span class="err">
+</span></code></pre></div><h3 id="6-initramfs">6. Initramfs</h3>
+<p>創建 <code>Initramfs</code>，這是用來將內存盤初始化的腳本，例如開關機時掛載與卸載磁區，現在 <code>Initramfs</code>已取代了舊版的 <code>initrd</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkinitcpio -p linux <span class="c1"># 創建 Initramfs</span>
+</code></pre></div><p>如果你想深入了解 <code>Initramfs</code>，可以參考 <a href="https://wiki.archlinux.org/index.php/Mkinitcpio_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">mkinitcpio (简体中文) - ArchWiki</a> 和 <a href="https://wiki.gentoo.org/wiki/Initramfs/Guide/zh-cn">Initramfs/指南 - gentoo linux</a>。</p>
+<h3 id="7--root--">7. 設定 Root (超級使用者) 密碼</h3>
+<p>設定 <code>Root</code> 超級使用者的密碼，<strong>超級使用者</strong>的意思就是這個用戶相當於<strong>系統管理員</strong>，擁有修改系統設定的所有權力。</p>
+<p>輸入以下指令後會要求你輸兩次密碼，第二次是確認你的密碼正確，<strong>輸入密碼時文字是隱藏的</strong>，所以不用慌張以為沒有輸入進去。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">passwd <span class="c1"># 設定密碼</span>
+</code></pre></div><h3 id="8--1">8. 安裝引導程序</h3>
+<p>因為我之前裝的引導程序是 <code>rEFInd</code>，但 <code>rEFInd</code> 實在太不穩了，好幾次隨著 Windows 更新而設定檔被砍進不了  Linux，需要重裝，然後我朋友推薦給我使用<strong>直接裝在 BIOS 的 <code>grub</code></strong>，穩定不容易被砍，雖然界面比 <code>rEFInd</code> 丑了很多，但至少穩定。</p>
+<p><code>grub</code> 是引導程序，<code>os-prober</code>是可以偵測其他操作系統的軟體包，<code>efibootmgr</code>可以操控 UEFI 固件啟動管理器設置的工具。</p>
+<blockquote>
+<p>註：請確定你是<strong>以 UEFI 模式開機</strong>，不然會一直報錯 <code>efi variables are not supported on this system</code>。這時你就必須重新開機進入 BIOS 調整開機模式再進到 Arch Linux 安裝碟安裝 grub。也請確定你的 <strong>Boot 是掛載在 EFI System 磁區</strong>，不然你無法產生 grub 設定檔，原因在於我們是要掛載在 Boot，但因為 Boot 沒掛載到 EFI 磁區，所以在 EFI 磁區找不到 Boot，產生路徑錯誤。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -Syu <span class="c1"># 現在更新一下系統</span>
+sudo pacman -Syy <span class="c1"># 同步數據庫</span>
+sudo pacman -S grub os-prober efibootmgr <span class="c1"># 下載軟體包</span>
+</code></pre></div><p>接著把 <code>grub</code> 安裝到 <strong>EFI System 磁區</strong>，將以下指令<code>--efi-directory</code> 的 <code>esp</code> 改為你的 <code>grub</code> 掛載點，我們要將 <code>grub</code>  掛載到 <code>/boot</code> 上，所以 <strong><code>esp</code> 改為 <code>/boot</code></strong>。</p>
+<ul>
+<li>指令格式</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"> grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>esp --bootloader-id<span class="o">=</span>grub
+</code></pre></div><ul>
+<li>我的掛載方式</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot --bootloader-id<span class="o">=</span>grub
+</code></pre></div><p>然後<strong>掛載</strong>你的 Windows 磁區，你的固態硬碟 C 槽磁區，沒掛載的話到時候產生設定檔會找不到你的 Windows。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkdir /mnt/windows <span class="c1"># 創建 C 槽目錄</span>
+mount /dev/sdaX1 /mnt/windows <span class="c1"># 掛載到目標磁區</span>
+</code></pre></div><p>當然如果你還想讀取其它 Windows 的磁區，你可以現在順便掛載好，當然後面再掛載也行。</p>
+<p>現在我想將我的虛擬硬碟 Wiindows 的 D 槽掛載。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkdir /mnt/Data <span class="c1"># 創建 D 槽目錄</span>
+mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
+</code></pre></div><p>然後產生 <code>grub</code> 設定檔。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div><p>確認設定檔產生無報錯後接著退出 <code>Chroot</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
+</code></pre></div><h2 id="heading-4">重要補充</h2>
+<h3 id="heading-5">連網</h3>
+<p>因為拔掉 USB 重啟電腦後，會發現關於<strong>連網功能不好處理</strong>，使用 <code>ip link</code> 後 <code>dhcpcd</code> 過於繁瑣，建議就在這裡就安裝連網的管理器。</p>
+<blockquote>
+<p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
+pacman -S networkmanager <span class="c1"># 安裝 networkmanager</span>
+systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
+systemctl strat NetworkManager <span class="c1"># 啟用 Netmanager</span>
+<span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
+</code></pre></div><h3 id="-linux">不裝雙系統，只有 Linux</h3>
+<p>如果你是將所有電腦裡的系統都砍了只裝 Archlinux，你<strong>一樣要裝引導</strong>，像之前我幫一個朋友裝 ArchLinux 時他將自己電腦上的 <strong>Windows 全砍了</strong>，剩下所有空間都給 Linux。</p>
+<h2 id="heading-6">重啟電腦</h2>
+<p>因為我手速不夠快，如果不小心在還沒完全關機或已經開機狀態下拔下 USB，會造成嚴重錯誤，所以我選擇直接關機再手動開機。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">reboot <span class="c1"># 重開機</span>
+poweroff <span class="c1"># 直接關機</span>
+</code></pre></div><p>關機後立刻將 USB 拔出電腦，然後開機，如果開機沒有進入 grub，重開機一次進入 BIOS 會看到 有 <code>grub</code> 的開機選項，將這個選項調到最優先開機就行了。</p>
+<blockquote>
+<p>登入時輸入 <code>user</code> 為 <code>root</code>，<code>password</code> 為你之前設的 Root 密碼。</p>
+</blockquote>
+<h2 id="heading-7">安裝後工作</h2>
+<p>我會之後會寫 <strong>Arch Linux 安裝後</strong>文章，並放入 Blog。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide (简体中文) - ArchWiki</a></li>
+<li><a href="https://gitbook.tw/chapters/command-line/vim-introduction.html">超簡明 Vim 操作介紹 - 為你自己學 Git</a></li>
+<li><a href="https://www.v2ex.com/t/49043">请问vim如何移动当前行向上或向下？不用选中 - V2EX</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/EFI_system_partition_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">EFI system partition (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Network configuration (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Mkinitcpio_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">mkinitcpio (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.gentoo.org/wiki/Initramfs/Guide/zh-cn">Initramfs/指南 - gentoo linux</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Localization/Simplified_Chinese_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Localization/Simplified Chinese (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Unified Extensible Firmware Interface (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%94%9F%E6%88%90_grub.cfg">GRUB (简体中文) - ArchWiki</a></li>
+</ul>
+<h5 id="copycopyright-by-huang-po-hsun">©copyright by Huang Po-Hsun</h5>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+                <a href=https://huangno1.github.io/blog/2019-10/c-%E9%97%9C%E6%96%BC%E6%9F%90%E5%B0%8F%E6%95%B8%E8%BD%89%E9%80%B2%E5%88%B6%E7%9A%84%E9%A1%8C%E7%9B%AE-%E8%A7%A3%E9%A1%8C%E7%B6%93%E9%A9%97/ class="post-meta">Next
+                  <div class="pt-2 pb-5 flex-reverse">
+                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                    <span>C&#43;&#43; 關於某小數轉進制的題目-解題經驗</span>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading">
+												 前言
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-1">
+												 安裝前準備
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#1---archlinux-httpsmirrorstunatsinghuaeducnarchlinuxisolatest-archlinuxios-">
+												 1. 至 清華大學 Archlinux 軟件鏡像站下載最新版的 archlinux*.ios 鏡像
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#2--rufushttpsrufusie----archlinux--usb">
+												 2. 下載 Rufus - 用來匯入 Archlinux 鏡像至 USB
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#3--8g--usb">
+												 3. 準備一個至少 8G 的 USB
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#4-">
+												 4. 分割磁區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#5-usb--uefi-">
+												 5. USB 使用 UEFI 方式開機
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#6-">
+												 6. 確認連到網路
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#7-">
+												 7. 更新系統時間
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#8-">
+												 8. 分割磁區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#9-">
+												 9. 格式化磁區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#10-">
+												 10. 掛載分區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-2">
+												 安裝
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#1-">
+												 1. 選擇鏡像
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#2-">
+												 2. 安裝基本系統
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-3">
+												 配置系統
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#1-fastab">
+												 1. Fastab
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#2--chroot">
+												 2. 進入 Chroot
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#3-">
+												 3. 時區
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#4--1">
+												 4. 添加本地語系
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#5-">
+												 5. 主機名稱與網路
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#6-initramfs">
+												 6. Initramfs
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#7--root--">
+												 7. 設定 Root (超級使用者) 密碼
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#8--1">
+												 8. 安裝引導程序
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-4">
+												 重要補充
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-5">
+												 連網
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#-linux">
+												 不裝雙系統，只有 Linux
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-6">
+												 重啟電腦
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#heading-7">
+												 安裝後工作
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#reference">
+												 Reference
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/HuangNO1 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+      <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook-f mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+        <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2020 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://huangno1.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script src="https://huangno1.github.io/js/vendors/katex/katex.min.js"> </script>
+  <script src="https://huangno1.github.io/js/vendors/katex/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body);
+      });
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
