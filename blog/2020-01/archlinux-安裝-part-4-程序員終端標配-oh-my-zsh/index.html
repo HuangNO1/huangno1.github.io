@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" />
 <meta property="article:published_time" content="2020-01-05T15:26:28+08:00" />
-<meta property="article:modified_time" content="2020-01-05T15:26:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
+<meta property="article:modified_time" content="2020-01-05T15:26:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
 
 
   
@@ -326,20 +326,20 @@
 
           <div class="post-content markdown">
             <p>2020/01/05 edited by Huang Po-Hsun</p>
-<h2 id="heading">前言</h2>
+<h2 id="前言">前言</h2>
 <p>我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 <strong>Bash</strong>，然而 <code>bash</code> 過於單調，也沒有自動補全，這時我們就需要開源項目 <code>oh-my-zsh</code>，在這篇教學我會寫一下，我配置 <code>oh-my-zsh</code> 的過程。</p>
-<h2 id="-konsole">我的 Konsole</h2>
+<h2 id="我的-konsole">我的 Konsole</h2>
 <p><img src="https://i.loli.net/2020/01/05/UI42pkdY5OiEoyn.png" alt="02.png"></p>
-<h2 id="konsole-">Konsole 透明度設置</h2>
+<h2 id="konsole-透明度設置">Konsole 透明度設置</h2>
 <p>在標題欄點擊滑鼠右鍵。</p>
 <p><img src="https://i.loli.net/2020/01/05/Yz5RVo4tu1UHFTC.png" alt="01.png"></p>
 <p>在<strong>外觀與修復</strong>中，可以調整透明度。我調成不透明度 80%。</p>
-<h2 id="-zsh">安裝 zsh</h2>
+<h2 id="安裝-zsh">安裝 zsh</h2>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S zsh
-</code></pre></div><h2 id="-shell">查看系統當前使用的 Shell</h2>
+</code></pre></div><h2 id="查看系統當前使用的-shell">查看系統當前使用的 Shell</h2>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">echo</span> <span class="nv">$SHELL</span> <span class="c1"># 查看指令</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">/bin/bash <span class="c1"># 輸出結果</span>
-</code></pre></div><h2 id="-zsh-1">看系統是否裝了 zsh</h2>
+</code></pre></div><h2 id="看系統是否裝了-zsh">看系統是否裝了 zsh</h2>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">cat /etc/shells <span class="c1"># 輸入指令</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># Pathnames of valid login shells.</span>
 <span class="c1"># See shells(5) for details.</span>
@@ -349,7 +349,7 @@
 /usr/bin/git-shell
 /bin/zsh
 /usr/bin/zsh
-</code></pre></div><h2 id="-shell--zsh">切換 Shell 為 zsh</h2>
+</code></pre></div><h2 id="切換-shell-為-zsh">切換 Shell 為 zsh</h2>
 <blockquote>
 <p>註：不需要加 <code>sudo</code>。</p>
 </blockquote>
@@ -358,7 +358,7 @@
 Changing shell <span class="k">for</span> root.
 Shell changed.
 </code></pre></div><p>將所有終端機都關掉，或是登入登出一次，再次查看當前的 Shell 應該就是 <code>zsh</code> 了。</p>
-<h2 id="-oh-my-zsh">安裝 oh-my-zsh</h2>
+<h2 id="安裝-oh-my-zsh">安裝 oh-my-zsh</h2>
 <p>這裡或許看 <a href="https://github.com/ohmyzsh/ohmyzsh">github 官網</a>會比較好。三種安裝方式，通常第一種就可以了。</p>
 <h3 id="curl">curl</h3>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
@@ -368,13 +368,13 @@ Shell changed.
 <p>It's a good idea to inspect the install script from projects you don't yet know. You can do that by downloading the install script first, looking through it so everything looks normal, then running it:</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
-</code></pre></div><h2 id="heading-1">配置主題</h2>
+</code></pre></div><h2 id="配置主題">配置主題</h2>
 <p>我在這裡推薦的是 <strong><code>ys</code></strong> 主題。</p>
 <p>編輯 <code>~/.zshrc</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim ~/.zshrc
 </code></pre></div><p>將 <code>ZSH_THEME</code> 改成 <code>ys</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">ZSH_THEME</span><span class="p">=</span><span class="s2">&#34;ys&#34;</span><span class="err">
-</span></code></pre></div><h2 id="heading-2">推薦插件</h2>
+</span></code></pre></div><h2 id="推薦插件">推薦插件</h2>
 <p>插件依然需要打開 <code>~/.zshrc</code> ，找到 <code>plugins=</code>，然後在裡面寫需要的插件名，有些插件可能還需要安裝。</p>
 <blockquote>
 <p>注意：只要改了此文件，重啟終端后有效或使用 <code>source ~/.zshrc</code> 更新配置。</p>
@@ -408,7 +408,7 @@ sh install.sh
 <p>到<a href="http://mimosa-pudica.net/src/incr-0.2.zsh">這個網站</a>下載 <code>incr.zsh</code> 文件，將此文件放置 <code>~/.oh-my-zsh/custom/plugins/incr/incr*.zsh</code> 資料夾裡，如果沒有資料夾就自己新增。</p>
 <p>在 <code>~/.zshrc</code> 文末添加一行。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">source</span> <span class="p">~</span><span class="sr">/.oh-my-zsh/</span><span class="nx">custom</span><span class="sr">/plugins/</span><span class="nx">incr</span>/<span class="nx">incr</span>*.<span class="nx">zsh</span><span class="err">
-</span></code></pre></div><h2 id="heading-3">插件配置</h2>
+</span></code></pre></div><h2 id="插件配置">插件配置</h2>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim ~/.zshrc
 <span class="nb">source</span> ~/.zshrc
 </code></pre></div><p>以下是我的 <code>~/.zshrc</code> 設定。</p>
@@ -582,6 +582,13 @@ sh install.sh
             
             <div class="col-md-6 text-right" >
               
+                <a href=https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/ class="post-meta">Next
+                  <div class="pt-2 pb-5 flex-reverse">
+                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                    <span>Archlinux KDE 動態桌布</span>
+                  </div>
+                </a>
+              
             </div>
           </div>
 
@@ -626,7 +633,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading">
+						 					<a class="nav-link" href="#%e5%89%8d%e8%a8%80">
 												 前言
 											</a>
 										</li>
@@ -648,7 +655,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-konsole">
+						 					<a class="nav-link" href="#%e6%88%91%e7%9a%84-konsole">
 												 我的 Konsole
 											</a>
 										</li>
@@ -670,7 +677,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#konsole-">
+						 					<a class="nav-link" href="#konsole-%e9%80%8f%e6%98%8e%e5%ba%a6%e8%a8%ad%e7%bd%ae">
 												 Konsole 透明度設置
 											</a>
 										</li>
@@ -692,7 +699,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-zsh">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d-zsh">
 												 安裝 zsh
 											</a>
 										</li>
@@ -714,7 +721,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-shell">
+						 					<a class="nav-link" href="#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%b5%b1%e7%95%b6%e5%89%8d%e4%bd%bf%e7%94%a8%e7%9a%84-shell">
 												 查看系統當前使用的 Shell
 											</a>
 										</li>
@@ -736,7 +743,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-zsh-1">
+						 					<a class="nav-link" href="#%e7%9c%8b%e7%b3%bb%e7%b5%b1%e6%98%af%e5%90%a6%e8%a3%9d%e4%ba%86-zsh">
 												 看系統是否裝了 zsh
 											</a>
 										</li>
@@ -758,7 +765,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-shell--zsh">
+						 					<a class="nav-link" href="#%e5%88%87%e6%8f%9b-shell-%e7%82%ba-zsh">
 												 切換 Shell 為 zsh
 											</a>
 										</li>
@@ -780,7 +787,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-oh-my-zsh">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d-oh-my-zsh">
 												 安裝 oh-my-zsh
 											</a>
 										</li>
@@ -880,7 +887,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-1">
+						 					<a class="nav-link" href="#%e9%85%8d%e7%bd%ae%e4%b8%bb%e9%a1%8c">
 												 配置主題
 											</a>
 										</li>
@@ -902,7 +909,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-2">
+						 					<a class="nav-link" href="#%e6%8e%a8%e8%96%a6%e6%8f%92%e4%bb%b6">
 												 推薦插件
 											</a>
 										</li>
@@ -1080,7 +1087,7 @@ sh install.sh
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-3">
+						 					<a class="nav-link" href="#%e6%8f%92%e4%bb%b6%e9%85%8d%e7%bd%ae">
 												 插件配置
 											</a>
 										</li>

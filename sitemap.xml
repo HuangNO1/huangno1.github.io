@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/</loc>
     <lastmod>2020-01-05T15:26:28+08:00</lastmod>
   </url>
@@ -39,46 +44,71 @@
   
   <url>
     <loc>https://huangno1.github.io/categories/archlinux/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/tags/archlinux/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/categories/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/desktop/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/kde/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/tags/linux/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/series/linux/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/tags/oh-my-zsh/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <loc>https://huangno1.github.io/tags/plasma/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/series/</loc>
-    <lastmod>2020-01-05T15:26:28+08:00</lastmod>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://huangno1.github.io/tags/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/video/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/wallpaper/</loc>
+    <lastmod>2020-01-15T15:26:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/tags/oh-my-zsh/</loc>
     <lastmod>2020-01-05T15:26:28+08:00</lastmod>
   </url>
   
@@ -98,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/tags/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
+    <loc>https://huangno1.github.io/series/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
     <lastmod>2019-10-13T14:22:18+08:00</lastmod>
   </url>
   
@@ -108,7 +138,7 @@
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/series/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
+    <loc>https://huangno1.github.io/tags/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
     <lastmod>2019-10-13T14:22:18+08:00</lastmod>
   </url>
   

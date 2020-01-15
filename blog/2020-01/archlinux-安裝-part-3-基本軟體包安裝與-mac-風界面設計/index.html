@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" />
 <meta property="article:published_time" content="2020-01-05T15:25:28+08:00" />
-<meta property="article:modified_time" content="2020-01-05T15:25:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
+<meta property="article:modified_time" content="2020-01-05T15:25:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
 
 
   
@@ -326,9 +326,9 @@
 
           <div class="post-content markdown">
             <p>2020/01/05 edited by Huang Po-Hsun</p>
-<h2 id="heading">前言</h2>
+<h2 id="前言">前言</h2>
 <p>我們在 Part 2 中已將基本的圖形界面以及中文字體等配置好，接下來我會在這篇中推薦一些實用的軟體與界面風格。</p>
-<h2 id="heading-1">文本編輯器</h2>
+<h2 id="文本編輯器">文本編輯器</h2>
 <h3 id="kate">Kate</h3>
 <p>可作為記事本使用。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S kate
@@ -341,7 +341,7 @@
 <p>在 AUR 中 VScode 軟體包稱作 code。</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S code
-</code></pre></div><h2 id="heading-2">辦公軟體</h2>
+</code></pre></div><h2 id="辦公軟體">辦公軟體</h2>
 <h3 id="wps-office">WPS Office</h3>
 <p>作為在 Linux 上的最佳 MS 替代品，<strong>因為 MS 的 Office 不開源</strong>，所以無法在 Linux 使用 MS Office。WPS 在 Linux 不會有廣告，所以放心。</p>
 <blockquote>
@@ -369,37 +369,39 @@ sudo pacman -S libreoffice-still-zh-cn <span class="c1"># 穩定版</span>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S libreoffice-fresh-zh-tw <span class="c1"># 嘗新版</span>
 sudo pacman -S libreoffice-still-zh-tw <span class="c1"># 穩定版</span>
-</code></pre></div><h2 id="heading-3">文件管理器</h2>
+</code></pre></div><h2 id="文件管理器">文件管理器</h2>
 <p>我這裡建議是安裝 Dolphin，重要的是好看。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S dolphin
 </code></pre></div><p>然後因為文件管理器預設是<strong>滑鼠左鍵點一下</strong>就進入資料夾或執行動作，所以需要到<strong>設定 &gt; 工作空間 &gt; 工作空間行為 &gt; 一般行為</strong>中將點擊行為改成按兩下開啟檔案或資料夾，接著應用變更。</p>
 <p><img src="https://i.loli.net/2020/01/05/iOjdaH9pteYnKr5.png" alt="03.png"></p>
-<h2 id="heading-4">媒體播放器</h2>
+<h2 id="媒體播放器">媒體播放器</h2>
 <h3 id="mpv">MPV</h3>
 <p>MPV 算是 Linux 下簡潔的音訊播放器。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman mpv
-</code></pre></div><h3 id="heading-5">網易雲音樂</h3>
+</code></pre></div><h3 id="網易雲音樂">網易雲音樂</h3>
 <p>網易雲還是不錯的音樂播放器。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S netease-cloud-music
 </code></pre></div><p><img src="https://i.loli.net/2020/01/05/ijml4tEDqdKxQvR.png" alt="04.png"></p>
-<h2 id="heading-6">圖形</h2>
-<h3 id="heading-7">截圖工具</h3>
+<h2 id="圖形">圖形</h2>
+<h3 id="截圖工具">截圖工具</h3>
 <p>我使用 <code>flameshot</code> 習慣了，而且蠻好用。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S flameshot
 flameshot gui <span class="c1"># 截圖</span>
 flameshot gui -d <span class="m">3000</span> <span class="c1"># 延時 3 秒截圖</span>
-</code></pre></div><h3 id="heading-8">圖片檢視器</h3>
+</code></pre></div><p><strong>Spectacle</strong> 也是不錯的截圖工具，但是功能上沒 <strong>flameshot</strong> 那麼完備。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S spectacle
+</code></pre></div><h3 id="圖片檢視器">圖片檢視器</h3>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S showfoto
-</code></pre></div><h3 id="heading-9">圖片編輯器</h3>
+</code></pre></div><h3 id="圖片編輯器">圖片編輯器</h3>
 <p>遺憾的是目前做好的圖片編輯自依然是 PhotoShop，而且 PS 不開源也不兼容 Linux，所以如果真的想要使用 PS 高級圖片處理就切到 Windows 去吧，Linux 都是開源軟體，沒有軟體能比得上 PS。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S digikam
-</code></pre></div><h3 id="gif-">Gif 圖片</h3>
+</code></pre></div><h3 id="gif-圖片">Gif 圖片</h3>
 <p>Peek 可以錄製螢幕並轉成 Gif。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S peek
-</code></pre></div><h2 id="heading-10">百度網盤</h2>
+</code></pre></div><h2 id="百度網盤">百度網盤</h2>
 <p>沒錯，你沒看錯，在 Linux 也可以使用百度雲下載東西。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S baidunetdisk-bin
-</code></pre></div><h2 id="heading-11">通訊軟體</h2>
+</code></pre></div><h2 id="通訊軟體">通訊軟體</h2>
 <h3 id="telegram">Telegram</h3>
 <p>強推 Telegram。</p>
 <blockquote>
@@ -429,10 +431,10 @@ sudo pacman -S java-environment-common <span class="c1"># JDK</span>
 <p>貌似需要使用 <code>yay</code> 直接從 AUR 下載安裝，<code>pacman</code> 庫沒有。其實我覺得 Python 直接用 VScode 寫就好了，但有些人不習慣，所以在這裡列出 Pycharm。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">yay -S pycharm-community-edition <span class="c1"># 設區版</span>
 yay -S pycharm-professional <span class="c1"># 專業版</span>
-</code></pre></div><h2 id="heading-12">解壓</h2>
+</code></pre></div><h2 id="解壓">解壓</h2>
 <p>這裡還是要提醒，<code>*.zip</code> 才是壓縮檔案，不建議使用 <code>*.rar</code>，但是如果有人傳給你 <code>*.rar</code>，你也只能將他解壓縮，這裡下載 <code>unrar</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S zip unrar
-</code></pre></div><h2 id="heading-13">瀏覽器</h2>
+</code></pre></div><h2 id="瀏覽器">瀏覽器</h2>
 <p>這裡我主要<strong>推薦是使用 Firefox</strong>，在 Linux 上，<strong>Firefox 比 Chromium 更省內存</strong>，之前有段期間我一直是使用 Chromium，每次開機沒多久就整個電腦卡死，自從換成了 Firefox 就順暢很多。當然如果你有 Google 帳號的一些使用者存儲或是電腦性能夠好，裝個 Chromium 也沒問題。</p>
 <blockquote>
 <p>重要的是 Firefox 的應用商店沒有被牆。</p>
@@ -490,7 +492,7 @@ wget -O config.yml <span class="s2">&#34;xxxxxxxxxxxxxxx&#34;</span>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S screenfetch
 screenfetch <span class="c1"># 執行 screenfetch</span>
 </code></pre></div><p><img src="https://i.loli.net/2020/01/05/t2KNz16uDdFWQ95.png" alt="08.png"></p>
-<h2 id="heading-14">界面美化</h2>
+<h2 id="界面美化">界面美化</h2>
 <p>關於這部份我就寫自己推薦的部份，畢竟每個人的審美不同，沒必要照我的來。也可以自行探索，細節也不詳細講。可以在設置中玩玩。KDE Plasma 的使用者可以到線上的 <a href="https://store.kde.org/">KDE 商店</a>看看，Gnome 則可到 <a href="https://www.gnome-look.org/">Gnome 商店</a>。</p>
 <h3 id="latte-dock">Latte Dock</h3>
 <p>像 Mac 風的任務管理器。強推，很好看。</p>
@@ -503,12 +505,12 @@ screenfetch <span class="c1"># 執行 screenfetch</span>
 <p>下面是我比較喜歡的 Icon 風格，你都可以裝來玩玩看。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">yay -S numix-circle-icon-theme-git
 yay -S papirus-icon-theme-git
-</code></pre></div><h3 id="heading-15">窗口特效</h3>
+</code></pre></div><h3 id="窗口特效">窗口特效</h3>
 <p>在<strong>設置 &gt; 工作空間 &gt; 工作空間行為 &gt; 桌面效果</strong>中可以選擇特效。</p>
 <p>我建議將以下選項勾起來，蠻好玩的。</p>
 <p><img src="https://i.loli.net/2020/01/05/vkrlGz64qosuAbI.png" alt="09.png"></p>
 <p><img src="https://i.loli.net/2020/01/05/JPbxAknmXy6MipF.png" alt="10.png"></p>
-<h3 id="-mac-">窗口的 MAC 按鈕</h3>
+<h3 id="窗口的-mac-按鈕">窗口的 MAC 按鈕</h3>
 <p>將視窗搞的像 MAC 按鈕位置。</p>
 <p>先隨意在一個視窗標題欄點擊滑鼠右鍵，<strong>更多工作 &gt; 設定視窗管理員</strong>。</p>
 <p><img src="https://i.loli.net/2020/01/05/GpVSyPCNUQ7DK8B.png" alt="11.png"></p>
@@ -618,7 +620,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading">
+						 					<a class="nav-link" href="#%e5%89%8d%e8%a8%80">
 												 前言
 											</a>
 										</li>
@@ -640,7 +642,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-1">
+						 					<a class="nav-link" href="#%e6%96%87%e6%9c%ac%e7%b7%a8%e8%bc%af%e5%99%a8">
 												 文本編輯器
 											</a>
 										</li>
@@ -740,7 +742,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-2">
+						 					<a class="nav-link" href="#%e8%be%a6%e5%85%ac%e8%bb%9f%e9%ab%94">
 												 辦公軟體
 											</a>
 										</li>
@@ -814,7 +816,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-3">
+						 					<a class="nav-link" href="#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86%e5%99%a8">
 												 文件管理器
 											</a>
 										</li>
@@ -836,7 +838,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-4">
+						 					<a class="nav-link" href="#%e5%aa%92%e9%ab%94%e6%92%ad%e6%94%be%e5%99%a8">
 												 媒體播放器
 											</a>
 										</li>
@@ -886,7 +888,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-5">
+						 					<a class="nav-link" href="#%e7%b6%b2%e6%98%93%e9%9b%b2%e9%9f%b3%e6%a8%82">
 												 網易雲音樂
 											</a>
 										</li>
@@ -910,7 +912,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-6">
+						 					<a class="nav-link" href="#%e5%9c%96%e5%bd%a2">
 												 圖形
 											</a>
 										</li>
@@ -934,7 +936,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-7">
+						 					<a class="nav-link" href="#%e6%88%aa%e5%9c%96%e5%b7%a5%e5%85%b7">
 												 截圖工具
 											</a>
 										</li>
@@ -960,7 +962,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-8">
+						 					<a class="nav-link" href="#%e5%9c%96%e7%89%87%e6%aa%a2%e8%a6%96%e5%99%a8">
 												 圖片檢視器
 											</a>
 										</li>
@@ -986,7 +988,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-9">
+						 					<a class="nav-link" href="#%e5%9c%96%e7%89%87%e7%b7%a8%e8%bc%af%e5%99%a8">
 												 圖片編輯器
 											</a>
 										</li>
@@ -1012,7 +1014,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#gif-">
+						 					<a class="nav-link" href="#gif-%e5%9c%96%e7%89%87">
 												 Gif 圖片
 											</a>
 										</li>
@@ -1036,7 +1038,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-10">
+						 					<a class="nav-link" href="#%e7%99%be%e5%ba%a6%e7%b6%b2%e7%9b%a4">
 												 百度網盤
 											</a>
 										</li>
@@ -1058,7 +1060,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-11">
+						 					<a class="nav-link" href="#%e9%80%9a%e8%a8%8a%e8%bb%9f%e9%ab%94">
 												 通訊軟體
 											</a>
 										</li>
@@ -1206,7 +1208,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-12">
+						 					<a class="nav-link" href="#%e8%a7%a3%e5%a3%93">
 												 解壓
 											</a>
 										</li>
@@ -1228,7 +1230,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-13">
+						 					<a class="nav-link" href="#%e7%80%8f%e8%a6%bd%e5%99%a8">
 												 瀏覽器
 											</a>
 										</li>
@@ -1450,7 +1452,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-14">
+						 					<a class="nav-link" href="#%e7%95%8c%e9%9d%a2%e7%be%8e%e5%8c%96">
 												 界面美化
 											</a>
 										</li>
@@ -1552,7 +1554,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-15">
+						 					<a class="nav-link" href="#%e7%aa%97%e5%8f%a3%e7%89%b9%e6%95%88">
 												 窗口特效
 											</a>
 										</li>
@@ -1578,7 +1580,7 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-mac-">
+						 					<a class="nav-link" href="#%e7%aa%97%e5%8f%a3%e7%9a%84-mac-%e6%8c%89%e9%88%95">
 												 窗口的 MAC 按鈕
 											</a>
 										</li>

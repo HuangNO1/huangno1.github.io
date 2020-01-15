@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
 <meta property="article:published_time" content="2019-04-20T14:22:18+08:00" />
-<meta property="article:modified_time" content="2019-04-20T14:22:18+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" />
+<meta property="article:modified_time" content="2019-04-20T14:22:18+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" />
 
 
   
@@ -329,25 +329,25 @@
 <!-- raw HTML omitted -->
 <p>2019/04/09 edited by Huang Po-Hsun</p>
 <p>相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 <code>Linux</code> 中的 <code>GDB</code> 配置在 <code>VScode</code> 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 <code>Linux</code> 環境下從安裝 <code>VScode</code> 到配置環境變量與 <code>GDB</code> 調試。</p>
-<h2 id="-linux-">肥宅的 Linux 發行版資訊</h2>
+<h2 id="肥宅的-linux-發行版資訊">肥宅的 Linux 發行版資訊</h2>
 <p>肥宅使用的發行版是 <code>ArchLinux</code>，圖形界面是 <code>KDE Plasma</code>。</p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc833695caf.png" alt=""></p>
-<h2 id="-vscode">下載安裝 VScode</h2>
-<h3 id="-konsole-">在 <code>Konsole</code> 輸入下載指令</h3>
+<h2 id="下載安裝-vscode">下載安裝 VScode</h2>
+<h3 id="在-konsole-輸入下載指令">在 <code>Konsole</code> 輸入下載指令</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S code
 </code></pre></div><blockquote>
 <p>註：因爲圖形界面的使用者一定是一般使用者，不可能是<strong>超級使用者</strong>，所以在輸 <code>pacman</code> 前面要加上 <code>sudo</code>。</p>
 </blockquote>
 <p><img src="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" alt=""></p>
 <p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
-<h2 id="-gcc-gdb">下載 GCC GDB</h2>
+<h2 id="下載-gcc-gdb">下載 GCC GDB</h2>
 <blockquote>
 <p>註：肥宅是在 <code>Windows OS</code> 用習慣了 <code>MinGW-w64</code>，但在 <code>Linux</code> 這樣配置並不是很好的選擇，如果你使用 <code>GCC</code> 或 <code>Clang</code> 會跟 <code>Linux</code> 兼容性高。<code>MinGW-w64</code> 軟件包包含 <code>gcc</code> <code>g++</code> <code>GDB</code>&hellip;等內容及 <code>API</code>。</p>
 </blockquote>
 <blockquote>
 <p>在這裡肥宅使用 <code>GCC</code> 與 <code>GDB</code></p>
 </blockquote>
-<h3 id="-konsole--1">在 <code>Konsole</code> 輸入下載指令</h3>
+<h3 id="在-konsole-輸入下載指令-1">在 <code>Konsole</code> 輸入下載指令</h3>
 <h3 id="gcc">GCC</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gcc
 </code></pre></div><p><img src="https://i.loli.net/2019/04/21/5cbc8336b145c.png" alt=""></p>
@@ -356,7 +356,7 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gdb
 </code></pre></div><p><img src="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" alt=""></p>
 <p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
-<h4 id="heading">補充：</h4>
+<h4 id="補充">補充：</h4>
 <blockquote>
 <p>註：有些小白可能不懂，在此肥宅附上 WIKI 連結</p>
 </blockquote>
@@ -368,15 +368,15 @@
 </ul>
 <p>什麼？！你還是不懂？</p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc83369f8da.png" alt=""></p>
-<h2 id="-vscode-">安裝 VScode 插件</h2>
-<h3 id="-reload">安裝自己使用的語言並 Reload</h3>
+<h2 id="安裝-vscode-插件">安裝 VScode 插件</h2>
+<h3 id="安裝自己使用的語言並-reload">安裝自己使用的語言並 Reload</h3>
 <p>在插件搜尋處搜尋自己要的語言，像肥宅我是用<strong>繁體中文</strong>，所以只要在搜尋處打上 <code>traditional</code> 就會出現安裝插件，按下 <code>Install</code>，並等它裝好 <code>Reload</code>就會切換到自己想要的語言界面，如果你想裝的是<strong>簡體中文</strong>，可以輸入 <code>simplified</code>，其實你只要輸入 <code>Chinese</code> 的 <code>ch</code> 基本繁體簡體都會顯示出來。</p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc8336c215f.png" alt=""></p>
-<h3 id="-cc-">安裝 C/C++ 插件</h3>
+<h3 id="安裝-cc-插件">安裝 C/C++ 插件</h3>
 <p>搜尋 <code>C/C++</code> 並安裝</p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc8336cca49.png" alt=""></p>
 <p><strong>其餘插件推薦請參考 <a href="https://hackmd.io/s/B1LNZviPE">Visual Studio Code 推薦使用插件</a></strong></p>
-<h2 id="vscode-">VScode 一些設定參考</h2>
+<h2 id="vscode-一些設定參考">VScode 一些設定參考</h2>
 <p>點擊左下角滾輪中的設定，再點擊右上角的 <code>{}</code>，可進入 <code>settings.json</code>。</p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" alt=""></p>
 <h3 id="settingsjson">settings.json</h3>
@@ -400,7 +400,7 @@
 <p>註：肥宅有裝 code-runer 插件，所以設定中有這個 code-runner。這裡不需要各位去複製貼上，只是給大家參考肥宅用了那些主題與插件。像肥宅目前使用 <code>One Dark Pro</code> 佈置主題。</p>
 </blockquote>
 <p><strong>注意：第 5 行的設定很重要，因為當你裝完 <code>code-runner</code> 時預設是不能在終端機輸入，所以才將 <code>code-runner.runInTerminal</code> 參數設為 <code>true</code></strong></p>
-<h2 id="-gdb-">配置 GDB 調試</h2>
+<h2 id="配置-gdb-調試">配置 GDB 調試</h2>
 <p>這時你的電腦已配置了 <code>gcc</code> <code>g++</code> 的環境變數，但你並還沒將其 IDE 完全配好，如果沒配好會出現一些問題，像肥宅在寫 <code>C</code> 敲上 <code>#include &lt;stdio.h&gt;</code> 時底部會出現<strong>綠色的波浪線</strong>，因爲沒將頭文件 <code>*.h</code> 都載入，雖然不影響編譯執行，但總會覺得很礙眼，感覺有瑕疵，在這裡肥宅一次幫各位解決。</p>
 <blockquote>
 <p>註：下圖為綠色波浪底線示意圖</p>
@@ -451,7 +451,7 @@
 <p>註：在 <code>Linux</code> 中輸出檔的副檔名是 <code>*.out</code>，有別於 <code>Windows</code> 的 <code>*.exe</code></p>
 </blockquote>
 <p><strong>注意：第八行與第九行的是 <code>code-runner</code> 插件的編譯執行命令行，因為是在 <code>Linux</code> 下編譯執行，所以肥宅在後面 <code>fileNameWithoutExt</code> 變數後面從 <code>.exe</code> 改成 <code>.out</code>，這樣在使用 <code>code-runner</code> 插件時幫你自動生成的輸出檔副檔名是 <code>*.out</code></strong></p>
-<h3 id="c-cpp-propertiesjson">c_cpp_properties.json</h3>
+<h3 id="c_cpp_propertiesjson">c_cpp_properties.json</h3>
 <hr>
 <pre><code class="language-jsonld=" data-lang="jsonld=">{
     &quot;configurations&quot;: [
@@ -656,7 +656,7 @@
 <p>註：<code>-g</code> 是調試的意思，<code>-o</code> 是輸出的意思。</p>
 </blockquote>
 <p><strong>注意：每個 <code>&quot;args&quot;</code> 參數中的 <code>&quot;${fileBasenameNoExtension}.out&quot;</code> 要特別注意尾端改成<code>.out</code>。</strong></p>
-<h2 id="heading-1">調試畫面</h2>
+<h2 id="調試畫面">調試畫面</h2>
 <p>配置完後，你可以在調試欄看到 <code>Run C</code> <code>Run C++</code> <code>Debug C</code> <code>Debug C++</code> 選項。</p>
 <p>肥宅現在要調試 <code>1.c</code> 這個檔案，可以在代碼中設置<strong>斷點</strong>，並選擇 <code>Debug C</code>。</p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc83c91defe.png" alt=""></p>
@@ -668,7 +668,7 @@
 <blockquote>
 <p>註：肥宅已在 <code>launch.json</code> 中設定 <code>&quot;externalConsole&quot;: false</code>，因爲這個設定的意思是使格外彈出個 <code>Konsole</code>，這功能只能在 <code>Windows OS</code> 中改成 <code>true</code></p>
 </blockquote>
-<h2 id="heading-2">純手工編譯執行</h2>
+<h2 id="純手工編譯執行">純手工編譯執行</h2>
 <p>假設有個檔名叫 <code>1</code>，副檔名可以是 <code>*.c</code> 或 <code>*.cpp</code></p>
 <h3 id="c">C</h3>
 <p>編譯標準 C99</p>
@@ -680,7 +680,7 @@
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">g++ -std<span class="o">=</span>c++11 1.cpp -o 1.out
 </code></pre></div><p>執行</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">./1.out
-</code></pre></div><h3 id="heading-3">如果有引入其他自定義的標頭檔之實現檔</h3>
+</code></pre></div><h3 id="如果有引入其他自定義的標頭檔之實現檔">如果有引入其他自定義的標頭檔之實現檔</h3>
 <p>編譯時加入參數
 e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標頭檔，並且將 <code>Circle.h</code> 標頭檔的實現部份寫在 <code>Circle.cpp</code></p>
 <p>編譯</p>
@@ -775,7 +775,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-linux-">
+						 					<a class="nav-link" href="#%e8%82%a5%e5%ae%85%e7%9a%84-linux-%e7%99%bc%e8%a1%8c%e7%89%88%e8%b3%87%e8%a8%8a">
 												 肥宅的 Linux 發行版資訊
 											</a>
 										</li>
@@ -797,7 +797,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-vscode">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89%e5%ae%89%e8%a3%9d-vscode">
 												 下載安裝 VScode
 											</a>
 										</li>
@@ -821,7 +821,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-konsole-">
+						 					<a class="nav-link" href="#%e5%9c%a8-konsole-%e8%bc%b8%e5%85%a5%e4%b8%8b%e8%bc%89%e6%8c%87%e4%bb%a4">
 												 在 Konsole 輸入下載指令
 											</a>
 										</li>
@@ -845,7 +845,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-gcc-gdb">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89-gcc-gdb">
 												 下載 GCC GDB
 											</a>
 										</li>
@@ -869,7 +869,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-konsole--1">
+						 					<a class="nav-link" href="#%e5%9c%a8-konsole-%e8%bc%b8%e5%85%a5%e4%b8%8b%e8%bc%89%e6%8c%87%e4%bb%a4-1">
 												 在 Konsole 輸入下載指令
 											</a>
 										</li>
@@ -949,7 +949,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading">
+						 					<a class="nav-link" href="#%e8%a3%9c%e5%85%85">
 												 補充：
 											</a>
 										</li>
@@ -975,7 +975,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-vscode-">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d-vscode-%e6%8f%92%e4%bb%b6">
 												 安裝 VScode 插件
 											</a>
 										</li>
@@ -999,7 +999,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-reload">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d%e8%87%aa%e5%b7%b1%e4%bd%bf%e7%94%a8%e7%9a%84%e8%aa%9e%e8%a8%80%e4%b8%a6-reload">
 												 安裝自己使用的語言並 Reload
 											</a>
 										</li>
@@ -1025,7 +1025,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-cc-">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d-cc-%e6%8f%92%e4%bb%b6">
 												 安裝 C/C&#43;&#43; 插件
 											</a>
 										</li>
@@ -1049,7 +1049,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#vscode-">
+						 					<a class="nav-link" href="#vscode-%e4%b8%80%e4%ba%9b%e8%a8%ad%e5%ae%9a%e5%8f%83%e8%80%83">
 												 VScode 一些設定參考
 											</a>
 										</li>
@@ -1097,7 +1097,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-gdb-">
+						 					<a class="nav-link" href="#%e9%85%8d%e7%bd%ae-gdb-%e8%aa%bf%e8%a9%a6">
 												 配置 GDB 調試
 											</a>
 										</li>
@@ -1147,7 +1147,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#c-cpp-propertiesjson">
+						 					<a class="nav-link" href="#c_cpp_propertiesjson">
 												 c_cpp_properties.json
 											</a>
 										</li>
@@ -1223,7 +1223,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-1">
+						 					<a class="nav-link" href="#%e8%aa%bf%e8%a9%a6%e7%95%ab%e9%9d%a2">
 												 調試畫面
 											</a>
 										</li>
@@ -1245,7 +1245,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-2">
+						 					<a class="nav-link" href="#%e7%b4%94%e6%89%8b%e5%b7%a5%e7%b7%a8%e8%ad%af%e5%9f%b7%e8%a1%8c">
 												 純手工編譯執行
 											</a>
 										</li>
@@ -1321,7 +1321,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-3">
+						 					<a class="nav-link" href="#%e5%a6%82%e6%9e%9c%e6%9c%89%e5%bc%95%e5%85%a5%e5%85%b6%e4%bb%96%e8%87%aa%e5%ae%9a%e7%be%a9%e7%9a%84%e6%a8%99%e9%a0%ad%e6%aa%94%e4%b9%8b%e5%af%a6%e7%8f%be%e6%aa%94">
 												 如果有引入其他自定義的標頭檔之實現檔
 											</a>
 										</li>

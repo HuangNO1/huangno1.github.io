@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Archlinux KDE 動態桌布</title>
+      <link>https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/</link>
+      <pubDate>Wed, 15 Jan 2020 15:26:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/</guid>
+      <description>2020/01/15 edited by Huang Po-Hsun 前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。 當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）</description>
+    </item>
+    
+    <item>
       <title>Archlinux 安裝 Part 4 - 程序員終端標配 oh-my-zsh</title>
       <link>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/</link>
       <pubDate>Sun, 05 Jan 2020 15:26:28 +0800</pubDate>

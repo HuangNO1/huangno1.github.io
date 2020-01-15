@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" />
 <meta property="article:published_time" content="2019-09-28T15:24:28+08:00" />
-<meta property="article:modified_time" content="2019-09-28T15:24:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
+<meta property="article:modified_time" content="2019-09-28T15:24:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
 
 
   
@@ -327,23 +327,23 @@
           <div class="post-content markdown">
             <p>2019/09/28 edited by Huang Po-Hsun</p>
 <!-- raw HTML omitted -->
-<h2 id="heading">前言</h2>
+<h2 id="前言">前言</h2>
 <p>我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。</p>
 <p>由於我的電腦型號是<strong>聯想 y7000p</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide - ArchWiki</a> 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(</p>
 <p>因為我這是專給小白寫的文章，所以寫了很多細節和注意點，如果你是高手，覺得我寫了很多廢話，那請你忍耐吧，也可以選擇不看我的文章，直接去看 ArchWiki。</p>
-<h2 id="heading-1">安裝前準備</h2>
-<h3 id="1---archlinux-httpsmirrorstunatsinghuaeducnarchlinuxisolatest-archlinuxios-">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 archlinux*.ios 鏡像</h3>
+<h2 id="安裝前準備">安裝前準備</h2>
+<h3 id="1-至-清華大學-archlinux-軟件鏡像站httpsmirrorstunatsinghuaeducnarchlinuxisolatest下載最新版的-archlinuxios-鏡像">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 archlinux*.ios 鏡像</h3>
 <p><img src="https://i.loli.net/2019/09/29/28CjvXVRUZJzqQ3.png" alt="1.png"></p>
-<h3 id="2--rufushttpsrufusie----archlinux--usb">2. 下載 <a href="https://rufus.ie/">Rufus</a> - 用來匯入 Archlinux 鏡像至 USB</h3>
+<h3 id="2-下載-rufushttpsrufusie---用來匯入-archlinux-鏡像至-usb">2. 下載 <a href="https://rufus.ie/">Rufus</a> - 用來匯入 Archlinux 鏡像至 USB</h3>
 <p><img src="https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.png" alt="2.png"></p>
-<h3 id="3--8g--usb">3. 準備一個至少 8G 的 USB</h3>
+<h3 id="3-準備一個至少-8g-的-usb">3. 準備一個至少 8G 的 USB</h3>
 <p>使用 Rufus 將 Arch 鏡像匯入在目標 USB 裝置。</p>
 <blockquote>
 <p>註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。</p>
 </blockquote>
 <p>e.g.</p>
 <p><img src="https://i.loli.net/2019/09/29/jR5FbkuUCPIMvXh.png" alt="3.png"></p>
-<h3 id="4-">4. 分割磁區</h3>
+<h3 id="4-分割磁區">4. 分割磁區</h3>
 <p><strong>我們假設在固態硬碟割出 40GB 空間（40GB <code>root</code>），在虛擬硬碟割出102GB 空間（2GB <code>swap</code>, 100GB <code>home</code>）</strong>，此時別格式化割出來的磁區，讓它們保持為<strong>未配置狀態</strong>。</p>
 <p>在 Windows 工作列的 <code>win</code> 圖標上點擊滑鼠右鍵選擇<strong>磁區管理</strong>，將自己的磁區切割，現在大部份的電腦是 110GB 左右的固態 SSD 和 1TB 左右的虛擬硬碟，當然少部份例外，我建議固態硬碟割出至少 40GB 給 <code>/root</code> 根目錄（類似 Windows的 C槽），接著可以在虛擬硬碟割出 100GB 以上給 <code>/home</code> 家目錄，也有特殊情況，像我的室友他電腦只有固態 SSD 所以只能割固態硬碟給 <code>/home</code>，我室友我幫他割了 30GB 給 <code>/root</code>，40GB 給 <code>/home</code>，2GB 給 <code>swap</code>。</p>
 <blockquote>
@@ -352,7 +352,7 @@
 <p>磁區管理示意圖：</p>
 <p><img src="https://i.loli.net/2019/09/29/leD4jbfzrPEIig6.jpg" alt="4.png"></p>
 <p>在磁區上點擊滑鼠右鍵選擇<strong>壓縮磁碟</strong>，應你的需求壓縮適當大小的磁區。</p>
-<h3 id="5-usb--uefi-">5. USB 使用 UEFI 方式開機</h3>
+<h3 id="5-usb-使用-uefi-方式開機">5. USB 使用 UEFI 方式開機</h3>
 <p><strong>進入 BIOS，調整 Boot 開機順序，改為你的 USB 優先開機，主機與 USB 開機模式為 UEFI</strong></p>
 <p>每台電腦進入 BIOS 的方法都不同，像我的電腦是聯想 y7000p，所以我在開機時一直按住 <code>Fn + F2</code> ，就能進入 BIOS 調整開機順序，因為幫室友們裝了 Arch，所以 ThinkPad 是 <code>F1</code>，華碩是按 <code>Esc</code> 或 <code>F2</code>，小米是 <code>F2</code>，我記得小米筆電進入 BIOS 還需要輸入 Password，有點麻煩就是了。當然還是勸大家上網搜一下自己電腦型號的進入 BIOS 快捷建。不好意思，我因為 linux 無法掛載我的移動 SSD，具體是因為我之前想將 arch 灌到 SSD 上，後來覺得使用上麻煩所以放棄了， 所以我先將該磁區刪除再新增，</p>
 <p>成功進入 USB 後選擇第一個選項 <code>Boot Arch Linux (X86_64)</code> 按 <code>Enter</code> 進入，當你看到 <code>root #</code> 就代表你已經進入 USB 裡的 Arch 安裝鏡像。</p>
@@ -360,7 +360,7 @@
 <p>註：切記要是 <strong>UEFI 開機</strong>，因為我們最後要在 BIOS 安裝引導程序，來引導我們開機選擇進入的 OS。如果沒有使用 UEFI 開機的話會裝不上引導程序 <code>grub</code>。</p>
 </blockquote>
 <p><img src="https://i.loli.net/2019/09/30/q4zMECx7tpkNLK1.png" alt="5.png"></p>
-<h3 id="6-">6. 確認連到網路</h3>
+<h3 id="6-確認連到網路">6. 確認連到網路</h3>
 <p>在安裝過程我們需要用到網路，我們需要確認我們連的到網路，輸入以下指令</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認是否可連上百度</span>
 </code></pre></div><p>如果你的結果與下圖相同則代表你已連上了網路，按下 <code>Ctrl + C</code> 中止命令，</p>
@@ -385,7 +385,7 @@ ip link <span class="nb">set</span> enp0s20f0u1 up <span class="c1"># 開啟手�
 dhcpcd enp0s20f0u1 <span class="c1"># 連接手機的有線接口</span>
 ping baidu.com <span class="c1"># 測試是否連上網路</span>
 </code></pre></div><p>通常到這裡網路是連上的，如果還連不上那可能就要連無線 WiFi 了，我就不多說明了，可以參考 <a href="https://wiki.archlinux.org/index.php/Wireless_network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Wireless network configuration (简体中文) - ArchWiki</a> 和 <a href="http://irislr.me/2017/01/07/linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%89%E7%BA%BF%EF%BC%86%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5/">某網友的 Blog</a> 和 <a href="https://www.itread01.com/p/149560.html">某教程網</a> 有提及，因為之前我幫我朋友安裝 Archlinux 時要連無線 WiFi 時搞了很久，還出了錯誤，最後直接使用手機的共用網路才解決。</p>
-<h3 id="7-">7. 更新系統時間</h3>
+<h3 id="7-更新系統時間">7. 更新系統時間</h3>
 <p>使用 <code>timedatectl</code> 確保系統時間是準確的，後面我們在<strong>同步數據庫</strong>時需要系統時間與網路時間的同步。</p>
 <blockquote>
 <p>註：這一步真的很重要，我之前因為忘了這一步驟導致數據庫無法同步，開啟時間同步後還要進入 <code>Chroot</code> 重裝一次系統 <code>pacman -S linux</code></p>
@@ -394,7 +394,7 @@ ping baidu.com <span class="c1"># 測試是否連上網路</span>
 timedatectl status <span class="c1"># 檢查服務狀態</span>
 </code></pre></div><p><img src="https://i.loli.net/2019/09/30/C5vDyeu6cOnIgs4.png" alt="9.png"></p>
 <p>請確保 <code>NTP service</code> 狀態為 <code>active</code>，且確定自己的系統時間是否正確。</p>
-<h3 id="8-">8. 分割磁區</h3>
+<h3 id="8-分割磁區">8. 分割磁區</h3>
 <p><strong>我們使用 <code>cfdisk</code> 來分割磁區</strong></p>
 <p>ArchWiki 建議的分區參考</p>
 <p><img src="https://i.loli.net/2019/09/30/dQUhfT6SNIAPq4D.png" alt="10.png"></p>
@@ -418,7 +418,7 @@ timedatectl status <span class="c1"># 檢查服務狀態</span>
 <blockquote>
 <p>註：有些人的電腦可能沒有我上述講的類型，如果找不到 <code>Linux root (ARM-64)</code>、<code>Linux root (X86)</code>、<code>Linux home</code>，可以將 <code>Type</code> 改成 <code>Linux filesystem</code>，只是 <code>EFI System</code> 與 <code>Linux swap</code> 不能這樣搞，而且這兩類型是找得到的。</p>
 </blockquote>
-<h3 id="9-">9. 格式化磁區</h3>
+<h3 id="9-格式化磁區">9. 格式化磁區</h3>
 <p>當分區建好後，我們需要對此格式化。每種類型的磁區格式化方式都不相同。</p>
 <blockquote>
 <p>註：我們假設你分割出的 40GB 固態硬碟空間磁區代號為 <code>nvme0n1p5</code>，<code>boot</code> 為 <code>nvme0n1p1</code>，2GB <code>Swap</code> 為 <code>sda3</code> ，100GB <code>home</code> 為 <code>sda4</code>。</p>
@@ -438,7 +438,7 @@ mkfs.ext4 /dev/sda4 <span class="c1">#格式化 home</span>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkswap /dev/sda3 <span class="c1"># 格式化 swap</span>
 swapon /dev/sda3 <span class="c1"># 掛載置換空間</span>
-</code></pre></div><h3 id="10-">10. 掛載分區</h3>
+</code></pre></div><h3 id="10-掛載分區">10. 掛載分區</h3>
 <p>因為根目錄 <code>/mnt</code> 已在你的 USB 存在，所以不需要創建。<strong>注意：必須優先掛載 <code>/mnt</code> 再掛載其它目錄</strong>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mount /dev/nvme0n1p5 /mnt <span class="c1"># 掛載根目錄 root</span>
 mkdir /mnt/boot <span class="c1"># 創建 /boot 目錄</span>
@@ -447,8 +447,8 @@ mkdir /mnt/home <span class="c1"># 創建 /home 目錄</span>
 mount /dev/sda4 /mnt/home <span class="c1"># 掛載 /home</span>
 lsblk <span class="c1"># 查看分區無誤</span>
 </code></pre></div><p>掛載好後，接下來 <code>genfstab</code> 將會自動檢測掛載的文件系統和置換空間。</p>
-<h2 id="heading-2">安裝</h2>
-<h3 id="1-">1. 選擇鏡像</h3>
+<h2 id="安裝">安裝</h2>
+<h3 id="1-選擇鏡像">1. 選擇鏡像</h3>
 <p>編輯 <code>/etc/pacman.d/mirrorlist</code> 文件，將你的所在的鏡像地址優先排在前面，在列表中越前面的地址修先級越高。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/pacman.d/mirrorlist <span class="c1"># 編輯文件</span>
 </code></pre></div><p>關於 Vim 的編輯指令可參考 <a href="https://gitbook.tw/chapters/command-line/vim-introduction.html">超簡明 Vim 操作介紹</a>，用起來其實不難。</p>
@@ -458,10 +458,10 @@ lsblk <span class="c1"># 查看分區無誤</span>
 </span></code></pre></div><p>像我目前所在的地區為 China，所以我將 China 的鏡像源都移至最開頭。</p>
 <p><img src="https://i.loli.net/2019/09/30/8jfCaXqbSOEWT5M.png" alt="14.png"></p>
 <p>編輯好並確認無誤後退出 Vim 編輯器。</p>
-<h3 id="2-">2. 安裝基本系統</h3>
+<h3 id="2-安裝基本系統">2. 安裝基本系統</h3>
 <p>使用 <code>pacstrap</code> 腳本安裝 <code>base</code> 組：</p>
 <blockquote>
-<p>註：在這裡請勿必確認你的 <code>/boot</code> 是掛載在 <code>EFI Syetem</code> 分區上，不然後面需要進入 <code>Chroot</code> 執行 <code>pacman -S linux</code> 重裝系統。</p>
+<p>註：在這裡請務必確認你的 <code>/boot</code> 是掛載在 <code>EFI Syetem</code> 分區上，不然後面需要進入 <code>Chroot</code> 執行 <code>pacman -S linux</code> 重裝系統。</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認此時你是連上網的</span>
 pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</span>
@@ -471,7 +471,7 @@ pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</s
 </code></pre></div><blockquote>
 <p>註：pacstrap 的安裝指令我在 2020/01/04 更新，因為幫同學重灌 ArchLinux 時發現指令變了，目前最新本的 ArchLinux 發行版指令是 <code>pacstrap /mnt base linux linux-firmware</code>。</p>
 </blockquote>
-<h2 id="heading-3">配置系統</h2>
+<h2 id="配置系統">配置系統</h2>
 <h3 id="1-fastab">1. Fastab</h3>
 <p>執行以下指令生成 <code>fstab</code> 文件（用 <code>-U</code> 或 <code>-L</code> 選項設置 UUID 或卷標）。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
@@ -487,13 +487,13 @@ pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</s
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">rm /mnt/etc/fstab <span class="c1"># 移除原文件</span>
 genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
 </code></pre></div><p>再次用 Vim 確認無誤之後，就可進入下一步。</p>
-<h3 id="2--chroot">2. 進入 Chroot</h3>
+<h3 id="2-進入-chroot">2. 進入 Chroot</h3>
 <p><code>Change root</code> 到新安裝的系統，顧名思義就是進入電腦以安裝好的系統，目前我們所在的地方是 USB，如果沒進入 <code>Chroot</code> 就進行安裝和設定就等於安裝和設定在你的 USB 上。</p>
 <blockquote>
 <p>註：如果重裝系統或是需要重新插上 USB 做些設定，像我通常就發生在磁區分割錯誤或目錄掛載錯誤或 Windows 系統更新後引導程序設定檔被砍，需要先將所有的分區先掛載，再進入 <code>Chroot</code> 才會顯示你電腦裡的磁區，<strong>再次強調，先掛載 <code>/mnt</code></strong>。</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
-</code></pre></div><h3 id="3-">3. 時區</h3>
+</code></pre></div><h3 id="3-時區">3. 時區</h3>
 <p>設置時區，<code>Region</code> 為你所在的洲，<code>City</code> 為你所在城市。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime <span class="c1"># 設置時區</span>
 </code></pre></div><p>我設定的是台北時間。</p>
@@ -501,7 +501,7 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 </code></pre></div><p>執行 <code> hwclock</code> 生成 <code>/etc/adjtime</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">hwclock --systohc <span class="c1"># 生成 /etc/adjtime</span>
 </code></pre></div><p>這個指令假定硬件時間已經設置為 <code>UTF</code> 時間。</p>
-<h3 id="4--1">4. 添加本地語系</h3>
+<h3 id="4-添加本地語系">4. 添加本地語系</h3>
 <p>編輯 <code>locale.gen</code> 把自己要用的語言註解去掉，也就是去掉開頭的 <code>#</code>，一定要取消註解 <code>en_US.UTF-8 UTF-8</code>，建議取消註解<strong>帶 <code>UTF-8</code> 的語言</strong>，<strong>把 GBK 和 BIG5 註解去掉可以支援更多字</strong>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/locale.gen <span class="c1"># 編輯 locale.gen</span>
 </code></pre></div><p>以下是我要取消註解的語言，因為我繁體字和簡體字都很常用。</p>
@@ -516,7 +516,7 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/locale.conf <span class="c1"># 創建並編輯 locale.conf</span>
 </code></pre></div><p>修改語言環境。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">LANG</span><span class="p">=</span><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> # <span class="nx">變量設為英語</span><span class="err">
-</span></code></pre></div><h3 id="5-">5. 主機名稱與網路</h3>
+</span></code></pre></div><h3 id="5-主機名稱與網路">5. 主機名稱與網路</h3>
 <p>創建 <code>hostname</code> 文件設置你的主機名稱。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hostname <span class="c1"># 創建 hostname 文件</span>
 </code></pre></div><p>直接在 <code>hostname</code> 填入你主機名稱，<code>myhostname</code>是你的主機名。</p>
@@ -535,11 +535,11 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 <p>創建 <code>Initramfs</code>，這是用來將內存盤初始化的腳本，例如開關機時掛載與卸載磁區，現在 <code>Initramfs</code>已取代了舊版的 <code>initrd</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkinitcpio -p linux <span class="c1"># 創建 Initramfs</span>
 </code></pre></div><p>如果你想深入了解 <code>Initramfs</code>，可以參考 <a href="https://wiki.archlinux.org/index.php/Mkinitcpio_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">mkinitcpio (简体中文) - ArchWiki</a> 和 <a href="https://wiki.gentoo.org/wiki/Initramfs/Guide/zh-cn">Initramfs/指南 - gentoo linux</a>。</p>
-<h3 id="7--root--">7. 設定 Root (超級使用者) 密碼</h3>
+<h3 id="7-設定-root-超級使用者-密碼">7. 設定 Root (超級使用者) 密碼</h3>
 <p>設定 <code>Root</code> 超級使用者的密碼，<strong>超級使用者</strong>的意思就是這個用戶相當於<strong>系統管理員</strong>，擁有修改系統設定的所有權力。</p>
 <p>輸入以下指令後會要求你輸兩次密碼，第二次是確認你的密碼正確，<strong>輸入密碼時文字是隱藏的</strong>，所以不用慌張以為沒有輸入進去。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">passwd <span class="c1"># 設定密碼</span>
-</code></pre></div><h3 id="8--1">8. 安裝引導程序</h3>
+</code></pre></div><h3 id="8-安裝引導程序">8. 安裝引導程序</h3>
 <p>因為我之前裝的引導程序是 <code>rEFInd</code>，但 <code>rEFInd</code> 實在太不穩了，好幾次隨著 Windows 更新而設定檔被砍進不了  Linux，需要重裝，然後我朋友推薦給我使用<strong>直接裝在 BIOS 的 <code>grub</code></strong>，穩定不容易被砍，雖然界面比 <code>rEFInd</code> 丑了很多，但至少穩定。</p>
 <p><code>grub</code> 是引導程序，<code>os-prober</code>是可以偵測其他操作系統的軟體包，<code>efibootmgr</code>可以操控 UEFI 固件啟動管理器設置的工具。</p>
 <blockquote>
@@ -568,8 +568,8 @@ mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre></div><p>確認設定檔產生無報錯後接著退出 <code>Chroot</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
-</code></pre></div><h2 id="heading-4">重要補充</h2>
-<h3 id="heading-5">連網</h3>
+</code></pre></div><h2 id="重要補充">重要補充</h2>
+<h3 id="連網">連網</h3>
 <p>因為拔掉 USB 重啟電腦後，會發現關於<strong>連網功能不好處理</strong>，使用 <code>ip link</code> 後 <code>dhcpcd</code> 過於繁瑣，建議就在這裡就安裝連網的管理器。</p>
 <blockquote>
 <p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p>
@@ -579,9 +579,9 @@ pacman -S networkmanager <span class="c1"># 安裝 networkmanager</span>
 systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
 systemctl strat NetworkManager <span class="c1"># 啟用 Netmanager</span>
 <span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
-</code></pre></div><h3 id="-linux">不裝雙系統，只有 Linux</h3>
+</code></pre></div><h3 id="不裝雙系統只有-linux">不裝雙系統，只有 Linux</h3>
 <p>如果你是將所有電腦裡的系統都砍了只裝 Archlinux，你<strong>一樣要裝引導</strong>，像之前我幫一個朋友裝 ArchLinux 時他將自己電腦上的 <strong>Windows 全砍了</strong>，剩下所有空間都給 Linux。</p>
-<h2 id="heading-6">重啟電腦</h2>
+<h2 id="重啟電腦">重啟電腦</h2>
 <p>因為我手速不夠快，如果不小心在還沒完全關機或已經開機狀態下拔下 USB，會造成嚴重錯誤，所以我選擇直接關機再手動開機。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">reboot <span class="c1"># 重開機</span>
 poweroff <span class="c1"># 直接關機</span>
@@ -589,7 +589,7 @@ poweroff <span class="c1"># 直接關機</span>
 <blockquote>
 <p>登入時輸入 <code>user</code> 為 <code>root</code>，<code>password</code> 為你之前設的 Root 密碼。</p>
 </blockquote>
-<h2 id="heading-7">安裝後工作</h2>
+<h2 id="安裝後工作">安裝後工作</h2>
 <p>我會之後會寫 <strong>Arch Linux 安裝後</strong>文章，並放入 Blog。</p>
 <h2 id="reference">Reference</h2>
 <ul>
@@ -699,7 +699,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading">
+						 					<a class="nav-link" href="#%e5%89%8d%e8%a8%80">
 												 前言
 											</a>
 										</li>
@@ -721,7 +721,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-1">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d%e5%89%8d%e6%ba%96%e5%82%99">
 												 安裝前準備
 											</a>
 										</li>
@@ -745,7 +745,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#1---archlinux-httpsmirrorstunatsinghuaeducnarchlinuxisolatest-archlinuxios-">
+						 					<a class="nav-link" href="#1-%e8%87%b3-%e6%b8%85%e8%8f%af%e5%a4%a7%e5%ad%b8-archlinux-%e8%bb%9f%e4%bb%b6%e9%8f%a1%e5%83%8f%e7%ab%99httpsmirrorstunatsinghuaeducnarchlinuxisolatest%e4%b8%8b%e8%bc%89%e6%9c%80%e6%96%b0%e7%89%88%e7%9a%84-archlinuxios-%e9%8f%a1%e5%83%8f">
 												 1. 至 清華大學 Archlinux 軟件鏡像站下載最新版的 archlinux*.ios 鏡像
 											</a>
 										</li>
@@ -771,7 +771,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#2--rufushttpsrufusie----archlinux--usb">
+						 					<a class="nav-link" href="#2-%e4%b8%8b%e8%bc%89-rufushttpsrufusie---%e7%94%a8%e4%be%86%e5%8c%af%e5%85%a5-archlinux-%e9%8f%a1%e5%83%8f%e8%87%b3-usb">
 												 2. 下載 Rufus - 用來匯入 Archlinux 鏡像至 USB
 											</a>
 										</li>
@@ -797,7 +797,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#3--8g--usb">
+						 					<a class="nav-link" href="#3-%e6%ba%96%e5%82%99%e4%b8%80%e5%80%8b%e8%87%b3%e5%b0%91-8g-%e7%9a%84-usb">
 												 3. 準備一個至少 8G 的 USB
 											</a>
 										</li>
@@ -823,7 +823,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#4-">
+						 					<a class="nav-link" href="#4-%e5%88%86%e5%89%b2%e7%a3%81%e5%8d%80">
 												 4. 分割磁區
 											</a>
 										</li>
@@ -849,7 +849,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#5-usb--uefi-">
+						 					<a class="nav-link" href="#5-usb-%e4%bd%bf%e7%94%a8-uefi-%e6%96%b9%e5%bc%8f%e9%96%8b%e6%a9%9f">
 												 5. USB 使用 UEFI 方式開機
 											</a>
 										</li>
@@ -875,7 +875,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#6-">
+						 					<a class="nav-link" href="#6-%e7%a2%ba%e8%aa%8d%e9%80%a3%e5%88%b0%e7%b6%b2%e8%b7%af">
 												 6. 確認連到網路
 											</a>
 										</li>
@@ -901,7 +901,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#7-">
+						 					<a class="nav-link" href="#7-%e6%9b%b4%e6%96%b0%e7%b3%bb%e7%b5%b1%e6%99%82%e9%96%93">
 												 7. 更新系統時間
 											</a>
 										</li>
@@ -927,7 +927,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#8-">
+						 					<a class="nav-link" href="#8-%e5%88%86%e5%89%b2%e7%a3%81%e5%8d%80">
 												 8. 分割磁區
 											</a>
 										</li>
@@ -953,7 +953,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#9-">
+						 					<a class="nav-link" href="#9-%e6%a0%bc%e5%bc%8f%e5%8c%96%e7%a3%81%e5%8d%80">
 												 9. 格式化磁區
 											</a>
 										</li>
@@ -979,7 +979,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#10-">
+						 					<a class="nav-link" href="#10-%e6%8e%9b%e8%bc%89%e5%88%86%e5%8d%80">
 												 10. 掛載分區
 											</a>
 										</li>
@@ -1003,7 +1003,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-2">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d">
 												 安裝
 											</a>
 										</li>
@@ -1027,7 +1027,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#1-">
+						 					<a class="nav-link" href="#1-%e9%81%b8%e6%93%87%e9%8f%a1%e5%83%8f">
 												 1. 選擇鏡像
 											</a>
 										</li>
@@ -1053,7 +1053,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#2-">
+						 					<a class="nav-link" href="#2-%e5%ae%89%e8%a3%9d%e5%9f%ba%e6%9c%ac%e7%b3%bb%e7%b5%b1">
 												 2. 安裝基本系統
 											</a>
 										</li>
@@ -1077,7 +1077,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-3">
+						 					<a class="nav-link" href="#%e9%85%8d%e7%bd%ae%e7%b3%bb%e7%b5%b1">
 												 配置系統
 											</a>
 										</li>
@@ -1127,7 +1127,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#2--chroot">
+						 					<a class="nav-link" href="#2-%e9%80%b2%e5%85%a5-chroot">
 												 2. 進入 Chroot
 											</a>
 										</li>
@@ -1153,7 +1153,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#3-">
+						 					<a class="nav-link" href="#3-%e6%99%82%e5%8d%80">
 												 3. 時區
 											</a>
 										</li>
@@ -1179,7 +1179,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#4--1">
+						 					<a class="nav-link" href="#4-%e6%b7%bb%e5%8a%a0%e6%9c%ac%e5%9c%b0%e8%aa%9e%e7%b3%bb">
 												 4. 添加本地語系
 											</a>
 										</li>
@@ -1205,7 +1205,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#5-">
+						 					<a class="nav-link" href="#5-%e4%b8%bb%e6%a9%9f%e5%90%8d%e7%a8%b1%e8%88%87%e7%b6%b2%e8%b7%af">
 												 5. 主機名稱與網路
 											</a>
 										</li>
@@ -1257,7 +1257,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#7--root--">
+						 					<a class="nav-link" href="#7-%e8%a8%ad%e5%ae%9a-root-%e8%b6%85%e7%b4%9a%e4%bd%bf%e7%94%a8%e8%80%85-%e5%af%86%e7%a2%bc">
 												 7. 設定 Root (超級使用者) 密碼
 											</a>
 										</li>
@@ -1283,7 +1283,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#8--1">
+						 					<a class="nav-link" href="#8-%e5%ae%89%e8%a3%9d%e5%bc%95%e5%b0%8e%e7%a8%8b%e5%ba%8f">
 												 8. 安裝引導程序
 											</a>
 										</li>
@@ -1307,7 +1307,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-4">
+						 					<a class="nav-link" href="#%e9%87%8d%e8%a6%81%e8%a3%9c%e5%85%85">
 												 重要補充
 											</a>
 										</li>
@@ -1331,7 +1331,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-5">
+						 					<a class="nav-link" href="#%e9%80%a3%e7%b6%b2">
 												 連網
 											</a>
 										</li>
@@ -1357,7 +1357,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-linux">
+						 					<a class="nav-link" href="#%e4%b8%8d%e8%a3%9d%e9%9b%99%e7%b3%bb%e7%b5%b1%e5%8f%aa%e6%9c%89-linux">
 												 不裝雙系統，只有 Linux
 											</a>
 										</li>
@@ -1381,7 +1381,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-6">
+						 					<a class="nav-link" href="#%e9%87%8d%e5%95%9f%e9%9b%bb%e8%85%a6">
 												 重啟電腦
 											</a>
 										</li>
@@ -1403,7 +1403,7 @@ poweroff <span class="c1"># 直接關機</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-7">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d%e5%be%8c%e5%b7%a5%e4%bd%9c">
 												 安裝後工作
 											</a>
 										</li>

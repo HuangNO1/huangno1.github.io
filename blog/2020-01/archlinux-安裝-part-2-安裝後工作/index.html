@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" />
 <meta property="article:published_time" content="2020-01-04T15:24:28+08:00" />
-<meta property="article:modified_time" content="2020-01-04T15:24:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
+<meta property="article:modified_time" content="2020-01-04T15:24:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-09/archlinux-%E5%AE%89%E8%A3%9D-part-1-windows-archlinux-%E9%9B%99%E7%B3%BB%E7%B5%B1/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/" />
 
 
   
@@ -326,12 +326,12 @@
 
           <div class="post-content markdown">
             <p>2020/01/04 edited by Huang Po-Hsun</p>
-<h2 id="heading">前言</h2>
+<h2 id="前言">前言</h2>
 <p>我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。</p>
-<h2 id="heading-1">確認連網</h2>
+<h2 id="確認連網">確認連網</h2>
 <p>我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認連網</span>
-</code></pre></div><h2 id="heading-2">添加使用者</h2>
+</code></pre></div><h2 id="添加使用者">添加使用者</h2>
 <p>在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。</p>
 <p>另一方面，我們<strong>無法使用超級使用者進入圖形界面</strong>。</p>
 <blockquote>
@@ -342,7 +342,7 @@ passwd user <span class="c1"># 設定使用者密碼</span>
 chfn user <span class="c1"># 添加使用者信息，可暫時不填</span>
 mkdir -m <span class="m">700</span> /home/user <span class="c1"># 創建主目錄</span>
 chown user:user /home/user <span class="c1"># 修改使用者與使用者群組</span>
-</code></pre></div><h2 id="sudo-">sudo 安裝</h2>
+</code></pre></div><h2 id="sudo-安裝">sudo 安裝</h2>
 <p>為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 <code>/etc/sudoers</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sudo <span class="c1"># 安裝 sudo</span>
 vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
@@ -352,7 +352,7 @@ vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">root</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span><span class="err">
 </span><span class="err"></span><span class="nx">user</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span> # <span class="nx">新增使用者</span><span class="err">
-</span></code></pre></div><h2 id="-archlinuxcn-">添加 ArchLinuxcn 源</h2>
+</span></code></pre></div><h2 id="添加-archlinuxcn-源">添加 ArchLinuxcn 源</h2>
 <p>Archlinuxcn 庫有很多平常實用的工具，但是官方倉庫沒有的東西。</p>
 <p>編輯 <code>/etc/pacman.conf</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/pacman.conf
@@ -365,11 +365,11 @@ vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </span><span class="err"></span><span class="nx">Server</span> <span class="p">=</span> <span class="nx">https</span>:<span class="sr">//</span><span class="nx">mirrors</span>.<span class="nx">ustc</span>.<span class="nx">edu</span>.<span class="nx">cn</span><span class="sr">/archlinuxcn/</span>$<span class="nx">arch</span><span class="err">
 </span></code></pre></div><p>archlinuxcn-keyring 套件導入 GPG 金鑰。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -Sy archlinuxcn-keyring
-</code></pre></div><h2 id="heading-3">安裝圖形界面</h2>
+</code></pre></div><h2 id="安裝圖形界面">安裝圖形界面</h2>
 <h3 id="xorg">Xorg</h3>
 <p>使用 xorg 啟動桌面環境。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S xorg
-</code></pre></div><h3 id="heading-4">圖形界面選擇</h3>
+</code></pre></div><h3 id="圖形界面選擇">圖形界面選擇</h3>
 <p>我比較推薦 KDE Plasma 或是 Gnome，兩者是最大主流，但因為 KDE 比 Gnome 乾淨，所以我選擇了 KDE Plasma。</p>
 <h4 id="kde-plasma">KDE Plasma</h4>
 <p><img src="https://i.loli.net/2020/01/05/GMmSkxldPv4s9tT.png" alt="01.png"></p>
@@ -393,7 +393,7 @@ vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 <p>註：在輸入 pacman 下載安裝指令時套件之間的空格不影響其指令執行。</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gnome gnome-extra
-</code></pre></div><h3 id="heading-5">啟動器</h3>
+</code></pre></div><h3 id="啟動器">啟動器</h3>
 <blockquote>
 <p>安裝啟動器後先別急進入圖形界面，如果你是雙顯卡會有顯卡衝突。</p>
 </blockquote>
@@ -403,9 +403,9 @@ vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </code></pre></div><h4 id="gnome-1">Gnome</h4>
 <p>使用 GDM 登入啟動器</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gdm
-</code></pre></div><h3 id="heading-6">顯卡衝突</h3>
+</code></pre></div><h3 id="顯卡衝突">顯卡衝突</h3>
 <p>相信如果你的筆電是<strong>雙顯卡</strong>，那很有可能遇到雙顯卡衝突，像我的是 <strong>Intel 和 nvidia 衝突</strong>，一般我會建議使用 Intel 內顯去驅動圖形界面。當然因為我的筆記型電腦是聯想 Y7000，所以對於顯卡的處理很麻煩。</p>
-<h4 id="heading-7">一般處理方法</h4>
+<h4 id="一般處理方法">一般處理方法</h4>
 <p>安裝 <code>optimus-manager</code>，幫你自動產生 <code>xorg.conf</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S optimus-manager <span class="c1"># 安裝 optimus-manager</span>
 systemctl <span class="nb">enable</span> --now optimus-manager
@@ -429,7 +429,7 @@ systemctl <span class="nb">enable</span> sddm <span class="c1"># 開機自啟</s
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start gdm <span class="c1"># 啟用圖形界面</span>
 systemctl <span class="nb">enable</span> gdm <span class="c1"># 開機自啟</span>
-</code></pre></div><h4 id="-y7000-">聯想 Y7000 的方法</h4>
+</code></pre></div><h4 id="聯想-y7000-的方法">聯想 Y7000 的方法</h4>
 <p>因為 <code>optimus-manager</code> 無法解決<strong>聯想 Y7000 的顯卡衝突</strong>，關於這裡的解決方法我是詢問 Telegram <a href="https://t.me/archlinuxcn_group">#archlinux-cn</a> 群中的 <strong>@HiyoriCao</strong> 大佬才得以解決。我因為不能使用獨顯進入圖形界面，所以就一直是用一個模式（核顯）。</p>
 <p>首先 yay 大佬的包 &ndash; <a href="https://aur.archlinux.org/packages/arch-prime-git/"><strong>arch-prime-git</strong></a></p>
 <blockquote>
@@ -464,11 +464,11 @@ glxinfo <span class="p">|</span> grep vendor
 <span class="nb">export</span> <span class="nv">NV_PRIME_RENDER_OFFLOAD</span><span class="o">=</span><span class="m">1</span> <span class="c1"># 設置環境變量</span>
 <span class="nv">GLX_VENDOR_LIBRARY_NAME</span><span class="o">=</span>nvidia glxinfo <span class="p">|</span> grep vendor
 </code></pre></div><p>接著試著重啟電腦進入圖形界面，如果沒問題就啟用自啟圖形界面。</p>
-<h2 id="heading-8">中文字體</h2>
+<h2 id="中文字體">中文字體</h2>
 <p>進入 Plasma，預設會是英文，我推薦使用 Google 的開源字體 <code>Noto Sans CJK</code>，渲染出來的字體很好看。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S noto-fonts-cjk
 </code></pre></div><p>進入 Plasma 後可以在設置中調整字體了，登出再登入就可以看到中文字體。</p>
-<h2 id="heading-9">中文輸入法</h2>
+<h2 id="中文輸入法">中文輸入法</h2>
 <p>我這裡選擇 <code>Fcitx</code>。這裡我參考了 @cheergo （Chun Yu）寫的文章內容。</p>
 <blockquote>
 <p>註：Fcitx (Flexible Input Method Framework) ── 即小企鵝輸入法，它是一個以 GPL 方式發布的輸入法平台，可以通過安裝引擎支持多種輸入法，支持簡入繁出，是在 Linux 操作系統中常用的中文輸入法。它的優點是，短小精悍、跟程序的兼容性比較好。</p>
@@ -491,7 +491,22 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 </code></pre></div><h2 id="konsole">Konsole</h2>
 <p>進入圖形界面後需要安裝 Konsole 以便輸入指令。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S konsole
-</code></pre></div><h2 id="reference">Reference</h2>
+</code></pre></div><h2 id="重要補充---聯想-y7000-的連網問題">重要補充 - 聯想 Y7000 的連網問題</h2>
+<p>聯想筆電通常在連無線網路上有一個坑 - <strong>Networkmanager 無法啟用無線網卡</strong>，算是&hellip;聯想筆電的特色，這裡我感謝 Telegram <a href="https://t.me/archlinuxcn_group">#archlinux-cn</a> 群中的 <strong>@Asterism</strong> 大佬幫助我解決問題。</p>
+<p>許多筆記本電腦都有一個硬體按鈕（或開關）來關閉無線網卡，但是，網卡也可能被內核阻止。 可以由 <strong>Rfkill</strong> 處理。通常來說你需要<strong>禁用 ideapod_laptop</strong>。</p>
+<p>先輸入 <code>rfkill list</code> 查看關於筆電的硬件開關。</p>
+<blockquote>
+<p><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat">關於 Rfkill</a></p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/01/15/WLsrNmj6I41ZGyf.png" alt="03.png"></p>
+<p>這章是我已經處理過的圖片，關於 <strong>Wireless LAN</strong> 的軟體與硬體禁止皆為 NO，但如果是還沒處理之前我的 <strong>Soft blocked</strong>（軟卡禁止）為 <code>no</code>、<strong>Hard blocked</strong>（硬卡禁止）為 <code>yes</code>。</p>
+<blockquote>
+<p>註：<code>modprobe</code> 是內核模塊，想了解更多可以參考 <a href="https://wiki.archlinux.org/index.php/Kernel_module_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Kernel module (简体中文) - ArchWiki</a></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
+sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;blacklist ideapad_laptop&#34;</span> <span class="c1"># 永久生效</span>
+</code></pre></div><p>接著再次輸入 <code>rfkill list</code> 查看狀態，如果發現是 <code>no</code>就行了，無線網路也能連結了。</p>
+<h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">General recommendations (简体中文) - ArchWiki</a></li>
 <li><a href="https://wiki.archlinux.org/index.php/Users_and_groups_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Users and groups (简体中文) - ArchWiki</a></li>
@@ -504,6 +519,8 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 <li><a href="https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Fcitx (简体中文) - ArchWiki</a></li>
 <li><a href="https://wiki.archlinux.org/index.php/NTFS-3G_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">NTFS-3G (简体中文) - ArchWiki</a></li>
 <li><a href="https://www.slant.co/versus/12539/12540/~gnome_vs_kde">gnome_vs_kde</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat">Redirect to:Network configuration/Wireless#Rfkill caveat - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Kernel_module_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Kernel module (简体中文) - ArchWiki</a></li>
 </ul>
 
           </div>
@@ -599,7 +616,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading">
+						 					<a class="nav-link" href="#%e5%89%8d%e8%a8%80">
 												 前言
 											</a>
 										</li>
@@ -621,7 +638,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-1">
+						 					<a class="nav-link" href="#%e7%a2%ba%e8%aa%8d%e9%80%a3%e7%b6%b2">
 												 確認連網
 											</a>
 										</li>
@@ -643,7 +660,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-2">
+						 					<a class="nav-link" href="#%e6%b7%bb%e5%8a%a0%e4%bd%bf%e7%94%a8%e8%80%85">
 												 添加使用者
 											</a>
 										</li>
@@ -665,7 +682,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#sudo-">
+						 					<a class="nav-link" href="#sudo-%e5%ae%89%e8%a3%9d">
 												 sudo 安裝
 											</a>
 										</li>
@@ -687,7 +704,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-archlinuxcn-">
+						 					<a class="nav-link" href="#%e6%b7%bb%e5%8a%a0-archlinuxcn-%e6%ba%90">
 												 添加 ArchLinuxcn 源
 											</a>
 										</li>
@@ -709,7 +726,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-3">
+						 					<a class="nav-link" href="#%e5%ae%89%e8%a3%9d%e5%9c%96%e5%bd%a2%e7%95%8c%e9%9d%a2">
 												 安裝圖形界面
 											</a>
 										</li>
@@ -759,7 +776,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-4">
+						 					<a class="nav-link" href="#%e5%9c%96%e5%bd%a2%e7%95%8c%e9%9d%a2%e9%81%b8%e6%93%87">
 												 圖形界面選擇
 											</a>
 										</li>
@@ -845,7 +862,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-5">
+						 					<a class="nav-link" href="#%e5%95%9f%e5%8b%95%e5%99%a8">
 												 啟動器
 											</a>
 										</li>
@@ -931,7 +948,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-6">
+						 					<a class="nav-link" href="#%e9%a1%af%e5%8d%a1%e8%a1%9d%e7%aa%81">
 												 顯卡衝突
 											</a>
 										</li>
@@ -959,7 +976,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-7">
+						 					<a class="nav-link" href="#%e4%b8%80%e8%88%ac%e8%99%95%e7%90%86%e6%96%b9%e6%b3%95">
 												 一般處理方法
 											</a>
 										</li>
@@ -989,7 +1006,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#-y7000-">
+						 					<a class="nav-link" href="#%e8%81%af%e6%83%b3-y7000-%e7%9a%84%e6%96%b9%e6%b3%95">
 												 聯想 Y7000 的方法
 											</a>
 										</li>
@@ -1015,7 +1032,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-8">
+						 					<a class="nav-link" href="#%e4%b8%ad%e6%96%87%e5%ad%97%e9%ab%94">
 												 中文字體
 											</a>
 										</li>
@@ -1037,7 +1054,7 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#heading-9">
+						 					<a class="nav-link" href="#%e4%b8%ad%e6%96%87%e8%bc%b8%e5%85%a5%e6%b3%95">
 												 中文輸入法
 											</a>
 										</li>
@@ -1083,6 +1100,28 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 										<li class="nav-item">
 						 					<a class="nav-link" href="#konsole">
 												 Konsole
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%87%8d%e8%a6%81%e8%a3%9c%e5%85%85---%e8%81%af%e6%83%b3-y7000-%e7%9a%84%e9%80%a3%e7%b6%b2%e5%95%8f%e9%a1%8c">
+												 重要補充 - 聯想 Y7000 的連網問題
 											</a>
 										</li>
 						 
