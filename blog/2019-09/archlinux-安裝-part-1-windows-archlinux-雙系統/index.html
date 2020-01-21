@@ -312,7 +312,7 @@
 
     
       <li class="middot"></li>
-      <li>12 minutes read</li>
+      <li>13 minutes read</li>
     
   </ul>
   
@@ -341,7 +341,15 @@
 <blockquote>
 <p>註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。</p>
 </blockquote>
+<h4 id="關於燒錄方式">關於燒錄方式</h4>
+<blockquote>
+<p>2020/01/21 補充燒錄方式。</p>
+</blockquote>
+<p>我幫家裡已經十年的 HP CQ40 重裝系統，因為過於老舊，電腦沒有 UEFI，只有 Legacy，所以開機無法以 UEFI 開機，這時關於燒錄鏡像的方式就需要做調整。</p>
+<p>如果你的 Bios 有 UEFI 就使用 <strong>GPT 燒錄</strong>，如果是像我上面一樣，電腦過於老舊，當時的年代只有 Lengcy，這時你需要使用已經淘汰的 <strong>MBR 燒錄鏡像</strong>，然後建議使用 dd 燒錄。至於怎麼看自己電腦有沒有 UEFI，只需要查看自己的 Bios 是否有開機模式選項並且有 UEFI 選項。</p>
+<p>現在大部份的電腦都有 UEFI，所以正常選擇 <strong>GPT</strong> 就好。</p>
 <p>e.g.</p>
+<p>MBR 燒錄。</p>
 <p><img src="https://i.loli.net/2019/09/29/jR5FbkuUCPIMvXh.png" alt="3.png"></p>
 <h3 id="4-分割磁區">4. 分割磁區</h3>
 <p><strong>我們假設在固態硬碟割出 40GB 空間（40GB <code>root</code>），在虛擬硬碟割出102GB 空間（2GB <code>swap</code>, 100GB <code>home</code>）</strong>，此時別格式化割出來的磁區，讓它們保持為<strong>未配置狀態</strong>。</p>
@@ -357,7 +365,10 @@
 <p>每台電腦進入 BIOS 的方法都不同，像我的電腦是聯想 y7000p，所以我在開機時一直按住 <code>Fn + F2</code> ，就能進入 BIOS 調整開機順序，因為幫室友們裝了 Arch，所以 ThinkPad 是 <code>F1</code>，華碩是按 <code>Esc</code> 或 <code>F2</code>，小米是 <code>F2</code>，我記得小米筆電進入 BIOS 還需要輸入 Password，有點麻煩就是了。當然還是勸大家上網搜一下自己電腦型號的進入 BIOS 快捷建。不好意思，我因為 linux 無法掛載我的移動 SSD，具體是因為我之前想將 arch 灌到 SSD 上，後來覺得使用上麻煩所以放棄了， 所以我先將該磁區刪除再新增，</p>
 <p>成功進入 USB 後選擇第一個選項 <code>Boot Arch Linux (X86_64)</code> 按 <code>Enter</code> 進入，當你看到 <code>root #</code> 就代表你已經進入 USB 裡的 Arch 安裝鏡像。</p>
 <blockquote>
-<p>註：切記要是 <strong>UEFI 開機</strong>，因為我們最後要在 BIOS 安裝引導程序，來引導我們開機選擇進入的 OS。如果沒有使用 UEFI 開機的話會裝不上引導程序 <code>grub</code>。</p>
+<p>註：切記要是 UEFI 開機，因為我們最後要在 BIOS 安裝引導程序，來引導我們開機選擇進入的 OS。如果沒有使用 UEFI 開機的話會裝不上引導程序 <code>grub</code>。</p>
+</blockquote>
+<blockquote>
+<p>當然如果你的電腦沒辦法使用 UEFI，並且前面的燒錄方式使用的是 <strong>MBR</strong>，在後面分割磁區時就需要用不同的方式，然後 GRUB 引導也是不同的指令。</p>
 </blockquote>
 <p><img src="https://i.loli.net/2019/09/30/q4zMECx7tpkNLK1.png" alt="5.png"></p>
 <h3 id="6-確認連到網路">6. 確認連到網路</h3>
@@ -398,7 +409,7 @@ timedatectl status <span class="c1"># 檢查服務狀態</span>
 <p><strong>我們使用 <code>cfdisk</code> 來分割磁區</strong></p>
 <p>ArchWiki 建議的分區參考</p>
 <p><img src="https://i.loli.net/2019/09/30/dQUhfT6SNIAPq4D.png" alt="10.png"></p>
-<p>我們已經在 Windows 分割好了我們的磁區。</p>
+<p>我們已經在 Windows 分割好了我們的磁區。我們使用的是 <strong>GPT</strong> 的方案。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">lsblk <span class="c1"># 檢查磁區狀態</span>
 </code></pre></div><p><img src="https://i.loli.net/2019/09/30/NMrOdjfom7FBA54.png" alt="11.png"></p>
 <p>以上是我的磁區狀態，因為我是已經裝好了系統，所以會顯示這樣的狀態，但你現在的狀態是不會顯示出你切割出來的磁區，這裡<strong>記得你的磁區大小</strong>以便在這裡辨認出你的磁區哪些是固態硬碟和虛擬硬碟。</p>
@@ -569,7 +580,12 @@ mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
 </code></pre></div><p>確認設定檔產生無報錯後接著退出 <code>Chroot</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
 </code></pre></div><h2 id="重要補充">重要補充</h2>
-<h3 id="連網">連網</h3>
+<h3 id="mbr-的-grub-引導指令">MBR 的 GRUB 引導指令</h3>
+<blockquote>
+<p>sdX 為 /root 的磁區。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">grub-install --target<span class="o">=</span>i386-pc /dev/sdX
+</code></pre></div><h3 id="連網">連網</h3>
 <p>因為拔掉 USB 重啟電腦後，會發現關於<strong>連網功能不好處理</strong>，使用 <code>ip link</code> 後 <code>dhcpcd</code> 過於繁瑣，建議就在這裡就安裝連網的管理器。</p>
 <blockquote>
 <p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p>
@@ -659,6 +675,27 @@ poweroff <span class="c1"># 直接關機</span>
           </div>
 
           
+          
+          <div class="disqus markdown">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'remblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+          </div>
 
         </div>
         
@@ -803,6 +840,36 @@ poweroff <span class="c1"># 直接關機</span>
 										</li>
 						 
 								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%97%9c%e6%96%bc%e7%87%92%e9%8c%84%e6%96%b9%e5%bc%8f">
+												 關於燒錄方式
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
 								
 									</ul>
 								
@@ -1313,6 +1380,32 @@ poweroff <span class="c1"># 直接關機</span>
 										</li>
 						 
 								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#mbr-%e7%9a%84-grub-%e5%bc%95%e5%b0%8e%e6%8c%87%e4%bb%a4">
+												 MBR 的 GRUB 引導指令
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
 								
 									</ul>
 								

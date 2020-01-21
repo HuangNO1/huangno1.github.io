@@ -312,7 +312,7 @@
 
     
       <li class="middot"></li>
-      <li>5 minutes read</li>
+      <li>6 minutes read</li>
     
   </ul>
   
@@ -499,13 +499,13 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 <p><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat">關於 Rfkill</a></p>
 </blockquote>
 <p><img src="https://i.loli.net/2020/01/15/WLsrNmj6I41ZGyf.png" alt="03.png"></p>
-<p>這章是我已經處理過的圖片，關於 <strong>Wireless LAN</strong> 的軟體與硬體禁止皆為 NO，但如果是還沒處理之前我的 <strong>Soft blocked</strong>（軟卡禁止）為 <code>no</code>、<strong>Hard blocked</strong>（硬卡禁止）為 <code>yes</code>。</p>
+<p>這張圖片是我已經處理過的狀態，關於 <strong>Wireless LAN</strong> 的軟體與硬體禁止皆為 NO，但如果是還沒處理之前我的 <strong>Soft blocked</strong>（軟卡禁止）為 <code>no</code>、<strong>Hard blocked</strong>（硬卡禁止）為 <code>yes</code>。</p>
 <blockquote>
 <p>註：<code>modprobe</code> 是內核模塊，想了解更多可以參考 <a href="https://wiki.archlinux.org/index.php/Kernel_module_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Kernel module (简体中文) - ArchWiki</a></p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
 sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;blacklist ideapad_laptop&#34;</span> <span class="c1"># 永久生效</span>
-</code></pre></div><p>接著再次輸入 <code>rfkill list</code> 查看狀態，如果發現是 <code>no</code>就行了，無線網路也能連結了。</p>
+</code></pre></div><p>接著再次輸入 <code>rfkill list</code> 查看狀態，如果發現 <code>Wireless LAN</code> 的 <code>Soft blocked</code> 和 <code>Hard blocked</code> 都是 <code>no</code>就行了，無線網路也能連結了。</p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">General recommendations (简体中文) - ArchWiki</a></li>
@@ -576,6 +576,27 @@ sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span 
           </div>
 
           
+          
+          <div class="disqus markdown">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'remblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+          </div>
 
         </div>
         
