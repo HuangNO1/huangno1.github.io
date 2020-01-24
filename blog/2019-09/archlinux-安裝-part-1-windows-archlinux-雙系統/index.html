@@ -329,7 +329,7 @@
 <!-- raw HTML omitted -->
 <h2 id="前言">前言</h2>
 <p>我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。</p>
-<p>由於我的電腦型號是<strong>聯想 y7000p</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide - ArchWiki</a> 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(</p>
+<p>由於我的電腦型號是<strong>聯想 y7000</strong>，所以遇到的坑真的很多，我會按特殊情況講解，雖然 <a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Installation guide - ArchWiki</a> 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(</p>
 <p>因為我這是專給小白寫的文章，所以寫了很多細節和注意點，如果你是高手，覺得我寫了很多廢話，那請你忍耐吧，也可以選擇不看我的文章，直接去看 ArchWiki。</p>
 <h2 id="安裝前準備">安裝前準備</h2>
 <h3 id="1-至-清華大學-archlinux-軟件鏡像站httpsmirrorstunatsinghuaeducnarchlinuxisolatest下載最新版的-archlinuxios-鏡像">1. 至 <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">清華大學 Archlinux 軟件鏡像站</a>下載最新版的 archlinux*.ios 鏡像</h3>
@@ -362,7 +362,7 @@
 <p>在磁區上點擊滑鼠右鍵選擇<strong>壓縮磁碟</strong>，應你的需求壓縮適當大小的磁區。</p>
 <h3 id="5-usb-使用-uefi-方式開機">5. USB 使用 UEFI 方式開機</h3>
 <p><strong>進入 BIOS，調整 Boot 開機順序，改為你的 USB 優先開機，主機與 USB 開機模式為 UEFI</strong></p>
-<p>每台電腦進入 BIOS 的方法都不同，像我的電腦是聯想 y7000p，所以我在開機時一直按住 <code>Fn + F2</code> ，就能進入 BIOS 調整開機順序，因為幫室友們裝了 Arch，所以 ThinkPad 是 <code>F1</code>，華碩是按 <code>Esc</code> 或 <code>F2</code>，小米是 <code>F2</code>，我記得小米筆電進入 BIOS 還需要輸入 Password，有點麻煩就是了。當然還是勸大家上網搜一下自己電腦型號的進入 BIOS 快捷建。不好意思，我因為 linux 無法掛載我的移動 SSD，具體是因為我之前想將 arch 灌到 SSD 上，後來覺得使用上麻煩所以放棄了， 所以我先將該磁區刪除再新增，</p>
+<p>每台電腦進入 BIOS 的方法都不同，像我的電腦是聯想 y7000，所以我在開機時一直按住 <code>Fn + F2</code> ，就能進入 BIOS 調整開機順序，因為幫室友們裝了 Arch，所以 ThinkPad 是 <code>F1</code>，華碩是按 <code>Esc</code> 或 <code>F2</code>，小米是 <code>F2</code>，我記得小米筆電進入 BIOS 還需要輸入 Password，有點麻煩就是了。當然還是勸大家上網搜一下自己電腦型號的進入 BIOS 快捷建。不好意思，我因為 linux 無法掛載我的移動 SSD，具體是因為我之前想將 arch 灌到 SSD 上，後來覺得使用上麻煩所以放棄了， 所以我先將該磁區刪除再新增，</p>
 <p>成功進入 USB 後選擇第一個選項 <code>Boot Arch Linux (X86_64)</code> 按 <code>Enter</code> 進入，當你看到 <code>root #</code> 就代表你已經進入 USB 裡的 Arch 安裝鏡像。</p>
 <blockquote>
 <p>註：切記要是 UEFI 開機，因為我們最後要在 BIOS 安裝引導程序，來引導我們開機選擇進入的 OS。如果沒有使用 UEFI 開機的話會裝不上引導程序 <code>grub</code>。</p>

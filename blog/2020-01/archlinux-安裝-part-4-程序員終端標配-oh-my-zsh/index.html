@@ -375,17 +375,17 @@ sh install.sh
 </code></pre></div><p>將 <code>ZSH_THEME</code> 改成 <code>ys</code>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">ZSH_THEME</span><span class="p">=</span><span class="s2">&#34;ys&#34;</span><span class="err">
 </span></code></pre></div><h2 id="推薦插件">推薦插件</h2>
-<p>插件依然需要打開 <code>~/.zshrc</code> ，找到 <code>plugins=</code>，然後在裡面寫需要的插件名，有些插件可能還需要安裝。</p>
+<p>插件依然需要編輯 <code>~/.zshrc</code> ，找到 <code>plugins=</code>，然後在裡面寫需要的插件名，有些插件可能還需要安裝。</p>
 <blockquote>
 <p>注意：只要改了此文件，重啟終端后有效或使用 <code>source ~/.zshrc</code> 更新配置。</p>
 </blockquote>
 <h3 id="extract">extract</h3>
 <p>用來解壓縮文件，用起來很爽，根本不需要去記憶各種解壓縮指令，一套 <code>x filmname</code> 直接幫你解壓好。</p>
-<p>當然，如果你想要用tar命令，可以使用tar -加tab鍵，zsh會列出參數的含義。</p>
+<p>當然，如果你想要用 <code>tar</code> 命令，可以使用 <code>tar -</code> 加 <code>tab</code> 鍵，zsh 會列出參數的含義。</p>
 <p>這插件預設安裝就有，不需要額外安裝。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">其他的插件</span> <span class="nx">extract</span><span class="p">)</span><span class="err">
 </span></code></pre></div><h3 id="zsh-autosuggestion">zsh-autosuggestion</h3>
-<p>自動補全。可記錄之前輸過得指令。</p>
+<p>自動補全。可記錄之前輸過的指令。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">git clone git://github.com/zsh-users/zsh-autosuggestions <span class="nv">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">其他的插件</span> <span class="nx">zsh</span><span class="p">-</span><span class="nx">autosuggestion</span><span class="p">)</span><span class="err">
 </span></code></pre></div><h3 id="zsh-syntax-highlighting">zsh-syntax-highlighting</h3>
@@ -405,7 +405,7 @@ sh install.sh
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">brew install bat
 </code></pre></div><h3 id="incr">incr</h3>
 <p>可以說 <code>incr.zsh</code> 這插件是最強的自動補全插件，還能幫你搜索線上的倉庫是否有你所需要的軟體包。建議搭配 <code>zsh-autosuggestion</code> 一起使用，我將這兩個插件都裝了。</p>
-<p>到<a href="http://mimosa-pudica.net/src/incr-0.2.zsh">這個網站</a>下載 <code>incr.zsh</code> 文件，將此文件放置 <code>~/.oh-my-zsh/custom/plugins/incr/incr*.zsh</code> 資料夾裡，如果沒有資料夾就自己新增。</p>
+<p>到<a href="http://mimosa-pudica.net/src/incr-0.2.zsh">這個網站</a>下載 <code>incr.zsh</code> 文件，將此文件放置 <code>~/.oh-my-zsh/custom/plugins/incr</code> 資料夾裡，如果沒有資料夾就自己新增。</p>
 <p>在 <code>~/.zshrc</code> 文末添加一行。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">source</span> <span class="p">~</span><span class="sr">/.oh-my-zsh/</span><span class="nx">custom</span><span class="sr">/plugins/</span><span class="nx">incr</span>/<span class="nx">incr</span>*.<span class="nx">zsh</span><span class="err">
 </span></code></pre></div><h2 id="插件配置">插件配置</h2>
