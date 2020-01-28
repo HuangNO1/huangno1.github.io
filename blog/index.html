@@ -302,6 +302,8 @@
 
   
 
+  
+
 
 
 
@@ -333,8 +335,8 @@
               <li class="middot"></li>
             
             <li class="py-1">
-              <a href="https://huangno1.github.io/categories/c/c&#43;&#43;">
-                <span>C/C&#43;&#43; (1)</span>
+              <a href="https://huangno1.github.io/categories/linux">
+                <span>Linux (2)</span>
               </a>
             </li>           
           
@@ -342,8 +344,8 @@
               <li class="middot"></li>
             
             <li class="py-1">
-              <a href="https://huangno1.github.io/categories/linux">
-                <span>Linux (1)</span>
+              <a href="https://huangno1.github.io/categories/c/c&#43;&#43;">
+                <span>C/C&#43;&#43; (1)</span>
               </a>
             </li>           
           
@@ -356,6 +358,8 @@
 
     
           
+
+  
 
   
 
@@ -393,10 +397,10 @@
         
         
         
-            <li><a href="https://huangno1.github.io/tags/archlinux" role="button"><span>archlinux (7)</span></a></li>
+            <li><a href="https://huangno1.github.io/tags/archlinux" role="button"><span>archlinux (8)</span></a></li>
           
         
-            <li><a href="https://huangno1.github.io/tags/linux" role="button"><span>linux (6)</span></a></li>
+            <li><a href="https://huangno1.github.io/tags/linux" role="button"><span>linux (7)</span></a></li>
           
         
             <li><a href="https://huangno1.github.io/tags/c&#43;&#43;" role="button"><span>c&#43;&#43; (1)</span></a></li>
@@ -405,7 +409,22 @@
             <li><a href="https://huangno1.github.io/tags/desktop" role="button"><span>desktop (1)</span></a></li>
           
         
+            <li><a href="https://huangno1.github.io/tags/idea" role="button"><span>idea (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/intellij" role="button"><span>intellij (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/java" role="button"><span>java (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/jdk" role="button"><span>jdk (1)</span></a></li>
+          
+        
             <li><a href="https://huangno1.github.io/tags/kde" role="button"><span>kde (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/maven" role="button"><span>maven (1)</span></a></li>
           
         
             <li><a href="https://huangno1.github.io/tags/oh-my-zsh" role="button"><span>oh-my-zsh (1)</span></a></li>
@@ -418,6 +437,9 @@
           
         
             <li><a href="https://huangno1.github.io/tags/python" role="button"><span>python (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/tomcat" role="button"><span>tomcat (1)</span></a></li>
           
         
             <li><a href="https://huangno1.github.io/tags/video" role="button"><span>video (1)</span></a></li>
@@ -458,6 +480,8 @@
 
   
 
+  
+
 
 
 
@@ -480,7 +504,7 @@
         
           
           
-            <li class="py-1"><a href="https://huangno1.github.io/series/linux"><span>Linux (7)</span></a></li>
+            <li class="py-1"><a href="https://huangno1.github.io/series/linux"><span>Linux (8)</span></a></li>
           
             <li class="py-1"><a href="https://huangno1.github.io/series/c/c&#43;&#43;"><span>C/C&#43;&#43; (1)</span></a></li>
           
@@ -511,7 +535,7 @@
               
                 <div class="px-2 middot"></div>
                 <div>
-                  8 posts
+                  9 posts
                 </div>
               
             </div>
@@ -590,12 +614,96 @@
           
               <div class="post-wrapper white-bg post-card">
   
+  <a href="https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E9%85%8D%E7%BD%AE-java-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%88%B0%E8%99%9B%E6%93%AC%E7%A1%AC%E7%A2%9F-java8tomcat8maven3intellij-idea/">
+    <div class="post-header text-center">
+      <div class="px-4 post-heading">在 Linux 配置 Java 開發環境到虛擬硬碟 - Java8、Tomcat8、Maven3、IntelliJ IDEA</div>
+      <ul class="post-meta li-x mt-1">
+        
+          <li>Jan 28, 2020</li>
+        
+    
+        
+          <li class="middot"></li>
+          <li>4 minutes read</li>
+        
+      </ul>
+    </div>
+    
+    
+      <div class="view">
+        <img src="https://huangno1.github.io/images/blog/2020-01/IntelliJ_IDEA.png" />
+      </div>
+    
+
+    
+      2020/01/28 edited by Huang Po-Hsun 前言 我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個適用於你的電腦的 Linux SSD (root) 空間不夠的情況，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 /home。如果覺得自己 SSD 夠用，就直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ，畢竟會有人覺得我這樣的做法讓系統管理......
+    
+  </a>
+
+  
+  
+  <div class="post-meta li-x mt-2 div-x">
+    <div>
+      
+        
+          <li><a href="https://huangno1.github.io/categories/linux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> Linux </a></li>
+        
+      
+      
+        
+          <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
+        
+      
+    </div>
+   
+    <div>
+      
+        
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/java" role="button">Java </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/jdk" role="button">JDK </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/tomcat" role="button">Tomcat </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/maven" role="button">Maven </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/intellij" role="button">IntelliJ </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/idea" role="button">IDEA </a></li>
+      
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+</div>
+
+          
+              <div class="post-wrapper white-bg post-card">
+  
   <a href="https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E4%B8%8A%E6%8E%A7%E5%88%B6-python-%E7%89%88%E6%9C%AC-pyenv/">
     <div class="post-header text-center">
       <div class="px-4 post-heading">在 Linux 上控制 Python 版本 - pyenv</div>
       <ul class="post-meta li-x mt-1">
         
-          <li>Jan 17, 2020</li>
+          <li>Jan 27, 2020</li>
         
     
         
@@ -730,78 +838,6 @@
       
     
       <li><a href="https://huangno1.github.io/tags/wallpaper" role="button">Wallpaper </a></li>
-      
-    
-  </div>
-</div>
-      
-    </div>
-  </div>
-
-</div>
-
-          
-              <div class="post-wrapper white-bg post-card">
-  
-  <a href="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/">
-    <div class="post-header text-center">
-      <div class="px-4 post-heading">Archlinux 安裝 Part 4 - 程序員終端標配 oh-my-zsh</div>
-      <ul class="post-meta li-x mt-1">
-        
-          <li>Jan 5, 2020</li>
-        
-    
-        
-          <li class="middot"></li>
-          <li>3 minutes read</li>
-        
-      </ul>
-    </div>
-    
-    
-      <div class="view">
-        <img src="https://huangno1.github.io/images/blog/2020-01/oh-my-zsh.png" />
-      </div>
-    
-
-    
-      2020/01/05 edited by Huang Po-Hsun 前言 我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 Bash，然而 bash 過於單調，也沒有自動補全，這時我們就需要開源項目 oh-my-zsh，在這篇教學我會寫一下，我配置 oh-my-zsh 的過程。 我的 Konsole Konsole 透明度設置 在標題欄點擊滑鼠右鍵。 在外觀與修復中，可以調整透明度。我調成不透明度 80%。 安裝 zsh sudo pacman -S zsh 查看系統當前使用的 Shell echo $SHELL # 查看指令 /bin/bash # 輸出結果 看系統是否裝了 zsh cat /etc/shells # 輸入指令 # Pathnames of valid login shells. # See shells(5) for details. /bin/sh......
-    
-  </a>
-
-  
-  
-  <div class="post-meta li-x mt-2 div-x">
-    <div>
-      
-        
-          <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
-        
-      
-      
-        
-          <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
-        
-      
-    </div>
-   
-    <div>
-      
-        
-<div class="li-x div-x post-meta">
-  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
-  <div class="tags-sm">
-    
-      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/zsh" role="button">zsh </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/oh-my-zsh" role="button">oh-my-zsh </a></li>
       
     
   </div>

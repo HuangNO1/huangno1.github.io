@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Rem">
+  <meta name="description" content="第九篇文章">
+  
+  <meta property="og:title" content="在 Linux 配置 Java 開發環境到虛擬硬碟 - Java8、Tomcat8、Maven3， IntelliJ IDEA" />
+<meta property="og:description" content="第九篇文章" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E9%85%8D%E7%BD%AE-java-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%88%B0%E8%99%9B%E6%93%AC%E7%A1%AC%E7%A2%9F-java8tomcat8maven3-intellij-idea/" />
+<meta property="article:published_time" content="2020-01-28T11:27:28+08:00" />
+<meta property="article:modified_time" content="2020-01-28T11:27:28+08:00" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E4%B8%8A%E6%8E%A7%E5%88%B6-python-%E7%89%88%E6%9C%AC-pyenv/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-4-%E7%A8%8B%E5%BA%8F%E5%93%A1%E7%B5%82%E7%AB%AF%E6%A8%99%E9%85%8D-oh-my-zsh/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-3-%E5%9F%BA%E6%9C%AC%E8%BB%9F%E9%AB%94%E5%8C%85%E5%AE%89%E8%A3%9D%E8%88%87-mac-%E9%A2%A8%E7%95%8C%E9%9D%A2%E8%A8%AD%E8%A8%88/" /><meta property="og:see_also" content="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/" />
+
+
+  
+  
+  
+  
+
+  <title>
+  
+       在 Linux 配置 Java 開發環境到虛擬硬碟 - Java8、Tomcat8、Maven3， IntelliJ IDEA | Rem Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E9%85%8D%E7%BD%AE-java-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%88%B0%E8%99%9B%E6%93%AC%E7%A1%AC%E7%A2%9F-java8tomcat8maven3-intellij-idea/">
+
+  
+  
+
+  
+  <link href="https://huangno1.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://huangno1.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://huangno1.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://huangno1.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://huangno1.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://huangno1.github.io/img/zheng.png"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://huangno1.github.io/css/vendors/highlight/github-gist.css">
+  
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-138697151-2');
+  </script>
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://huangno1.github.io/">
+          
+        <img class="avatar" src="https://huangno1.github.io/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> Rem</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://huangno1.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/moment/" >Moment  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://huangno1.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://huangno1.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://huangno1.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://huangno1.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://huangno1.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Rem Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/HuangNO1" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+              <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            
+
+            
+
+            
+                <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://huangno1.github.io/categories/linux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> Linux </a></li>
+      
+    
+    
+      
+        <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">在 Linux 配置 Java 開發環境到虛擬硬碟 - Java8、Tomcat8、Maven3， IntelliJ IDEA</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Jan 28, 2020</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>4 minutes read</li>
+    
+  </ul>
+  
+    <div class="view">
+      <img src="https://huangno1.github.io/images/blog/2020-01/IntelliJ_IDEA.png" />
+    </div>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            <p>2020/01/28 edited by Huang Po-Hsun</p>
+<h2 id="前言">前言</h2>
+<p>我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個<strong>適用於你的電腦的 Linux SSD (root) 空間不夠的情況</strong>，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 <strong>/home</strong>。如果覺得自己 SSD 夠用，就<strong>直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ</strong>，畢竟會有人覺得我這樣的做法讓系統管理有點髒。不過關於環境變量的配置可以參考我這篇文章，不管是裝在 SSD 還是 HDD。</p>
+<h2 id="jdk-版本選擇">JDK 版本選擇</h2>
+<h3 id="jdk-1xxx-和-jdk-xxx0-比如-jdk-18-和-jdk-8">JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8</h3>
+<blockquote>
+<p>參考自<a href="https://www.itread01.com/content/1548891008.html">這網站</a>的介紹。</p>
+</blockquote>
+<p>Sun 公司看別人的語言更新都更新到 xxx 了，自己的 Java 版本還是 1 點幾，讓人感覺很落後，所以在 <code>jdk 1.6</code> 的時候對外發布稱之為 <code>jdk 6.0</code> ，讓人感覺更先進點。在寫 Java 的人眼裡都是叫 <code>1.6</code> 的，基本沒人說 <code>6.0.</code>。</p>
+<h3 id="推薦的-jdk-版本">推薦的 JDK 版本</h3>
+<blockquote>
+<p>參考自<a href="https://zhuanlan.zhihu.com/p/51228073">這篇文章</a>。</p>
+</blockquote>
+<p>我推薦的是 <strong>JDK 1.8</strong> 版本，也就是 <strong>Java 8</strong>，因為它足夠穩定，對一些套件的依賴與支持完整高，也是目前新手入門最好的 JDK 版本。至於 1.8 以前的版本都不推薦因為過於老舊，目前 JDK 1.8 以後的版本不怎麼穩定，但如果想要嘗試新的開源項目可以嘗試最版本。</p>
+<h2 id="下載-jdk-18">下載 JDK 1.8</h2>
+<p>至 Oracle Java 下載處下載你要的 JDK 包，<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 1.8</a>。</p>
+<blockquote>
+<p>註：下載需要註冊 Oracle 帳號，這裡要感謝網上的有些善心人士提供共享帳號。</p>
+<p>Oracle 帳號：2696671285@qq.com</p>
+<p>Oracle 密碼：Oracle123</p>
+<p><a href="https://www.cnblogs.com/AlanLee/p/8615307.html">帳號來源</a></p>
+</blockquote>
+<p>像我是下載這個。</p>
+<p><img src="https://i.loli.net/2020/01/28/uK7lF3CDyJbormz.png" alt="jdk.png"></p>
+<p>下載下來 <code>*.tar.gz</code> 後將其解壓，將資料夾放入 <code>~/.local/usr/lib/jvm/</code> 路徑裡，如果沒有路徑資料夾就自己創建。</p>
+<h2 id="下載-tomcat-8">下載 Tomcat 8</h2>
+<p>Tomcat 這裡我目前也比較推薦 Tomcat 8，目前 Tomcat 最新版出到 9，但是我實際做項目的時候發現 Tomcat 9 對於代碼的規範要求很多，不按照 Tomcat 9 的規範走會有很多警告，也影響開發時的觀感。</p>
+<p>下載 <a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a></p>
+<p><img src="https://i.loli.net/2020/01/28/REZIPY6QolVgM4k.png" alt="tomcat.png"></p>
+<p>解壓後將資料夾放入 <code>~/.local/opt/tomcat/</code>。如果沒有路徑資料夾就自己創建。</p>
+<h2 id="下載-maven-3">下載 Maven 3</h2>
+<p><a href="https://maven.apache.org/download.cgi">Maven 3</a></p>
+<p><img src="https://i.loli.net/2020/01/28/krLAJHxRKjfE24t.png" alt="maven.png"></p>
+<p>解壓後將資料夾放入 <code>~/.local/opt/maven/</code>。如果沒有路徑資料夾就自己創建。</p>
+<h2 id="編輯-tomcat">編輯 Tomcat</h2>
+<blockquote>
+<p>假設你的 JDK 版本是 <code>jdk1.8.0_241</code>。Tomcat 是 <code>apache-tomcat-8.5.47</code>。Maven 是 <code>apache-maven-3.6.2</code>。如果你的版本跟我不一致，就自行修改版本號。</p>
+</blockquote>
+<p>編輯 <code>~/.local/opt/tomcat/apache-tomcat-8.5.47/bin/startup.sh</code>，於文件末添加 JDK、JRE 配置內容：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#java8</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>~/.local/usr/lib/jvm/jdk1.8.0_241
+<span class="nb">export</span> <span class="nv">JRE_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/jre
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">JRE_HOME</span><span class="si">}</span>/lib
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+
+<span class="c1">#tomcat8</span>
+<span class="nb">export</span> <span class="nv">TOMCAT_HOME</span><span class="o">=</span>~/.local/opt/tomcat/apache-tomcat-8.5.47
+</code></pre></div><h2 id="編輯-profile">編輯 .profile</h2>
+<p>在 <code>~/.profile</code> 添加以下內容，編輯完後執行 <code>source ~/.profile</code> 重新加載環境變量，使配置生效。然後登出登入一次電腦。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#java8</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>~/.local/usr/lib/jvm/jdk1.8.0_241
+<span class="nb">export</span> <span class="nv">JRE_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/jre
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">JRE_HOME</span><span class="si">}</span>/lib
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+
+<span class="c1">#tomcat8</span>
+<span class="nb">export</span> <span class="nv">CATALINA_HOME</span><span class="o">=</span>~/.local/opt/tomcat
+
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="nv">$JAVA_HOME</span>/lib:<span class="nv">$CATALINA_HOME</span>/lib
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$CATALINA_HOME</span>/bin
+
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:%JAVA_HOME/lib/tools.jar
+
+<span class="nb">export</span> <span class="nv">TOMCAT_HOME</span><span class="o">=</span>~/.local/opt/tomcat/apache-tomcat-8.5.47
+    
+<span class="nb">export</span> <span class="nv">CATALINA_HOME</span><span class="o">=</span><span class="nv">$TOMCAT_HOME</span>
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:TOMCAT_HOME/bin
+
+<span class="c1">#maven3</span>
+<span class="nv">MAVEN_HOME</span><span class="o">=</span>~/.local/opt/maven/apache-maven-3.6.2
+    
+<span class="nb">export</span> MAVEN_HOME
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MAVEN_HOME</span><span class="si">}</span>/bin
+</code></pre></div><h2 id="測試是否配置成功">測試是否配置成功</h2>
+<h3 id="jdk">JDK</h3>
+<p>在 Konsole 輸入 <code>java -version</code> 就會顯示 Java 版本。</p>
+<p><img src="https://i.loli.net/2020/01/28/UMf34WKV7a8pHux.png" alt="java_version.png"></p>
+<h3 id="tomcat">Tomcat</h3>
+<p>於 <code>~/.local/opt/tomcat/apache-tomcat-8.5.47</code> 目錄下打開 Konsole，啟動 Tomcat。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">./startup.sh
+</code></pre></div><p><img src="https://i.loli.net/2020/01/28/YwL2nNIMixeo5l9.png" alt="tomcat_startup.png"></p>
+<p>接著打開瀏覽器輸入 <code>http://127.0.0.1:8080/</code>或<code>http://localhost:8080/</code> 會出現以下畫面，此時代表已經配置成功。</p>
+<p><img src="https://i.loli.net/2020/01/28/oyHYZEkUzM4IBCw.png" alt="tomcat_test.png"></p>
+<p>接下來輸入 <code>./shutdown.sh</code> 中止 Tomcat。</p>
+<p><img src="https://i.loli.net/2020/01/28/rPcDbAYzn3Rv7pm.png" alt="tomcat_shutdown.png"></p>
+<h3 id="maven">Maven</h3>
+<p>在 Konsole 輸入 <code>mvn -v</code> 就會顯示你的 Maven 版本。</p>
+<p><img src="https://i.loli.net/2020/01/28/WHLCg7fzaKIsAuO.png" alt="maven_version.png"></p>
+<h2 id="intellij-idea-透過國內阿里云鏡像加速建立-maven-項目">IntelliJ IDEA 透過國內阿里云鏡像加速建立 Maven 項目</h2>
+<p>關於如何使用 IntelliJ IDEA 建立 Tomcat 項目等我就不在這裡細說了，這些基礎的知識你們可以參考網上其它教學。</p>
+<h3 id="添加國內鏡像">添加國內鏡像</h3>
+<p>編輯 <code>~/.local/opt/maven/apache-maven-3.6.2/conf/</code> 目錄下的 <strong>settings.xml</strong>，於文末添加以下內容。</p>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirror</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;id</span><span class="nt">&gt;</span>nexus-aliyun<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;mirrorOf</span><span class="nt">&gt;</span>*<span class="nt">&lt;/mirrorOf&gt;</span>
+        <span class="nt">&lt;name</span><span class="nt">&gt;</span>Nexus aliyun<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url</span><span class="nt">&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/mirror&gt;</span>
+</code></pre></div><h3 id="intellij-idea-創建-maven-項目">IntelliJ IDEA 創建 Maven 項目</h3>
+<p>IntelliJ IDEA 創建 Maven 項目，如果是一般的 Maven 項目就在 <code>Create fome archetype</code> 選擇 <strong>maven-archetype-quickstart</strong>，如果是 Web 項目就選擇 <strong>maven-archetype-webapp</strong>。我這裡就演示建立 Web 項目。</p>
+<p><strong>建立項目</strong></p>
+<p><img src="https://i.loli.net/2020/01/28/fKXysDSFx4RVgmb.png" alt="IDEA_maven_create.png"></p>
+<p><strong>項目目錄位置</strong></p>
+<p><img src="https://i.loli.net/2020/01/28/YWh8kjnf7GTHDLu.png" alt="IDEA_maven_location.png"></p>
+<p><strong>添加屬性</strong></p>
+<p>創建 Maven 項目時手動添加一個 <code>archetypeCatalog</code> 配置，其值設為 <code>internal</code>。</p>
+<p><img src="https://i.loli.net/2020/01/28/HPamGC5LQ6d4TtN.png" alt="IDEA_maven_property.png"></p>
+<p>Finish 後就建立好了一個 Maven Web 項目。</p>
+<h2 id="添加-tomcat-server">添加 Tomcat Server</h2>
+<p>在右上角的 <strong>add configuration</strong> 添加 Tomcat Server。</p>
+<p><img src="https://i.loli.net/2020/01/28/Hm89UXOCorVBWSn.png" alt="IDEA_tomcat_config.png"></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://blog.csdn.net/MR_Peach07/article/details/69666177">ubuntu16.04安装及配置tomcat,IDEA集成tomcat及部署web项目，IDEA通过阿里云镜像加速maven项目创建</a></li>
+<li><a href="https://www.itread01.com/content/1548891008.html">java 版本區別，java SE是什麼，下載JDK時各個名稱的含義</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/51228073">jdk版本的选择（推荐1.8）- 知乎</a></li>
+<li><a href="https://www.cnblogs.com/AlanLee/p/8615307.html">Oracle官网登录下载资源账号密码共享 - AlanLee 博客園</a></li>
+<li><a href="https://blog.xuite.net/linbty/worldknowledge/61415866-Tomcat+%28+%E4%B8%89+%29%EF%BC%9A%E6%B8%AC%E8%A9%A6+Tomcat">Tomcat ( 三 )：測試 Tomcat</a></li>
+</ul>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/java" role="button">Java </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/jdk" role="button">JDK </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/tomcat" role="button">Tomcat </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/maven" role="button">Maven </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/intellij" role="button">IntelliJ </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/idea" role="button">IDEA </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E4%B8%8A%E6%8E%A7%E5%88%B6-python-%E7%89%88%E6%9C%AC-pyenv/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>在 Linux 上控制 Python 版本 - pyenv</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+          
+          <div class="disqus markdown">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'remblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+          </div>
+
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%89%8d%e8%a8%80">
+												 前言
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#jdk-%e7%89%88%e6%9c%ac%e9%81%b8%e6%93%87">
+												 JDK 版本選擇
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#jdk-1xxx-%e5%92%8c-jdk-xxx0-%e6%af%94%e5%a6%82-jdk-18-%e5%92%8c-jdk-8">
+												 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%8e%a8%e8%96%a6%e7%9a%84-jdk-%e7%89%88%e6%9c%ac">
+												 推薦的 JDK 版本
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89-jdk-18">
+												 下載 JDK 1.8
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89-tomcat-8">
+												 下載 Tomcat 8
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%b8%8b%e8%bc%89-maven-3">
+												 下載 Maven 3
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%b7%a8%e8%bc%af-tomcat">
+												 編輯 Tomcat
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%b7%a8%e8%bc%af-profile">
+												 編輯 .profile
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%b8%ac%e8%a9%a6%e6%98%af%e5%90%a6%e9%85%8d%e7%bd%ae%e6%88%90%e5%8a%9f">
+												 測試是否配置成功
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#jdk">
+												 JDK
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#tomcat">
+												 Tomcat
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#maven">
+												 Maven
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#intellij-idea-%e9%80%8f%e9%81%8e%e5%9c%8b%e5%85%a7%e9%98%bf%e9%87%8c%e4%ba%91%e9%8f%a1%e5%83%8f%e5%8a%a0%e9%80%9f%e5%bb%ba%e7%ab%8b-maven-%e9%a0%85%e7%9b%ae">
+												 IntelliJ IDEA 透過國內阿里云鏡像加速建立 Maven 項目
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%b7%bb%e5%8a%a0%e5%9c%8b%e5%85%a7%e9%8f%a1%e5%83%8f">
+												 添加國內鏡像
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#intellij-idea-%e5%89%b5%e5%bb%ba-maven-%e9%a0%85%e7%9b%ae">
+												 IntelliJ IDEA 創建 Maven 項目
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%b7%bb%e5%8a%a0-tomcat-server">
+												 添加 Tomcat Server
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#reference">
+												 Reference
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/HuangNO1 " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+      <a href="//facebook.com/myRem" target="_blank" rel="noopener"><i class="fab fa-facebook-f mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+        <a href="//twitter.com/Rem59881439" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:fh831.cp9gw@email.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2020 &copy; Huang Po-Hsun | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://huangno1.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://huangno1.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script src="https://huangno1.github.io/js/vendors/katex/katex.min.js"> </script>
+  <script src="https://huangno1.github.io/js/vendors/katex/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body);
+      });
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
