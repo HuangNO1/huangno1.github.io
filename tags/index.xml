@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>AUR</title>
+      <link>https://huangno1.github.io/tags/aur/</link>
+      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/aur/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>IDEA</title>
       <link>https://huangno1.github.io/tags/idea/</link>
       <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
@@ -71,6 +80,24 @@
       <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Package</title>
+      <link>https://huangno1.github.io/tags/package/</link>
+      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PKGBUILD</title>
+      <link>https://huangno1.github.io/tags/pkgbuild/</link>
+      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/pkgbuild/</guid>
       <description></description>
     </item>
     

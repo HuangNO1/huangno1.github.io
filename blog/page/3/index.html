@@ -304,6 +304,8 @@
 
   
 
+  
+
 
 
 
@@ -336,7 +338,7 @@
             
             <li class="py-1">
               <a href="https://huangno1.github.io/categories/linux">
-                <span>Linux (2)</span>
+                <span>Linux (3)</span>
               </a>
             </li>           
           
@@ -377,6 +379,8 @@
 
   
 
+  
+
 
 
 
@@ -397,10 +401,13 @@
         
         
         
-            <li><a href="https://huangno1.github.io/tags/archlinux" role="button"><span>archlinux (8)</span></a></li>
+            <li><a href="https://huangno1.github.io/tags/archlinux" role="button"><span>archlinux (9)</span></a></li>
           
         
-            <li><a href="https://huangno1.github.io/tags/linux" role="button"><span>linux (7)</span></a></li>
+            <li><a href="https://huangno1.github.io/tags/linux" role="button"><span>linux (8)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/aur" role="button"><span>aur (1)</span></a></li>
           
         
             <li><a href="https://huangno1.github.io/tags/c&#43;&#43;" role="button"><span>c&#43;&#43; (1)</span></a></li>
@@ -430,6 +437,12 @@
             <li><a href="https://huangno1.github.io/tags/oh-my-zsh" role="button"><span>oh-my-zsh (1)</span></a></li>
           
         
+            <li><a href="https://huangno1.github.io/tags/package" role="button"><span>package (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/pkgbuild" role="button"><span>pkgbuild (1)</span></a></li>
+          
+        
             <li><a href="https://huangno1.github.io/tags/plasma" role="button"><span>plasma (1)</span></a></li>
           
         
@@ -448,15 +461,6 @@
             <li><a href="https://huangno1.github.io/tags/vscode" role="button"><span>vscode (1)</span></a></li>
           
         
-            <li><a href="https://huangno1.github.io/tags/wallpaper" role="button"><span>wallpaper (1)</span></a></li>
-          
-        
-            <li><a href="https://huangno1.github.io/tags/zsh" role="button"><span>zsh (1)</span></a></li>
-          
-        
-            <li><a href="https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95" role="button"><span>演算法 (1)</span></a></li>
-          
-        
       </div>
     </div>
 
@@ -464,6 +468,8 @@
   
 
           
+  
+
   
 
   
@@ -504,7 +510,7 @@
         
           
           
-            <li class="py-1"><a href="https://huangno1.github.io/series/linux"><span>Linux (8)</span></a></li>
+            <li class="py-1"><a href="https://huangno1.github.io/series/linux"><span>Linux (9)</span></a></li>
           
             <li class="py-1"><a href="https://huangno1.github.io/series/c/c&#43;&#43;"><span>C/C&#43;&#43; (1)</span></a></li>
           
@@ -535,7 +541,7 @@
               
                 <div class="px-2 middot"></div>
                 <div>
-                  9 posts
+                  10 posts
                 </div>
               
             </div>
@@ -598,18 +604,95 @@
     <li class="page-item active"><a class="page-link" href="https://huangno1.github.io/blog/page/3/">3</a></li>
     
     
-    <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://huangno1.github.io/blog/page/4/">4</a></li>
+    
+    
+    <li class="page-item">
+    <a href="https://huangno1.github.io/blog/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://huangno1.github.io/blog/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://huangno1.github.io/blog/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
 
 
           </div>
+
+          
+              <div class="post-wrapper white-bg post-card">
+  
+  <a href="https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/">
+    <div class="post-header text-center">
+      <div class="px-4 post-heading">Archlinux 安裝 Part 2 - 安裝後工作</div>
+      <ul class="post-meta li-x mt-1">
+        
+          <li>Jan 4, 2020</li>
+        
+    
+        
+          <li class="middot"></li>
+          <li>6 minutes read</li>
+        
+      </ul>
+    </div>
+    
+    
+      <div class="view">
+        <img src="https://huangno1.github.io/images/blog/2020-01/kde-logo.png" />
+      </div>
+    
+
+    
+      2020/01/04 edited by Huang Po-Hsun 前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。 確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。 ping baidu.com # 確認連網 添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。 另一方面，我們無法使用超級使用者進入圖形界面。 註：將以......
+    
+  </a>
+
+  
+  
+  <div class="post-meta li-x mt-2 div-x">
+    <div>
+      
+        
+          <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
+        
+      
+      
+        
+          <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
+        
+      
+    </div>
+   
+    <div>
+      
+        
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
+      
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+</div>
 
           
               <div class="post-wrapper white-bg post-card">
@@ -733,72 +816,6 @@
       
     
       <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
-      
-    
-  </div>
-</div>
-      
-    </div>
-  </div>
-
-</div>
-
-          
-              <div class="post-wrapper white-bg post-card">
-  
-  <a href="https://huangno1.github.io/blog/2019-04/%E5%9C%A8-archlinux-%E6%90%AD%E5%BB%BA-vscode-c/c-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83gcc%E5%8F%8A-%E8%AA%BF%E8%A9%A6gdb/">
-    <div class="post-header text-center">
-      <div class="px-4 post-heading">在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</div>
-      <ul class="post-meta li-x mt-1">
-        
-          <li>Apr 20, 2019</li>
-        
-    
-        
-          <li class="middot"></li>
-          <li>6 minutes read</li>
-        
-      </ul>
-    </div>
-    
-    
-      <div class="view">
-        <img src="https://huangno1.github.io/images/blog/2019-04/visual_studio_code_2019_icons_preview.png" />
-      </div>
-    
-
-    
-      2019/04/09 edited by Huang Po-Hsun 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。 肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。 下載安裝 VScode 在 Konsole 輸入下載指令 sudo pacman -S code 註：因爲圖形界面的使用者一定是一般使......
-    
-  </a>
-
-  
-  
-  <div class="post-meta li-x mt-2 div-x">
-    <div>
-      
-        
-          <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
-        
-      
-      
-        
-          <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
-        
-      
-    </div>
-   
-    <div>
-      
-        
-<div class="li-x div-x post-meta">
-  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
-  <div class="tags-sm">
-    
-      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/vscode" role="button">Vscode </a></li>
       
     
   </div>

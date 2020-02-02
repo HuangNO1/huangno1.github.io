@@ -304,6 +304,8 @@
 
   
 
+  
+
 
 
 
@@ -336,7 +338,7 @@
             
             <li class="py-1">
               <a href="https://huangno1.github.io/categories/linux">
-                <span>Linux (2)</span>
+                <span>Linux (3)</span>
               </a>
             </li>           
           
@@ -377,6 +379,8 @@
 
   
 
+  
+
 
 
 
@@ -397,10 +401,13 @@
         
         
         
-            <li><a href="https://huangno1.github.io/tags/archlinux" role="button"><span>archlinux (8)</span></a></li>
+            <li><a href="https://huangno1.github.io/tags/archlinux" role="button"><span>archlinux (9)</span></a></li>
           
         
-            <li><a href="https://huangno1.github.io/tags/linux" role="button"><span>linux (7)</span></a></li>
+            <li><a href="https://huangno1.github.io/tags/linux" role="button"><span>linux (8)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/aur" role="button"><span>aur (1)</span></a></li>
           
         
             <li><a href="https://huangno1.github.io/tags/c&#43;&#43;" role="button"><span>c&#43;&#43; (1)</span></a></li>
@@ -430,6 +437,12 @@
             <li><a href="https://huangno1.github.io/tags/oh-my-zsh" role="button"><span>oh-my-zsh (1)</span></a></li>
           
         
+            <li><a href="https://huangno1.github.io/tags/package" role="button"><span>package (1)</span></a></li>
+          
+        
+            <li><a href="https://huangno1.github.io/tags/pkgbuild" role="button"><span>pkgbuild (1)</span></a></li>
+          
+        
             <li><a href="https://huangno1.github.io/tags/plasma" role="button"><span>plasma (1)</span></a></li>
           
         
@@ -448,15 +461,6 @@
             <li><a href="https://huangno1.github.io/tags/vscode" role="button"><span>vscode (1)</span></a></li>
           
         
-            <li><a href="https://huangno1.github.io/tags/wallpaper" role="button"><span>wallpaper (1)</span></a></li>
-          
-        
-            <li><a href="https://huangno1.github.io/tags/zsh" role="button"><span>zsh (1)</span></a></li>
-          
-        
-            <li><a href="https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95" role="button"><span>演算法 (1)</span></a></li>
-          
-        
       </div>
     </div>
 
@@ -464,6 +468,8 @@
   
 
           
+  
+
   
 
   
@@ -504,7 +510,7 @@
         
           
           
-            <li class="py-1"><a href="https://huangno1.github.io/series/linux"><span>Linux (8)</span></a></li>
+            <li class="py-1"><a href="https://huangno1.github.io/series/linux"><span>Linux (9)</span></a></li>
           
             <li class="py-1"><a href="https://huangno1.github.io/series/c/c&#43;&#43;"><span>C/C&#43;&#43; (1)</span></a></li>
           
@@ -535,7 +541,7 @@
               
                 <div class="px-2 middot"></div>
                 <div>
-                  9 posts
+                  10 posts
                 </div>
               
             </div>
@@ -598,12 +604,23 @@
     <li class="page-item"><a class="page-link" href="https://huangno1.github.io/blog/page/3/">3</a></li>
     
     
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="https://huangno1.github.io/blog/page/4/">4</a></li>
+    
+    
     <li class="page-item">
     <a href="https://huangno1.github.io/blog/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">
-        <a href="https://huangno1.github.io/blog/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="https://huangno1.github.io/blog/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
@@ -698,6 +715,81 @@
           
               <div class="post-wrapper white-bg post-card">
   
+  <a href="https://huangno1.github.io/blog/2020-01/arch-linux-%E6%89%93%E5%8C%85%E6%95%99%E5%AD%B8/">
+    <div class="post-header text-center">
+      <div class="px-4 post-heading">Arch Linux 打包教學</div>
+      <ul class="post-meta li-x mt-1">
+        
+          <li>Jan 28, 2020</li>
+        
+    
+        
+          <li class="middot"></li>
+          <li>10 minutes read</li>
+        
+      </ul>
+    </div>
+    
+    
+      <div class="view">
+        <img src="https://huangno1.github.io/images/blog/2020-01/gift.png" />
+      </div>
+    
+
+    
+      2020/01/31 edited by Huang Po-Hsun 前言 這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 *.deb 的 Ubuntu 版本，我當時將 *.deb 轉成 tar.gz 適用 Arch 發行版的包失敗，當時我是看這網站使用 Debtap 工具，雖然最後成功轉成 tar.gz，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 dkpg，然而實際上寫 PKGBUILD 才是最好的方法，當時是我朋友將快應用的官方 IDE 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 Arch Linux 打包教學，但他......
+    
+  </a>
+
+  
+  
+  <div class="post-meta li-x mt-2 div-x">
+    <div>
+      
+        
+          <li><a href="https://huangno1.github.io/categories/linux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> Linux </a></li>
+        
+      
+      
+        
+          <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
+        
+      
+    </div>
+   
+    <div>
+      
+        
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/pkgbuild" role="button">PKGBUILD </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/package" role="button">Package </a></li>
+      
+    
+      <li><a href="https://huangno1.github.io/tags/aur" role="button">AUR </a></li>
+      
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+</div>
+
+          
+              <div class="post-wrapper white-bg post-card">
+  
   <a href="https://huangno1.github.io/blog/2020-01/%E5%9C%A8-linux-%E4%B8%8A%E6%8E%A7%E5%88%B6-python-%E7%89%88%E6%9C%AC-pyenv/">
     <div class="post-header text-center">
       <div class="px-4 post-heading">在 Linux 上控制 Python 版本 - pyenv</div>
@@ -757,87 +849,6 @@
       
     
       <li><a href="https://huangno1.github.io/tags/pyenv" role="button">pyenv </a></li>
-      
-    
-  </div>
-</div>
-      
-    </div>
-  </div>
-
-</div>
-
-          
-              <div class="post-wrapper white-bg post-card">
-  
-  <a href="https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/">
-    <div class="post-header text-center">
-      <div class="px-4 post-heading">Archlinux KDE 動態桌布</div>
-      <ul class="post-meta li-x mt-1">
-        
-          <li>Jan 15, 2020</li>
-        
-    
-        
-          <li class="middot"></li>
-          <li>2 minutes read</li>
-        
-      </ul>
-    </div>
-    
-    
-      <div class="view">
-        <img src="https://huangno1.github.io/images/blog/2020-01/VideoWallpaper.png" />
-      </div>
-    
-
-    
-      2020/01/15 edited by Huang Po-Hsun 前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。 當然，我也嘗試過使用 vlc 和 xwinwrap &#43; mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）......
-    
-  </a>
-
-  
-  
-  <div class="post-meta li-x mt-2 div-x">
-    <div>
-      
-        
-          <li><a href="https://huangno1.github.io/categories/archlinux"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> ArchLinux </a></li>
-        
-      
-      
-        
-          <li><a href="https://huangno1.github.io/series/linux"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>linux</a></li>
-        
-      
-    </div>
-   
-    <div>
-      
-        
-<div class="li-x div-x post-meta">
-  <li class="pr-0"><a href="https://huangno1.github.io/tags/"><i class="fas fa-tags"></i></a></li>
-  <div class="tags-sm">
-    
-      <li><a href="https://huangno1.github.io/tags/archlinux" role="button">ArchLinux </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/linux" role="button">Linux </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/kde" role="button">kde </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/plasma" role="button">plasma </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/video" role="button">video </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/desktop" role="button">desktop </a></li>
-      
-    
-      <li><a href="https://huangno1.github.io/tags/wallpaper" role="button">Wallpaper </a></li>
       
     
   </div>
