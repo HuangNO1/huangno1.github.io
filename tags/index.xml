@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 28 Jan 2020 11:27:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 11:27:28 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ArchLinux</title>
       <link>https://huangno1.github.io/tags/archlinux/</link>
-      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
+      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/tags/archlinux/</guid>
       <description></description>
@@ -23,9 +23,36 @@
     <item>
       <title>AUR</title>
       <link>https://huangno1.github.io/tags/aur/</link>
-      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
+      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/tags/aur/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://huangno1.github.io/tags/linux/</link>
+      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Package</title>
+      <link>https://huangno1.github.io/tags/package/</link>
+      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PKGBUILD</title>
+      <link>https://huangno1.github.io/tags/pkgbuild/</link>
+      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/pkgbuild/</guid>
       <description></description>
     </item>
     
@@ -66,38 +93,11 @@
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://huangno1.github.io/tags/linux/</link>
-      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Maven</title>
       <link>https://huangno1.github.io/tags/maven/</link>
       <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/tags/maven/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Package</title>
-      <link>https://huangno1.github.io/tags/package/</link>
-      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/tags/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PKGBUILD</title>
-      <link>https://huangno1.github.io/tags/pkgbuild/</link>
-      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/tags/pkgbuild/</guid>
       <description></description>
     </item>
     

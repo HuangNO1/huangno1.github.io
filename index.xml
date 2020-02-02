@@ -6,7 +6,7 @@
     <description>Recent content on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 28 Jan 2020 11:27:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 11:27:28 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Arch Linux 打包教學</title>
       <link>https://huangno1.github.io/blog/2020-01/arch-linux-%E6%89%93%E5%8C%85%E6%95%99%E5%AD%B8/</link>
-      <pubDate>Tue, 28 Jan 2020 11:27:28 +0800</pubDate>
+      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/blog/2020-01/arch-linux-%E6%89%93%E5%8C%85%E6%95%99%E5%AD%B8/</guid>
       <description>2020/01/31 edited by Huang Po-Hsun 前言 這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 *.deb 的 Ubuntu 版本，我當時將 *.deb 轉成 tar.gz 適用 Arch 發行版的包失敗，當時我是看這網站使用 Debtap 工具，雖然最後成功轉成 tar.gz，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 dkpg，然而實際上寫 PKGBUILD 才是最好的方法，當時是我朋友將快應用的官方 IDE 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 Arch Linux 打包教學，但他</description>
