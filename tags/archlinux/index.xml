@@ -6,10 +6,19 @@
     <description>Recent content in ArchLinux on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 31 Jan 2020 11:27:28 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 11:27:28 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 配置 npm</title>
+      <link>https://huangno1.github.io/blog/2020-02/linux-%E9%85%8D%E7%BD%AE-npm/</link>
+      <pubDate>Thu, 06 Feb 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/blog/2020-02/linux-%E9%85%8D%E7%BD%AE-npm/</guid>
+      <description>2020/02/06 edited by Huang Po-Hsun 前言 npm（Node Package Manager）是 node 包管理器，是 Node.js 預設的、以 JavaScript 編寫的軟體套件管理系統。相信各位在開發 Vue 或是快應用等方面都會用到 npm，這裡我寫一下關於 npm 在 Linux 上的配置，因為在 Linux 使用 npm，因為在使用 npm 安裝套件時會發生權限不足問題還有下載源速度過慢，我將在這篇文章教大家如何配置 npm。 安裝 npm 裝 npm 時，會幫你也裝 nodeJS等相關依賴。 sudo pacman -S npm npm 本地化 在家目錄建立資料夾 mkdir ~/.npm-global 設置 npm 的目標資料</description>
+    </item>
     
     <item>
       <title>Arch Linux 打包教學</title>

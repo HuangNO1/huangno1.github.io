@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Rem Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 31 Jan 2020 11:27:28 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 11:27:28 +0800</lastBuildDate>
     
 	<atom:link href="https://huangno1.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>ArchLinux</title>
       <link>https://huangno1.github.io/tags/archlinux/</link>
-      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
+      <pubDate>Thu, 06 Feb 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/tags/archlinux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://huangno1.github.io/tags/linux/</link>
+      <pubDate>Thu, 06 Feb 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://huangno1.github.io/tags/npm/</link>
+      <pubDate>Thu, 06 Feb 2020 11:27:28 +0800</pubDate>
+      
+      <guid>https://huangno1.github.io/tags/npm/</guid>
       <description></description>
     </item>
     
@@ -26,15 +44,6 @@
       <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/tags/aur/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://huangno1.github.io/tags/linux/</link>
-      <pubDate>Fri, 31 Jan 2020 11:27:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
