@@ -516,6 +516,9 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">hwclock --systohc <span class="c1"># 生成 /etc/adjtime</span>
 </code></pre></div><p>這個指令假定硬件時間已經設置為 <code>UTF</code> 時間。</p>
 <h3 id="4-添加本地語系">4. 添加本地語系</h3>
+<blockquote>
+<p>註：進入 <code>arch-chroot</code> 後需要將 nano 和 vim 裝上去，<code>pacman -S nano vim</code>，這樣才能使用這些工具。</p>
+</blockquote>
 <p>編輯 <code>locale.gen</code> 把自己要用的語言註解去掉，也就是去掉開頭的 <code>#</code>，一定要取消註解 <code>en_US.UTF-8 UTF-8</code>，建議取消註解<strong>帶 <code>UTF-8</code> 的語言</strong>，<strong>把 GBK 和 BIG5 註解去掉可以支援更多字</strong>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/locale.gen <span class="c1"># 編輯 locale.gen</span>
 </code></pre></div><p>以下是我要取消註解的語言，因為我繁體字和簡體字都很常用。</p>
@@ -673,18 +676,19 @@ submenu <span class="s1">&#39;Advanced options for Arch Linux&#39;</span> <span 
 </code></pre></div><h3 id="連網">連網</h3>
 <p>因為拔掉 USB 重啟電腦後，會發現關於<strong>連網功能不好處理</strong>，使用 <code>ip link</code> 後 <code>dhcpcd</code> 過於繁瑣，建議就在這裡就安裝連網的管理器。</p>
 <blockquote>
-<p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p>
+<p>註：在 <code>Chroot</code> 中無法使用 <code>systemctl</code>，所以要等全部裝完後再啟用。</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
 pacman -S networkmanager <span class="c1"># 安裝 networkmanager</span>
-systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
-systemctl strat NetworkManager <span class="c1"># 啟用 Netmanager</span>
 <span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
 </code></pre></div><h3 id="不裝雙系統只有-linux">不裝雙系統，只有 Linux</h3>
 <p>如果你是將所有電腦裡的系統都砍了只裝 Archlinux，你<strong>一樣要裝引導</strong>，像之前我幫一個朋友裝 ArchLinux 時他將自己電腦上的 <strong>Windows 全砍了</strong>，剩下所有空間都給 Linux。</p>
 <h2 id="文件系統-xfs-與-btrfs">文件系統 XFS 與 Btrfs</h2>
 <blockquote>
 <p>2020 / 02 / 05 補充文件系統 <code>XFS</code> 和 <code>Btrfs</code>。</p>
+</blockquote>
+<blockquote>
+<p>2020 / 07 / 29 更新，我已經用上 <code>Btrfs</code>，真香，讀寫速度變很快。</p>
 </blockquote>
 <p>因為我文件系統使用 <code>ext4</code> 使用 <code>ntfs-3g</code> 寫入時非常慢，甚至卡頓，我在這裡推薦使用 <code>XFS</code> 或是 <code>Btrfs</code>。但是 <code>Btrfs</code> 還不夠穩定，所以我這裡是推薦 <code>XFS</code>。</p>
 <ul>
@@ -698,8 +702,8 @@ mkfs.xfs /dev/sda4 <span class="c1">#格式化 home</span>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacstrap /mnt base linux linux-firmware xfsprogs
 </code></pre></div><p>更多請參考 <a href="https://wiki.archlinux.org/index.php/XFS_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">XFS (简体中文) - ArchWiki</a>。</p>
 <h3 id="btrfs">Btrfs</h3>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.btrfs -L /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
-mkfs.btrfs -L /dev/sda4 <span class="c1">#格式化 home</span>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.btrfs -L arch-root /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
+mkfs.btrfs -L arch-home /dev/sda4 <span class="c1">#格式化 home</span>
 </code></pre></div><p>在安裝 <code>base</code> 時要輸入以下內容，將 <code>btrfs-progs</code> 包加入：</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacstrap /mnt base linux linux-firmware btrfs-progs
 </code></pre></div><p>更多請參考 <a href="https://wiki.archlinux.org/index.php/Btrfs_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Btrfs (简体中文) - ArchWiki</a>。</p>

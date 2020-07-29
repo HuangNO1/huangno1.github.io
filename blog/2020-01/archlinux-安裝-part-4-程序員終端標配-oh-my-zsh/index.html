@@ -383,26 +383,27 @@ sh install.sh
 <p>用來解壓縮文件，用起來很爽，根本不需要去記憶各種解壓縮指令，一套 <code>x filmname</code> 直接幫你解壓好。</p>
 <p>當然，如果你想要用 <code>tar</code> 命令，可以使用 <code>tar -</code> 加 <code>tab</code> 鍵，zsh 會列出參數的含義。</p>
 <p>這插件預設安裝就有，不需要額外安裝。</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">其他的插件</span> <span class="nx">extract</span><span class="p">)</span><span class="err">
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=(</span><span class="nx">其他的插件</span> <span class="nx">extract</span><span class="p">)</span><span class="err">
 </span></code></pre></div><h3 id="zsh-autosuggestion">zsh-autosuggestion</h3>
 <p>自動補全。可記錄之前輸過的指令。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">git clone git://github.com/zsh-users/zsh-autosuggestions <span class="nv">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">其他的插件</span> <span class="nx">zsh</span><span class="p">-</span><span class="nx">autosuggestion</span><span class="p">)</span><span class="err">
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=(</span><span class="nx">其他的插件</span> <span class="nx">zsh</span><span class="p">-</span><span class="nx">autosuggestion</span><span class="p">)</span><span class="err">
 </span></code></pre></div><h3 id="zsh-syntax-highlighting">zsh-syntax-highlighting</h3>
 <p>終端字體高亮。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-syntax-highlighting
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">其他的插件</span> <span class="nx">zsh</span><span class="p">-</span><span class="nx">syntax</span><span class="p">-</span><span class="nx">highlighting</span><span class="p">)</span><span class="err">
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=(</span><span class="nx">其他的插件</span> <span class="nx">zsh</span><span class="p">-</span><span class="nx">syntax</span><span class="p">-</span><span class="nx">highlighting</span><span class="p">)</span><span class="err">
 </span></code></pre></div><h3 id="git-open">git-open</h3>
 <p><strong>git-open</strong> 插件可以在你 Git 項目下<strong>打開遠程倉庫瀏覽項目</strong>。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">git clone https://github.com/paulirish/git-open.git <span class="nv">$ZSH_CUSTOM</span>/plugins/git-open
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">其他的插件</span> <span class="nx">extract</span><span class="p">)</span><span class="err">
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">plugins</span><span class="p">=(</span><span class="nx">其他的插件</span> <span class="nx">extract</span><span class="p">)</span><span class="err">
 </span></code></pre></div><h3 id="bat">bat</h3>
 <p><strong>bat</strong> 代替 <strong>cat</strong>。
 <code>cat</code> 某個文件，可以在終端直接輸出文件內容，<code>bat</code> 相比 <code>cat</code> 增加了行號和顏色高亮。</p>
 <blockquote>
-<p>P.S. 我好像不怎麼用這個。所以沒裝。</p>
+<p>P.S. 我好像不怎麼用這個。所以沒裝。
+2020/07/29 更新：bat 實在是太好看了，大推。</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">brew install bat
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S bat
 </code></pre></div><h3 id="incr">incr</h3>
 <p>可以說 <code>incr.zsh</code> 這插件是最強的自動補全插件，還能幫你搜索線上的倉庫是否有你所需要的軟體包。建議搭配 <code>zsh-autosuggestion</code> 一起使用，我將這兩個插件都裝了。</p>
 <p>到<a href="http://mimosa-pudica.net/src/incr-0.2.zsh">這個網站</a>下載 <code>incr.zsh</code> 文件，將此文件放置 <code>~/.oh-my-zsh/custom/plugins/incr</code> 資料夾裡，如果沒有資料夾就自己新增。</p>
@@ -414,61 +415,61 @@ sh install.sh
 </code></pre></div><p>以下是我的 <code>~/.zshrc</code> 設定。</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"># <span class="nx">If</span> <span class="nx">you</span> <span class="nx">come</span> <span class="nx">from</span> <span class="nx">bash</span> <span class="nx">you</span> <span class="nx">might</span> <span class="nx">have</span> <span class="nx">to</span> <span class="nx">change</span> <span class="nx">your</span> $<span class="nx">PATH</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">export</span> <span class="nx">PATH</span><span class="p">=</span>$<span class="nx">HOME</span><span class="sr">/bin:/</span><span class="nx">usr</span><span class="sr">/local/</span><span class="nx">bin</span>:$<span class="nx">PATH</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Path</span> <span class="nx">to</span> <span class="nx">your</span> <span class="nx">oh</span><span class="p">-</span><span class="nx">my</span><span class="p">-</span><span class="nx">zsh</span> <span class="nx">installation</span>.<span class="err">
 </span><span class="err"></span><span class="nx">export</span> <span class="nx">ZSH</span><span class="p">=</span><span class="s2">&#34;/home/rem/.oh-my-zsh&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">npm</span><span class="err">
 </span><span class="err"></span><span class="nx">export</span> <span class="nx">PATH</span><span class="p">=</span>$<span class="nx">PATH</span>:<span class="p">~</span><span class="sr">/.npm-global/</span><span class="nx">bin</span><span class="err">
-</span><span class="err"></span><span class="err">
-</span><span class="err"></span># <span class="nx">Set</span> <span class="nx">name</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">theme</span> <span class="nx">to</span> <span class="nx">load</span> <span class="p">-</span><span class="p">-</span><span class="p">-</span> <span class="k">if</span> <span class="nx">set</span> <span class="nx">to</span> <span class="s2">&#34;random&#34;</span><span class="p">,</span> <span class="nx">it</span> <span class="nx">will</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span># <span class="nx">Set</span> <span class="nx">name</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">theme</span> <span class="nx">to</span> <span class="nx">load</span> <span class="p">---</span> <span class="k">if</span> <span class="nx">set</span> <span class="nx">to</span> <span class="s2">&#34;random&#34;</span><span class="p">,</span> <span class="nx">it</span> <span class="nx">will</span><span class="err">
 </span><span class="err"></span># <span class="nx">load</span> <span class="nx">a</span> <span class="nx">random</span> <span class="nx">theme</span> <span class="nx">each</span> <span class="nx">time</span> <span class="nx">oh</span><span class="p">-</span><span class="nx">my</span><span class="p">-</span><span class="nx">zsh</span> <span class="nx">is</span> <span class="nx">loaded</span><span class="p">,</span> <span class="nx">in</span> <span class="nx">which</span> <span class="nx">case</span><span class="p">,</span><span class="err">
 </span><span class="err"></span># <span class="nx">to</span> <span class="nx">know</span> <span class="nx">which</span> <span class="nx">specific</span> <span class="nx">one</span> <span class="nx">was</span> <span class="nx">loaded</span><span class="p">,</span> <span class="nx">run</span>: <span class="nx">echo</span> $<span class="nx">RANDOM_THEME</span><span class="err">
 </span><span class="err"></span># <span class="nx">See</span> <span class="nx">https</span>:<span class="sr">//</span><span class="nx">github</span>.<span class="nx">com</span><span class="sr">/robbyrussell/</span><span class="nx">oh</span><span class="p">-</span><span class="nx">my</span><span class="p">-</span><span class="nx">zsh</span><span class="sr">/wiki/</span><span class="nx">Themes</span><span class="err">
 </span><span class="err"></span><span class="nx">ZSH_THEME</span><span class="p">=</span><span class="s2">&#34;ys&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Set</span> <span class="nx">list</span> <span class="nx">of</span> <span class="nx">themes</span> <span class="nx">to</span> <span class="nx">pick</span> <span class="nx">from</span> <span class="nx">when</span> <span class="nx">loading</span> <span class="nx">at</span> <span class="nx">random</span><span class="err">
 </span><span class="err"></span># <span class="nx">Setting</span> <span class="nx">this</span> <span class="nx">variable</span> <span class="nx">when</span> <span class="nx">ZSH_THEME</span><span class="p">=</span><span class="nx">random</span> <span class="nx">will</span> <span class="nx">cause</span> <span class="nx">zsh</span> <span class="nx">to</span> <span class="nx">load</span><span class="err">
 </span><span class="err"></span># <span class="nx">a</span> <span class="nx">theme</span> <span class="nx">from</span> <span class="nx">this</span> <span class="nx">variable</span> <span class="nx">instead</span> <span class="nx">of</span> <span class="nx">looking</span> <span class="nx">in</span> <span class="p">~</span><span class="sr">/.oh-my-zsh/</span><span class="nx">themes</span>/<span class="err">
 </span><span class="err"></span># <span class="nx">If</span> <span class="nx">set</span> <span class="nx">to</span> <span class="nx">an</span> <span class="nx">empty</span> <span class="nx">array</span><span class="p">,</span> <span class="nx">this</span> <span class="nx">variable</span> <span class="nx">will</span> <span class="nx">have</span> <span class="nx">no</span> <span class="nx">effect</span>.<span class="err">
-</span><span class="err"></span># <span class="nx">ZSH_THEME_RANDOM_CANDIDATES</span><span class="p">=</span><span class="p">(</span> <span class="s2">&#34;robbyrussell&#34;</span> <span class="s2">&#34;agnoster&#34;</span> <span class="p">)</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err"></span># <span class="nx">ZSH_THEME_RANDOM_CANDIDATES</span><span class="p">=(</span> <span class="s2">&#34;robbyrussell&#34;</span> <span class="s2">&#34;agnoster&#34;</span> <span class="p">)</span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">case</span><span class="p">-</span><span class="nx">sensitive</span> <span class="nx">completion</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">CASE_SENSITIVE</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">hyphen</span><span class="p">-</span><span class="nx">insensitive</span> <span class="nx">completion</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">Case</span><span class="p">-</span><span class="nx">sensitive</span> <span class="nx">completion</span> <span class="nx">must</span> <span class="nx">be</span> <span class="nx">off</span>. <span class="nx">_</span> <span class="nx">and</span> <span class="p">-</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">interchangeable</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">HYPHEN_INSENSITIVE</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">disable</span> <span class="nx">bi</span><span class="p">-</span><span class="nx">weekly</span> <span class="nx">auto</span><span class="p">-</span><span class="nx">update</span> <span class="nx">checks</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">DISABLE_AUTO_UPDATE</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">automatically</span> <span class="nx">update</span> <span class="nx">without</span> <span class="nx">prompting</span>.<span class="err">
 </span><span class="err"></span> <span class="nx">DISABLE_UPDATE_PROMPT</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">change</span> <span class="nx">how</span> <span class="nx">often</span> <span class="nx">to</span> <span class="nx">auto</span><span class="p">-</span><span class="nx">update</span> <span class="p">(</span><span class="nx">in</span> <span class="nx">days</span><span class="p">)</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">export</span> <span class="nx">UPDATE_ZSH_DAYS</span><span class="p">=</span><span class="m">13</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="k">if</span> <span class="nx">pasting</span> <span class="nx">URLs</span> <span class="nx">and</span> <span class="nx">other</span> <span class="nx">text</span> <span class="nx">is</span> <span class="nx">messed</span> <span class="nx">up</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">DISABLE_MAGIC_FUNCTIONS</span><span class="p">=</span><span class="nx">true</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">disable</span> <span class="nx">colors</span> <span class="nx">in</span> <span class="nx">ls</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">DISABLE_LS_COLORS</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">disable</span> <span class="nx">auto</span><span class="p">-</span><span class="nx">setting</span> <span class="nx">terminal</span> <span class="nx">title</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">DISABLE_AUTO_TITLE</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">enable</span> <span class="nx">command</span> <span class="nx">auto</span><span class="p">-</span><span class="nx">correction</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">ENABLE_CORRECTION</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="nx">to</span> <span class="nx">display</span> <span class="nx">red</span> <span class="nx">dots</span> <span class="nx">whilst</span> <span class="nx">waiting</span> <span class="nx">for</span> <span class="nx">completion</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">COMPLETION_WAITING_DOTS</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">disable</span> <span class="nx">marking</span> <span class="nx">untracked</span> <span class="nx">files</span><span class="err">
 </span><span class="err"></span># <span class="nx">under</span> <span class="nx">VCS</span> <span class="nx">as</span> <span class="nx">dirty</span>. <span class="nx">This</span> <span class="nx">makes</span> <span class="nx">repository</span> <span class="nx">status</span> <span class="nx">check</span> <span class="nx">for</span> <span class="nx">large</span> <span class="nx">repositories</span><span class="err">
 </span><span class="err"></span># <span class="nx">much</span><span class="p">,</span> <span class="nx">much</span> <span class="nx">faster</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">DISABLE_UNTRACKED_FILES_DIRTY</span><span class="p">=</span><span class="s2">&#34;true&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Uncomment</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">line</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">change</span> <span class="nx">the</span> <span class="nx">command</span> <span class="nx">execution</span> <span class="nx">time</span><span class="err">
 </span><span class="err"></span># <span class="nx">stamp</span> <span class="nx">shown</span> <span class="nx">in</span> <span class="nx">the</span> <span class="nx">history</span> <span class="nx">command</span> <span class="nx">output</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">You</span> <span class="nx">can</span> <span class="nx">set</span> <span class="nx">one</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">optional</span> <span class="nx">three</span> <span class="nx">formats</span>:<span class="err">
@@ -476,16 +477,16 @@ sh install.sh
 </span><span class="err"></span># <span class="nx">or</span> <span class="nx">set</span> <span class="nx">a</span> <span class="nx">custom</span> <span class="nx">format</span> <span class="nx">using</span> <span class="nx">the</span> <span class="nx">strftime</span> <span class="k">function</span> <span class="nx">format</span> <span class="nx">specifications</span><span class="p">,</span><span class="err">
 </span><span class="err"></span># <span class="nx">see</span> <span class="s1">&#39;man strftime&#39;</span> <span class="nx">for</span> <span class="nx">details</span>.<span class="err">
 </span><span class="err"></span># <span class="nx">HIST_STAMPS</span><span class="p">=</span><span class="s2">&#34;mm/dd/yyyy&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Would</span> <span class="nx">you</span> <span class="nx">like</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">another</span> <span class="nx">custom</span> <span class="nx">folder</span> <span class="nx">than</span> $<span class="nx">ZSH</span>/<span class="nx">custom</span>?<span class="err">
 </span><span class="err"></span># <span class="nx">ZSH_CUSTOM</span><span class="p">=</span><span class="sr">/path/</span><span class="nx">to</span>/<span class="nx">new</span><span class="p">-</span><span class="nx">custom</span><span class="p">-</span><span class="nx">folder</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Which</span> <span class="nx">plugins</span> <span class="nx">would</span> <span class="nx">you</span> <span class="nx">like</span> <span class="nx">to</span> <span class="nx">load</span>?<span class="err">
 </span><span class="err"></span># <span class="nx">Standard</span> <span class="nx">plugins</span> <span class="nx">can</span> <span class="nx">be</span> <span class="nx">found</span> <span class="nx">in</span> <span class="p">~</span><span class="sr">/.oh-my-zsh/</span><span class="nx">plugins</span>/*<span class="err">
 </span><span class="err"></span># <span class="nx">Custom</span> <span class="nx">plugins</span> <span class="nx">may</span> <span class="nx">be</span> <span class="nx">added</span> <span class="nx">to</span> <span class="p">~</span><span class="sr">/.oh-my-zsh/</span><span class="nx">custom</span><span class="sr">/plugins/</span><span class="err">
-</span><span class="err"></span># <span class="nx">Example</span> <span class="nx">format</span>: <span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="nx">rails</span> <span class="nx">git</span> <span class="nx">textmate</span> <span class="nx">ruby</span> <span class="nx">lighthouse</span><span class="p">)</span><span class="err">
+</span><span class="err"></span># <span class="nx">Example</span> <span class="nx">format</span>: <span class="nx">plugins</span><span class="p">=(</span><span class="nx">rails</span> <span class="nx">git</span> <span class="nx">textmate</span> <span class="nx">ruby</span> <span class="nx">lighthouse</span><span class="p">)</span><span class="err">
 </span><span class="err"></span># <span class="nx">Add</span> <span class="nx">wisely</span><span class="p">,</span> <span class="nx">as</span> <span class="nx">too</span> <span class="nx">many</span> <span class="nx">plugins</span> <span class="nx">slow</span> <span class="nx">down</span> <span class="nx">shell</span> <span class="nx">startup</span>.<span class="err">
-</span><span class="err"></span><span class="nx">plugins</span><span class="p">=</span><span class="p">(</span><span class="err">
+</span><span class="err"></span><span class="nx">plugins</span><span class="p">=(</span><span class="err">
 </span><span class="err"></span>	<span class="nx">git</span><span class="err">
 </span><span class="err"></span>	<span class="nx">extract</span><span class="err">
 </span><span class="err"></span>	<span class="nx">archlinux</span><span class="err">
@@ -496,27 +497,27 @@ sh install.sh
 </span><span class="err"></span>    <span class="nx">zsh</span><span class="p">-</span><span class="nx">autosuggestions</span><span class="err">
 </span><span class="err"></span>	<span class="nx">git</span><span class="p">-</span><span class="nx">open</span><span class="err">
 </span><span class="err"></span><span class="p">)</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span><span class="nx">source</span> $<span class="nx">ZSH</span>/<span class="nx">oh</span><span class="p">-</span><span class="nx">my</span><span class="p">-</span><span class="nx">zsh</span>.<span class="nx">sh</span><span class="err">
 </span><span class="err"></span><span class="nx">source</span> <span class="sr">/etc/</span><span class="nx">profile</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">User</span> <span class="nx">configuration</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">export</span> <span class="nx">MANPATH</span><span class="p">=</span><span class="s2">&#34;/usr/local/man:$MANPATH&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">You</span> <span class="nx">may</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">manually</span> <span class="nx">set</span> <span class="nx">your</span> <span class="nx">language</span> <span class="nx">environment</span><span class="err">
 </span><span class="err"></span># <span class="nx">export</span> <span class="nx">LANG</span><span class="p">=</span><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Preferred</span> <span class="nx">editor</span> <span class="nx">for</span> <span class="nx">local</span> <span class="nx">and</span> <span class="nx">remote</span> <span class="nx">sessions</span><span class="err">
 </span><span class="err"></span># <span class="k">if</span> [[ <span class="p">-</span><span class="nx">n</span> $<span class="nx">SSH_CONNECTION</span> ]]; <span class="nx">then</span><span class="err">
 </span><span class="err"></span>#   <span class="nx">export</span> <span class="nx">EDITOR</span><span class="p">=</span><span class="s1">&#39;vim&#39;</span><span class="err">
 </span><span class="err"></span># <span class="k">else</span><span class="err">
 </span><span class="err"></span>#   <span class="nx">export</span> <span class="nx">EDITOR</span><span class="p">=</span><span class="s1">&#39;mvim&#39;</span><span class="err">
 </span><span class="err"></span># <span class="nx">fi</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Compilation</span> <span class="nx">flags</span><span class="err">
 </span><span class="err"></span># <span class="nx">export</span> <span class="nx">ARCHFLAGS</span><span class="p">=</span><span class="s2">&#34;-arch x86_64&#34;</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span># <span class="nx">Set</span> <span class="nx">personal</span> <span class="nx">aliases</span><span class="p">,</span> <span class="nx">overriding</span> <span class="nx">those</span> <span class="nx">provided</span> <span class="nx">by</span> <span class="nx">oh</span><span class="p">-</span><span class="nx">my</span><span class="p">-</span><span class="nx">zsh</span> <span class="nx">libs</span><span class="p">,</span><span class="err">
 </span><span class="err"></span># <span class="nx">plugins</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">themes</span>. <span class="nx">Aliases</span> <span class="nx">can</span> <span class="nx">be</span> <span class="nx">placed</span> <span class="nx">here</span><span class="p">,</span> <span class="nx">though</span> <span class="nx">oh</span><span class="p">-</span><span class="nx">my</span><span class="p">-</span><span class="nx">zsh</span><span class="err">
 </span><span class="err"></span># <span class="nx">users</span> <span class="nx">are</span> <span class="nx">encouraged</span> <span class="nx">to</span> <span class="nx">define</span> <span class="nx">aliases</span> <span class="nx">within</span> <span class="nx">the</span> <span class="nx">ZSH_CUSTOM</span> <span class="nx">folder</span>.<span class="err">

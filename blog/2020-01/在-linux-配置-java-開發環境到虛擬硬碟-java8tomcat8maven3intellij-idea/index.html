@@ -408,30 +408,30 @@
 <h3 id="tomcat">Tomcat</h3>
 <p>於 <code>~/.local/opt/tomcat/apache-tomcat-8.5.47</code> 目錄下打開 Konsole，啟動 Tomcat。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">./startup.sh
-</code></pre></div><p><img src="https://i.loli.net/2020/01/28/YwL2nNIMixeo5l9.png" alt="tomcat_startup.png"></p>
+</code></pre></div><p><img src="https://imgpoi.com/i/KL8KL9.png" alt="tomcat_startup.png"></p>
 <p>接著打開瀏覽器輸入 <code>http://127.0.0.1:8080/</code>或<code>http://localhost:8080/</code> 會出現以下畫面，此時代表已經配置成功。</p>
 <p><img src="https://i.loli.net/2020/01/28/oyHYZEkUzM4IBCw.png" alt="tomcat_test.png"></p>
 <p>接下來輸入 <code>./shutdown.sh</code> 中止 Tomcat。</p>
-<p><img src="https://i.loli.net/2020/01/28/rPcDbAYzn3Rv7pm.png" alt="tomcat_shutdown.png"></p>
+<p><img src="https://imgpoi.com/i/KL8N95.png" alt="tomcat_shutdown.png"></p>
 <h3 id="maven">Maven</h3>
 <p>在 Konsole 輸入 <code>mvn -v</code> 就會顯示你的 Maven 版本。</p>
-<p><img src="https://i.loli.net/2020/01/28/WHLCg7fzaKIsAuO.png" alt="maven_version.png"></p>
+<p><img src="https://imgpoi.com/i/KL8LTM.png" alt="maven_version.png"></p>
 <h2 id="intellij-idea-透過國內阿里云鏡像加速建立-maven-項目">IntelliJ IDEA 透過國內阿里云鏡像加速建立 Maven 項目</h2>
 <p>關於如何使用 IntelliJ IDEA 建立 Tomcat 項目等我就不在這裡細說了，這些基礎的知識你們可以參考網上其它教學。</p>
 <h3 id="添加國內鏡像">添加國內鏡像</h3>
 <p>編輯 <code>~/.local/opt/maven/apache-maven-3.6.2/conf/</code> 目錄下的 <strong>settings.xml</strong>，於文末添加以下內容。</p>
-<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirror</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;id</span><span class="nt">&gt;</span>nexus-aliyun<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;mirrorOf</span><span class="nt">&gt;</span>*<span class="nt">&lt;/mirrorOf&gt;</span>
-        <span class="nt">&lt;name</span><span class="nt">&gt;</span>Nexus aliyun<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;url</span><span class="nt">&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="nt">&lt;/url&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirror&gt;</span>
+        <span class="nt">&lt;id&gt;</span>nexus-aliyun<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;mirrorOf&gt;</span>*<span class="nt">&lt;/mirrorOf&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Nexus aliyun<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="nt">&lt;/url&gt;</span>
 <span class="nt">&lt;/mirror&gt;</span>
 </code></pre></div><h3 id="intellij-idea-創建-maven-項目">IntelliJ IDEA 創建 Maven 項目</h3>
 <p>IntelliJ IDEA 創建 Maven 項目，如果是一般的 Maven 項目就在 <code>Create fome archetype</code> 選擇 <strong>maven-archetype-quickstart</strong>，如果是 Web 項目就選擇 <strong>maven-archetype-webapp</strong>。我這裡就演示建立 Web 項目。</p>
 <p><strong>建立項目</strong></p>
 <p><img src="https://i.loli.net/2020/01/28/fKXysDSFx4RVgmb.png" alt="IDEA_maven_create.png"></p>
 <p><strong>項目目錄位置</strong></p>
-<p><img src="https://i.loli.net/2020/01/28/YWh8kjnf7GTHDLu.png" alt="IDEA_maven_location.png"></p>
+<p><img src="https://imgpoi.com/i/KL8F32.png" alt="IDEA_maven_location.png"></p>
 <p><strong>添加屬性</strong></p>
 <p>創建 Maven 項目時手動添加一個 <code>archetypeCatalog</code> 配置，其值設為 <code>internal</code>。</p>
 <p><img src="https://i.loli.net/2020/01/28/HPamGC5LQ6d4TtN.png" alt="IDEA_maven_property.png"></p>

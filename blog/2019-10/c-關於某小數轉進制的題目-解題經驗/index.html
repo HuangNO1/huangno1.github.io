@@ -421,13 +421,13 @@ Note:
 </span><span class="c1"></span>
     <span class="c1">// Continuously taking decimal places
 </span><span class="c1"></span>    <span class="c1">// convert to base-10
-</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">number</span> <span class="o">*</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-        <span class="o">*</span><span class="n">convert1</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">number</span> <span class="o">*=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">convert1</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
         <span class="c1">// e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
-</span><span class="c1"></span>        <span class="n">number</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">number</span> <span class="o">-=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
 </code></pre></div><ol start="7">
 <li>
@@ -450,15 +450,15 @@ Note:
 </span><span class="cm">    so multiply it by 17 and execute at least 17 times,
 </span><span class="cm">    otherwise it will enter an infinite loop.
 </span><span class="cm">     */</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">base10</span> <span class="o">*</span><span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+        <span class="n">base10</span> <span class="o">*=</span> <span class="n">D</span><span class="p">;</span>
 
-        <span class="o">*</span><span class="n">convert2</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">base10</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">convert2</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+        <span class="n">base10</span> <span class="o">-=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
 
-        <span class="k">if</span><span class="p">(</span><span class="n">base10</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// End early
+        <span class="k">if</span><span class="p">(</span><span class="n">base10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// End early
 </span><span class="c1"></span>        <span class="p">{</span>
             <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
@@ -466,7 +466,7 @@ Note:
 </code></pre></div><ol start="8">
 <li>在輸出時使用 API 提供的函式格式化。</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">:</span><span class="o">:</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
 </code></pre></div><ol start="9">
 <li>使用 GDB 進行調試，這樣能快速找到代碼問題。</li>
 </ol>
@@ -486,80 +486,80 @@ Note:
 <p><img src="https://i.loli.net/2019/10/12/Mk8dPmIKag2Ll47.png" alt="1.png"></p>
 <h2 id="源代碼">源代碼</h2>
 <p>這裡還是強調一下，寫代碼時<strong>註解真的很重要</strong>，你的代碼不僅是要你自己可以快速釐清自己的代碼，不然一段時間後自己再看自己寫的內容又看不懂，而且要讓看你代碼的人能看懂。</p>
-<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;math.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;iomanip&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;math.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;iomanip&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="kt">double</span> <span class="nf">Scan</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="p">;</span> <span class="c1">// count significant
-</span><span class="c1"></span><span class="kt">bool</span> <span class="nf">isValid</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Judge the number&#39;s correctness (Base-S)
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">convert</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="p">;</span> <span class="c1">// convert the number from Base-S to Base-D and Base-10
+<span class="kt">double</span> <span class="nf">Scan</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span><span class="p">);</span> <span class="c1">// count significant
+</span><span class="c1"></span><span class="kt">bool</span> <span class="nf">isValid</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span> <span class="c1">// Judge the number&#39;s correctness (Base-S)
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">convert</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span> <span class="c1">// convert the number from Base-S to Base-D and Base-10
 </span><span class="c1"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="c1">// initialize
 </span><span class="c1"></span>    <span class="kt">double</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// The number we need to input
 </span><span class="c1"></span>    <span class="kt">int</span> <span class="n">S</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// base-S
 </span><span class="c1"></span>    <span class="kt">int</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// base-D
-</span><span class="c1"></span>    <span class="kt">char</span> <span class="n">isQuit</span> <span class="o">=</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">C</span><span class="sc">&#39;</span><span class="p">;</span> <span class="c1">// Judge whether to leave
+</span><span class="c1"></span>    <span class="kt">char</span> <span class="n">isQuit</span> <span class="o">=</span> <span class="sc">&#39;C&#39;</span><span class="p">;</span> <span class="c1">// Judge whether to leave
 </span><span class="c1"></span>    <span class="kt">double</span> <span class="n">convert1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">convert2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// the result from convert()
 </span><span class="c1"></span>    <span class="n">string</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// The number we need to input
 </span><span class="c1"></span>    <span class="kt">int</span> <span class="n">significant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// the number&#39;s significant
 </span><span class="c1"></span>
     <span class="c1">// loop, if isQuit&#39;s value is &#39;Q&#39;,break it.
-</span><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="n">isQuit</span> <span class="o">=</span><span class="o">=</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">C</span><span class="sc">&#39;</span><span class="p">)</span>
+</span><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="n">isQuit</span> <span class="o">==</span> <span class="sc">&#39;C&#39;</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="c1">// description
-</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Base conversion for numbers  [0,1)  with at least 8 significant digits.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Base conversion for numbers  [0,1)  with at least 8 significant digits.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Convert a number from base-S to base-D (2&lt;=S&lt;=10, 2&lt;=D&lt;=10):</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
         <span class="c1">// input Base-S
-</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Input S: </span><span class="s">&#34;</span><span class="p">;</span>
-        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Input S: &#34;</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">S</span><span class="p">;</span>
         <span class="c1">// input Base-D
-</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Input D: </span><span class="s">&#34;</span><span class="p">;</span>
-        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">D</span><span class="p">;</span>
-        <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Input D: &#34;</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">D</span><span class="p">;</span>
+        <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
     
         <span class="c1">// loop
 </span><span class="c1"></span>        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="c1">// input number
-</span><span class="c1"></span>            <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Input a valid base-</span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">S</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> number: </span><span class="s">&#34;</span><span class="p">;</span>
+</span><span class="c1"></span>            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Input a valid base-&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">S</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; number: &#34;</span><span class="p">;</span>
             <span class="c1">// cin &gt;&gt; number;
-</span><span class="c1"></span>            <span class="n">number</span> <span class="o">=</span> <span class="n">Scan</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">significant</span><span class="p">)</span><span class="p">;</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">significant</span><span class="p">)</span><span class="p">)</span> <span class="c1">// number is valid
+</span><span class="c1"></span>            <span class="n">number</span> <span class="o">=</span> <span class="n">Scan</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">significant</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">isValid</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">significant</span><span class="p">))</span> <span class="c1">// number is valid
 </span><span class="c1"></span>            <span class="p">{</span>
                 <span class="k">break</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">else</span> <span class="c1">// number is invalid
 </span><span class="c1"></span>            <span class="p">{</span>
-                <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Error: </span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">:</span><span class="o">:</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-                 <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">number</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> is an invalid base-</span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">S</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> number</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Error: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+                 <span class="o">&lt;&lt;</span> <span class="n">number</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; is an invalid base-&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">S</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; number</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
     
-        <span class="n">convert</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">convert1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">convert2</span><span class="p">,</span> <span class="n">significant</span><span class="p">)</span><span class="p">;</span> <span class="c1">// convert
+        <span class="n">convert</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">convert1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">convert2</span><span class="p">,</span> <span class="n">significant</span><span class="p">);</span> <span class="c1">// convert
 </span><span class="c1"></span>    
         <span class="c1">// output the result
-</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">:</span><span class="o">:</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> 
-        <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">number</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">(</span><span class="s">&#34;</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">S</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="sa"></span><span class="s">&#34;</span><span class="s">) is equivalent to </span><span class="s">&#34;</span>
-        <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">convert1</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="sa"></span><span class="s">&#34;</span><span class="s">(10) &amp; </span><span class="s">&#34;</span><span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">convert2</span> <span class="o">&lt;</span><span class="o">&lt;</span><span class="sa"></span><span class="s">&#34;</span><span class="s">(</span><span class="s">&#34;</span><span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">D</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">)</span><span class="s">&#34;</span><span class="o">&lt;</span><span class="o">&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setiosflags</span><span class="p">(</span><span class="n">ios</span><span class="o">::</span><span class="n">fixed</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> 
+        <span class="o">&lt;&lt;</span> <span class="n">number</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;(&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">S</span> <span class="o">&lt;&lt;</span><span class="s">&#34;) is equivalent to &#34;</span>
+        <span class="o">&lt;&lt;</span> <span class="n">convert1</span> <span class="o">&lt;&lt;</span><span class="s">&#34;(10) &amp; &#34;</span><span class="o">&lt;&lt;</span> <span class="n">convert2</span> <span class="o">&lt;&lt;</span><span class="s">&#34;(&#34;</span><span class="o">&lt;&lt;</span> <span class="n">D</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;)&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
     
         <span class="c1">// input isQuit
-</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Process another Conversion or Quit? (C/Q) -&gt; </span><span class="s">&#34;</span><span class="p">;</span>
-        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">isQuit</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Process another Conversion or Quit? (C/Q) -&gt; &#34;</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">isQuit</span><span class="p">;</span>
         <span class="c1">// Letters into uppercase
-</span><span class="c1"></span>        <span class="n">isQuit</span> <span class="o">=</span> <span class="n">toupper</span><span class="p">(</span><span class="n">isQuit</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">isQuit</span> <span class="o">=</span> <span class="n">toupper</span><span class="p">(</span><span class="n">isQuit</span><span class="p">);</span>
     
         <span class="c1">// initialize the values
 </span><span class="c1"></span>        <span class="n">convert1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="n">convert2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="n">significant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="n">system</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">pause</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -569,15 +569,15 @@ Note:
     <span class="kt">double</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// we need to enter
 </span><span class="c1"></span>    <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 
-    <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// enter the string
-</span><span class="c1"></span>    <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// enter the string
+</span><span class="c1"></span>    <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
     
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="c1">// use count&#39;s length to loop
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// use count&#39;s length to loop
 </span><span class="c1"></span>    <span class="p">{</span>
-        <span class="o">*</span><span class="n">significant</span> <span class="o">+</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// count significant
+        <span class="o">*</span><span class="n">significant</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// count significant
 </span><span class="c1"></span>    
-        <span class="n">number</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span><span class="p">;</span> <span class="c1">// char -&gt; double
-</span><span class="c1"></span>        <span class="n">N</span> <span class="o">-</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">number</span> <span class="o">+=</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span> <span class="c1">// char -&gt; double
+</span><span class="c1"></span>        <span class="n">N</span> <span class="o">-=</span><span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">number</span><span class="p">;</span>
 <span class="p">}</span>
@@ -587,17 +587,17 @@ Note:
     <span class="kt">double</span> <span class="n">swapDouble</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="c1">// Continuously taking decimal places
-</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">number</span> <span class="o">*</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">S</span><span class="p">)</span> <span class="c1">// not meets Base-S
+        <span class="n">number</span> <span class="o">*=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">&gt;=</span> <span class="n">S</span><span class="p">)</span> <span class="c1">// not meets Base-S
 </span><span class="c1"></span>        <span class="p">{</span>
             <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// invalid
 </span><span class="c1"></span>        <span class="p">}</span>
         <span class="k">else</span>
         <span class="p">{</span>
-            <span class="n">swapDouble</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="p">(</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">number</span> <span class="o">-</span><span class="o">=</span> <span class="n">swapDouble</span><span class="p">;</span>
+            <span class="n">swapDouble</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)((</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">);</span>
+            <span class="n">number</span> <span class="o">-=</span> <span class="n">swapDouble</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// valid
@@ -614,13 +614,13 @@ Note:
 </span><span class="cm">    Reference
 </span><span class="cm">    https://notfalse.net/17/positional-numeral-systems-conversion
 </span><span class="cm">     */</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">significant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">number</span> <span class="o">*</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-        <span class="o">*</span><span class="n">convert1</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">number</span> <span class="o">*=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">convert1</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
         <span class="c1">// e.g. 1.1 (base-2) -&gt; 1*2^0 + 1*2^(-1) = 1.5 (base-10)
-</span><span class="c1"></span>        <span class="n">number</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="n">number</span> <span class="o">-=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">number</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="n">base10</span> <span class="o">=</span> <span class="o">*</span><span class="n">convert1</span><span class="p">;</span> <span class="c1">// copy
 </span><span class="c1"></span>    <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// init
@@ -635,15 +635,15 @@ Note:
 </span><span class="cm">    https://www.cnblogs.com/upzone/articles/1389365.html 
 </span><span class="cm">    
 </span><span class="cm">     */</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">base10</span> <span class="o">*</span><span class="o">=</span> <span class="n">D</span><span class="p">;</span>
+        <span class="n">base10</span> <span class="o">*=</span> <span class="n">D</span><span class="p">;</span>
     
-        <span class="o">*</span><span class="n">convert2</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">base10</span> <span class="o">-</span><span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span><span class="p">;</span>
-        <span class="n">n</span> <span class="o">-</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">convert2</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+        <span class="n">base10</span> <span class="o">-=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">base10</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
     
-        <span class="k">if</span><span class="p">(</span><span class="n">base10</span> <span class="o">=</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// End early
+        <span class="k">if</span><span class="p">(</span><span class="n">base10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// End early
 </span><span class="c1"></span>        <span class="p">{</span>
             <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>

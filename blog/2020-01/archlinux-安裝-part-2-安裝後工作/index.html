@@ -330,7 +330,12 @@
 <p>我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。</p>
 <h2 id="確認連網">確認連網</h2>
 <p>我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認連網</span>
+<blockquote>
+<p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
+systemctl strat NetworkManager <span class="c1"># 啟用 Netmanager</span>
+ping baidu.com <span class="c1"># 確認連網</span>
 </code></pre></div><h2 id="添加使用者">添加使用者</h2>
 <p>在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。</p>
 <p>另一方面，我們<strong>無法使用超級使用者進入圖形界面</strong>。</p>
@@ -344,8 +349,11 @@ mkdir -m <span class="m">700</span> /home/user <span class="c1"># 創建主目�
 chown user:user /home/user <span class="c1"># 修改使用者與使用者群組</span>
 </code></pre></div><h2 id="sudo-安裝">sudo 安裝</h2>
 <p>為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 <code>/etc/sudoers</code>。</p>
+<blockquote>
+<p>註：這裡不能使用 vim 編輯，會顯示權限不足，是只讀狀態，所以要改用 nano。</p>
+</blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sudo <span class="c1"># 安裝 sudo</span>
-vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
+nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </code></pre></div><p>接著將上一步驟的使用者添加到 sudo。添加  <code>user ALL = (ALL) ALL</code> 在 <code>root</code> 下面。</p>
 <blockquote>
 <p>註：將 <code>user</code> 改成上一步驟你新增的使用者名稱。</p>
@@ -353,6 +361,9 @@ vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">root</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span><span class="err">
 </span><span class="err"></span><span class="nx">user</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span> # <span class="nx">新增使用者</span><span class="err">
 </span></code></pre></div><h2 id="添加-archlinuxcn-源">添加 ArchLinuxcn 源</h2>
+<blockquote>
+<p>註：2020/07/29 <strong>關於 GPG 金鑰遇到的問題解決方法，我已經補充到此文末的重要補充</strong></p>
+</blockquote>
 <p>Archlinuxcn 庫有很多平常實用的工具，但是官方倉庫沒有的東西。</p>
 <p>編輯 <code>/etc/pacman.conf</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/pacman.conf
@@ -389,10 +400,12 @@ vim /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </code></pre></div><h4 id="gnome">Gnome</h4>
 <p><img src="https://i.loli.net/2020/01/05/PjDCeAH1p2yiIkn.png" alt="02.png"></p>
 <p>Gnome 桌面只要安裝 gnome 包即可，還有一個 gnome-extra 包可以提供額外的常用軟體和幾個遊戲，你可以安裝時選擇你要的軟體，沒必要全選，當然也可以不装這个包。</p>
+<p><strong>私人強烈建議不安裝 gnome-extra 這個包，太多垃圾了，我後面刪得很累</strong></p>
 <blockquote>
 <p>註：在輸入 pacman 下載安裝指令時套件之間的空格不影響其指令執行。</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gnome gnome-extra
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gnome <span class="c1"># 推薦</span>
+pacman -S gnome gnome-extra <span class="c1"># 不推薦</span>
 </code></pre></div><h3 id="啟動器">啟動器</h3>
 <blockquote>
 <p>安裝啟動器後先別急進入圖形界面，如果你是雙顯卡會有顯卡衝突。</p>
@@ -436,9 +449,15 @@ systemctl <span class="nb">enable</span> gdm <span class="c1"># 開機自啟</sp
 <p>註：yay 可以直接從 AUR 倉庫上下載用戶上傳的最新軟件包。</p>
 <p>註：Arch 使用者軟體倉庫 (AUR) 是由社群推動的使用者軟體庫。它包含了軟體包描述單 (PKGBUILD)，可以用 makepkg 從原始碼編譯軟體包，並透過 Pacman 安裝。 透過 AUR 可以在社群間分享、組織新進軟體包，熱門的軟體包有機會被收錄進 community[broken link: invalid section] 軟體庫。這份文件將解釋如何存取、使用 AUR。</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S yay <span class="c1"># 下載 yay</span>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S yay <span class="c1"># 下載安裝 yay</span>
+pacman -S base-devel <span class="c1"># 下載安裝 base-devel 編譯工具包</span>
 yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
+</code></pre></div><p>如果有 Nvidia 卡，要先安裝 <code>nvidia</code> 套件，然後重起電腦，讓 arch-prime-git 能偵測到顯卡（Nvidia）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S nvidia <span class="c1"># 安裝 N 卡套件</span>
 </code></pre></div><p>先初始化 arch-prime-git。</p>
+<blockquote>
+<p>註：這個指令貌似要在一般使用者中執行，不能是 Root 使用者（超級使用者），如果在 Root 使用者下無法執行 init，就輸入 <code>exit</code> 指令登出，重新以一般使用者登入。</p>
+</blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">prime-select init
 </code></pre></div><p>這軟件包提供<strong>三種模式</strong>：</p>
 <ol>
@@ -487,11 +506,13 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 </span><span class="err"></span><span class="nx">export</span> <span class="nx">QT_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span><span class="err">
 </span></code></pre></div><h2 id="ntfs-3g">NTFS-3G</h2>
 <p>為了能掛載病讀取外部磁碟（e.g. HDD、SSD），需要安裝 <code>ntfs-3g</code>。</p>
+<p><strong>如果你使用的文件系統是 Btrfs 或是 XFS 就不需要下載這東西。</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S ntfs-3g
 </code></pre></div><h2 id="konsole">Konsole</h2>
 <p>進入圖形界面後需要安裝 Konsole 以便輸入指令。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S konsole
-</code></pre></div><h2 id="重要補充---聯想-y7000-的連網問題">重要補充 - 聯想 Y7000 的連網問題</h2>
+</code></pre></div><h2 id="重要補充">重要補充</h2>
+<h3 id="聯想-y7000-的連網問題">聯想 Y7000 的連網問題</h3>
 <p>聯想筆電通常在連無線網路上有一個坑 - <strong>Networkmanager 無法啟用無線網卡</strong>，算是&hellip;聯想筆電的特色，這裡我感謝 Telegram <a href="https://t.me/archlinuxcn_group">#archlinux-cn</a> 群中的 <strong>@Asterism</strong> 大佬幫助我解決問題。</p>
 <p>許多筆記本電腦都有一個硬體按鈕（或開關）來關閉無線網卡，但是，網卡也可能被內核阻止。 可以由 <strong>Rfkill</strong> 處理。通常來說你需要<strong>禁用 ideapod_laptop</strong>。</p>
 <p>先輸入 <code>rfkill list</code> 查看關於筆電的硬件開關。</p>
@@ -506,7 +527,13 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
 sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;blacklist ideapad_laptop&#34;</span> <span class="c1"># 永久生效</span>
 </code></pre></div><p>接著再次輸入 <code>rfkill list</code> 查看狀態，如果發現 <code>Wireless LAN</code> 的 <code>Soft blocked</code> 和 <code>Hard blocked</code> 都是 <code>no</code>就行了，無線網路也能連結了。</p>
-<h2 id="reference">Reference</h2>
+<h3 id="pacman-中-archlinux-cn-無法更新下載">pacman 中 archlinux-cn 無法更新下載</h3>
+<p>如果你有在更新或下載時，顯示 GPG 失效或錯誤等訊息，可以嘗試用以下方法解決。我也都是靠這方法解決大部份問題。做完以下步驟後用 pacman 同步一下資料庫，然後再試著下載看看。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">rm -rf /etc/pacman.d/gnupg
+pacman-key --init
+pacman-key --populate archlinux
+pacman-key --populate archlinuxcn
+</code></pre></div><h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">General recommendations (简体中文) - ArchWiki</a></li>
 <li><a href="https://wiki.archlinux.org/index.php/Users_and_groups_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Users and groups (简体中文) - ArchWiki</a></li>
@@ -1141,12 +1168,64 @@ sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span 
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#%e9%87%8d%e8%a6%81%e8%a3%9c%e5%85%85---%e8%81%af%e6%83%b3-y7000-%e7%9a%84%e9%80%a3%e7%b6%b2%e5%95%8f%e9%a1%8c">
-												 重要補充 - 聯想 Y7000 的連網問題
+						 					<a class="nav-link" href="#%e9%87%8d%e8%a6%81%e8%a3%9c%e5%85%85">
+												 重要補充
 											</a>
 										</li>
 						 
 								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%81%af%e6%83%b3-y7000-%e7%9a%84%e9%80%a3%e7%b6%b2%e5%95%8f%e9%a1%8c">
+												 聯想 Y7000 的連網問題
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#pacman-%e4%b8%ad-archlinux-cn-%e7%84%a1%e6%b3%95%e6%9b%b4%e6%96%b0%e4%b8%8b%e8%bc%89">
+												 pacman 中 archlinux-cn 無法更新下載
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
 								
 									</ul>
 								

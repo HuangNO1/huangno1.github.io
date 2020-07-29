@@ -80,7 +80,7 @@
       <pubDate>Sat, 04 Jan 2020 15:24:28 +0800</pubDate>
       
       <guid>https://huangno1.github.io/blog/2020-01/archlinux-%E5%AE%89%E8%A3%9D-part-2-%E5%AE%89%E8%A3%9D%E5%BE%8C%E5%B7%A5%E4%BD%9C/</guid>
-      <description>2020/01/04 edited by Huang Po-Hsun 前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。 確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。 ping baidu.com # 確認連網 添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。 另一方面，我們無法使用超級使用者進入圖形界面。 註：將以</description>
+      <description>2020/01/04 edited by Huang Po-Hsun 前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。 確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。 註：注意使用 systemctl 啟用 networkmanager 服務時要注意大小寫，開頭要大寫。 systemctl enable NetworkManager # 設定開機自啟 systemctl strat NetworkManager # 啟用 Netmanager ping baidu.com # 確認連網 添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操</description>
     </item>
     
     <item>

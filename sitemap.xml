@@ -213,12 +213,12 @@
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/series/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
+    <loc>https://huangno1.github.io/tags/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
     <lastmod>2019-10-13T14:22:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://huangno1.github.io/tags/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
+    <loc>https://huangno1.github.io/series/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/</loc>
     <lastmod>2019-10-13T14:22:18+08:00</lastmod>
   </url>
   
@@ -229,16 +229,6 @@
   
   <url>
     <loc>https://huangno1.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://huangno1.github.io/categories/c/c&#43;&#43;/</loc>
-    <lastmod>2019-10-11T12:24:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://huangno1.github.io/series/c/c&#43;&#43;/</loc>
     <lastmod>2019-10-11T12:24:00+08:00</lastmod>
   </url>
   
@@ -275,6 +265,14 @@
   <url>
     <loc>https://huangno1.github.io/about/</loc>
     <lastmod>2018-09-13T20:30:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/categories/c/c&#43;&#43;/</loc>
+  </url>
+  
+  <url>
+    <loc>https://huangno1.github.io/series/c/c&#43;&#43;/</loc>
   </url>
   
 </urlset>

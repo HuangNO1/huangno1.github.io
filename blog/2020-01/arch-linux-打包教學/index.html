@@ -374,7 +374,7 @@ touch PKGBUILD <span class="c1"># 新增 PKGBUILG</span>
 <h3 id="模板">模板</h3>
 <p>你可以複製 <code>PKGBUILD</code> 模板（位於 <code>/usr/share/pacman/</code>）到工作目錄，或者複製一個類似包的 <code>PKGBUILD</code> 也可以。如果你只想在別人的基礎上更改一些選項的話，後一種方法比較方便。</p>
 <p>在 <code>/usr/share/pacman/</code> 裡面有三份模板：</p>
-<p><img src="https://i.loli.net/2020/02/01/BczgQf2ps5bw9il.png" alt="1.png"></p>
+<p><img src="https://imgpoi.com/i/KL8JDD.png" alt="1.png"></p>
 <ul>
 <li><code>PKGBUILD.proto</code>: 經典原型。</li>
 <li><code>PKGBUILD-split.proto</code>: 分包原型。</li>
@@ -413,46 +413,46 @@ touch PKGBUILD <span class="c1"># 新增 PKGBUILG</span>
 <span class="nv">pkgrel</span><span class="o">=</span><span class="m">1</span>
 <span class="nv">epoch</span><span class="o">=</span>
 <span class="nv">pkgdesc</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">arch</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">arch</span><span class="o">=()</span>
 <span class="nv">url</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">license</span><span class="o">=</span><span class="o">(</span><span class="s1">&#39;GPL&#39;</span><span class="o">)</span>
-<span class="nv">groups</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">depends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">makedepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">checkdepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">optdepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">provides</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">conflicts</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">replaces</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">backup</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">options</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">license</span><span class="o">=(</span><span class="s1">&#39;GPL&#39;</span><span class="o">)</span>
+<span class="nv">groups</span><span class="o">=()</span>
+<span class="nv">depends</span><span class="o">=()</span>
+<span class="nv">makedepends</span><span class="o">=()</span>
+<span class="nv">checkdepends</span><span class="o">=()</span>
+<span class="nv">optdepends</span><span class="o">=()</span>
+<span class="nv">provides</span><span class="o">=()</span>
+<span class="nv">conflicts</span><span class="o">=()</span>
+<span class="nv">replaces</span><span class="o">=()</span>
+<span class="nv">backup</span><span class="o">=()</span>
+<span class="nv">options</span><span class="o">=()</span>
 <span class="nv">install</span><span class="o">=</span>
 <span class="nv">changelog</span><span class="o">=</span>
-<span class="nv">source</span><span class="o">=</span><span class="o">(</span><span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">.tar.gz</span><span class="s2">&#34;</span>
-        <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">.patch</span><span class="s2">&#34;</span><span class="o">)</span>
-<span class="nv">noextract</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">md5sums</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">validpgpkeys</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">source</span><span class="o">=(</span><span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">.tar.gz&#34;</span>
+        <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">.patch&#34;</span><span class="o">)</span>
+<span class="nv">noextract</span><span class="o">=()</span>
+<span class="nv">md5sums</span><span class="o">=()</span>
+<span class="nv">validpgpkeys</span><span class="o">=()</span>
 
-prepare<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+prepare<span class="o">()</span> <span class="o">{</span>
 	<span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
-	patch -p1 -i <span class="s2">&#34;</span><span class="nv">$srcdir</span><span class="s2">/</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">.patch</span><span class="s2">&#34;</span>
+	patch -p1 -i <span class="s2">&#34;</span><span class="nv">$srcdir</span><span class="s2">/</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">.patch&#34;</span>
 <span class="o">}</span>
 
-build<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+build<span class="o">()</span> <span class="o">{</span>
 	<span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
 	./configure --prefix<span class="o">=</span>/usr
 	make
 <span class="o">}</span>
 
-check<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+check<span class="o">()</span> <span class="o">{</span>
 	<span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
 	make -k check
 <span class="o">}</span>
 
-package<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+package<span class="o">()</span> <span class="o">{</span>
 	<span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
-	make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/</span><span class="s2">&#34;</span> install
+	make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/&#34;</span> install
 <span class="o">}</span>
 </code></pre></div><h3 id="pkgbuild-通常需要修改的屬性變量">PKGBUILD 通常需要修改的屬性變量</h3>
 <blockquote>
@@ -470,7 +470,7 @@ package<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
 <li><code>depends</code>：套件執行時所需的<strong>依賴列表</strong>，可以用比較運算符來限制依賴版本，如：<code>depends=('foobar&gt;=1.8.0')</code>，不需要列出二次依賴，舉例來說，<code>gtk2</code> 依賴 <code>glibc</code> 和 <code>glib2</code>，而 <code>glib2</code> 本來就依賴 <code>glibc</code>，<code>glibc</code> 就不用加入依賴列表。e.g. <code>depends=(fontconfig libxtst gtk3 python cairo alsa-lib nss gcc-libs libnotify libxss 'glibc&gt;=2.28-4' lsof which)</code>。</li>
 <li><code>outdepends</code>：不影響軟體主要功能，提供<strong>額外特性的軟體包</strong>，要簡要說明每個包提供的功能。e.g.</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">  <span class="nv">optdepends</span><span class="o">=</span><span class="o">(</span>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">  <span class="nv">optdepends</span><span class="o">=(</span>
   <span class="s1">&#39;cups: printing support&#39;</span>
   <span class="s1">&#39;sane: scanners support&#39;</span>
   <span class="s1">&#39;libgphoto2: digital cameras support&#39;</span>
@@ -492,8 +492,8 @@ package<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
 </li>
 </ul>
 <p>所以我們應該在 <code>source</code> 填上：</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">source</span><span class="o">=</span><span class="o">(</span>
-  <span class="s2">&#34;</span><span class="s2">https://statres.quickapp.cn/quickapp/ide/</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">pkgver</span><span class="si">}</span><span class="s2">.deb</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">source</span><span class="o">=(</span>
+  <span class="s2">&#34;https://statres.quickapp.cn/quickapp/ide/</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">pkgver</span><span class="si">}</span><span class="s2">.deb&#34;</span>
   <span class="s2">&#34;https://statres.quickapp.cn/quickapp/quickapp/201809/file/201809171830002525474.docx&#34;</span>
 <span class="o">)</span>
 </code></pre></div><ul>
@@ -522,7 +522,7 @@ make
 <p>若使用者不需要這步可以在 <code>PKGBUILD/makepkg.conf</code> 加入 <code>BUILDENV+=('!check')</code> 禁用，或是在執行 <code>makepkg</code> 加上參數 <code>--nocheck</code>。</p>
 <h4 id="package">package()</h4>
 <p>最後一步就是把編譯好的檔案放到一個目錄讓 <code>makepkg</code> 可以<strong>檢索並打包</strong>，這個目錄通常是 <code>pkg</code>，一個 <code>fakeroot</code> 環境，<code>pkg</code> 目錄複製了軟體安裝根目錄的階層關係，如果你手動放置了一個檔案到根目錄，那你也要把檔案放在 <code>pkg</code> 中相同的層級結構中，假設你想要把檔案安裝到 <code>/usr/bin</code>，在 <code>fakeroot</code> 環境中對應的路徑應該是 <code>$pkgdir/usr/bin</code>，極少情況會需要使用者手動去安裝檔案，一般情況使用 <code>make install</code> 即可將軟體安裝到正確的路徑，最後一行通常這樣寫：</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/</span><span class="s2">&#34;</span> install
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/&#34;</span> install
 </code></pre></div><p><code>makepkg --repackage</code> 只執行 <code>package()</code>，不執行 <code>build()</code>，如果僅修改包的依賴可以用這個指令重新打包以節省時間。</p>
 <h3 id="補充">補充</h3>
 <h4 id="deb-包">deb 包</h4>
@@ -535,10 +535,10 @@ AGPL    APACHE       CCPL  EPL     FDL1.3  GPL3     LGPL3  MPL2          PSF    
 AGPL3   Artistic2.0  CDDL  FDL     GPL     LGPL     LPPL   PerlArtistic  RUBY       ZPL
 Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicense
 </code></pre></div><p>如果你的 license 需要下載下來，則授權要安裝到 <code>/usr/share/licenses/pkgname/</code>，把下面指令寫入 PKGBUILD 的 <code>package()</code>：</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">install -Dm <span class="m">644</span> LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">install -Dm <span class="m">644</span> LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE&#34;</span>
 </code></pre></div><p>e.g. quickapp-ide 寫的 <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=quickapp-ide">PKGBUILD</a>：</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">package<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-  install -Dm <span class="m">644</span> 201809171830002525474.docx <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE.docx</span><span class="s2">&#34;</span>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">package<span class="o">()</span> <span class="o">{</span>
+  install -Dm <span class="m">644</span> 201809171830002525474.docx <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE.docx&#34;</span>
   <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
   <span class="c1"># install -d opt/quickAppIDE</span>
   <span class="c1"># cp  opt/quickAppIDE ${pkgdir}</span>

@@ -312,12 +312,12 @@
 
     
       <li class="middot"></li>
-      <li>6 minutes read</li>
+      <li>7 minutes read</li>
     
   </ul>
   
     <div class="view">
-      <img src="https://huangno1.github.io/images/blog/2020-01/Desktop.png" />
+      <img src="https://huangno1.github.io/images/blog/2020-01/newDesktop.png" />
     </div>
   
 
@@ -377,7 +377,7 @@ sudo pacman -S libreoffice-still-zh-tw <span class="c1"># 穩定版</span>
 <h2 id="媒體播放器">媒體播放器</h2>
 <h3 id="mpv">MPV</h3>
 <p>MPV 算是 Linux 下簡潔的音訊播放器。</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman mpv
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S mpv
 </code></pre></div><h3 id="網易雲音樂">網易雲音樂</h3>
 <p>網易雲還是不錯的音樂播放器。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S netease-cloud-music
@@ -391,14 +391,26 @@ flameshot gui -d <span class="m">3000</span> <span class="c1"># 延時 3 秒截�
 </code></pre></div><p><strong>Spectacle</strong> 也是不錯的截圖工具，但是功能上沒 <strong>flameshot</strong> 那麼完備。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S spectacle
 </code></pre></div><h3 id="圖片檢視器">圖片檢視器</h3>
+<blockquote>
+<p>安裝 digikam 後就自動幫你安裝了</p>
+</blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S showfoto
 </code></pre></div><h3 id="圖片編輯器">圖片編輯器</h3>
 <p>遺憾的是目前做好的圖片編輯自依然是 PhotoShop，而且 PS 不開源也不兼容 Linux，所以如果真的想要使用 PS 高級圖片處理就切到 Windows 去吧，Linux 都是開源軟體，沒有軟體能比得上 PS。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S digikam
 </code></pre></div><h3 id="gif-圖片">Gif 圖片</h3>
+<blockquote>
+<p>註：不推薦用這個錄屏。推薦使用下面的 kazam</p>
+</blockquote>
 <p>Peek 可以錄製螢幕並轉成 Gif。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S peek
-</code></pre></div><h2 id="百度網盤">百度網盤</h2>
+</code></pre></div><h3 id="錄屏工具">錄屏工具</h3>
+<p>這個工具使用很方便，推薦。</p>
+<pre><code>yay -S kazam
+</code></pre><h3 id="繪圖">繪圖</h3>
+<p><strong>krita</strong> 堪稱 Linux 上的 PS，開源。</p>
+<pre><code>yay -S krita
+</code></pre><h2 id="百度網盤">百度網盤</h2>
 <p>沒錯，你沒看錯，在 Linux 也可以使用百度雲下載東西。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S baidunetdisk-bin
 </code></pre></div><h2 id="通訊軟體">通訊軟體</h2>
@@ -408,6 +420,12 @@ flameshot gui -d <span class="m">3000</span> <span class="c1"># 延時 3 秒截�
 <p>Telegram 需要翻牆。</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S telegram-desktop
+</code></pre></div><h3 id="discord">Discord</h3>
+<p>自從 zoom 取消免費之後，加上騰訊相關產品無法在 Linux 上運行，然而我們需要通訊會議，這個是最適合的，包括語音和屏幕分享。實在是太好用了。</p>
+<p>Discord 網頁版也做得很好，騰訊會議就沒有網頁版。</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S discord <span class="c1"># 穩定版</span>
+sudo pacman -S discord-ptb <span class="c1"># 測試版</span>
+sudo pacman -S discord-canary <span class="c1"># 最新版，我都直接裝最新版</span>
 </code></pre></div><h3 id="tim">TIM</h3>
 <p>你更沒聽錯，在 Linux 上真的可以使用 TIM，但是 WeChat 無法使用，只是我平常也不用 WeChat，WeChat 很垃圾。騰訊的通訊軟體都極度不安全。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S deepin.com.qq.office
@@ -427,6 +445,9 @@ sudo pacman -S intellij-idea-ultimate-edition <span class="c1"># 付費專業版
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S java-runtime-common <span class="c1"># JRE</span>
 sudo pacman -S java-environment-common <span class="c1"># JDK</span>
+</code></pre></div><p><strong>2020/07/29 更新：安裝 intellij-idea-ultimate-edition，因為一直無法啟動 IDEA，網上搜一下，發現還要裝另一個套件</strong></p>
+<p>原文：<a href="https://aur.archlinux.org/packages/intellij-idea-ultimate-edition/">AUR intellij-idea-ultimate-edition 下面的討論區</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S intellij-idea-ultimate-edition-jre
 </code></pre></div><h3 id="pycharm">Pycharm</h3>
 <p>貌似需要使用 <code>yay</code> 直接從 AUR 下載安裝，<code>pacman</code> 庫沒有。其實我覺得 Python 直接用 VScode 寫就好了，但有些人不習慣，所以在這裡列出 Pycharm。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">yay -S pycharm-community-edition <span class="c1"># 社區版</span>
@@ -487,11 +508,12 @@ wget -O config.yml <span class="s2">&#34;xxxxxxxxxxxxxxx&#34;</span>
 <p>再來就是執行 <code>clash</code> 了。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">clash <span class="c1"># konsole 輸入 clash</span>
 </code></pre></div><p>可以進入 <a href="http://clash.razord.top/#/proxies">Clash Dashboard</a> 進行切換節點與測延遲等操作。</p>
-<h2 id="screenfetch">Screenfetch</h2>
+<h2 id="neofetch">neofetch</h2>
 <p>可以快速察看電腦狀況。好看。</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S screenfetch
-screenfetch <span class="c1"># 執行 screenfetch</span>
-</code></pre></div><p><img src="https://i.loli.net/2020/01/05/t2KNz16uDdFWQ95.png" alt="08.png"></p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S neofetch
+neofetch <span class="c1"># 執行 neofetch</span>
+</code></pre></div><!-- raw HTML omitted -->
+<p><img src="https://i.loli.net/2020/07/29/GtiJMW4CBKnocz3.png" alt="13.png"></p>
 <h2 id="界面美化">界面美化</h2>
 <p>關於這部份我就寫自己推薦的部份，畢竟每個人的審美不同，沒必要照我的來。也可以自行探索，細節也不詳細講。可以在設置中玩玩。KDE Plasma 的使用者可以到線上的 <a href="https://store.kde.org/">KDE 商店</a>看看，Gnome 則可到 <a href="https://www.gnome-look.org/">Gnome 商店</a>。</p>
 <h3 id="latte-dock">Latte Dock</h3>
@@ -500,19 +522,28 @@ screenfetch <span class="c1"># 執行 screenfetch</span>
 </code></pre></div><p>下載完在應用管理器開啟就能跑出來了。</p>
 <h3 id="theme">Theme</h3>
 <p>我偏向 Mac 風，Mac 風真的好看。</p>
-<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S mojave-gtk-theme-git
-</code></pre></div><h3 id="icon">Icon</h3>
+<p>將 <a href="https://github.com/vinceliuice/McMojave-kde">McMojave KDE Theme</a> 從 Github 下載下來，解壓壓縮包後進入資料夾，執行以下指令：</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">./install.sh
+</code></pre></div><h4 id="preview">preview</h4>
+<p><img src="https://raw.githubusercontent.com/vinceliuice/McMojave-kde/master/plasma/look-and-feel/com.github.vinceliuice.McMojave/contents/previews/fullscreenpreview.jpg" alt="dark"></p>
+<h3 id="icon">Icon</h3>
 <p>下面是我比較喜歡的 Icon 風格，你都可以裝來玩玩看。</p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">yay -S numix-circle-icon-theme-git
-yay -S papirus-icon-theme-git
+yay -S papirus-icon-theme-git <span class="c1"># 推薦，太好看了</span>
 </code></pre></div><h3 id="sddm">SDDM</h3>
 <blockquote>
 <p>2020 /  01 / 02 補充</p>
 </blockquote>
 <p>我在這裡推薦使用 <a href="https://store.kde.org/p/1312658">Suger Candy for SDDM</a>，幸好也有人放上了 AUR。</p>
-<p>官方文檔也在設置檔案的參數說明得很清楚，我就不再這多贅述了。</p>
+<p>官方文檔也在設置檔案的參數說明得很清楚，我就不再這多贅述了。<strong>在 <code>/usr/share/sddm/themes/Sugar-Candy/</code> 的 <code>theme.conf</code> 進行修改。</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S sddm-theme-sugar-candy-git
-</code></pre></div><h3 id="窗口特效">窗口特效</h3>
+</code></pre></div><p><img src="https://framagit.org/MarianArlt/sddm-sugar-candy/-/raw/master/Previews/PartialBlur.png" alt="Screenshot of the interface of the Sugar Candy theme for SDDM"></p>
+<h3 id="grub-theme">GRUB THEME</h3>
+<p>沒錯！GRUB 也可以改成自己想要的，將 <a href="https://github.com/vinceliuice/grub2-themes">Flat Design themes for Grub2</a> zip 包從 Github 下載下來，解壓後進入資料夾輸入官網說的安裝教學。<strong>細節修改可以進入 <code>/usr/share/grub/themes/</code> 裡面自行修改</strong>。</p>
+<p>我裝的主題是 <strong>Tela grub theme</strong>，有修改字體大小和字型，編輯 <code>/usr/share/grub/themes/Tela/theme.txt</code>：</p>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">item_font</span> <span class="o">=</span> <span class="s2">&#34;Noto Sans Regular 24&#34;</span>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/vinceliuice/grub2-themes/master/screenshots/grub-theme-tela.jpg" alt="Tela grub theme"></p>
+<h3 id="窗口特效">窗口特效</h3>
 <p>在<strong>設置 &gt; 工作空間 &gt; 工作空間行為 &gt; 桌面效果</strong>中可以選擇特效。</p>
 <p>我建議將以下選項勾起來，蠻好玩的。</p>
 <p><img src="https://i.loli.net/2020/01/05/vkrlGz64qosuAbI.png" alt="09.png"></p>
@@ -532,6 +563,7 @@ yay -S papirus-icon-theme-git
 <li><a href="https://www.lulinux.com/archives/1319">2019年wine QQ最完美解决方案（多Linux发行版通过测试并稳定运行）</a></li>
 <li><a href="https://wiki.archlinux.org/index.php/Java_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Java (简体中文) - ArchWiki</a></li>
 <li><a href="https://blog.skihome.xyz/posts/cf71037e/">Linux 下好用的四款 ss/ssr 客戶端</a></li>
+<li><a href="https://aur.archlinux.org/packages/intellij-idea-ultimate-edition/">AUR intellij-idea-ultimate-edition 下面的討論區</a></li>
 </ul>
 
           </div>
@@ -1063,6 +1095,58 @@ yay -S papirus-icon-theme-git
 								
 									<ul class="nav">
 								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e9%8c%84%e5%b1%8f%e5%b7%a5%e5%85%b7">
+												 錄屏工具
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e7%b9%aa%e5%9c%96">
+												 繪圖
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
 								
 
 										<li class="nav-item">
@@ -1114,6 +1198,32 @@ yay -S papirus-icon-theme-git
 										<li class="nav-item">
 						 					<a class="nav-link" href="#telegram">
 												 Telegram
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#discord">
+												 Discord
 											</a>
 										</li>
 						 
@@ -1458,8 +1568,8 @@ yay -S papirus-icon-theme-git
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#screenfetch">
-												 Screenfetch
+						 					<a class="nav-link" href="#neofetch">
+												 neofetch
 											</a>
 										</li>
 						 
@@ -1553,6 +1663,36 @@ yay -S papirus-icon-theme-git
 								
 									<ul class="nav">
 								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#preview">
+												 preview
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
 								
 
 										<li class="nav-item">
@@ -1584,6 +1724,32 @@ yay -S papirus-icon-theme-git
 										<li class="nav-item">
 						 					<a class="nav-link" href="#sddm">
 												 SDDM
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#grub-theme">
+												 GRUB THEME
 											</a>
 										</li>
 						 
