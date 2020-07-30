@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>video on Rem Blog</title>
-    <link>https://huangno1.github.io/tags/video/</link>
-    <description>Recent content in video on Rem Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <lastBuildDate>Wed, 15 Jan 2020 15:26:28 +0800</lastBuildDate>
-    
-	<atom:link href="https://huangno1.github.io/tags/video/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Archlinux KDE 動態桌布</title>
-      <link>https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/</link>
-      <pubDate>Wed, 15 Jan 2020 15:26:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/blog/2020-01/archlinux-kde-%E5%8B%95%E6%85%8B%E6%A1%8C%E5%B8%83/</guid>
-      <description>2020/01/15 edited by Huang Po-Hsun 前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。 當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>video - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/video/</link>
+        <description>video - 標籤 - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 15 Jan 2020 15:26:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/video/" rel="self" type="application/rss+xml" /><item>
+    <title>Archlinux KDE 動態桌布</title>
+    <link>https://huangno1.github.io/archlinux_kde_video_wallpaper/</link>
+    <pubDate>Wed, 15 Jan 2020 15:26:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/archlinux_kde_video_wallpaper/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/archlinux_kde_video_wallpaper.png" referrerpolicy="no-referrer">
+            </div>前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。
+當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）。最後終於在一篇 Github 項目中看到黑屏的處理方法，無意間那些 KDE Video Wallpaper 插件都可以用了。
+如果執意想使用 vlc 或是 xwinwrap + mplayer 的讀者可以參考某人的 Blog：设置 Linux 动态桌面的几种办法 - 簡書
+Plasma Video Wallpaper WuSiYu / Plasma Video Wallpaper 這是 Github 上看到的項目，這也是因為我看到他在 B 站上的視頻才知道有這個項目。
+完整項目使用過程他已經在他 Github 項目的 README.md 說得很清楚了。
+先將項目下載解壓，進入項目目錄輸入以下指令：
+ 如果沒有安裝 cmake、make 就裝一下，如果有權限問題就給權限。
+ 1 2 3 4  sudo pacman -S cmake make # 安裝 cmake make cmake .]]></description>
+</item></channel>
 </rss>

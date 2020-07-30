@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB） - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" />
+<meta property="og:description" content="前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
+肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
+系統資訊&#34; 系統資訊 
+下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
+ 安裝 VScode&#34; 安裝 VScode 
+輸入 y 並按下 Enter。
+下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g&#43;&#43; GDB&hellip;等內容及 API。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" />
+<meta property="og:image" content="https://huangno1.github.io/logo.png"/>
+<meta property="article:published_time" content="2019-04-20T14:22:18+08:00" />
+<meta property="article:modified_time" content="2020-03-04T15:58:26+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
+
+<meta name="twitter:title" content="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）"/>
+<meta name="twitter:description" content="前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
+肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
+系統資訊&#34; 系統資訊 
+下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
+ 安裝 VScode&#34; 安裝 VScode 
+輸入 y 並按下 Enter。
+下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g&#43;&#43; GDB&hellip;等內容及 API。"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" /><link rel="prev" href="https://huangno1.github.io/linux_npm_configuration/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "在 Archlinux 搭建 VScode C/C++ 開發環境（GCC）及 調試（GDB）",
+        "inLanguage": "zh-cn",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/huangno1.github.io\/archlinux_vscode_build_gdb_gcc\/"
+        },"genre": "posts","keywords": "ArchLinux, VScode, C, C\u002b\u002b, GCC, GDB","wordcount":  1071 ,
+        "url": "https:\/\/huangno1.github.io\/archlinux_vscode_build_gdb_gcc\/","datePublished": "2019-04-20T14:22:18+08:00","dateModified": "2020-03-04T15:58:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Rem Blog","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Huang Po-Hsun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-04-20">2019-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1071 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/visual_studio_code_2019_icons_preview.png"
+        data-srcset="/featuredImage/visual_studio_code_2019_icons_preview.png, /featuredImage/visual_studio_code_2019_icons_preview.png 1.5x, /featuredImage/visual_studio_code_2019_icons_preview.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/visual_studio_code_2019_icons_preview.png"
+        title="/featuredImage/visual_studio_code_2019_icons_preview.png" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#肥宅的-linux-發行版資訊">肥宅的 Linux 發行版資訊</a></li>
+    <li><a href="#下載安裝-vscode">下載安裝 VScode</a>
+      <ul>
+        <li><a href="#在-konsole-輸入下載指令">在 <code>Konsole</code> 輸入下載指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#下載-gcc-gdb">下載 GCC GDB</a>
+      <ul>
+        <li><a href="#在-konsole-輸入下載指令-1">在 <code>Konsole</code> 輸入下載指令</a></li>
+        <li><a href="#gcc">GCC</a></li>
+        <li><a href="#gdb">GDB</a>
+          <ul>
+            <li><a href="#補充">補充：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#安裝-vscode-插件">安裝 VScode 插件</a>
+      <ul>
+        <li><a href="#安裝自己使用的語言並-reload">安裝自己使用的語言並 Reload</a></li>
+        <li><a href="#安裝-cc-插件">安裝 C/C++ 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#vscode-一些設定參考">VScode 一些設定參考</a>
+      <ul>
+        <li><a href="#settingsjson">settings.json</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置-gdb-調試">配置 GDB 調試</a>
+      <ul>
+        <li><a href="#settingsjson-1">settings.json</a></li>
+        <li><a href="#c_cpp_propertiesjson">c_cpp_properties.json</a></li>
+        <li><a href="#launchjson">launch.json</a></li>
+        <li><a href="#tasksjson">tasks.json</a></li>
+      </ul>
+    </li>
+    <li><a href="#調試畫面">調試畫面</a></li>
+    <li><a href="#純手工編譯執行">純手工編譯執行</a>
+      <ul>
+        <li><a href="#c">C</a></li>
+        <li><a href="#c-1">C++</a></li>
+        <li><a href="#如果有引入其他自定義的標頭檔之實現檔">如果有引入其他自定義的標頭檔之實現檔</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><!-- 在 Archlinux 搭建 VScode C/C++ 開發環境（GCC）及 調試（GDB）
+=== -->
+<!--2019/04/09 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 <code>Linux</code> 中的 <code>GDB</code> 配置在 <code>VScode</code> 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 <code>Linux</code> 環境下從安裝 <code>VScode</code> 到配置環境變量與 <code>GDB</code> 調試。</p>
+<h2 id="肥宅的-linux-發行版資訊">肥宅的 Linux 發行版資訊</h2>
+<p>肥宅使用的發行版是 <code>ArchLinux</code>，圖形界面是 <code>KDE Plasma</code>。</p>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc833695caf.png" title="https://i.loli.net/2019/04/21/5cbc833695caf.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc833695caf.png" data-sub-html="<h2>系統資訊</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc833695caf.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc833695caf.png, https://i.loli.net/2019/04/21/5cbc833695caf.png 1.5x, https://i.loli.net/2019/04/21/5cbc833695caf.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc833695caf.png" />
+    </a><figcaption class="image-caption">系統資訊</figcaption>
+    </figure></p>
+<h2 id="下載安裝-vscode">下載安裝 VScode</h2>
+<h3 id="在-konsole-輸入下載指令">在 <code>Konsole</code> 輸入下載指令</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S code
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>註：因爲圖形界面的使用者一定是一般使用者，不可能是<strong>超級使用者</strong>，所以在輸 <code>pacman</code> 前面要加上 <code>sudo</code>。</p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" title="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" data-sub-html="<h2>安裝 VScode</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png, https://i.loli.net/2019/04/21/5cbc8336a2fe6.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336a2fe6.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" />
+    </a><figcaption class="image-caption">安裝 VScode</figcaption>
+    </figure></p>
+<p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
+<h2 id="下載-gcc-gdb">下載 GCC GDB</h2>
+<blockquote>
+<p>註：肥宅是在 <code>Windows OS</code> 用習慣了 <code>MinGW-w64</code>，但在 <code>Linux</code> 這樣配置並不是很好的選擇，如果你使用 <code>GCC</code> 或 <code>Clang</code> 會跟 <code>Linux</code> 兼容性高。<code>MinGW-w64</code> 軟件包包含 <code>gcc</code> <code>g++</code> <code>GDB</code>&hellip;等內容及 <code>API</code>。</p>
+</blockquote>
+<blockquote>
+<p>在這裡肥宅使用 <code>GCC</code> 與 <code>GDB</code></p>
+</blockquote>
+<h3 id="在-konsole-輸入下載指令-1">在 <code>Konsole</code> 輸入下載指令</h3>
+<h3 id="gcc">GCC</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gcc
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336b145c.png" title="https://i.loli.net/2019/04/21/5cbc8336b145c.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336b145c.png" data-sub-html="<h2>安裝 GCC</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336b145c.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336b145c.png, https://i.loli.net/2019/04/21/5cbc8336b145c.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336b145c.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336b145c.png" />
+    </a><figcaption class="image-caption">安裝 GCC</figcaption>
+    </figure></p>
+<p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
+<h3 id="gdb">GDB</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gdb
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" title="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" data-sub-html="<h2>安裝 GDB</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png, https://i.loli.net/2019/04/21/5cbc8336a5cc3.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336a5cc3.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" />
+    </a><figcaption class="image-caption">安裝 GDB</figcaption>
+    </figure></p>
+<p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
+<h4 id="補充">補充：</h4>
+<blockquote>
+<p>註：有些小白可能不懂，在此肥宅附上 WIKI 連結</p>
+</blockquote>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/GCC" target="_blank" rel="noopener noreffer">GCC-維基百科，自由的百科全書</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Clang" target="_blank" rel="noopener noreffer">Clang-維基百科，自由的百科全書</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/MinGW" target="_blank" rel="noopener noreffer">MinGW-維基百科，自由的百科全書</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/GNU%E4%BE%A6%E9%94%99%E5%99%A8" target="_blank" rel="noopener noreffer">GDB-維基百科，自由的百科全書</a></li>
+</ul>
+<p>什麼？！你還是不懂？</p>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83369f8da.png" title="https://i.loli.net/2019/04/21/5cbc83369f8da.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83369f8da.png" data-sub-html="<h2>你不會 GOOGLE 一下嗎</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc83369f8da.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc83369f8da.png, https://i.loli.net/2019/04/21/5cbc83369f8da.png 1.5x, https://i.loli.net/2019/04/21/5cbc83369f8da.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc83369f8da.png" />
+    </a><figcaption class="image-caption">你不會 GOOGLE 一下嗎</figcaption>
+    </figure></p>
+<h2 id="安裝-vscode-插件">安裝 VScode 插件</h2>
+<h3 id="安裝自己使用的語言並-reload">安裝自己使用的語言並 Reload</h3>
+<p>在插件搜尋處搜尋自己要的語言，像肥宅我是用<strong>繁體中文</strong>，所以只要在搜尋處打上 <code>traditional</code> 就會出現安裝插件，按下 <code>Install</code>，並等它裝好 <code>Reload</code>就會切換到自己想要的語言界面，如果你想裝的是<strong>簡體中文</strong>，可以輸入 <code>simplified</code>，其實你只要輸入 <code>Chinese</code> 的 <code>ch</code> 基本繁體簡體都會顯示出來。</p>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336c215f.png" title="https://i.loli.net/2019/04/21/5cbc8336c215f.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336c215f.png" data-sub-html="<h2>語言插件</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336c215f.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336c215f.png, https://i.loli.net/2019/04/21/5cbc8336c215f.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336c215f.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336c215f.png" />
+    </a><figcaption class="image-caption">語言插件</figcaption>
+    </figure></p>
+<h3 id="安裝-cc-插件">安裝 C/C++ 插件</h3>
+<p>搜尋 <code>C/C++</code> 並安裝</p>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336cca49.png" title="https://i.loli.net/2019/04/21/5cbc8336cca49.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336cca49.png" data-sub-html="<h2>C/C&#43;&#43; 插件</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336cca49.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336cca49.png, https://i.loli.net/2019/04/21/5cbc8336cca49.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336cca49.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336cca49.png" />
+    </a><figcaption class="image-caption">C/C++ 插件</figcaption>
+    </figure></p>
+<p><strong>其餘插件推薦請參考 <a href="https://hackmd.io/s/B1LNZviPE" target="_blank" rel="noopener noreffer">Visual Studio Code 推薦使用插件</a></strong></p>
+<h2 id="vscode-一些設定參考">VScode 一些設定參考</h2>
+<p>點擊左下角滾輪中的設定，再點擊右上角的 <code>{}</code>，可進入 <code>settings.json</code>。</p>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" title="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" data-sub-html="<h2>設定文件</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png, https://i.loli.net/2019/04/21/5cbc8336c7ef6.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336c7ef6.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" />
+    </a><figcaption class="image-caption">設定文件</figcaption>
+    </figure></p>
+<h3 id="settingsjson">settings.json</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;workbench.colorTheme&#34;: &#34;One Dark Pro&#34;,
+    &#34;workbench.iconTheme&#34;: &#34;vscode-icons&#34;,
+    &#34;terminal.integrated.fontFamily&#34;: &#34;Source Code Pro&#34;,
+    &#34;code-runner.runInTerminal&#34;: true,
+    &#34;code-runner.saveFileBeforeRun&#34;: true,
+    &#34;code-runner.clearPreviousOutput&#34;: true,
+    &#34;typescript.locale&#34;: &#34;zh-TW&#34;,
+    &#34;code-runner.fileDirectoryAsCwd&#34;: true,
+    &#34;editor.fontLigatures&#34;: true,
+    &#34;editor.fontFamily&#34;: &#34;&#39;Droid Sans Mono&#39;, &#39;monospace&#39;, monospace, &#39;Droid Sans Fallback&#39;, &#39;Source Code Pro&#39;&#34;,
+    &#34;terminal.integrated.rendererType&#34;: &#34;canvas&#34;,
+    &#34;files.autoSave&#34;: &#34;afterDelay&#34;,
+    &#34;editor.fontSize&#34;: 16,
+    &#34;C_Cpp.default.intelliSenseMode&#34;: &#34;clang-x64&#34;
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>註：肥宅有裝 code-runer 插件，所以設定中有這個 code-runner。這裡不需要各位去複製貼上，只是給大家參考肥宅用了那些主題與插件。像肥宅目前使用 <code>One Dark Pro</code> 佈置主題。</p>
+</blockquote>
+<p><strong>注意：第 5 行的設定很重要，因為當你裝完 <code>code-runner</code> 時預設是不能在終端機輸入，所以才將 <code>code-runner.runInTerminal</code> 參數設為 <code>true</code></strong></p>
+<h2 id="配置-gdb-調試">配置 GDB 調試</h2>
+<p>這時你的電腦已配置了 <code>gcc</code> <code>g++</code> 的環境變數，但你並還沒將其 IDE 完全配好，如果沒配好會出現一些問題，像肥宅在寫 <code>C</code> 敲上 <code>#include &lt;stdio.h&gt;</code> 時底部會出現<strong>綠色的波浪線</strong>，因爲沒將頭文件 <code>*.h</code> 都載入，雖然不影響編譯執行，但總會覺得很礙眼，感覺有瑕疵，在這裡肥宅一次幫各位解決。</p>
+<blockquote>
+<p>註：下圖為綠色波浪底線示意圖</p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" title="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" data-sub-html="<h2>綠色波浪底線</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc8336c9da3.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc8336c9da3.png, https://i.loli.net/2019/04/21/5cbc8336c9da3.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336c9da3.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" />
+    </a><figcaption class="image-caption">綠色波浪底線</figcaption>
+    </figure></p>
+<p>讓我們開始配置吧~</p>
+<blockquote>
+<p>註：建議各位將所有代碼集中在一個資料夾方便管理，並有序分類。</p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83369270a.png" title="https://i.loli.net/2019/04/21/5cbc83369270a.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83369270a.png" data-sub-html="<h2>Code 分類</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc83369270a.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc83369270a.png, https://i.loli.net/2019/04/21/5cbc83369270a.png 1.5x, https://i.loli.net/2019/04/21/5cbc83369270a.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc83369270a.png" />
+    </a><figcaption class="image-caption">Code 分類</figcaption>
+    </figure></p>
+<blockquote>
+<p>註：這裡使用的是 <code>Dolphin</code> 來檢視檔案，類似 <code>Windows OS</code> 的檔案總管，這裡就不介紹這個。</p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" title="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" data-sub-html="<h2>顯示隱藏的 file 和 directory</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc83c9226cc.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc83c9226cc.png, https://i.loli.net/2019/04/21/5cbc83c9226cc.png 1.5x, https://i.loli.net/2019/04/21/5cbc83c9226cc.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" />
+    </a><figcaption class="image-caption">顯示隱藏的 file 和 directory</figcaption>
+    </figure></p>
+<blockquote>
+<p>註：資料夾名或檔案名開頭是 <code>.</code> 的話會隱藏的，e.g. <code>.vscode</code> <code>.git</code> ，必須開啟可以顯示的設定才能看到。</p>
+</blockquote>
+<p>請於<strong>代碼根目錄</strong>（也就是你使用 <code>VScode</code> 打開的資料夾）先將<strong>隱藏的檔案</strong>可以顯示，這裡因爲是肥宅先配置好的所以才會看到 <code>.vscode</code>，請在這新建個資料夾，資料夾名叫 <code>.vscode</code>，並分別新建四個文件，分別是</p>
+<blockquote>
+<p>註：像肥宅在 <code>VScode</code> 開啟的資料夾是 <code>Study</code>，所以肥宅在 <code>Study</code> 這個資料夾目錄中新增名為 <code>.vscode</code> 的資料夾，並進入此資料夾新建四個檔案</p>
+</blockquote>
+<ul>
+<li>settings.json</li>
+<li>c_cpp_properties.json</li>
+<li>launch.json</li>
+<li>task.json</li>
+</ul>
+<p>接著分別填入以下內容</p>
+<h3 id="settingsjson-1">settings.json</h3>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;files.defaultLanguage&#34;: &#34;cpp&#34;, // ctrl+N新建文件后默认的语言
+    &#34;editor.formatOnType&#34;: true, // 输入时就进行格式化，默认触发字符较少，分号可以触发
+    &#34;editor.formatOnSave&#34;: true, // 每次存檔時，自動執行自動排版功能
+    &#34;editor.snippetSuggestions&#34;: &#34;top&#34;, // snippets代码优先显示补全
+    &#34;code-runner.runInTerminal&#34;: true, // 设置成false会在“输出”中输出，无法输入
+    &#34;code-runner.executorMap&#34;: {
+        &#34;c&#34;: &#34;cd $dir &amp;&amp; gcc $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt.out&#34;,
+        &#34;cpp&#34;: &#34;cd $dir &amp;&amp; g++ $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt.out&#34;
+    }, // 设置code runner的命令行
+    &#34;code-runner.saveFileBeforeRun&#34;: true, // run code前保存
+    &#34;code-runner.preserveFocus&#34;: true, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+    &#34;code-runner.clearPreviousOutput&#34;: false, // 每次run code前清空属于code runner的终端消息
+    &#34;C_Cpp.clang_format_sortIncludes&#34;: true, // 格式化时调整include的顺序（按字母排序）
+    &#34;C_Cpp.intelliSenseEngine&#34;: &#34;Default&#34;, // 可以为Default或Tag Parser，后者较老，功能较简单。具体差别参考cpptools扩展文档
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>註：在 <code>Linux</code> 中輸出檔的副檔名是 <code>*.out</code>，有別於 <code>Windows</code> 的 <code>*.exe</code></p>
+</blockquote>
+<p><strong>注意：第八行與第九行的是 <code>code-runner</code> 插件的編譯執行命令行，因為是在 <code>Linux</code> 下編譯執行，所以肥宅在後面 <code>fileNameWithoutExt</code> 變數後面從 <code>.exe</code> 改成 <code>.out</code>，這樣在使用 <code>code-runner</code> 插件時幫你自動生成的輸出檔副檔名是 <code>*.out</code></strong></p>
+<h3 id="c_cpp_propertiesjson">c_cpp_properties.json</h3>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;configurations&#34;: [
+        {
+            &#34;name&#34;: &#34;Linux&#34;,
+            &#34;includePath&#34;: [
+                &#34;${workspaceFolder}/**&#34;,
+                &#34;/usr/include&#34;,
+                &#34;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/include/&#34;
+            ],
+            &#34;cStandard&#34;: &#34;c11&#34;,
+            &#34;cppStandard&#34;: &#34;c++17&#34;,
+            &#34;intelliSenseMode&#34;: &#34;gcc-x64&#34;,
+            &#34;defines&#34;: [
+                &#34;_DEBUG&#34;,
+                &#34;UNICODE&#34;,
+                &#34;__GNUC__=7&#34;,
+                &#34;__cdecl=__attribute__((__cdecl__))&#34;
+            ],
+            &#34;browse&#34;: {
+                &#34;path&#34;: [
+                    &#34;${workspaceFolder}&#34;,
+                    &#34;/usr/include&#34;,
+                    &#34;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/include/&#34;,
+                    &#34;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed/&#34;,
+                    &#34;/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/install-tools/include/&#34;
+                ],
+                &#34;limitSymbolsToIncludedHeaders&#34;: true,
+                &#34;databaseFilename&#34;: &#34;&#34;
+            }
+        }
+    ],
+    &#34;version&#34;: 4
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>註：肥宅之前就是這裡沒配置好（第 5 行的 <code>&quot;includePath&quot;</code>）所以才會在 <code>#include &lt;stdio.h&gt;</code> 這行底部出現綠色波浪</p>
+</blockquote>
+<p><strong>注意：肥宅 GCC 的版本是 8.2.1，所以如果你的版本改跟我不一樣請修改成你的當前版本，這裡最重要的是路徑不能有錯。也許你的路徑可能跟我不一樣，這些都可以在 <code>root</code> 根目錄中找到，請自行尋找與修改。</strong></p>
+<h3 id="launchjson">launch.json</h3>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
+    &#34;version&#34;: &#34;0.2.0&#34;,
+    &#34;configurations&#34;: [
+        {
+            &#34;name&#34;: &#34;Run C&#34;,
+            &#34;type&#34;: &#34;cppdbg&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;program&#34;: &#34;${workspaceFolder}/${fileBasenameNoExtension}.out&#34;,
+            &#34;args&#34;: [],
+            &#34;stopAtEntry&#34;: false,
+            &#34;cwd&#34;: &#34;${workspaceFolder}&#34;,
+            &#34;environment&#34;: [],
+            &#34;externalConsole&#34;: false,
+            &#34;MIMode&#34;: &#34;gdb&#34;,
+            &#34;setupCommands&#34;: [
+                {
+                    &#34;description&#34;: &#34;Enable pretty-printing for gdb&#34;,
+                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
+                    &#34;ignoreFailures&#34;: false
+                }
+            ],
+            &#34;preLaunchTask&#34;: &#34;build &amp; run file C&#34;
+        },
+        {
+            &#34;name&#34;: &#34;Run C++&#34;,
+            &#34;type&#34;: &#34;cppdbg&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;program&#34;: &#34;${workspaceFolder}/${fileBasenameNoExtension}.out&#34;,
+            &#34;args&#34;: [],
+            &#34;stopAtEntry&#34;: false,
+            &#34;cwd&#34;: &#34;${workspaceFolder}&#34;,
+            &#34;environment&#34;: [],
+            &#34;externalConsole&#34;: false,
+            &#34;MIMode&#34;: &#34;gdb&#34;,
+            &#34;setupCommands&#34;: [
+                {
+                    &#34;description&#34;: &#34;Enable pretty-printing for gdb&#34;,
+                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
+                    &#34;ignoreFailures&#34;: false
+                }
+            ],
+            &#34;preLaunchTask&#34;: &#34;build &amp; run file C++&#34;
+        },
+        {
+            &#34;name&#34;: &#34;Debug C&#34;,
+            &#34;type&#34;: &#34;cppdbg&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;program&#34;: &#34;${workspaceFolder}/${fileBasenameNoExtension}.out&#34;,
+            &#34;args&#34;: [],
+            &#34;stopAtEntry&#34;: false,
+            &#34;cwd&#34;: &#34;${workspaceFolder}&#34;,
+            &#34;environment&#34;: [],
+            &#34;externalConsole&#34;: false,
+            &#34;MIMode&#34;: &#34;gdb&#34;,
+            &#34;setupCommands&#34;: [
+                {
+                    &#34;description&#34;: &#34;Enable pretty-printing for gdb&#34;,
+                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
+                    &#34;ignoreFailures&#34;: false
+                }
+            ],
+            &#34;preLaunchTask&#34;: &#34;build &amp; debug file C&#34;
+        },
+        {
+            &#34;name&#34;: &#34;Debug C++&#34;,
+            &#34;type&#34;: &#34;cppdbg&#34;,
+            &#34;request&#34;: &#34;launch&#34;,
+            &#34;program&#34;: &#34;${workspaceFolder}/${fileBasenameNoExtension}.out&#34;,
+            &#34;args&#34;: [],
+            &#34;stopAtEntry&#34;: false,
+            &#34;cwd&#34;: &#34;${workspaceFolder}&#34;,
+            &#34;environment&#34;: [],
+            &#34;externalConsole&#34;: false,
+            &#34;MIMode&#34;: &#34;gdb&#34;,
+            &#34;setupCommands&#34;: [
+                {
+                    &#34;description&#34;: &#34;Enable pretty-printing for gdb&#34;,
+                    &#34;text&#34;: &#34;-enable-pretty-printing&#34;,
+                    &#34;ignoreFailures&#34;: false
+                }
+            ],
+            &#34;preLaunchTask&#34;: &#34;build &amp; debug file C++&#34;
+        }
+    ]
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>註：在分 <code>C/C++</code> 的配置時可以分開，一個是 <code>gcc</code> 一個是 <code>g++</code>，然而有些人直接全部都是用 <code>g++</code> 編譯，這樣也可以，只是不能使用 <code>gcc</code> 去編譯 <code>C++</code>。由於肥宅有強迫症，所以分成四個部份。</p>
+</blockquote>
+<p>**注意：這裡肥宅分了四個類型，分別是 <code>Run C</code> <code>Run C++</code> <code>Debug C</code> <code>Debug C++</code>，
+其中每一個 <code>&quot;program&quot;</code> （進行調試的程序路徑）參數都是</p>
+<p><code>&quot;${workspaceFolder}/${fileBasenameNoExtension}.out&quot;</code>，
+<code>&quot;preLaunchTask&quot;</code> 的值則是對應到 <code>task.json</code> 的 <code>&quot;label&quot;</code>，如果兩者對應的名稱出錯在調試時會出現找不到對應名稱的錯誤訊息，要你開啟 <code>launch.json</code> 重新設定。**</p>
+<h3 id="tasksjson">tasks.json</h3>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;version&#34;: &#34;2.0.0&#34;,
+    &#34;tasks&#34;: [
+        {
+            &#34;label&#34;: &#34;build &amp; debug file C&#34;,
+            &#34;type&#34;: &#34;shell&#34;,
+            &#34;command&#34;: &#34;gcc&#34;,
+            &#34;args&#34;: [
+                &#34;-g&#34;,
+                &#34;${file}&#34;,
+                &#34;-o&#34;,
+                &#34;${fileBasenameNoExtension}.out&#34;
+            ],
+            &#34;group&#34;: {
+                &#34;kind&#34;: &#34;build&#34;,
+                &#34;isDefault&#34;: true
+            }
+        },
+        {
+            &#34;label&#34;: &#34;build &amp; debug file C++&#34;,
+            &#34;type&#34;: &#34;shell&#34;,
+            &#34;command&#34;: &#34;g++&#34;,
+            &#34;args&#34;: [
+                &#34;-g&#34;,
+                &#34;${file}&#34;,
+                &#34;-o&#34;,
+                &#34;${fileBasenameNoExtension}.out&#34;
+            ],
+            &#34;group&#34;: {
+                &#34;kind&#34;: &#34;build&#34;,
+                &#34;isDefault&#34;: true
+            }
+        },
+        {
+            &#34;label&#34;: &#34;build &amp; run file C&#34;,
+            &#34;type&#34;: &#34;shell&#34;,
+            &#34;command&#34;: &#34;gcc&#34;,
+            &#34;args&#34;: [
+                &#34;${file}&#34;,
+                &#34;-o&#34;,
+                &#34;${fileBasenameNoExtension}.out&#34;
+            ],
+            &#34;group&#34;: {
+                &#34;kind&#34;: &#34;build&#34;,
+                &#34;isDefault&#34;: true
+            }
+        },
+        {
+            &#34;label&#34;: &#34;build &amp; run file C++&#34;,
+            &#34;type&#34;: &#34;shell&#34;,
+            &#34;command&#34;: &#34;g++&#34;,
+            &#34;args&#34;: [
+                &#34;${file}&#34;,
+                &#34;-o&#34;,
+                &#34;${fileBasenameNoExtension}.out&#34;
+            ],
+            &#34;group&#34;: {
+                &#34;kind&#34;: &#34;build&#34;,
+                &#34;isDefault&#34;: true
+            }
+        }
+    ]
+}
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>註：<code>-g</code> 是調試的意思，<code>-o</code> 是輸出的意思。</p>
+</blockquote>
+<p><strong>注意：每個 <code>&quot;args&quot;</code> 參數中的 <code>&quot;${fileBasenameNoExtension}.out&quot;</code> 要特別注意尾端改成<code>.out</code>。</strong></p>
+<h2 id="調試畫面">調試畫面</h2>
+<p>配置完後，你可以在調試欄看到 <code>Run C</code> <code>Run C++</code> <code>Debug C</code> <code>Debug C++</code> 選項。</p>
+<p>肥宅現在要調試 <code>1.c</code> 這個檔案，可以在代碼中設置<strong>斷點</strong>，並選擇 <code>Debug C</code>。</p>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83c91defe.png" title="https://i.loli.net/2019/04/21/5cbc83c91defe.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83c91defe.png" data-sub-html="<h2>設置斷點</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc83c91defe.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc83c91defe.png, https://i.loli.net/2019/04/21/5cbc83c91defe.png 1.5x, https://i.loli.net/2019/04/21/5cbc83c91defe.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc83c91defe.png" />
+    </a><figcaption class="image-caption">設置斷點</figcaption>
+    </figure></p>
+<blockquote>
+<p>註：調試快捷鍵 <code>F5</code></p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" title="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" data-sub-html="<h2>調試</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://i.loli.net/2019/04/21/5cbc83c9333fa.png"
+            data-srcset="https://i.loli.net/2019/04/21/5cbc83c9333fa.png, https://i.loli.net/2019/04/21/5cbc83c9333fa.png 1.5x, https://i.loli.net/2019/04/21/5cbc83c9333fa.png 2x"
+            data-sizes="auto"
+            alt="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" />
+    </a><figcaption class="image-caption">調試</figcaption>
+    </figure></p>
+<p>左側可以看到變數的值</p>
+<blockquote>
+<p>註：肥宅已在 <code>launch.json</code> 中設定 <code>&quot;externalConsole&quot;: false</code>，因爲這個設定的意思是使格外彈出個 <code>Konsole</code>，這功能只能在 <code>Windows OS</code> 中改成 <code>true</code></p>
+</blockquote>
+<h2 id="純手工編譯執行">純手工編譯執行</h2>
+<p>假設有個檔名叫 <code>1</code>，副檔名可以是 <code>*.c</code> 或 <code>*.cpp</code></p>
+<h3 id="c">C</h3>
+<p>編譯標準 C99</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -std<span class="o">=</span>c99 1.c -o 1.out
+</code></pre></td></tr></table>
+</div>
+</div><p>執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./1.out
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="c-1">C++</h3>
+<p>編譯標準 C++11</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">g++ -std<span class="o">=</span>c++11 1.cpp -o 1.out
+</code></pre></td></tr></table>
+</div>
+</div><p>執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./1.out
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="如果有引入其他自定義的標頭檔之實現檔">如果有引入其他自定義的標頭檔之實現檔</h3>
+<p>編譯時加入參數
+e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標頭檔，並且將 <code>Circle.h</code> 標頭檔的實現部份寫在 <code>Circle.cpp</code></p>
+<p>編譯</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -std<span class="o">=</span>c99 main.c Circle.cpp -o main.out
+</code></pre></td></tr></table>
+</div>
+</div><p>執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./main.out
+</code></pre></td></tr></table>
+</div>
+</div><!--##### &copy;copyright by Huang Po-Hsun-->
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-03-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/archlinux_vscode_build_gdb_gcc/index.md" target="_blank">閱讀原始檔案</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" data-via="Rem59881439" data-hashtags="ArchLinux,VScode,C,C&#43;&#43;,GCC,GDB"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-hashtag="ArchLinux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" data-image="/featuredImage/visual_studio_code_2019_icons_preview.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" data-title="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/vscode/">VScode</a>,&nbsp;<a href="/tags/c/">C</a>,&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/gcc/">GCC</a>,&nbsp;<a href="/tags/gdb/">GDB</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/linux_npm_configuration/" class="prev" rel="prev" title="Linux 配置 npm"><i class="fas fa-angle-left fa-fw"></i>Linux 配置 npm</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.73.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/HuangNO1" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+</html>

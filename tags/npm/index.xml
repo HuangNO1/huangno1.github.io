@@ -1,24 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>npm on Rem Blog</title>
-    <link>https://huangno1.github.io/tags/npm/</link>
-    <description>Recent content in npm on Rem Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <lastBuildDate>Thu, 06 Feb 2020 11:27:28 +0800</lastBuildDate>
-    
-	<atom:link href="https://huangno1.github.io/tags/npm/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Linux 配置 npm</title>
-      <link>https://huangno1.github.io/blog/2020-02/linux-%E9%85%8D%E7%BD%AE-npm/</link>
-      <pubDate>Thu, 06 Feb 2020 11:27:28 +0800</pubDate>
-      
-      <guid>https://huangno1.github.io/blog/2020-02/linux-%E9%85%8D%E7%BD%AE-npm/</guid>
-      <description>2020/02/06 edited by Huang Po-Hsun 前言 npm（Node Package Manager）是 node 包管理器，是 Node.js 預設的、以 JavaScript 編寫的軟體套件管理系統。相信各位在開發 Vue 或是快應用等方面都會用到 npm，這裡我寫一下關於 npm 在 Linux 上的配置，因為在 Linux 使用 npm，因為在使用 npm 安裝套件時會發生權限不足問題還有下載源速度過慢，我將在這篇文章教大家如何配置 npm。 安裝 npm 裝 npm 時，會幫你也裝 nodeJS等相關依賴。 sudo pacman -S npm npm 本地化 在家目錄建立資料夾 mkdir ~/.npm-global 設置 npm 的目標資料</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>npm - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/npm/</link>
+        <description>npm - 標籤 - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Feb 2020 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/npm/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux 配置 npm</title>
+    <link>https://huangno1.github.io/linux_npm_configuration/</link>
+    <pubDate>Thu, 06 Feb 2020 11:27:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/linux_npm_configuration/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/linux_npm_configuration.png" referrerpolicy="no-referrer">
+            </div>前言 npm（Node Package Manager）是 node 包管理器，是 Node.js 預設的、以 JavaScript 編寫的軟體套件管理系統。相信各位在開發 Vue 或是快應用等方面都會用到 npm，這裡我寫一下關於 npm 在 Linux 上的配置，因為在 Linux 使用 npm，因為在使用 npm 安裝套件時會發生權限不足問題還有下載源速度過慢，我將在這篇文章教大家如何配置 npm。
+安裝 npm 裝 npm 時，會幫你也裝 nodeJS等相關依賴。
+1  sudo pacman -S npm   npm 本地化  在家目錄建立資料夾  1  mkdir ~/.npm-global   設置 npm 的目標資料夾  1  npm config set prefix &#39;~/.npm-global&#39;   加入本地環境變量  如果你有安裝使用 ZSH，也需要在 ~/.zshrc 引入環境變量。
+1 2  vim ~/.]]></description>
+</item></channel>
 </rss>
