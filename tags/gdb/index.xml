@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/visual_studio_code_2019_icons_preview.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/visual_studio_code_2019_icons_preview.png" referrerpolicy="no-referrer">
             </div>前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
 肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
 系統資訊" 系統資訊 

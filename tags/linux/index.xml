@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/linux_npm_configuration/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/linux_npm_configuration.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/linux_npm_configuration.png" referrerpolicy="no-referrer">
             </div>前言 npm（Node Package Manager）是 node 包管理器，是 Node.js 預設的、以 JavaScript 編寫的軟體套件管理系統。相信各位在開發 Vue 或是快應用等方面都會用到 npm，這裡我寫一下關於 npm 在 Linux 上的配置，因為在 Linux 使用 npm，因為在使用 npm 安裝套件時會發生權限不足問題還有下載源速度過慢，我將在這篇文章教大家如何配置 npm。
 安裝 npm 裝 npm 時，會幫你也裝 nodeJS等相關依賴。
 1  sudo pacman -S npm   npm 本地化  在家目錄建立資料夾  1  mkdir ~/.npm-global   設置 npm 的目標資料夾  1  npm config set prefix &#39;~/.npm-global&#39;   加入本地環境變量  如果你有安裝使用 ZSH，也需要在 ~/.zshrc 引入環境變量。
@@ -23,7 +23,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_makepkg/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_makepkg.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_makepkg.png" referrerpolicy="no-referrer">
             </div>前言 這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 *.deb 的 Ubuntu 版本，我當時將 *.deb 轉成 tar.gz 適用 Arch 發行版的包失敗，當時我是看這網站使用 Debtap 工具，雖然最後成功轉成 tar.gz，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 dkpg，然而實際上寫 PKGBUILD 才是最好的方法，當時是我朋友將快應用的官方 IDE 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 Arch Linux 打包教學，但他這篇卻沒有給出實例，讓大多數第一次打包的人看不懂，就跟看官方文檔一樣。網上詳細優質的打包教學少之又少，這次我藉著一個機會體會到打包的過程，為了紀錄這過程，我寫了這篇教學。
  本次文章參考了 ArchWiki 的 Creating packages (简体中文)、PKGBUILD (简体中文) 和書術方隅。你可以認為我這篇是這三篇的綜合進化版。
  簡述 創建 PKGBUILD – 一個包創建描述文件，由 makepkg 使用來從原始碼創建二進位制包。Arch 套裝軟體標準包含當前規則和提高套裝軟體質量的方法。如果已經有了 PKGBUILD 文件，請參考 makepkg (簡體中文)。
@@ -37,7 +37,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/linux_java_tomcat_maven_intellijIDEA_install_configuration.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/linux_java_tomcat_maven_intellijIDEA_install_configuration.png" referrerpolicy="no-referrer">
             </div>前言 我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個適用於你的電腦的 Linux SSD (root) 空間不夠的情況，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 /home。如果覺得自己 SSD 夠用，就直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ，畢竟會有人覺得我這樣的做法讓系統管理有點髒。不過關於環境變量的配置可以參考我這篇文章，不管是裝在 SSD 還是 HDD。
 JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這網站的介紹。
  Sun 公司看別人的語言更新都更新到 xxx 了，自己的 Java 版本還是 1 點幾，讓人感覺很落後，所以在 jdk 1.6 的時候對外發布稱之為 jdk 6.0 ，讓人感覺更先進點。在寫 Java 的人眼裡都是叫 1.]]></description>
@@ -48,7 +48,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
     <author>作者</author>
     <guid>https://huangno1.github.io/linux_python_pyenv/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/linux_python_pyenv.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/linux_python_pyenv.png" referrerpolicy="no-referrer">
             </div>前言 在 Linux 開發 Python 相關的項目，你是不是會碰到關於 Python 版本之類的問題？像是開發 Tensorflow 的時候碰到版本問題，原本 Python 3.7 可以支援 Tensorflow，但是忽然 Python 從 3.7 更新到 3.8.0，這時 Python 3.8 不支援 Tensorflow，你苦惱了，千辛萬苦的項目因為系統更新而導致版本不支援使項目暫停開發，這時 pyenv 將成為你的救星，如果你硬是不肯更新系統 Python 版本，你的系統將會得不到最新的體驗與安全並處於危險的不穩定狀態，系統更新真的很重要。
 pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個 Python 版本。pyenv 是 Github 上的開源項目，關於使用須知該項目的 README.md 寫得很詳細。我這篇文章就分享一下我在 Arch Linux 的安裝方式。
 安裝 從 Github 倉庫上直接 clone 下來。你也可以選擇直接在瀏覽器上下來。然後壓縮包解壓將文件內的文件放入 ~/.pyenv。
@@ -61,7 +61,7 @@ pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_kde_video_wallpaper/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_kde_video_wallpaper.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_kde_video_wallpaper.png" referrerpolicy="no-referrer">
             </div>前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。
 當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）。最後終於在一篇 Github 項目中看到黑屏的處理方法，無意間那些 KDE Video Wallpaper 插件都可以用了。
 如果執意想使用 vlc 或是 xwinwrap + mplayer 的讀者可以參考某人的 Blog：设置 Linux 动态桌面的几种办法 - 簡書
@@ -77,7 +77,7 @@ Plasma Video Wallpaper WuSiYu / Plasma Video Wallpaper 這是 Github 上看到�
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_install_part4_on_my_zsh/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_install_part4_on_my_zsh.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_install_part4_on_my_zsh.png" referrerpolicy="no-referrer">
             </div>前言 我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 Bash，然而 bash 過於單調，也沒有自動補全，這時我們就需要開源項目 oh-my-zsh，在這篇教學我會寫一下，我配置 oh-my-zsh 的過程。
 我的 Konsole 我的終端機02.png
 " 我的終端機 
@@ -93,7 +93,7 @@ Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_install_part3_install_some_software_and_mac_style/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_install_part3_install_some_software_and_mac_style.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_install_part3_install_some_software_and_mac_style.png" referrerpolicy="no-referrer">
             </div>前言 我們在 Part 2 中已將基本的圖形界面以及中文字體等配置好，接下來我會在這篇中推薦一些實用的軟體與界面風格。
 文本編輯器 Kate 可作為記事本使用。
 1  sudo pacman -S kate   Typora 美化你的文本，編寫 Markdowm 語言，具有跨平台優點，Linux 上的 *.docx 拿到 Windows 上的 Office 容易走版，使用 Markdown 寫的文件不會有這問題。
@@ -107,7 +107,7 @@ Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_install_part2_general_recommendations/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_install_part2_general_recommendations.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png" referrerpolicy="no-referrer">
             </div>前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
 確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。
  註：注意使用 systemctl 啟用 networkmanager 服務時要注意大小寫，開頭要大寫。
@@ -122,7 +122,7 @@ Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_install_part1_basic/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_install_part1_basic.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_install_part1_basic.png" referrerpolicy="no-referrer">
             </div>前言 我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。
 由於我的電腦型號是聯想 y7000，所以遇到的坑真的很多，我會按特殊情況講解，雖然 Installation guide - ArchWiki 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(
 因為我這是專給小白寫的文章，所以寫了很多細節和注意點，如果你是高手，覺得我寫了很多廢話，那請你忍耐吧，也可以選擇不看我的文章，直接去看 ArchWiki。

@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/archlinux_makepkg/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/archlinux_makepkg.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/archlinux_makepkg.png" referrerpolicy="no-referrer">
             </div>前言 這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 *.deb 的 Ubuntu 版本，我當時將 *.deb 轉成 tar.gz 適用 Arch 發行版的包失敗，當時我是看這網站使用 Debtap 工具，雖然最後成功轉成 tar.gz，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 dkpg，然而實際上寫 PKGBUILD 才是最好的方法，當時是我朋友將快應用的官方 IDE 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 Arch Linux 打包教學，但他這篇卻沒有給出實例，讓大多數第一次打包的人看不懂，就跟看官方文檔一樣。網上詳細優質的打包教學少之又少，這次我藉著一個機會體會到打包的過程，為了紀錄這過程，我寫了這篇教學。
  本次文章參考了 ArchWiki 的 Creating packages (简体中文)、PKGBUILD (简体中文) 和書術方隅。你可以認為我這篇是這三篇的綜合進化版。
  簡述 創建 PKGBUILD – 一個包創建描述文件，由 makepkg 使用來從原始碼創建二進位制包。Arch 套裝軟體標準包含當前規則和提高套裝軟體質量的方法。如果已經有了 PKGBUILD 文件，請參考 makepkg (簡體中文)。

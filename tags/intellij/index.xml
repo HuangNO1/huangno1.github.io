@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/linux_java_tomcat_maven_intellijIDEA_install_configuration.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/linux_java_tomcat_maven_intellijIDEA_install_configuration.png" referrerpolicy="no-referrer">
             </div>前言 我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個適用於你的電腦的 Linux SSD (root) 空間不夠的情況，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 /home。如果覺得自己 SSD 夠用，就直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ，畢竟會有人覺得我這樣的做法讓系統管理有點髒。不過關於環境變量的配置可以參考我這篇文章，不管是裝在 SSD 還是 HDD。
 JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這網站的介紹。
  Sun 公司看別人的語言更新都更新到 xxx 了，自己的 Java 版本還是 1 點幾，讓人感覺很落後，所以在 jdk 1.6 的時候對外發布稱之為 jdk 6.0 ，讓人感覺更先進點。在寫 Java 的人眼裡都是叫 1.]]></description>
