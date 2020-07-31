@@ -16,11 +16,13 @@
 
 ### 1. 至 [清華大學 Archlinux 軟件鏡像站](https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/)下載最新版的 archlinux*.ios 鏡像
 
-![1.png](https://i.loli.net/2019/09/29/28CjvXVRUZJzqQ3.png "清華大學鏡像站")
+<!-- ![1.png](https://i.loli.net/2019/09/29/28CjvXVRUZJzqQ3.png "清華大學鏡像站") -->
+![1.png](https://imgpoi.com/i/KLAD9E.png "清華大學鏡像站")
 
 ### 2. 下載 [Rufus](https://rufus.ie/) - 用來匯入 Archlinux 鏡像至 USB
 
-![2.png](https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.png "Refus 官網")
+<!-- ![2.png](https://i.loli.net/2019/09/29/CwW9MLR5IZkSru4.png "Refus 官網") -->
+![2.png](https://imgpoi.com/i/KLA0QB.png "Refus 官網")
 
 ### 3. 準備一個至少 8G 的 USB
 
@@ -42,7 +44,8 @@ e.g.
 
 MBR 燒錄。
 
-![3.png](https://i.loli.net/2019/09/29/jR5FbkuUCPIMvXh.png "MBR 燒錄")
+<!-- ![3.png](https://i.loli.net/2019/09/29/jR5FbkuUCPIMvXh.png "MBR 燒錄") -->
+![3.png](https://imgpoi.com/i/KLAC1G.png "MBR 燒錄")
 
 ### 4. 分割磁區
 
@@ -54,7 +57,8 @@ MBR 燒錄。
 
 磁區管理示意圖：
 
-![4.png](https://i.loli.net/2019/09/29/leD4jbfzrPEIig6.jpg "Windows 磁區管理")
+<!-- ![4.png](https://i.loli.net/2019/09/29/leD4jbfzrPEIig6.jpg "Windows 磁區管理") -->
+![4.png](https://imgpoi.com/i/KLAQH9.jpg "Windows 磁區管理")
 
 在磁區上點擊滑鼠右鍵選擇**壓縮磁碟**，應你的需求壓縮適當大小的磁區。
 
@@ -70,7 +74,8 @@ MBR 燒錄。
 
 > 當然如果你的電腦沒辦法使用 UEFI，並且前面的燒錄方式使用的是 **MBR**，在後面分割磁區時就需要用不同的方式，然後 GRUB 引導也是不同的指令。
 
-![5.png](https://i.loli.net/2019/09/30/q4zMECx7tpkNLK1.png "Arch Linux Live CD")
+<!-- ![5.png](https://i.loli.net/2019/09/30/q4zMECx7tpkNLK1.png "Arch Linux Live CD") -->
+![5.png](https://imgpoi.com/i/KLEZV5.png "Arch Linux Live CD")
 
 ### 6. 確認連到網路
 
@@ -82,7 +87,8 @@ ping baidu.com # 確認是否可連上百度
 
 如果你的結果與下圖相同則代表你已連上了網路，按下 `Ctrl + C` 中止命令，
 
-![6.png](https://i.loli.net/2019/09/29/2XAfjoPpSaJDu4d.png "ping 指令測試連網")
+<!-- ![6.png](https://i.loli.net/2019/09/29/2XAfjoPpSaJDu4d.png "ping 指令測試連網") -->
+![6.png](https://imgpoi.com/i/KLEY8M.png "ping 指令測試連網")
 
 如果無法從 `baidu.com` 接收 `packets`，**掉包率（packets loss）100%**，代表你沒有連上網路，這時我建議插網線連有線網路，不建議連無線網路，因為在無線網路使用上會出些問題，不建議新手使用，我最常用的方法是將使用**數據線**將電腦與手機連結，然後手機開 **USB 共用網路**，手機可以連行動數據或 WiFi 給電腦網路。
 
@@ -92,7 +98,8 @@ ping baidu.com # 確認是否可連上百度
 ip link #顯示自己的網路接口
 ```
 
-![7.png](https://i.loli.net/2019/09/29/aILSzq6P5vWg8uG.png "顯示網路接口")
+<!-- ![7.png](https://i.loli.net/2019/09/29/aILSzq6P5vWg8uG.png "顯示網路接口") -->
+![7.png](https://imgpoi.com/i/KLEWL2.png "顯示網路接口")
 
 `enp7s0` 是我的有線接口，`wlp0s20f3` 是我的無線接口，當然這些接口名稱會隨著電腦不同而不同但大多相似。
 
@@ -110,7 +117,8 @@ ping baidu.com # 再測試一次是否連網
 
 > 註：通常自己電腦的有線網路接口名稱比手機的網路接口名稱短。
 
-![8.png](https://i.loli.net/2019/09/29/RmvsnrfoKt5caUH.png "手機網路接口")
+<!-- ![8.png](https://i.loli.net/2019/09/29/RmvsnrfoKt5caUH.png "手機網路接口") -->
+![8.png](https://imgpoi.com/i/KLEA9D.png "手機網路接口")
 
 ```zsh
 ip link set enp7s0 down # 關閉自己電腦的有線接口
@@ -132,7 +140,8 @@ timedatectl set-ntp true # 開啟時間同步
 timedatectl status # 檢查服務狀態
 ```
 
-![9.png](https://i.loli.net/2019/09/30/C5vDyeu6cOnIgs4.png "查看系統時間")
+<!-- ![9.png](https://i.loli.net/2019/09/30/C5vDyeu6cOnIgs4.png "查看系統時間") -->
+![9.png](https://imgpoi.com/i/KLESQV.png "查看系統時間")
 
 請確保 `NTP service` 狀態為 `active`，且確定自己的系統時間是否正確。
 
@@ -142,7 +151,8 @@ timedatectl status # 檢查服務狀態
 
 ArchWiki 建議的分區參考
 
-![10.png](https://i.loli.net/2019/09/30/dQUhfT6SNIAPq4D.png "ArchWiki 建議的磁區分區")
+<!-- ![10.png](https://i.loli.net/2019/09/30/dQUhfT6SNIAPq4D.png "ArchWiki 建議的磁區分區") -->
+![10.png](https://imgpoi.com/i/KLEU1E.png "ArchWiki 建議的磁區分區")
 
 我們已經在 Windows 分割好了我們的磁區。我們使用的是 **GPT** 的方案。
 
@@ -150,7 +160,8 @@ ArchWiki 建議的分區參考
 lsblk # 檢查磁區狀態
 ```
 
-![11.png](https://i.loli.net/2019/09/30/NMrOdjfom7FBA54.png "檢查磁區分區情況")
+<!-- ![11.png](https://i.loli.net/2019/09/30/NMrOdjfom7FBA54.png "檢查磁區分區情況") -->
+![11.png](https://imgpoi.com/i/KLEPHB.png "檢查磁區分區情況")
 
 以上是我的磁區狀態，因為我是已經裝好了系統，所以會顯示這樣的狀態，但你現在的狀態是不會顯示出你切割出來的磁區，這裡**記得你的磁區大小**以便在這裡辨認出你的磁區哪些是固態硬碟和虛擬硬碟。
 
@@ -164,7 +175,8 @@ lsblk # 檢查磁區狀態
 cfdisk /dev/nvme0n1 # 管理固態硬碟磁區
 ```
 
-![12.png](https://i.loli.net/2019/09/30/Mm78ohqWiusweDQ.png "管理固態硬碟磁區")
+<!-- ![12.png](https://i.loli.net/2019/09/30/Mm78ohqWiusweDQ.png "管理固態硬碟磁區") -->
+![12.png](https://imgpoi.com/i/KLE1VG.png "管理固態硬碟磁區")
 
 這裡是管理你的固態硬碟界面。先使用上下鍵調到你割出來的 `Free Space` 40GB，左右鍵調到 `New` 按下 `Enter`，輸好要分配出的大小再按 `Enter` 將空間分配出來，接著左右鍵調到 `Type`，**選取 `Linux root (ARM-64)`**，這是 64 bit 的系統，如果你的電腦是 32 bit 請選擇 `Linux root (X86)`，接著**確認你的磁區上面有個磁區類型是 `EFI System` ，並記住磁區代號或大小**，這裡是要掛載 `boot` 的磁區，如果沒有的話請找到可以自己在割出大概從某個磁區割出 250MB 調整類型為 `EFI System` 分區。接著左右鍵調到 `Write` 寫入設定，輸入 `yes` 按下 `Enter`，確認無誤後可以按下 `Quit` 離開此界面，再次 輸入 `lsblk` 就可以在 `/dev/nvme0n1` 看到你分割出的空間了。
 
@@ -235,7 +247,8 @@ vim /etc/pacman.d/mirrorlist # 編輯文件
 
 關於 Vim 的編輯指令可參考 [超簡明 Vim 操作介紹](https://gitbook.tw/chapters/command-line/vim-introduction.html)，用起來其實不難。
 
-![13.png](https://i.loli.net/2019/09/30/tj7PcF9vMVKZ3Bh.png "超簡明 VIM 編輯指令")
+<!-- ![13.png](https://i.loli.net/2019/09/30/tj7PcF9vMVKZ3Bh.png "超簡明 VIM 編輯指令") -->
+![13.png](https://imgpoi.com/i/KLETA9.png "超簡明 VIM 編輯指令")
 
 關於 Vim 移動整行的指令
 
@@ -245,7 +258,8 @@ vim /etc/pacman.d/mirrorlist # 編輯文件
 
 像我目前所在的地區為 China，所以我將 China 的鏡像源都移至最開頭。
 
-![14.png](https://i.loli.net/2019/09/30/8jfCaXqbSOEWT5M.png "編輯鏡像列表")
+<!-- ![14.png](https://i.loli.net/2019/09/30/8jfCaXqbSOEWT5M.png "編輯鏡像列表") -->
+![14.png](https://imgpoi.com/i/KLJKX5.png "編輯鏡像列表")
 
 編輯好並確認無誤後退出 Vim 編輯器。
 
@@ -289,9 +303,11 @@ vim /mnt/etc/fstab # 查看 fstab 文件
 
 請確認這份文件裡只有四份資料（如果有多分割幾個磁區，就可能不是只有四份，你掛載幾個目錄就有幾份資料，不能多不能少）。
 
-![table.png](https://i.loli.net/2019/10/01/S9YdZyhaDmctb1R.png "fstab 內容 table")
+<!-- ![table.png](https://i.loli.net/2019/10/01/S9YdZyhaDmctb1R.png "fstab 內容 table") -->
+![table.png](https://imgpoi.com/i/KLJN9M.png "fstab 內容 table")
 
-![15.png](https://i.loli.net/2019/09/30/cnKvMBOuLbl7x9Q.png "fastab 內容")
+<!-- ![15.png](https://i.loli.net/2019/09/30/cnKvMBOuLbl7x9Q.png "fastab 內容") -->
+![15.png](https://imgpoi.com/i/KLJLQ2.png "fastab 內容")
 
 如果你的文件有問題且資料混亂執行以下指令。
 

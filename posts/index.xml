@@ -4,7 +4,7 @@
         <link>https://huangno1.github.io/posts/</link>
         <description>所有文章 | Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Feb 2020 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Jul 2020 23:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</title>
     <link>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</link>
     <pubDate>Sat, 20 Apr 2019 14:22:18 &#43;0800</pubDate>
@@ -14,11 +14,20 @@
                 <img src="/featuredImage/compressed/visual_studio_code_2019_icons_preview.png" referrerpolicy="no-referrer">
             </div>前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
 肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
-系統資訊" 系統資訊 
+系統資訊1.png
+" 系統資訊 
 下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
- 安裝 VScode" 安裝 VScode 
+ 安裝 VScode2.png
+" 安裝 VScode 
 輸入 y 並按下 Enter。
 下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g++ GDB&hellip;等內容及 API。]]></description>
+</item><item>
+    <title>Python 解決羅馬數字轉換 NPSC 模擬試題</title>
+    <link>https://huangno1.github.io/python_rome_number_programimg/</link>
+    <pubDate>Thu, 30 Jul 2020 23:17:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/python_rome_number_programimg/</guid>
+    <description><![CDATA[前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生]]></description>
 </item><item>
     <title>Linux 配置 npm</title>
     <link>https://huangno1.github.io/linux_npm_configuration/</link>
@@ -130,19 +139,5 @@ Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
 另一方面，我們無法使用超級使用者進入圖形界面。
  註：將以下的所有 user 改成自己的使用者名稱。
  1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。]]></description>
-</item><item>
-    <title>影片賞析 -- 小丑（Joker）</title>
-    <link>https://huangno1.github.io/joker_movie_moment/</link>
-    <pubDate>Sun, 13 Oct 2019 14:22:18 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/joker_movie_moment/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/joker_movie_moment.png" referrerpolicy="no-referrer">
-            </div>前言 近期，全球上映了一部電影 &ndash; 《小丑》（英語：Joker，香港譯《JOKER小丑》，中國大陸譯《小丑》）是一部於 2019 年上映的美國心理驚悚片，改編自DC漫畫旗下的同名角色，這部電影的預告片極為令人驚嘆，深層的黑暗、社會的底層、現實的矛盾&hellip;&hellip;等都驅使著我期待著這部電影上映，可惜的是我現在於大陸唸書，這部電影大陸不會上映，畢竟這是部充滿反社會負面情緒的電影 (◞‸◟)，超想回台灣看小丑。
-這部電影也因為作品的人物描繪、情感細緻等因素，獲得了金預告獎 - 最佳前導預告提名、多倫多國際電影節 - 演員成就獎、威尼斯電影節 - 金獅獎、金紙夾獎與原聲音樂星獎。
-心靈感觸 首先我就先說一下開場給我的感覺就是一種懸疑的電影，讓我看不透也摸不清，男主角換上小丑裝時就像帶上了神秘的面具，好比每個人出面對不同的人時會有不同的態度與舉止看不透真正的他，在電影起頭，男主角在街頭身著小丑服手拿廣告牌，中途被街頭的混混狠狠捉弄後畫面切到了精神病院，男主角在心理醫師面前談論他的幻想，這裡就引起了我的注意，女醫師問男主角亞瑟：「你知道你為什麼你會被關在這裡嗎？」接著亞瑟出了醫院坐公車去領藥，(ﾟдﾟ≡ﾟдﾟ) 你不是被關在精神病院嗎？但我沒有在意地繼續看下去，這裡是電影裡的第一個玄疑點，這時我對亞瑟的印象還是個心理跟正常人差不多，但很不幸遇到了一些倒霉事。
-實際上，在電影的前幾十分鐘，我都認為亞瑟是個老實人，心理上稍微不正常而已，遇到了老闆不講理的指責、槍枝曝光後同事的背叛、被老闆開除而失去最愛的工作、地鐵上的三個精英青年殺人事件，這些人生失意都刻印在觀眾眼中，亞瑟被社會無情地拋棄，這時我又想起亞瑟開頭日記上寫的一句話：「我希望我的死比我的生命有價值。」這確實是個充滿抑鬱壓抑的文章。
-這整部電影都讓我感到驚悚，尤其是最後亞瑟拿出手槍殺了節目主持人，亞瑟也給我看到了現實世界中真實的一面，或許有被誇大的成份，但毫無疑問地，這部電影體現了亞瑟可悲的人生。
-Reference  【小丑】首支官方預告，10月3日(週四) 上映 - Youtube 小丑 (電影) - 維基百科 DC《小丑》万字终极解析，一个精神病患从受害者到恶魔的自白 - Youtube 《小丑》影评：DC极度现实之作 - BiliBili  ]]></description>
 </item></channel>
 </rss>

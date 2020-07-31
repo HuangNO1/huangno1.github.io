@@ -72,7 +72,8 @@ touch PKGBUILD # 新增 PKGBUILG
 
 在 `/usr/share/pacman/` 裡面有三份模板：
 
-![1.png](https://imgpoi.com/i/KL8JDD.png "查看 PKGBUILD 模板")
+<!-- ![1.png](https://imgpoi.com/i/KL8JDD.png "查看 PKGBUILD 模板") -->
+![1.png](https://imgpoi.com/i/KLRUCB.png "查看 PKGBUILD 模板")
 
 - `PKGBUILD.proto`: 經典原型。
 - `PKGBUILD-split.proto`: 分包原型。
@@ -84,7 +85,8 @@ touch PKGBUILD # 新增 PKGBUILG
 
 AUR 上有很用使用者上傳的包，可以參考他們寫的 `PKGBUILD`，這樣可以省去很多錯誤的寫法。在頁面的右側通常找一找都能找到。我就在這裡舉一些例子。
 
-![02.png](https://i.loli.net/2020/02/01/ftIkMibWPLsXDVx.png "AUR 上的 PKGBUILD 範例")
+<!-- ![02.png](https://i.loli.net/2020/02/01/ftIkMibWPLsXDVx.png "AUR 上的 PKGBUILD 範例") -->
+![02.png](https://imgpoi.com/i/KLRPPG.png "AUR 上的 PKGBUILD 範例")
 
 #### Upstream 包源是 .tar.xz
 

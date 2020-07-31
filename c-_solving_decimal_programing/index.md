@@ -90,11 +90,13 @@ Note:
 	> 註：來源參考 - [進制轉換 (二進制、八進制、十進制、十六進制) - NotFalse 技術客
 ](https://notfalse.net/17/positional-numeral-systems-conversion)
 
-	![2.png](https://i.loli.net/2019/10/12/gCaNOBKlFHQLTYR.png "指數加權法")
+	<!-- ![2.png](https://i.loli.net/2019/10/12/gCaNOBKlFHQLTYR.png "指數加權法") -->
+	![2.png](https://imgpoi.com/i/KL6GPD.png "指數加權法")
 
 	e.g.
 
-	![3.png](https://i.loli.net/2019/10/12/a4pIUlMhuyXnd1q.png "指數加權法範例")
+	<!-- ![3.png](https://i.loli.net/2019/10/12/a4pIUlMhuyXnd1q.png "指數加權法範例") -->
+	![3.png](https://imgpoi.com/i/KL6B6V.png "指數加權法範例")
 
 	代碼實現
 
@@ -118,11 +120,13 @@ Note:
 
 	> 註：來源參考 - [十进制小数转二进制小数方法](https://www.cnblogs.com/upzone/articles/1389365.html)
 
-	![4.png](https://i.loli.net/2019/10/12/gemP2szRhtbqQN5.png "餘數乘積法")
+	<!-- ![4.png](https://i.loli.net/2019/10/12/gemP2szRhtbqQN5.png "餘數乘積法") -->
+	![4.png](https://imgpoi.com/i/KL6EEE.png "餘數乘積法")
 
 	e.g.
 
-	![5.png](https://i.loli.net/2019/10/12/LnUhtAbpQO6ME1Z.png "餘數乘積法範例")
+	<!-- ![5.png](https://i.loli.net/2019/10/12/LnUhtAbpQO6ME1Z.png "餘數乘積法範例") -->
+	![5.png](https://imgpoi.com/i/KL6VWB.png "餘數乘積法範例")
 
 	代碼實現
 
@@ -151,7 +155,7 @@ Note:
     }
 ```
 
-8. 在輸出時使用 API 提供的函式格式化。
+1. 在輸出時使用 API 提供的函式格式化。
 
 ```C++
     cout << setiosflags(ios::fixed) << setprecision(8);
@@ -174,7 +178,8 @@ Note:
 > 註：不知道為什麼我從 [draw.io](https://www.draw.io/) 導出的圖片在 linux 下會跑版，格式亂了╮(╯_╰)╭
 > 最後只好使用截圖工具
 
-![1.png](https://i.loli.net/2019/10/12/Mk8dPmIKag2Ll47.png "繪製流程圖")
+<!-- ![1.png](https://i.loli.net/2019/10/12/Mk8dPmIKag2Ll47.png "繪製流程圖") -->
+![1.png](https://imgpoi.com/i/KL6DNG.png "繪製流程圖")
 
 ## 源代碼
 
@@ -348,7 +353,8 @@ void convert(double number, int S, int D, double *convert1, double *convert2, in
 
 ## 運行結果
 
-![6.png](https://i.loli.net/2019/10/12/mDT1RaHxQUXrzf4.png "運行結果")
+<!-- ![6.png](https://i.loli.net/2019/10/12/mDT1RaHxQUXrzf4.png "運行結果") -->
+![6.png](https://imgpoi.com/i/KL6279.png "運行結果")
 
 ## 結論
 

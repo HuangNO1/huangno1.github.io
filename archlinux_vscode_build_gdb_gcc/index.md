@@ -12,7 +12,8 @@
 
 肥宅使用的發行版是 `ArchLinux`，圖形界面是 `KDE Plasma`。
 
-![](https://i.loli.net/2019/04/21/5cbc833695caf.png "系統資訊")
+<!-- ![1.png](https://i.loli.net/2019/04/21/5cbc833695caf.png "系統資訊") -->
+![1.png](https://imgpoi.com/i/KLR169.png "系統資訊")
 
 ## 下載安裝 VScode
 
@@ -24,7 +25,8 @@ sudo pacman -S code
 
 >註：因爲圖形界面的使用者一定是一般使用者，不可能是**超級使用者**，所以在輸 `pacman` 前面要加上 `sudo`。
 
-![](https://i.loli.net/2019/04/21/5cbc8336a2fe6.png "安裝 VScode")
+<!-- ![2.png](https://i.loli.net/2019/04/21/5cbc8336a2fe6.png "安裝 VScode") -->
+![2.png](https://imgpoi.com/i/KLRTE5.png "安裝 VScode")
 
 輸入 `y` 並按下 `Enter`。
 
@@ -42,7 +44,8 @@ sudo pacman -S code
 sudo pacman -S gcc
 ```
 
-![](https://i.loli.net/2019/04/21/5cbc8336b145c.png "安裝 GCC")
+<!-- ![3.png](https://i.loli.net/2019/04/21/5cbc8336b145c.png "安裝 GCC") -->
+![3.png](https://imgpoi.com/i/KLVKXM.png "安裝 GCC")
 
 輸入 `y` 並按下 `Enter`。
 
@@ -52,7 +55,8 @@ sudo pacman -S gcc
 sudo pacman -S gdb
 ```
 
-![](https://i.loli.net/2019/04/21/5cbc8336a5cc3.png "安裝 GDB")
+<!-- ![4.png](https://i.loli.net/2019/04/21/5cbc8336a5cc3.png "安裝 GDB") -->
+![4.png](https://imgpoi.com/i/KLVNI2.png "安裝 GDB")
 
 輸入 `y` 並按下 `Enter`。
 
@@ -67,7 +71,8 @@ sudo pacman -S gdb
 
 什麼？！你還是不懂？
 
-![](https://i.loli.net/2019/04/21/5cbc83369f8da.png "你不會 GOOGLE 一下嗎")
+<!-- ![5.png](https://i.loli.net/2019/04/21/5cbc83369f8da.png "你不會 GOOGLE 一下嗎") -->
+![5.png](https://imgpoi.com/i/KLVX5D.png "你不會 GOOGLE 一下嗎")
 
 ## 安裝 VScode 插件
 
@@ -75,13 +80,15 @@ sudo pacman -S gdb
 
 在插件搜尋處搜尋自己要的語言，像肥宅我是用**繁體中文**，所以只要在搜尋處打上 `traditional` 就會出現安裝插件，按下 `Install`，並等它裝好 `Reload`就會切換到自己想要的語言界面，如果你想裝的是**簡體中文**，可以輸入 `simplified`，其實你只要輸入 `Chinese` 的 `ch` 基本繁體簡體都會顯示出來。
 
-![](https://i.loli.net/2019/04/21/5cbc8336c215f.png "語言插件")
+<!-- ![6.png](https://i.loli.net/2019/04/21/5cbc8336c215f.png "語言插件") -->
+![6.png](https://imgpoi.com/i/KLVFCV.png "語言插件")
 
 ### 安裝 C/C++ 插件
 
 搜尋 `C/C++` 並安裝
 
-![](https://i.loli.net/2019/04/21/5cbc8336cca49.png "C/C++ 插件")
+<!-- ![7.png](https://i.loli.net/2019/04/21/5cbc8336cca49.png "C/C++ 插件") -->
+![7.png](https://imgpoi.com/i/KLVJPE.png "C/C++ 插件")
 
 **其餘插件推薦請參考 [Visual Studio Code 推薦使用插件](https://hackmd.io/s/B1LNZviPE)**
 
@@ -89,7 +96,8 @@ sudo pacman -S gdb
 
 點擊左下角滾輪中的設定，再點擊右上角的 `{}`，可進入 `settings.json`。
 
-![](https://i.loli.net/2019/04/21/5cbc8336c7ef6.png "設定文件")
+<!-- ![8.png](https://i.loli.net/2019/04/21/5cbc8336c7ef6.png "設定文件") -->
+![8.png](https://imgpoi.com/i/KLV66B.png "設定文件")
 
 ### settings.json
 ```jsonld=
@@ -120,17 +128,20 @@ sudo pacman -S gdb
 
 >註：下圖為綠色波浪底線示意圖
 
-![](https://i.loli.net/2019/04/21/5cbc8336c9da3.png "綠色波浪底線")
+<!-- ![9.png](https://i.loli.net/2019/04/21/5cbc8336c9da3.png "綠色波浪底線") -->
+![9.png](https://imgpoi.com/i/KLVHEG.png "綠色波浪底線")
 
 讓我們開始配置吧~
 
 >註：建議各位將所有代碼集中在一個資料夾方便管理，並有序分類。
 
-![](https://i.loli.net/2019/04/21/5cbc83369270a.png "Code 分類")
+<!-- ![10.png](https://i.loli.net/2019/04/21/5cbc83369270a.png "Code 分類") -->
+![10.png](https://imgpoi.com/i/KLV3W9.png "Code 分類")
 
 >註：這裡使用的是 `Dolphin` 來檢視檔案，類似 `Windows OS` 的檔案總管，這裡就不介紹這個。
 
-![](https://i.loli.net/2019/04/21/5cbc83c9226cc.png "顯示隱藏的 file 和 directory")
+<!-- ![11.png](https://i.loli.net/2019/04/21/5cbc83c9226cc.png "顯示隱藏的 file 和 directory") -->
+![11.png](https://imgpoi.com/i/KLVON5.png "顯示隱藏的 file 和 directory")
 
 >註：資料夾名或檔案名開頭是 `.` 的話會隱藏的，e.g. `.vscode` `.git` ，必須開啟可以顯示的設定才能看到。
 
@@ -393,11 +404,13 @@ sudo pacman -S gdb
 
 肥宅現在要調試 `1.c` 這個檔案，可以在代碼中設置**斷點**，並選擇 `Debug C`。
 
-![](https://i.loli.net/2019/04/21/5cbc83c91defe.png "設置斷點")
+<!-- ![12.png](https://i.loli.net/2019/04/21/5cbc83c91defe.png "設置斷點") -->
+![12.png](https://imgpoi.com/i/KL675M.png "設置斷點")
 
 >註：調試快捷鍵 `F5`
 
-![](https://i.loli.net/2019/04/21/5cbc83c9333fa.png "調試")
+<!-- ![13.png](https://i.loli.net/2019/04/21/5cbc83c9333fa.png "調試") -->
+![13.png](https://imgpoi.com/i/KL69C2.png "調試")
 
 左側可以看到變數的值
 

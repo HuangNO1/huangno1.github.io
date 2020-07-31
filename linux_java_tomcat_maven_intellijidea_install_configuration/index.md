@@ -44,7 +44,8 @@ Tomcat 這裡我目前也比較推薦 Tomcat 8，目前 Tomcat 最新版出到 9
 
 下載 [Tomcat 8](https://tomcat.apache.org/download-80.cgi)
 
-![tomcat.png](https://i.loli.net/2020/01/28/REZIPY6QolVgM4k.png "Tomcat 8")
+<!-- ![tomcat.png](https://i.loli.net/2020/01/28/REZIPY6QolVgM4k.png "Tomcat 8") -->
+![tomcat.png](https://imgpoi.com/i/KL6CM5.png "Tomcat 8")
 
 解壓後將資料夾放入 `~/.local/opt/tomcat/`。如果沒有路徑資料夾就自己創建。
 
@@ -52,7 +53,8 @@ Tomcat 這裡我目前也比較推薦 Tomcat 8，目前 Tomcat 最新版出到 9
 
 [Maven 3](https://maven.apache.org/download.cgi)
 
-![maven.png](https://i.loli.net/2020/01/28/krLAJHxRKjfE24t.png "Maven 3")
+<!-- ![maven.png](https://i.loli.net/2020/01/28/krLAJHxRKjfE24t.png "Maven 3") -->
+![maven.png](https://imgpoi.com/i/KL6QPM.png "Maven 3")
 
 解壓後將資料夾放入 `~/.local/opt/maven/`。如果沒有路徑資料夾就自己創建。
 
@@ -114,7 +116,8 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 
 在 Konsole 輸入 `java -version` 就會顯示 Java 版本。
 
-![java_version.png](https://i.loli.net/2020/01/28/UMf34WKV7a8pHux.png "Java 版本")
+<!-- ![java_version.png](https://i.loli.net/2020/01/28/UMf34WKV7a8pHux.png "Java 版本") -->
+![java_version.png](https://imgpoi.com/i/KLUZ62.png "Java 版本")
 
 ### Tomcat
 
@@ -124,21 +127,25 @@ export PATH=${PATH}:${MAVEN_HOME}/bin
 ./startup.sh
 ```
 
-![tomcat_startup.png](https://imgpoi.com/i/KL8KL9.png "Tomcat 運行")
+<!-- ![tomcat_startup.png](https://imgpoi.com/i/KL8KL9.png "Tomcat 運行") -->
+![tomcat_startup.png](https://imgpoi.com/i/KLUYED.png "Tomcat 運行")
 
 接著打開瀏覽器輸入 `http://127.0.0.1:8080/`或`http://localhost:8080/` 會出現以下畫面，此時代表已經配置成功。
 
-![tomcat_test.png](https://i.loli.net/2020/01/28/oyHYZEkUzM4IBCw.png "Tomcat 運行結果")
+<!-- ![tomcat_test.png](https://i.loli.net/2020/01/28/oyHYZEkUzM4IBCw.png "Tomcat 運行結果") -->
+![tomcat_test.png](https://imgpoi.com/i/KLUWWV.png "Tomcat 運行結果")
 
 接下來輸入 `./shutdown.sh` 中止 Tomcat。
 
-![tomcat_shutdown.png](https://imgpoi.com/i/KL8N95.png "中止 Tomcat")
+<!-- ![tomcat_shutdown.png](https://imgpoi.com/i/KL8N95.png "中止 Tomcat") -->
+![tomcat_shutdown.png](https://imgpoi.com/i/KLUANE.png "中止 Tomcat")
 
 ### Maven
 
 在 Konsole 輸入 `mvn -v` 就會顯示你的 Maven 版本。
 
-![maven_version.png](https://imgpoi.com/i/KL8LTM.png "Maven 版本")
+<!-- ![maven_version.png](https://imgpoi.com/i/KL8LTM.png "Maven 版本") -->
+![maven_version.png](https://imgpoi.com/i/KLUR7B.png "Maven 版本")
 
 ## IntelliJ IDEA 透過國內阿里云鏡像加速建立 Maven 項目
 
@@ -163,17 +170,20 @@ IntelliJ IDEA 創建 Maven 項目，如果是一般的 Maven 項目就在 `Creat
 
 **建立項目**
 
-![IDEA_maven_create.png](https://i.loli.net/2020/01/28/fKXysDSFx4RVgmb.png "新建 Maven 項目")
+<!-- ![IDEA_maven_create.png](https://i.loli.net/2020/01/28/fKXysDSFx4RVgmb.png "新建 Maven 項目") -->
+![IDEA_maven_create.png](https://imgpoi.com/i/KLUUMG.png "新建 Maven 項目")
 
 **項目目錄位置**
 
-![IDEA_maven_location.png](https://imgpoi.com/i/KL8F32.png "設置 Project 位置")
+<!-- ![IDEA_maven_location.png](https://imgpoi.com/i/KL8F32.png "設置 Project 位置") -->
+![IDEA_maven_location.png](https://imgpoi.com/i/KLUP09.png "設置 Project 位置")
 
 **添加屬性**
 
 創建 Maven 項目時手動添加一個 `archetypeCatalog` 配置，其值設為 `internal`。
 
-![IDEA_maven_property.png](https://i.loli.net/2020/01/28/HPamGC5LQ6d4TtN.png "添加屬性")
+<!-- ![IDEA_maven_property.png](https://i.loli.net/2020/01/28/HPamGC5LQ6d4TtN.png "添加屬性") -->
+![IDEA_maven_property.png](https://imgpoi.com/i/KLU1U5.png "添加屬性")
 
 Finish 後就建立好了一個 Maven Web 項目。
 
@@ -181,7 +191,8 @@ Finish 後就建立好了一個 Maven Web 項目。
 
 在右上角的 **add configuration** 添加 Tomcat Server。
 
-![IDEA_tomcat_config.png](https://i.loli.net/2020/01/28/Hm89UXOCorVBWSn.png "添加 Tomcat Server 設置")
+<!-- ![IDEA_tomcat_config.png](https://i.loli.net/2020/01/28/Hm89UXOCorVBWSn.png "添加 Tomcat Server 設置") -->
+![IDEA_tomcat_config.png](https://imgpoi.com/i/KLUTEM.png "添加 Tomcat Server 設置")
 
 ## Reference
 

@@ -99,7 +99,8 @@ pacman -S xorg
 
 #### KDE Plasma
 
-![01.png](https://i.loli.net/2020/01/05/GMmSkxldPv4s9tT.png "KDE Plasma")
+<!-- ![01.png](https://i.loli.net/2020/01/05/GMmSkxldPv4s9tT.png "KDE Plasma") -->
+![01.png](https://imgpoi.com/i/KLJF1D.png "KDE Plasma")
 
 有三種選擇的安裝包，我建議是 安裝第二種完整版，因為完整版就像 Google 一整套全家統，一個套件更新，其他依賴套件一起更新。
 
@@ -123,7 +124,8 @@ pacman -S plasma-desktop
 
 #### Gnome
 
-![02.png](https://i.loli.net/2020/01/05/PjDCeAH1p2yiIkn.png "Gnome")
+<!-- ![02.png](https://i.loli.net/2020/01/05/PjDCeAH1p2yiIkn.png "Gnome") -->
+![02.png](https://imgpoi.com/i/KLJJHV.png "Gnome")
 
 Gnome 桌面只要安裝 gnome 包即可，還有一個 gnome-extra 包可以提供額外的常用軟體和幾個遊戲，你可以安裝時選擇你要的軟體，沒必要全選，當然也可以不装這个包。
 
@@ -336,7 +338,8 @@ pacman -S konsole
 
 > [關於 Rfkill](https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat)
 
-![03.png](https://i.loli.net/2020/01/15/WLsrNmj6I41ZGyf.png "硬件狀態") 
+<!-- ![03.png](https://i.loli.net/2020/01/15/WLsrNmj6I41ZGyf.png "硬件狀態")  -->
+![03.png](https://imgpoi.com/i/KLJ6VE.png "硬件狀態") 
 
 這張圖片是我已經處理過的狀態，關於 **Wireless LAN** 的軟體與硬體禁止皆為 NO，但如果是還沒處理之前我的 **Soft blocked**（軟卡禁止）為 `no`、**Hard blocked**（硬卡禁止）為 `yes`。
 

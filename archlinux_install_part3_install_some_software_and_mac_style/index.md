@@ -48,11 +48,13 @@ yay -S wps-office ttf-wps-fonts # WPS 與 WPS 需要的符號字體
 
 WPS 改變界面語言的方法是，隨便開啟 WPS 其中一個軟體，像是 Writer，新增一個空白文件，後在右上角的小框框選界面語言。
 
-![01.png](https://i.loli.net/2020/01/05/rGRzOJ4CUIB1pKs.png "WPS 變更界面語言")
+<!-- ![01.png](https://i.loli.net/2020/01/05/rGRzOJ4CUIB1pKs.png "WPS 變更界面語言") -->
+![01.png](https://imgpoi.com/i/KLJHAB.png "WPS 變更界面語言")
 
 選擇簡體中文，似乎沒有正體中文的選項 :(
 
-![02.png](https://i.loli.net/2020/01/05/RwWz7LoGZ8mck5O.png "WPS 變更界面語言選項")
+<!-- ![02.png](https://i.loli.net/2020/01/05/RwWz7LoGZ8mck5O.png "WPS 變更界面語言選項") -->
+![02.png](https://imgpoi.com/i/KLJ3XG.png "WPS 變更界面語言選項")
 
 
 接著重啟 WPS 就會出現簡體中文的界面，也能正常輸入中文，每次開機打開 WPS 都會出現個錯誤框，按關閉就好，不影響使用。
@@ -93,7 +95,8 @@ sudo pacman -S dolphin
 
 然後因為文件管理器預設是**滑鼠左鍵點一下**就進入資料夾或執行動作，所以需要到**設定 > 工作空間 > 工作空間行為 > 一般行為**中將點擊行為改成按兩下開啟檔案或資料夾，接著應用變更。
 
-![03.png](https://i.loli.net/2020/01/05/iOjdaH9pteYnKr5.png "設置滑鼠點擊事件")
+<!-- ![03.png](https://i.loli.net/2020/01/05/iOjdaH9pteYnKr5.png "設置滑鼠點擊事件") -->
+![03.png](https://imgpoi.com/i/KLJOI9.png "設置滑鼠點擊事件")
 
 ## 媒體播放器
 
@@ -113,7 +116,8 @@ sudo pacman -S mpv
 sudo pacman -S netease-cloud-music
 ```
 
-![04.png](https://i.loli.net/2020/01/05/ijml4tEDqdKxQvR.png "網易雲")
+<!-- ![04.png](https://i.loli.net/2020/01/05/ijml4tEDqdKxQvR.png "網易雲") -->
+![04.png](https://imgpoi.com/i/KLS755.png "網易雲")
 
 ## 圖形
 
@@ -225,7 +229,8 @@ sudo pacman -S gnome-settings-daemon
 
 進入**設置 > 工作空間 >啟動與關閉 > 自動啟動**中將 `/usr/lib/gsd-xsettings`設為自動啟動。
 
-![05.png](https://i.loli.net/2020/01/05/mt72dJ6DW9svijf.png "自動啟動")
+<!-- ![05.png](https://i.loli.net/2020/01/05/mt72dJ6DW9svijf.png "自動啟動") -->
+![05.png](https://imgpoi.com/i/KLS91M.png "自動啟動")
 
 ## IDE 
 
@@ -315,7 +320,8 @@ sudo pacman -S firefox # 穩定版
 sudo pacman -S shadowsocks-qt5
 ```
 
-![06.png](https://i.loli.net/2020/01/05/eCtDYJG9ZdFvxpK.png "Shadowsocks")
+<!-- ![06.png](https://i.loli.net/2020/01/05/eCtDYJG9ZdFvxpK.png "Shadowsocks") -->
+![06.png](https://imgpoi.com/i/KLSGH2.png "Shadowsocks")
 
 ### ShadowsocksR
 
@@ -325,7 +331,8 @@ sudo pacman -S shadowsocks-qt5
 sudo pacman -S electron-ssr
 ```
 
-![07.png](https://i.loli.net/2020/01/05/Tx1zRJyLhw2Os89.png "ShadowsocksR")
+<!-- ![07.png](https://i.loli.net/2020/01/05/Tx1zRJyLhw2Os89.png "ShadowsocksR") -->
+![07.png](https://imgpoi.com/i/KLSBVD.png "ShadowsocksR")
 
 ### V2ray
 
@@ -384,7 +391,8 @@ neofetch # 執行 neofetch
 ```
 
 <!-- ![08.png](https://i.loli.net/2020/01/05/t2KNz16uDdFWQ95.png) -->
-![13.png](https://i.loli.net/2020/07/29/GtiJMW4CBKnocz3.png "neofetch")
+<!-- ![13.png](https://i.loli.net/2020/07/29/GtiJMW4CBKnocz3.png "neofetch") -->
+![13.png](https://imgpoi.com/i/KLSEAV.png "neofetch")
 
 ## 界面美化
 
@@ -412,7 +420,8 @@ sudo pacman -S latte-dock
 
 #### preview
 
-![dark](https://raw.githubusercontent.com/vinceliuice/McMojave-kde/master/plasma/look-and-feel/com.github.vinceliuice.McMojave/contents/previews/fullscreenpreview.jpg "McMojave Dark Theme")
+<!-- ![McMojave_dark.png](https://raw.githubusercontent.com/vinceliuice/McMojave-kde/master/plasma/look-and-feel/com.github.vinceliuice.McMojave/contents/previews/fullscreenpreview.jpg "McMojave Dark Theme") -->
+![McMojave_dark.png](https://imgpoi.com/i/KLSVXE.jpg "McMojave Dark Theme")
 
 ### Icon
 
@@ -435,7 +444,8 @@ yay -S papirus-icon-theme-git # 推薦，太好看了
 sudo pacman -S sddm-theme-sugar-candy-git
 ```
 
-![Screenshot of the interface of the Sugar Candy theme for SDDM](https://framagit.org/MarianArlt/sddm-sugar-candy/-/raw/master/Previews/PartialBlur.png "SDDM")
+<!-- ![PartialBlur.png](https://framagit.org/MarianArlt/sddm-sugar-candy/-/raw/master/Previews/PartialBlur.png "Sugar Candy SDDM") -->
+![PartialBlur.png](https://imgpoi.com/i/KLSDIB.png "Sugar Candy SDDM")
 
 
 ### GRUB THEME
@@ -448,7 +458,8 @@ sudo pacman -S sddm-theme-sugar-candy-git
 item_font = "Noto Sans Regular 24"
 ```
 
-![Tela grub theme](https://raw.githubusercontent.com/vinceliuice/grub2-themes/master/screenshots/grub-theme-tela.jpg "Tela Grub Theme")
+<!-- ![grub-theme-tela.jpg](https://raw.githubusercontent.com/vinceliuice/grub2-themes/master/screenshots/grub-theme-tela.jpg "Tela Grub Theme") -->
+![grub-theme-tela.jpg](https://imgpoi.com/i/KLS25G.jpg "Tela Grub Theme")
 
 ### 窗口特效
 
@@ -456,9 +467,11 @@ item_font = "Noto Sans Regular 24"
 
 我建議將以下選項勾起來，蠻好玩的。
 
-![09.png](https://i.loli.net/2020/01/05/vkrlGz64qosuAbI.png "桌面特效")
+<!-- ![09.png](https://i.loli.net/2020/01/05/vkrlGz64qosuAbI.png "桌面特效") -->
+![09.png](https://imgpoi.com/i/KLSCC9.png "桌面特效")
 
-![10.png](https://i.loli.net/2020/01/05/JPbxAknmXy6MipF.png "桌面特效 - 最小化視窗")
+<!-- ![10.png](https://i.loli.net/2020/01/05/JPbxAknmXy6MipF.png "桌面特效 - 最小化視窗") -->
+![10.png](https://imgpoi.com/i/KLSQP5.png "桌面特效 - 最小化視窗")
 
 ### 窗口的 MAC 按鈕
 
@@ -466,11 +479,13 @@ item_font = "Noto Sans Regular 24"
 
 先隨意在一個視窗標題欄點擊滑鼠右鍵，**更多工作 > 設定視窗管理員**。
 
-![11.png](https://i.loli.net/2020/01/05/GpVSyPCNUQ7DK8B.png "視窗管理員")
+<!-- ![11.png](https://i.loli.net/2020/01/05/GpVSyPCNUQ7DK8B.png "視窗管理員") -->
+![11.png](https://imgpoi.com/i/KLRZVM.png "視窗管理員")
 
-調整窗口的標題列按鈕。。
+調整窗口的標題列按鈕。
 
-![12.png](https://i.loli.net/2020/01/05/eD3vLyRuBCqMKaE.png "設定視窗")
+<!-- ![12.png](https://i.loli.net/2020/01/05/eD3vLyRuBCqMKaE.png "設定視窗") -->
+![12.png](https://imgpoi.com/i/KLRYA2.png "設定視窗")
 
 ## Reference
 

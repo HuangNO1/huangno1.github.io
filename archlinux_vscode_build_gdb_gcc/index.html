@@ -8,9 +8,11 @@
         <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB） - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）" />
 <meta property="og:description" content="前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
 肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
-系統資訊&#34; 系統資訊 
+系統資訊1.png
+&#34; 系統資訊 
 下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
- 安裝 VScode&#34; 安裝 VScode 
+ 安裝 VScode2.png
+&#34; 安裝 VScode 
 輸入 y 並按下 Enter。
 下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g&#43;&#43; GDB&hellip;等內容及 API。" />
 <meta property="og:type" content="article" />
@@ -24,15 +26,17 @@
 <meta name="twitter:title" content="在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）"/>
 <meta name="twitter:description" content="前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
 肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
-系統資訊&#34; 系統資訊 
+系統資訊1.png
+&#34; 系統資訊 
 下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
- 安裝 VScode&#34; 安裝 VScode 
+ 安裝 VScode2.png
+&#34; 安裝 VScode 
 輸入 y 並按下 Enter。
 下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g&#43;&#43; GDB&hellip;等內容及 API。"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" /><link rel="prev" href="https://huangno1.github.io/linux_npm_configuration/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" /><link rel="prev" href="https://huangno1.github.io/python_rome_number_programimg/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -41,7 +45,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/archlinux_vscode_build_gdb_gcc\/"
-        },"genre": "posts","keywords": "ArchLinux, VScode, C, C\u002b\u002b, GCC, GDB","wordcount":  1071 ,
+        },"genre": "posts","keywords": "ArchLinux, VScode, C, C\u002b\u002b, GCC, GDB","wordcount":  1084 ,
         "url": "https:\/\/huangno1.github.io\/archlinux_vscode_build_gdb_gcc\/","datePublished": "2019-04-20T14:22:18+08:00","dateModified": "2020-03-04T15:58:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -137,7 +141,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-04-20">2019-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1071 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-04-20">2019-04-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1084 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -207,14 +211,15 @@
 <p>相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 <code>Linux</code> 中的 <code>GDB</code> 配置在 <code>VScode</code> 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 <code>Linux</code> 環境下從安裝 <code>VScode</code> 到配置環境變量與 <code>GDB</code> 調試。</p>
 <h2 id="肥宅的-linux-發行版資訊">肥宅的 Linux 發行版資訊</h2>
 <p>肥宅使用的發行版是 <code>ArchLinux</code>，圖形界面是 <code>KDE Plasma</code>。</p>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc833695caf.png" title="https://i.loli.net/2019/04/21/5cbc833695caf.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc833695caf.png" data-sub-html="<h2>系統資訊</h2>">
+<!-- ![1.png](https://i.loli.net/2019/04/21/5cbc833695caf.png "系統資訊") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLR169.png" title="1.png" data-thumbnail="https://imgpoi.com/i/KLR169.png" data-sub-html="<h2>系統資訊</h2><p>1.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc833695caf.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc833695caf.png, https://i.loli.net/2019/04/21/5cbc833695caf.png 1.5x, https://i.loli.net/2019/04/21/5cbc833695caf.png 2x"
+            data-src="https://imgpoi.com/i/KLR169.png"
+            data-srcset="https://imgpoi.com/i/KLR169.png, https://imgpoi.com/i/KLR169.png 1.5x, https://imgpoi.com/i/KLR169.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc833695caf.png" />
+            alt="https://imgpoi.com/i/KLR169.png" />
     </a><figcaption class="image-caption">系統資訊</figcaption>
     </figure></p>
 <h2 id="下載安裝-vscode">下載安裝 VScode</h2>
@@ -230,14 +235,15 @@
 </div><blockquote>
 <p>註：因爲圖形界面的使用者一定是一般使用者，不可能是<strong>超級使用者</strong>，所以在輸 <code>pacman</code> 前面要加上 <code>sudo</code>。</p>
 </blockquote>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" title="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" data-sub-html="<h2>安裝 VScode</h2>">
+<!-- ![2.png](https://i.loli.net/2019/04/21/5cbc8336a2fe6.png "安裝 VScode") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLRTE5.png" title="2.png" data-thumbnail="https://imgpoi.com/i/KLRTE5.png" data-sub-html="<h2>安裝 VScode</h2><p>2.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png, https://i.loli.net/2019/04/21/5cbc8336a2fe6.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336a2fe6.png 2x"
+            data-src="https://imgpoi.com/i/KLRTE5.png"
+            data-srcset="https://imgpoi.com/i/KLRTE5.png, https://imgpoi.com/i/KLRTE5.png 1.5x, https://imgpoi.com/i/KLRTE5.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336a2fe6.png" />
+            alt="https://imgpoi.com/i/KLRTE5.png" />
     </a><figcaption class="image-caption">安裝 VScode</figcaption>
     </figure></p>
 <p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
@@ -258,14 +264,15 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gcc
 </code></pre></td></tr></table>
 </div>
-</div><p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336b145c.png" title="https://i.loli.net/2019/04/21/5cbc8336b145c.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336b145c.png" data-sub-html="<h2>安裝 GCC</h2>">
+</div><!-- ![3.png](https://i.loli.net/2019/04/21/5cbc8336b145c.png "安裝 GCC") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVKXM.png" title="3.png" data-thumbnail="https://imgpoi.com/i/KLVKXM.png" data-sub-html="<h2>安裝 GCC</h2><p>3.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336b145c.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336b145c.png, https://i.loli.net/2019/04/21/5cbc8336b145c.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336b145c.png 2x"
+            data-src="https://imgpoi.com/i/KLVKXM.png"
+            data-srcset="https://imgpoi.com/i/KLVKXM.png, https://imgpoi.com/i/KLVKXM.png 1.5x, https://imgpoi.com/i/KLVKXM.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336b145c.png" />
+            alt="https://imgpoi.com/i/KLVKXM.png" />
     </a><figcaption class="image-caption">安裝 GCC</figcaption>
     </figure></p>
 <p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
@@ -278,14 +285,15 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gdb
 </code></pre></td></tr></table>
 </div>
-</div><p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" title="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" data-sub-html="<h2>安裝 GDB</h2>">
+</div><!-- ![4.png](https://i.loli.net/2019/04/21/5cbc8336a5cc3.png "安裝 GDB") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVNI2.png" title="4.png" data-thumbnail="https://imgpoi.com/i/KLVNI2.png" data-sub-html="<h2>安裝 GDB</h2><p>4.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png, https://i.loli.net/2019/04/21/5cbc8336a5cc3.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336a5cc3.png 2x"
+            data-src="https://imgpoi.com/i/KLVNI2.png"
+            data-srcset="https://imgpoi.com/i/KLVNI2.png, https://imgpoi.com/i/KLVNI2.png 1.5x, https://imgpoi.com/i/KLVNI2.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336a5cc3.png" />
+            alt="https://imgpoi.com/i/KLVNI2.png" />
     </a><figcaption class="image-caption">安裝 GDB</figcaption>
     </figure></p>
 <p>輸入 <code>y</code> 並按下 <code>Enter</code>。</p>
@@ -300,52 +308,56 @@
 <li><a href="https://zh.wikipedia.org/wiki/GNU%E4%BE%A6%E9%94%99%E5%99%A8" target="_blank" rel="noopener noreffer">GDB-維基百科，自由的百科全書</a></li>
 </ul>
 <p>什麼？！你還是不懂？</p>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83369f8da.png" title="https://i.loli.net/2019/04/21/5cbc83369f8da.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83369f8da.png" data-sub-html="<h2>你不會 GOOGLE 一下嗎</h2>">
+<!-- ![5.png](https://i.loli.net/2019/04/21/5cbc83369f8da.png "你不會 GOOGLE 一下嗎") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVX5D.png" title="5.png" data-thumbnail="https://imgpoi.com/i/KLVX5D.png" data-sub-html="<h2>你不會 GOOGLE 一下嗎</h2><p>5.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc83369f8da.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc83369f8da.png, https://i.loli.net/2019/04/21/5cbc83369f8da.png 1.5x, https://i.loli.net/2019/04/21/5cbc83369f8da.png 2x"
+            data-src="https://imgpoi.com/i/KLVX5D.png"
+            data-srcset="https://imgpoi.com/i/KLVX5D.png, https://imgpoi.com/i/KLVX5D.png 1.5x, https://imgpoi.com/i/KLVX5D.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc83369f8da.png" />
+            alt="https://imgpoi.com/i/KLVX5D.png" />
     </a><figcaption class="image-caption">你不會 GOOGLE 一下嗎</figcaption>
     </figure></p>
 <h2 id="安裝-vscode-插件">安裝 VScode 插件</h2>
 <h3 id="安裝自己使用的語言並-reload">安裝自己使用的語言並 Reload</h3>
 <p>在插件搜尋處搜尋自己要的語言，像肥宅我是用<strong>繁體中文</strong>，所以只要在搜尋處打上 <code>traditional</code> 就會出現安裝插件，按下 <code>Install</code>，並等它裝好 <code>Reload</code>就會切換到自己想要的語言界面，如果你想裝的是<strong>簡體中文</strong>，可以輸入 <code>simplified</code>，其實你只要輸入 <code>Chinese</code> 的 <code>ch</code> 基本繁體簡體都會顯示出來。</p>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336c215f.png" title="https://i.loli.net/2019/04/21/5cbc8336c215f.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336c215f.png" data-sub-html="<h2>語言插件</h2>">
+<!-- ![6.png](https://i.loli.net/2019/04/21/5cbc8336c215f.png "語言插件") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVFCV.png" title="6.png" data-thumbnail="https://imgpoi.com/i/KLVFCV.png" data-sub-html="<h2>語言插件</h2><p>6.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336c215f.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336c215f.png, https://i.loli.net/2019/04/21/5cbc8336c215f.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336c215f.png 2x"
+            data-src="https://imgpoi.com/i/KLVFCV.png"
+            data-srcset="https://imgpoi.com/i/KLVFCV.png, https://imgpoi.com/i/KLVFCV.png 1.5x, https://imgpoi.com/i/KLVFCV.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336c215f.png" />
+            alt="https://imgpoi.com/i/KLVFCV.png" />
     </a><figcaption class="image-caption">語言插件</figcaption>
     </figure></p>
 <h3 id="安裝-cc-插件">安裝 C/C++ 插件</h3>
 <p>搜尋 <code>C/C++</code> 並安裝</p>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336cca49.png" title="https://i.loli.net/2019/04/21/5cbc8336cca49.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336cca49.png" data-sub-html="<h2>C/C&#43;&#43; 插件</h2>">
+<!-- ![7.png](https://i.loli.net/2019/04/21/5cbc8336cca49.png "C/C++ 插件") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVJPE.png" title="7.png" data-thumbnail="https://imgpoi.com/i/KLVJPE.png" data-sub-html="<h2>C/C&#43;&#43; 插件</h2><p>7.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336cca49.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336cca49.png, https://i.loli.net/2019/04/21/5cbc8336cca49.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336cca49.png 2x"
+            data-src="https://imgpoi.com/i/KLVJPE.png"
+            data-srcset="https://imgpoi.com/i/KLVJPE.png, https://imgpoi.com/i/KLVJPE.png 1.5x, https://imgpoi.com/i/KLVJPE.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336cca49.png" />
+            alt="https://imgpoi.com/i/KLVJPE.png" />
     </a><figcaption class="image-caption">C/C++ 插件</figcaption>
     </figure></p>
 <p><strong>其餘插件推薦請參考 <a href="https://hackmd.io/s/B1LNZviPE" target="_blank" rel="noopener noreffer">Visual Studio Code 推薦使用插件</a></strong></p>
 <h2 id="vscode-一些設定參考">VScode 一些設定參考</h2>
 <p>點擊左下角滾輪中的設定，再點擊右上角的 <code>{}</code>，可進入 <code>settings.json</code>。</p>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" title="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" data-sub-html="<h2>設定文件</h2>">
+<!-- ![8.png](https://i.loli.net/2019/04/21/5cbc8336c7ef6.png "設定文件") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLV66B.png" title="8.png" data-thumbnail="https://imgpoi.com/i/KLV66B.png" data-sub-html="<h2>設定文件</h2><p>8.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png, https://i.loli.net/2019/04/21/5cbc8336c7ef6.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336c7ef6.png 2x"
+            data-src="https://imgpoi.com/i/KLV66B.png"
+            data-srcset="https://imgpoi.com/i/KLV66B.png, https://imgpoi.com/i/KLV66B.png 1.5x, https://imgpoi.com/i/KLV66B.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336c7ef6.png" />
+            alt="https://imgpoi.com/i/KLV66B.png" />
     </a><figcaption class="image-caption">設定文件</figcaption>
     </figure></p>
 <h3 id="settingsjson">settings.json</h3>
@@ -396,41 +408,44 @@
 <blockquote>
 <p>註：下圖為綠色波浪底線示意圖</p>
 </blockquote>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" title="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" data-sub-html="<h2>綠色波浪底線</h2>">
+<!-- ![9.png](https://i.loli.net/2019/04/21/5cbc8336c9da3.png "綠色波浪底線") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVHEG.png" title="9.png" data-thumbnail="https://imgpoi.com/i/KLVHEG.png" data-sub-html="<h2>綠色波浪底線</h2><p>9.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc8336c9da3.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc8336c9da3.png, https://i.loli.net/2019/04/21/5cbc8336c9da3.png 1.5x, https://i.loli.net/2019/04/21/5cbc8336c9da3.png 2x"
+            data-src="https://imgpoi.com/i/KLVHEG.png"
+            data-srcset="https://imgpoi.com/i/KLVHEG.png, https://imgpoi.com/i/KLVHEG.png 1.5x, https://imgpoi.com/i/KLVHEG.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc8336c9da3.png" />
+            alt="https://imgpoi.com/i/KLVHEG.png" />
     </a><figcaption class="image-caption">綠色波浪底線</figcaption>
     </figure></p>
 <p>讓我們開始配置吧~</p>
 <blockquote>
 <p>註：建議各位將所有代碼集中在一個資料夾方便管理，並有序分類。</p>
 </blockquote>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83369270a.png" title="https://i.loli.net/2019/04/21/5cbc83369270a.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83369270a.png" data-sub-html="<h2>Code 分類</h2>">
+<!-- ![10.png](https://i.loli.net/2019/04/21/5cbc83369270a.png "Code 分類") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLV3W9.png" title="10.png" data-thumbnail="https://imgpoi.com/i/KLV3W9.png" data-sub-html="<h2>Code 分類</h2><p>10.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc83369270a.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc83369270a.png, https://i.loli.net/2019/04/21/5cbc83369270a.png 1.5x, https://i.loli.net/2019/04/21/5cbc83369270a.png 2x"
+            data-src="https://imgpoi.com/i/KLV3W9.png"
+            data-srcset="https://imgpoi.com/i/KLV3W9.png, https://imgpoi.com/i/KLV3W9.png 1.5x, https://imgpoi.com/i/KLV3W9.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc83369270a.png" />
+            alt="https://imgpoi.com/i/KLV3W9.png" />
     </a><figcaption class="image-caption">Code 分類</figcaption>
     </figure></p>
 <blockquote>
 <p>註：這裡使用的是 <code>Dolphin</code> 來檢視檔案，類似 <code>Windows OS</code> 的檔案總管，這裡就不介紹這個。</p>
 </blockquote>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" title="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" data-sub-html="<h2>顯示隱藏的 file 和 directory</h2>">
+<!-- ![11.png](https://i.loli.net/2019/04/21/5cbc83c9226cc.png "顯示隱藏的 file 和 directory") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLVON5.png" title="11.png" data-thumbnail="https://imgpoi.com/i/KLVON5.png" data-sub-html="<h2>顯示隱藏的 file 和 directory</h2><p>11.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc83c9226cc.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc83c9226cc.png, https://i.loli.net/2019/04/21/5cbc83c9226cc.png 1.5x, https://i.loli.net/2019/04/21/5cbc83c9226cc.png 2x"
+            data-src="https://imgpoi.com/i/KLVON5.png"
+            data-srcset="https://imgpoi.com/i/KLVON5.png, https://imgpoi.com/i/KLVON5.png 1.5x, https://imgpoi.com/i/KLVON5.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc83c9226cc.png" />
+            alt="https://imgpoi.com/i/KLVON5.png" />
     </a><figcaption class="image-caption">顯示隱藏的 file 和 directory</figcaption>
     </figure></p>
 <blockquote>
@@ -901,27 +916,29 @@
 <h2 id="調試畫面">調試畫面</h2>
 <p>配置完後，你可以在調試欄看到 <code>Run C</code> <code>Run C++</code> <code>Debug C</code> <code>Debug C++</code> 選項。</p>
 <p>肥宅現在要調試 <code>1.c</code> 這個檔案，可以在代碼中設置<strong>斷點</strong>，並選擇 <code>Debug C</code>。</p>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83c91defe.png" title="https://i.loli.net/2019/04/21/5cbc83c91defe.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83c91defe.png" data-sub-html="<h2>設置斷點</h2>">
+<!-- ![12.png](https://i.loli.net/2019/04/21/5cbc83c91defe.png "設置斷點") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KL675M.png" title="12.png" data-thumbnail="https://imgpoi.com/i/KL675M.png" data-sub-html="<h2>設置斷點</h2><p>12.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc83c91defe.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc83c91defe.png, https://i.loli.net/2019/04/21/5cbc83c91defe.png 1.5x, https://i.loli.net/2019/04/21/5cbc83c91defe.png 2x"
+            data-src="https://imgpoi.com/i/KL675M.png"
+            data-srcset="https://imgpoi.com/i/KL675M.png, https://imgpoi.com/i/KL675M.png 1.5x, https://imgpoi.com/i/KL675M.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc83c91defe.png" />
+            alt="https://imgpoi.com/i/KL675M.png" />
     </a><figcaption class="image-caption">設置斷點</figcaption>
     </figure></p>
 <blockquote>
 <p>註：調試快捷鍵 <code>F5</code></p>
 </blockquote>
-<p><figure><a class="lightgallery" href="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" title="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" data-thumbnail="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" data-sub-html="<h2>調試</h2>">
+<!-- ![13.png](https://i.loli.net/2019/04/21/5cbc83c9333fa.png "調試") -->
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/KL69C2.png" title="13.png" data-thumbnail="https://imgpoi.com/i/KL69C2.png" data-sub-html="<h2>調試</h2><p>13.png</p>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="https://i.loli.net/2019/04/21/5cbc83c9333fa.png"
-            data-srcset="https://i.loli.net/2019/04/21/5cbc83c9333fa.png, https://i.loli.net/2019/04/21/5cbc83c9333fa.png 1.5x, https://i.loli.net/2019/04/21/5cbc83c9333fa.png 2x"
+            data-src="https://imgpoi.com/i/KL69C2.png"
+            data-srcset="https://imgpoi.com/i/KL69C2.png, https://imgpoi.com/i/KL69C2.png 1.5x, https://imgpoi.com/i/KL69C2.png 2x"
             data-sizes="auto"
-            alt="https://i.loli.net/2019/04/21/5cbc83c9333fa.png" />
+            alt="https://imgpoi.com/i/KL69C2.png" />
     </a><figcaption class="image-caption">調試</figcaption>
     </figure></p>
 <p>左側可以看到變數的值</p>
@@ -1015,7 +1032,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/linux_npm_configuration/" class="prev" rel="prev" title="Linux 配置 npm"><i class="fas fa-angle-left fa-fw"></i>Linux 配置 npm</a></div>
+    <div class="post-nav"><a href="/python_rome_number_programimg/" class="prev" rel="prev" title="Python 解決羅馬數字轉換 NPSC 模擬試題"><i class="fas fa-angle-left fa-fw"></i>Python 解決羅馬數字轉換 NPSC 模擬試題</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.

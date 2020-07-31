@@ -8,13 +8,15 @@
 
 ## 我的 Konsole
 
-![02.png](https://i.loli.net/2020/01/05/UI42pkdY5OiEoyn.png "我的終端機")
+<!-- ![02.png](https://i.loli.net/2020/01/05/UI42pkdY5OiEoyn.png "我的終端機") -->
+![02.png](https://imgpoi.com/i/KLRAIV.png "我的終端機")
 
 ## Konsole 透明度設置
 
 在標題欄點擊滑鼠右鍵。
 
-![01.png](https://i.loli.net/2020/01/05/Yz5RVo4tu1UHFTC.png "設定透明度")
+<!-- ![01.png](https://i.loli.net/2020/01/05/Yz5RVo4tu1UHFTC.png "設定透明度") -->
+![01.png](https://imgpoi.com/i/KLRWXD.png "設定透明度")
 
 在**外觀與修復**中，可以調整透明度。我調成不透明度 80%。
 

@@ -52,7 +52,8 @@ sudo pacman -S qt-gstreamer gst-libav
 
 記的桌面布局要選擇**桌面**。如果選擇資料夾有可能顯示不出動態桌布。
 
-![01.png](https://i.loli.net/2020/01/15/AjVFS74LHQDaGmy.png "設定動態桌布")
+<!-- ![01.png](https://i.loli.net/2020/01/15/AjVFS74LHQDaGmy.png "設定動態桌布") -->
+![01.png](https://imgpoi.com/i/KLRR5E.png "設定動態桌布")
 
 ## 重要補充
 
