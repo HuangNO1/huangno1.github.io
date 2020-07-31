@@ -5,23 +5,6 @@
         <description>ArchLinux - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Feb 2020 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/archlinux/" rel="self" type="application/rss+xml" /><item>
-    <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</title>
-    <link>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</link>
-    <pubDate>Sat, 20 Apr 2019 14:22:18 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/visual_studio_code_2019_icons_preview.png" referrerpolicy="no-referrer">
-            </div>前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
-肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
-系統資訊1.png
-" 系統資訊 
-下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
- 安裝 VScode2.png
-" 安裝 VScode 
-輸入 y 並按下 Enter。
-下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g++ GDB&hellip;等內容及 API。]]></description>
-</item><item>
     <title>Linux 配置 npm</title>
     <link>https://huangno1.github.io/linux_npm_configuration/</link>
     <pubDate>Thu, 06 Feb 2020 11:27:28 &#43;0800</pubDate>
@@ -150,5 +133,22 @@ Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
 3. 準備一個至少 8G 的 USB 使用 Rufus 將 Arch 鏡像匯入在目標 USB 裝置。
  註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。
  關於燒錄方式  2020/01/21 補充燒錄方式。]]></description>
+</item><item>
+    <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</title>
+    <link>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</link>
+    <pubDate>Sat, 20 Apr 2019 14:22:18 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/visual_studio_code_2019_icons_preview.png" referrerpolicy="no-referrer">
+            </div>前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
+肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
+系統資訊1.png
+" 系統資訊 
+下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
+ 安裝 VScode2.png
+" 安裝 VScode 
+輸入 y 並按下 Enter。
+下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g++ GDB&hellip;等內容及 API。]]></description>
 </item></channel>
 </rss>
