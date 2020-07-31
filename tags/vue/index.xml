@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Vue - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/vue/</link>
+        <description>Vue - 標籤 - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/vue/" rel="self" type="application/rss+xml" /><item>
+    <title>VUE 技巧與經驗</title>
+    <link>https://huangno1.github.io/vue_skill/</link>
+    <pubDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/vue_skill/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/vue_skill.png" referrerpolicy="no-referrer">
+            </div>前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
+這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
+Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
+ Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  vue create demo # 創建一個 vue-cli 應用 # 按下 Down 再按 Enter 選擇第二項自定義 Vue CLI v4.]]></description>
+</item></channel>
+</rss>

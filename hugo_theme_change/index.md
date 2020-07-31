@@ -9,7 +9,7 @@
 
 最近又因為發現自己很多文章中**上傳到圖床的圖片很多被 404 了**，我也不知道為什麼被 [SM.MS](https://sm.ms/) 給 Block 了，加上我 AllinOne 這主題讓**我的 Blog 載入速度過慢**，直到前幾天，我經過好友的建議，終於決定要全面換新，我也考慮要換哪個主題找好久，好友推薦我 [LoveIt](https://github.com/dillonzq/LoveIt) 這主題，我也最終被這主題的界面打動，決定改用這個主題，一開始摸索這主題的配置參數弄了很久，加上這個主題沒有正體中文的界面，所以我自己去修 i18n 的文件內容，把自己所有文章的構造重新整理一次，將自己所有的文章要用圖片都使用 [Tinypng](https://tinypng.com/) 壓縮過再上傳到 [imgpoi](https://imgpoi.com/)，最終成了現在的樣子。我很滿意 (,,・ω・,,)
 
-![RemBlog.png](https://imgpoi.com/i/KL4NND.png)
+![RemBlog.png](https://imgpoi.com/i/KL4NND.png "Rem Blog")
 
 ## Reference
 

@@ -2,16 +2,26 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://huangno1.github.io/tags/axios/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/npm/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/posts/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/request/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/vue/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/vue_skill/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/vue-cli/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/vue-router/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/vuex/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/%E5%89%8D%E7%AB%AF/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/%E5%89%8D%E7%AB%AF/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/allinone/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/blog/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/categories/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/hugo/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/loveit/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/categories/moment/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/posts/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/hugo_theme_change/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/theme/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/npsc/</loc><lastmod>2020-07-30T23:17:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/python/</loc><lastmod>2020-07-30T23:17:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -24,7 +34,6 @@
             <loc>https://huangno1.github.io/tags/linux/</loc><lastmod>2020-07-29T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/categories/linux/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/linux_npm_configuration/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/npm/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/archlinux_makepkg/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/categories/archlinux/</loc><lastmod>2020-07-29T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/aur/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
