@@ -39,7 +39,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/vue_skill\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2034 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2085 ,
         "url": "https:\/\/huangno1.github.io\/vue_skill\/","datePublished": "2020-07-31T16:49:28+08:00","dateModified": "2020-07-31T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,7 +135,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">VUE 技巧與經驗</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2034 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2085 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 10 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -194,8 +194,11 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <li><a href="#header-帶-token-的請求">Header 帶 Token 的請求</a></li>
           </ul>
         </li>
+        <li><a href="#部署">部署</a></li>
       </ul>
     </li>
+    <li><a href="#關於-nuxtjs">關於 NuxtJS</a></li>
+    <li><a href="#關於用-vue-寫桌面應用和-android-端">關於用 Vue 寫桌面應用和 Android 端</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -491,7 +494,7 @@ Vue CLI v4.4.6
 </div>
 </div><h4 id="12-調試端口-port">12 調試端口 Port</h4>
 <p>一般預設調適端口是 8080，但有時也不是這樣，不過這部份也沒有什麼好改動的，畢竟後端也不需要知道前端是哪個 URL 發送的請求，除非自己有什麼強迫症非要改調試時的 Websocket 端口，不然沒必要去在意。這裡姑且還是寫一下改動調適端口的寫法。</p>
-<p>在 <code>demo/</code> 下新建一個 <code>vue.config.js</code> 檔案，並寫入下列內容。</p>
+<p>在 <code>demo/</code>（也就是 Project 根目錄）下新建一個 <code>vue.config.js</code> 檔案，並寫入下列內容。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -1417,13 +1420,21 @@ Vue CLI v4.4.6
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="reference">Reference</h2>
+</div><h3 id="部署">部署</h3>
+<p>關於部署，最後 Project 根目錄執行 <code>npm run build</code>，就能夠編譯生成最後的成品，就是 <code>dist/</code> 目錄的生成，將 <code>dist/</code> 目錄提出來部署到 Github Pages、Herokuv 或 Docker。</p>
+<p><a href="https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97" target="_blank" rel="noopener noreffer">部署 - Vue CLI</a></p>
+<h2 id="關於-nuxtjs">關於 NuxtJS</h2>
+<p>NuxtJS 是 Vue-cli 的簡化集合版，也就是如果你很懶，你可以用 NuxtJS，但是運行起來的速度可想而知，真的很慢。如果想要在開發調試時好一些，建議就用 Vue-cli。</p>
+<h2 id="關於用-vue-寫桌面應用和-android-端">關於用 Vue 寫桌面應用和 Android 端</h2>
+<p>Vue 寫桌面應用是 Electron-vue，寫 Android 是 Vue Native。然而，<strong>不要嘗試使用任何 HTML 語言寫桌面應用和 Android 端，因為真的不如原生性能好</strong>，現在大前端（使用一種技術實現多種平台的前端）還不夠成熟，我想起我之前調試 Electron-vue 的恐懼，不知道多少次記憶體佔滿，強制關機 (´;ω;`)</p>
+<h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://router.vuejs.org/zh/installation.html" target="_blank" rel="noopener noreffer">Vue Router</a></li>
 <li><a href="https://ithelp.ithome.com.tw/questions/10196840" target="_blank" rel="noopener noreffer">vue的export default 還是沒能理解它是什麼 - IT 邦幫忙</a></li>
 <li><a href="https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue" target="_blank" rel="noopener noreffer">Vue &lsquo;export default&rsquo; vs &lsquo;new Vue&rsquo; - stack overflow</a></li>
 <li><a href="https://www.bilibili.com/video/BV1Ps411j7nq" target="_blank" rel="noopener noreffer">Vue状态管理-Vuex简要教程 - BiliBili</a></li>
 <li><a href="https://www.npmjs.com/package/vue-axios" target="_blank" rel="noopener noreffer">vue-axios - npm</a></li>
+<li><a href="https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97" target="_blank" rel="noopener noreffer">部署 - Vue CLI</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

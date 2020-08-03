@@ -202,7 +202,7 @@ export default {
 
 一般預設調適端口是 8080，但有時也不是這樣，不過這部份也沒有什麼好改動的，畢竟後端也不需要知道前端是哪個 URL 發送的請求，除非自己有什麼強迫症非要改調試時的 Websocket 端口，不然沒必要去在意。這裡姑且還是寫一下改動調適端口的寫法。
 
-在 `demo/` 下新建一個 `vue.config.js` 檔案，並寫入下列內容。
+在 `demo/`（也就是 Project 根目錄）下新建一個 `vue.config.js` 檔案，並寫入下列內容。
 
 ```js
 // vue.config.js
@@ -727,6 +727,20 @@ export default {
 }
 ```
 
+### 部署
+
+關於部署，最後 Project 根目錄執行 `npm run build`，就能夠編譯生成最後的成品，就是 `dist/` 目錄的生成，將 `dist/` 目錄提出來部署到 Github Pages、Herokuv 或 Docker。
+
+[部署 - Vue CLI](https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97)
+
+## 關於 NuxtJS
+
+NuxtJS 是 Vue-cli 的簡化集合版，也就是如果你很懶，你可以用 NuxtJS，但是運行起來的速度可想而知，真的很慢。如果想要在開發調試時好一些，建議就用 Vue-cli。
+
+## 關於用 Vue 寫桌面應用和 Android 端
+
+Vue 寫桌面應用是 Electron-vue，寫 Android 是 Vue Native。然而，**不要嘗試使用任何 HTML 語言寫桌面應用和 Android 端，因為真的不如原生性能好**，現在大前端（使用一種技術實現多種平台的前端）還不夠成熟，我想起我之前調試 Electron-vue 的恐懼，不知道多少次記憶體佔滿，強制關機 (´;ω;`)
+
 ## Reference
 
 - [Vue Router](https://router.vuejs.org/zh/installation.html)
@@ -734,3 +748,4 @@ export default {
 - [Vue 'export default' vs 'new Vue' - stack overflow](https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue)
 - [Vue状态管理-Vuex简要教程 - BiliBili](https://www.bilibili.com/video/BV1Ps411j7nq)
 - [vue-axios - npm](https://www.npmjs.com/package/vue-axios)
+- [部署 - Vue CLI](https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97)
