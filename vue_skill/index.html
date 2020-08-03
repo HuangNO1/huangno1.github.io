@@ -39,7 +39,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/vue_skill\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  1508 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2034 ,
         "url": "https:\/\/huangno1.github.io\/vue_skill\/","datePublished": "2020-07-31T16:49:28+08:00","dateModified": "2020-07-31T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,8 +135,8 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">VUE 技巧與經驗</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1508 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 8 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2034 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 10 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -186,7 +186,14 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
           </ul>
         </li>
         <li><a href="#vuex">Vuex</a></li>
-        <li><a href="#vue-的-request">Vue 的 Request</a></li>
+        <li><a href="#vue-的-request">Vue 的 Request</a>
+          <ul>
+            <li><a href="#params">Params</a></li>
+            <li><a href="#form-data">Form-data</a></li>
+            <li><a href="#純-js">純 Js</a></li>
+            <li><a href="#header-帶-token-的請求">Header 帶 Token 的請求</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -1060,12 +1067,363 @@ Vue CLI v4.4.6
 <div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Ps411j7nq&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
 
 <h3 id="vue-的-request">Vue 的 Request</h3>
-<h2 id="reference">Reference</h2>
+<p>我使用 <code>axios</code> 前後端分離跨域請求數據。</p>
+<p><strong>安裝</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm i vue-axios
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>註冊組件</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//  src/main.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+<span class="kr">import</span> <span class="nx">VueAxios</span> <span class="nx">from</span> <span class="s1">&#39;vue-axios&#39;</span>
+ 
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VueAxios</span><span class="p">,</span> <span class="nx">axios</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我通常使用三種方法請求：</p>
+<ol>
+<li>Params</li>
+<li>Form-data</li>
+<li>放 Body 的純 Js</li>
+</ol>
+<blockquote>
+<p><strong>註：我會為了整齊與易用，會讓請求單獨放在一個獨立的 Function 作為異步請求使用。</strong></p>
+</blockquote>
+<h4 id="params">Params</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="s1">&#39;axios&#39;</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span>  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>    <span class="nx">async</span> <span class="nx">checkEmail</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">();</span>
+    <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+    <span class="nx">axios</span>
+      <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">checkSameEmailURL</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="form-data">Form-data</h4>
+<p>這裡要換成這樣的寫法比較方便，這裡設置 <code>Content-Type</code> 為 <code>'multipart/form-data'</code>（<code>'form-data'</code> 也可以）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span>  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>    <span class="nx">async</span> <span class="nx">LoginRequest</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&#34;password&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">password</span><span class="p">);</span>
+      <span class="nx">axios</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">loginURL</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;Content-Type&#34;</span><span class="o">:</span> <span class="s2">&#34;form-data&#34;</span> <span class="p">},</span>
+          <span class="nx">transformRequest</span><span class="o">:</span> <span class="p">[(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">headers</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">data</span><span class="p">],</span> <span class="c1">//預設值，不做任何轉換
+</span><span class="c1"></span>        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">loginSuccess</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">openDialog</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">loginSuccess</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">openDialog</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">loginSuccess</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="純-js">純 Js</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span>  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>    <span class="nx">async</span> <span class="nx">RegisterRequest</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">axios</span><span class="p">({</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span><span class="p">,</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">registerURL</span><span class="p">,</span>
+        <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">username</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+          <span class="nx">password</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+          <span class="nx">email</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+          <span class="nx">phone</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">phone</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">registerSuccess</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">openDialog</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="header-帶-token-的請求">Header 帶 Token 的請求</h4>
+<p>下面的例子中，在 <strong><code>header</code> 添加 <code>Authorization</code> 參數</strong>，這裡要注意的是 <strong><code>header</code> 與 <code>data</code> 的參數位置，不管 <code>data</code> 裡面有沒有內容，即使是空的也要添加上去</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span>  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>    <span class="nx">async</span> <span class="nx">getAllChannels</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 初始化
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">showChannels</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="kd">let</span> <span class="nx">jwt_token</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;jwt_token&#34;</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">UserID</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;user_id&#34;</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="nx">UserID</span><span class="p">);</span>
+      <span class="nx">axios</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">requestGetAllChannelsURL</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&#34;Content-Type&#34;</span><span class="o">:</span> <span class="s2">&#34;form-data&#34;</span><span class="p">,</span>
+            <span class="nx">Authorization</span><span class="o">:</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nx">jwt_token</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+          <span class="p">},</span>
+          <span class="nx">transformRequest</span><span class="o">:</span> <span class="p">[(</span><span class="nx">headers</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">data</span><span class="p">],</span> <span class="c1">//預設值，不做任何轉換
+</span><span class="c1"></span>        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// token 失效
+</span><span class="c1"></span>            <span class="c1">// 移除 token 和 id
+</span><span class="c1"></span>            <span class="nx">Vue</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&#34;jwt_token&#34;</span><span class="p">);</span>
+            <span class="nx">Vue</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&#34;user_id&#34;</span><span class="p">);</span>
+            <span class="c1">// 重新登入
+</span><span class="c1"></span>            <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;/&#34;</span><span class="p">;</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 有找到數據
+</span><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">showChannels</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">channels</span><span class="p">;</span>
+            <span class="c1">// 推入 VueX
+</span><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">UPDATE_ALL_CHANNELS</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">channels</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">showChannels</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">channels</span><span class="p">);</span>
+            <span class="c1">// 請求 channel 的 message 並存入 VueX
+</span><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">showChannels</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">getAllMessage</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">showChannels</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">);</span>
+            <span class="p">}</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// 沒找到數據
+</span><span class="c1"></span>          <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://router.vuejs.org/zh/installation.html" target="_blank" rel="noopener noreffer">Vue Router</a></li>
 <li><a href="https://ithelp.ithome.com.tw/questions/10196840" target="_blank" rel="noopener noreffer">vue的export default 還是沒能理解它是什麼 - IT 邦幫忙</a></li>
 <li><a href="https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue" target="_blank" rel="noopener noreffer">Vue &lsquo;export default&rsquo; vs &lsquo;new Vue&rsquo; - stack overflow</a></li>
 <li><a href="https://www.bilibili.com/video/BV1Ps411j7nq" target="_blank" rel="noopener noreffer">Vue状态管理-Vuex简要教程 - BiliBili</a></li>
+<li><a href="https://www.npmjs.com/package/vue-axios" target="_blank" rel="noopener noreffer">vue-axios - npm</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

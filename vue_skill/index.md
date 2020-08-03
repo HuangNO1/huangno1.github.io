@@ -535,7 +535,197 @@ const router = new VueRouter({
 
 ### Vue 的 Request
 
+我使用 `axios` 前後端分離跨域請求數據。
 
+**安裝**
+
+```
+npm i vue-axios
+```
+
+**註冊組件**
+
+```js
+//  src/main.js
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+ 
+Vue.use(VueAxios, axios)
+```
+
+我通常使用三種方法請求：
+
+1. Params
+2. Form-data
+3. 放 Body 的純 Js
+
+> **註：我會為了整齊與易用，會讓請求單獨放在一個獨立的 Function 作為異步請求使用。**
+
+#### Params
+
+```js
+import 'axios' from 'axios'
+
+export default {
+  // ...
+  methods: {
+    // ...
+    async checkEmail() {
+    var params = new URLSearchParams();
+    params.append("email", this.email);
+    axios
+      .post(this.checkSameEmailURL, params)
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+        if (response.data.data === false) {
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }
+}
+```
+
+#### Form-data
+
+這裡要換成這樣的寫法比較方便，這裡設置 `Content-Type` 為 `'multipart/form-data'`（`'form-data'` 也可以）。
+
+```js
+import axios from 'axios'
+
+export default {
+  // ...
+  methods: {
+    // ...
+    async LoginRequest() {
+      let data = new FormData();
+      data.append("email", this.email);
+      data.append("password", this.password);
+      axios
+        .post(this.loginURL, data, {
+          headers: { "Content-Type": "form-data" },
+          transformRequest: [(data, headers) => data], //預設值，不做任何轉換
+        })
+        .then((response) => {
+          console.log(response);
+          console.log(response.data);
+          this.loginSuccess = response.data.data;
+          this.openDialog = false;
+          if (this.loginSuccess) {
+            this.dialog = true;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.openDialog = false;
+          if (this.loginSuccess) {
+            this.dialog = true;
+          }
+        });
+    }
+  }
+}
+```
+
+#### 純 Js
+
+```js
+import axios from 'axios'
+
+export default {
+  // ...
+  methods: {
+    // ...
+    async RegisterRequest() {
+      axios({
+        method: "post",
+        url: this.registerURL,
+        headers: {},
+        data: {
+          username: this.name,
+          password: this.password,
+          email: this.email,
+          phone: this.phone,
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+          this.registerSuccess = response.data.data;
+          this.openDialog = false;
+          this.dialog = true;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }
+}
+```
+
+#### Header 帶 Token 的請求
+
+下面的例子中，在 **`header` 添加 `Authorization` 參數**，這裡要注意的是 **`header` 與 `data` 的參數位置，不管 `data` 裡面有沒有內容，即使是空的也要添加上去**。
+
+```js
+import axios from 'axios'
+
+export default {
+  // ...
+  methods: {
+    // ...
+    async getAllChannels() {
+      // 初始化
+      this.showChannels = [];
+      let jwt_token = Vue.localStorage.get("jwt_token");
+      let UserID = Vue.localStorage.get("user_id");
+      let data = new FormData();
+      data.append("id", UserID);
+      axios
+        .post(this.requestGetAllChannelsURL, data, {
+          headers: {
+            "Content-Type": "form-data",
+            Authorization: `Bearer ${jwt_token}`,
+          },
+          transformRequest: [(headers) => data], //預設值，不做任何轉換
+        })
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.data === undefined) {
+            // token 失效
+            // 移除 token 和 id
+            Vue.localStorage.remove("jwt_token");
+            Vue.localStorage.remove("user_id");
+            // 重新登入
+            document.location.href = "/";
+          } else if (response.data.data) {
+            // 有找到數據
+            this.showChannels = response.data.channels;
+            // 推入 VueX
+            this.$store.commit(UPDATE_ALL_CHANNELS, response.data.channels);
+            console.log(this.showChannels);
+            console.log(response.data.channels);
+            // 請求 channel 的 message 並存入 VueX
+            for (let i = 0; i < this.showChannels.length; i++) {
+              this.getAllMessage(this.showChannels[i].id);
+            }
+          } else {
+            // 沒找到數據
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }
+}
+```
 
 ## Reference
 
@@ -543,3 +733,4 @@ const router = new VueRouter({
 - [vue的export default 還是沒能理解它是什麼 - IT 邦幫忙](https://ithelp.ithome.com.tw/questions/10196840)
 - [Vue 'export default' vs 'new Vue' - stack overflow](https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue)
 - [Vue状态管理-Vuex简要教程 - BiliBili](https://www.bilibili.com/video/BV1Ps411j7nq)
+- [vue-axios - npm](https://www.npmjs.com/package/vue-axios)
