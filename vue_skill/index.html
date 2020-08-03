@@ -8,9 +8,10 @@
         <title>VUE 技巧與經驗 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="VUE 技巧與經驗" />
 <meta property="og:description" content="前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
 這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。
- 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  vue create demo # 創建一個 vue-cli 應用 # 按下 Down 再按 Enter 選擇第二項自定義 Vue CLI v4." />
+如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
+Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
+ 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
+ Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/vue_skill/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
@@ -22,9 +23,10 @@ Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較�
 <meta name="twitter:title" content="VUE 技巧與經驗"/>
 <meta name="twitter:description" content="前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
 這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。
- 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  vue create demo # 創建一個 vue-cli 應用 # 按下 Down 再按 Enter 選擇第二項自定義 Vue CLI v4."/>
+如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
+Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
+ 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
+ Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -37,7 +39,7 @@ Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/vue_skill\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  445 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  1508 ,
         "url": "https:\/\/huangno1.github.io\/vue_skill\/","datePublished": "2020-07-31T16:49:28+08:00","dateModified": "2020-07-31T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -133,8 +135,8 @@ Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">VUE 技巧與經驗</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 445 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1508 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 8 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -165,8 +167,26 @@ Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較�
             <li><a href="#6-vuex-使用的場景">6 Vuex 使用的場景</a></li>
             <li><a href="#7-請求">7 請求</a></li>
             <li><a href="#8-static-source">8 Static Source</a></li>
+            <li><a href="#9-駝峰命名法與註解">9 駝峰命名法與註解</a></li>
+            <li><a href="#10-css-position-fixed">10 CSS Position Fixed</a></li>
+            <li><a href="#11-export-default-與-new-vue">11 export default 與 new Vue</a></li>
+            <li><a href="#12-調試端口-port">12 調試端口 Port</a></li>
+            <li><a href="#推薦的-ui-框架">推薦的 UI 框架</a></li>
           </ul>
         </li>
+        <li><a href="#router">Router</a>
+          <ul>
+            <li><a href="#router-配置">Router 配置</a></li>
+            <li><a href="#router-配置注意點">Router 配置注意點</a></li>
+            <li><a href="#子路由與重定向">子路由與重定向</a></li>
+            <li><a href="#404">404</a></li>
+            <li><a href="#動態路由">動態路由</a></li>
+            <li><a href="#路由的方法">路由的方法</a></li>
+            <li><a href="#跳轉路由的頁面位置">跳轉路由的頁面位置</a></li>
+          </ul>
+        </li>
+        <li><a href="#vuex">Vuex</a></li>
+        <li><a href="#vue-的-request">Vue 的 Request</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -175,8 +195,12 @@ Vue-cli 腳手架使用 創建應用 大部分開發還是使用 Vue-cli 比較�
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。</p>
 <p>這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。</p>
+<p>如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的<a href="https://github.com/2892211452/SXCsuOntOf/tree/master/Code/front-end/blog" target="_blank" rel="noopener noreffer">個人空間系統 - Blog 前端</a>。</p>
 <h2 id="vue-cli-腳手架使用">Vue-cli 腳手架使用</h2>
 <h3 id="創建應用">創建應用</h3>
+<blockquote>
+<p>用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。</p>
+</blockquote>
 <p>大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 <strong>Linter / Formatter</strong> 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：</p>
 <ol>
 <li>Babel：自由開源的 JavaScript 編譯器、轉譯器。</li>
@@ -353,10 +377,696 @@ Vue CLI v4.4.6
 <h4 id="6-vuex-使用的場景">6 Vuex 使用的場景</h4>
 <p>目前使用 Vuex 最大需要注意的點是<strong>如果你點擊瀏覽器刷新頁面，所有的 State 都會被初始化</strong>，所以不能只依據 Vuex 去存數據，像是 Jwt token 應該放在 localsStorage 或 Cookie，<strong>每個頁面在初始化時就要異步請求數據</strong>，也就是每刷新一次頁面就會請求一次或多次數據，這是必須的，沒有簡便的方法，Vuex 侷限性也很多，一般我是建議<strong>將請求的 URL 存在 Vuex 的 State</strong>，如果後端改了 URL 前端也好一次搞好所有請求 URL，加上一個請求可能需要在多個子頁面中會使用到，為了增加複用性和方便，HTTP 請求 URL 用 Vuex 引入。</p>
 <h4 id="7-請求">7 請求</h4>
-<p>我自己寫<strong>前端 HTTP 請求都是寫異步請求</strong>，至於後端要怎樣的請求方式，前端真的無法決定，只是如果是需要測試數據，我建議是<strong>使用 MockJS 作為前端測試數據用</strong>，這樣也不需要前端一直填測試數據，被後端侷限。</p>
+<p>我自己寫<strong>前端 HTTP 請求都是寫異步請求</strong>，至於後端要怎樣的請求方式，前端真的無法決定，只是如果是需要測試數據，我建議是<strong>使用 MockJS 作為前端測試數據用</strong>，這樣也不需要前端一直填測試數據，被後端侷限。這篇文章後面我會寫一下 Axios 請求的方式。</p>
 <h4 id="8-static-source">8 Static Source</h4>
-<p>既然我們要寫 CSS Style，那我們就要統一使用 Class 或 Id 去編寫元素樣式，Inline Style 並不好加以管理，也不好發現錯誤，</p>
+<p>既然我們要寫 CSS Style，那我們就要統一使用 Class 或 Id 去編寫元素樣式，Inline Style 並不好加以管理，也不好發現錯誤，有時摳 CSS 摳不出自己想要的效果會讓我很煩躁。</p>
+<h4 id="9-駝峰命名法與註解">9 駝峰命名法與註解</h4>
+<p>這部份應該不用我多說明，除了這些，你的 Code 也需要規範化，變量命名也需要有意義，不是純粹的英文字母。Code 的易讀性真的很重要。</p>
+<h4 id="10-css-position-fixed">10 CSS Position Fixed</h4>
+<p>我相信有些頁面經常會用 Fixed 來固定某些元素，然而在這部份，我是建議要盡可能的少使用這方法，因為在排版上，如果沒有指定特定的長寬，會造成走版，</p>
+<h4 id="11-export-default-與-new-vue">11 export default 與 new Vue</h4>
+<p>相信一開始都有人有這問題，當然網上搜也是一大把結果，我就在這裡簡略說一下：</p>
+<p><strong>new Vue</strong>：這是應用程序的根 Vue 實例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+    <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
+    <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  ...
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>export default</strong>：ES6 語法中的導出，也就是說這是聲明一個之後會被註冊使用的組件，<strong>創建一個本地可註冊的 Vue 組件</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// my-component.js
+</span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;my-component&#39;</span><span class="p">,</span>
+    <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// another-component.js
+</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">my</span><span class="o">-</span><span class="nx">component</span><span class="o">&gt;&lt;</span><span class="err">/my-component&gt;</span>
+<span class="o">&lt;</span><span class="err">/template&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kr">import</span> <span class="nx">myComponent</span> <span class="nx">from</span> <span class="s1">&#39;my-component&#39;</span>
+  <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">myComponent</span>
+    <span class="p">}</span>
+    <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="12-調試端口-port">12 調試端口 Port</h4>
+<p>一般預設調適端口是 8080，但有時也不是這樣，不過這部份也沒有什麼好改動的，畢竟後端也不需要知道前端是哪個 URL 發送的請求，除非自己有什麼強迫症非要改調試時的 Websocket 端口，不然沒必要去在意。這裡姑且還是寫一下改動調適端口的寫法。</p>
+<p>在 <code>demo/</code> 下新建一個 <code>vue.config.js</code> 檔案，並寫入下列內容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// vue.config.js
+</span><span class="c1"></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// 告訴 dev-server 在服務器啟動後打開瀏覽器，將其設置 true 為打開默認瀏覽器
+</span><span class="c1"></span>    <span class="nx">open</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="c1">// 運行的 host 和 port
+</span><span class="c1"></span>    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="mi">8080</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="推薦的-ui-框架">推薦的 UI 框架</h4>
+<p>我不會推薦 Vuetify，拜託不要被他絢麗的外貌所吸引，坑很多的，建議的是 <strong>Ant design、Bootstrap-vue、Buefy</strong>。</p>
+<h3 id="router">Router</h3>
+<h4 id="router-配置">Router 配置</h4>
+<p><strong>安裝</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh">npm install vue-router <span class="c1"># 安裝 vue-router</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>配置說明</strong>：</p>
+<blockquote>
+<p>如果沒有這些資料夾和檔案就自己新建。</p>
+</blockquote>
+<p>如果你在一開始就有裝 <strong>Router</strong>，那你會在 <code>src/router/index.js</code> 發現如下內容，這裡引入 <code>vue-router</code>，並使用 <code>Vue.use(VueRouter)</code> 註冊該組件，然後聲明一個 <code>routes</code> 常量，並將 <strong>views/</strong> 資料夾裡的組件引入到這裡且賦值給 <code>routes</code> Array Object。<strong>然後再賦值給一個 VueRouter Object，再導出該 Object，在 <code>src/main.js</code> 中引入</strong>。</p>
+<blockquote>
+<p>註：引入的組件名稱可以自己定義，因為是 <code>export default</code>。ES6 語法中 <code>import</code> 和 <code>export</code> 可以有多個，但是 <code>export default</code> 只能有一個。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// src/router/index.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">VueRouter</span> <span class="nx">from</span> <span class="s1">&#39;vue-router&#39;</span>
+<span class="kr">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;../views/Home.vue&#39;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VueRouter</span><span class="p">)</span> <span class="c1">// 註冊陸游組件
+</span><span class="c1"></span>
+<span class="c1">// routes 常量
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Home&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/about&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span>
+    <span class="c1">// route level code-splitting
+</span><span class="c1"></span>    <span class="c1">// this generates a separate chunk (about.[hash].js) for this route
+</span><span class="c1"></span>    <span class="c1">// which is lazy-loaded when the route is visited.
+</span><span class="c1"></span>    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="kr">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &#34;about&#34; */</span> <span class="s1">&#39;../views/About.vue&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="c1">// VueRouter Object
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+  <span class="nx">base</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">BASE_URL</span><span class="p">,</span>
+  <span class="nx">routes</span>
+<span class="p">})</span>
+
+<span class="c1">// 導出
+</span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="nx">router</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// src/main.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App.vue&#39;</span>
+<span class="kr">import</span> <span class="nx">router</span> <span class="nx">from</span> <span class="s1">&#39;./router&#39;</span> <span class="c1">// 引入 router
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s1">&#39;./store&#39;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">router</span><span class="p">,</span> <span class="c1">// 引入
+</span><span class="c1"></span>  <span class="nx">store</span><span class="p">,</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="nx">h</span> <span class="p">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>在需要用道路由管理顯示的組件加入 <code>&lt;router-view/&gt;</code>，<code>&lt;router-link&gt;&lt;/router-link&gt;</code> 用於路由跳轉規則，就像一開始初始化的 <code>src/App.vue</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;nav&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/&#34;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span> |
+      <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/about&#34;</span><span class="p">&gt;</span>About<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-view</span><span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">#</span><span class="nn">app</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="p">:</span> <span class="n">Avenir</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+  <span class="kp">-webkit-</span><span class="n">font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span><span class="p">;</span>
+  <span class="kp">-moz-</span><span class="n">osx-font-smoothing</span><span class="p">:</span> <span class="n">grayscale</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#2c3e50</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">nav</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">nav</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#2c3e50</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">nav</span> <span class="nt">a</span><span class="p">.</span><span class="nc">router-link-exact-active</span> <span class="p">{</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#42b983</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="router-配置注意點">Router 配置注意點</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 這裡 Home 組件是需要引入的，但是因為上面的例子有寫，這裡為了方便描述就不寫了
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Home&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/about&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">,</span>
+    <span class="c1">// route level code-splitting
+</span><span class="c1"></span>    <span class="c1">// this generates a separate chunk (about.[hash].js) for this route
+</span><span class="c1"></span>    <span class="c1">// which is lazy-loaded when the route is visited.
+</span><span class="c1"></span>    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="kr">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: &#34;about&#34; */</span> <span class="s1">&#39;../views/About.vue&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>首先就是 <code>routes</code> 這常量中的 Object 通常由 <strong>path、name、component</strong> 這些 Key 值所組成，分別代表的是：<strong>路徑、路由名、組件</strong>。如果 <code>path: '/about'</code>，在調試時就是 <code>http://localhost:8080/about</code>，<code>name: 'About'</code> 可以作為前端頁面路由跳轉時使用的判斷值，<code>component</code> 代表該路由所代表的組件，就是跳轉到該路由時會顯示的組件。</p>
+</li>
+<li>
+<p><code>component</code> 有兩種寫法：第一種是像<strong>上面例子中的 <code>Home</code></strong>，直接賦值引入的組件，這種寫法，<strong>會在載入根頁面全部 JS 渲染完成</strong>。第二種是<strong>上面的 <code>Home</code></strong>，<strong>懶加載，這種寫法可以避免如果頁面應用很大會花很久載入頁面（使用的是匿名函數）</strong>，加載根頁面時會依據當前頁面所需要加載對應的 JS，不是當前頁面需要的不會在此加載。我是<strong>建議後者的寫法</strong>。</p>
+</li>
+<li>
+<p>現在初始化路由時<strong>預設的 Router Mode 是 <code>history</code></strong>，就是沒有錨點的方式，如果想要換回有錨點的可以改成 <code>hash</code>，但是我偏好是 <code>history</code>，這樣 URL 也比較乾淨。</p>
+</li>
+</ul>
+<h4 id="子路由與重定向">子路由與重定向</h4>
+<p>我們可以給每個路由弄子路由，重定向就是<strong>如果跳轉到某個路由會特地跳到另一個路由</strong>，一般用於有多個子路由的對象，或是跳轉到 404 頁面，e.g.</p>
+<blockquote>
+<p>註：父路由沒有一定需要有 <code>component</code> 的 value 值，也可以沒有。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/sign&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Sign&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+        <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;Sign&#34; */</span> <span class="s1">&#39;../views/sign/Sign.vue&#39;</span><span class="p">),</span>
+    <span class="c1">// 子路由
+</span><span class="c1"></span>    <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/sign/signIn&#39;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;SignIn&#39;</span><span class="p">,</span>
+            <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;SignIn&#34; */</span> <span class="s1">&#39;../view/sign/SignIn.vue&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/sign/signUp&#39;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;SignUp&#39;</span><span class="p">,</span>
+            <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;SignUp&#34; */</span> <span class="s1">&#39;../view/sign/SignUp.vue&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/sign/verifyEmail&#39;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;VerifyEmail&#39;</span><span class="p">,</span>
+            <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;VerifyEmail&#34; */</span> <span class="s1">&#39;.views/sign/verifyEmail.vue&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/sign/forgotPassword&#39;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;ForgotPassword&#39;</span><span class="p">,</span>
+            <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;ForgotPassword&#34; */</span> <span class="s1">&#39;.views/sign/forgotPassword.vue&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="c1">//强制重定向
+</span><span class="c1"></span>    <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;/sign/signIn&#39;</span>
+  <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="404">404</h4>
+<p>下面的寫法可以匹配 404 路由。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;404&#39;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+        <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;404&#34; */</span> <span class="s1">&#39;../views/error/pageNotFound.vue&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="動態路由">動態路由</h4>
+<p>動態路由會攜帶一個參數，可以用來在<strong>初始化渲染組件時發送請求數據</strong>，會攜帶的參數代表的意義可以是 UserID 或是 UserName&hellip;等，e.g 像是 Github 在查看別人的空間時 URL 上會有使用者的 UserName，所以會根據那個參數請求數據。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:id/admin&#39;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+            <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;admin&#34; */</span> <span class="s1">&#39;../views/blog-admin/admin.vue&#39;</span><span class="p">),</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[{</span>
+                <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:id/admin/posts&#39;</span><span class="p">,</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;posts&#39;</span><span class="p">,</span>
+                <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                    <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;posts&#34; */</span> <span class="s1">&#39;../views/blog-admin/posts.vue&#39;</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:id/admin/charts&#39;</span><span class="p">,</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;charts&#39;</span><span class="p">,</span>
+                <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                    <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;charts&#34; */</span> <span class="s1">&#39;../views/blog-admin/charts.vue&#39;</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:id/admin/collect&#39;</span><span class="p">,</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;collect&#39;</span><span class="p">,</span>
+                <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                    <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;collect&#34; */</span> <span class="s1">&#39;../views/blog-admin/collect.vue&#39;</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:id/admin/account&#39;</span><span class="p">,</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;account&#39;</span><span class="p">,</span>
+                <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span>
+                    <span class="kr">import</span> <span class="p">(</span> <span class="cm">/* webpackChunkName: &#34;account&#34; */</span> <span class="s1">&#39;../views/blog-admin/account.vue&#39;</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;/:id/admin/charts&#39;</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在上面的任意路由組件寫入 <code>this.$route.params.id</code>，就會顯示是 <code>:id</code> 參數。當然你在寫動態路由的時候可以自己定義參數名，沒有一定要是 <code>id</code>。e.g.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    {{ this.$route.params.id }}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="路由的方法">路由的方法</h4>
+<p><strong>跳轉路由</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>返回上個瀏覽器歷史路由</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>攜帶 query string 參數的跳轉路由方式</strong></p>
+<blockquote>
+<p>query string 只能攜帶一個參數。使用的效果跟前面說的動態路由一樣，是用來放請求參數的。</p>
+</blockquote>
+<p>就下面的例子而言，在有 query string 的組件中顯示 <code>this.$route.query.blogId</code> 就會顯示攜帶的參數。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+  <span class="nx">path</span><span class="o">:</span>
+    <span class="s2">&#34;/&#34;</span> <span class="o">+</span> <span class="nx">username</span> <span class="o">+</span> <span class="s2">&#34;/blog/read&#34;</span><span class="p">,</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span> <span class="nx">blogId</span><span class="o">:</span> <span class="nx">blogId</span> <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    {{ this.$route.query.blogId }}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="跳轉路由的頁面位置">跳轉路由的頁面位置</h4>
+<p>我在跳轉頁面時會發現，當我按下返回上個歷史頁面，頁面所在的滾輪位置（也就是檢視位置）會不固定，在 Router 的配置文件加入下面的參數能控制跳轉的位置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+    <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+    <span class="nx">base</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">BASE_URL</span><span class="p">,</span>
+    <span class="nx">routes</span><span class="p">,</span>
+    <span class="nx">props</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="c1">// 這裡可以控制跳轉時的滾動位置
+</span><span class="c1"></span>    <span class="nx">scrollBehavior</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">savedPosition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">savedPosition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">savedPosition</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="vuex">Vuex</h3>
+<p>其實很多人一開始看 Vuex 的官方文檔看不懂，我也不意外，因為太晦澀了，看不懂。但是我在看完某個 B 站上的教學影片後，我開竅了，因為用文字很難描述清楚，建議這影片長度全部看完才能真正理解 Vuex，這裡奉上<a href="https://www.bilibili.com/video/BV1Ps411j7nq" target="_blank" rel="noopener noreffer">影片位置</a>。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Ps411j7nq&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h3 id="vue-的-request">Vue 的 Request</h3>
 <h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://router.vuejs.org/zh/installation.html" target="_blank" rel="noopener noreffer">Vue Router</a></li>
+<li><a href="https://ithelp.ithome.com.tw/questions/10196840" target="_blank" rel="noopener noreffer">vue的export default 還是沒能理解它是什麼 - IT 邦幫忙</a></li>
+<li><a href="https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue" target="_blank" rel="noopener noreffer">Vue &lsquo;export default&rsquo; vs &lsquo;new Vue&rsquo; - stack overflow</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Ps411j7nq" target="_blank" rel="noopener noreffer">Vue状态管理-Vuex简要教程 - BiliBili</a></li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -388,7 +1098,7 @@ Vue CLI v4.4.6
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.73.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/HuangNO1" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

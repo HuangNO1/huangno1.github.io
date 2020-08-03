@@ -7,9 +7,13 @@
 
 這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
 
+如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的[個人空間系統 - Blog 前端](https://github.com/2892211452/SXCsuOntOf/tree/master/Code/front-end/blog)。
+
 ## Vue-cli 腳手架使用
 
 ### 創建應用
+
+> 用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
 
 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 **Linter / Formatter** 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
 
@@ -85,15 +89,15 @@ Vue CLI v4.4.6
 
 ### src 目錄
 
-| 檔案或文件 | 用途 |
-| --- | --- |
-| App.vue | 作為所有 SPA 頁面的起始根頁面 |
-| assets/ | 靜態資源 e.g. CSS JS IMG |
-| components/ | 自定義組件 |
-| main.js | 作為所有 SPA 頁面的全局 JS 文件 |
-| router/ | 路由配置文件 |
-| store/ | Vuex 的狀態管理 |
-| views/ | 頁面或子頁面 |
+| 檔案或文件  | 用途                            |
+| ----------- | ------------------------------- |
+| App.vue     | 作為所有 SPA 頁面的起始根頁面   |
+| assets/     | 靜態資源 e.g. CSS JS IMG        |
+| components/ | 自定義組件                      |
+| main.js     | 作為所有 SPA 頁面的全局 JS 文件 |
+| router/     | 路由配置文件                    |
+| store/      | Vuex 的狀態管理                 |
+| views/      | 頁面或子頁面                    |
 
 **src 目錄是我們最主要寫項目時編輯的地方**，目前最新版的 vue-cli 所生成的目錄長這樣（雖然之前不是這樣），總之用途都幫你分類好了。
 
@@ -125,11 +129,417 @@ Vue CLI v4.4.6
 
 #### 7 請求
 
-我自己寫**前端 HTTP 請求都是寫異步請求**，至於後端要怎樣的請求方式，前端真的無法決定，只是如果是需要測試數據，我建議是**使用 MockJS 作為前端測試數據用**，這樣也不需要前端一直填測試數據，被後端侷限。
+我自己寫**前端 HTTP 請求都是寫異步請求**，至於後端要怎樣的請求方式，前端真的無法決定，只是如果是需要測試數據，我建議是**使用 MockJS 作為前端測試數據用**，這樣也不需要前端一直填測試數據，被後端侷限。這篇文章後面我會寫一下 Axios 請求的方式。
 
 #### 8 Static Source
 
-既然我們要寫 CSS Style，那我們就要統一使用 Class 或 Id 去編寫元素樣式，Inline Style 並不好加以管理，也不好發現錯誤，
+既然我們要寫 CSS Style，那我們就要統一使用 Class 或 Id 去編寫元素樣式，Inline Style 並不好加以管理，也不好發現錯誤，有時摳 CSS 摳不出自己想要的效果會讓我很煩躁。
+
+#### 9 駝峰命名法與註解
+
+這部份應該不用我多說明，除了這些，你的 Code 也需要規範化，變量命名也需要有意義，不是純粹的英文字母。Code 的易讀性真的很重要。
+
+#### 10 CSS Position Fixed
+
+我相信有些頁面經常會用 Fixed 來固定某些元素，然而在這部份，我是建議要盡可能的少使用這方法，因為在排版上，如果沒有指定特定的長寬，會造成走版，
+
+#### 11 export default 與 new Vue
+
+相信一開始都有人有這問題，當然網上搜也是一大把結果，我就在這裡簡略說一下：
+
+**new Vue**：這是應用程序的根 Vue 實例。
+
+```js
+new Vue({
+    el: '#app',
+    data () {
+      return {}
+    }
+})
+```
+
+```html
+<html>
+  ...
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+```
+
+**export default**：ES6 語法中的導出，也就是說這是聲明一個之後會被註冊使用的組件，**創建一個本地可註冊的 Vue 組件**。
+
+```js
+// my-component.js
+export default {
+    name: 'my-component',
+    data () {
+      return {}
+    }
+}
+```
+
+```js
+// another-component.js
+<template>
+  <my-component></my-component>
+</template>
+<script>
+  import myComponent from 'my-component'
+  export default {
+    components: {
+      myComponent
+    }
+    data () {
+      return {}
+    }
+    ...
+  }
+</script>
+```
+
+#### 12 調試端口 Port
+
+一般預設調適端口是 8080，但有時也不是這樣，不過這部份也沒有什麼好改動的，畢竟後端也不需要知道前端是哪個 URL 發送的請求，除非自己有什麼強迫症非要改調試時的 Websocket 端口，不然沒必要去在意。這裡姑且還是寫一下改動調適端口的寫法。
+
+在 `demo/` 下新建一個 `vue.config.js` 檔案，並寫入下列內容。
+
+```js
+// vue.config.js
+module.exports = {
+  devServer: {
+    // 告訴 dev-server 在服務器啟動後打開瀏覽器，將其設置 true 為打開默認瀏覽器
+    open: true,
+    // 運行的 host 和 port
+    host: 'localhost',
+    port: 8080,
+  }
+}
+```
+
+#### 推薦的 UI 框架
+
+我不會推薦 Vuetify，拜託不要被他絢麗的外貌所吸引，坑很多的，建議的是 **Ant design、Bootstrap-vue、Buefy**。
+
+### Router
+
+#### Router 配置
+
+**安裝**：
+
+```zsh
+npm install vue-router # 安裝 vue-router
+```
+
+**配置說明**：
+
+> 如果沒有這些資料夾和檔案就自己新建。
+
+如果你在一開始就有裝 **Router**，那你會在 `src/router/index.js` 發現如下內容，這裡引入 `vue-router`，並使用 `Vue.use(VueRouter)` 註冊該組件，然後聲明一個 `routes` 常量，並將 **views/** 資料夾裡的組件引入到這裡且賦值給 `routes` Array Object。**然後再賦值給一個 VueRouter Object，再導出該 Object，在 `src/main.js` 中引入**。
+
+> 註：引入的組件名稱可以自己定義，因為是 `export default`。ES6 語法中 `import` 和 `export` 可以有多個，但是 `export default` 只能有一個。
+
+```js
+// src/router/index.js
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
+
+Vue.use(VueRouter) // 註冊陸游組件
+
+// routes 常量
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  }
+]
+
+// VueRouter Object
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
+
+// 導出
+export default router
+```
+
+```js
+// src/main.js
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router' // 引入 router
+import store from './store'
+
+Vue.config.productionTip = false
+
+new Vue({
+  router, // 引入
+  store,
+  render: h => h(App)
+}).$mount('#app')
+
+```
+
+在需要用道路由管理顯示的組件加入 `<router-view/>`，`<router-link></router-link>` 用於路由跳轉規則，就像一開始初始化的 `src/App.vue`：
+
+```html
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
+</template>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
+
+```
+
+#### Router 配置注意點
+
+```js
+// 這裡 Home 組件是需要引入的，但是因為上面的例子有寫，這裡為了方便描述就不寫了
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  }
+]
+```
+
+- 首先就是 `routes` 這常量中的 Object 通常由 **path、name、component** 這些 Key 值所組成，分別代表的是：**路徑、路由名、組件**。如果 `path: '/about'`，在調試時就是 `http://localhost:8080/about`，`name: 'About'` 可以作為前端頁面路由跳轉時使用的判斷值，`component` 代表該路由所代表的組件，就是跳轉到該路由時會顯示的組件。
+
+- `component` 有兩種寫法：第一種是像**上面例子中的 `Home`**，直接賦值引入的組件，這種寫法，**會在載入根頁面全部 JS 渲染完成**。第二種是**上面的 `Home`**，**懶加載，這種寫法可以避免如果頁面應用很大會花很久載入頁面（使用的是匿名函數）**，加載根頁面時會依據當前頁面所需要加載對應的 JS，不是當前頁面需要的不會在此加載。我是**建議後者的寫法**。
+
+- 現在初始化路由時**預設的 Router Mode 是 `history`**，就是沒有錨點的方式，如果想要換回有錨點的可以改成 `hash`，但是我偏好是 `history`，這樣 URL 也比較乾淨。
+
+
+#### 子路由與重定向
+
+我們可以給每個路由弄子路由，重定向就是**如果跳轉到某個路由會特地跳到另一個路由**，一般用於有多個子路由的對象，或是跳轉到 404 頁面，e.g.
+
+> 註：父路由沒有一定需要有 `component` 的 value 值，也可以沒有。
+
+```js
+const routes = [
+  {
+    path: '/sign',
+    name: 'Sign',
+    component: () =>
+        import ( /* webpackChunkName: "Sign" */ '../views/sign/Sign.vue'),
+    // 子路由
+    children: [{
+            path: '/sign/signIn',
+            name: 'SignIn',
+            component: () =>
+                import ( /* webpackChunkName: "SignIn" */ '../view/sign/SignIn.vue')
+        },
+        {
+            path: '/sign/signUp',
+            name: 'SignUp',
+            component: () =>
+                import ( /* webpackChunkName: "SignUp" */ '../view/sign/SignUp.vue')
+        },
+        {
+            path: '/sign/verifyEmail',
+            name: 'VerifyEmail',
+            component: () =>
+                import ( /* webpackChunkName: "VerifyEmail" */ '.views/sign/verifyEmail.vue')
+        },
+        {
+            path: '/sign/forgotPassword',
+            name: 'ForgotPassword',
+            component: () =>
+                import ( /* webpackChunkName: "ForgotPassword" */ '.views/sign/forgotPassword.vue')
+        }
+    ],
+    //强制重定向
+    redirect: '/sign/signIn'
+  },
+]
+```
+
+#### 404
+
+下面的寫法可以匹配 404 路由。
+
+```js
+const routes = [
+  {
+    path: '*',
+    name: '404',
+    component: () =>
+        import ( /* webpackChunkName: "404" */ '../views/error/pageNotFound.vue')
+  }
+]
+```
+
+#### 動態路由
+
+動態路由會攜帶一個參數，可以用來在**初始化渲染組件時發送請求數據**，會攜帶的參數代表的意義可以是 UserID 或是 UserName...等，e.g 像是 Github 在查看別人的空間時 URL 上會有使用者的 UserName，所以會根據那個參數請求數據。
+
+```js
+const routes = [
+    {
+        path: '/:id/admin',
+        name: 'admin',
+        component: () =>
+            import ( /* webpackChunkName: "admin" */ '../views/blog-admin/admin.vue'),
+        children: [{
+                path: '/:id/admin/posts',
+                name: 'posts',
+                component: () =>
+                    import ( /* webpackChunkName: "posts" */ '../views/blog-admin/posts.vue')
+            },
+            {
+                path: '/:id/admin/charts',
+                name: 'charts',
+                component: () =>
+                    import ( /* webpackChunkName: "charts" */ '../views/blog-admin/charts.vue')
+            },
+            {
+                path: '/:id/admin/collect',
+                name: 'collect',
+                component: () =>
+                    import ( /* webpackChunkName: "collect" */ '../views/blog-admin/collect.vue')
+            },
+            {
+                path: '/:id/admin/account',
+                name: 'account',
+                component: () =>
+                    import ( /* webpackChunkName: "account" */ '../views/blog-admin/account.vue')
+            }
+        ],
+        redirect: '/:id/admin/charts'
+    },
+]
+```
+
+在上面的任意路由組件寫入 `this.$route.params.id`，就會顯示是 `:id` 參數。當然你在寫動態路由的時候可以自己定義參數名，沒有一定要是 `id`。e.g.
+
+```html
+<template>
+  <div>
+    {{ this.$route.params.id }}
+  </div>
+</template>
+```
+
+#### 路由的方法
+
+**跳轉路由**
+
+```js
+this.$router.push('/')
+```
+
+**返回上個瀏覽器歷史路由**
+
+```js
+this.$router.go(-1)
+```
+
+**攜帶 query string 參數的跳轉路由方式**
+
+> query string 只能攜帶一個參數。使用的效果跟前面說的動態路由一樣，是用來放請求參數的。
+
+就下面的例子而言，在有 query string 的組件中顯示 `this.$route.query.blogId` 就會顯示攜帶的參數。
+
+```js
+this.$router.push({
+  path:
+    "/" + username + "/blog/read",
+  query: { blogId: blogId },
+});
+```
+
+```html
+<template>
+  <div>
+    {{ this.$route.query.blogId }}
+  </div>
+</template>
+```
+
+#### 跳轉路由的頁面位置
+
+我在跳轉頁面時會發現，當我按下返回上個歷史頁面，頁面所在的滾輪位置（也就是檢視位置）會不固定，在 Router 的配置文件加入下面的參數能控制跳轉的位置。
+
+```js
+const router = new VueRouter({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes,
+    props: true,
+    // 這裡可以控制跳轉時的滾動位置
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
+
+})
+```
+
+### Vuex
+
+其實很多人一開始看 Vuex 的官方文檔看不懂，我也不意外，因為太晦澀了，看不懂。但是我在看完某個 B 站上的教學影片後，我開竅了，因為用文字很難描述清楚，建議這影片長度全部看完才能真正理解 Vuex，這裡奉上[影片位置](https://www.bilibili.com/video/BV1Ps411j7nq)。
+
+{{< bilibili BV1Ps411j7nq >}}
+
+### Vue 的 Request
+
+
 
 ## Reference
 
+- [Vue Router](https://router.vuejs.org/zh/installation.html)
+- [vue的export default 還是沒能理解它是什麼 - IT 邦幫忙](https://ithelp.ithome.com.tw/questions/10196840)
+- [Vue 'export default' vs 'new Vue' - stack overflow](https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue)
+- [Vue状态管理-Vuex简要教程 - BiliBili](https://www.bilibili.com/video/BV1Ps411j7nq)
