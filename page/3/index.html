@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huangno1.github.io/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
-<meta property="og:updated_time" content="2020-08-04T16:49:26+08:00" />
+<meta property="og:updated_time" content="2020-08-04T21:49:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
@@ -117,6 +117,26 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/archlinux_install_part2_general_recommendations/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png"
+        data-srcset="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png, /featuredImage/compressed/archlinux_install_part2_general_recommendations.png 1.5x, /featuredImage/compressed/archlinux_install_part2_general_recommendations.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png"
+        title="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/archlinux_install_part2_general_recommendations/">Archlinux 安裝 Part 2 - 安裝後工作</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-01-04">2020-01-04</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div><div class="content">前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
+確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。
+ 註：注意使用 systemctl 啟用 networkmanager 服務時要注意大小寫，開頭要大寫。
+ 1 2 3  systemctl enable NetworkManager # 設定開機自啟 systemctl strat NetworkManager # 啟用 Netmanager ping baidu.com # 確認連網   添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。
+另一方面，我們無法使用超級使用者進入圖形界面。
+ 註：將以下的所有 user 改成自己的使用者名稱。
+ 1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。</div><div class="post-footer">
+        <a href="/archlinux_install_part2_general_recommendations/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/joker_movie_moment/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
