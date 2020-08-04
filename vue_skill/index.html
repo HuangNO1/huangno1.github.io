@@ -39,7 +39,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/vue_skill\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2085 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2782 ,
         "url": "https:\/\/huangno1.github.io\/vue_skill\/","datePublished": "2020-07-31T16:49:28+08:00","dateModified": "2020-07-31T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,8 +135,8 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">VUE 技巧與經驗</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2085 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 10 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2782 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 14 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -171,7 +171,8 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <li><a href="#10-css-position-fixed">10 CSS Position Fixed</a></li>
             <li><a href="#11-export-default-與-new-vue">11 export default 與 new Vue</a></li>
             <li><a href="#12-調試端口-port">12 調試端口 Port</a></li>
-            <li><a href="#推薦的-ui-框架">推薦的 UI 框架</a></li>
+            <li><a href="#13-assets-與-static">13 Assets 與 Static</a></li>
+            <li><a href="#14-推薦的-ui-框架">14 推薦的 UI 框架</a></li>
           </ul>
         </li>
         <li><a href="#router">Router</a>
@@ -192,6 +193,18 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <li><a href="#form-data">Form-data</a></li>
             <li><a href="#純-js">純 Js</a></li>
             <li><a href="#header-帶-token-的請求">Header 帶 Token 的請求</a></li>
+          </ul>
+        </li>
+        <li><a href="#多頁面應用">多頁面應用</a>
+          <ul>
+            <li><a href="#應用場景">應用場景</a></li>
+            <li><a href="#多頁面應用配置">多頁面應用配置</a></li>
+            <li><a href="#配置注意點">配置注意點</a></li>
+          </ul>
+        </li>
+        <li><a href="#常見的問題">常見的問題</a>
+          <ul>
+            <li><a href="#引入圖片">引入圖片</a></li>
           </ul>
         </li>
         <li><a href="#部署">部署</a></li>
@@ -521,7 +534,18 @@ Vue CLI v4.4.6
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="推薦的-ui-框架">推薦的 UI 框架</h4>
+</div><h4 id="13-assets-與-static">13 Assets 與 Static</h4>
+<p>大家都會疑惑 Assets 與 Static 都是放靜態資源的目錄，但為什麼要有兩個？區別如下：</p>
+<ul>
+<li>Assets：在運行 <code>npm run build</code> 之後會隨著打包後<strong>進行資源壓縮體積，Code 格式化</strong>，打包完會生成放在 <code>static/</code> 中隨 <code>index.html</code> 一起部署到服務器</li>
+<li>Static：打包時<strong>不會走打包的壓縮流程</strong>，打包效率高，但不會進行壓縮也意味著資源佔用大，影響頁面載入速度。</li>
+</ul>
+<p>所以有如下規則：</p>
+<ul>
+<li>我們自己寫頁面需要的<strong>靜態資源放到 <code>assets/</code> 目錄下</strong>。</li>
+<li><strong>第三方的 JS 靜態資源</strong>因為是別人經過處理的，所以可以放到 <code>static/</code>。</li>
+</ul>
+<h4 id="14-推薦的-ui-框架">14 推薦的 UI 框架</h4>
 <p>我不會推薦 Vuetify，拜託不要被他絢麗的外貌所吸引，坑很多的，建議的是 <strong>Ant design、Bootstrap-vue、Buefy</strong>。</p>
 <h3 id="router">Router</h3>
 <h4 id="router-配置">Router 配置</h4>
@@ -1106,7 +1130,7 @@ Vue CLI v4.4.6
 <li>放 Body 的純 Js</li>
 </ol>
 <blockquote>
-<p><strong>註：我會為了整齊與易用，會讓請求單獨放在一個獨立的 Function 作為異步請求使用。</strong></p>
+<p><strong>註：我會為了整齊與易用，會讓請求單獨放在一個獨立的 Function 作為異步請求使用，還有一個非常重要的點是 Axios 是異步的，所以不要在 Axios 請求 Code 後添加任何 Code</strong></p>
 </blockquote>
 <h4 id="params">Params</h4>
 <div class="highlight"><div class="chroma">
@@ -1420,6 +1444,362 @@ Vue CLI v4.4.6
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="多頁面應用">多頁面應用</h3>
+<h4 id="應用場景">應用場景</h4>
+<p>多頁面應用的概念就是<strong>如果你的 Web 網頁想要有多個面向不同需求的應用</strong>，或是想要將 PC 端和手機端的分開設計，想做不同風格的頁面，就可以使用多頁面應用實現。Web 端有不同需求的意思是假設你要做一個電商平台，卻又想要建一個社區論壇，這時就是不同的需求，需要使用多頁面應用。</p>
+<h4 id="多頁面應用配置">多頁面應用配置</h4>
+<p>在 Project 根目錄的 <code>vue.config.js</code> 添加以下內容：</p>
+<blockquote>
+<p>需要修改的地方是 <code>devServer</code> 配置首頁入口，改成自己要的。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">glob</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;glob&#39;</span><span class="p">)</span> <span class="c1">// 用于筛选文件
+</span><span class="c1"></span>
+<span class="c1">// 工厂函数 - 配置pages实现多页面获取某文件夹下的html与js
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">handleEntry</span><span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">entries</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="kd">let</span> <span class="nx">entryBaseName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="kd">let</span> <span class="nx">entryPathName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="kd">let</span> <span class="nx">entryTemplate</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="kd">let</span> <span class="nx">applicationName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="nx">glob</span><span class="p">.</span><span class="nx">sync</span><span class="p">(</span><span class="nx">entry</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;!!!&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span>
+        <span class="nx">entryBaseName</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nx">extname</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;entryBaseName:&#39;</span><span class="p">,</span> <span class="nx">entryBaseName</span><span class="p">)</span>
+        <span class="nx">entryTemplate</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">splice</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;entryTemplate:&#39;</span><span class="p">,</span> <span class="nx">entryTemplate</span><span class="p">)</span>
+        <span class="nx">entryPathName</span> <span class="o">=</span> <span class="nx">entryBaseName</span> <span class="c1">// 正确输出js和html的路径
+</span><span class="c1"></span>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;entryPathName&#39;</span><span class="p">,</span> <span class="nx">entryPathName</span><span class="p">)</span>
+
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">entryPathName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;src/&#39;</span> <span class="o">+</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.js&#39;</span><span class="p">,</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;src/&#39;</span> <span class="o">+</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="nx">filename</span><span class="o">:</span> <span class="nx">entryTemplate</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+
+    <span class="k">return</span> <span class="nx">entries</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">pages</span> <span class="o">=</span> <span class="nx">handleEntry</span><span class="p">(</span><span class="s1">&#39;./src/application/**?/*.html&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pages</span><span class="p">)</span>
+
+<span class="c1">// 以下开始配置
+</span><span class="c1"></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// 引入 vuetify
+</span><span class="c1"></span>    <span class="s2">&#34;transpileDependencies&#34;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;vuetify&#34;</span>
+    <span class="p">],</span>
+
+    <span class="nx">lintOnSave</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// 关掉eslint
+</span><span class="c1"></span>    <span class="cm">/**
+</span><span class="cm">     * baseUrl 从 3.3 起废用，使用 pubilcPath 代替
+</span><span class="cm">     * 默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 publicPath 为 /my-app/。
+</span><span class="cm">     * 这个值也可以被设置为空字符串 (&#39;&#39;) 或是相对路径 (&#39;./&#39;)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。
+</span><span class="cm">     */</span>
+    <span class="nx">publicPath</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="s2">&#34;production&#34;</span> <span class="o">?</span> <span class="s2">&#34;./&#34;</span> <span class="o">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
+    <span class="nx">productionSourceMap</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="c1">// 入口设置
+</span><span class="c1"></span>    <span class="nx">pages</span><span class="p">,</span>
+    <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">index</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="c1">// 运行时，默认打开application1页面
+</span><span class="c1"></span>        <span class="c1">// 告诉dev-server在服务器启动后打开浏览器，将其设置true为打开默认浏览器
+</span><span class="c1"></span>        <span class="nx">open</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="c1">// host: &#39;localhost&#39;,
+</span><span class="c1"></span>        <span class="c1">// port: 8080,
+</span><span class="c1"></span>        <span class="c1">// https: false,
+</span><span class="c1"></span>        <span class="nx">hotOnly</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="c1">// 配置首页 入口链接
+</span><span class="c1"></span>        <span class="nx">before</span><span class="o">:</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">pages</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">//res.write(`&lt;a target=&#34;_self&#34; href=&#34;/${i}&#34;&gt;/${i}&lt;/a&gt;&lt;/br&gt;`);
+</span><span class="c1"></span>                    <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="s1">&#39;introduce&#39;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">res</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="sb">`&lt;script&gt;document.location.href=&#34;/</span><span class="si">${</span><span class="nx">i</span><span class="si">}</span><span class="sb">&#34;;&lt;/script&gt;`</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+        <span class="c1">// proxy: { //配置跨域
+</span><span class="c1"></span>        <span class="c1">//     &#39;/api&#39;: {
+</span><span class="c1"></span>        <span class="c1">//         target: &#39;https://sm.ms/api/upload&#39;, //這裡後台的地址模擬的，應該填寫真實的後台api
+</span><span class="c1"></span>        <span class="c1">//         ws: false, // 如果要代理 websockets
+</span><span class="c1"></span>        <span class="c1">//         changOrigin: true, //允許跨域
+</span><span class="c1"></span>        <span class="c1">//         pathRewrite: {
+</span><span class="c1"></span>        <span class="c1">//             &#39;^/api&#39;: &#39;&#39; //請求的時候使用這個api就可以
+</span><span class="c1"></span>        <span class="c1">//         }
+</span><span class="c1"></span>        <span class="c1">//     }
+</span><span class="c1"></span>
+        <span class="c1">// }
+</span><span class="c1"></span>    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接著弄多頁面應用的時候，<strong>在 <code>src/</code> 下新建一個 <code>application/</code> 目錄</strong>，然後如果我要新增的是電商平台寵物商店和論壇，<strong>應用名稱分別為 <code>PetStore</code> 和 <code>Communication</code></strong>，就改造成如下目錄結構：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">.
+├── babel.config.js
+├── .browserslistrc
+├── .git
+├── .gitignore
+├── node_modules
+├── package.json
+├── package-lock.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── README.md
+├── src
+│   ├── PetStore
+│   │   ├── assets
+│   │   │   └── index.js
+│   │   ├── components
+│   │   │   └── HelloWorld.vue
+│   │   ├── router
+│   │   │   └── index.js
+│   │   ├── store
+│   │   │   └── index.js
+│   │   ├── views
+│   │   │   ├── About.vue
+│   │   │   └── Home.vue
+│   │   ├── PetStore.html
+│   │   ├── PetStore.js
+│   │   └── PetStore.vue
+│   └── Communication
+│       ├── assets
+│       │   └── index.js
+│       ├── components
+│       │   └── HelloWorld.vue
+│       ├── router
+│       │   └── index.js
+│       ├── store
+│       │   └── index.js
+│       ├── views
+│       │   ├── About.vue
+│       │   └── Home.vue
+│       ├── Communication.html
+│       ├── Communication.js
+│       └── Communication.vue
+└── vue.config.js
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的 <code>src/</code> 下就是將整個 SPA 單頁面應用重新整合成多頁面應用。<strong><code>PetStore.html</code> 對應的內容是重構前的 <code>public/index.html</code>、<code>PetStore.js</code> 對應的是 <code>src/main.js</code>、<code>PetStore.vue</code> 對應的是 <code>src/App.vue</code></strong>。</p>
+<h4 id="配置注意點">配置注意點</h4>
+<ul>
+<li>根據在 <code>src/application</code> 下的所有頁面應用中的所有的<strong>目錄名稱還有作為根組件的相關 File 名稱要跟頁面應用名稱一模一樣</strong>，因為在 <code>vue.config.js</code> 中的遍歷函數會用這樣的規則遍歷，如果想要改的話可以自己改。</li>
+<li>這樣子配置之後，Project 根目錄中 <code>public/</code> 相當於不會影響項目的目錄，當然要放靜態資源也是可以。</li>
+<li>在 <code>/public</code> 同個圖片不能在不同的應用中使用。這部份我確認過，不知道是不是 Bug。</li>
+</ul>
+<h3 id="常見的問題">常見的問題</h3>
+<h4 id="引入圖片">引入圖片</h4>
+<p>有時我們要<strong>用 js 引入相對位置圖片會失敗</strong>，像下面的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">:src</span><span class="o">=</span><span class="s">&#34;img&#34;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">img</span><span class="o">:</span> <span class="s2">&#34;../assets/image/xxxxx.png&#34;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>之所以會失敗是因為，網頁把根域名當作相對路徑的根目錄，上面的 <code>img: &quot;../assets/image/xxxxx.png&quot;</code> 被識別為 <code>img: &quot;http://localhost:8080/../assets/image/xxxxx.png&quot;</code>，應該要改成如下方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">:src</span><span class="o">=</span><span class="s">&#34;img&#34;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">img</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;../assets/image/xxxxx.png&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
 </div><h3 id="部署">部署</h3>
 <p>關於部署，最後 Project 根目錄執行 <code>npm run build</code>，就能夠編譯生成最後的成品，就是 <code>dist/</code> 目錄的生成，將 <code>dist/</code> 目錄提出來部署到 Github Pages、Herokuv 或 Docker。</p>
 <p><a href="https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97" target="_blank" rel="noopener noreffer">部署 - Vue CLI</a></p>
@@ -1434,7 +1814,10 @@ Vue CLI v4.4.6
 <li><a href="https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue" target="_blank" rel="noopener noreffer">Vue &lsquo;export default&rsquo; vs &lsquo;new Vue&rsquo; - stack overflow</a></li>
 <li><a href="https://www.bilibili.com/video/BV1Ps411j7nq" target="_blank" rel="noopener noreffer">Vue状态管理-Vuex简要教程 - BiliBili</a></li>
 <li><a href="https://www.npmjs.com/package/vue-axios" target="_blank" rel="noopener noreffer">vue-axios - npm</a></li>
+<li><a href="https://juejin.im/post/6844904003680075783" target="_blank" rel="noopener noreffer">VUE.CLI 4.0 配置多页面入口礼包送你！ - 掘金</a></li>
 <li><a href="https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97" target="_blank" rel="noopener noreffer">部署 - Vue CLI</a></li>
+<li><a href="https://www.itread01.com/content/1540712425.html" target="_blank" rel="noopener noreffer">vue中assets和static的區別</a></li>
+<li><a href="https://www.jianshu.com/p/f82c5ecbd3a5" target="_blank" rel="noopener noreffer">Vue中img的src属性绑定与static文件夹 - 簡書</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

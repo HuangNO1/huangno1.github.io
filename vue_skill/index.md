@@ -217,7 +217,19 @@ module.exports = {
 }
 ```
 
-#### 推薦的 UI 框架
+#### 13 Assets 與 Static
+
+大家都會疑惑 Assets 與 Static 都是放靜態資源的目錄，但為什麼要有兩個？區別如下：
+
+- Assets：在運行 `npm run build` 之後會隨著打包後**進行資源壓縮體積，Code 格式化**，打包完會生成放在 `static/` 中隨 `index.html` 一起部署到服務器
+- Static：打包時**不會走打包的壓縮流程**，打包效率高，但不會進行壓縮也意味著資源佔用大，影響頁面載入速度。
+
+所以有如下規則：
+
+- 我們自己寫頁面需要的**靜態資源放到 `assets/` 目錄下**。
+- **第三方的 JS 靜態資源**因為是別人經過處理的，所以可以放到 `static/`。
+
+#### 14 推薦的 UI 框架
 
 我不會推薦 Vuetify，拜託不要被他絢麗的外貌所吸引，坑很多的，建議的是 **Ant design、Bootstrap-vue、Buefy**。
 
@@ -560,7 +572,7 @@ Vue.use(VueAxios, axios)
 2. Form-data
 3. 放 Body 的純 Js
 
-> **註：我會為了整齊與易用，會讓請求單獨放在一個獨立的 Function 作為異步請求使用。**
+> **註：我會為了整齊與易用，會讓請求單獨放在一個獨立的 Function 作為異步請求使用，還有一個非常重要的點是 Axios 是異步的，所以不要在 Axios 請求 Code 後添加任何 Code**
 
 #### Params
 
@@ -727,6 +739,204 @@ export default {
 }
 ```
 
+### 多頁面應用
+
+#### 應用場景
+
+多頁面應用的概念就是**如果你的 Web 網頁想要有多個面向不同需求的應用**，或是想要將 PC 端和手機端的分開設計，想做不同風格的頁面，就可以使用多頁面應用實現。Web 端有不同需求的意思是假設你要做一個電商平台，卻又想要建一個社區論壇，這時就是不同的需求，需要使用多頁面應用。
+
+#### 多頁面應用配置
+
+在 Project 根目錄的 `vue.config.js` 添加以下內容：
+
+> 需要修改的地方是 `devServer` 配置首頁入口，改成自己要的。
+
+```js
+let path = require('path')
+let glob = require('glob') // 用于筛选文件
+
+// 工厂函数 - 配置pages实现多页面获取某文件夹下的html与js
+function handleEntry(entry) {
+    let entries = {}
+    let entryBaseName = ''
+    let entryPathName = ''
+    let entryTemplate = ''
+    let applicationName = ''
+
+    glob.sync(entry).forEach(item => {
+        console.log('!!!', item)
+        entryBaseName = path.basename(item, path.extname(item))
+        console.log('entryBaseName:', entryBaseName)
+        entryTemplate = item.split('/').splice(-3)
+        console.log('entryTemplate:', entryTemplate)
+        entryPathName = entryBaseName // 正确输出js和html的路径
+        console.log('entryPathName', entryPathName)
+
+        entries[entryPathName] = {
+            entry: 'src/' + entryTemplate[0] + '/' + entryTemplate[1] + '/' + entryTemplate[1] + '.js',
+            template: 'src/' + entryTemplate[0] + '/' + entryTemplate[1] + '/' + entryTemplate[2],
+            title: entryTemplate[2],
+            filename: entryTemplate[2]
+        }
+    })
+
+    return entries
+}
+
+let pages = handleEntry('./src/application/**?/*.html')
+console.log(pages)
+
+// 以下开始配置
+module.exports = {
+    // 引入 vuetify
+    "transpileDependencies": [
+        "vuetify"
+    ],
+
+    lintOnSave: false, // 关掉eslint
+    /**
+     * baseUrl 从 3.3 起废用，使用 pubilcPath 代替
+     * 默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 publicPath 为 /my-app/。
+     * 这个值也可以被设置为空字符串 ('') 或是相对路径 ('./')，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。
+     */
+    publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+    productionSourceMap: false,
+    // 入口设置
+    pages,
+    devServer: {
+        index: '/', // 运行时，默认打开application1页面
+        // 告诉dev-server在服务器启动后打开浏览器，将其设置true为打开默认浏览器
+        open: true,
+        // host: 'localhost',
+        // port: 8080,
+        // https: false,
+        hotOnly: false,
+        // 配置首页 入口链接
+        before: app => {
+            app.get('/', (req, res, next) => {
+                for (let i in pages) {
+                    //res.write(`<a target="_self" href="/${i}">/${i}</a></br>`);
+                    if (i === 'introduce') {
+                        res.write(`<script>document.location.href="/${i}";</script>`);
+                    }
+                }
+                res.end()
+            });
+        },
+        // proxy: { //配置跨域
+        //     '/api': {
+        //         target: 'https://sm.ms/api/upload', //這裡後台的地址模擬的，應該填寫真實的後台api
+        //         ws: false, // 如果要代理 websockets
+        //         changOrigin: true, //允許跨域
+        //         pathRewrite: {
+        //             '^/api': '' //請求的時候使用這個api就可以
+        //         }
+        //     }
+
+        // }
+    },
+}
+```
+
+接著弄多頁面應用的時候，**在 `src/` 下新建一個 `application/` 目錄**，然後如果我要新增的是電商平台寵物商店和論壇，**應用名稱分別為 `PetStore` 和 `Communication`**，就改造成如下目錄結構：
+
+```bash
+.
+├── babel.config.js
+├── .browserslistrc
+├── .git
+├── .gitignore
+├── node_modules
+├── package.json
+├── package-lock.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── README.md
+├── src
+│   ├── PetStore
+│   │   ├── assets
+│   │   │   └── index.js
+│   │   ├── components
+│   │   │   └── HelloWorld.vue
+│   │   ├── router
+│   │   │   └── index.js
+│   │   ├── store
+│   │   │   └── index.js
+│   │   ├── views
+│   │   │   ├── About.vue
+│   │   │   └── Home.vue
+│   │   ├── PetStore.html
+│   │   ├── PetStore.js
+│   │   └── PetStore.vue
+│   └── Communication
+│       ├── assets
+│       │   └── index.js
+│       ├── components
+│       │   └── HelloWorld.vue
+│       ├── router
+│       │   └── index.js
+│       ├── store
+│       │   └── index.js
+│       ├── views
+│       │   ├── About.vue
+│       │   └── Home.vue
+│       ├── Communication.html
+│       ├── Communication.js
+│       └── Communication.vue
+└── vue.config.js
+```
+
+上面的 `src/` 下就是將整個 SPA 單頁面應用重新整合成多頁面應用。**`PetStore.html` 對應的內容是重構前的 `public/index.html`、`PetStore.js` 對應的是 `src/main.js`、`PetStore.vue` 對應的是 `src/App.vue`**。
+
+#### 配置注意點
+
+- 根據在 `src/application` 下的所有頁面應用中的所有的**目錄名稱還有作為根組件的相關 File 名稱要跟頁面應用名稱一模一樣**，因為在 `vue.config.js` 中的遍歷函數會用這樣的規則遍歷，如果想要改的話可以自己改。
+- 這樣子配置之後，Project 根目錄中 `public/` 相當於不會影響項目的目錄，當然要放靜態資源也是可以。
+- 在 `/public` 同個圖片不能在不同的應用中使用。這部份我確認過，不知道是不是 Bug。
+
+### 常見的問題
+
+#### 引入圖片
+
+有時我們要**用 js 引入相對位置圖片會失敗**，像下面的例子：
+
+```html
+<template>
+  <div>
+    <img :src="img"/>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      img: "../assets/image/xxxxx.png"
+    }
+  }
+}
+</script>
+```
+
+之所以會失敗是因為，網頁把根域名當作相對路徑的根目錄，上面的 `img: "../assets/image/xxxxx.png"` 被識別為 `img: "http://localhost:8080/../assets/image/xxxxx.png"`，應該要改成如下方法
+
+```html
+<template>
+  <div>
+    <img :src="img"/>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      img: require("../assets/image/xxxxx.png")
+    }
+  }
+}
+</script>
+```
+
 ### 部署
 
 關於部署，最後 Project 根目錄執行 `npm run build`，就能夠編譯生成最後的成品，就是 `dist/` 目錄的生成，將 `dist/` 目錄提出來部署到 Github Pages、Herokuv 或 Docker。
@@ -748,4 +958,7 @@ Vue 寫桌面應用是 Electron-vue，寫 Android 是 Vue Native。然而，**�
 - [Vue 'export default' vs 'new Vue' - stack overflow](https://stackoverflow.com/questions/48727863/vue-export-default-vs-new-vue)
 - [Vue状态管理-Vuex简要教程 - BiliBili](https://www.bilibili.com/video/BV1Ps411j7nq)
 - [vue-axios - npm](https://www.npmjs.com/package/vue-axios)
+- [VUE.CLI 4.0 配置多页面入口礼包送你！ - 掘金](https://juejin.im/post/6844904003680075783)
 - [部署 - Vue CLI](https://cli.vuejs.org/zh/guide/deployment.html#%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97)
+- [vue中assets和static的區別](https://www.itread01.com/content/1540712425.html)
+- [Vue中img的src属性绑定与static文件夹 - 簡書](https://www.jianshu.com/p/f82c5ecbd3a5)
