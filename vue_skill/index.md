@@ -179,8 +179,8 @@ export default {
 }
 ```
 
-```js
-// another-component.js
+```html
+<!-- another-component.js -->
 <template>
   <my-component></my-component>
 </template>
@@ -189,11 +189,11 @@ export default {
   export default {
     components: {
       myComponent
-    }
+    },
     data () {
       return {}
     }
-    ...
+    // ...
   }
 </script>
 ```
@@ -221,7 +221,7 @@ module.exports = {
 
 大家都會疑惑 Assets 與 Static 都是放靜態資源的目錄，但為什麼要有兩個？區別如下：
 
-- Assets：在運行 `npm run build` 之後會隨著打包後**進行資源壓縮體積，Code 格式化**，打包完會生成放在 `static/` 中隨 `index.html` 一起部署到服務器
+- Assets：在運行 `npm run build` 之後會隨著打包後**進行資源壓縮體積，Code 格式化**，打包完會生成放在 `static/` 中隨 `index.html` 一起部署到服務器。
 - Static：打包時**不會走打包的壓縮流程**，打包效率高，但不會進行壓縮也意味著資源佔用大，影響頁面載入速度。
 
 所以有如下規則：

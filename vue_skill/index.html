@@ -39,7 +39,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/vue_skill\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2782 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2784 ,
         "url": "https:\/\/huangno1.github.io\/vue_skill\/","datePublished": "2020-07-31T16:49:28+08:00","dateModified": "2020-07-31T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,7 +135,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">VUE 技巧與經驗</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/HuangNO1" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2782 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2784 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 14 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -487,22 +487,22 @@ Vue CLI v4.4.6
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// another-component.js
-</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">my</span><span class="o">-</span><span class="nx">component</span><span class="o">&gt;&lt;</span><span class="err">/my-component&gt;</span>
-<span class="o">&lt;</span><span class="err">/template&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- another-component.js --&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">my-component</span><span class="p">&gt;&lt;/</span><span class="nt">my-component</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="kr">import</span> <span class="nx">myComponent</span> <span class="nx">from</span> <span class="s1">&#39;my-component&#39;</span>
   <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
     <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">myComponent</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
     <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{}</span>
     <span class="p">}</span>
-    <span class="p">...</span>
-  <span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="12-調試端口-port">12 調試端口 Port</h4>
@@ -537,7 +537,7 @@ Vue CLI v4.4.6
 </div><h4 id="13-assets-與-static">13 Assets 與 Static</h4>
 <p>大家都會疑惑 Assets 與 Static 都是放靜態資源的目錄，但為什麼要有兩個？區別如下：</p>
 <ul>
-<li>Assets：在運行 <code>npm run build</code> 之後會隨著打包後<strong>進行資源壓縮體積，Code 格式化</strong>，打包完會生成放在 <code>static/</code> 中隨 <code>index.html</code> 一起部署到服務器</li>
+<li>Assets：在運行 <code>npm run build</code> 之後會隨著打包後<strong>進行資源壓縮體積，Code 格式化</strong>，打包完會生成放在 <code>static/</code> 中隨 <code>index.html</code> 一起部署到服務器。</li>
 <li>Static：打包時<strong>不會走打包的壓縮流程</strong>，打包效率高，但不會進行壓縮也意味著資源佔用大，影響頁面載入速度。</li>
 </ul>
 <p>所以有如下規則：</p>
