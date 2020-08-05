@@ -4,9 +4,20 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 04 Aug 2020 21:49:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 04 Aug 2020 22:49:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Flask 中使用 MySQL</title>
+    <link>https://huangno1.github.io/flask_mysql/</link>
+    <pubDate>Tue, 04 Aug 2020 22:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/flask_mysql/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
+            </div>前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。
+安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
+1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.]]></description>
+</item><item>
     <title>關於學習軟件工程與技術的方法</title>
     <link>https://huangno1.github.io/how_to_learn_cs/</link>
     <pubDate>Tue, 04 Aug 2020 21:49:28 &#43;0800</pubDate>
@@ -35,7 +46,7 @@
   保持上進心、好奇心與謙虛，要勇於探索新事物，且人上有人，天外有天。
   最後希望大家能擇你所愛，愛你所擇，如果敲代碼是你的興趣，那恭喜你，你有自己的愛好。]]></description>
 </item><item>
-    <title>我在中南大學本科大一和大二的這兩年</title>
+    <title>我在中南大學軟件工程本科大一和大二的這兩年</title>
     <link>https://huangno1.github.io/csu_freshman_sophomore/</link>
     <pubDate>Tue, 04 Aug 2020 16:49:28 &#43;0800</pubDate>
     <author>作者</author>
@@ -148,21 +159,5 @@ pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個
 安裝 從 Github 倉庫上直接 clone 下來。你也可以選擇直接在瀏覽器上下來。然後壓縮包解壓將文件內的文件放入 ~/.pyenv。
  註：如果你在國內網使用 Github 網速過於緩慢，建議開 Proxy，然後給 Git 設置代理。
  設置代理 1 2 3 4 5 6 7 8 9 10  # set http git config --global http.]]></description>
-</item><item>
-    <title>Archlinux KDE 動態桌布</title>
-    <link>https://huangno1.github.io/archlinux_kde_video_wallpaper/</link>
-    <pubDate>Wed, 15 Jan 2020 15:26:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/archlinux_kde_video_wallpaper/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/archlinux_kde_video_wallpaper.png" referrerpolicy="no-referrer">
-            </div>前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。
-當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）。最後終於在一篇 Github 項目中看到黑屏的處理方法，無意間那些 KDE Video Wallpaper 插件都可以用了。
-如果執意想使用 vlc 或是 xwinwrap + mplayer 的讀者可以參考某人的 Blog：设置 Linux 动态桌面的几种办法 - 簡書
-Plasma Video Wallpaper WuSiYu / Plasma Video Wallpaper 這是 Github 上看到的項目，這也是因為我看到他在 B 站上的視頻才知道有這個項目。
-完整項目使用過程他已經在他 Github 項目的 README.md 說得很清楚了。
-先將項目下載解壓，進入項目目錄輸入以下指令：
- 如果沒有安裝 cmake、make 就裝一下，如果有權限問題就給權限。
- 1 2 3 4  sudo pacman -S cmake make # 安裝 cmake make cmake .]]></description>
 </item></channel>
 </rss>

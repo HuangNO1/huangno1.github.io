@@ -584,22 +584,22 @@ export default {
   methods: {
     // ...
     async checkEmail() {
-    var params = new URLSearchParams();
-    params.append("email", this.email);
-    axios
-      .post(this.checkSameEmailURL, params)
-      .then(response => {
-        console.log(response);
-        console.log(response.data);
-        if (response.data.data === false) {
-          return false;
-        } else {
-          return true;
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      var params = new URLSearchParams();
+      params.append("email", this.email);
+      axios
+        .post(this.checkSameEmailURL, params)
+        .then(response => {
+          console.log(response);
+          console.log(response.data);
+          if (response.data.data === false) {
+            return false;
+          } else {
+            return true;
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 }

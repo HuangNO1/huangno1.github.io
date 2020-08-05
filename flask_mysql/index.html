@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Flask 中使用 MySQL - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Flask 中使用 MySQL" />
+<meta property="og:description" content="前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。
+安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
+1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/flask_mysql/" />
+<meta property="og:image" content="https://huangno1.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-08-04T22:49:28+08:00" />
+<meta property="article:modified_time" content="2020-08-05T22:49:26+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Flask 中使用 MySQL"/>
+<meta name="twitter:description" content="前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。
+安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
+1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor."/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/flask_mysql/" /><link rel="prev" href="https://huangno1.github.io/how_to_learn_cs/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Flask 中使用 MySQL",
+        "inLanguage": "zh-cn",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/huangno1.github.io\/flask_mysql\/"
+        },"genre": "posts","keywords": "Python, Flask, MySQL, Database, 數據庫","wordcount":  1216 ,
+        "url": "https:\/\/huangno1.github.io\/flask_mysql\/","datePublished": "2020-08-04T22:49:28+08:00","dateModified": "2020-08-05T22:49:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Rem Blog","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Huang Po-Hsun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Flask 中使用 MySQL</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-04">2020-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1216 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/flask_mysql.png"
+        data-srcset="/featuredImage/compressed/flask_mysql.png, /featuredImage/compressed/flask_mysql.png 1.5x, /featuredImage/compressed/flask_mysql.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/flask_mysql.png"
+        title="/featuredImage/compressed/flask_mysql.png" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#引入連接數據庫">引入、連接數據庫</a></li>
+    <li><a href="#crud">CRUD</a>
+      <ul>
+        <li><a href="#create-新增">Create 新增</a></li>
+      </ul>
+    </li>
+    <li><a href="#read-讀取">Read 讀取</a>
+      <ul>
+        <li><a href="#普通查詢">普通查詢</a></li>
+        <li><a href="#模糊搜索">模糊搜索</a></li>
+      </ul>
+    </li>
+    <li><a href="#update-更新">Update 更新</a></li>
+    <li><a href="#delete-刪除">Delete 刪除</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
+<p>我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說<a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener noreffer"> Flask 官方文檔</a>寫得很好。因為 <strong>Flask 官方教學是使用 Sqlite 做為數據庫</strong>，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。</p>
+<h2 id="安裝">安裝</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh">pip install mysql-connector-python
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="引入連接數據庫">引入、連接數據庫</h2>
+<p>因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">mysql.connector</span>
+<span class="kn">from</span> <span class="nn">mysql.connector</span> <span class="kn">import</span> <span class="n">Error</span>
+
+<span class="c1"># 連接 MySQL 資料庫</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>          <span class="c1"># 主機名稱</span>
+    <span class="n">database</span><span class="o">=</span><span class="s1">&#39;myTelegram&#39;</span><span class="p">,</span>  <span class="c1"># 資料庫名稱</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;Rem&#39;</span><span class="p">,</span>        <span class="c1"># 帳號</span>
+    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># 密碼</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;SELECT DATABASE();&#34;</span><span class="p">)</span>
+<span class="n">record</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="crud">CRUD</h2>
+<p>CRUD 就是 Create（新增）、Read（讀取）、Update（更新）、Delete（刪除），數據庫基本操作。</p>
+<h3 id="create-新增">Create 新增</h3>
+<p>以註冊帳戶並驗證完 Email Captcha 後，將帳戶資料增入 Database 為例子。這裡的設計概念是註冊後不會將帳戶資料寫入數據庫，註冊完會將暫時的帳戶資料存到數據庫，註冊的下一步是驗證 Email，驗證完發送到 Email 的 Captcha 就可以存入數據庫。關於發送 Email，我會另外寫一篇文章。</p>
+<blockquote>
+<p>註：因為 Flask 可以寫 Restful，所以會出現判斷請求方法是不是 POST 或是 GET，增加複用性。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+<span class="kn">import</span> <span class="nn">mysql.connector</span>
+<span class="kn">from</span> <span class="nn">mysql.connector</span> <span class="kn">import</span> <span class="n">Error</span>
+<span class="c1"># 引入 string</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="c1"># enable CORS</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c1"># 註冊 email 驗證後的緩存</span>
+<span class="n">registerTempData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;phone&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># 全局驗證碼</span>
+<span class="n">captcha</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># 驗證 註冊的 Email</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/validateEmail&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">user_register_email_validate</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">requestCaptcha</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;captcha&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;requestCaptcha: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">requestCaptcha</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;captcha: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">captcha</span><span class="p">))</span>
+        <span class="c1"># 如果驗證碼相同</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">requestCaptcha</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">captcha</span><span class="p">):</span>
+            <span class="k">global</span> <span class="n">registerTempData</span>
+            <span class="c1"># 新增資料</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&#34;INSERT INTO user (id, username, email, phone, password) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">);&#34;</span>
+            <span class="c1"># 將緩存的註冊資料加入</span>
+            <span class="n">new_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">],</span> <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;username&#34;</span><span class="p">],</span>
+                        <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;email&#34;</span><span class="p">],</span> <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;phone&#34;</span><span class="p">],</span> <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;password&#34;</span><span class="p">])</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">new_data</span><span class="p">)</span>
+
+            <span class="c1"># 確認資料有存入資料庫</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Your account is activated!&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="c1"># 初始化</span>
+            <span class="n">registerTempData</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;phone&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;The captcha is not true!&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的 Code 需要注意的地方是<strong>全局變量如果要在局部函數中使用，就需要使用 <code>global</code> 聲明全局變量</strong>，像上面例子的 <code>global registerTempData</code></p>
+<h2 id="read-讀取">Read 讀取</h2>
+<h3 id="普通查詢">普通查詢</h3>
+<p>就是 &ldquo;<strong>查</strong>&quot;，這裡以返回某帳戶資訊為例：</p>
+<blockquote>
+<p><strong>下面的 <code>@jwt_optional</code> 是關於 JWT 的使用</strong>，因為不在這文章的討論範疇，所以不會細講。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 返回用戶資訊</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/getDetail&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_optional</span>
+<span class="k">def</span> <span class="nf">user_getDetail</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">requestId</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="n">sqlSearchResult</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># 驗證 jwt_token</span>
+        <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+
+        <span class="c1"># 驗證失敗 回傳失敗</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+        <span class="c1"># 用 id 查詢用戶資訊</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, username, email, phone, password FROM user WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">sqlSearchResult</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+                <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+                <span class="s2">&#34;email&#34;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+                <span class="s2">&#34;phone&#34;</span><span class="p">:</span> <span class="n">phone</span><span class="p">,</span>
+                <span class="s2">&#34;password&#34;</span><span class="p">:</span> <span class="n">password</span>
+            <span class="p">})</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">sqlSearchResult</span><span class="p">)</span>
+
+        <span class="c1"># 如果有資料</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Searching is Success. Have Data&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="c1"># 將搜到的數據添入 response_object</span>
+            <span class="n">response_object</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="s1">&#39;userData&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;phone&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+
+        <span class="c1"># 如果沒有資料</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;There is not this account in the database.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="模糊搜索">模糊搜索</h3>
+<p>糊糊搜索最關鍵的地方就是如何將 Keyword 加入 SQL 語句，下面是個實際例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 模糊搜索 所有 channelType 是 group 的群 </span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/channels/searchChannels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_optional</span>
+<span class="k">def</span> <span class="nf">user_channels_search_channels</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">requestKeyword</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keyword&#39;</span><span class="p">)</span>
+
+        <span class="n">sqlSearchResult</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># 驗證 jwt_token</span>
+        <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+
+        <span class="c1"># 驗證失敗 回傳失敗</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+        <span class="c1"># 用 keyword 模糊查詢 所有 channel (channelType = group)</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, channelType, adminId, channelName FROM channel WHERE channelType = &#39;group&#39; </span><span class="se">\
+</span><span class="se"></span><span class="s2">             AND (id LIKE CONCAT(&#39;%&#39;, </span><span class="si">%s</span><span class="s2">, &#39;%&#39;) OR adminId LIKE CONCAT(&#39;%&#39;, </span><span class="si">%s</span><span class="s2">, &#39;%&#39;) OR </span><span class="se">\
+</span><span class="se"></span><span class="s2">              channelName LIKE CONCAT(&#39;%&#39;, </span><span class="si">%s</span><span class="s2">, &#39;%&#39;)) GROUP BY id;&#34;</span><span class="p">,</span>
+               <span class="p">(</span><span class="n">requestKeyword</span><span class="p">,</span> <span class="n">requestKeyword</span><span class="p">,</span> <span class="n">requestKeyword</span><span class="p">))</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">channelType</span><span class="p">,</span> <span class="n">adminId</span><span class="p">,</span> <span class="n">channelName</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">sqlSearchResult</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+                <span class="s2">&#34;channelType&#34;</span><span class="p">:</span> <span class="n">channelType</span><span class="p">,</span>
+                <span class="s2">&#34;adminId&#34;</span><span class="p">:</span> <span class="n">adminId</span><span class="p">,</span>
+                <span class="s2">&#34;channelName&#34;</span><span class="p">:</span> <span class="n">channelName</span><span class="p">,</span>
+            <span class="p">})</span>
+        <span class="c1"># 如果有 資料</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Get the channel List success.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="c1"># 將資料添加到 response_object</span>
+            <span class="n">response_object</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="s1">&#39;searchResult&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span>
+            <span class="p">})</span>
+        <span class="c1"># 沒有 message</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;There is no data.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="update-更新">Update 更新</h2>
+<p>以些改某個帳戶資料為例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 修改更新用戶 phone 資料</span>
+<span class="c1"># 這裡前端要先判斷輸入的新 Phone 是否跟原本的一樣，如果相同就不准請求</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/update/phone&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_optional</span>
+<span class="k">def</span> <span class="nf">user_update_phone</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="c1"># 請求資料</span>
+        <span class="n">requestId</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="n">requestPhone</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">)</span>
+
+        <span class="c1"># 驗證 jwt_token</span>
+        <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+
+        <span class="c1"># 驗證失敗 回傳失敗</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+        <span class="c1"># 用 id 查詢用戶的 phone</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, phone FROM user WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+
+        <span class="c1"># 有找到資料</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># 更新資料</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&#34;UPDATE user SET phone = </span><span class="si">%s</span><span class="s2"> WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">requestPhone</span><span class="p">,</span> <span class="n">requestId</span><span class="p">))</span>
+
+            <span class="c1"># 確認資料有存入資料庫</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Update phone success.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="c1"># 沒有找到資料</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Update phone fail.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="delete-刪除">Delete 刪除</h2>
+<p>以刪除某帳戶為例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 刪除帳戶</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/delete&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_optional</span>
+<span class="k">def</span> <span class="nf">user_delete_account</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="c1"># 請求資料</span>
+        <span class="n">requestId</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="n">requestPassword</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+        <span class="n">sqlSearchResult</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># 驗證 jwt_token</span>
+        <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+
+        <span class="c1"># 驗證失敗 回傳失敗</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+        <span class="c1"># 用請求 id 查詢該 id 是否存在</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, username FROM user WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+
+        <span class="c1"># 如果沒找到該 id</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;This account is not exist.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+        <span class="c1"># 先判斷 requestPassword 是否跟原來的密碼相符</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, password FROM user WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">sqlSearchResult</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+                <span class="s2">&#34;password&#34;</span><span class="p">:</span> <span class="n">password</span>
+            <span class="p">})</span>
+
+        <span class="c1"># md5 加密轉換</span>
+        <span class="n">transferPassword</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">requestPassword</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+        <span class="c1"># 如果密碼相等</span>
+        <span class="k">if</span> <span class="n">transferPassword</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]:</span>
+            <span class="c1"># 更新資料</span>
+            <span class="c1"># 刪除用戶的基本資料</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&#34;DELETE FROM user WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+
+            <span class="c1"># 確認資料有存入資料庫</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+            <span class="c1"># 刪除用戶的好友資料</span>
+            <span class="c1"># 用 id 查詢用戶的朋友 id 統計好友數</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                <span class="s2">&#34;SELECT id, friendId FROM friend WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+            <span class="c1"># 有好友</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># 循環刪除</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span>
+                    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&#34;DELETE FROM friend WHERE id = </span><span class="si">%s</span><span class="s2"> or friendId = </span><span class="si">%s</span><span class="s2">;&#34;</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,</span> <span class="n">requestId</span><span class="p">))</span>
+
+                    <span class="c1"># 確認資料有存入資料庫</span>
+                    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+            <span class="c1"># token 加入黑名單</span>
+            <span class="n">jti</span> <span class="o">=</span> <span class="n">get_raw_jwt</span><span class="p">()[</span><span class="s1">&#39;jti&#39;</span><span class="p">]</span>
+            <span class="n">blacklist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">jti</span><span class="p">)</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Delete the account success.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Delete the account fail. The password is not true.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/" target="_blank" rel="noopener noreffer">Python 使用 MySQL Connector 操作 MySQL/MariaDB 資料庫教學與範例</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-08-05</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/flask_mysql/index.md" target="_blank">閱讀原始檔案</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL" data-via="Rem59881439" data-hashtags="Python,Flask,MySQL,Database,數據庫"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/flask_mysql/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL" data-image="/featuredImage/compressed/flask_mysql.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/flask_mysql/" data-title="Flask 中使用 MySQL"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E5%BA%AB/">數據庫</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/how_to_learn_cs/" class="prev" rel="prev" title="關於學習軟件工程與技術的方法"><i class="fas fa-angle-left fa-fw"></i>關於學習軟件工程與技術的方法</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+</html>

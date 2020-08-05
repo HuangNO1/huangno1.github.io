@@ -1170,22 +1170,22 @@ Vue CLI v4.4.6
 </span><span class="c1"></span>  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
     <span class="c1">// ...
 </span><span class="c1"></span>    <span class="nx">async</span> <span class="nx">checkEmail</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">();</span>
-    <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
-    <span class="nx">axios</span>
-      <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">checkSameEmailURL</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">})</span>
-      <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-      <span class="p">});</span>
+      <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">();</span>
+      <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&#34;email&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+      <span class="nx">axios</span>
+        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">checkSameEmailURL</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+        <span class="p">});</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1845,7 +1845,7 @@ Vue CLI v4.4.6
     </div>
 
     <div class="post-nav"><a href="/hugo_theme_change/" class="prev" rel="prev" title="Rem Blog 的構造改革過程心得"><i class="fas fa-angle-left fa-fw"></i>Rem Blog 的構造改革過程心得</a>
-            <a href="/csu_freshman_sophomore/" class="next" rel="next" title="我在中南大學本科大一和大二的這兩年">我在中南大學本科大一和大二的這兩年<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/csu_freshman_sophomore/" class="next" rel="next" title="我在中南大學軟件工程本科大一和大二的這兩年">我在中南大學軟件工程本科大一和大二的這兩年<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
