@@ -11,7 +11,8 @@
 
 在 JWT 授權認證技術還沒出來之前，我們是**使用 Cookie 和 Session 來做驗證**，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
 
-```mermaid
+<!-- ```mermaid -->
+{{< mermaid >}}
 sequenceDiagram
     participant Front End
     participant Back End
@@ -27,7 +28,8 @@ sequenceDiagram
     Note right of Back End: Remove SessionID from Session
     Back End->>Front End: Response
     Note left of Front End: Remove SessionID from cookie
-```
+{{< /mermaid >}}
+<!-- ``` -->
 
 ## JWT
 
@@ -35,7 +37,8 @@ sequenceDiagram
 
 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：
 
-```mermaid
+<!-- ```mermaid -->
+{{< mermaid >}}
 sequenceDiagram
     participant Front End
     participant Back End
@@ -51,7 +54,8 @@ sequenceDiagram
     Note right of Back End: Add the token to blacklist
     Back End->>Front End: Response
     Note left of Front End: Remove token from localStorage
-```
+{{< /mermaid >}}
+<!-- ``` -->
 
 JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
 
