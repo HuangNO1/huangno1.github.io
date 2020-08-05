@@ -5,36 +5,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Flask 跨域設置 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Flask 跨域設置" />
-<meta property="og:description" content="前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   " />
+        <title>React 學習筆記 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="React 學習筆記" />
+<meta property="og:description" content="前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
+建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
+ 註：npx 是 npm 5.2&#43; 或更高版本附帶的包運行器工具。
+ npx
+1  npx create-react-app my-app   npm
+1  npm init react-app my-app   Yarn
+ Yarn 0.25&#43; 才能使用 yarn create &lt;starter-kit-package&gt;
+ 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/flask_cors/" />
+<meta property="og:url" content="https://huangno1.github.io/react_learn_note/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
-<meta property="article:published_time" content="2020-08-05T20:49:28+08:00" />
-<meta property="article:modified_time" content="2020-08-05T20:49:26+08:00" />
+<meta property="article:published_time" content="2020-08-05T21:49:28+08:00" />
+<meta property="article:modified_time" content="2020-08-05T21:49:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Flask 跨域設置"/>
-<meta name="twitter:description" content="前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   "/>
+<meta name="twitter:title" content="React 學習筆記"/>
+<meta name="twitter:description" content="前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
+建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
+ 註：npx 是 npm 5.2&#43; 或更高版本附帶的包運行器工具。
+ npx
+1  npx create-react-app my-app   npm
+1  npm init react-app my-app   Yarn
+ Yarn 0.25&#43; 才能使用 yarn create &lt;starter-kit-package&gt;
+ 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README."/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/flask_cors/" /><link rel="prev" href="https://huangno1.github.io/flask_jwt/" /><link rel="next" href="https://huangno1.github.io/react_learn_note/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/react_learn_note/" /><link rel="prev" href="https://huangno1.github.io/flask_cors/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Flask 跨域設置",
+        "headline": "React 學習筆記",
         "inLanguage": "zh-cn",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/huangno1.github.io\/flask_cors\/"
-        },"genre": "posts","keywords": "Python, Flask, CORS, 跨域","wordcount":  44 ,
-        "url": "https:\/\/huangno1.github.io\/flask_cors\/","datePublished": "2020-08-05T20:49:28+08:00","dateModified": "2020-08-05T20:49:26+08:00","publisher": {
+            "@id": "https:\/\/huangno1.github.io\/react_learn_note\/"
+        },"genre": "posts","keywords": "React, 前端, npm","wordcount":  104 ,
+        "url": "https:\/\/huangno1.github.io\/react_learn_note\/","datePublished": "2020-08-05T21:49:28+08:00","dateModified": "2020-08-05T21:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
                     "@type": "ImageObject",
@@ -127,18 +137,18 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Flask 跨域設置</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">React 學習筆記</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 44 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 104 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/flask_cors.png"
-        data-srcset="/featuredImage/compressed/flask_cors.png, /featuredImage/compressed/flask_cors.png 1.5x, /featuredImage/compressed/flask_cors.png 2x"
+        data-src="/featuredImage/compressed/flask_mysql.png"
+        data-srcset="/featuredImage/compressed/flask_mysql.png, /featuredImage/compressed/flask_mysql.png 1.5x, /featuredImage/compressed/flask_mysql.png 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/flask_cors.png"
-        title="/featuredImage/compressed/flask_cors.png" /></div><div class="details toc" id="toc-static"  kept="">
+        alt="/featuredImage/compressed/flask_mysql.png"
+        title="/featuredImage/compressed/flask_mysql.png" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目錄</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -146,48 +156,97 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#安裝">安裝</a></li>
-    <li><a href="#配置">配置</a></li>
+    <li><a href="#建立一個-hello-world">建立一個 Hello World</a></li>
+    <li><a href="#project-結構">Project 結構</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
-<p>關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。</p>
-<h2 id="安裝">安裝</h2>
-<p>跨域有 <strong>flask_cors</strong> 這個工具。</p>
+<p>因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。</p>
+<h2 id="建立一個-hello-world">建立一個 Hello World</h2>
+<p>在終端機輸入下面的指令，會在該目錄下<strong>生成一個名為 my-app 的 React 應用目錄</strong>。</p>
+<blockquote>
+<p>註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。</p>
+</blockquote>
+<p><strong>npx</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pip install flask_cors
+<pre class="chroma"><code class="language-zsh" data-lang="zsh">npx create-react-app my-app
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="配置">配置</h2>
+</div><p><strong>npm</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
-<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="c1"># enable CORS</span>
-<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm init react-app my-app
 </code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><p><strong>Yarn</strong></p>
+<blockquote>
+<p>Yarn 0.25+ 才能使用 <code>yarn create &lt;starter-kit-package&gt;</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">yarn create react-app my-app
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="project-結構">Project 結構</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">my-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
+    └── setupTests.js
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://zh-hant.reactjs.org/" target="_blank" rel="noopener noreffer">React</a></li>
+<li><a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener noreffer">Create React App - Github</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -197,23 +256,22 @@
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/flask_cors/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/react_learn_note/index.md" target="_blank">閱讀原始檔案</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置" data-via="Rem59881439" data-hashtags="Python,Flask,CORS,跨域"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/flask_cors/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置" data-image="/featuredImage/compressed/flask_cors.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/flask_cors/" data-title="Flask 跨域設置"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記" data-via="Rem59881439" data-hashtags="React,前端,npm"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/react_learn_note/" data-hashtag="React"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記" data-image="/featuredImage/compressed/flask_mysql.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/react_learn_note/" data-title="React 學習筆記"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/cors/">CORS</a>,&nbsp;<a href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/flask_jwt/" class="prev" rel="prev" title="Flask 中使用 JWT"><i class="fas fa-angle-left fa-fw"></i>Flask 中使用 JWT</a>
-            <a href="/react_learn_note/" class="next" rel="next" title="React 學習筆記">React 學習筆記<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/flask_cors/" class="prev" rel="prev" title="Flask 跨域設置"><i class="fas fa-angle-left fa-fw"></i>Flask 跨域設置</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.

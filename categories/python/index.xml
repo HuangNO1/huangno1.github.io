@@ -4,13 +4,31 @@
         <link>https://huangno1.github.io/categories/python/</link>
         <description>Python - 分類 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>React 學習筆記</title>
+    <link>https://huangno1.github.io/react_learn_note/</link>
+    <pubDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/react_learn_note/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
+            </div>前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
+建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
+ 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
+ npx
+1  npx create-react-app my-app   npm
+1  npm init react-app my-app   Yarn
+ Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
+ 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.]]></description>
+</item><item>
     <title>Flask 跨域設置</title>
     <link>https://huangno1.github.io/flask_cors/</link>
     <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://huangno1.github.io/flask_cors/</guid>
-    <description><![CDATA[前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/flask_cors.png" referrerpolicy="no-referrer">
+            </div>前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
 安裝 跨域有 flask_cors 這個工具。
 1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
 </item><item>

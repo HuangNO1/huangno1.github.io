@@ -10,7 +10,9 @@
     <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://huangno1.github.io/flask_cors/</guid>
-    <description><![CDATA[前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/flask_cors.png" referrerpolicy="no-referrer">
+            </div>前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
 安裝 跨域有 flask_cors 這個工具。
 1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
 </item></channel>
