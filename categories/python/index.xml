@@ -4,7 +4,16 @@
         <link>https://huangno1.github.io/categories/python/</link>
         <description>Python - 分類 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>Flask 跨域設置</title>
+    <link>https://huangno1.github.io/flask_cors/</link>
+    <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/flask_cors/</guid>
+    <description><![CDATA[前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
+安裝 跨域有 flask_cors 這個工具。
+1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
+</item><item>
     <title>Flask 中使用 JWT</title>
     <link>https://huangno1.github.io/flask_jwt/</link>
     <pubDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</pubDate>

@@ -4,7 +4,16 @@
         <link>https://huangno1.github.io/posts/</link>
         <description>所有文章 | Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Flask 跨域設置</title>
+    <link>https://huangno1.github.io/flask_cors/</link>
+    <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/flask_cors/</guid>
+    <description><![CDATA[前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
+安裝 跨域有 flask_cors 這個工具。
+1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
+</item><item>
     <title>Flask 中使用 JWT</title>
     <link>https://huangno1.github.io/flask_jwt/</link>
     <pubDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</pubDate>
@@ -148,16 +157,5 @@ Reference  AllinOne LoveIt  ]]></description>
  打包前一定要先 Google 一下你要打包的軟體包是不是已經有人上傳到 AUR 了。
  準備工作 必需的軟體包 首先，確定你已安裝必須的工具包。安裝 base-devel 應該足夠了；它包含 make 和 makepkg 其它一些從原始碼編譯時所需要的工具。
 創建包的一個很重要的工具是 makepkg（由 pacman 提供），它主要做以下工作：]]></description>
-</item><item>
-    <title>在 Linux 配置 Java 開發環境到虛擬硬碟 - Java8、Tomcat8、Maven3、IntelliJ IDEA</title>
-    <link>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</link>
-    <pubDate>Tue, 28 Jan 2020 11:27:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/linux_java_tomcat_maven_intellijIDEA_install_configuration.png" referrerpolicy="no-referrer">
-            </div>前言 我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個適用於你的電腦的 Linux SSD (root) 空間不夠的情況，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 /home。如果覺得自己 SSD 夠用，就直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ，畢竟會有人覺得我這樣的做法讓系統管理有點髒。不過關於環境變量的配置可以參考我這篇文章，不管是裝在 SSD 還是 HDD。
-JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這網站的介紹。
- Sun 公司看別人的語言更新都更新到 xxx 了，自己的 Java 版本還是 1 點幾，讓人感覺很落後，所以在 jdk 1.6 的時候對外發布稱之為 jdk 6.0 ，讓人感覺更先進點。在寫 Java 的人眼裡都是叫 1.]]></description>
 </item></channel>
 </rss>
