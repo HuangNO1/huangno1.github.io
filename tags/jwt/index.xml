@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Flask - 標籤 - Rem Blog</title>
-        <link>https://huangno1.github.io/tags/flask/</link>
-        <description>Flask - 標籤 - Rem Blog</description>
+        <title>JWT - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/jwt/</link>
+        <description>JWT - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/flask/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/jwt/" rel="self" type="application/rss+xml" /><item>
     <title>Flask 中使用 JWT</title>
     <link>https://huangno1.github.io/flask_jwt/</link>
     <pubDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</pubDate>
@@ -16,16 +16,5 @@
 Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
  在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  sequenceDiagram participant Front End participant Back End Front End-&gt;&gt;Back End: Login Request Note right of Back End: Store SessionID and its value in Session Back End-&gt;&gt;Front End: Response bring SessionID Note left of Front End: Store SessionID In Cookie Front End--&gt;Back End: The Request After Login Front End-&gt;&gt;Back End: The Request Bring Token Note right of Back End: Verify that the SessionID&#39;s value is valid Back End-&gt;&gt;Front End: Response Front End-&gt;&gt;Back End: Sign Out or Delete Account Note right of Back End: Remove SessionID from Session Back End-&gt;&gt;Front End: Response Note left of Front End: Remove SessionID from cookie   JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：]]></description>
-</item><item>
-    <title>Flask 中使用 MySQL</title>
-    <link>https://huangno1.github.io/flask_mysql/</link>
-    <pubDate>Tue, 04 Aug 2020 22:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/flask_mysql/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
-            </div>前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
-安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
-1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.]]></description>
 </item></channel>
 </rss>

@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Flask 中使用 JWT - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Flask 中使用 JWT" />
+<meta property="og:description" content="前言 因為我寫的上一篇文章是&rdquo;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
+Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
+ 在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  sequenceDiagram participant Front End participant Back End Front End-&gt;&gt;Back End: Login Request Note right of Back End: Store SessionID and its value in Session Back End-&gt;&gt;Front End: Response bring SessionID Note left of Front End: Store SessionID In Cookie Front End--&gt;Back End: The Request After Login Front End-&gt;&gt;Back End: The Request Bring Token Note right of Back End: Verify that the SessionID&#39;s value is valid Back End-&gt;&gt;Front End: Response Front End-&gt;&gt;Back End: Sign Out or Delete Account Note right of Back End: Remove SessionID from Session Back End-&gt;&gt;Front End: Response Note left of Front End: Remove SessionID from cookie   JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://huangno1.github.io/flask_jwt/" />
+<meta property="og:image" content="https://huangno1.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-08-05T13:49:28+08:00" />
+<meta property="article:modified_time" content="2020-08-05T13:49:26+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Flask 中使用 JWT"/>
+<meta name="twitter:description" content="前言 因為我寫的上一篇文章是&rdquo;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
+Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
+ 在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  sequenceDiagram participant Front End participant Back End Front End-&gt;&gt;Back End: Login Request Note right of Back End: Store SessionID and its value in Session Back End-&gt;&gt;Front End: Response bring SessionID Note left of Front End: Store SessionID In Cookie Front End--&gt;Back End: The Request After Login Front End-&gt;&gt;Back End: The Request Bring Token Note right of Back End: Verify that the SessionID&#39;s value is valid Back End-&gt;&gt;Front End: Response Front End-&gt;&gt;Back End: Sign Out or Delete Account Note right of Back End: Remove SessionID from Session Back End-&gt;&gt;Front End: Response Note left of Front End: Remove SessionID from cookie   JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下："/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/flask_jwt/" /><link rel="prev" href="https://huangno1.github.io/flask_mysql/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Flask 中使用 JWT",
+        "inLanguage": "zh-cn",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/huangno1.github.io\/flask_jwt\/"
+        },"genre": "posts","keywords": "Python, Flask, JWT, Token","wordcount":  1608 ,
+        "url": "https:\/\/huangno1.github.io\/flask_jwt\/","datePublished": "2020-08-05T13:49:28+08:00","dateModified": "2020-08-05T13:49:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Rem Blog","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Huang Po-Hsun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-sizes="auto"
+        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
+        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Flask 中使用 JWT</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1608 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 8 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/flask_jwt.png"
+        data-srcset="/featuredImage/compressed/flask_jwt.png, /featuredImage/compressed/flask_jwt.png 1.5x, /featuredImage/compressed/flask_jwt.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/flask_jwt.png"
+        title="/featuredImage/compressed/flask_jwt.png" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#cookie-session">Cookie Session</a></li>
+    <li><a href="#jwt">JWT</a>
+      <ul>
+        <li><a href="#理論部份">理論部份</a>
+          <ul>
+            <li><a href="#header">header</a></li>
+            <li><a href="#payload">payload</a></li>
+            <li><a href="#signature">signature</a></li>
+          </ul>
+        </li>
+        <li><a href="#使用時機">使用時機</a></li>
+        <li><a href="#實作部份">實作部份</a>
+          <ul>
+            <li><a href="#安裝">安裝</a></li>
+            <li><a href="#引入與基本使用">引入與基本使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#部份保護-route">部份保護 route</a></li>
+        <li><a href="#黑名單black-list">黑名單（Black List）</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
+<p>因為我寫的上一篇文章是&rdquo;<strong>Flask 中使用 MySQL</strong>&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。</p>
+<h2 id="cookie-session">Cookie Session</h2>
+<blockquote>
+<p>Cookie 和 LocalStorage 最大的區別是 <strong>Cookie 可以設置時效性</strong>，而LocalStorage 不行。</p>
+</blockquote>
+<p>在 JWT 授權認證技術還沒出來之前，我們是<strong>使用 Cookie 和 Session 來做驗證</strong>，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sequenceDiagram
+    participant Front End
+    participant Back End
+    Front End-&gt;&gt;Back End: Login Request
+    Note right of Back End: Store SessionID and its value in Session
+    Back End-&gt;&gt;Front End: Response bring SessionID
+    Note left of Front End: Store SessionID In Cookie
+    Front End--&gt;Back End: The Request After Login
+    Front End-&gt;&gt;Back End: The Request Bring Token
+    Note right of Back End: Verify that the SessionID&#39;s value is valid
+    Back End-&gt;&gt;Front End: Response
+    Front End-&gt;&gt;Back End: Sign Out or Delete Account
+    Note right of Back End: Remove SessionID from Session
+    Back End-&gt;&gt;Front End: Response
+    Note left of Front End: Remove SessionID from cookie
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="jwt">JWT</h2>
+<h3 id="理論部份">理論部份</h3>
+<p>因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sequenceDiagram
+    participant Front End
+    participant Back End
+    Front End-&gt;&gt;Back End: Login Request
+    Note right of Back End: Generate Jwt Token
+    Back End-&gt;&gt;Front End: Response
+    Note left of Front End: Store Jwt Token In LocalStorage
+    Front End--&gt;Back End: The Request After Login
+    Front End-&gt;&gt;Back End: The Request Bring Token &lt;br/&gt; In Header&#39;s Auth
+    Note right of Back End: Verify that the token is valid
+    Back End-&gt;&gt;Front End: Response
+    Front End-&gt;&gt;Back End: Sign Out or Delete Account
+    Note right of Back End: Add the token to blacklist
+    Back End-&gt;&gt;Front End: Response
+    Note left of Front End: Remove token from localStorage
+</code></pre></td></tr></table>
+</div>
+</div><p>JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。</p>
+<p>e.g.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0.
+WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="header">header</h4>
+<p>存放 token 型別與加密方式 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+  <span class="s2">&#34;alg&#34;</span><span class="o">:</span> <span class="s2">&#34;HS256&#34;</span><span class="p">,</span> <span class="c1">// 加密方式
+</span><span class="c1"></span>  <span class="s2">&#34;typ&#34;</span><span class="o">:</span> <span class="s2">&#34;JWT&#34;</span> <span class="c1">// token 型別
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="payload">payload</h4>
+<p>存放需要傳遞的訊息。因為只透過編碼轉換「未經過加密」，不建議在裡面放重要資訊。</p>
+<p>另外官方有提供一些可以用的屬性大概分為：</p>
+<ul>
+<li>iss: 發行人</li>
+<li>exp: 到期日</li>
+<li>sub: 主題</li>
+<li>aud: 收件人</li>
+<li>nbf: 不接受早於…日期/時間</li>
+<li>iat: 發行時間</li>
+<li>jti: 唯一識別符，JWT 只能使用一次</li>
+</ul>
+<h4 id="signature">signature</h4>
+<p>最後的部分，有點像是我們平常買東西條碼上最後的檢查碼，首先會先取得 header 裡的加密方式 SHA256，再透過以下方式產生：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">HMACSHA256</span><span class="p">(</span>
+  <span class="nx">base64UrlEncode</span><span class="p">(</span><span class="nx">header</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;.&#34;</span> <span class="o">+</span>
+  <span class="nx">base64UrlEncode</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span>
+  <span class="nx">secret</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>secret 則是可以打上自己要打的，最後一樣會轉換成 Base64Url：
+再把三段加在一起就算是 JWT 了！</p>
+<h3 id="使用時機">使用時機</h3>
+<p>JWT 的主要目的只是「 確立資料來源以及可信度 」。因此在應用上也會限制較多。以下是較常被使用的時機：</p>
+<ul>
+<li>跨伺服器下的請求</li>
+</ul>
+<p>可以參考運作原理的圖，如果我們同時擁有許多伺服器，可以把身份驗證伺服器獨立出來，登入後使用 JWT 就可以在不同伺服器遊走。</p>
+<ul>
+<li>一次性、時效短的請求</li>
+</ul>
+<p>因為 JWT 不能主動撤銷，一般用於會員身份驗證會不太適合，多用於一次性下載檔案，或是時間限制內更改密碼等等…</p>
+<ul>
+<li>APP 身份驗證</li>
+</ul>
+<p>一般 APP 是不存在 Session 的，所以在持續身份驗證上可以使用 JWT，但要確保使用者的執行環境是安全的</p>
+<h3 id="實作部份">實作部份</h3>
+<h4 id="安裝">安裝</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pip install flask-jwt-extended
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="引入與基本使用">引入與基本使用</h4>
+<blockquote>
+<p>為了快速了解怎麼用，例子中只會顯示重要核心代碼。</p>
+</blockquote>
+<p><strong>注意點：</strong></p>
+<ul>
+<li><code>@jwt_required</code> 裝飾器是用來判斷請求 Header 是否帶有 Token。</li>
+<li>下面例子的 <code>/login</code> 使用 <code>create_access_token()</code> 生成 Token。</li>
+<li><code>/protected</code> 是獲取放在 請求 Header 的 Token 判是否正確，相對的，可以看 <code>/user/update/phone</code>。</li>
+<li>前端請求需要<strong>在 Header 添加 <code>Authorization: Bearer &lt;access_token&gt;</code></strong>，關於 Axios 怎麼在請求 Header 添加 Token 我之前有在 <strong><a href="https://huangno1.github.io/vue_skill/#header-%E5%B8%B6-token-%E7%9A%84%E8%AB%8B%E6%B1%82" target="_blank" rel="noopener noreffer">Vue 技巧與經驗</a></strong> 這篇文章的請求部份寫到。</li>
+<li>生成 Token 的依據（identity）不能是密碼，可以是 UserName 或是 UserID。</li>
+<li>一般 Token 的時效是 15 分鐘左右，如果想要延長可以設置。</li>
+<li><strong><code>get_jwt_identity()</code> 獲取之前 Token 生成依據的內容。</strong></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+<span class="c1"># 引入 JWT</span>
+<span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">JWTManager</span><span class="p">,</span> <span class="n">jwt_required</span><span class="p">,</span> <span class="n">create_access_token</span><span class="p">,</span>
+    <span class="n">get_jwt_identity</span>
+<span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Setup the Flask-JWT-Extended extension</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;JWT_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;super-secret&#39;</span>  <span class="c1"># Change this!</span>
+<span class="n">jwt</span> <span class="o">=</span> <span class="n">JWTManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c1"># ...</span>
+
+<span class="c1"># Provide a method to create access tokens. The create_access_token()</span>
+<span class="c1"># function is used to actually generate the token, and you can return</span>
+<span class="c1"># it to the caller however you choose.</span>
+<span class="c1"># 用戶登入</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">user_login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">requestEmail</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+        <span class="n">requestPassword</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+        <span class="n">sqlSearchResult</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># 查詢資料庫</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, username, email, password FROM user WHERE email = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestEmail</span><span class="p">,))</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">sqlSearchResult</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&#34;id&#34;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+                <span class="s2">&#34;username&#34;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+                <span class="s2">&#34;email&#34;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+                <span class="s2">&#34;password&#34;</span><span class="p">:</span> <span class="n">password</span>
+            <span class="p">})</span>
+        <span class="c1"># md5 加密轉換</span>
+        <span class="n">transferPassword</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">requestPassword</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">transferPassword</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">sqlSearchResult</span><span class="p">)</span>
+        <span class="c1"># 如果沒有資料</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;This Account not exist.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="c1"># 如果有資料</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 如果密碼正確</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">transferPassword</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]):</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;password: &#39;</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="s1">&#39;, resultPWD: &#39;</span> <span class="o">+</span>
+                      <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">])</span>
+                <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sign in success.&#39;</span>
+                <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+                <span class="c1"># Identity can be any data that is json serializable</span>
+                <span class="c1"># 產生 jwt_token, 並將 token 的 expires 取消</span>
+                <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;jwt_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span>
+                    <span class="n">identity</span><span class="o">=</span><span class="n">sqlSearchResult</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>  <span class="n">expires_delta</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Password is not true.&#39;</span>
+                <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+<span class="c1"># Protect a view with jwt_required, which requires a valid access token</span>
+<span class="c1"># in the request to access.</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/protected&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_required</span>
+<span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
+    <span class="c1"># Access the identity of the current user with get_jwt_identity</span>
+    <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">logged_in_as</span><span class="o">=</span><span class="n">current_user</span><span class="p">),</span> <span class="mi">200</span>
+
+
+<span class="c1"># 修改更新用戶 phone 資料</span>
+<span class="c1"># 這裡前端要先判斷輸入的新 Phone 是否跟原本的一樣，如果相同就不准請求</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/update/phone&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_required</span>
+<span class="k">def</span> <span class="nf">user_update_phone</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
+        <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="c1"># 請求資料</span>
+        <span class="n">requestId</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="n">requestPhone</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">)</span>
+
+        <span class="c1"># 驗證 jwt_token</span>
+        <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+
+        <span class="c1"># 驗證失敗 回傳失敗</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+        <span class="c1"># 用 id 查詢用戶的 phone</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&#34;SELECT id, phone FROM user WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">requestId</span><span class="p">,))</span>
+
+        <span class="c1"># 有找到資料</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># 更新資料</span>
+            <span class="n">sql</span> <span class="o">=</span> <span class="s2">&#34;UPDATE user SET phone = </span><span class="si">%s</span><span class="s2"> WHERE id = </span><span class="si">%s</span><span class="s2">;&#34;</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="n">requestPhone</span><span class="p">,</span> <span class="n">requestId</span><span class="p">))</span>
+
+            <span class="c1"># 確認資料有存入資料庫</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Update phone success.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="c1"># 沒有找到資料</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Update phone fail.&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="部份保護-route">部份保護 route</h3>
+<p><code>@jwt_required</code> 裝飾器是該 route 接收到的請求 Header 必須要有 JWT Token，<code>jwt_optional()</code> 裝飾器，可以使需要保護的數據與不被保護的數據同時在 route 中使用（官方說法），但跟 <code>@jwt_required</code> 裝飾器一樣是 Token 如果失效會回傳失效訊息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">JWTManager</span><span class="p">,</span> <span class="n">jwt_optional</span><span class="p">,</span> <span class="n">create_access_token</span><span class="p">,</span>
+    <span class="n">get_jwt_identity</span>
+<span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Setup the Flask-JWT-Extended extension</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;JWT_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;super-secret&#39;</span>  <span class="c1"># Change this!</span>
+<span class="n">jwt</span> <span class="o">=</span> <span class="n">JWTManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;Missing username parameter&#34;</span><span class="p">}),</span> <span class="mi">400</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;Missing password parameter&#34;</span><span class="p">}),</span> <span class="mi">400</span>
+
+    <span class="k">if</span> <span class="n">username</span> <span class="o">!=</span> <span class="s1">&#39;test&#39;</span> <span class="ow">or</span> <span class="n">password</span> <span class="o">!=</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;Bad username or password&#34;</span><span class="p">}),</span> <span class="mi">401</span>
+
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span><span class="n">identity</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">access_token</span><span class="o">=</span><span class="n">access_token</span><span class="p">),</span> <span class="mi">200</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/partially-protected&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_optional</span>
+<span class="k">def</span> <span class="nf">partially_protected</span><span class="p">():</span>
+    <span class="c1"># If no JWT is sent in with the request, get_jwt_identity()</span>
+    <span class="c1"># will return None</span>
+    <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">logged_in_as</span><span class="o">=</span><span class="n">current_user</span><span class="p">),</span> <span class="mi">200</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">logged_in_as</span><span class="o">=</span><span class="s1">&#39;anonymous user&#39;</span><span class="p">),</span> <span class="mi">200</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="黑名單black-list">黑名單（Black List）</h3>
+<p>應用場景是當我們之前的 Token 錯誤或失效（如果有設置自動登入，一般 Token 會設置 7 天有效），或是登出、重新登入、登入等，都需要將舊的 Token 加入黑名單。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">JWTManager</span><span class="p">,</span> <span class="n">jwt_required</span><span class="p">,</span> <span class="n">get_jwt_identity</span><span class="p">,</span>
+    <span class="n">create_access_token</span><span class="p">,</span> <span class="n">create_refresh_token</span><span class="p">,</span>
+    <span class="n">jwt_refresh_token_required</span><span class="p">,</span> <span class="n">get_raw_jwt</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Setup flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Enable blacklisting and specify what kind of tokens to check</span>
+<span class="c1"># against the blacklist</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;JWT_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;super-secret&#39;</span>  <span class="c1"># Change this!</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;JWT_BLACKLIST_ENABLED&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;JWT_BLACKLIST_TOKEN_CHECKS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;access&#39;</span><span class="p">,</span> <span class="s1">&#39;refresh&#39;</span><span class="p">]</span>
+<span class="n">jwt</span> <span class="o">=</span> <span class="n">JWTManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c1"># A storage engine to save revoked tokens. In production if</span>
+<span class="c1"># speed is the primary concern, redis is a good bet. If data</span>
+<span class="c1"># persistence is more important for you, postgres is another</span>
+<span class="c1"># great option. In this example, we will be using an in memory</span>
+<span class="c1"># store, just to show you how this might work. For more</span>
+<span class="c1"># complete examples, check out these:</span>
+<span class="c1"># https://github.com/vimalloc/flask-jwt-extended/blob/master/examples/redis_blacklist.py</span>
+<span class="c1"># https://github.com/vimalloc/flask-jwt-extended/tree/master/examples/database_blacklist</span>
+<span class="n">blacklist</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="c1"># For this example, we are just checking if the tokens jti</span>
+<span class="c1"># (unique identifier) is in the blacklist set. This could</span>
+<span class="c1"># be made more complex, for example storing all tokens</span>
+<span class="c1"># into the blacklist with a revoked status when created,</span>
+<span class="c1"># and returning the revoked status in this call. This</span>
+<span class="c1"># would allow you to have a list of all created tokens,</span>
+<span class="c1"># and to consider tokens that aren&#39;t in the blacklist</span>
+<span class="c1"># (aka tokens you didn&#39;t create) as revoked. These are</span>
+<span class="c1"># just two options, and this can be tailored to whatever</span>
+<span class="c1"># your application needs.</span>
+<span class="nd">@jwt.token_in_blacklist_loader</span>
+<span class="k">def</span> <span class="nf">check_if_token_in_blacklist</span><span class="p">(</span><span class="n">decrypted_token</span><span class="p">):</span>
+    <span class="n">jti</span> <span class="o">=</span> <span class="n">decrypted_token</span><span class="p">[</span><span class="s1">&#39;jti&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">jti</span> <span class="ow">in</span> <span class="n">blacklist</span>
+
+
+<span class="c1"># Standard login endpoint</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="o">!=</span> <span class="s1">&#39;test&#39;</span> <span class="ow">or</span> <span class="n">password</span> <span class="o">!=</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;Bad username or password&#34;</span><span class="p">}),</span> <span class="mi">401</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="n">create_access_token</span><span class="p">(</span><span class="n">identity</span><span class="o">=</span><span class="n">username</span><span class="p">),</span>
+        <span class="s1">&#39;refresh_token&#39;</span><span class="p">:</span> <span class="n">create_refresh_token</span><span class="p">(</span><span class="n">identity</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ret</span><span class="p">),</span> <span class="mi">200</span>
+
+
+<span class="c1"># Standard refresh endpoint. A blacklisted refresh token</span>
+<span class="c1"># will not be able to access this endpoint</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/refresh&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_refresh_token_required</span>
+<span class="k">def</span> <span class="nf">refresh</span><span class="p">():</span>
+    <span class="n">current_user</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="n">create_access_token</span><span class="p">(</span><span class="n">identity</span><span class="o">=</span><span class="n">current_user</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ret</span><span class="p">),</span> <span class="mi">200</span>
+
+
+<span class="c1"># Endpoint for revoking the current users access token</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DELETE&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_required</span>
+<span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
+    <span class="n">jti</span> <span class="o">=</span> <span class="n">get_raw_jwt</span><span class="p">()[</span><span class="s1">&#39;jti&#39;</span><span class="p">]</span>
+    <span class="n">blacklist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">jti</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;Successfully logged out&#34;</span><span class="p">}),</span> <span class="mi">200</span>
+
+
+<span class="c1"># Endpoint for revoking the current users refresh token</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/logout2&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DELETE&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_refresh_token_required</span>
+<span class="k">def</span> <span class="nf">logout2</span><span class="p">():</span>
+    <span class="n">jti</span> <span class="o">=</span> <span class="n">get_raw_jwt</span><span class="p">()[</span><span class="s1">&#39;jti&#39;</span><span class="p">]</span>
+    <span class="n">blacklist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">jti</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;msg&#34;</span><span class="p">:</span> <span class="s2">&#34;Successfully logged out&#34;</span><span class="p">}),</span> <span class="mi">200</span>
+
+
+<span class="c1"># This will now prevent users with blacklisted tokens from</span>
+<span class="c1"># accessing this endpoint</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/protected&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="nd">@jwt_required</span>
+<span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;hello&#39;</span><span class="p">:</span> <span class="s1">&#39;world&#39;</span><span class="p">})</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://flask-jwt-extended.readthedocs.io/en/latest/" target="_blank" rel="noopener noreffer">Flask-JWT-Extended’s Documentation</a></li>
+<li><a href="https://medium.com/@jedy05097952/%E6%B7%BA%E8%AB%87-session-%E8%88%87-jwt-%E5%B7%AE%E7%95%B0-8d00b2396115" target="_blank" rel="noopener noreffer">淺談 Session 與 JWT 差異</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-08-05</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/flask_jwt/index.md" target="_blank">閱讀原始檔案</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT" data-via="Rem59881439" data-hashtags="Python,Flask,JWT,Token"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/flask_jwt/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT" data-image="/featuredImage/compressed/flask_jwt.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/flask_jwt/" data-title="Flask 中使用 JWT"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/jwt/">JWT</a>,&nbsp;<a href="/tags/token/">Token</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/flask_mysql/" class="prev" rel="prev" title="Flask 中使用 MySQL"><i class="fas fa-angle-left fa-fw"></i>Flask 中使用 MySQL</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+</html>

@@ -6,25 +6,25 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Flask 中使用 MySQL - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Flask 中使用 MySQL" />
-<meta property="og:description" content="前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。
+<meta property="og:description" content="前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
 安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
 1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/flask_mysql/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-08-04T22:49:28+08:00" />
-<meta property="article:modified_time" content="2020-08-05T22:49:26+08:00" />
+<meta property="article:modified_time" content="2020-08-05T12:49:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Flask 中使用 MySQL"/>
-<meta name="twitter:description" content="前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。
+<meta name="twitter:description" content="前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
 安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
 1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor."/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/flask_mysql/" /><link rel="prev" href="https://huangno1.github.io/how_to_learn_cs/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/flask_mysql/" /><link rel="prev" href="https://huangno1.github.io/how_to_learn_cs/" /><link rel="next" href="https://huangno1.github.io/flask_jwt/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,7 +34,7 @@
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/flask_mysql\/"
         },"genre": "posts","keywords": "Python, Flask, MySQL, Database, 數據庫","wordcount":  1216 ,
-        "url": "https:\/\/huangno1.github.io\/flask_mysql\/","datePublished": "2020-08-04T22:49:28+08:00","dateModified": "2020-08-05T22:49:26+08:00","publisher": {
+        "url": "https:\/\/huangno1.github.io\/flask_mysql\/","datePublished": "2020-08-04T22:49:28+08:00","dateModified": "2020-08-05T12:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
                     "@type": "ImageObject",
@@ -165,7 +165,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
-<p>我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說<a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener noreffer"> Flask 官方文檔</a>寫得很好。因為 <strong>Flask 官方教學是使用 Sqlite 做為數據庫</strong>，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子是我之前做的某個項目裡面拿出來的。</p>
+<p>我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說<a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener noreffer"> Flask 官方文檔</a>寫得很好。因為 <strong>Flask 官方教學是使用 Sqlite 做為數據庫</strong>，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。</p>
 <h2 id="安裝">安裝</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -862,7 +862,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/how_to_learn_cs/" class="prev" rel="prev" title="關於學習軟件工程與技術的方法"><i class="fas fa-angle-left fa-fw"></i>關於學習軟件工程與技術的方法</a></div>
+    <div class="post-nav"><a href="/how_to_learn_cs/" class="prev" rel="prev" title="關於學習軟件工程與技術的方法"><i class="fas fa-angle-left fa-fw"></i>關於學習軟件工程與技術的方法</a>
+            <a href="/flask_jwt/" class="next" rel="next" title="Flask 中使用 JWT">Flask 中使用 JWT<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
