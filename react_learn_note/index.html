@@ -43,7 +43,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/react_learn_note\/"
-        },"genre": "posts","keywords": "React, 前端, npm","wordcount":  104 ,
+        },"genre": "posts","keywords": "React, 前端, npm","wordcount":  276 ,
         "url": "https:\/\/huangno1.github.io\/react_learn_note\/","datePublished": "2020-08-05T21:49:28+08:00","dateModified": "2020-08-05T21:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -139,8 +139,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">React 學習筆記</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 104 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 276 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -158,6 +158,8 @@
     <li><a href="#前言">前言</a></li>
     <li><a href="#建立一個-hello-world">建立一個 Hello World</a></li>
     <li><a href="#project-結構">Project 結構</a></li>
+    <li><a href="#指令">指令</a></li>
+    <li><a href="#jsx">JSX</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -237,11 +239,152 @@
     ├── index.css
     ├── index.js
     ├── logo.svg
-    └── serviceWorker.js
+    ├── serviceWorker.js
     └── setupTests.js
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="reference">Reference</h2>
+</div><p>這部份跟 Vue-cli 蠻相似的，只是在目錄結構上不如 Vue-cli。</p>
+<table>
+<thead>
+<tr>
+<th>檔案或文件</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node_modules/</td>
+<td>依賴</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td>包管理文件</td>
+</tr>
+<tr>
+<td>public/</td>
+<td>公共資源目錄</td>
+</tr>
+<tr>
+<td>src/</td>
+<td>源碼</td>
+</tr>
+<tr>
+<td>src/index.js</td>
+<td>根頁面</td>
+</tr>
+</tbody>
+</table>
+<p>我這裡是建議 <code>src/</code> 改成跟 Vue-cli 初始化時相同的結構。可以自己定義想要怎麼樣的結構，所以不一定要像我下面寫的一樣。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">my-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── components
+    │   └── App
+    │       ├── App.css
+    │       ├── App.js
+    │       └── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── router
+    │   └── index.js
+    ├── store
+    │   └── index.js
+    ├── static
+    │   ├── css
+    │   ├── img
+    │   │   └── logo.svg
+    │   └── js
+    ├── serviceWorker.js
+    ├── setupTests.js
+    └── views
+        ├── Home
+        │   ├── Home.css
+        │   └── Home.js
+        └── About
+            ├── About.css
+            └── About.js
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="指令">指令</h2>
+<p>下面兩個之一的指令可以運行項目。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm start
+yarn start
+</code></pre></td></tr></table>
+</div>
+</div><p>下面是打包指令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm run build
+yarn build
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="jsx">JSX</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">你好</span><span class="err">，</span><span class="nx">世界</span><span class="err">！</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>JSX 就是一種可以用 JS 寫 HTML 的語法，最後編譯會轉成 HTML，光是可以用 JS 寫網頁就可以使開發上更加靈活。</p>
+<h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://zh-hant.reactjs.org/" target="_blank" rel="noopener noreffer">React</a></li>
 <li><a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener noreffer">Create React App - Github</a></li>

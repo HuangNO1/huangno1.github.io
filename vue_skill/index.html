@@ -39,7 +39,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/vue_skill\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2784 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, 前端, npm, Vuex, Vue-Router, Request, Axios","wordcount":  2789 ,
         "url": "https:\/\/huangno1.github.io\/vue_skill\/","datePublished": "2020-07-31T16:49:28+08:00","dateModified": "2020-07-31T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,7 +135,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">VUE 技巧與經驗</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2784 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-31">2020-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2789 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 14 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -392,6 +392,9 @@ Vue CLI v4.4.6
 <h4 id="2-components-與-views-的區別">2 Components 與 Views 的區別</h4>
 <p>通常我很少會去動 Components 這目錄，除非需要我自己寫組件，雖然 Components 和 Views 裡面裝的 <code>*.vue</code> 都是組件，但最大的區別是<strong>Components 是不具有配置 router 的一般組件，Views 裡面是有配置 router 的子組件</strong>，所以在頁面跳轉時我們會是跳轉到 Views 目錄下的組件。</p>
 <h4 id="3-子頁面">3 子頁面</h4>
+<blockquote>
+<p>註：不管哪個頁面，<strong>源碼中 <code>&lt;template&gt;&lt;/template&gt;</code> 裡面中必須先用一個 <code>&lt;div&gt;&lt;/div&gt;</code> 往裡面包一層，因為只能有一個根父元素</strong>。</p>
+</blockquote>
 <p>有些人會<strong>使用一般的組件然後用 <code>v-if</code> 或 <code>v-on</code> 判斷作為子頁面顯示，我是不建議這樣子做</strong>，因為這樣的頁面如果<strong>點了一下瀏覽器刷新頁面，所有頁面當前位置都會被重置</strong>，e.g 如果你有個頁面 Nav 上有購物車和商店，如果你購物車和商店的子頁面是上述所說的沒配置不具備路由屬性，在網址 URL 上相同都是 <code>https://localhost:8080/</code>，你刷新頁面整個頁面就會初始化，如果是有配置路由的子頁面會分別像是 <code>https://localhost:8080/cart</code> 和 <code>https://localhost:8080/home</code>，這樣才能保證你當前檢視的頁面刷新網址後不會改變目前正在檢視子頁面。</p>
 <h4 id="4-關於是否需要用到-jquery-或是其他前端-js-框架">4 關於是否需要用到 JQuery 或是其他前端 JS 框架</h4>
 <p>我一開始也會有這樣的疑惑，明明用了 Vue 會試著想去混著使用 JQuery，但現在我的建議很明確，<strong>沒必要混著用，兩者都是可以用自己的方式實現相關功能，像是 Vue 網上就有豐富的組件庫</strong>，JQuery 勢必是會被淘汰的產物。比如說好了，像是之前我要做一個點擊按鈕頁面滑動到特定 <code>#id</code> 元素的效果，而我一開始死命去找 Vue 有沒有相關 JS 代碼實現，然後卻一直找不到，自己用純 Js 實現也報錯，Google 搜到的大多都是 JQuery 實現，後面我發現原來是我沒用好 Keyword 去搜，其實是有相關組件實現的。</p>
