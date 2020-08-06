@@ -4,5 +4,12 @@
         <link>https://huangno1.github.io/tags/configuration/</link>
         <description>配置 - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><atom:link href="https://huangno1.github.io/tags/configuration/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/configuration/" rel="self" type="application/rss+xml" /><item>
+    <title>主题文档 - 基本概念</title>
+    <link>https://huangno1.github.io/theme-documentation-basics/</link>
+    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/theme-documentation-basics/</guid>
+    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>]]></description>
+</item></channel>
 </rss>
