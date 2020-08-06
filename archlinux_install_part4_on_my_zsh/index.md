@@ -162,6 +162,26 @@ git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
 plugins=(其他的插件 extract)
 ```
 
+**使用：**
+
+```zsh
+git open [remote-name] [branch-name]
+    # Open the page for this branch on the repo website
+
+git open --commit
+git open -c
+   # Open the current commit in the repo website
+
+git open --issue
+git open -i
+   # If this branch is named like issue/#123, this will open the corresponding
+   # issue in the repo website
+
+git open --print
+git open -p
+    # Only print the url at the terminal, but don't open it
+```
+
 ### bat
 
 **bat** 代替 **cat**。
@@ -318,3 +338,4 @@ source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 * [oh-my-zsh让终端好用到飞起~](https://juejin.im/post/5d773da76fb9a06aff5e9a99)
 * [ohmyzsh - github](https://github.com/ohmyzsh/ohmyzsh)
 * [zsh+on-my-zsh配置教程指南（程序员必备）【已备份】](https://segmentfault.com/a/1190000013612471)
+* [git-open - Github](https://github.com/paulirish/git-open)

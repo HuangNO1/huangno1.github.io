@@ -766,8 +766,576 @@ class Welcome extends React.Component {
 ReactDOM.render(<Welcome />, document.querySelector("#root"));
 ```
 
+### 組件生命週期
+
+組件從實例化到最終從頁面銷毀，整個過程就是生命週期，在這生命週期中，我們有許多可以調用的方法，俗稱鉤子函數。
+
+
+**三個狀態**
+
+1. Mounting 將組件插入到 DOM 中
+2. Updating 將數據更新到 DOM 中
+3. UnMounting 將組件移除 DOM
+
+**生命周其中的鉤子函數（方法、事件）**
+
+- **ComponentWillMount：組件將要渲染（已過時，不能用）**
+- ComponentDidMount：組件渲染完畢
+- **ComponentWillReceiveProps：組件將要接受 props 數據（已過時，不能用）**
+- ShouldComponentUpdate：組件接收到新的 state 或是 props，判斷是否更新，返回布爾值
+- **ComponentWillUpdate：組件將要更新（已過時，不能用）**
+- ComponentDidUpdate：組件已經更新完畢
+- ComponentWillUnMount：組件將要卸載
+
+```jsx
+// 可以解構
+// 這樣就不用每次都寫 react.Component
+import { Component } from 'react'
+
+class ComLife extends Component {
+  constructor(props) {
+    super(props) // 調用繼承 Component 的 構造函數
+    this.state = {
+      msg: "hello world msg"
+    }
+    console.log("constructor 構造函數")
+  }
+
+  componentWillMount() {
+    // 已過時
+    // 通常用來 ajax 請求
+    // 添加動畫前的類
+    console.log("ComponentWillMount  組件將要渲染")
+  }
+
+  componentDidMount() {
+    // 用來渲染動畫
+    console.log("ComponentDidMount   組件渲染完畢")
+  }
+
+  componentWillReceiveProps() {
+    // 已過時
+    // 用來查看 props 內容是什麼
+    console.log("ComponentWillReceiveProps  組件將要接受 props 數據")
+  }
+
+  componentWillUpdate() {
+    // 已過時
+    console.log("ComponentWillUpdate   組件將要更新")
+  }
+
+  componentDidUpdate() {
+    console.log("ComponentDidUpdate   組件已經更新完畢")
+  }
+
+  componentWillUnmount() {
+    console.log("ComponentWillUnMount   組件將要卸載")
+  }
+
+  render() {
+    console.log("render 渲染函數")
+    return (
+      <div>
+        <h1>hello</h1>
+      </div>
+    )
+  }
+}
+```
+
+### 插槽
+
+組件中寫入內容，這些內容可以被識別和控制。React 需要自己開發支持插槽功能。
+
+原理：組件中寫入的 HTML，可以傳入到 props 中。
+
+> 註：這裡的 data-{ name } 是 HTML 中自定義屬性。e.g. 下面例子中的 `data-position` 和 `data-index`。
+
+```jsx
+// 組件中寫入內容，這些內容可以被識別和控制。React 需要自己開發支持插槽功能
+// 原理：組件中寫入的 HTML，可以傳入到 props 中
+
+class ParentCom extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      arr: [1, 2, 3],
+    };
+  }
+
+  render() {
+    console.log(this.props);
+    return (
+      <div>
+        <h1>組件插槽</h1>
+        {this.props.children}
+        <ChildCom>
+          <h1 data-position="header">這是放置到頭部的內容</h1>
+          <h1 data-position="main">這是放置到主要的內容</h1>
+          <h1 data-position="footer">這是放置到尾部的內容</h1>
+        </ChildCom>
+      </div>
+    );
+  }
+}
+
+class ChildCom extends React.Component {
+  render() {
+    let headerCom, mainCom, footerCom;
+    this.props.children.forEach((item, index) => {
+      if (item.props["data-position"] === "header") {
+        headerCom = item;
+      } else if (item.props["data-position"] === "main") {
+        mainCom = item;
+      } else {
+        footerCom = item;
+      }
+    });
+    return (
+      <div>
+        <div className="header">{headerCom}</div>
+        <div className="main">{mainCom}</div>
+        <div className="footer">{footerCom}</div>
+      </div>
+    );
+  }
+}
+
+class RootCom extends React.Component {
+  render() {
+    return (
+      <ParentCom>
+        {/* 插槽 */}
+        {/* 添加 data 屬性可以傳參，data- 後面接想要取的屬性名 */}
+        <h2 data-name="a" data-index={this.state.arr[0]}>
+          子組件一
+        </h2>
+        <h2 data-name="b" data-index={this.state.arr[1]}>
+          子組件二
+        </h2>
+        <h2 data-name="c" data-index={this.state.arr[2]}>
+          子組件三
+        </h2>
+      </ParentCom>
+    );
+  }
+}
+
+ReactDOM.render(<RootCom />, document.querySelector("#root"));
+```
+
+## React Router 路由
+
+根據不同的路徑，顯示不同的組件(內容)，React 使用庫 react-router-dom。
+
+### 安裝
+
+```bash
+npm install react-router-dom
+```
+
+### 使用
+
+**ReactRouter 三大組件**
+
+Router：所有路由組件的根組件(底層組件)，包裏路由規則的最外層容器
+Route：路由規則匹配組件，顯示當前規則對應的組件
+Link：路由跳轉組件
+
+> 注意：如果要精準匹配，那麼可以在 route 上設置 exact 屬性。精準匹配的意思就是完整路徑包含父路徑。
+
+Hash 與 History 模式，Hash 就是有 '#' 符號，我們使用 History。
+
+**引入**
+
+```jsx
+// hash 模式
+// as 是取別名
+// import { HashRouter as router, Link, Route } from 'react-router-dom'
+
+// History 模式 / 後端匹配使用
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+```
+
+**基本使用**
+
+- `<Link></Link>` 相當於 Vue 中的 `<route-link></route-link>`，用於路由跳轉。
+- `<Router></Router>` 路由配置，可以設置基本路徑（Base Path），裡面包 `<Route></Route>`，`<Route></Route>`是路由，`component` 指定路由對應的組件。
+- `<Link replace></Link>` 的 `replace` 屬性可以進行路由的取代替換，取代當前瀏覽器路由地址並跳轉。
+- **動態路由：`<Route path="/news/:id" component={News}></Route>`**。
+
+```jsx
+function Home(params) {
+  return (
+    <div>
+      <h1>admin首頁</h1>
+    </div>
+  );
+}
+
+function Me(params) {
+  console.log(params);
+  return (
+    <div>
+      <h1>admin個人頁面</h1>
+    </div>
+  );
+}
+
+function Product(params) {
+  return (
+    <div>
+      <h1>admin產品頁面</h1>
+    </div>
+  );
+}
+
+function News(params) {
+  console.log(params)
+  return (
+    <div>
+      新聞頁
+      新聞 id: {params.match.params.id}
+    </div>
+  )
+}
+
+class App extends React.Component {
+  render() {
+    // 這裡的 search 是 query string
+    // 可以傳 state
+    let meObj = {
+      pathname: "/me", // 路徑
+      search: "?username=admin", // get 請求參數
+      hash: "#abc", // 設置 hash 錨值
+      state: { msg: "helloWorld" }, // 傳入組件的數據
+    };
+    return (
+      <div id="app">
+        {/* 全局 */}
+        <div>所有頁面都顯示的內容</div>
+        {/* Router 可以在一個組件中寫多個 */}
+        {/* <Router>
+          <Route path="/" exact component={() => (<div>首頁</div>)}></Route>
+          <Route path="/me" component={() => (<div>me</div>)}></Route>
+          <Route path="/product" component={() => (<div>product</div>)}></Route>
+        </Router> */}
+
+        {/* Router 設置基礎路徑 basename */}
+        <Router basename="/admin">
+          <div className="nav">
+            <Link to="/">首頁</Link>
+            <Link to="/product">產品</Link>
+            {/* Link 可以設置 to 屬性進行頁面跳轉，to 屬性可以直接寫路徑的字符串，也可以通過 1 個對象，進行路進的配置 */}
+            {/* replace 屬性 將新地址制換成歷史訪問紀錄的原地址 */}
+            <Link to={meObj} replace>個人中心</Link>
+            {/* 動態路由 */}
+            <Link to="/news/456789">news</Link>
+          </div>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/product" exact component={Product}></Route>
+          <Route path="/me" exact component={Me}></Route>
+          {/* 動態路由 */}
+          <Route path="/news/:id" component={News}></Route>
+        </Router>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+**重定向組件與 Switch 組件**
+
+重定向組件：如果訪問某個組件時，如果有重定向組件，那麼就會修改頁面路徑，使得頁面內容顯示為所定向路徑的內容。
+
+Switch 組件：讓 Switch 組件內容的 Route 只匹配一個，只要匹配到了，剩餘的規則就不再匹配。
+
+> 建議配置路由時要**使用 Switch 組件**，這樣路由的配置邏輯比較謹慎。
+
+```jsx
+// 重定向組件
+// 如果訪問某個組件時，如果有重定向組件，那麼就會修改頁面路徑，使得頁面內容顯示為所定向路徑的內容
+
+// Switch 組件
+// 讓 Switch 組件內容的 Route 只匹配一個，只要匹配到了，剩餘的規則就不再匹配
+
+import { Redirect, Switch } from "react-router-dom";
+
+function LoginInfo(params) {
+  // params.loginSuccess = 'success'
+  // params.loginSuccess = 'fail
+  if (params.location.state.loginState === "success") {
+    return (
+      // 重定向組件
+      <Redirect to="/admin"></Redirect>
+    );
+  } else {
+    return <Redirect to="/login"></Redirect>;
+  }
+}
+
+let formCom = () => {
+  let pathObj = {
+    pathname: "/loginInfo",
+    state: {
+      loginState: "success",
+    },
+  };
+  return (
+    <div>
+      <h1>表單驗證</h1>
+      <Link to={pathObj}>登入後表單驗證</Link>
+    </div>
+  );
+};
+
+class ChildCom extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.clickEvent}>跳轉到首頁</button>
+      </div>
+    );
+  }
+
+  clickEvent = () => {
+    console.log(this.props);
+    // 可以傳值
+    // this.props.history.push("/", {msg: "這是由 ChildCom 發給首頁的數據"})
+    // this.props.history.replace("/", {msg: "這是由 ChildCom 發給首頁的數據"})
+
+    // 前進
+    this.props.history.go(1);
+    this.props.history.goForward();
+    // 後退
+    this.props.history.go(-1);
+    this.props.history.goBack();
+  };
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route
+              path="/"
+              exact
+              component={(props) => {
+                console.log(props);
+                return <h1>首頁</h1>;
+              }}
+            ></Route>
+            <Route path="/form" exact component={formCom}></Route>
+            <Route
+              path="/login"
+              exact
+              component={() => <h1>登入頁</h1>}
+            ></Route>
+            <Route path="/loginInfo" exact component={LoginInfo}></Route>
+            <Route path="/admin" exact component={() => <h1>Admin</h1>}></Route>
+
+            {/* Router 會全部匹配，所以如果有兩個相同的 path 會兩個都匹配 */}
+            {/* 所以需要用到 Switch 去匹配，匹配到一個成功就不會繼續匹配 */}
+            <Route path="/abc" exact component={() => <h1>abc1</h1>}></Route>
+            <Route path="/abc" exact component={() => <h1>abc2</h1>}></Route>
+            <Route path="/child" exact component={ChildCom}></Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+## 狀態管理
+
+解決 React 數據管理（狀態管理），用於中大型項目，數據量龐大，組件之間數據交互較多的情況下使用。
+
+> 如果你不知道是否需要使用 Redux ，那麼你就不需要用他。Redux 是個給 JavaScript 應用程式所使用的可預測 state 容器，Redux 跟 React 並沒有關係，你可以用 React、Angular、Ember、jQuery 或甚至原生 JavaScript 來撰寫 Redux 應用程式。
+
+**功能**
+
+- 解決組件的數據通信
+- 解決數據和交互較多的應用
+
+### redux
+
+**安裝**
+
+```bash
+npm install --save redux
+```
+
+**工具**
+
+- store: 數據倉庫，保存數據的地方
+- State: state 是一個對象，這個對象包含整個應用所需要的數據
+- Action: 一個動作，觸發數據改變的方法
+- Dispatch: 將動作觸發成方法
+- Reducer: 是一個函數，通過獲取動作，改變數據，生成一個新的狀態，從而改變頁面
+
+**使用**
+
+```jsx
+import { createStore } from "redux";
+
+// 用於通過動作，創建新的 state
+// reduce 有兩個作用，一個釋初始化數據，第二個是通過獲取動作，改變數據
+const reducer = function (state = { num: 0 }, action) {
+  switch (action.type) {
+    case "add":
+      state.num++;
+      break;
+    case "decrement":
+      state.num--;
+      break;
+    default:
+      break;
+  }
+  return { ...state }; // 相當於對象的 COPY
+};
+
+// 創建倉庫
+const store = createStore(reducer);
+
+function add() {
+  // 通過倉庫的方法 dispatch 進數據修改
+  // dispatch 觸發 reducer
+  store.dispatch({ type: "add" });
+  console.log(store.getState());
+}
+
+function decrement() {
+  store.dispatch({ type: "decrement" });
+  console.log(store.getState());
+}
+
+const Counter = function () {
+  let state = store.getState();
+  return (
+    <div>
+      <h1>計數數量：{state.num}</h1>
+
+      <button onClick={add}>+1</button>
+      <button onClick={decrement}>-1</button>
+    </div>
+  );
+};
+
+ReactDOM.render(<Counter />, document.querySelector("#root"));
+
+// 監聽數據變化，重新渲染
+// 當數據改變時觸發
+store.subscribe(() => {
+  ReactDOM.render(<Counter />, document.querySelector("#root"));
+});
+```
+
+### react-redux
+
+react-redux 是 redux 的擴展套件，用來綁定 redux。
+
+**安裝**
+
+```bash
+npm install --save react-redux
+```
+
+**工具**
+
+- Provider：自動將 store 裡的 state 和組件進行關聯
+- connect：將數據倉庫的 state 和修改 state 的方法映射到組件上，形成新的組件
+
+**使用**
+
+```jsx
+import { createStore } from "redux";
+import { Provider, connect } from 'react-redux'
+
+class Counter extends React.Component {
+  render() {
+    // 計數，通過 store 的 state 傳給 props，直接通過 props 就可以將 state 的數據獲取
+    const value = this.props.value;
+    // 將修改數據的事件或者方法傳入到 props
+    const onAddClick = this.props.onAddClick;
+    // 等同於 VueX 的 mapMutation mapState
+
+    return (
+      <div>
+        <h1>計數數量：{value}</h1>
+
+       <button onClick={onAddClick}>+1</button>
+      </div>
+    )
+  }
+}
+
+// 動作
+const addAction = {
+  type: 'add'
+}
+
+const reducer = function (state = { num: 0 }, action) {
+  switch (action.type) {
+    case "add":
+      state.num++;
+      break;
+    case "decrement":
+      state.num--;
+      break;
+    default:
+      break;
+  }
+  return { ...state }; // 相當於對象的 COPY
+};
+
+const store = createStore(reducer);
+
+// 將 state 映射到 props 函數
+function mapStateToProps(state) {
+  return {
+    value: state.num
+  }
+}
+
+// 將修改 state 數據的方法，映射到 props，默認會傳入 store 裡的 dispatch 方法
+function mapDispatchToProps(dispatch) {
+  return {
+    onAddClick: () => {
+      dispatch(addAction)
+    }
+  }
+}
+
+// 將上面的這兩個方法，將數據倉庫的 state 和修改 state 的方法映射到組件上，形成新的組件
+
+const NewApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter)
+
+// Provider 組件：自動將 store 裡的 state 和組件進行關聯
+
+ReactDOM.render(
+  <Provider store={store}>
+    <NewApp></NewApp>
+  </Provider>,
+  document.querySelector("#root")
+)
+```
+
 ## Reference
 
+- [2020最新前端_React实战教学【老陈打码】- BiliBili](https://www.bilibili.com/video/BV1T7411W72T)
 - [React](https://zh-hant.reactjs.org/)
 - [Create React App - Github](https://github.com/facebook/create-react-app)
-
+- [Redux](https://chentsulin.github.io/redux/index.html)

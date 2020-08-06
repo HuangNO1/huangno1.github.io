@@ -43,7 +43,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/react_learn_note\/"
-        },"genre": "posts","keywords": "React, 前端, npm, JSX","wordcount":  2018 ,
+        },"genre": "posts","keywords": "React, 前端, npm, JSX","wordcount":  3569 ,
         "url": "https:\/\/huangno1.github.io\/react_learn_note\/","datePublished": "2020-08-05T21:49:28+08:00","dateModified": "2020-08-05T21:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -139,8 +139,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">React 學習筆記</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2018 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 10 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-05">2020-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 3569 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 17 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -179,6 +179,20 @@
         <li><a href="#event-事件綁定">Event 事件綁定</a></li>
         <li><a href="#條件渲染">條件渲染</a></li>
         <li><a href="#list-渲染循環渲染">List 渲染（循環渲染）</a></li>
+        <li><a href="#組件生命週期">組件生命週期</a></li>
+        <li><a href="#插槽">插槽</a></li>
+      </ul>
+    </li>
+    <li><a href="#react-router-路由">React Router 路由</a>
+      <ul>
+        <li><a href="#安裝">安裝</a></li>
+        <li><a href="#使用">使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#狀態管理">狀態管理</a>
+      <ul>
+        <li><a href="#redux">redux</a></li>
+        <li><a href="#react-redux">react-redux</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -1572,10 +1586,1022 @@ yarn build
 <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nt">Welcome</span> <span class="p">/&gt;,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#root&#34;</span><span class="p">));</span>
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="組件生命週期">組件生命週期</h3>
+<p>組件從實例化到最終從頁面銷毀，整個過程就是生命週期，在這生命週期中，我們有許多可以調用的方法，俗稱鉤子函數。</p>
+<p><strong>三個狀態</strong></p>
+<ol>
+<li>Mounting 將組件插入到 DOM 中</li>
+<li>Updating 將數據更新到 DOM 中</li>
+<li>UnMounting 將組件移除 DOM</li>
+</ol>
+<p><strong>生命周其中的鉤子函數（方法、事件）</strong></p>
+<ul>
+<li><strong>ComponentWillMount：組件將要渲染（已過時，不能用）</strong></li>
+<li>ComponentDidMount：組件渲染完畢</li>
+<li><strong>ComponentWillReceiveProps：組件將要接受 props 數據（已過時，不能用）</strong></li>
+<li>ShouldComponentUpdate：組件接收到新的 state 或是 props，判斷是否更新，返回布爾值</li>
+<li><strong>ComponentWillUpdate：組件將要更新（已過時，不能用）</strong></li>
+<li>ComponentDidUpdate：組件已經更新完畢</li>
+<li>ComponentWillUnMount：組件將要卸載</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// 可以解構
+</span><span class="c1">// 這樣就不用每次都寫 react.Component
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="kr">class</span> <span class="nx">ComLife</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="c1">// 調用繼承 Component 的 構造函數
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">msg</span><span class="o">:</span> <span class="s2">&#34;hello world msg&#34;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;constructor 構造函數&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentWillMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 已過時
+</span><span class="c1"></span>    <span class="c1">// 通常用來 ajax 請求
+</span><span class="c1"></span>    <span class="c1">// 添加動畫前的類
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ComponentWillMount  組件將要渲染&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 用來渲染動畫
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ComponentDidMount   組件渲染完畢&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentWillReceiveProps</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 已過時
+</span><span class="c1"></span>    <span class="c1">// 用來查看 props 內容是什麼
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ComponentWillReceiveProps  組件將要接受 props 數據&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentWillUpdate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 已過時
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ComponentWillUpdate   組件將要更新&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentDidUpdate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ComponentDidUpdate   組件已經更新完畢&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentWillUnmount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ComponentWillUnMount   組件將要卸載&#34;</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;render 渲染函數&#34;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">hello</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="插槽">插槽</h3>
+<p>組件中寫入內容，這些內容可以被識別和控制。React 需要自己開發支持插槽功能。</p>
+<p>原理：組件中寫入的 HTML，可以傳入到 props 中。</p>
+<blockquote>
+<p>註：這裡的 data-{ name } 是 HTML 中自定義屬性。e.g. 下面例子中的 <code>data-position</code> 和 <code>data-index</code>。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// 組件中寫入內容，這些內容可以被識別和控制。React 需要自己開發支持插槽功能
+</span><span class="c1">// 原理：組件中寫入的 HTML，可以傳入到 props 中
+</span><span class="c1"></span>
+<span class="kr">class</span> <span class="nx">ParentCom</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">arr</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">組件插槽</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">}</span>
+        <span class="p">&lt;</span><span class="nt">ChildCom</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">data</span><span class="err">-</span><span class="na">position</span><span class="o">=</span><span class="s">&#34;header&#34;</span><span class="p">&gt;</span><span class="nx">這是放置到頭部的內容</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">data</span><span class="err">-</span><span class="na">position</span><span class="o">=</span><span class="s">&#34;main&#34;</span><span class="p">&gt;</span><span class="nx">這是放置到主要的內容</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">data</span><span class="err">-</span><span class="na">position</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;</span><span class="nx">這是放置到尾部的內容</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">ChildCom</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">ChildCom</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">headerCom</span><span class="p">,</span> <span class="nx">mainCom</span><span class="p">,</span> <span class="nx">footerCom</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">props</span><span class="p">[</span><span class="s2">&#34;data-position&#34;</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&#34;header&#34;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">headerCom</span> <span class="o">=</span> <span class="nx">item</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">props</span><span class="p">[</span><span class="s2">&#34;data-position&#34;</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&#34;main&#34;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">mainCom</span> <span class="o">=</span> <span class="nx">item</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">footerCom</span> <span class="o">=</span> <span class="nx">item</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;header&#34;</span><span class="p">&gt;{</span><span class="nx">headerCom</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;main&#34;</span><span class="p">&gt;{</span><span class="nx">mainCom</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;{</span><span class="nx">footerCom</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">RootCom</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">ParentCom</span><span class="p">&gt;</span>
+        <span class="p">{</span><span class="cm">/* 插槽 */</span><span class="p">}</span>
+        <span class="p">{</span><span class="cm">/* 添加 data 屬性可以傳參，data- 後面接想要取的屬性名 */</span><span class="p">}</span>
+        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">data</span><span class="err">-</span><span class="na">name</span><span class="o">=</span><span class="s">&#34;a&#34;</span> <span class="na">data</span><span class="err">-</span><span class="na">index</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]}&gt;</span>
+          <span class="nx">子組件一</span>
+        <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">data</span><span class="err">-</span><span class="na">name</span><span class="o">=</span><span class="s">&#34;b&#34;</span> <span class="na">data</span><span class="err">-</span><span class="na">index</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]}&gt;</span>
+          <span class="nx">子組件二</span>
+        <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">data</span><span class="err">-</span><span class="na">name</span><span class="o">=</span><span class="s">&#34;c&#34;</span> <span class="na">data</span><span class="err">-</span><span class="na">index</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]}&gt;</span>
+          <span class="nx">子組件三</span>
+        <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">ParentCom</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nt">RootCom</span> <span class="p">/&gt;,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#root&#34;</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="react-router-路由">React Router 路由</h2>
+<p>根據不同的路徑，顯示不同的組件(內容)，React 使用庫 react-router-dom。</p>
+<h3 id="安裝">安裝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm install react-router-dom
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="使用">使用</h3>
+<p><strong>ReactRouter 三大組件</strong></p>
+<p>Router：所有路由組件的根組件(底層組件)，包裏路由規則的最外層容器
+Route：路由規則匹配組件，顯示當前規則對應的組件
+Link：路由跳轉組件</p>
+<blockquote>
+<p>注意：如果要精準匹配，那麼可以在 route 上設置 exact 屬性。精準匹配的意思就是完整路徑包含父路徑。</p>
+</blockquote>
+<p>Hash 與 History 模式，Hash 就是有 &lsquo;#&rsquo; 符號，我們使用 History。</p>
+<p><strong>引入</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// hash 模式
+</span><span class="c1">// as 是取別名
+</span><span class="c1">// import { HashRouter as router, Link, Route } from &#39;react-router-dom&#39;
+</span><span class="c1"></span>
+<span class="c1">// History 模式 / 後端匹配使用
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BrowserRouter</span> <span class="nx">as</span> <span class="nx">Router</span><span class="p">,</span> <span class="nx">Link</span><span class="p">,</span> <span class="nx">Route</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-router-dom&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>基本使用</strong></p>
+<ul>
+<li><code>&lt;Link&gt;&lt;/Link&gt;</code> 相當於 Vue 中的 <code>&lt;route-link&gt;&lt;/route-link&gt;</code>，用於路由跳轉。</li>
+<li><code>&lt;Router&gt;&lt;/Router&gt;</code> 路由配置，可以設置基本路徑（Base Path），裡面包 <code>&lt;Route&gt;&lt;/Route&gt;</code>，<code>&lt;Route&gt;&lt;/Route&gt;</code>是路由，<code>component</code> 指定路由對應的組件。</li>
+<li><code>&lt;Link replace&gt;&lt;/Link&gt;</code> 的 <code>replace</code> 屬性可以進行路由的取代替換，取代當前瀏覽器路由地址並跳轉。</li>
+<li><strong>動態路由：<code>&lt;Route path=&quot;/news/:id&quot; component={News}&gt;&lt;/Route&gt;</code></strong>。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">Home</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">admin首頁</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Me</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">admin個人頁面</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Product</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">admin產品頁面</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">News</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="nx">新聞頁</span>
+      <span class="nx">新聞</span> <span class="nx">id</span><span class="o">:</span> <span class="p">{</span><span class="nx">params</span><span class="p">.</span><span class="nx">match</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 這裡的 search 是 query string
+</span><span class="c1"></span>    <span class="c1">// 可以傳 state
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">meObj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">pathname</span><span class="o">:</span> <span class="s2">&#34;/me&#34;</span><span class="p">,</span> <span class="c1">// 路徑
+</span><span class="c1"></span>      <span class="nx">search</span><span class="o">:</span> <span class="s2">&#34;?username=admin&#34;</span><span class="p">,</span> <span class="c1">// get 請求參數
+</span><span class="c1"></span>      <span class="nx">hash</span><span class="o">:</span> <span class="s2">&#34;#abc&#34;</span><span class="p">,</span> <span class="c1">// 設置 hash 錨值
+</span><span class="c1"></span>      <span class="nx">state</span><span class="o">:</span> <span class="p">{</span> <span class="nx">msg</span><span class="o">:</span> <span class="s2">&#34;helloWorld&#34;</span> <span class="p">},</span> <span class="c1">// 傳入組件的數據
+</span><span class="c1"></span>    <span class="p">};</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+        <span class="p">{</span><span class="cm">/* 全局 */</span><span class="p">}</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">所有頁面都顯示的內容</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">{</span><span class="cm">/* Router 可以在一個組件中寫多個 */</span><span class="p">}</span>
+        <span class="p">{</span><span class="cm">/* &lt;Router&gt;
+</span><span class="cm">          &lt;Route path=&#34;/&#34; exact component={() =&gt; (&lt;div&gt;首頁&lt;/div&gt;)}&gt;&lt;/Route&gt;
+</span><span class="cm">          &lt;Route path=&#34;/me&#34; component={() =&gt; (&lt;div&gt;me&lt;/div&gt;)}&gt;&lt;/Route&gt;
+</span><span class="cm">          &lt;Route path=&#34;/product&#34; component={() =&gt; (&lt;div&gt;product&lt;/div&gt;)}&gt;&lt;/Route&gt;
+</span><span class="cm">        &lt;/Router&gt; */</span><span class="p">}</span>
+
+        <span class="p">{</span><span class="cm">/* Router 設置基礎路徑 basename */</span><span class="p">}</span>
+        <span class="p">&lt;</span><span class="nt">Router</span> <span class="na">basename</span><span class="o">=</span><span class="s">&#34;/admin&#34;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;nav&#34;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/&#34;</span><span class="p">&gt;</span><span class="nx">首頁</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/product&#34;</span><span class="p">&gt;</span><span class="nx">產品</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+            <span class="p">{</span><span class="cm">/* Link 可以設置 to 屬性進行頁面跳轉，to 屬性可以直接寫路徑的字符串，也可以通過 1 個對象，進行路進的配置 */</span><span class="p">}</span>
+            <span class="p">{</span><span class="cm">/* replace 屬性 將新地址制換成歷史訪問紀錄的原地址 */</span><span class="p">}</span>
+            <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="p">{</span><span class="nx">meObj</span><span class="p">}</span> <span class="na">replace</span><span class="p">&gt;</span><span class="nx">個人中心</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+            <span class="p">{</span><span class="cm">/* 動態路由 */</span><span class="p">}</span>
+            <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/news/456789&#34;</span><span class="p">&gt;</span><span class="nx">news</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Home</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/product&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Product</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/me&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">Me</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+          <span class="p">{</span><span class="cm">/* 動態路由 */</span><span class="p">}</span>
+          <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/news/:id&#34;</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">News</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">Router</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>重定向組件與 Switch 組件</strong></p>
+<p>重定向組件：如果訪問某個組件時，如果有重定向組件，那麼就會修改頁面路徑，使得頁面內容顯示為所定向路徑的內容。</p>
+<p>Switch 組件：讓 Switch 組件內容的 Route 只匹配一個，只要匹配到了，剩餘的規則就不再匹配。</p>
+<blockquote>
+<p>建議配置路由時要<strong>使用 Switch 組件</strong>，這樣路由的配置邏輯比較謹慎。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
+</span><span class="lnt">99
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// 重定向組件
+</span><span class="c1">// 如果訪問某個組件時，如果有重定向組件，那麼就會修改頁面路徑，使得頁面內容顯示為所定向路徑的內容
+</span><span class="c1"></span>
+<span class="c1">// Switch 組件
+</span><span class="c1">// 讓 Switch 組件內容的 Route 只匹配一個，只要匹配到了，剩餘的規則就不再匹配
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Redirect</span><span class="p">,</span> <span class="nx">Switch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-router-dom&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">LoginInfo</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// params.loginSuccess = &#39;success&#39;
+</span><span class="c1"></span>  <span class="c1">// params.loginSuccess = &#39;fail
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">loginState</span> <span class="o">===</span> <span class="s2">&#34;success&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="c1">// 重定向組件
+</span><span class="c1"></span>      <span class="p">&lt;</span><span class="nt">Redirect</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/admin&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">Redirect</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">Redirect</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/login&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">Redirect</span><span class="p">&gt;;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">formCom</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">pathObj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">pathname</span><span class="o">:</span> <span class="s2">&#34;/loginInfo&#34;</span><span class="p">,</span>
+    <span class="nx">state</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">loginState</span><span class="o">:</span> <span class="s2">&#34;success&#34;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">表單驗證</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="p">{</span><span class="nx">pathObj</span><span class="p">}&gt;</span><span class="nx">登入後表單驗證</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kr">class</span> <span class="nx">ChildCom</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">clickEvent</span><span class="p">}&gt;</span><span class="nx">跳轉到首頁</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">clickEvent</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">);</span>
+    <span class="c1">// 可以傳值
+</span><span class="c1"></span>    <span class="c1">// this.props.history.push(&#34;/&#34;, {msg: &#34;這是由 ChildCom 發給首頁的數據&#34;})
+</span><span class="c1"></span>    <span class="c1">// this.props.history.replace(&#34;/&#34;, {msg: &#34;這是由 ChildCom 發給首頁的數據&#34;})
+</span><span class="c1"></span>
+    <span class="c1">// 前進
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">goForward</span><span class="p">();</span>
+    <span class="c1">// 後退
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">goBack</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">Router</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">Switch</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span>
+              <span class="na">path</span><span class="o">=</span><span class="s">&#34;/&#34;</span>
+              <span class="na">exact</span>
+              <span class="na">component</span><span class="o">=</span><span class="p">{(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">首頁</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+              <span class="p">}}</span>
+            <span class="p">&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/form&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">formCom</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span>
+              <span class="na">path</span><span class="o">=</span><span class="s">&#34;/login&#34;</span>
+              <span class="na">exact</span>
+              <span class="na">component</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">登入頁</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;}</span>
+            <span class="p">&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/loginInfo&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">LoginInfo</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/admin&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Admin</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+
+            <span class="p">{</span><span class="cm">/* Router 會全部匹配，所以如果有兩個相同的 path 會兩個都匹配 */</span><span class="p">}</span>
+            <span class="p">{</span><span class="cm">/* 所以需要用到 Switch 去匹配，匹配到一個成功就不會繼續匹配 */</span><span class="p">}</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/abc&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">abc1</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/abc&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">abc2</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> <span class="na">path</span><span class="o">=</span><span class="s">&#34;/child&#34;</span> <span class="na">exact</span> <span class="na">component</span><span class="o">=</span><span class="p">{</span><span class="nx">ChildCom</span><span class="p">}&gt;&lt;/</span><span class="nt">Route</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">Switch</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">Router</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="狀態管理">狀態管理</h2>
+<p>解決 React 數據管理（狀態管理），用於中大型項目，數據量龐大，組件之間數據交互較多的情況下使用。</p>
+<blockquote>
+<p>如果你不知道是否需要使用 Redux ，那麼你就不需要用他。Redux 是個給 JavaScript 應用程式所使用的可預測 state 容器，Redux 跟 React 並沒有關係，你可以用 React、Angular、Ember、jQuery 或甚至原生 JavaScript 來撰寫 Redux 應用程式。</p>
+</blockquote>
+<p><strong>功能</strong></p>
+<ul>
+<li>解決組件的數據通信</li>
+<li>解決數據和交互較多的應用</li>
+</ul>
+<h3 id="redux">redux</h3>
+<p><strong>安裝</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm install --save redux
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>工具</strong></p>
+<ul>
+<li>store: 數據倉庫，保存數據的地方</li>
+<li>State: state 是一個對象，這個對象包含整個應用所需要的數據</li>
+<li>Action: 一個動作，觸發數據改變的方法</li>
+<li>Dispatch: 將動作觸發成方法</li>
+<li>Reducer: 是一個函數，通過獲取動作，改變數據，生成一個新的狀態，從而改變頁面</li>
+</ul>
+<p><strong>使用</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+
+<span class="c1">// 用於通過動作，創建新的 state
+</span><span class="c1">// reduce 有兩個作用，一個釋初始化數據，第二個是通過獲取動作，改變數據
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">num</span><span class="o">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s2">&#34;add&#34;</span><span class="o">:</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">num</span><span class="o">++</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s2">&#34;decrement&#34;</span><span class="o">:</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">num</span><span class="o">--</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span> <span class="p">};</span> <span class="c1">// 相當於對象的 COPY
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="c1">// 創建倉庫
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">add</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 通過倉庫的方法 dispatch 進數據修改
+</span><span class="c1"></span>  <span class="c1">// dispatch 觸發 reducer
+</span><span class="c1"></span>  <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;add&#34;</span> <span class="p">});</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">decrement</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;decrement&#34;</span> <span class="p">});</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">計數數量</span><span class="err">：</span><span class="p">{</span><span class="nx">state</span><span class="p">.</span><span class="nx">num</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">add</span><span class="p">}&gt;</span><span class="o">+</span><span class="mi">1</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">decrement</span><span class="p">}&gt;</span><span class="o">-</span><span class="mi">1</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nt">Counter</span> <span class="p">/&gt;,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#root&#34;</span><span class="p">));</span>
+
+<span class="c1">// 監聽數據變化，重新渲染
+</span><span class="c1">// 當數據改變時觸發
+</span><span class="c1"></span><span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nt">Counter</span> <span class="p">/&gt;,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#root&#34;</span><span class="p">));</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="react-redux">react-redux</h3>
+<p>react-redux 是 redux 的擴展套件，用來綁定 redux。</p>
+<p><strong>安裝</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm install --save react-redux
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>工具</strong></p>
+<ul>
+<li>Provider：自動將 store 裡的 state 和組件進行關聯</li>
+<li>connect：將數據倉庫的 state 和修改 state 的方法映射到組件上，形成新的組件</li>
+</ul>
+<p><strong>使用</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Provider</span><span class="p">,</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span>
+
+<span class="kr">class</span> <span class="nx">Counter</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 計數，通過 store 的 state 傳給 props，直接通過 props 就可以將 state 的數據獲取
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="c1">// 將修改數據的事件或者方法傳入到 props
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">onAddClick</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onAddClick</span><span class="p">;</span>
+    <span class="c1">// 等同於 VueX 的 mapMutation mapState
+</span><span class="c1"></span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">計數數量</span><span class="err">：</span><span class="p">{</span><span class="nx">value</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+       <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onAddClick</span><span class="p">}&gt;</span><span class="o">+</span><span class="mi">1</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 動作
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">addAction</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;add&#39;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">num</span><span class="o">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s2">&#34;add&#34;</span><span class="o">:</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">num</span><span class="o">++</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s2">&#34;decrement&#34;</span><span class="o">:</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">num</span><span class="o">--</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span> <span class="p">};</span> <span class="c1">// 相當於對象的 COPY
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">);</span>
+
+<span class="c1">// 將 state 映射到 props 函數
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">mapStateToProps</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">num</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 將修改 state 數據的方法，映射到 props，默認會傳入 store 裡的 dispatch 方法
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">mapDispatchToProps</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">onAddClick</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">dispatch</span><span class="p">(</span><span class="nx">addAction</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 將上面的這兩個方法，將數據倉庫的 state 和修改 state 的方法映射到組件上，形成新的組件
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">NewApp</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">(</span>
+  <span class="nx">mapStateToProps</span><span class="p">,</span>
+  <span class="nx">mapDispatchToProps</span>
+<span class="p">)(</span><span class="nx">Counter</span><span class="p">)</span>
+
+<span class="c1">// Provider 組件：自動將 store 裡的 state 和組件進行關聯
+</span><span class="c1"></span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="p">&lt;</span><span class="nt">Provider</span> <span class="na">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}&gt;</span>
+    <span class="p">&lt;</span><span class="nt">NewApp</span><span class="p">&gt;&lt;/</span><span class="nt">NewApp</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">Provider</span><span class="p">&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;#root&#34;</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
 </div><h2 id="reference">Reference</h2>
 <ul>
+<li><a href="https://www.bilibili.com/video/BV1T7411W72T" target="_blank" rel="noopener noreffer">2020最新前端_React实战教学【老陈打码】- BiliBili</a></li>
 <li><a href="https://zh-hant.reactjs.org/" target="_blank" rel="noopener noreffer">React</a></li>
 <li><a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener noreffer">Create React App - Github</a></li>
+<li><a href="https://chentsulin.github.io/redux/index.html" target="_blank" rel="noopener noreffer">Redux</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
