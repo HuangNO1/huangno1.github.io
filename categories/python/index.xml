@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/react_learn_note/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/react_learn_note.png" referrerpolicy="no-referrer">
             </div>前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
 建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
  註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
