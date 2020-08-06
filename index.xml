@@ -4,9 +4,20 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Aug 2020 18:49:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>JS - 賦值問題</title>
+    <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
+    <pubDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png" referrerpolicy="no-referrer">
+            </div>關於我遇到的問題 這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。
+下面是我用簡單的 Code 描述我遇到的問題，object 是一個 Object Array，然後傳入函數進行局域變量賦值。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.]]></description>
+</item><item>
     <title>JS - forEach()、map()、filter()、reduce()、循環遍歷</title>
     <link>https://huangno1.github.io/js_array_prototype/</link>
     <pubDate>Thu, 06 Aug 2020 18:49:28 &#43;0800</pubDate>
@@ -148,20 +159,5 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
 Rem BlogRemBlog.png
 " Rem Blog 
 Reference  AllinOne LoveIt  ]]></description>
-</item><item>
-    <title>Python 解決羅馬數字轉換 NPSC 模擬試題</title>
-    <link>https://huangno1.github.io/python_rome_number_programming/</link>
-    <pubDate>Thu, 30 Jul 2020 23:17:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/python_rome_number_programming/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/python_rome_number_programming.jpg" referrerpolicy="no-referrer">
-            </div>前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
-題目 這是高中生解題系統基礎題庫裡的 a013 題目
-內容 如果生活在數世紀之前的古羅馬，你應該用過 V 來表示五。V 和 5 這兩個符號都可以用來表示數目五。用來表示數目的符號稱作數字。而羅馬人用來表示數目的符號就是羅馬數字。
-以下是七個基本的羅馬數字︰
-   羅馬數字 數目     I 1   V 5   X 10   L 50   C 100   D 500   M 1,000    所有其他的數目都是由這些數字組合而成。數目都是由左寫到右，通常值是等於組成的羅馬數字加起來。
-例如十七可以表示為
-1 2  X + V + I + I = XVII 10 + 5 + 1 + 1 = 17   表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。]]></description>
 </item></channel>
 </rss>
