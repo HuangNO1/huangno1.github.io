@@ -9,7 +9,7 @@
 
 > P.S. 大陸叫對象，台灣叫物件。
 
-我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。
+我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。**虛函數是用來子類繼承後能夠複寫的函數**。
 
 我們先看一下虛函數嘴臉長怎樣：
 
@@ -76,7 +76,7 @@ class Shape
 
 > 注意：上面 Code 中 `const = 0`，`const` 與 `= 0` 毫無關係，所以別誤解宣告純虛函數時一定要在 `= 0` 前面加上 `const`。
 
-虛函數與純虛函數的差別就在這個**類能不能被用來創造自己的物件（Object）**。
+虛函數與純虛函數的差別就在這個**類能不能被用來創造自己的物件（Object）**，都可以拿做父類繼承。
 
 ## 補充
 
@@ -100,3 +100,57 @@ class Circle : public Shape
 ```
 
 有些人會疑惑子類有沒有 `virtual` 有差嗎？答案是沒有差，**不管有沒有加上 `virtual` 都是繼承來的虛函數**，兩種宣告法都可以，但是**加上 `virtual` 能夠增加 Code 的易讀性，所以建議加上**。
+
+## override
+
+`override` 保留字適用在子類的虛函數上，用來避免繼承錯誤。
+
+沒加上 `override` 前：
+
+我故意在 `Circle` 的 `getArea()` 故意改成 `getArea233()`，編譯器不會報錯，因為會被認為這不是繼承的。
+
+```c++
+class Shape
+{
+    public:
+        virtual string toString() const;
+        virtual double getArea() const;
+}
+class Circle : public Shape
+{
+    private:
+        double radius;
+    public:
+        Circle();
+        Circle(double);
+        double getRadius() const;
+        void setRadius(double);
+        virtual double getArea233() const;
+        virtual string toString() const;
+}
+```
+
+但如果我加上 `override` 保留字：
+
+編譯器會報錯，可以把 override 當成把這函數標示是繼承來的函數。
+
+```c++
+class Shape
+{
+    public:
+        virtual string toString() const;
+        virtual double getArea() const;
+}
+class Circle : public Shape
+{
+    private:
+        double radius;
+    public:
+        Circle();
+        Circle(double);
+        double getRadius() const;
+        void setRadius(double);
+        virtual double getArea233() const override; // 報錯
+        virtual string toString() const override;
+}
+```

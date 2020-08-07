@@ -16,7 +16,7 @@
                 <img src="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png" referrerpolicy="no-referrer">
             </div>前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
 多態與虛函數  P.S. 大陸叫對象，台灣叫物件。
- 我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。
+ 我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。虛函數是用來子類繼承後能夠複寫的函數。
 我們先看一下虛函數嘴臉長怎樣：
 在下面的例子中是一個 Base Class（基類、父類），如果函數前面宣告有添加 virtual 就是虛函數。
 1 2 3 4 5 6  class Shape { public: virtual string toString() const; virtual double getArea() const; }   下面是一個 Circle 子類（superclass）（超生類、派生類），引入 Circle 的 getArea() 和 toString() 是虛函數，我們現在是在子類中重寫（重定義）類的虛構函數（此時你可以將父類的虛構函數想像成模板）。
