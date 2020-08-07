@@ -4,7 +4,7 @@
         <link>https://huangno1.github.io/posts/</link>
         <description>所有文章 | Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 07 Aug 2020 13:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>主题文档 - 基本概念</title>
     <link>https://huangno1.github.io/theme-documentation-basics/</link>
     <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
@@ -47,6 +47,20 @@
     <guid>https://huangno1.github.io/emoji-support/</guid>
     <description><![CDATA[<p>Emoji 可以通过多种方式在 Hugo 项目中启用.</p>]]></description>
 </item><item>
+    <title>Markdown 學習筆記 - 基礎語法</title>
+    <link>https://huangno1.github.io/markdown_learn_note_basic_syntax/</link>
+    <pubDate>Fri, 07 Aug 2020 13:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/markdown_learn_note_basic_syntax/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/markdown_learn_note_basic_syntax.png" referrerpolicy="no-referrer">
+            </div>前言 Markdown 我認為是非常好的語言，我每次寫 Blog 或是寫項目、作筆記，Markdown 是首選，LaTeX 比較適合拿來寫報告或是論文。我就在這篇寫一下 Markdown 基礎語法，也就是平常經常用到的語法，其實當初學 Markdown 只花了一小時，後面慢慢寫多就習慣了。
+寫 Markdown 的工具：
+我推薦下面兩個
+ Typora：跨平台的 Markdown 編輯器，簡直是利器。 Visual Studio Code：使用 VScode 也可以寫 Markdown，安裝 Markdown All in One 和 Markdown Preview Enhanced 延伸模組，就能夠舒服地寫筆記或文章。 HackMD：線上共筆平台，使用 Markdown，大家在共同寫文檔時可以使用這平台  文本編寫標準 中文文案排版指北 [简体中文 ][繁体中文 ]
+區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加三個 =，第二種就是加上 #。
+1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!]]></description>
+</item><item>
     <title>JS - 賦值問題</title>
     <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
     <pubDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</pubDate>
@@ -84,16 +98,5 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 1  npm init react-app my-app   Yarn
  Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
  1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.]]></description>
-</item><item>
-    <title>Flask 跨域設置</title>
-    <link>https://huangno1.github.io/flask_cors/</link>
-    <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/flask_cors/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/flask_cors.png" referrerpolicy="no-referrer">
-            </div>前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
 </item></channel>
 </rss>
