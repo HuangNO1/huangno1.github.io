@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huangno1.github.io/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
-<meta property="og:updated_time" content="2020-08-07T16:49:26+08:00" />
+<meta property="og:updated_time" content="2020-08-07T18:49:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
@@ -117,6 +117,25 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/about_c-_class_virtual_function/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png"
+        data-srcset="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png, /featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png 1.5x, /featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png"
+        title="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/about_c-_class_virtual_function/">C&#43;&#43; - 關於多態中的虛函數</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-07">2020-08-07</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/c/c++/"><i class="far fa-folder fa-fw"></i>C/C++</a></span></div><div class="content">前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
+關於多態與虛函數 我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。
+我們先看一下虛函數嘴臉長怎樣：
+在下面的例子中是一個 Base Class（基類、父類），如果函數前面宣告有添加 virtual 就是虛函數。
+1 2 3 4 5 6  class Shape { public: virtual string toString() const; virtual double getArea() const; }   下面是一個 Circle 子類（superclass）（超生類、派生類），引入 Circle 的 getArea() 和 toString() 是虛函數，我們現在是在子類中重寫（重定義）類的虛構函數（此時你可以將父類的虛構函數想像成模板）。
+1 2 3 4 5 6 7 8 9 10 11 12  class Circle : public Shape { private: double radius; public: Circle(); Circle(double); double getRadius() const; void setRadius(double); double getArea() const; string toString() const; }   實際當我們在使用虛構函數時，是把它當作跳板，去自動便是哪個函式是哪個函式，e.</div><div class="post-footer">
+        <a href="/about_c-_class_virtual_function/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/class/">Class</a>,&nbsp;<a href="/tags/virtual/">Virtual</a>,&nbsp;<a href="/tags/function/">Function</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/arhlinux_vscode_latex_install_configuration/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -205,22 +224,6 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
  1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.</div><div class="post-footer">
         <a href="/react_learn_note/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/jsx/">JSX</a>,&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/redux/">Redux</a>,&nbsp;<a href="/tags/reactrouter/">ReactRouter</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/flask_cors/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/flask_cors.png"
-        data-srcset="/featuredImage/compressed/flask_cors.png, /featuredImage/compressed/flask_cors.png 1.5x, /featuredImage/compressed/flask_cors.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/flask_cors.png"
-        title="/featuredImage/compressed/flask_cors.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/flask_cors/">Flask 跨域設置</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   </div><div class="post-footer">
-        <a href="/flask_cors/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/cors/">CORS</a>,&nbsp;<a href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>

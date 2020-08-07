@@ -198,7 +198,7 @@ where xelatex
 
 這是實際寫 LaTeX 的畫面。
 
-![KL0G2E.png](https://imgpoi.com/i/KL0G2E.png)
+![preview.png](https://imgpoi.com/i/KL0G2E.png "編寫畫面")
 
 ## Reference
 

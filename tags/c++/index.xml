@@ -4,7 +4,21 @@
         <link>https://huangno1.github.io/tags/c&#43;&#43;/</link>
         <description>C&#43;&#43; - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 11 Oct 2019 12:24:00 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 07 Aug 2020 18:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43; - 關於多態中的虛函數</title>
+    <link>https://huangno1.github.io/about_c-_class_virtual_function/</link>
+    <pubDate>Fri, 07 Aug 2020 18:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/about_c-_class_virtual_function/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png" referrerpolicy="no-referrer">
+            </div>前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
+關於多態與虛函數 我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。
+我們先看一下虛函數嘴臉長怎樣：
+在下面的例子中是一個 Base Class（基類、父類），如果函數前面宣告有添加 virtual 就是虛函數。
+1 2 3 4 5 6  class Shape { public: virtual string toString() const; virtual double getArea() const; }   下面是一個 Circle 子類（superclass）（超生類、派生類），引入 Circle 的 getArea() 和 toString() 是虛函數，我們現在是在子類中重寫（重定義）類的虛構函數（此時你可以將父類的虛構函數想像成模板）。
+1 2 3 4 5 6 7 8 9 10 11 12  class Circle : public Shape { private: double radius; public: Circle(); Circle(double); double getRadius() const; void setRadius(double); double getArea() const; string toString() const; }   實際當我們在使用虛構函數時，是把它當作跳板，去自動便是哪個函式是哪個函式，e.]]></description>
+</item><item>
     <title>C&#43;&#43; 關於某小數轉進制的題目-解題經驗</title>
     <link>https://huangno1.github.io/c-_solving_decimal_programming/</link>
     <pubDate>Fri, 11 Oct 2019 12:24:00 &#43;0800</pubDate>
