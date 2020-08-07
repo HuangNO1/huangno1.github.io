@@ -4,7 +4,19 @@
         <link>https://huangno1.github.io/posts/</link>
         <description>所有文章 | Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 07 Aug 2020 13:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 07 Aug 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫</title>
+    <link>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</link>
+    <pubDate>Fri, 07 Aug 2020 16:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png" referrerpolicy="no-referrer">
+            </div>前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
+安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。
+1 2 3 4 5  sudo pacman -S texlive-most # 安裝約 12 個包 sudo pacman -S texlive-core # 只裝核心 sudo pacman -S texlive-langchinese # 安裝中文支持   測試安裝 進入特定資料夾，輸入下面兩行指令測試是否安裝成功，
+ tex '\empty Hello world!\bye' 會生成 texput.dvi 和 texput.log。 pdftex '\empty Hello world!\bye' 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!]]></description>
+</item><item>
     <title>Markdown 學習筆記 - 基礎語法</title>
     <link>https://huangno1.github.io/markdown_learn_note_basic_syntax/</link>
     <pubDate>Fri, 07 Aug 2020 13:49:28 &#43;0800</pubDate>
@@ -18,18 +30,6 @@
  Typora：跨平台的 Markdown 編輯器，簡直是利器。 Visual Studio Code：使用 VScode 也可以寫 Markdown，安裝 Markdown All in One 和 Markdown Preview Enhanced 延伸模組，就能夠舒服地寫筆記或文章。 HackMD：線上共筆平台，使用 Markdown，大家在共同寫文檔時可以使用這平台  文本編寫標準 中文文案排版指北 [简体中文 ][繁体中文 ]
 區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加 ===，第二種就是加上 #。
 1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!]]></description>
-</item><item>
-    <title>在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫</title>
-    <link>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</link>
-    <pubDate>Fri, 07 Aug 2020 13:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/markdown_learn_note_basic_syntax.png" referrerpolicy="no-referrer">
-            </div>前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
-安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。
-1 2 3 4 5  sudo pacman -S texlive-most # 安裝約 12 個包 sudo pacman -S texlive-core # 只裝核心 sudo pacman -S texlive-langchinese # 安裝中文支持   測試安裝 進入特定資料夾，輸入下面兩行指令測試是否安裝成功，
- tex '\empty Hello world!\bye' 會生成 texput.dvi 和 texput.log。 pdftex '\empty Hello world!\bye' 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!]]></description>
 </item><item>
     <title>JS - 賦值問題</title>
     <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
