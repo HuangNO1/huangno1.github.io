@@ -7,7 +7,7 @@ Markdown 我認為是非常好的語言，我每次寫 Blog 或是寫項目、�
 
 寫 Markdown 的工具：
 
-我推薦下面兩個
+我推薦下面幾個：
 
 - [Typora](https://typora.io/)：跨平台的 Markdown 編輯器，簡直是利器。
 - [Visual Studio Code](https://code.visualstudio.com/)：使用 VScode 也可以寫 Markdown，安裝 **Markdown All in One** 和 **Markdown Preview Enhanced** 延伸模組，就能夠舒服地寫筆記或文章。
@@ -21,7 +21,7 @@ Markdown 我認為是非常好的語言，我每次寫 Blog 或是寫項目、�
 
 ### 標題
 
-h1 - h6，h1 有兩種寫法。第一種是下一行添加三個 `=`，第二種就是加上 `#`。
+h1 - h6，h1 有兩種寫法。第一種是下一行添加 `===`，第二種就是加上 `#`。
 
 ```md
 h1 標題
@@ -56,8 +56,8 @@ Markdown使用email形式的區塊引言，**使用 `>` 的方式添加引言，
 > > id sem consectetuer libero luctus adipiscing.
 > ## This is a header.
 > 
-> 1.   This is the first list item.
-> 2.   This is the second list item.
+> 1. This is the first list item.
+> 2. This is the second list item.
 ```
 
 輸出如下：
@@ -71,8 +71,8 @@ Markdown使用email形式的區塊引言，**使用 `>` 的方式添加引言，
 > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
 > > id sem consectetuer libero luctus adipiscing.
 > 
-> 1.   This is the first list item.
-> 2.   This is the second list item.
+> 1. This is the first list item.
+> 2. This is the second list item.
 
 ### 清單 List
 
@@ -123,16 +123,16 @@ Markdown使用email形式的區塊引言，**使用 `>` 的方式添加引言，
 使用數字接著一個英文句點：
 
 ```md
-1.  Bird
-2.  McHale
-3.  Parish
+1. Bird
+2. McHale
+3. Parish
 ```
 
 輸出如下：
 
-1.  Bird
-2.  McHale
-3.  Parish
+1. Bird
+2. McHale
+3. Parish
 
 #### 注意
 
