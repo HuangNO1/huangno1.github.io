@@ -117,113 +117,139 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/markdown_learn_note_basic_syntax/"><img
+            <a href="/flask_mysql/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/markdown_learn_note_basic_syntax.png"
-        data-srcset="/featuredImage/compressed/markdown_learn_note_basic_syntax.png, /featuredImage/compressed/markdown_learn_note_basic_syntax.png 1.5x, /featuredImage/compressed/markdown_learn_note_basic_syntax.png 2x"
+        data-src="/featuredImage/compressed/flask_mysql.png"
+        data-srcset="/featuredImage/compressed/flask_mysql.png, /featuredImage/compressed/flask_mysql.png 1.5x, /featuredImage/compressed/flask_mysql.png 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/markdown_learn_note_basic_syntax.png"
-        title="/featuredImage/compressed/markdown_learn_note_basic_syntax.png" /></a>
+        alt="/featuredImage/compressed/flask_mysql.png"
+        title="/featuredImage/compressed/flask_mysql.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/markdown_learn_note_basic_syntax/">Markdown 學習筆記 - 基礎語法</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-07">2020-08-07</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/markdown/"><i class="far fa-folder fa-fw"></i>Markdown</a></span></div><div class="content">前言 Markdown 我認為是非常好的語言，我每次寫 Blog 或是寫項目、作筆記，Markdown 是首選，LaTeX 比較適合拿來寫報告或是論文。我就在這篇寫一下 Markdown 基礎語法，也就是平常經常用到的語法，其實當初學 Markdown 只花了一小時，後面慢慢寫多就習慣了。
-寫 Markdown 的工具：
-我推薦下面兩個
- Typora：跨平台的 Markdown 編輯器，簡直是利器。 Visual Studio Code：使用 VScode 也可以寫 Markdown，安裝 Markdown All in One 和 Markdown Preview Enhanced 延伸模組，就能夠舒服地寫筆記或文章。 HackMD：線上共筆平台，使用 Markdown，大家在共同寫文檔時可以使用這平台  文本編寫標準 中文文案排版指北 [简体中文 ][繁体中文 ]
-區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加三個 =，第二種就是加上 #。
-1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!</div><div class="post-footer">
-        <a href="/markdown_learn_note_basic_syntax/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/markdown/">Markdown</a></div></div>
+        <a href="/flask_mysql/">Flask 中使用 MySQL</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-04">2020-08-04</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
+安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
+1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.</div><div class="post-footer">
+        <a href="/flask_mysql/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E5%BA%AB/">數據庫</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/js_pointer_object_array_variable_assignment/"><img
+            <a href="/how_to_learn_cs/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png"
-        data-srcset="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png, /featuredImage/compressed/js_pointer_object_array_variable_assignment.png 1.5x, /featuredImage/compressed/js_pointer_object_array_variable_assignment.png 2x"
+        data-src="/featuredImage/compressed/how_to_learn_cs.png"
+        data-srcset="/featuredImage/compressed/how_to_learn_cs.png, /featuredImage/compressed/how_to_learn_cs.png 1.5x, /featuredImage/compressed/how_to_learn_cs.png 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png"
-        title="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png" /></a>
+        alt="/featuredImage/compressed/how_to_learn_cs.png"
+        title="/featuredImage/compressed/how_to_learn_cs.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/js_pointer_object_array_variable_assignment/">JS - 賦值問題</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-06">2020-08-06</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">關於我遇到的問題 這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。
-下面是我用簡單的 Code 描述我遇到的問題，object 是一個 Object Array，然後傳入函數進行局域變量賦值。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.</div><div class="post-footer">
-        <a href="/js_pointer_object_array_variable_assignment/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/pointer/">Pointer</a>,&nbsp;<a href="/tags/variable/">Variable</a>,&nbsp;<a href="/tags/object/">Object</a>,&nbsp;<a href="/tags/assignment/">Assignment</a>,&nbsp;<a href="/tags/array/">Array</a></div></div>
+        <a href="/how_to_learn_cs/">關於學習軟件工程與技術的方法</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-04">2020-08-04</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">學習態度  讀萬卷書不如行萬里路。
+ 我認為學習工程相關最重要的莫過於要親身去實踐手作，而非靠一堆理論知識和小實驗去學習，做項目讓自己有經驗莫過於看一堆理論知識以及為考試或光鮮亮麗的文憑。切記，實作是刻印在人的身體。
+再者，學習是靠興趣的，想要學好軟件工程，需要愛上編程，如果只是像學校老師或學長姊得學習步調走，而不自己主動去學習並實作自己感興趣部份，你將永遠不會學會編程。
+學習步調 學習一門技術分幾個階段：
+  初步認識，了解原理等理論知識。
+  會寫 Hello world，學會基礎使用語法。
+  熟練該門語言，並能自己使用這技術開發中小型 Demo 與項目。
+  精通該語言，能駕馭該門技術，開發大型項目。
+  不要學到了 Hello world 就認為自己已經精通了，你還隻是菜鳥。不要還沒學會爬就想跑步，除非你自認天才。
+關於文檔 我自己認為文檔在開發項目的比重並沒有很重要，要求文檔的前提是整體隊伍有一定的水平實力能去實現，不然寫出來的文檔也無法實現。做項目的是人不是文字，文檔頂多起到開發輔助的效用。然而，現在學校很多比賽卻是重視文檔，各種 PPT 大賽到 PS、PR 編程，這事實讓人痛心，使很多有實力的人因為文檔的繁文縟節而退卻。要真正做到的是項目不是靠文字或嘴巴或白嫖網上開源代碼&hellip;&hellip;等方法實現，而是靠自己紮實編寫的代碼。
+代碼技巧與學習管道 我認為有幾個技能是一個程序員必備的：
+  學會使用搜索引擎關鍵字。
+  翻牆使用 Google、Github、Stackoverflow、Youtube&hellip;等學習網頁。
+  官方文檔有時是最好的選擇。
+  編程注意註解，還有變量函數命名、代碼編排，儘可能讓代碼精簡。
+  要捨得花時間學習新知識。
+  Git、Github、Markdown 的使用，寫正式報告建議使用 LaTeX。文檔交 PDF 格式。
+  自己的 Blog，用來創造發表自己的想法與技巧。
+  保持上進心、好奇心與謙虛，要勇於探索新事物，且人上有人，天外有天。
+  最後希望大家能擇你所愛，愛你所擇，如果敲代碼是你的興趣，那恭喜你，你有自己的愛好。</div><div class="post-footer">
+        <a href="/how_to_learn_cs/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/cs/">CS</a>,&nbsp;<a href="/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/">計算機科學</a>,&nbsp;<a href="/tags/%E8%BB%9F%E4%BB%B6%E5%B7%A5%E7%A8%8B/">軟件工程</a>,&nbsp;<a href="/tags/%E5%B7%A5%E7%A8%8B%E5%AD%B8/">工程學</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/js_array_prototype/"><img
+            <a href="/csu_freshman_sophomore/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/js_array_prototype.png"
-        data-srcset="/featuredImage/compressed/js_array_prototype.png, /featuredImage/compressed/js_array_prototype.png 1.5x, /featuredImage/compressed/js_array_prototype.png 2x"
+        data-src="/featuredImage/compressed/csu_freshman_sophomore.png"
+        data-srcset="/featuredImage/compressed/csu_freshman_sophomore.png, /featuredImage/compressed/csu_freshman_sophomore.png 1.5x, /featuredImage/compressed/csu_freshman_sophomore.png 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/js_array_prototype.png"
-        title="/featuredImage/compressed/js_array_prototype.png" /></a>
+        alt="/featuredImage/compressed/csu_freshman_sophomore.png"
+        title="/featuredImage/compressed/csu_freshman_sophomore.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/js_array_prototype/">JS - forEach()、map()、filter()、reduce()、循環遍歷</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-06">2020-08-06</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 在這篇文章筆記紀錄一下 JS 的 Array 屬性。
-forEach() forEach 是對每一項的操作，會影響原來的 array，不會有回傳值，即使強制寫 return，也會是空值，例子如下。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  // JS forEach 與 map  // forEach 是對每一項的操作，會影響原來的 array let arr = [1, 2, 3, 4, 5, 6] // 對數組直接進行循環，相當於 for，沒有返回值 // result 不會有返回值 即使寫了 return 也是 undefined let result = arr.forEach((item, index, arr) =&gt; { console.log(item) console.log(index) console.log(arr) return item }) console.log(result)   map() map 則是不會影響原來的 array 值，而是生成新的值返回給新的數組。對 Array 每一項進行加工，加工完成之後返回一個新的數組。</div><div class="post-footer">
-        <a href="/js_array_prototype/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/foreach/">forEach</a>,&nbsp;<a href="/tags/map/">map</a>,&nbsp;<a href="/tags/filter/">filter</a>,&nbsp;<a href="/tags/reduce/">reduce</a>,&nbsp;<a href="/tags/%E5%BE%AA%E7%92%B0%E9%81%8D%E6%AD%B7/">循環遍歷</a>,&nbsp;<a href="/tags/array/">Array</a></div></div>
+        <a href="/csu_freshman_sophomore/">我在中南大學軟件工程本科大一和大二的這兩年</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-04">2020-08-04</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">來大陸前 今天是 2020/08/04，是我在中南大學本科生大二升大三的暑假，想想時光過得真快，已經兩年了，不知不覺大一時自己還只是一隻菜鳥，現在還是菜鳥，來大陸唸中南大學前，我其實對於大陸不熟悉，畢竟一直在台灣讀的書，甚至一直猶豫，不敢踏出舒適圈，爸媽軟硬兼施強迫我要去大陸唸書，當時我有鄭州大學和中南大學的錄取通知，我自己思考後決定了中南大學，畢竟是雙一流，福州大學因為當時已經決定錄取中南大學，所以我沒有去面試，這是我來中南的由來。至於選擇軟件工程，其實一開始我想要讀的是資訊工程，但是奈何大陸沒有科系（專業）是叫做資訊工程的，結果選錯選成軟件工程，原來大陸的資訊工程是計算機科學，但是現在也沒什麼好後悔的。
+大一 中南大學南校區01.png
+" 中南大學南校區 
+大一大概是我最難適應的，高等數學、離散數學、線性代數真的很難，尤其是大陸的教科書教材我覺得不像台灣寫得那麼通俗易懂，給的例子有時也讓人費解，我還記得我掛科了，但是後面又渾渾噩噩地補考過了，自己的成績實在是差強人意，只有專業課寫 Code 我不容易掛科，我記得大一我的 C++ 是裸考沒複習，過是過了，但是沒去看歷屆，所以分數不如周遭的人高分，有時我仔細想想我大學生活到現在到底學了什麼，這時就真的很難受，答案是沒有，我不知道自己在學什麼，有什麼技術是自己可以有自信的？沒有&hellip;我覺得這一切都太荒謬了，上課耽誤了學習，我覺得大陸計算機教育最大的敗筆是只會搞虛的理論知識，忘記了既然讀的是工程學，就應該側重實作，從實作中學習理論，我無法理解為什麼上 C++ 不全程在電腦教室（機房）上課，為什麼考試要手寫代碼在紙上，不過聽說現在大一新生有改成在機房考試。再來，學校教的東西都很淺，如果你只是妥妥跟著學校安排學，你只會成為一名碼農，對計算機專業沒有興趣，只是看在錢多才讀這專業，說實在的，這是虛度人生，選擇了根本不是自己熱衷的專業。我大一根本就是在虛度光陰。
+我和我朋友們在大一下報名了大學生創新創業立項，要說報名的一開始的感覺是什麼，那就是抱有理想，最後我已經從希望變絕望，原來所謂的學校比賽比的是文檔呀！我當時是當隊長，然而我卻對隊長這職務感到煩厭了，畢竟最後大家都因為課業沒時間參加比賽，然後也察覺其實這些比賽進到國家級的大多都是祖傳的項目，沒幾個人是有做實事的，虛假的表面，包裝起來的文檔。
+大一最讓我感到新鮮的是長沙冬天下的雪景，但是大二就沒有了，看來雪景不是年年都有。
+大二 中南大學南校區02.jpg
+" 中南大學南校區 
+ 大二上軟件工程學院的軟件工程併入計算機學院。
+ 我們軟件工程 18 級從南校區搬到了鐵道校區，然而自習的地方真的很不舒服，很想進實驗室自習，鐵道的圖書館找不到自習的位置又小的可憐，然後不管是南校新校區還是鐵道的圖書館，最另讓我感到詬病的是佔座文化，佔著茅坑不拉屎，桌上有書或是水壺，但是座位上卻一直不見人影。鐵道校區真的蠻糟糕的，但其實我在南校區時就覺得宿舍環境糟糕了，沒想到鐵道更糟。然後也養成不喜歡去學校食堂吃東西，因為排隊排太長了，菜色大多也是辣的，不知不覺中，自己吃習慣了辣和重口味，回台灣吃飯時，竟然覺得台灣的菜沒味道。
+我開始發現，所以我學的技術都是靠自學，學校教不了我任何東西，重新認識到自學的重要性，我缺乏做 Project 的經驗，所以我開始不重視學校的課程，但是該考試要背的還是會去背，好消息是我已經爭取到進老師的實驗室。
+大二的寒假這時我也成年滿 20 歲了，但是 2020/1/11 沒有回台灣投票，但選總統的大事我還是有關注。因為疫情關係，大二下學期我在台灣和大家線上上課，大家都是遠程教學，我想我大二下越來越厭惡什麼文學編程，還有只會說不會做，出一張嘴的事物。話說大二下的編譯原理真的很難，幸好最後老師手下留情，沒有將考卷出的太難。
+對湖南長沙的感受 真的是鄉下耶，我以為長沙會發達一些，雖然我讀的是 985，但是實在不想不嘴一下，貴為 985 卻沒感到學校資源有多豐富。剛來大陸就因為不熟被別人騙，我覺得很過份，人情味和普遍素質不如台灣。然後也不喜歡在大陸辦事人員喜歡踢皮球的習慣，還有玩文字遊戲，拐彎抹角，辦事效率低，一堆形式主義，最痛恨的就是形式主義。但也不是沒有優點，像是其實很多同學普遍素質不錯，在一些意見上雖然不同，但也只是偶爾互相討論也互相包容理解，不曾發生嚴重口角。
+最後 現在正在寫這篇文章的我會對在大陸未來的出路感到迷茫，我也不會包裝自己，口才比不過別人，正在朝著變強努力中。或許最後會回台灣吧。</div><div class="post-footer">
+        <a href="/csu_freshman_sophomore/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/csu/">CSU</a>,&nbsp;<a href="/tags/%E4%B8%AD%E5%8D%97%E5%A4%A7%E5%AD%B8/">中南大學</a>,&nbsp;<a href="/tags/%E5%A4%A7%E9%99%B8/">大陸</a>,&nbsp;<a href="/tags/%E5%A4%A7%E4%B8%80/">大一</a>,&nbsp;<a href="/tags/%E5%A4%A7%E4%BA%8C/">大二</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/react_learn_note/"><img
+            <a href="/vue_skill/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/react_learn_note.png"
-        data-srcset="/featuredImage/compressed/react_learn_note.png, /featuredImage/compressed/react_learn_note.png 1.5x, /featuredImage/compressed/react_learn_note.png 2x"
+        data-src="/featuredImage/compressed/vue_skill.png"
+        data-srcset="/featuredImage/compressed/vue_skill.png, /featuredImage/compressed/vue_skill.png 1.5x, /featuredImage/compressed/vue_skill.png 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/react_learn_note.png"
-        title="/featuredImage/compressed/react_learn_note.png" /></a>
+        alt="/featuredImage/compressed/vue_skill.png"
+        title="/featuredImage/compressed/vue_skill.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/react_learn_note/">React 學習筆記</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
-建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
- 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
- npx
-1  npx create-react-app my-app   npm
-1  npm init react-app my-app   Yarn
- Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
- 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.</div><div class="post-footer">
-        <a href="/react_learn_note/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/jsx/">JSX</a>,&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/redux/">Redux</a>,&nbsp;<a href="/tags/reactrouter/">ReactRouter</a></div></div>
+        <a href="/vue_skill/">VUE 技巧與經驗</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-07-31">2020-07-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
+這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
+如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
+Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
+ 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
+ Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。</div><div class="post-footer">
+        <a href="/vue_skill/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/vuex/">Vuex</a>,&nbsp;<a href="/tags/vue-router/">Vue-Router</a>,&nbsp;<a href="/tags/request/">Request</a>,&nbsp;<a href="/tags/axios/">Axios</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/flask_cors/"><img
+            <a href="/hugo_theme_change/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/flask_cors.png"
-        data-srcset="/featuredImage/compressed/flask_cors.png, /featuredImage/compressed/flask_cors.png 1.5x, /featuredImage/compressed/flask_cors.png 2x"
+        data-src="/featuredImage/compressed/hugo_theme_change.png"
+        data-srcset="/featuredImage/compressed/hugo_theme_change.png, /featuredImage/compressed/hugo_theme_change.png 1.5x, /featuredImage/compressed/hugo_theme_change.png 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/flask_cors.png"
-        title="/featuredImage/compressed/flask_cors.png" /></a>
+        alt="/featuredImage/compressed/hugo_theme_change.png"
+        title="/featuredImage/compressed/hugo_theme_change.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/flask_cors/">Flask 跨域設置</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   </div><div class="post-footer">
-        <a href="/flask_cors/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/cors/">CORS</a>,&nbsp;<a href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a></div></div>
+        <a href="/hugo_theme_change/">Rem Blog 的構造改革過程心得</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-07-31">2020-07-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">感觸 我第一次接觸 Hugo 的時候，是我因為朋友的技術 Blog 所以感興趣，尤其因為當時剛開始接觸項目和比賽，所以學了 Git 和 Markdown 卻不熟練，笨手笨腳的，那時大一生的我實在是太菜了，現在想想已經過了兩年，已經到了升上大三，時光飛逝，年紀越大感觸越深。
+我第一次學怎麼構建 Hugo + Github Pages 構建自己的 Blog 是看這篇文章，這篇文章真的寫得很好，我也推薦我室友看這篇文章，他也快速就上手了。我還記得當時我真的就是折騰在 Hugo 主題上，我第一次選的主題無法發表 Posts，是比較適合拿來做簡歷的主題，害我白搞了一天要換主題，第二次看中了 AllinOne 主題（不知道位為什麼現在這主題從 Hugo Theme 網站下架了），因為看這主題很酷炫，但這主題說真的配置起來很麻煩，最後配置完還發現手機端的顯示不正常，要自己去修 CSS，還有各種 Bug。
+最近又因為發現自己很多文章中上傳到圖床的圖片很多被 404 了，我也不知道為什麼被 SM.MS 給 Block 了，加上我 AllinOne 這主題讓我的 Blog 載入速度過慢，直到前幾天，我經過好友的建議，終於決定要全面換新，我也考慮要換哪個主題找好久，好友推薦我 LoveIt 這主題，我也最終被這主題的界面打動，決定改用這個主題，一開始摸索這主題的配置參數弄了很久，加上這個主題沒有正體中文的界面，所以我自己去修 i18n 的文件內容，把自己所有文章的構造重新整理一次，將自己所有的文章要用圖片都使用 Tinypng 壓縮過再上傳到 imgpoi，最終成了現在的樣子。我很滿意 (,,・ω・,,)
+Rem BlogRemBlog.png
+" Rem Blog 
+Reference  AllinOne LoveIt  </div><div class="post-footer">
+        <a href="/hugo_theme_change/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/theme/">Theme</a>,&nbsp;<a href="/tags/loveit/">LoveIt</a>,&nbsp;<a href="/tags/allinone/">AllinOne</a>,&nbsp;<a href="/tags/blog/">Blog</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/flask_jwt/"><img
+            <a href="/python_rome_number_programming/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/flask_jwt.png"
-        data-srcset="/featuredImage/compressed/flask_jwt.png, /featuredImage/compressed/flask_jwt.png 1.5x, /featuredImage/compressed/flask_jwt.png 2x"
+        data-src="/featuredImage/compressed/python_rome_number_programming.jpg"
+        data-srcset="/featuredImage/compressed/python_rome_number_programming.jpg, /featuredImage/compressed/python_rome_number_programming.jpg 1.5x, /featuredImage/compressed/python_rome_number_programming.jpg 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/flask_jwt.png"
-        title="/featuredImage/compressed/flask_jwt.png" /></a>
+        alt="/featuredImage/compressed/python_rome_number_programming.jpg"
+        title="/featuredImage/compressed/python_rome_number_programming.jpg" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/flask_jwt/">Flask 中使用 JWT</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 因為我寫的上一篇文章是&rdquo;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
-Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
- 在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
- JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：
- JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
-e.g.
-1 2 3  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0. WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo   header 存放 token 型別與加密方式 。</div><div class="post-footer">
-        <a href="/flask_jwt/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/jwt/">JWT</a>,&nbsp;<a href="/tags/token/">Token</a></div></div>
+        <a href="/python_rome_number_programming/">Python 解決羅馬數字轉換 NPSC 模擬試題</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-07-30">2020-07-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
+題目 這是高中生解題系統基礎題庫裡的 a013 題目
+內容 如果生活在數世紀之前的古羅馬，你應該用過 V 來表示五。V 和 5 這兩個符號都可以用來表示數目五。用來表示數目的符號稱作數字。而羅馬人用來表示數目的符號就是羅馬數字。
+以下是七個基本的羅馬數字︰
+   羅馬數字 數目     I 1   V 5   X 10   L 50   C 100   D 500   M 1,000    所有其他的數目都是由這些數字組合而成。數目都是由左寫到右，通常值是等於組成的羅馬數字加起來。
+例如十七可以表示為
+1 2  X + V + I + I = XVII 10 + 5 + 1 + 1 = 17   表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。</div><div class="post-footer">
+        <a href="/python_rome_number_programming/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/%E9%80%B2%E5%88%B6/">進制</a>,&nbsp;<a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95/">演算法</a>,&nbsp;<a href="/tags/npsc/">NPSC</a>,&nbsp;<a href="/tags/%E7%BE%85%E9%A6%AC%E6%95%B8%E5%AD%97/">羅馬數字</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -239,10 +265,6 @@ e.g.
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/4/">4</a>
-                    </span>
-                </li><li class="page-item ">
-                    <span class="page-link">
-                        <a href="/page/5/">5</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
