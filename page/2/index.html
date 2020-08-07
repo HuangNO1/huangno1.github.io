@@ -117,6 +117,26 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/flask_jwt/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/flask_jwt.png"
+        data-srcset="/featuredImage/compressed/flask_jwt.png, /featuredImage/compressed/flask_jwt.png 1.5x, /featuredImage/compressed/flask_jwt.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/flask_jwt.png"
+        title="/featuredImage/compressed/flask_jwt.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/flask_jwt/">Flask 中使用 JWT</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 因為我寫的上一篇文章是&rdquo;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
+Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
+ 在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
+ JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：
+ JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
+e.g.
+1 2 3  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0. WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo   header 存放 token 型別與加密方式 。</div><div class="post-footer">
+        <a href="/flask_jwt/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/jwt/">JWT</a>,&nbsp;<a href="/tags/token/">Token</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/flask_mysql/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -230,26 +250,6 @@ Rem BlogRemBlog.png
 Reference  AllinOne LoveIt  </div><div class="post-footer">
         <a href="/hugo_theme_change/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/theme/">Theme</a>,&nbsp;<a href="/tags/loveit/">LoveIt</a>,&nbsp;<a href="/tags/allinone/">AllinOne</a>,&nbsp;<a href="/tags/blog/">Blog</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/python_rome_number_programming/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/python_rome_number_programming.jpg"
-        data-srcset="/featuredImage/compressed/python_rome_number_programming.jpg, /featuredImage/compressed/python_rome_number_programming.jpg 1.5x, /featuredImage/compressed/python_rome_number_programming.jpg 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/python_rome_number_programming.jpg"
-        title="/featuredImage/compressed/python_rome_number_programming.jpg" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/python_rome_number_programming/">Python 解決羅馬數字轉換 NPSC 模擬試題</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-07-30">2020-07-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
-題目 這是高中生解題系統基礎題庫裡的 a013 題目
-內容 如果生活在數世紀之前的古羅馬，你應該用過 V 來表示五。V 和 5 這兩個符號都可以用來表示數目五。用來表示數目的符號稱作數字。而羅馬人用來表示數目的符號就是羅馬數字。
-以下是七個基本的羅馬數字︰
-   羅馬數字 數目     I 1   V 5   X 10   L 50   C 100   D 500   M 1,000    所有其他的數目都是由這些數字組合而成。數目都是由左寫到右，通常值是等於組成的羅馬數字加起來。
-例如十七可以表示為
-1 2  X + V + I + I = XVII 10 + 5 + 1 + 1 = 17   表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。</div><div class="post-footer">
-        <a href="/python_rome_number_programming/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/%E9%80%B2%E5%88%B6/">進制</a>,&nbsp;<a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95/">演算法</a>,&nbsp;<a href="/tags/npsc/">NPSC</a>,&nbsp;<a href="/tags/%E7%BE%85%E9%A6%AC%E6%95%B8%E5%AD%97/">羅馬數字</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -265,6 +265,10 @@ Reference  AllinOne LoveIt  </div><div class="post-footer">
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/4/">4</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/5/">5</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

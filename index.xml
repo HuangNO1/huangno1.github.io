@@ -21,6 +21,18 @@
 區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加 ===，第二種就是加上 #。
 1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!]]></description>
 </item><item>
+    <title>在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫</title>
+    <link>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</link>
+    <pubDate>Fri, 07 Aug 2020 13:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/markdown_learn_note_basic_syntax.png" referrerpolicy="no-referrer">
+            </div>前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
+安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。
+1 2 3 4 5  sudo pacman -S texlive-most # 安裝約 12 個包 sudo pacman -S texlive-core # 只裝核心 sudo pacman -S texlive-langchinese # 安裝中文支持   測試安裝 進入特定資料夾，輸入下面兩行指令測試是否安裝成功，
+ tex '\empty Hello world!\bye' 會生成 texput.dvi 和 texput.log。 pdftex '\empty Hello world!\bye' 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!]]></description>
+</item><item>
     <title>JS - 賦值問題</title>
     <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
     <pubDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</pubDate>
@@ -145,19 +157,5 @@ e.g.
 大二的寒假這時我也成年滿 20 歲了，但是 2020/1/11 沒有回台灣投票，但選總統的大事我還是有關注。因為疫情關係，大二下學期我在台灣和大家線上上課，大家都是遠程教學，我想我大二下越來越厭惡什麼文學編程，還有只會說不會做，出一張嘴的事物。話說大二下的編譯原理真的很難，幸好最後老師手下留情，沒有將考卷出的太難。
 對湖南長沙的感受 真的是鄉下耶，我以為長沙會發達一些，雖然我讀的是 985，但是實在不想不嘴一下，貴為 985 卻沒感到學校資源有多豐富。剛來大陸就因為不熟被別人騙，我覺得很過份，人情味和普遍素質不如台灣。然後也不喜歡在大陸辦事人員喜歡踢皮球的習慣，還有玩文字遊戲，拐彎抹角，辦事效率低，一堆形式主義，最痛恨的就是形式主義。但也不是沒有優點，像是其實很多同學普遍素質不錯，在一些意見上雖然不同，但也只是偶爾互相討論也互相包容理解，不曾發生嚴重口角。
 最後 現在正在寫這篇文章的我會對在大陸未來的出路感到迷茫，我也不會包裝自己，口才比不過別人，正在朝著變強努力中。或許最後會回台灣吧。]]></description>
-</item><item>
-    <title>VUE 技巧與經驗</title>
-    <link>https://huangno1.github.io/vue_skill/</link>
-    <pubDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/vue_skill/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/vue_skill.png" referrerpolicy="no-referrer">
-            </div>前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
-這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
-Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
- 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。]]></description>
 </item></channel>
 </rss>
