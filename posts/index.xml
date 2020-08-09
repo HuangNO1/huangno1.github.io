@@ -46,7 +46,7 @@
 區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加 ===，第二種就是加上 #。
 1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!]]></description>
 </item><item>
-    <title>JS - 賦值問題</title>
+    <title>JS - Object Array 賦值問題</title>
     <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
     <pubDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</pubDate>
     <author>作者</author>
@@ -68,7 +68,7 @@
 forEach() forEach 是對每一項的操作，會影響原來的 array，不會有回傳值，即使強制寫 return，也會是空值，例子如下。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  // JS forEach 與 map  // forEach 是對每一項的操作，會影響原來的 array let arr = [1, 2, 3, 4, 5, 6] // 對數組直接進行循環，相當於 for，沒有返回值 // result 不會有返回值 即使寫了 return 也是 undefined let result = arr.forEach((item, index, arr) =&gt; { console.log(item) console.log(index) console.log(arr) return item }) console.log(result)   map() map 則是不會影響原來的 array 值，而是生成新的值返回給新的數組。對 Array 每一項進行加工，加工完成之後返回一個新的數組。]]></description>
 </item><item>
-    <title>React 學習筆記</title>
+    <title>React 學習筆記 - JSX、組件、渲染、路由、Redux</title>
     <link>https://huangno1.github.io/react_learn_note/</link>
     <pubDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</pubDate>
     <author>作者</author>
@@ -121,7 +121,7 @@ e.g.
 安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
 1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.]]></description>
 </item><item>
-    <title>關於學習軟件工程與技術的方法</title>
+    <title>關於學習軟件工程、計算機科學與技術的方法</title>
     <link>https://huangno1.github.io/how_to_learn_cs/</link>
     <pubDate>Tue, 04 Aug 2020 21:49:28 &#43;0800</pubDate>
     <author>作者</author>

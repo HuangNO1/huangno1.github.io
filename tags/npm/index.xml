@@ -5,7 +5,7 @@
         <description>npm - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/npm/" rel="self" type="application/rss+xml" /><item>
-    <title>React 學習筆記</title>
+    <title>React 學習筆記 - JSX、組件、渲染、路由、Redux</title>
     <link>https://huangno1.github.io/react_learn_note/</link>
     <pubDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</pubDate>
     <author>作者</author>
@@ -21,7 +21,7 @@
  Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
  1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.]]></description>
 </item><item>
-    <title>VUE 技巧與經驗</title>
+    <title>Vue 技巧與經驗 - 項目構建、組件、路由、請求</title>
     <link>https://huangno1.github.io/vue_skill/</link>
     <pubDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</pubDate>
     <author>作者</author>

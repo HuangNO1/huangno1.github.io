@@ -1,4 +1,4 @@
-# React 學習筆記
+# React 學習筆記 - JSX、組件、渲染、路由、Redux
 
 
 ## 前言

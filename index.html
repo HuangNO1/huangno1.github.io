@@ -182,7 +182,7 @@
         alt="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png"
         title="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/js_pointer_object_array_variable_assignment/">JS - 賦值問題</a>
+        <a href="/js_pointer_object_array_variable_assignment/">JS - Object Array 賦值問題</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-06">2020-08-06</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">關於我遇到的問題 這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。
 下面是我用簡單的 Code 描述我遇到的問題，object 是一個 Object Array，然後傳入函數進行局域變量賦值。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.</div><div class="post-footer">
@@ -214,7 +214,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
         alt="/featuredImage/compressed/react_learn_note.png"
         title="/featuredImage/compressed/react_learn_note.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/react_learn_note/">React 學習筆記</a>
+        <a href="/react_learn_note/">React 學習筆記 - JSX、組件、渲染、路由、Redux</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
 建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
  註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
