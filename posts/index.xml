@@ -102,7 +102,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
     <guid>https://huangno1.github.io/flask_jwt/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/flask_jwt.png" referrerpolicy="no-referrer">
-            </div>前言 因為我寫的上一篇文章是&rdquo;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
+            </div>前言 因為我寫的上一篇文章是&quot;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
 Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
  在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
  JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：

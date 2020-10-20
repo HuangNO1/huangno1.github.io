@@ -353,8 +353,10 @@ systemctl start v2ray
 
 下載 clash。
 
+> 2020 / 10 / 20 更新：舊版 clash AUR 上的包出現了使用上的問題，改用 clash-premium-bin。使用指令也做了變更，需要指定訂閱文件。
+
 ```zsh
-sudo pacman -S clash
+sudo pacman -S clash-premium-bin
 ```
 
 進入 `~/.config/clash` 下載自己的 `config.yml`。如果 `./config` 裡面 `clash` 沒有就自己新增。
@@ -367,7 +369,7 @@ sudo pacman -S wget
 wget -O config.yml "xxxxxxxxxxxxxxx"
 ```
 
-接著修改 `config.yml` 的 `socks-port` 代理端口為 **1080**。
+接著修改 `config.yml` 的 `socks-port` 代理端口為 **1080**，用預設端口也可以。
 
 接下來需要新的的文件是 `Country.mmdb`，這份文件已經被牆國牆了，所以需要手動到網上下載。我姑且將該份文件上傳到[百度網盤](https://pan.baidu.com/s/1zFvABeJvcBa_FIfpQT9S7A)，密碼是 **vsor**，希望別被砍掉。如果被砍掉了，我又在 [Github](https://github.com/HuangNO1/Clash_Country.mmdb) 上傳該份文件。
 
@@ -376,7 +378,7 @@ wget -O config.yml "xxxxxxxxxxxxxxx"
 再來就是執行 `clash` 了。
 
 ```zsh
-clash # konsole 輸入 clash
+clash -f .config/clash/config.yaml # konsole 執行 clash
 ```
 
 可以進入 [Clash Dashboard](http://clash.razord.top/#/proxies) 進行切換節點與測延遲等操作。

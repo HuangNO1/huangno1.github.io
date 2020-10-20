@@ -14,7 +14,7 @@
 
 ```zsh
 systemctl enable NetworkManager # 設定開機自啟
-systemctl strat NetworkManager # 啟用 Netmanager
+systemctl start NetworkManager # 啟用 Netmanager
 ping baidu.com # 確認連網
 ```
 
