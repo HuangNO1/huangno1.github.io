@@ -2,7 +2,14 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://huangno1.github.io/categories/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/linux/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/posts/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/server/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/ssh/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/ssh_no_password_connection/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/</loc><lastmod>2020-12-22T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/flask/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/idea/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/intellij/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -10,15 +17,11 @@
             <loc>https://huangno1.github.io/tags/java/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/jdk/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/linux/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/categories/linux/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/maven/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/nginx/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/npm/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/posts/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/python/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/springboot/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/vue/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/vue-cli/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/web/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>

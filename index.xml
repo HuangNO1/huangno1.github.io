@@ -4,9 +4,28 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 22 Dec 2020 16:49:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>SSH 免密訪問服務器端</title>
+    <link>https://huangno1.github.io/ssh_no_password_connection/</link>
+    <pubDate>Tue, 22 Dec 2020 16:49:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/ssh_no_password_connection/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/ssh_no_password_connection.jpg" referrerpolicy="no-referrer">
+            </div>前言 有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。
+SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。
+兩台服務器都編輯 /etc/hosts 文件，添加以下內容，假設各自的公網 IP 是 10.10.15.xx1、10.10.15.xx2。
+1 2  10.10.15.xx1 Server1 10.10.15.xx2 Server2   這樣子我們在服務器上連接另一個服務器時只需要輸入 ssh Server1、ssh Server2。
+生成密鑰 我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。
+ 如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。
+ 先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。
+1  ssh-keygen -t rsa # 當前使用者生成密鑰   如果你當前是普通使用者就會在 /home/user/.ssh/ 目錄下找到 id_rsa.pub 公鑰。如果是 root 使用者，會在 /root/.ssh/ 目錄裡找到。
+互相共享公鑰 我們先將服務器一的公鑰文件傳給服務器二。
+1  scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1   接著在服務器二上面將雙方公鑰合成一個授權驗證文件。
+ 註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。]]></description>
+</item><item>
     <title>部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</title>
     <link>https://huangno1.github.io/deploy_springboot_flask_vue_web/</link>
     <pubDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</pubDate>
@@ -128,16 +147,5 @@ Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置�
  JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
 e.g.
 1 2 3  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0. WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo   header 存放 token 型別與加密方式 。]]></description>
-</item><item>
-    <title>Flask 中使用 MySQL</title>
-    <link>https://huangno1.github.io/flask_mysql/</link>
-    <pubDate>Tue, 04 Aug 2020 22:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/flask_mysql/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
-            </div>前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
-安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
-1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.]]></description>
 </item></channel>
 </rss>

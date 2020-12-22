@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huangno1.github.io/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
-<meta property="og:updated_time" content="2020-12-21T16:49:26+08:00" />
+<meta property="og:updated_time" content="2020-12-22T16:49:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
@@ -117,6 +117,30 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/ssh_no_password_connection/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/ssh_no_password_connection.jpg"
+        data-srcset="/featuredImage/compressed/ssh_no_password_connection.jpg, /featuredImage/compressed/ssh_no_password_connection.jpg 1.5x, /featuredImage/compressed/ssh_no_password_connection.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/ssh_no_password_connection.jpg"
+        title="/featuredImage/compressed/ssh_no_password_connection.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/ssh_no_password_connection/">SSH 免密訪問服務器端</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-22">2020-12-22</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。
+SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。
+兩台服務器都編輯 /etc/hosts 文件，添加以下內容，假設各自的公網 IP 是 10.10.15.xx1、10.10.15.xx2。
+1 2  10.10.15.xx1 Server1 10.10.15.xx2 Server2   這樣子我們在服務器上連接另一個服務器時只需要輸入 ssh Server1、ssh Server2。
+生成密鑰 我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。
+ 如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。
+ 先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。
+1  ssh-keygen -t rsa # 當前使用者生成密鑰   如果你當前是普通使用者就會在 /home/user/.ssh/ 目錄下找到 id_rsa.pub 公鑰。如果是 root 使用者，會在 /root/.ssh/ 目錄裡找到。
+互相共享公鑰 我們先將服務器一的公鑰文件傳給服務器二。
+1  scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1   接著在服務器二上面將雙方公鑰合成一個授權驗證文件。
+ 註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。</div><div class="post-footer">
+        <a href="/ssh_no_password_connection/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">SSH</a>,&nbsp;<a href="/tags/server/">Server</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/deploy_springboot_flask_vue_web/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -137,7 +161,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
  在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
  1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.</div><div class="post-footer">
         <a href="/deploy_springboot_flask_vue_web/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/springboot/">SpringBoot</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/jdk/">JDK</a>,&nbsp;<a href="/tags/maven/">Maven</a>,&nbsp;<a href="/tags/intellij/">IntelliJ</a>,&nbsp;<a href="/tags/idea/">IDEA</a>,&nbsp;<a href="/tags/jar/">Jar</a>,&nbsp;<a href="/tags/nginx/">Nginx</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a></div></div>
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/server/">Server</a>,&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/springboot/">SpringBoot</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/jdk/">JDK</a>,&nbsp;<a href="/tags/maven/">Maven</a>,&nbsp;<a href="/tags/intellij/">IntelliJ</a>,&nbsp;<a href="/tags/idea/">IDEA</a>,&nbsp;<a href="/tags/jar/">Jar</a>,&nbsp;<a href="/tags/nginx/">Nginx</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/about_c-_class_virtual_function/"><img
         class="lazyload"
@@ -210,22 +234,6 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.</div><div class="post-footer">
         <a href="/js_pointer_object_array_variable_assignment/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/pointer/">Pointer</a>,&nbsp;<a href="/tags/variable/">Variable</a>,&nbsp;<a href="/tags/object/">Object</a>,&nbsp;<a href="/tags/assignment/">Assignment</a>,&nbsp;<a href="/tags/array/">Array</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/js_array_prototype/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/js_array_prototype.png"
-        data-srcset="/featuredImage/compressed/js_array_prototype.png, /featuredImage/compressed/js_array_prototype.png 1.5x, /featuredImage/compressed/js_array_prototype.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/js_array_prototype.png"
-        title="/featuredImage/compressed/js_array_prototype.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/js_array_prototype/">JS - forEach()、map()、filter()、reduce()、循環遍歷</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-06">2020-08-06</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 在這篇文章筆記紀錄一下 JS 的 Array 屬性。
-forEach() forEach 是對每一項的操作，會影響原來的 array，不會有回傳值，即使強制寫 return，也會是空值，例子如下。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  // JS forEach 與 map  // forEach 是對每一項的操作，會影響原來的 array let arr = [1, 2, 3, 4, 5, 6] // 對數組直接進行循環，相當於 for，沒有返回值 // result 不會有返回值 即使寫了 return 也是 undefined let result = arr.forEach((item, index, arr) =&gt; { console.log(item) console.log(index) console.log(arr) return item }) console.log(result)   map() map 則是不會影響原來的 array 值，而是生成新的值返回給新的數組。對 Array 每一項進行加工，加工完成之後返回一個新的數組。</div><div class="post-footer">
-        <a href="/js_array_prototype/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/foreach/">forEach</a>,&nbsp;<a href="/tags/map/">map</a>,&nbsp;<a href="/tags/filter/">filter</a>,&nbsp;<a href="/tags/reduce/">reduce</a>,&nbsp;<a href="/tags/%E5%BE%AA%E7%92%B0%E9%81%8D%E6%AD%B7/">循環遍歷</a>,&nbsp;<a href="/tags/array/">Array</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
