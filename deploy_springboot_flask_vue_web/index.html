@@ -45,7 +45,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/deploy_springboot_flask_vue_web\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, Web, npm, SpringBoot, Linux, Java, JDK, Maven, IntelliJ, IDEA, Jar, Nginx, Python, Flask","wordcount":  1255 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, Web, npm, SpringBoot, Linux, Java, JDK, Maven, IntelliJ, IDEA, Jar, Nginx, Python, Flask","wordcount":  1270 ,
         "url": "https:\/\/huangno1.github.io\/deploy_springboot_flask_vue_web\/","datePublished": "2020-12-21T16:49:28+08:00","dateModified": "2020-12-21T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -141,7 +141,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-21">2020-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1255 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-21">2020-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1270 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -192,6 +192,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
         <li><a href="#使用-nginx-代理">使用 Nginx 代理</a></li>
       </ul>
     </li>
+    <li><a href="#結語">結語</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -476,6 +477,9 @@ mkdir java python sql vue
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="開端口">開端口</h3>
+<blockquote>
+<p>我直接將系統的 <strong>firewalld disable 掉</strong>。</p>
+</blockquote>
 <p>因為服務器會有防火牆這些功能，要到<strong>服務器控制台的安全組的安全規則設置或是防火牆</strong>將進方向和出方向需要<strong>用到的後端端口與前端端口都打開</strong>，不然外部訪問不了服務器，阿里雲的服務器有點奇妙的是無法一次將所有的端口打開，騰訊雲卻可以。</p>
 <p>我使用的 Port 有 <code>8090</code>（SpringBoot）、<code>5000</code>（Flask）、<code>80</code>（Nginx 前端靜態文件代理）。</p>
 <h2 id="配置數據庫">配置數據庫</h2>
@@ -984,6 +988,18 @@ location @router <span class="o">{</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>這是因為 <strong>Vue-router 默認的模式是 <code>hash</code></strong>，而我在寫前端時<strong>設定的模式是 <code>history</code> 模式</strong>，如果沒加上上面那段，刷新頁面就會跳轉到 404，因為會包含到 <code>#</code>。</p>
+<p>最後運行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh">nohup nginx <span class="p">&amp;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>這樣就搭建好一個 Web 項目了。 (〃∀〃)</strong></p>
+<h2 id="結語">結語</h2>
+<p>各位記得要實際去操作才能有經驗上的成長，如果只是看看我的這篇文章就以為自己懂了如何部署，這樣是根本不會部署的，所謂實踐出真知，就是這樣的道理。</p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://blog.csdn.net/CSDN2497242041/article/details/106911182" target="_blank" rel="noopener noreffer">SpringBoot 项目部署到服务器的两种方式 - CSDN</a></li>
