@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head>
-	<meta name="generator" content="Hugo 0.76.4" />
+	<meta name="generator" content="Hugo 0.79.0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://huangno1.github.io/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
-<meta property="og:updated_time" content="2020-08-07T18:49:26+08:00" />
+<meta property="og:updated_time" content="2020-12-21T16:49:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
@@ -117,6 +117,27 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/react_learn_note/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/react_learn_note.png"
+        data-srcset="/featuredImage/compressed/react_learn_note.png, /featuredImage/compressed/react_learn_note.png 1.5x, /featuredImage/compressed/react_learn_note.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/react_learn_note.png"
+        title="/featuredImage/compressed/react_learn_note.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/react_learn_note/">React 學習筆記 - JSX、組件、渲染、路由、Redux</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
+建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
+ 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
+ npx
+1  npx create-react-app my-app   npm
+1  npm init react-app my-app   Yarn
+ Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
+ 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.</div><div class="post-footer">
+        <a href="/react_learn_note/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/jsx/">JSX</a>,&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/redux/">Redux</a>,&nbsp;<a href="/tags/reactrouter/">ReactRouter</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/flask_cors/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -131,7 +152,7 @@
 安裝 跨域有 flask_cors 這個工具。
 1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   </div><div class="post-footer">
         <a href="/flask_cors/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/cors/">CORS</a>,&nbsp;<a href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a></div></div>
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/cors/">CORS</a>,&nbsp;<a href="/tags/%E8%B7%A8%E5%9F%9F/">跨域</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/flask_jwt/"><img
         class="lazyload"
@@ -151,7 +172,7 @@ Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置�
 e.g.
 1 2 3  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0. WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo   header 存放 token 型別與加密方式 。</div><div class="post-footer">
         <a href="/flask_jwt/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/jwt/">JWT</a>,&nbsp;<a href="/tags/token/">Token</a></div></div>
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/jwt/">JWT</a>,&nbsp;<a href="/tags/token/">Token</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/flask_mysql/"><img
         class="lazyload"
@@ -167,7 +188,7 @@ e.g.
 安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
 1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.</div><div class="post-footer">
         <a href="/flask_mysql/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E5%BA%AB/">數據庫</a></div></div>
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E5%BA%AB/">數據庫</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/how_to_learn_cs/"><img
         class="lazyload"
@@ -228,25 +249,6 @@ e.g.
 最後 現在正在寫這篇文章的我會對在大陸未來的出路感到迷茫，我也不會包裝自己，口才比不過別人，正在朝著變強努力中。或許最後會回台灣吧。</div><div class="post-footer">
         <a href="/csu_freshman_sophomore/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/csu/">CSU</a>,&nbsp;<a href="/tags/%E4%B8%AD%E5%8D%97%E5%A4%A7%E5%AD%B8/">中南大學</a>,&nbsp;<a href="/tags/%E5%A4%A7%E9%99%B8/">大陸</a>,&nbsp;<a href="/tags/%E5%A4%A7%E4%B8%80/">大一</a>,&nbsp;<a href="/tags/%E5%A4%A7%E4%BA%8C/">大二</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/vue_skill/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/vue_skill.png"
-        data-srcset="/featuredImage/compressed/vue_skill.png, /featuredImage/compressed/vue_skill.png 1.5x, /featuredImage/compressed/vue_skill.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/vue_skill.png"
-        title="/featuredImage/compressed/vue_skill.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/vue_skill/">Vue 技巧與經驗 - 項目構建、組件、路由、請求</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-07-31">2020-07-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
-這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
-Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
- 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。</div><div class="post-footer">
-        <a href="/vue_skill/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/vuex/">Vuex</a>,&nbsp;<a href="/tags/vue-router/">Vue-Router</a>,&nbsp;<a href="/tags/request/">Request</a>,&nbsp;<a href="/tags/axios/">Axios</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -269,7 +271,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.76.4">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.79.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

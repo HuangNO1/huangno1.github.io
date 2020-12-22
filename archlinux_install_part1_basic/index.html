@@ -47,7 +47,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/archlinux_install_part1_basic\/"
-        },"genre": "posts","keywords": "ArchLinux, Linux","wordcount":  1855 ,
+        },"genre": "posts","keywords": "ArchLinux, Linux","wordcount":  1867 ,
         "url": "https:\/\/huangno1.github.io\/archlinux_install_part1_basic\/","datePublished": "2019-09-28T15:24:28+08:00","dateModified": "2020-07-29T15:58:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -143,7 +143,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-09-28">2019-09-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1855 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-09-28">2019-09-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1867 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 9 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -526,6 +526,7 @@ mkfs.ext4 /dev/sda4 <span class="c1">#格式化 home</span>
 </div><ul>
 <li>EFI 系統分區 <code>boot</code></li>
 </ul>
+<p><strong>注意：這裡只是提供 EFI 格式化方式，如果你的 EFI 已是 Windows 系統的分區，則不建議格式化該 EFI 分區，會造成原有的 Windows 系統崩潰，直接略過格式化 boot。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1266,7 +1267,7 @@ poweroff <span class="c1"># 直接關機</span>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.76.4">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.79.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

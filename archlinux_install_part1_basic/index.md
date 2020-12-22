@@ -209,6 +209,8 @@ mkfs.ext4 /dev/sda4 #格式化 home
 
 * EFI 系統分區 `boot`
 
+**注意：這裡只是提供 EFI 格式化方式，如果你的 EFI 已是 Windows 系統的分區，則不建議格式化該 EFI 分區，會造成原有的 Windows 系統崩潰，直接略過格式化 boot。**
+
 ```zsh
 mkfs.fat -F32 /dev/nvme0n1p1 # 格式化 boot
 ```

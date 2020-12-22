@@ -2,19 +2,36 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://huangno1.github.io/categories/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/flask/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/idea/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/intellij/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/jar/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/java/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/jdk/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/linux/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/linux/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/maven/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/nginx/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/npm/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/posts/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/python/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/springboot/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/vue/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/vue-cli/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/web/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/deploy_springboot_flask_vue_web/</loc><lastmod>2020-12-21T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/c&#43;&#43;/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/about_c-_class_virtual_function/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/class/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/function/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/posts/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/virtual/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E7%B4%94%E8%99%9B%E5%87%BD%E6%95%B8/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E7%B9%BC%E6%89%BF/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E8%99%9B%E5%87%BD%E6%95%B8/</loc><lastmod>2020-08-07T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/archlinux/</loc><lastmod>2020-08-07T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/categories/</loc><lastmod>2020-08-07T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/latex/</loc><lastmod>2020-08-07T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/categories/latex/</loc><lastmod>2020-08-07T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/vscode/</loc><lastmod>2020-08-07T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -38,15 +55,12 @@
             <loc>https://huangno1.github.io/tags/reduce/</loc><lastmod>2020-08-06T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E5%BE%AA%E7%92%B0%E9%81%8D%E6%AD%B7/</loc><lastmod>2020-08-06T18:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/jsx/</loc><lastmod>2020-08-05T21:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/npm/</loc><lastmod>2020-08-05T21:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/react/</loc><lastmod>2020-08-05T21:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/react_learn_note/</loc><lastmod>2020-08-05T21:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/reactrouter/</loc><lastmod>2020-08-05T21:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/redux/</loc><lastmod>2020-08-05T21:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/cors/</loc><lastmod>2020-08-05T20:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/flask/</loc><lastmod>2020-08-05T20:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/flask_cors/</loc><lastmod>2020-08-05T20:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/python/</loc><lastmod>2020-08-05T20:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/categories/python/</loc><lastmod>2020-08-05T20:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E8%B7%A8%E5%9F%9F/</loc><lastmod>2020-08-05T20:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/flask_jwt/</loc><lastmod>2020-08-05T13:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -70,9 +84,7 @@
             <loc>https://huangno1.github.io/csu_freshman_sophomore/</loc><lastmod>2020-08-04T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/axios/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/request/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/vue/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/vue_skill/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/vue-cli/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/vue-router/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/vuex/</loc><lastmod>2020-07-31T16:49:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/allinone/</loc><lastmod>2020-07-31T14:22:18&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -86,19 +98,12 @@
             <loc>https://huangno1.github.io/tags/%E6%BC%94%E7%AE%97%E6%B3%95/</loc><lastmod>2020-07-30T23:17:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E7%BE%85%E9%A6%AC%E6%95%B8%E5%AD%97/</loc><lastmod>2020-07-30T23:17:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/%E9%80%B2%E5%88%B6/</loc><lastmod>2020-07-30T23:17:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/linux/</loc><lastmod>2020-07-29T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/categories/linux/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/linux_npm_configuration/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/archlinux_makepkg/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/categories/archlinux/</loc><lastmod>2020-07-29T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/aur/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/package/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/pkgbuild/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/idea/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/intellij/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/java/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/jdk/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://huangno1.github.io/tags/maven/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/tomcat/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://huangno1.github.io/tags/pyenv/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
