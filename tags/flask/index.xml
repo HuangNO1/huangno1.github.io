@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/deploy_springboot_flask_vue_web/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/deploy_springboot_flask_vue_web.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg" referrerpolicy="no-referrer">
             </div>前言 由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 MD-Blog 個人空間系統項目進行 Web 測試，過程中我將那個項目部署到了阿里雲的雲服務器上。這篇文章我紀錄一下我部署 Web 的過程。
 購買服務器 因為我是用學生優惠等方式白嫖到了半年的阿里雲雲服務器，所以這方面其實沒怎麼出錢，幸好在軟件測試項目結題才到期，不過用學生優惠購買最低配的雲服務器，三個月也只需要 28 元人民幣，騰訊雲我因為過不了實名認證就算了（&hellip;這裡我要吐嘈一下連雲服務器都要實名認證）。
 總之購買好雲服務器後新增好實例，通常我是建議使用 CentOS7 作為服務器的操作系統，進入雲服務器的控制台，你會看到服務器的公網 IP、私網 IP 和密碼，密碼可以重新修改。
