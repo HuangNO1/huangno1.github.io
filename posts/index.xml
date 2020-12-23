@@ -4,7 +4,39 @@
         <link>https://huangno1.github.io/posts/</link>
         <description>所有文章 | Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 22 Dec 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 23 Dec 2020 18:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>LeetCode 題庫 - Add Two Numbers (兩數相加)</title>
+    <link>https://huangno1.github.io/leetcode_add_two_numbers/</link>
+    <pubDate>Wed, 23 Dec 2020 18:17:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/leetcode_add_two_numbers/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/leetcode.jpg" referrerpolicy="no-referrer">
+            </div>前言 是個難度適中的題目。
+題目 Add Two Numbers (兩數相加)
+題目描述 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+給出兩個非空的鏈表用來表示兩個非負的整數。其中，它們各自的位數是按照逆序的方式存儲的，並且它們的每個節點只能存儲一位數字。
+如果，我們將這兩個數相加起來，則會返回一個新的鍊表來表示它們的和。
+您可以假設除了數字 0 之外，這兩個數都不會以 0 開頭。]]></description>
+</item><item>
+    <title>LeetCode 題庫 - Two Sum (兩數之和)</title>
+    <link>https://huangno1.github.io/leetcode_two_sum/</link>
+    <pubDate>Wed, 23 Dec 2020 04:17:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/leetcode_two_sum/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/leetcode.jpg" referrerpolicy="no-referrer">
+            </div>前言 最近刷到的簡單題庫題。
+題目 Two Sum (兩數之和)
+題目描述 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+給定一個整數數組 nums 和一個目標值 target，請你在該數組中找出和為目標值的那 兩個 整數，並返回他們的數組下標。
+你可以假設每種輸入只會對應一個答案。但是，數組中同一個元素不能使用兩遍。
+測資 Example 1：
+1 2 3  Input: nums = [2,7,11,15], target = 9 Output: [0,1] Output: Because nums[0] + nums[1] == 9, we return [0, 1].]]></description>
+</item><item>
     <title>SSH 免密訪問服務器端</title>
     <link>https://huangno1.github.io/ssh_no_password_connection/</link>
     <pubDate>Tue, 22 Dec 2020 16:49:28 &#43;0800</pubDate>
@@ -119,31 +151,5 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 1  npm init react-app my-app   Yarn
  Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
  1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.]]></description>
-</item><item>
-    <title>Flask 跨域設置</title>
-    <link>https://huangno1.github.io/flask_cors/</link>
-    <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/flask_cors/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/flask_cors.png" referrerpolicy="no-referrer">
-            </div>前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
-</item><item>
-    <title>Flask 中使用 JWT</title>
-    <link>https://huangno1.github.io/flask_jwt/</link>
-    <pubDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/flask_jwt/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/flask_jwt.png" referrerpolicy="no-referrer">
-            </div>前言 因為我寫的上一篇文章是&quot;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
-Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
- 在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
- JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：
- JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
-e.g.
-1 2 3  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0. WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo   header 存放 token 型別與加密方式 。]]></description>
 </item></channel>
 </rss>

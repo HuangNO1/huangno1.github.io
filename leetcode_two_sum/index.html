@@ -5,52 +5,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>SSH 免密訪問服務器端 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="SSH 免密訪問服務器端" />
-<meta property="og:description" content="前言 有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。
-SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。
-兩台服務器都編輯 /etc/hosts 文件，添加以下內容，假設各自的公網 IP 是 10.10.15.xx1、10.10.15.xx2。
-1 2  10.10.15.xx1 Server1 10.10.15.xx2 Server2   這樣子我們在服務器上連接另一個服務器時只需要輸入 ssh Server1、ssh Server2。
-生成密鑰 我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。
- 如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。
- 先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。
-1  ssh-keygen -t rsa # 當前使用者生成密鑰   如果你當前是普通使用者就會在 /home/user/.ssh/ 目錄下找到 id_rsa.pub 公鑰。如果是 root 使用者，會在 /root/.ssh/ 目錄裡找到。
-互相共享公鑰 我們先將服務器一的公鑰文件傳給服務器二。
-1  scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1   接著在服務器二上面將雙方公鑰合成一個授權驗證文件。
- 註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。" />
+        <title>LeetCode 題庫 - Two Sum (兩數之和) - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="LeetCode 題庫 - Two Sum (兩數之和)" />
+<meta property="og:description" content="前言 最近刷到的簡單題庫題。
+題目 Two Sum (兩數之和)
+題目描述 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+給定一個整數數組 nums 和一個目標值 target，請你在該數組中找出和為目標值的那 兩個 整數，並返回他們的數組下標。
+你可以假設每種輸入只會對應一個答案。但是，數組中同一個元素不能使用兩遍。
+測資 Example 1：
+1 2 3  Input: nums = [2,7,11,15], target = 9 Output: [0,1] Output: Because nums[0] &#43; nums[1] == 9, we return [0, 1]." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/ssh_no_password_connection/" />
+<meta property="og:url" content="https://huangno1.github.io/leetcode_two_sum/" />
 <meta property="og:image" content="https://huangno1.github.io/logo.png"/>
-<meta property="article:published_time" content="2020-12-22T16:49:28+08:00" />
-<meta property="article:modified_time" content="2020-12-22T16:49:26+08:00" />
+<meta property="article:published_time" content="2020-12-23T04:17:28+08:00" />
+<meta property="article:modified_time" content="2020-12-23T04:17:26+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
-<meta name="twitter:title" content="SSH 免密訪問服務器端"/>
-<meta name="twitter:description" content="前言 有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。
-SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。
-兩台服務器都編輯 /etc/hosts 文件，添加以下內容，假設各自的公網 IP 是 10.10.15.xx1、10.10.15.xx2。
-1 2  10.10.15.xx1 Server1 10.10.15.xx2 Server2   這樣子我們在服務器上連接另一個服務器時只需要輸入 ssh Server1、ssh Server2。
-生成密鑰 我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。
- 如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。
- 先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。
-1  ssh-keygen -t rsa # 當前使用者生成密鑰   如果你當前是普通使用者就會在 /home/user/.ssh/ 目錄下找到 id_rsa.pub 公鑰。如果是 root 使用者，會在 /root/.ssh/ 目錄裡找到。
-互相共享公鑰 我們先將服務器一的公鑰文件傳給服務器二。
-1  scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1   接著在服務器二上面將雙方公鑰合成一個授權驗證文件。
- 註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。"/>
+<meta name="twitter:title" content="LeetCode 題庫 - Two Sum (兩數之和)"/>
+<meta name="twitter:description" content="前言 最近刷到的簡單題庫題。
+題目 Two Sum (兩數之和)
+題目描述 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+給定一個整數數組 nums 和一個目標值 target，請你在該數組中找出和為目標值的那 兩個 整數，並返回他們的數組下標。
+你可以假設每種輸入只會對應一個答案。但是，數組中同一個元素不能使用兩遍。
+測資 Example 1：
+1 2 3  Input: nums = [2,7,11,15], target = 9 Output: [0,1] Output: Because nums[0] &#43; nums[1] == 9, we return [0, 1]."/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/ssh_no_password_connection/" /><link rel="prev" href="https://huangno1.github.io/deploy_springboot_flask_vue_web/" /><link rel="next" href="https://huangno1.github.io/leetcode_two_sum/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/leetcode_two_sum/" /><link rel="prev" href="https://huangno1.github.io/ssh_no_password_connection/" /><link rel="next" href="https://huangno1.github.io/leetcode_add_two_numbers/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "SSH 免密訪問服務器端",
+        "headline": "LeetCode 題庫 - Two Sum (兩數之和)",
         "inLanguage": "zh-cn",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/huangno1.github.io\/ssh_no_password_connection\/"
-        },"genre": "posts","keywords": "SSH, Server","wordcount":  99 ,
-        "url": "https:\/\/huangno1.github.io\/ssh_no_password_connection\/","datePublished": "2020-12-22T16:49:28+08:00","dateModified": "2020-12-22T16:49:26+08:00","publisher": {
+            "@id": "https:\/\/huangno1.github.io\/leetcode_two_sum\/"
+        },"genre": "posts","keywords": "LeetCode, C","wordcount":  265 ,
+        "url": "https:\/\/huangno1.github.io\/leetcode_two_sum\/","datePublished": "2020-12-23T04:17:28+08:00","dateModified": "2020-12-23T04:17:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
                     "@type": "ImageObject",
@@ -143,18 +139,18 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">SSH 免密訪問服務器端</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-22">2020-12-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 99 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">LeetCode 題庫 - Two Sum (兩數之和)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E6%BC%94%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>演算法</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-23">2020-12-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 265 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/ssh_no_password_connection.jpg"
-        data-srcset="/featuredImage/compressed/ssh_no_password_connection.jpg, /featuredImage/compressed/ssh_no_password_connection.jpg 1.5x, /featuredImage/compressed/ssh_no_password_connection.jpg 2x"
+        data-src="/featuredImage/compressed/leetcode.jpg"
+        data-srcset="/featuredImage/compressed/leetcode.jpg, /featuredImage/compressed/leetcode.jpg 1.5x, /featuredImage/compressed/leetcode.jpg 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/ssh_no_password_connection.jpg"
-        title="/featuredImage/compressed/ssh_no_password_connection.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+        alt="/featuredImage/compressed/leetcode.jpg"
+        title="/featuredImage/compressed/leetcode.jpg" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目錄</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -162,61 +158,72 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#ssh">SSH</a>
-      <ul>
-        <li><a href="#前置工作">前置工作</a></li>
-        <li><a href="#生成密鑰">生成密鑰</a></li>
-        <li><a href="#互相共享公鑰">互相共享公鑰</a></li>
-      </ul>
-    </li>
+    <li><a href="#題目">題目</a></li>
+    <li><a href="#題目描述">題目描述</a></li>
+    <li><a href="#測資">測資</a></li>
+    <li><a href="#限制">限制</a></li>
+    <li><a href="#解題思路">解題思路</a></li>
+    <li><a href="#源碼">源碼</a></li>
+    <li><a href="#結語">結語</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
-<p>有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。</p>
-<h2 id="ssh">SSH</h2>
-<h3 id="前置工作">前置工作</h3>
-<p>為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。</p>
-<p>兩台服務器都編輯 <code>/etc/hosts</code> 文件，添加以下內容，假設各自的公網 IP 是 <code>10.10.15.xx1</code>、<code>10.10.15.xx2</code>。</p>
+<p>最近刷到的簡單題庫題。</p>
+<h2 id="題目">題目</h2>
+<p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener noreffer">Two Sum (兩數之和)</a></p>
+<h2 id="題目描述">題目描述</h2>
+<p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>You can return the answer in any order.</p>
+<p>給定一個整數數組 nums 和一個目標值 target，請你在該數組中找出和為目標值的那 兩個 整數，並返回他們的數組下標。</p>
+<p>你可以假設每種輸入只會對應一個答案。但是，數組中同一個元素不能使用兩遍。</p>
+<h2 id="測資">測資</h2>
+<p>Example 1：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+</code></pre></td></tr></table>
+</div>
+</div><p>Example 2：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">10.10.15.xx1 Server1
-10.10.15.xx2 Server2
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Input: nums = [3,2,4], target = 6
+Output: [1,2]
 </code></pre></td></tr></table>
 </div>
-</div><p>這樣子我們在服務器上連接另一個服務器時只需要輸入 <code>ssh Server1</code>、<code>ssh Server2</code>。</p>
-<h3 id="生成密鑰">生成密鑰</h3>
-<p>我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。</p>
-<blockquote>
-<p>如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。</p>
-</blockquote>
-<p>先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。</p>
+</div><p>Example 3：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ssh-keygen -t rsa <span class="c1"># 當前使用者生成密鑰</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Input: nums = [3,3], target = 6
+Output: [0,1]
 </code></pre></td></tr></table>
 </div>
-</div><p>如果你當前是普通使用者就會在 <code>/home/user/.ssh/</code> 目錄下找到 <code>id_rsa.pub</code> 公鑰。如果是 root 使用者，會在 <code>/root/.ssh/</code> 目錄裡找到。</p>
-<h3 id="互相共享公鑰">互相共享公鑰</h3>
-<p>我們先將服務器一的公鑰文件傳給服務器二。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1
-</code></pre></td></tr></table>
-</div>
-</div><p>接著在服務器二上面將雙方公鑰合成一個授權驗證文件。</p>
-<blockquote>
-<p>註：關於 chmod 的權限設置數字計算，可以參考<a href="https://www.runoob.com/linux/linux-comm-chmod.html" target="_blank" rel="noopener noreffer">菜鳥教學的文章</a>。</p>
-</blockquote>
+</div><h2 id="限制">限制</h2>
+<ul>
+<li>2 &lt;= nums.length &lt;= 103</li>
+<li>-109 &lt;= nums[i] &lt;= 109</li>
+<li>-109 &lt;= target &lt;= 109</li>
+<li>Only one valid answer exists.</li>
+</ul>
+<h2 id="解題思路">解題思路</h2>
+<p>就使用暴力解就行了，遍歷整個陣列。</p>
+<h2 id="源碼">源碼</h2>
+<p>我使用 C 語言寫的。裡面比較需要注意的是要自己聲明新的返回指針，returnSize 只需要保持 2 就好。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -229,48 +236,83 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ssh Server2
-<span class="nb">cd</span> /root/.ssh
-<span class="c1"># 將自己的公鑰加入</span>
-cat id_rsa.pub &gt;&gt; authorized_keys
-<span class="c1"># 將另一個服務器的公鑰加入</span>
-cat id_rsa.pub.Server1 &gt;&gt; authorized_keys
-<span class="c1"># 給予權限</span>
-chmod <span class="m">644</span> authorized_keys <span class="c1">#(important!!!)</span>
-<span class="c1"># 將公鑰文件傳回另一個服務器</span>
-scp ~/.ssh/authorized_keys root@Server1:/root/.ssh/authorized_keys
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
+</span><span class="cm"> * Note: The returned array must be malloced, assume caller calls free().
+</span><span class="cm"> */</span>
+<span class="kt">int</span><span class="o">*</span> <span class="nf">twoSum</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numsSize</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">returnSize</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 判斷是否配對成功
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">returnN</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numsSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">numsSize</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">returnN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="n">returnN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+                <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="o">*</span><span class="n">returnSize</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="c1">//printf(&#34;%d %d&#34;, returnSize[0], returnSize[1]);
+</span><span class="c1"></span>    <span class="k">return</span> <span class="n">returnN</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>然後再試試用 SSH 連接就不需要輸入密碼了。</p>
+</div><h2 id="結語">結語</h2>
+<p>送分題。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2020-12-22</span>
+                <span>更新于 2020-12-23</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/ssh_no_password_connection/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/leetcode_two_sum/index.md" target="_blank">閱讀原始檔案</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端" data-via="Rem59881439" data-hashtags="SSH,Server"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-hashtag="SSH"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端" data-image="/featuredImage/compressed/ssh_no_password_connection.jpg"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/ssh_no_password_connection/" data-title="SSH 免密訪問服務器端"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)" data-via="Rem59881439" data-hashtags="LeetCode,C"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/leetcode_two_sum/" data-hashtag="LeetCode"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)" data-image="/featuredImage/compressed/leetcode.jpg"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/leetcode_two_sum/" data-title="LeetCode 題庫 - Two Sum (兩數之和)"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">SSH</a>,&nbsp;<a href="/tags/server/">Server</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/c/">C</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/deploy_springboot_flask_vue_web/" class="prev" rel="prev" title="部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目"><i class="fas fa-angle-left fa-fw"></i>部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</a>
-            <a href="/leetcode_two_sum/" class="next" rel="next" title="LeetCode 題庫 - Two Sum (兩數之和)">LeetCode 題庫 - Two Sum (兩數之和)<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/ssh_no_password_connection/" class="prev" rel="prev" title="SSH 免密訪問服務器端"><i class="fas fa-angle-left fa-fw"></i>SSH 免密訪問服務器端</a>
+            <a href="/leetcode_add_two_numbers/" class="next" rel="next" title="LeetCode 題庫 - Add Two Numbers (兩數相加)">LeetCode 題庫 - Add Two Numbers (兩數相加)<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
