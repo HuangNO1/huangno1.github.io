@@ -39,7 +39,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/markdown_learn_note_basic_syntax\/"
-        },"genre": "posts","keywords": "Markdown","wordcount":  628 ,
+        },"genre": "posts","keywords": "Markdown","wordcount":  690 ,
         "url": "https:\/\/huangno1.github.io\/markdown_learn_note_basic_syntax\/","datePublished": "2020-08-07T13:49:28+08:00","dateModified": "2020-08-07T13:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,8 +135,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Markdown 學習筆記 - 基礎語法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/markdown/"><i class="far fa-folder fa-fw"></i>Markdown</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-07">2020-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 628 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-07">2020-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 690 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 4 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -177,6 +177,7 @@
       </ul>
     </li>
     <li><a href="#跳脫字元">跳脫字元</a></li>
+    <li><a href="#table">Table</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -614,7 +615,54 @@ _   底線
 !   驚嘆號
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="reference">Reference</h2>
+</div><h2 id="table">Table</h2>
+<p>Markdown 的表格需要注意的是他的對齊方式。第二行可以進行對齊。</p>
+<ul>
+<li><code>---</code>：預設靠左</li>
+<li><code>:---</code>：向左靠齊</li>
+<li><code>---:</code>：向右靠齊</li>
+<li><code>:---:</code>：居中對齊</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-md" data-lang="md">| 列表1 | 列表2 | 列表 3 | 列表4 |
+| --- | :--- | ---: | :---: |
+| ... | ... | ... | --- |
+| ... | ... | ... | --- |
+</code></pre></td></tr></table>
+</div>
+</div><p>輸出結果：</p>
+<table>
+<thead>
+<tr>
+<th>列表1</th>
+<th style="text-align:left">列表2</th>
+<th style="text-align:right">列表 3</th>
+<th style="text-align:center">列表4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&hellip;</td>
+<td style="text-align:left">&hellip;</td>
+<td style="text-align:right">&hellip;</td>
+<td style="text-align:center">&mdash;</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td style="text-align:left">&hellip;</td>
+<td style="text-align:right">&hellip;</td>
+<td style="text-align:center">&mdash;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://markdown.tw/" target="_blank" rel="noopener noreffer">Markdown 語法說明</a></li>
 </ul>
