@@ -223,9 +223,9 @@ mysql -u admin -p
 ```
 
 ```sql
-MariaDB [(none)]>create database sxblog;
-MariaDB [(none)]>use sxblog;
-MariaDB [(sxblog)]>source /home/sxblog/sql/sxblog.sql;
+MariaDB [(none)] > create database sxblog;
+MariaDB [(none)] > use sxblog;
+MariaDB [(sxblog)] > source /home/sxblog/sql/sxblog.sql;
 ```
 
 ## 後端部署
@@ -530,4 +530,4 @@ nohup nginx &
 - [Nginx命令大全 - CSDN](https://blog.csdn.net/spark_csdn/article/details/80836374)
 - [手把手教 Nginx 部署 Vue 项目 - 掘金](https://juejin.cn/post/6844904096973979662)
 - [简单前后端分离项目部署 - HackMD](https://hackmd.io/RC7R3BMjTBCWhlMwx1aLzA)
-
+- [How To Install MariaDB on Ubuntu 18.04 - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-18-04)

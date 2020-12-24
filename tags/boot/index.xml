@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>boot - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/boot/</link>
+        <description>boot - 標籤 - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 24 Dec 2020 12:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/boot/" rel="self" type="application/rss+xml" /><item>
+    <title>VMware Workstation Pro 中 CentOS 7 啟動崩潰</title>
+    <link>https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/</link>
+    <pubDate>Thu, 24 Dec 2020 12:17:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png" referrerpolicy="no-referrer">
+            </div>前言 我因為最近在做雲計算實驗中的 Hadoop + Spark，我在我的 Windows 上用 VMware Workstation 開了三個虛擬機，且都裝了 CentOS7 系統。當時因為我下課結束將筆電蓋住，去實驗室將電腦打開的時候，整個 Windows 系統變得很卡，視窗方面無法移動縮放，我只好強制關機重啟筆電，結果一開機啟動虛擬機就出錯了。
+問題 我的三台 CentOS 虛擬機都出現 CentOS 7 Fails to Boot – XFS Corruption – Enters Emergency Mode 這樣的報錯，看起來是 XFS 文件系統出錯了，錯誤畫面如下：
+CentOS 無法啟動centos_fail_to_boot.jpg
+" CentOS 無法啟動 
+我嘗試了很久想想怎麼修復，爬文看看是哪裡出錯了，終於在一篇文章中找到解決辦法。
+解決  I chose the default boot option and reached a console. Ideally one should create a dump of the damaged partition by running xfs_metadump, restore the dump to an image using xfs_mdrestore, and then perform the repair on that image.]]></description>
+</item></channel>
+</rss>
