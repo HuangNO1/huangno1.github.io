@@ -4,7 +4,22 @@
         <link>https://huangno1.github.io/tags/database/</link>
         <description>Database - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 16:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/database/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 17:28:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/database/" rel="self" type="application/rss+xml" /><item>
+    <title>互聯網公司大廠 – 面試八股文彙整</title>
+    <link>https://huangno1.github.io/cs_interview_eight_part_questions/</link>
+    <pubDate>Mon, 03 May 2021 17:28:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/cs_interview_eight_part_questions/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/cs_interview_eight_part_questions.jpg" referrerpolicy="no-referrer">
+            </div>前言 因為 2021/03 月份我已經是大三了，我開始在春招找實習 Offer，在找實習的期間我在牛課網以及各大平台的面經驗分享中整理出一份八文面試題，整理的過程整整花了我將近一週的時間，希望我整理的內容對各位有幫助。
+註：這篇文章是針對 C/C++ 崗位的面試題，數據結構、算法、操作系統、計算機網路、數據庫對大部分崗位是通用的。
+重要度 重要性: 語言基礎 &gt;= 數據結構 == 算法 &gt; 操作系統 &gt; 計算機網路 &raquo;&gt; 數據庫 &gt;= 機器學習
+語言基礎 C++ 三大特性 封装性是基础，继承性是关键，多态性是补充，并且多态性存在于继承的环境中。 C++语言中支持数据封装，类是支持数据封装的工具，对象是数据封装的实现。 在封装中，还提供一种对数据访问的控制机制，使得一些数据被隐藏在封装体内，因此具有隐藏性。
+封裝、繼承、多態，簡單說明 封装性:把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 类将成员变量和成员函数封装在类的内部，根据需要设置访问权限，通过成员函数管理内部状态。
+1 2 3 4 5 6 7 8 9 10 11  class Person { private://数据私有  string bame; int num; public://方法公有  void getName() { return name; } };   繼承:继承所表达的是类之间相关的关系，这种关系使得对象可以继承另外一类对象的特征和能力。 继承的作用：避免公用代码的重复开发，减少代码和数据冗余。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  #include &lt;iostream&gt; using namespace std; class Base { public: void printBase(void) { cout&lt;&lt;&#34;Base中的printBase&#34;&lt;&lt;endl; } }; class Son:public Base { }; int main(int argc, char *argv[]) { Son ob; ob.]]></description>
+</item><item>
     <title>Mariadb 啟動服務失敗</title>
     <link>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</link>
     <pubDate>Mon, 03 May 2021 16:03:28 &#43;0800</pubDate>

@@ -116,6 +116,26 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/cs_interview_eight_part_questions/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/cs_interview_eight_part_questions.jpg"
+        data-srcset="/featuredImage/compressed/cs_interview_eight_part_questions.jpg, /featuredImage/compressed/cs_interview_eight_part_questions.jpg 1.5x, /featuredImage/compressed/cs_interview_eight_part_questions.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/cs_interview_eight_part_questions.jpg"
+        title="/featuredImage/compressed/cs_interview_eight_part_questions.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/cs_interview_eight_part_questions/">互聯網公司大廠 – 面試八股文彙整</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-05-03">2021-05-03</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">前言 因為 2021/03 月份我已經是大三了，我開始在春招找實習 Offer，在找實習的期間我在牛課網以及各大平台的面經驗分享中整理出一份八文面試題，整理的過程整整花了我將近一週的時間，希望我整理的內容對各位有幫助。
+註：這篇文章是針對 C/C++ 崗位的面試題，數據結構、算法、操作系統、計算機網路、數據庫對大部分崗位是通用的。
+重要度 重要性: 語言基礎 &gt;= 數據結構 == 算法 &gt; 操作系統 &gt; 計算機網路 &raquo;&gt; 數據庫 &gt;= 機器學習
+語言基礎 C++ 三大特性 封装性是基础，继承性是关键，多态性是补充，并且多态性存在于继承的环境中。 C++语言中支持数据封装，类是支持数据封装的工具，对象是数据封装的实现。 在封装中，还提供一种对数据访问的控制机制，使得一些数据被隐藏在封装体内，因此具有隐藏性。
+封裝、繼承、多態，簡單說明 封装性:把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 类将成员变量和成员函数封装在类的内部，根据需要设置访问权限，通过成员函数管理内部状态。
+1 2 3 4 5 6 7 8 9 10 11  class Person { private://数据私有  string bame; int num; public://方法公有  void getName() { return name; } };   繼承:继承所表达的是类之间相关的关系，这种关系使得对象可以继承另外一类对象的特征和能力。 继承的作用：避免公用代码的重复开发，减少代码和数据冗余。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  #include &lt;iostream&gt; using namespace std; class Base { public: void printBase(void) { cout&lt;&lt;&#34;Base中的printBase&#34;&lt;&lt;endl; } }; class Son:public Base { }; int main(int argc, char *argv[]) { Son ob; ob.</div><div class="post-footer">
+        <a href="/cs_interview_eight_part_questions/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%BA%92%E8%81%AF%E7%B6%B2/">互聯網</a>,&nbsp;<a href="/tags/%E5%A4%A7%E5%BB%A0/">大廠</a>,&nbsp;<a href="/tags/%E9%9D%A2%E8%A9%A6%E9%A1%8C/">面試題</a>,&nbsp;<a href="/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/">計算機網路</a>,&nbsp;<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1/">操作系統</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B/">數據結構</a>,&nbsp;<a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95/">演算法</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/c/">C</a>,&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/cs/">CS</a>,&nbsp;<a href="/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/">計算機科學</a>,&nbsp;<a href="/tags/%E8%BB%9F%E4%BB%B6%E5%B7%A5%E7%A8%8B/">軟件工程</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/archlinux_fail_to_start_mariadb/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -216,30 +236,6 @@ You can return the answer in any order.
 1 2 3  Input: nums = [2,7,11,15], target = 9 Output: [0,1] Output: Because nums[0] + nums[1] == 9, we return [0, 1].</div><div class="post-footer">
         <a href="/leetcode_two_sum/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/c/">C</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/ssh_no_password_connection/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/ssh_no_password_connection.jpg"
-        data-srcset="/featuredImage/compressed/ssh_no_password_connection.jpg, /featuredImage/compressed/ssh_no_password_connection.jpg 1.5x, /featuredImage/compressed/ssh_no_password_connection.jpg 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/ssh_no_password_connection.jpg"
-        title="/featuredImage/compressed/ssh_no_password_connection.jpg" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/ssh_no_password_connection/">SSH 免密訪問服務器端</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-22">2020-12-22</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。
-SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。
-兩台服務器都編輯 /etc/hosts 文件，添加以下內容，假設各自的公網 IP 是 10.10.15.xx1、10.10.15.xx2。
-1 2  10.10.15.xx1 Server1 10.10.15.xx2 Server2   這樣子我們在服務器上連接另一個服務器時只需要輸入 ssh Server1、ssh Server2。
-生成密鑰 我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。
- 如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。
- 先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。
-1  ssh-keygen -t rsa # 當前使用者生成密鑰   如果你當前是普通使用者就會在 /home/user/.ssh/ 目錄下找到 id_rsa.pub 公鑰。如果是 root 使用者，會在 /root/.ssh/ 目錄裡找到。
-互相共享公鑰 我們先將服務器一的公鑰文件傳給服務器二。
-1  scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1   接著在服務器二上面將雙方公鑰合成一個授權驗證文件。
- 註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。</div><div class="post-footer">
-        <a href="/ssh_no_password_connection/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">SSH</a>,&nbsp;<a href="/tags/server/">Server</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
