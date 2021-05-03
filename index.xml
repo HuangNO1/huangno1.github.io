@@ -4,9 +4,27 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 24 Dec 2020 15:17:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 16:03:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Mariadb 啟動服務失敗</title>
+    <link>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</link>
+    <pubDate>Mon, 03 May 2021 16:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg" referrerpolicy="no-referrer">
+            </div>前言 在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是
+ [SOLVED] Unable to start mariadb.service What to Do if MariaDB Doesn&rsquo;t Start Failed to start MariaDB database server after upgrade to debian 9  今天終於在 ArchLinux-CN Telegram 技術群提問獲得了解決。
+問題 我的 Linux 在某次更新完系統開機階段就會顯示我的數據庫啟動失敗，開機後我試著登入數據庫卻登入失敗。於是試著啟動 mariadb.service 於是出現下面的畫面：
+mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
+" mariadb.service 啟動失敗 
+於是我接著查看 mariadb.service 的 status：
+檢查 mariadb.service statussystemctl_status_mariadb.png
+" 檢查 mariadb.service status 
+依然沒找到問題所在，於是我進一步查看日誌：
+1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.]]></description>
+</item><item>
     <title>MySQL 的基礎語法使用筆記</title>
     <link>https://huangno1.github.io/mysql_learn_note_basic/</link>
     <pubDate>Thu, 24 Dec 2020 15:17:28 &#43;0800</pubDate>
@@ -102,12 +120,12 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
  1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.]]></description>
 </item><item>
     <title>C&#43;&#43; - 關於多態中的虛函數與純虛函數</title>
-    <link>https://huangno1.github.io/about_c-_class_virtual_function/</link>
+    <link>https://huangno1.github.io/about_cpp_class_virtual_function/</link>
     <pubDate>Fri, 07 Aug 2020 18:49:28 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://huangno1.github.io/about_c-_class_virtual_function/</guid>
+    <guid>https://huangno1.github.io/about_cpp_class_virtual_function/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/about_cpp_class_virtual_function.png" referrerpolicy="no-referrer">
             </div>前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
 多態與虛函數  P.S. 大陸叫對象，台灣叫物件。
  我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。虛函數是用來子類繼承後能夠複寫的函數。
@@ -141,16 +159,5 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
  Typora：跨平台的 Markdown 編輯器，簡直是利器。 Visual Studio Code：使用 VScode 也可以寫 Markdown，安裝 Markdown All in One 和 Markdown Preview Enhanced 延伸模組，就能夠舒服地寫筆記或文章。 HackMD：線上共筆平台，使用 Markdown，大家在共同寫文檔時可以使用這平台  文本編寫標準 中文文案排版指北 [简体中文 ][繁体中文 ]
 區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加 ===，第二種就是加上 #。
 1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!]]></description>
-</item><item>
-    <title>JS - Object Array 賦值問題</title>
-    <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
-    <pubDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png" referrerpolicy="no-referrer">
-            </div>關於我遇到的問題 這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。
-下面是我用簡單的 Code 描述我遇到的問題，object 是一個 Object Array，然後傳入函數進行局域變量賦值。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.]]></description>
 </item></channel>
 </rss>

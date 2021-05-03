@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head>
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.83.1" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -116,16 +116,38 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/about_c-_class_virtual_function/"><img
+            <a href="/deploy_springboot_flask_vue_web/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png"
-        data-srcset="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png, /featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png 1.5x, /featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png 2x"
+        data-src="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg"
+        data-srcset="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg, /featuredImage/compressed/deploy_springboot_flask_vue_web.jpg 1.5x, /featuredImage/compressed/deploy_springboot_flask_vue_web.jpg 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png"
-        title="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png" /></a>
+        alt="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg"
+        title="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/about_c-_class_virtual_function/">C&#43;&#43; - 關於多態中的虛函數與純虛函數</a>
+        <a href="/deploy_springboot_flask_vue_web/">部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-21">2020-12-21</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 MD-Blog 個人空間系統項目進行 Web 測試，過程中我將那個項目部署到了阿里雲的雲服務器上。這篇文章我紀錄一下我部署 Web 的過程。
+購買服務器 因為我是用學生優惠等方式白嫖到了半年的阿里雲雲服務器，所以這方面其實沒怎麼出錢，幸好在軟件測試項目結題才到期，不過用學生優惠購買最低配的雲服務器，三個月也只需要 28 元人民幣，騰訊雲我因為過不了實名認證就算了（&hellip;這裡我要吐嘈一下連雲服務器都要實名認證）。
+總之購買好雲服務器後新增好實例，通常我是建議使用 CentOS7 作為服務器的操作系統，進入雲服務器的控制台，你會看到服務器的公網 IP、私網 IP 和密碼，密碼可以重新修改。
+這裡我們假設我們服務器的公網 IP 是 1.2.3.4。
+部署項目前的工作 安裝環境 在配置之前我們需要將我們的 JDK、Python、MySQL、Nginx 在服務器端配置完畢。
+JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 版本一致，不然在運行後端 JAR 包時會報版本錯誤及不兼容的問題，要選擇 JDK1.8 以上的版本。
+這裡是建議自己在本地下載好 JDK 然後 SCP 上傳至服務器端，選擇 Linux x64 Compressed Archive 下載，不要下錯成 Linux ARM 架構的（因為我下錯過，沒仔細看名稱），壓縮包名大致為 jdk-8u271-linux-x64.tar.gz。
+ 在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
+ 1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.</div><div class="post-footer">
+        <a href="/deploy_springboot_flask_vue_web/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/server/">Server</a>,&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/springboot/">SpringBoot</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/jdk/">JDK</a>,&nbsp;<a href="/tags/maven/">Maven</a>,&nbsp;<a href="/tags/intellij/">IntelliJ</a>,&nbsp;<a href="/tags/idea/">IDEA</a>,&nbsp;<a href="/tags/jar/">Jar</a>,&nbsp;<a href="/tags/nginx/">Nginx</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/about_cpp_class_virtual_function/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/about_cpp_class_virtual_function.png"
+        data-srcset="/featuredImage/compressed/about_cpp_class_virtual_function.png, /featuredImage/compressed/about_cpp_class_virtual_function.png 1.5x, /featuredImage/compressed/about_cpp_class_virtual_function.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/about_cpp_class_virtual_function.png"
+        title="/featuredImage/compressed/about_cpp_class_virtual_function.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/about_cpp_class_virtual_function/">C&#43;&#43; - 關於多態中的虛函數與純虛函數</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-07">2020-08-07</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/c/c++/"><i class="far fa-folder fa-fw"></i>C/C++</a></span></div><div class="content">前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
 多態與虛函數  P.S. 大陸叫對象，台灣叫物件。
  我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。虛函數是用來子類繼承後能夠複寫的函數。
@@ -133,7 +155,7 @@
 在下面的例子中是一個 Base Class（基類、父類），如果函數前面宣告有添加 virtual 就是虛函數。
 1 2 3 4 5 6  class Shape { public: virtual string toString() const; virtual double getArea() const; }   下面是一個 Circle 子類（superclass）（超生類、派生類），引入 Circle 的 getArea() 和 toString() 是虛函數，我們現在是在子類中重寫（重定義）類的虛構函數（此時你可以將父類的虛構函數想像成模板）。
 1 2 3 4 5 6 7 8 9 10 11 12  class Circle : public Shape { private: double radius; public: Circle(); Circle(double); double getRadius() const; void setRadius(double); double getArea() const; string toString() const; }   實際當我們在使用虛構函數時，是把它當作跳板，去自動便是哪個函式是哪個函式，e.</div><div class="post-footer">
-        <a href="/about_c-_class_virtual_function/">閱讀全文</a><div class="post-tags">
+        <a href="/about_cpp_class_virtual_function/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/class/">Class</a>,&nbsp;<a href="/tags/virtual/">Virtual</a>,&nbsp;<a href="/tags/function/">Function</a>,&nbsp;<a href="/tags/%E8%99%9B%E5%87%BD%E6%95%B8/">虛函數</a>,&nbsp;<a href="/tags/%E7%B4%94%E8%99%9B%E5%87%BD%E6%95%B8/">純虛函數</a>,&nbsp;<a href="/tags/%E7%B9%BC%E6%89%BF/">繼承</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/arhlinux_vscode_latex_install_configuration/"><img
@@ -203,27 +225,6 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  // JS forEach 與 map  // forEach 是對每一項的操作，會影響原來的 array let arr = [1, 2, 3, 4, 5, 6] // 對數組直接進行循環，相當於 for，沒有返回值 // result 不會有返回值 即使寫了 return 也是 undefined let result = arr.forEach((item, index, arr) =&gt; { console.log(item) console.log(index) console.log(arr) return item }) console.log(result)   map() map 則是不會影響原來的 array 值，而是生成新的值返回給新的數組。對 Array 每一項進行加工，加工完成之後返回一個新的數組。</div><div class="post-footer">
         <a href="/js_array_prototype/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/foreach/">forEach</a>,&nbsp;<a href="/tags/map/">map</a>,&nbsp;<a href="/tags/filter/">filter</a>,&nbsp;<a href="/tags/reduce/">reduce</a>,&nbsp;<a href="/tags/%E5%BE%AA%E7%92%B0%E9%81%8D%E6%AD%B7/">循環遍歷</a>,&nbsp;<a href="/tags/array/">Array</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/react_learn_note/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/react_learn_note.png"
-        data-srcset="/featuredImage/compressed/react_learn_note.png, /featuredImage/compressed/react_learn_note.png 1.5x, /featuredImage/compressed/react_learn_note.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/react_learn_note.png"
-        title="/featuredImage/compressed/react_learn_note.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/react_learn_note/">React 學習筆記 - JSX、組件、渲染、路由、Redux</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
-建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
- 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
- npx
-1  npx create-react-app my-app   npm
-1  npm init react-app my-app   Yarn
- Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
- 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.</div><div class="post-footer">
-        <a href="/react_learn_note/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/jsx/">JSX</a>,&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/redux/">Redux</a>,&nbsp;<a href="/tags/reactrouter/">ReactRouter</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -248,7 +249,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

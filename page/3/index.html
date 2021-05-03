@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head>
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.83.1" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -116,6 +116,27 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/react_learn_note/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/react_learn_note.png"
+        data-srcset="/featuredImage/compressed/react_learn_note.png, /featuredImage/compressed/react_learn_note.png 1.5x, /featuredImage/compressed/react_learn_note.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/react_learn_note.png"
+        title="/featuredImage/compressed/react_learn_note.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/react_learn_note/">React 學習筆記 - JSX、組件、渲染、路由、Redux</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-05">2020-08-05</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
+建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
+ 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
+ npx
+1  npx create-react-app my-app   npm
+1  npm init react-app my-app   Yarn
+ Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
+ 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.</div><div class="post-footer">
+        <a href="/react_learn_note/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">React</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/jsx/">JSX</a>,&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/redux/">Redux</a>,&nbsp;<a href="/tags/reactrouter/">ReactRouter</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/flask_cors/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -219,25 +240,6 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
  Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。</div><div class="post-footer">
         <a href="/vue_skill/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/vuex/">Vuex</a>,&nbsp;<a href="/tags/vue-router/">Vue-Router</a>,&nbsp;<a href="/tags/request/">Request</a>,&nbsp;<a href="/tags/axios/">Axios</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/hugo_theme_change/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/hugo_theme_change.png"
-        data-srcset="/featuredImage/compressed/hugo_theme_change.png, /featuredImage/compressed/hugo_theme_change.png 1.5x, /featuredImage/compressed/hugo_theme_change.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/hugo_theme_change.png"
-        title="/featuredImage/compressed/hugo_theme_change.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/hugo_theme_change/">Rem Blog 的構造改革過程心得</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-07-31">2020-07-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">感觸 我第一次接觸 Hugo 的時候，是我因為朋友的技術 Blog 所以感興趣，尤其因為當時剛開始接觸項目和比賽，所以學了 Git 和 Markdown 卻不熟練，笨手笨腳的，那時大一生的我實在是太菜了，現在想想已經過了兩年，已經到了升上大三，時光飛逝，年紀越大感觸越深。
-我第一次學怎麼構建 Hugo + Github Pages 構建自己的 Blog 是看這篇文章，這篇文章真的寫得很好，我也推薦我室友看這篇文章，他也快速就上手了。我還記得當時我真的就是折騰在 Hugo 主題上，我第一次選的主題無法發表 Posts，是比較適合拿來做簡歷的主題，害我白搞了一天要換主題，第二次看中了 AllinOne 主題（不知道位為什麼現在這主題從 Hugo Theme 網站下架了），因為看這主題很酷炫，但這主題說真的配置起來很麻煩，最後配置完還發現手機端的顯示不正常，要自己去修 CSS，還有各種 Bug。
-最近又因為發現自己很多文章中上傳到圖床的圖片很多被 404 了，我也不知道為什麼被 SM.MS 給 Block 了，加上我 AllinOne 這主題讓我的 Blog 載入速度過慢，直到前幾天，我經過好友的建議，終於決定要全面換新，我也考慮要換哪個主題找好久，好友推薦我 LoveIt 這主題，我也最終被這主題的界面打動，決定改用這個主題，一開始摸索這主題的配置參數弄了很久，加上這個主題沒有正體中文的界面，所以我自己去修 i18n 的文件內容，把自己所有文章的構造重新整理一次，將自己所有的文章要用圖片都使用 Tinypng 壓縮過再上傳到 imgpoi，最終成了現在的樣子。我很滿意 (,,・ω・,,)
-Rem BlogRemBlog.png
-" Rem Blog 
-Reference  AllinOne LoveIt  </div><div class="post-footer">
-        <a href="/hugo_theme_change/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/theme/">Theme</a>,&nbsp;<a href="/tags/loveit/">LoveIt</a>,&nbsp;<a href="/tags/allinone/">AllinOne</a>,&nbsp;<a href="/tags/blog/">Blog</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -264,7 +266,7 @@ Reference  AllinOne LoveIt  </div><div class="post-footer">
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

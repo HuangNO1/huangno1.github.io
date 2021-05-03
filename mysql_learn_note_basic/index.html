@@ -26,7 +26,7 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/mysql_learn_note_basic/" /><link rel="prev" href="https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/mysql_learn_note_basic/" /><link rel="prev" href="https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/" /><link rel="next" href="https://huangno1.github.io/archlinux_fail_to_start_mariadb/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -35,7 +35,7 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/mysql_learn_note_basic\/"
-        },"genre": "posts","keywords": "MySQL, Database","wordcount":  413 ,
+        },"genre": "posts","keywords": "MySQL, Database","wordcount":  381 ,
         "url": "https:\/\/huangno1.github.io\/mysql_learn_note_basic\/","datePublished": "2020-12-24T15:17:28+08:00","dateModified": "2020-12-24T15:17:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -131,7 +131,7 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">MySQL 的基礎語法使用筆記</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-24">2020-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 413 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-24">2020-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 381 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -415,10 +415,10 @@ mysql -u root -p
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">&gt;</span> <span class="k">create</span> <span class="k">database</span> <span class="n">test</span><span class="p">;</span>
-<span class="n">mysql</span> <span class="o">&gt;</span> <span class="n">use</span> <span class="n">test</span><span class="p">;</span>
-<span class="n">mysql</span> <span class="o">&gt;</span> <span class="k">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">source</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><h2 id="新建資料庫使用者">新建資料庫使用者</h2>
 <p>我一般是建議新建一個跟 root 擁有一樣權限的使用者。</p>
@@ -429,10 +429,10 @@ mysql -u root -p
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;password&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
-<span class="n">mysql</span> <span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
-<span class="n">mysql</span> <span class="o">&gt;</span> <span class="n">exit</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">exit</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>
 <ul>
@@ -464,13 +464,14 @@ mysql -u root -p
         </section>
     </div>
 
-    <div class="post-nav"><a href="/vmware_centos_fail_boot_xfs_corruption/" class="prev" rel="prev" title="VMware Workstation Pro 中 CentOS 7 啟動崩潰"><i class="fas fa-angle-left fa-fw"></i>VMware Workstation Pro 中 CentOS 7 啟動崩潰</a></div>
+    <div class="post-nav"><a href="/vmware_centos_fail_boot_xfs_corruption/" class="prev" rel="prev" title="VMware Workstation Pro 中 CentOS 7 啟動崩潰"><i class="fas fa-angle-left fa-fw"></i>VMware Workstation Pro 中 CentOS 7 啟動崩潰</a>
+            <a href="/archlinux_fail_to_start_mariadb/" class="next" rel="next" title="Mariadb 啟動服務失敗">Mariadb 啟動服務失敗<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

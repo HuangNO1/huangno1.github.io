@@ -4,7 +4,25 @@
         <link>https://huangno1.github.io/tags/linux/</link>
         <description>Linux - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 16:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Mariadb 啟動服務失敗</title>
+    <link>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</link>
+    <pubDate>Mon, 03 May 2021 16:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg" referrerpolicy="no-referrer">
+            </div>前言 在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是
+ [SOLVED] Unable to start mariadb.service What to Do if MariaDB Doesn&rsquo;t Start Failed to start MariaDB database server after upgrade to debian 9  今天終於在 ArchLinux-CN Telegram 技術群提問獲得了解決。
+問題 我的 Linux 在某次更新完系統開機階段就會顯示我的數據庫啟動失敗，開機後我試著登入數據庫卻登入失敗。於是試著啟動 mariadb.service 於是出現下面的畫面：
+mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
+" mariadb.service 啟動失敗 
+於是我接著查看 mariadb.service 的 status：
+檢查 mariadb.service statussystemctl_status_mariadb.png
+" 檢查 mariadb.service status 
+依然沒找到問題所在，於是我進一步查看日誌：
+1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.]]></description>
+</item><item>
     <title>部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</title>
     <link>https://huangno1.github.io/deploy_springboot_flask_vue_web/</link>
     <pubDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</pubDate>
@@ -132,23 +150,5 @@ Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
 另一方面，我們無法使用超級使用者進入圖形界面。
  註：將以下的所有 user 改成自己的使用者名稱。
  1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。]]></description>
-</item><item>
-    <title>Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統</title>
-    <link>https://huangno1.github.io/archlinux_install_part1_basic/</link>
-    <pubDate>Sat, 28 Sep 2019 15:24:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/archlinux_install_part1_basic/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/archlinux_install_part1_basic.png" referrerpolicy="no-referrer">
-            </div>前言 我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。
-由於我的電腦型號是聯想 y7000，所以遇到的坑真的很多，我會按特殊情況講解，雖然 Installation guide - ArchWiki 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(
-因為我這是專給小白寫的文章，所以寫了很多細節和注意點，如果你是高手，覺得我寫了很多廢話，那請你忍耐吧，也可以選擇不看我的文章，直接去看 ArchWiki。
-安裝前準備 1. 至 清華大學 Archlinux 軟件鏡像站下載最新版的 archlinux*.ios 鏡像 清華大學鏡像站1.png
-" 清華大學鏡像站 
-2. 下載 Rufus - 用來匯入 Archlinux 鏡像至 USB Refus 官網2.png
-" Refus 官網 
-3. 準備一個至少 8G 的 USB 使用 Rufus 將 Arch 鏡像匯入在目標 USB 裝置。
- 註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。
- 關於燒錄方式  2020/01/21 補充燒錄方式。]]></description>
 </item></channel>
 </rss>

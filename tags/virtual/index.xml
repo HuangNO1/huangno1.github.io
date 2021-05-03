@@ -6,12 +6,12 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 07 Aug 2020 18:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/virtual/" rel="self" type="application/rss+xml" /><item>
     <title>C&#43;&#43; - 關於多態中的虛函數與純虛函數</title>
-    <link>https://huangno1.github.io/about_c-_class_virtual_function/</link>
+    <link>https://huangno1.github.io/about_cpp_class_virtual_function/</link>
     <pubDate>Fri, 07 Aug 2020 18:49:28 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://huangno1.github.io/about_c-_class_virtual_function/</guid>
+    <guid>https://huangno1.github.io/about_cpp_class_virtual_function/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/about_c&#43;&#43;_class_virtual_function.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/about_cpp_class_virtual_function.png" referrerpolicy="no-referrer">
             </div>前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
 多態與虛函數  P.S. 大陸叫對象，台灣叫物件。
  我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。虛函數是用來子類繼承後能夠複寫的函數。

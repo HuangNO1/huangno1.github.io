@@ -21,12 +21,12 @@
 1 2  X + V + I + I = XVII 10 + 5 + 1 + 1 = 17   表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。]]></description>
 </item><item>
     <title>C&#43;&#43; 關於某小數轉進制的題目-解題經驗</title>
-    <link>https://huangno1.github.io/c-_solving_decimal_programming/</link>
+    <link>https://huangno1.github.io/cpp_solving_decimal_programming/</link>
     <pubDate>Fri, 11 Oct 2019 12:24:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://huangno1.github.io/c-_solving_decimal_programming/</guid>
+    <guid>https://huangno1.github.io/cpp_solving_decimal_programming/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/c&#43;&#43;_solving_decimal_programming.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/cpp_solving_decimal_programming.png" referrerpolicy="no-referrer">
             </div>前言 最近我朋友問了我一個關於一個小數轉進制的題目，雖然我當時很忙，但最後我還是抽出了時間幫忙解決，解題的一開始我以為題目挺簡單的，但在解題過程發現還蠻多小技巧要使用，我會在這篇文章分享我的解題過程。
 題目 我先給各位看一下題目。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49  Objective Programming using basic data types and control structures. Specification Write a program which converts a base-S floating point number with value in the range [0,1) to its equivalent base-D representation, where S, D =2, … , 10.]]></description>

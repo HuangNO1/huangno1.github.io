@@ -6,12 +6,12 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Fri, 11 Oct 2019 12:24:00 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/%E5%B0%8F%E6%95%B8/" rel="self" type="application/rss+xml" /><item>
     <title>C&#43;&#43; 關於某小數轉進制的題目-解題經驗</title>
-    <link>https://huangno1.github.io/c-_solving_decimal_programming/</link>
+    <link>https://huangno1.github.io/cpp_solving_decimal_programming/</link>
     <pubDate>Fri, 11 Oct 2019 12:24:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://huangno1.github.io/c-_solving_decimal_programming/</guid>
+    <guid>https://huangno1.github.io/cpp_solving_decimal_programming/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/c&#43;&#43;_solving_decimal_programming.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/cpp_solving_decimal_programming.png" referrerpolicy="no-referrer">
             </div>前言 最近我朋友問了我一個關於一個小數轉進制的題目，雖然我當時很忙，但最後我還是抽出了時間幫忙解決，解題的一開始我以為題目挺簡單的，但在解題過程發現還蠻多小技巧要使用，我會在這篇文章分享我的解題過程。
 題目 我先給各位看一下題目。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49  Objective Programming using basic data types and control structures. Specification Write a program which converts a base-S floating point number with value in the range [0,1) to its equivalent base-D representation, where S, D =2, … , 10.]]></description>

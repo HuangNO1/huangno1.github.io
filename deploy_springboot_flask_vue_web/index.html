@@ -36,7 +36,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/deploy_springboot_flask_vue_web/" /><link rel="prev" href="https://huangno1.github.io/about_c-_class_virtual_function/" /><link rel="next" href="https://huangno1.github.io/ssh_no_password_connection/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/deploy_springboot_flask_vue_web/" /><link rel="prev" href="https://huangno1.github.io/about_cpp_class_virtual_function/" /><link rel="next" href="https://huangno1.github.io/ssh_no_password_connection/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -45,7 +45,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/deploy_springboot_flask_vue_web\/"
-        },"genre": "posts","keywords": "Vue, Vue-cli, Server, Web, npm, SpringBoot, Linux, Java, JDK, Maven, IntelliJ, IDEA, Jar, Nginx, Python, Flask","wordcount":  1286 ,
+        },"genre": "posts","keywords": "Vue, Vue-cli, Server, Web, npm, SpringBoot, Linux, Java, JDK, Maven, IntelliJ, IDEA, Jar, Nginx, Python, Flask","wordcount":  1255 ,
         "url": "https:\/\/huangno1.github.io\/deploy_springboot_flask_vue_web\/","datePublished": "2020-12-21T16:49:28+08:00","dateModified": "2020-12-21T16:49:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -141,8 +141,8 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-21">2020-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1286 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 7 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-21">2020-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1255 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -399,8 +399,8 @@ sudo mysql_secure_installation <span class="c1"># 會要求你設置 root 密碼
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span> <span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;password&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>刷新權限：</p>
 <div class="highlight"><div class="chroma">
@@ -408,8 +408,8 @@ sudo mysql_secure_installation <span class="c1"># 會要求你設置 root 密碼
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span> <span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>退出：</p>
 <div class="highlight"><div class="chroma">
@@ -417,8 +417,8 @@ sudo mysql_secure_installation <span class="c1"># 會要求你設置 root 密碼
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span> <span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">exit</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">exit</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><h4 id="nginx">Nginx</h4>
 <p>安裝 Nginx：</p>
@@ -519,10 +519,10 @@ mysql -u admin -p
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span> <span class="p">[(</span><span class="k">none</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="k">create</span> <span class="k">database</span> <span class="n">sxblog</span><span class="p">;</span>
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="k">none</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="n">use</span> <span class="n">sxblog</span><span class="p">;</span>
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">sxblog</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="k">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sxblog</span><span class="o">/</span><span class="k">sql</span><span class="o">/</span><span class="n">sxblog</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">sxblog</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">sxblog</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="n">sxblog</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">source</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sxblog</span><span class="o">/</span><span class="k">sql</span><span class="o">/</span><span class="n">sxblog</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><h2 id="後端部署">後端部署</h2>
 <h3 id="spring-boot打包">Spring Boot打包</h3>
@@ -1036,14 +1036,14 @@ location @router <span class="o">{</span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/about_c-_class_virtual_function/" class="prev" rel="prev" title="C&#43;&#43; - 關於多態中的虛函數與純虛函數"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; - 關於多態中的虛函數與純虛函數</a>
+    <div class="post-nav"><a href="/about_cpp_class_virtual_function/" class="prev" rel="prev" title="C&#43;&#43; - 關於多態中的虛函數與純虛函數"><i class="fas fa-angle-left fa-fw"></i>C&#43;&#43; - 關於多態中的虛函數與純虛函數</a>
             <a href="/ssh_no_password_connection/" class="next" rel="next" title="SSH 免密訪問服務器端">SSH 免密訪問服務器端<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

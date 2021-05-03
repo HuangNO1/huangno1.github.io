@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head>
-	<meta name="generator" content="Hugo 0.82.0" />
+	<meta name="generator" content="Hugo 0.83.1" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -116,6 +116,29 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/archlinux_fail_to_start_mariadb/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg"
+        data-srcset="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg, /featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg 1.5x, /featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg"
+        title="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/archlinux_fail_to_start_mariadb/">Mariadb 啟動服務失敗</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-05-03">2021-05-03</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是
+ [SOLVED] Unable to start mariadb.service What to Do if MariaDB Doesn&rsquo;t Start Failed to start MariaDB database server after upgrade to debian 9  今天終於在 ArchLinux-CN Telegram 技術群提問獲得了解決。
+問題 我的 Linux 在某次更新完系統開機階段就會顯示我的數據庫啟動失敗，開機後我試著登入數據庫卻登入失敗。於是試著啟動 mariadb.service 於是出現下面的畫面：
+mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
+" mariadb.service 啟動失敗 
+於是我接著查看 mariadb.service 的 status：
+檢查 mariadb.service statussystemctl_status_mariadb.png
+" 檢查 mariadb.service status 
+依然沒找到問題所在，於是我進一步查看日誌：
+1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.</div><div class="post-footer">
+        <a href="/archlinux_fail_to_start_mariadb/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/mariadb/">Mariadb</a>,&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/mysql_learn_note_basic/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -217,28 +240,6 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
  註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。</div><div class="post-footer">
         <a href="/ssh_no_password_connection/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">SSH</a>,&nbsp;<a href="/tags/server/">Server</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/deploy_springboot_flask_vue_web/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg"
-        data-srcset="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg, /featuredImage/compressed/deploy_springboot_flask_vue_web.jpg 1.5x, /featuredImage/compressed/deploy_springboot_flask_vue_web.jpg 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg"
-        title="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/deploy_springboot_flask_vue_web/">部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-21">2020-12-21</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 MD-Blog 個人空間系統項目進行 Web 測試，過程中我將那個項目部署到了阿里雲的雲服務器上。這篇文章我紀錄一下我部署 Web 的過程。
-購買服務器 因為我是用學生優惠等方式白嫖到了半年的阿里雲雲服務器，所以這方面其實沒怎麼出錢，幸好在軟件測試項目結題才到期，不過用學生優惠購買最低配的雲服務器，三個月也只需要 28 元人民幣，騰訊雲我因為過不了實名認證就算了（&hellip;這裡我要吐嘈一下連雲服務器都要實名認證）。
-總之購買好雲服務器後新增好實例，通常我是建議使用 CentOS7 作為服務器的操作系統，進入雲服務器的控制台，你會看到服務器的公網 IP、私網 IP 和密碼，密碼可以重新修改。
-這裡我們假設我們服務器的公網 IP 是 1.2.3.4。
-部署項目前的工作 安裝環境 在配置之前我們需要將我們的 JDK、Python、MySQL、Nginx 在服務器端配置完畢。
-JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 版本一致，不然在運行後端 JAR 包時會報版本錯誤及不兼容的問題，要選擇 JDK1.8 以上的版本。
-這裡是建議自己在本地下載好 JDK 然後 SCP 上傳至服務器端，選擇 Linux x64 Compressed Archive 下載，不要下錯成 Linux ARM 架構的（因為我下錯過，沒仔細看名稱），壓縮包名大致為 jdk-8u271-linux-x64.tar.gz。
- 在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
- 1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.</div><div class="post-footer">
-        <a href="/deploy_springboot_flask_vue_web/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vue/">Vue</a>,&nbsp;<a href="/tags/vue-cli/">Vue-cli</a>,&nbsp;<a href="/tags/server/">Server</a>,&nbsp;<a href="/tags/web/">Web</a>,&nbsp;<a href="/tags/npm/">npm</a>,&nbsp;<a href="/tags/springboot/">SpringBoot</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/jdk/">JDK</a>,&nbsp;<a href="/tags/maven/">Maven</a>,&nbsp;<a href="/tags/intellij/">IntelliJ</a>,&nbsp;<a href="/tags/idea/">IDEA</a>,&nbsp;<a href="/tags/jar/">Jar</a>,&nbsp;<a href="/tags/nginx/">Nginx</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -259,7 +260,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
