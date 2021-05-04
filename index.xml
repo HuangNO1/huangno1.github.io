@@ -4,9 +4,24 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 17:28:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 04 May 2021 08:03:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Python 爬蟲實戰教學 - Github 倉庫特徵爬取</title>
+    <link>https://huangno1.github.io/python_spider_experience_instruct_github_repos/</link>
+    <pubDate>Tue, 04 May 2021 08:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/python_spider_experience_instruct_github_repos/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/python_spider_experience_instruct_github_repos.jpg" referrerpolicy="no-referrer">
+            </div>前言 因為這期學期上半我選了機器學習與數據挖掘，我在課程小組項目中負責了爬蟲這個部份，我會在這篇文章紀錄一下我的過程，並教導大家如何實戰 Python 爬蟲。
+項目說明 我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，第一個部份是使用 BeautifulSoup 爬取原生的 HTML 頁面，第二部份是使用 Github API，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量。
+ P.S. 其實是我在剛開始寫爬蟲的時候，覺得 GIthub API 回傳的數據特徵有點少，所以就直接爬 Github 原生 HTML 頁面，沒有去爬月變化的數據，結果組長說要我重新去寫爬蟲，要爬月變化數據。
+ 開發前準備 Github 私人 Token 因為我們需要爬取 Github 的網頁和使用 Github API，我們需要申請 Personal token，避免我們的請求達到 Rate Limit，Github 有限制一分鐘內的請求次數。
+Github 私人 token 申請github_personal_token.png
+" Github 私人 token 申請 
+請求設定 我們請求在請求頁面時需要模仿瀏覽器的請求方式]]></description>
+</item><item>
     <title>互聯網公司大廠 – 面試八股文彙整</title>
     <link>https://huangno1.github.io/cs_interview_eight_part_questions/</link>
     <pubDate>Mon, 03 May 2021 17:28:28 &#43;0800</pubDate>
@@ -16,7 +31,7 @@
                 <img src="/featuredImage/compressed/cs_interview_eight_part_questions.jpg" referrerpolicy="no-referrer">
             </div>前言 因為 2021/03 月份我已經是大三了，我開始在春招找實習 Offer，在找實習的期間我在牛課網以及各大平台的面經驗分享中整理出一份八文面試題，整理的過程整整花了我將近一週的時間，希望我整理的內容對各位有幫助。
 註：這篇文章是針對 C/C++ 崗位的面試題，數據結構、算法、操作系統、計算機網路、數據庫對大部分崗位是通用的。
-重要度 重要性: 語言基礎 &gt;= 數據結構 == 算法 &gt; 操作系統 &gt; 計算機網路 &raquo;&gt; 數據庫 &gt;= 機器學習
+重要度 重要性: 語言基礎 &gt;= 數據結構 == 算法 &gt; 操作系統 &gt; 計算機網路 &gt; 數據庫 &gt;= 機器學習
 語言基礎 C++ 三大特性 封装性是基础，继承性是关键，多态性是补充，并且多态性存在于继承的环境中。 C++语言中支持数据封装，类是支持数据封装的工具，对象是数据封装的实现。 在封装中，还提供一种对数据访问的控制机制，使得一些数据被隐藏在封装体内，因此具有隐藏性。
 封裝、繼承、多態，簡單說明 封装性:把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 类将成员变量和成员函数封装在类的内部，根据需要设置访问权限，通过成员函数管理内部状态。
 1 2 3 4 5 6 7 8 9 10 11  class Person { private://数据私有  string bame; int num; public://方法公有  void getName() { return name; } };   繼承:继承所表达的是类之间相关的关系，这种关系使得对象可以继承另外一类对象的特征和能力。 继承的作用：避免公用代码的重复开发，减少代码和数据冗余。
@@ -148,17 +163,5 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
 在下面的例子中是一個 Base Class（基類、父類），如果函數前面宣告有添加 virtual 就是虛函數。
 1 2 3 4 5 6  class Shape { public: virtual string toString() const; virtual double getArea() const; }   下面是一個 Circle 子類（superclass）（超生類、派生類），引入 Circle 的 getArea() 和 toString() 是虛函數，我們現在是在子類中重寫（重定義）類的虛構函數（此時你可以將父類的虛構函數想像成模板）。
 1 2 3 4 5 6 7 8 9 10 11 12  class Circle : public Shape { private: double radius; public: Circle(); Circle(double); double getRadius() const; void setRadius(double); double getArea() const; string toString() const; }   實際當我們在使用虛構函數時，是把它當作跳板，去自動便是哪個函式是哪個函式，e.]]></description>
-</item><item>
-    <title>在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫</title>
-    <link>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</link>
-    <pubDate>Fri, 07 Aug 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png" referrerpolicy="no-referrer">
-            </div>前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
-安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。
-1 2 3 4 5  sudo pacman -S texlive-most # 安裝約 12 個包 sudo pacman -S texlive-core # 只裝核心 sudo pacman -S texlive-langchinese # 安裝中文支持   測試安裝 進入特定資料夾，輸入下面兩行指令測試是否安裝成功，
- tex '\empty Hello world!\bye' 會生成 texput.dvi 和 texput.log。 pdftex '\empty Hello world!\bye' 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!]]></description>
 </item></channel>
 </rss>
