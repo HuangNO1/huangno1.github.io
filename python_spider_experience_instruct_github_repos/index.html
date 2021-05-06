@@ -7,12 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Python 爬蟲實戰教學 - Github 倉庫特徵爬取 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Python 爬蟲實戰教學 - Github 倉庫特徵爬取" />
 <meta property="og:description" content="前言 因為這期學期上半我選了機器學習與數據挖掘，我在課程小組項目中負責了爬蟲這個部份，我會在這篇文章紀錄一下我的過程，並教導大家如何實戰 Python 爬蟲。
-項目說明 我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，第一個部份是使用 BeautifulSoup 爬取原生的 HTML 頁面，第二部份是使用 Github API，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量。
+項目說明 我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，第一個部份是使用 BeautifulSoup 爬取原生的 HTML 頁面，第二部份是使用 Github API，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量(2020.03 ~2021.03)。
  P.S. 其實是我在剛開始寫爬蟲的時候，覺得 GIthub API 回傳的數據特徵有點少，所以就直接爬 Github 原生 HTML 頁面，沒有去爬月變化的數據，結果組長說要我重新去寫爬蟲，要爬月變化數據。
- 開發前準備 Github 私人 Token 因為我們需要爬取 Github 的網頁和使用 Github API，我們需要申請 Personal token，避免我們的請求達到 Rate Limit，Github 有限制一分鐘內的請求次數。
-Github 私人 token 申請github_personal_token.png
-&#34; Github 私人 token 申請 
-請求設定 我們請求在請求頁面時需要模仿瀏覽器的請求方式" />
+ 開發前準備 安裝相關庫 因為我們需要使用到的庫有 BeautifulSoup 和 requests 等。所以有些需要自己去安裝，
+1 2 3 4 5  import requests import time import csv import json from bs4 import BeautifulSoup   1  pip install requests BeautifulSoup   Github 私人 Token 因為我們需要爬取 Github 的網頁和使用 Github API，我們需要申請 Personal token，避免我們的請求達到 Rate Limit，Github 有限制一分鐘內的請求次數。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/python_spider_experience_instruct_github_repos/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-05-04T08:03:28&#43;08:00" />
@@ -23,12 +21,10 @@ Github 私人 token 申請github_personal_token.png
 
 <meta name="twitter:title" content="Python 爬蟲實戰教學 - Github 倉庫特徵爬取"/>
 <meta name="twitter:description" content="前言 因為這期學期上半我選了機器學習與數據挖掘，我在課程小組項目中負責了爬蟲這個部份，我會在這篇文章紀錄一下我的過程，並教導大家如何實戰 Python 爬蟲。
-項目說明 我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，第一個部份是使用 BeautifulSoup 爬取原生的 HTML 頁面，第二部份是使用 Github API，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量。
+項目說明 我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，第一個部份是使用 BeautifulSoup 爬取原生的 HTML 頁面，第二部份是使用 Github API，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量(2020.03 ~2021.03)。
  P.S. 其實是我在剛開始寫爬蟲的時候，覺得 GIthub API 回傳的數據特徵有點少，所以就直接爬 Github 原生 HTML 頁面，沒有去爬月變化的數據，結果組長說要我重新去寫爬蟲，要爬月變化數據。
- 開發前準備 Github 私人 Token 因為我們需要爬取 Github 的網頁和使用 Github API，我們需要申請 Personal token，避免我們的請求達到 Rate Limit，Github 有限制一分鐘內的請求次數。
-Github 私人 token 申請github_personal_token.png
-&#34; Github 私人 token 申請 
-請求設定 我們請求在請求頁面時需要模仿瀏覽器的請求方式"/>
+ 開發前準備 安裝相關庫 因為我們需要使用到的庫有 BeautifulSoup 和 requests 等。所以有些需要自己去安裝，
+1 2 3 4 5  import requests import time import csv import json from bs4 import BeautifulSoup   1  pip install requests BeautifulSoup   Github 私人 Token 因為我們需要爬取 Github 的網頁和使用 Github API，我們需要申請 Personal token，避免我們的請求達到 Rate Limit，Github 有限制一分鐘內的請求次數。"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,7 +37,7 @@ Github 私人 token 申請github_personal_token.png
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/python_spider_experience_instruct_github_repos\/"
-        },"genre": "posts","keywords": "Python, Spider, Github, Repository","wordcount":  50 ,
+        },"genre": "posts","keywords": "Python, Spider, Github, Repository","wordcount":  2409 ,
         "url": "https:\/\/huangno1.github.io\/python_spider_experience_instruct_github_repos\/","datePublished": "2021-05-04T08:03:28+08:00","dateModified": "2021-05-04T08:03:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -137,8 +133,8 @@ Github 私人 token 申請github_personal_token.png
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Python 爬蟲實戰教學 - Github 倉庫特徵爬取</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-04">2021-05-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 50 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-04">2021-05-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2409 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 12 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -157,21 +153,81 @@ Github 私人 token 申請github_personal_token.png
     <li><a href="#項目說明">項目說明</a></li>
     <li><a href="#開發前準備">開發前準備</a>
       <ul>
+        <li><a href="#安裝相關庫">安裝相關庫</a></li>
         <li><a href="#github-私人-token">Github 私人 Token</a></li>
         <li><a href="#請求設定">請求設定</a></li>
       </ul>
     </li>
+    <li><a href="#第一部份---原生頁面">第一部份 - 原生頁面</a>
+      <ul>
+        <li><a href="#確定爬取規則">確定爬取規則</a></li>
+        <li><a href="#爬取我們要的所有倉庫">爬取我們要的所有倉庫</a></li>
+        <li><a href="#細爬每個倉庫特徵">細爬每個倉庫特徵</a></li>
+        <li><a href="#存成-csv">存成 CSV</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二部份---github-api">第二部份 - Github API</a>
+      <ul>
+        <li><a href="#確定爬取需求">確定爬取需求</a></li>
+        <li><a href="#先查看-github-api">先查看 Github API</a></li>
+        <li><a href="#確定特徵">確定特徵</a></li>
+        <li><a href="#編寫爬取類">編寫爬取類</a></li>
+        <li><a href="#爬取我們需要的所有熱門倉庫">爬取我們需要的所有熱門倉庫</a></li>
+        <li><a href="#編寫-readme-爬取方法">編寫 Readme 爬取方法</a></li>
+        <li><a href="#編寫處理所有的-repo-方法">編寫處理所有的 repo 方法</a></li>
+        <li><a href="#編寫月份分類方法">編寫月份分類方法</a></li>
+        <li><a href="#編寫單個-repo-月份-commits-變化">編寫單個 repo 月份 commits 變化</a></li>
+        <li><a href="#編寫單個-repo-月份-pull-requests-變化">編寫單個 repo 月份 pull requests 變化</a></li>
+        <li><a href="#編寫單個-repo-月份-forks-變化">編寫單個 repo 月份 forks 變化</a></li>
+        <li><a href="#編寫單個-repo-月份-issues-變化">編寫單個 repo 月份 issues 變化</a></li>
+        <li><a href="#將所有的數據從成-csv-文件">將所有的數據從成 CSV 文件</a></li>
+        <li><a href="#編寫-main-函數">編寫 main 函數</a></li>
+        <li><a href="#確認結果">確認結果</a></li>
+      </ul>
+    </li>
+    <li><a href="#補充">補充</a>
+      <ul>
+        <li><a href="#javascript-的指針問題">Javascript 的指針問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#結語">結語</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>因為這期學期上半我選了機器學習與數據挖掘，我在課程小組項目中負責了爬蟲這個部份，我會在這篇文章紀錄一下我的過程，並教導大家如何實戰 Python 爬蟲。</p>
 <h2 id="項目說明">項目說明</h2>
-<p>我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，<strong>第一個部份是使用 <code>BeautifulSoup</code> 爬取原生的 HTML 頁面</strong>，<strong>第二部份是使用 Github API</strong>，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量。</p>
+<p>我們這個小組項目的爬取需求是爬取 Github 項目的各個特徵，這篇文章會分兩個部份，<strong>第一個部份是使用 <code>BeautifulSoup</code> 爬取原生的 HTML 頁面</strong>，<strong>第二部份是使用 Github API</strong>，其中第二部份包含了每個倉庫的 Commits、pull_request 等月變化量(2020.03 ~2021.03)。</p>
 <blockquote>
 <p>P.S. 其實是我在剛開始寫爬蟲的時候，覺得 GIthub API 回傳的數據特徵有點少，所以就直接爬 Github 原生 HTML 頁面，沒有去爬月變化的數據，結果組長說要我重新去寫爬蟲，要爬月變化數據。</p>
 </blockquote>
 <h2 id="開發前準備">開發前準備</h2>
-<h3 id="github-私人-token">Github 私人 Token</h3>
+<h3 id="安裝相關庫">安裝相關庫</h3>
+<p>因為我們需要使用到的庫有 <code>BeautifulSoup</code> 和 <code>requests</code> 等。所以有些需要自己去安裝，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-zsh" data-lang="zsh">pip install requests BeautifulSoup
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="github-私人-token">Github 私人 Token</h3>
 <p>因為我們需要爬取 Github 的網頁和使用 Github API，我們需要申請 Personal token，<strong>避免我們的請求達到 Rate Limit</strong>，Github 有限制一分鐘內的請求次數。</p>
 <p><figure><a class="lightgallery" href="https://imgpoi.com/i/K863SE.png" title="github_personal_token.png" data-thumbnail="https://imgpoi.com/i/K863SE.png" data-sub-html="<h2>Github 私人 token 申請</h2><p>github_personal_token.png</p>">
         <img
@@ -185,6 +241,1223 @@ Github 私人 token 申請github_personal_token.png
     </figure></p>
 <h3 id="請求設定">請求設定</h3>
 <p>我們請求在請求頁面時需要模仿瀏覽器的請求方式</p>
+<blockquote>
+<p>如果自己沒有 proxies 可以去掉這一項。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># request settings</span>
+
+<span class="c1"># token</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="c1"># proxy</span>
+<span class="n">proxies</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&#34;http&#34;</span><span class="p">:</span> <span class="s2">&#34;http://127.0.0.1:7890&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;https&#34;</span><span class="p">:</span> <span class="s2">&#34;http://127.0.0.1:7890&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># through Github api</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/vnd.github.v3+json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;token {token}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># 模仿瀏覽器請求原生頁面</span>
+<span class="n">headers_raw_page</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;token {token}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">timeoutSec</span> <span class="o">=</span> <span class="mi">15</span>  <span class="c1"># setup your timeout spec(sec)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="第一部份---原生頁面">第一部份 - 原生頁面</h2>
+<h3 id="確定爬取規則">確定爬取規則</h3>
+<p>先確定要爬的數據，我們預先在 <strong>Github topic</strong> 中爬取 <strong>deep-learning</strong> 的相關 Repositories 的 URL 作為我們數據分析的數據量。並且<strong>觀察頁面的請求與分頁</strong>。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K84WSM.png" title="deep_learning_topic.png" data-thumbnail="https://imgpoi.com/i/K84WSM.png" data-sub-html="<h2>topic 頁面</h2><p>deep_learning_topic.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K84WSM.png"
+            data-srcset="https://imgpoi.com/i/K84WSM.png, https://imgpoi.com/i/K84WSM.png 1.5x, https://imgpoi.com/i/K84WSM.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K84WSM.png" />
+    </a><figcaption class="image-caption">topic 頁面</figcaption>
+    </figure></p>
+<p>我們可以按下 F12 可以在網路請求部份找到我們頁面請求的內容，並且在傳參部份找的到 <strong>page 參數</strong>，<strong>page 參數以及 per_page 參數</strong>可以作為我們循環請求的依據。</p>
+<blockquote>
+<p>per_page 參數是決定每頁顯示多少列倉庫，這部份是我在看完 Github API 後知道的參數。</p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K84AF2.png" title="topic_request_page.png" data-thumbnail="https://imgpoi.com/i/K84AF2.png" data-sub-html="<h2>觀察請求規則</h2><p>topic_request_page.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K84AF2.png"
+            data-srcset="https://imgpoi.com/i/K84AF2.png, https://imgpoi.com/i/K84AF2.png 1.5x, https://imgpoi.com/i/K84AF2.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K84AF2.png" />
+    </a><figcaption class="image-caption">觀察請求規則</figcaption>
+    </figure></p>
+<h3 id="爬取我們要的所有倉庫">爬取我們要的所有倉庫</h3>
+<p>下面是使用迴圈去調參，接著使用 BS4 去解析頁面元素。爬取的內容會存到 <code>start_urls</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="n">start_urls</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># save urls</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;https://github.com/topics/deep-learning?page=&#34;</span>
+<span class="n">allowed_domains</span> <span class="o">=</span> <span class="s2">&#34;https://github.com&#34;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">------------start grabbing all urls--------------------------</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">35</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span> <span class="n">timeoutSec</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+    
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+    <span class="c1"># print(soup.prettify())</span>
+    <span class="c1"># urls = soup.find_all(&#34;a&#34;, {&#39;class&#39;: &#39;text-bold&#39;})</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;text-bold&#39;</span><span class="p">}):</span>
+        <span class="n">start_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">allowed_domains</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">allowed_domains</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
+    
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="細爬每個倉庫特徵">細爬每個倉庫特徵</h3>
+<p>由於我們一開始爬的倉庫特徵並不是很夠，我們需要去細爬我們每個倉庫的更多數據特徵，接著我們根據 <code>start_url</code> 存的內容去爬取需要的倉庫細節。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K84RGD.png" title="repository_html.png" data-thumbnail="https://imgpoi.com/i/K84RGD.png" data-sub-html="<h2>觀察單個倉庫的頁面元素</h2><p>repository_html.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K84RGD.png"
+            data-srcset="https://imgpoi.com/i/K84RGD.png, https://imgpoi.com/i/K84RGD.png 1.5x, https://imgpoi.com/i/K84RGD.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K84RGD.png" />
+    </a><figcaption class="image-caption">觀察單個倉庫的頁面元素</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">print</span><span class="p">(</span><span class="n">start_urls</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;The data length: &#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">start_urls</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;star&#39;</span><span class="p">,</span> <span class="s1">&#39;commits&#39;</span><span class="p">,</span> <span class="s1">&#39;fork&#39;</span><span class="p">,</span> <span class="s1">&#39;issues&#39;</span><span class="p">,</span> <span class="s1">&#39;pull_requests&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;branches&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">------------start grabbing data--------------------------</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">start_urls</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span> <span class="n">timeoutSec</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+    <span class="c1"># print(html)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+    <span class="c1"># star = soup.findall(&#34;a&#34;, text=&#34;starred&#34;)</span>
+    <span class="c1"># print(soup.prettify())</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;all: &#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">start_urls</span><span class="p">),</span> <span class="s2">&#34;index &#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&#34;, start: &#34;</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;social-count&#39;</span><span class="p">})</span>
+    <span class="c1"># print(num)</span>
+    <span class="c1"># print(&#39;\n&#39;)</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;star&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;fork&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;span&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;d-none d-sm-inline&#39;</span><span class="p">})</span>
+    <span class="c1"># print(&#39;\n&#39;)</span>
+    <span class="c1"># print(num)</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;commits&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">item</span><span class="p">[</span><span class="s1">&#39;commits&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;span&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;Counter&#39;</span><span class="p">})</span>
+    <span class="c1"># print(&#39;\n&#39;)</span>
+    <span class="c1"># print(num)</span>
+
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;issues&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;pull_requests&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="c1"># item[&#39;contributors&#39;] = num[7]</span>
+    <span class="c1"># item[&#39;projects&#39;] = num[4]</span>
+    <span class="c1"># item[&#39;security&#39;] = num[5]</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;Link--primary no-underline&#39;</span><span class="p">})</span>
+    <span class="c1"># print(&#39;\n&#39;)</span>
+    <span class="c1"># print(num)</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;branches&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># item[&#39;release&#39;] = num[1]</span>
+    <span class="c1"># item[&#39;used_by&#39;] = num[3]</span>
+
+    <span class="c1"># num = soup.find_all(&#34;span&#34;, {&#39;class&#39;: &#39;Counter&#39;})</span>
+    <span class="c1"># item[&#39;contributors&#39;] = num[4]</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;ml-3 Link--primary no-underline&#39;</span><span class="p">})</span>
+    <span class="c1"># print(&#39;\n&#39;)</span>
+    <span class="c1"># print(num)</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;end&#34;</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="c1"># print(&#34;\n&#34;, item[&#39;commits&#39;])</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="存成-csv">存成 CSV</h3>
+<p>我們接下來根據 <code>labels</code> 去存成 CSV 文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">------------start saving data as csv--------------------------</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;csv_dct.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;save success&#34;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;I/O error&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="第二部份---github-api">第二部份 - Github API</h2>
+<h3 id="確定爬取需求">確定爬取需求</h3>
+<p>我們需要的是各語言的熱門 repository，每個倉庫的最終 name、language、stargzers、forks、open_issues、watchers、readme，以按照月份變化(2020.03 ~2021.03)的 commits、pull requests、forks、issues events。</p>
+<p>為了求方便 我們需要<strong>使用 GIthub 提供的 API 進行爬取，然而 Readme 部分需要去爬取原生的 HTML 頁面</strong>。</p>
+<p>確定爬取後需要<strong>分成三張表，基本數據 gitub_basic.csv；月變化數據 github_commits.csv、github_pull_requests.csv</strong>。(後面因為 forks 和 issues 的樂變化數據爬取過多，拖長每個 repo 的數據處理進度，導致平均一個 repo 需要爬取 8 mins 左右，所以棄掉這兩項月變化數據)</p>
+<h3 id="先查看-github-api">先查看 Github API</h3>
+<p>我們先查看 Github 提供的 API 文檔。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K844ZV.png" title="github_rest_api_docs.png" data-thumbnail="https://imgpoi.com/i/K844ZV.png" data-sub-html="<h2>Github REST API</h2><p>github_rest_api_docs.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K844ZV.png"
+            data-srcset="https://imgpoi.com/i/K844ZV.png, https://imgpoi.com/i/K844ZV.png 1.5x, https://imgpoi.com/i/K844ZV.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K844ZV.png" />
+    </a><figcaption class="image-caption">Github REST API</figcaption>
+    </figure></p>
+<p>我們首先需要用到的 API 是 Search 裡面的 <code>https://api.github.com/search/repositories</code>。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K84PTE.png" title="github_api_list.png" data-thumbnail="https://imgpoi.com/i/K84PTE.png" data-sub-html="<h2>Github api list</h2><p>github_api_list.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K84PTE.png"
+            data-srcset="https://imgpoi.com/i/K84PTE.png, https://imgpoi.com/i/K84PTE.png 1.5x, https://imgpoi.com/i/K84PTE.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K84PTE.png" />
+    </a><figcaption class="image-caption">Github api list</figcaption>
+    </figure></p>
+<p>我們先測試一下 API：</p>
+<blockquote>
+<p>你也可以使用 Postman 去做測試，因為有時回傳值太長了，終端機直接砍掉前面部份。</p>
+</blockquote>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K8413B.png" title="github_api_test.png" data-thumbnail="https://imgpoi.com/i/K8413B.png" data-sub-html="<h2>Github API 測試</h2><p>github_api_test.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K8413B.png"
+            data-srcset="https://imgpoi.com/i/K8413B.png, https://imgpoi.com/i/K8413B.png 1.5x, https://imgpoi.com/i/K8413B.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K8413B.png" />
+    </a><figcaption class="image-caption">Github API 測試</figcaption>
+    </figure></p>
+<h3 id="確定特徵">確定特徵</h3>
+<p>因為我們使用 Github API 回傳的數據特徵已經有</p>
+<ul>
+<li>name</li>
+<li>language</li>
+<li>stargazers</li>
+<li>forks</li>
+<li>open_issues</li>
+<li>watchers</li>
+</ul>
+<p>以及各種請求 URL（作為後面爬取各），雖然特徵沒有第一部份爬取 HTML 頁面的數據特徵多，但作為數據分析特徵夠了。</p>
+<h3 id="編寫爬取類">編寫爬取類</h3>
+<p>編寫爬蟲類的成員變量，與構造函數。並且使用 Github search repositories 的 API 分別，總共的語言有 python、java、golang、js。</p>
+<p>其中</p>
+<ul>
+<li><strong>repositories</strong>: 爬取的 repo</li>
+<li><strong>basic_table</strong>: repo 的基本特徵</li>
+<li><strong>commits_table</strong>: 每個 repo 的 commits 月變化數據</li>
+<li><strong>pull_requests_table</strong>: 每個 repo 的 pull requests月變化數據</li>
+<li><strong>forks_table</strong>: 每個 repo 的 forks月變化數據</li>
+<li><strong>issues_table</strong>: 每個 repo 的 issues月變化數據</li>
+<li><strong>basic_url</strong>: 根據爬取語言熱門 repos 的爬取 api</li>
+<li><strong>basic_labels</strong>: basic_table 存成 csv 文件的標籤</li>
+<li><strong>template_labels</strong>: 月變化數據存成 csv 文件的標籤</li>
+<li><strong>template_table</strong>: 月變化數據初始化賦值模板</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repositories</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">basic_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commits_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pull_requests_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">forks_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">issues_table</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&#34;https://api.github.com/search/repositories?q=language:python&amp;sort=stars&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;https://api.github.com/search/repositories?q=language:java&amp;sort=stars&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;https://api.github.com/search/repositories?q=language:c&amp;sort=stars&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;https://api.github.com/search/repositories?q=language:golang&amp;sort=stars&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;https://api.github.com/search/repositories?q=language:js&amp;sort=stars&#34;</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">basic_labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="s1">&#39;stargazers&#39;</span> <span class="p">,</span> <span class="s1">&#39;forks&#39;</span><span class="p">,</span> <span class="s1">&#39;open_issues&#39;</span><span class="p">,</span> <span class="s1">&#39;watchers&#39;</span><span class="p">,</span> <span class="s1">&#39;readme&#39;</span>
+        <span class="p">]</span>
+        <span class="c1"># commits pull_requests forks issues_events</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">template_labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2019_01&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_02&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_03&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_04&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2019_05&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_06&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_07&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_08&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2019_09&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_10&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_11&#39;</span><span class="p">,</span> <span class="s1">&#39;2019_12&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2020_01&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_02&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_03&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_04&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2020_05&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_06&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_07&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_08&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2020_09&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_10&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_11&#39;</span><span class="p">,</span> <span class="s1">&#39;2020_12&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2021_01&#39;</span><span class="p">,</span> <span class="s1">&#39;2021_02&#39;</span><span class="p">,</span> <span class="s1">&#39;2021_03&#39;</span>
+        <span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">template_table</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2020_03&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_04&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_05&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_06&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;2020_07&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_08&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_09&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_10&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;2020_11&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2020_12&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2021_01&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;2021_02&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;2021_03&#39;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="爬取我們需要的所有熱門倉庫">爬取我們需要的所有熱門倉庫</h3>
+<p>根據爬取類的 baseURL 遍歷請求，由於怕數據量太大，爬取過久，<strong>所以我們每個語言的熱門倉庫只爬取 40 個，總共會爬取 200 個倉庫。<strong>每次請求都需要設定如果爬取回來的</strong>狀態碼如果是 403，則需要等待 1 分鐘繼續爬取，如果是 404 或是 204 則代表資源不存在。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">get_all_repositories</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">------------start grabbing all repositories--------------------------</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">base url : &#34;</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="s2">&#34;&amp;page=&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;&amp;per_page=100&#34;</span><span class="p">,</span>
+                                       <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">):</span>
+                        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limit, sleep 60 sec&#34;</span><span class="p">)</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                        <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                        <span class="k">continue</span>
+                    <span class="k">elif</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span> <span class="ow">or</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">):</span>
+                        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The source is not found&#39;</span><span class="p">)</span>
+                        <span class="k">continue</span>
+                    <span class="n">items</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+                    <span class="c1"># temp = json.loads(req)</span>
+                    <span class="c1"># print(type(req))</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;req len &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">repositories</span> <span class="o">+=</span> <span class="n">items</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;grab page &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span>
+                          <span class="s1">&#39;, current repository quantity : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repositories</span><span class="p">)))</span>
+                    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                    <span class="c1"># print(self.repositories)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+
+                <span class="c1"># sleep</span>
+                <span class="c1"># time.sleep(2)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫-readme-爬取方法">編寫 Readme 爬取方法</h3>
+<p>由於每個倉庫的 <code>readme</code> 的文件名都不一樣，所以我<strong>只要以文件名是 <code>readme</code> 或 <code>README</code>，文件類型是 <code>*.md</code> 或 <code>*.rst</code></strong>，如果還有其它的命名方式，我們可以認為該倉庫的文件命名不規範，不需加入考量。<strong>這裡的爬取使用 BS4</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">get_repository_readme</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;start to get &#34;</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">&#34; readme&#34;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://github.com/&#34;</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">&#34;/blob/master/README.md&#34;</span><span class="p">,</span>
+                               <span class="n">headers</span><span class="o">=</span><span class="n">headers_raw_page</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">):</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limit, sleep 60 sec&#34;</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://github.com/&#34;</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">&#34;/blob/master/README.md&#34;</span><span class="p">,</span>
+                               <span class="n">headers</span><span class="o">=</span><span class="n">headers_raw_page</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span> <span class="ow">or</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">):</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The source is not found&#39;</span><span class="p">)</span>
+            <span class="c1"># print(type(req))</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;readme&#39;</span><span class="p">})</span>
+            <span class="c1"># print(req)</span>
+            <span class="c1"># print(&#34;req len &#34; + str(len(req)))</span>
+            <span class="c1"># time.sleep(2)</span>
+            <span class="k">return</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&#34;&#34;</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫處理所有的-repo-方法">編寫處理所有的 repo 方法</h3>
+<p>由於我們在前面在 get_all_repositories 類方法已經將很多基本數據爬下來，所以我們 basic 部分不需要進一步爬取，月變化數據需要另外寫類方法處理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">deal_with_repositories</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;-------------------start to deal with repo</span><span class="se">\&#39;</span><span class="s2">s data----------------------</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">repositories</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;deal with the &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; / &#39;</span> <span class="o">+</span>
+                  <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repositories</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">])</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># basic_table</span>
+            <span class="n">basic_temp</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;stargazers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;stargazers_count&#39;</span><span class="p">]</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;watchers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;watchers_count&#39;</span><span class="p">]</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;forks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;forks_count&#39;</span><span class="p">]</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;open_issues&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;open_issues&#39;</span><span class="p">]</span>
+            <span class="n">basic_temp</span><span class="p">[</span><span class="s1">&#39;readme&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_repository_readme</span><span class="p">(</span>
+                <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">basic_table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">basic_temp</span><span class="p">)</span>
+            <span class="c1"># commits_table</span>
+            <span class="c1">#  init use copy</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_table</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="c1"># print(&#39;init temp&#39;)</span>
+            <span class="c1"># print(temp)</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_repository_commits</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+            <span class="c1"># print(temp)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commits_table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+            <span class="c1"># print(&#34;-----&#34;)</span>
+            <span class="c1"># print(self.commits_table)</span>
+            <span class="c1"># print(&#34;----&#34;)</span>
+
+            <span class="c1"># pull request</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_table</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_repository_pull_requests</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pull_requests_table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+            <span class="c1"># # forks</span>
+            <span class="c1"># temp = self.template_table.copy()</span>
+            <span class="c1"># temp[&#39;name&#39;] = repo[&#39;full_name&#39;]</span>
+            <span class="c1"># temp = self.get_repository_forks(temp)</span>
+            <span class="c1"># self.forks_table.append(temp)</span>
+
+            <span class="c1"># # issues_events</span>
+            <span class="c1"># temp = self.template_table.copy()</span>
+            <span class="c1"># temp[&#39;name&#39;] = repo[&#39;full_name&#39;]</span>
+            <span class="c1"># temp = self.get_repository_issues(temp)</span>
+            <span class="c1"># self.issues_table.append(temp)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫月份分類方法">編寫月份分類方法</h3>
+<p>因為我們的月份分得較死，一時沒想到怎麼封裝，所以寫起來又臭又長。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">date_classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">date_time</span><span class="p">):</span>
+        <span class="c1"># print(date_time)</span>
+        <span class="k">if</span><span class="p">(</span><span class="s2">&#34;2021-03-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2021-04-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2021_03&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2021-02-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2021-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2021_02&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2021-01-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2021-02-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2021_01&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-12-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2021-01-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_12&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-11-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-12-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_11&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-10-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-11-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_10&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-09-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-10-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_09&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-08-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-09-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_08&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-07-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-08-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_07&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-06-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-07-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_06&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-05-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-06-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_05&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-04-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-05-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_04&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span><span class="p">(</span><span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span> <span class="o">&lt;=</span> <span class="n">date_time</span> <span class="ow">and</span> <span class="n">date_time</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-04-01T00:00:00Z&#34;</span><span class="p">):</span>
+            <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;2020_03&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">temp</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫單個-repo-月份-commits-變化">編寫單個 repo 月份 commits 變化</h3>
+<p>這裡主要就是需要注意要先自己使用 Postman 或是命令指令行試著請求看，檢查回傳的查詢結果的結構，還有時間的判斷，<strong>後面的月份變化爬取也是差不多這樣</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">get_repository_commits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commits_temp</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;start to get &#34;</span> <span class="o">+</span> <span class="n">commits_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34; commits</span><span class="se">\&#39;</span><span class="s2"> data&#34;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100000</span><span class="p">):</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://api.github.com/repos/&#34;</span> <span class="o">+</span> <span class="n">commits_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;/commits?per_page=100&amp;page=&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                                   <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limit, sleep 60 sec&#34;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">continue</span>
+                <span class="k">elif</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span> <span class="ow">or</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The source is not found&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="c1"># print(&#34;commits times&#34; + str(i))</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="c1"># if no data</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="c1"># if the time is too older</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;commit&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">break</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;commit&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&#34;2021-04-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="k">for</span> <span class="n">date_time</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;commit&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                        <span class="k">break</span>
+                    <span class="n">commits_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_classify</span><span class="p">(</span>
+                        <span class="n">commits_temp</span><span class="p">,</span> <span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;commit&#39;</span><span class="p">][</span><span class="s1">&#39;author&#39;</span><span class="p">][</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+                <span class="c1"># time.sleep(2)</span>
+            <span class="k">return</span> <span class="n">commits_temp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫單個-repo-月份-pull-requests-變化">編寫單個 repo 月份 pull requests 變化</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">get_repository_pull_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pr_temp</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;start to get &#34;</span> <span class="o">+</span> <span class="n">pr_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34; pull requests</span><span class="se">\&#39;</span><span class="s2"> data&#34;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100000</span><span class="p">):</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://api.github.com/repos/&#34;</span> <span class="o">+</span> <span class="n">pr_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;/pulls?per_page=100&amp;page=&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                                   <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limit, sleep 60 sec&#34;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">continue</span>
+                <span class="k">elif</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span> <span class="ow">or</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The source is not found&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="c1"># if no data</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="c1"># if the time is too older</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">break</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&#34;2021-04-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="k">for</span> <span class="n">date_time</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="c1"># print(date_time[&#39;created_at&#39;])</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                        <span class="k">break</span>
+                    <span class="n">pr_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_classify</span><span class="p">(</span>
+                        <span class="n">pr_temp</span><span class="p">,</span> <span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">])</span>
+                <span class="c1"># time.sleep(2)</span>
+            <span class="k">return</span> <span class="n">pr_temp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫單個-repo-月份-forks-變化">編寫單個 repo 月份 forks 變化</h3>
+<blockquote>
+<p>雖然最後沒有用到這個類方法，但還是將代碼放出來。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">get_repository_forks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forks_temp</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;start to get &#34;</span> <span class="o">+</span> <span class="n">forks_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34; forks</span><span class="se">\&#39;</span><span class="s2"> data&#34;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100000</span><span class="p">):</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://api.github.com/repos/&#34;</span> <span class="o">+</span> <span class="n">forks_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;/forks?per_page=100&amp;page=&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                                   <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limit, sleep 60 sec&#34;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">continue</span>
+                <span class="k">elif</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span> <span class="ow">or</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The source is not found&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="c1"># print(&#34;forks times&#34; + str(i))</span>
+                <span class="c1"># if no data</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="c1"># if the time is too older</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">break</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&#34;2021-04-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="k">for</span> <span class="n">date_time</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="c1"># print(date_time[&#39;created_at&#39;])</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                        <span class="k">break</span>
+                    <span class="n">forks_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_classify</span><span class="p">(</span>
+                        <span class="n">forks_temp</span><span class="p">,</span> <span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">])</span>
+                <span class="c1"># time.sleep(2)</span>
+            <span class="k">return</span> <span class="n">forks_temp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫單個-repo-月份-issues-變化">編寫單個 repo 月份 issues 變化</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">class</span> <span class="nc">github_grab</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="k">def</span> <span class="nf">get_repository_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">issues_temp</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;start to get &#34;</span> <span class="o">+</span> <span class="n">issues_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34; issues</span><span class="se">\&#39;</span><span class="s2"> data&#34;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100000</span><span class="p">):</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://api.github.com/repos/&#34;</span> <span class="o">+</span> <span class="n">issues_temp</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;/issues/events?per_page=100&amp;page=&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                                   <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeoutSec</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Rate limit, sleep 60 sec&#34;</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">continue</span>
+                <span class="k">elif</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span> <span class="ow">or</span> <span class="n">req</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">):</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The source is not found&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="c1"># if no data</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="c1"># if the time is too older</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">break</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&#34;2021-04-01T00:00:00Z&#34;</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="k">for</span> <span class="n">date_time</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="c1"># print(date_time[&#39;created_at&#39;])</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&#34;2020-03-01T00:00:00Z&#34;</span><span class="p">):</span>
+                        <span class="k">break</span>
+                    <span class="n">issues_temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_classify</span><span class="p">(</span>
+                        <span class="n">issues_temp</span><span class="p">,</span> <span class="n">date_time</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">])</span>
+                <span class="c1"># time.sleep(2)</span>
+            <span class="k">return</span> <span class="n">issues_temp</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;fail to get request from ip via proxy&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="將所有的數據從成-csv-文件">將所有的數據從成 CSV 文件</h3>
+<p>分別有三個 <code>*.csv</code> 文件，<code>github_basic.csv</code> 是基本的 repo 數據，其它兩個是月變化數據。這裡需要注意的是<strong>編碼方式要使用 utf-8</strong>，因為 <code>readme</code> 有很多中文字，如果不使用 utf-8，會報存儲錯誤。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py">    <span class="k">def</span> <span class="nf">save_all_to_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_as_csv</span><span class="p">(</span><span class="s2">&#34;github_basic.csv&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basic_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basic_table</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_as_csv</span><span class="p">(</span><span class="s2">&#34;github_commits.csv&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">commits_table</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_as_csv</span><span class="p">(</span><span class="s2">&#34;github_pull_requests.csv&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pull_requests_table</span><span class="p">)</span>
+        <span class="c1"># self.save_as_csv(&#34;github_forks.csv&#34;, self.template_labels, self.forks_table)</span>
+        <span class="c1"># self.save_as_csv(&#34;github_issues.csv&#34;, self.template_labels, self.issues_table)</span>
+
+
+    <span class="k">def</span> <span class="nf">save_as_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">------------start saving data as csv--------------------------</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+        <span class="c1"># save csv</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+                    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&#34;save &#34;</span> <span class="o">+</span> <span class="n">fileName</span> <span class="o">+</span> <span class="s2">&#34; success&#34;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;I/O error&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="編寫-main-函數">編寫 main 函數</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">github</span> <span class="o">=</span> <span class="n">github_grab</span><span class="p">()</span>
+    <span class="n">github</span><span class="o">.</span><span class="n">get_all_repositories</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;repo len &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">github</span><span class="o">.</span><span class="n">repositories</span><span class="p">)))</span>
+    <span class="n">github</span><span class="o">.</span><span class="n">deal_with_repositories</span><span class="p">()</span>
+    <span class="c1"># print(github.basic_table)</span>
+    <span class="c1"># print(github.commits_table)</span>
+    <span class="c1"># print(github.pull_requests_table)</span>
+    <span class="c1"># print(github.forks_table)</span>
+    <span class="c1"># print(github.issues_table)</span>
+    <span class="n">github</span><span class="o">.</span><span class="n">save_all_to_csv</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="確認結果">確認結果</h3>
+<p>執行文件確認運行結果。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/K8DN85.png" title="github_part2_result.png" data-thumbnail="https://imgpoi.com/i/K8DN85.png" data-sub-html="<h2>運行結果</h2><p>github_part2_result.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/K8DN85.png"
+            data-srcset="https://imgpoi.com/i/K8DN85.png, https://imgpoi.com/i/K8DN85.png 1.5x, https://imgpoi.com/i/K8DN85.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/K8DN85.png" />
+    </a><figcaption class="image-caption">運行結果</figcaption>
+    </figure></p>
+<h2 id="補充">補充</h2>
+<h3 id="javascript-的指針問題">Javascript 的指針問題</h3>
+<p>因為我在賦值 <code>dict</code> 對象時，發現如果只是普通的用 <code>=</code> 去賦值會導致指針問題，必須使用 <code>dict</code> 對象的 <code>copy()</code> 方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template_table</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="結語">結語</h2>
+<blockquote>
+<p><a href="https://github.com/HuangNO1/grab_github_repos_info" target="_blank" rel="noopener noreffer">源碼</a></p>
+</blockquote>
+<p>這次的機器學習與數據挖掘的實驗我負責爬蟲的部分，由於一開始我沒有爬月變化的數據特徵，所以導致全組都在等我重新爬取新的數據，也在合作過程中發現自己的缺失，這次的工作分配讓我學到很多數據爬取的技巧，感謝大家的分工合作，最後完成了小組項目。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
