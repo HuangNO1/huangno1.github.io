@@ -96,7 +96,7 @@ print("\n------------start grabbing all urls--------------------------\n")
 
 for i in range(1, 35):
     try:
-        html = requests.get(base_url+str(i), headers=headers, proxies=proxies, timeout= timeoutSec)
+        html = requests.get(base_url+str(i), headers=headers_raw_page, proxies=proxies, timeout= timeoutSec)
     except Exception as e:
         print(e)
         print('fail to get request from ip via proxy')

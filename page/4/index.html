@@ -116,6 +116,22 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/flask_mysql/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/flask_mysql.png"
+        data-srcset="/featuredImage/compressed/flask_mysql.png, /featuredImage/compressed/flask_mysql.png 1.5x, /featuredImage/compressed/flask_mysql.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/flask_mysql.png"
+        title="/featuredImage/compressed/flask_mysql.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/flask_mysql/">Flask 中使用 MySQL</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-04">2020-08-04</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class="content">前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
+安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
+1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.</div><div class="post-footer">
+        <a href="/flask_mysql/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/flask/">Flask</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E5%BA%AB/">數據庫</a>,&nbsp;<a href="/tags/web/">Web</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/how_to_learn_cs/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -223,25 +239,6 @@ Reference  AllinOne LoveIt  </div><div class="post-footer">
 1 2  vim ~/.</div><div class="post-footer">
         <a href="/linux_npm_configuration/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/npm/">npm</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/archlinux_makepkg/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/archlinux_makepkg.png"
-        data-srcset="/featuredImage/compressed/archlinux_makepkg.png, /featuredImage/compressed/archlinux_makepkg.png 1.5x, /featuredImage/compressed/archlinux_makepkg.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/archlinux_makepkg.png"
-        title="/featuredImage/compressed/archlinux_makepkg.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/archlinux_makepkg/">Arch Linux 打包教學</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-01-31">2020-01-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div><div class="content">前言 這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 *.deb 的 Ubuntu 版本，我當時將 *.deb 轉成 tar.gz 適用 Arch 發行版的包失敗，當時我是看這網站使用 Debtap 工具，雖然最後成功轉成 tar.gz，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 dkpg，然而實際上寫 PKGBUILD 才是最好的方法，當時是我朋友將快應用的官方 IDE 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 Arch Linux 打包教學，但他這篇卻沒有給出實例，讓大多數第一次打包的人看不懂，就跟看官方文檔一樣。網上詳細優質的打包教學少之又少，這次我藉著一個機會體會到打包的過程，為了紀錄這過程，我寫了這篇教學。
- 本次文章參考了 ArchWiki 的 Creating packages (简体中文)、PKGBUILD (简体中文) 和書術方隅。你可以認為我這篇是這三篇的綜合進化版。
- 簡述 創建 PKGBUILD – 一個包創建描述文件，由 makepkg 使用來從原始碼創建二進位制包。Arch 套裝軟體標準包含當前規則和提高套裝軟體質量的方法。如果已經有了 PKGBUILD 文件，請參考 makepkg (簡體中文)。
- 打包前一定要先 Google 一下你要打包的軟體包是不是已經有人上傳到 AUR 了。
- 準備工作 必需的軟體包 首先，確定你已安裝必須的工具包。安裝 base-devel 應該足夠了；它包含 make 和 makepkg 其它一些從原始碼編譯時所需要的工具。
-創建包的一個很重要的工具是 makepkg（由 pacman 提供），它主要做以下工作：</div><div class="post-footer">
-        <a href="/archlinux_makepkg/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/pkgbuild/">PKGBUILD</a>,&nbsp;<a href="/tags/package/">Package</a>,&nbsp;<a href="/tags/aur/">AUR</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>

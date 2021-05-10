@@ -4,9 +4,31 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 04 May 2021 08:03:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 10 May 2021 08:03:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>2021 3 - 4 月春招找實習過程心得</title>
+    <link>https://huangno1.github.io/2021_spring_recruitment/</link>
+    <pubDate>Mon, 10 May 2021 08:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/2021_spring_recruitment/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/2021_spring_recruitment.jpg" referrerpolicy="no-referrer">
+            </div>前言 我將在這篇文章分享我的春招找實習心得，並且分享如何準備應聘。
+背景  985 中南大學計算機學院軟件工程 18 級大三本科生 已修操作系統、計算機網路、數據庫、數據結構、算法等必要課程 時間安排從 7 月份開始能實習 3 - 4 個月 比較萬油精，可以前後端開發，偏好 C/C++ 崗位 (因為 Java 崗太卷了)  心得 這次 2021 年的春招實習，我先後投遞了各個大廠，像是阿里巴巴、騰訊、快手、字節跳動、華為，然而一直沒有好結果，加上自己一開始準備筆試面試並沒有準備多少，對我來說就像是突如其來的考試，最終到了五月份依然沒拿到好的 Offer。我過程有時被撈了又面掛了，剛開始每次面試我都很緊張，因為沒有面試經驗，甚至有一次我緊張到整晚都睡不著，然後面掛了又覺得自己是不是實力不夠，那段期間真的是不斷的自我懷疑，面到後面我都覺得有點無感隨緣了，感覺一切都無所謂了。
+一開始我投的阿里巴巴招聘流程讓人覺得詭譎，說不出來的奇妙感，面試時問的問題過於硬核，然後阿里巴巴的崗位可能是因為內推關係，不能改比較坑。字節面試一面時感受得出面試官的不耐煩，華為的筆試我以為很簡單，結果我那次機考意外的難很多，我又寫題時間分配錯誤以及題意理解錯誤，最終以失敗告終，我或許不適合大廠。
+至於小廠，小廠的面試反而沒那麼多八股文，就純聊天了解你的情況，但是最終都涼了，包括深圳的同為數碼科技(做監控安全方面)和武漢的統信(UOS、Deepin)，拒我的理由大多是 &ldquo;我們針對實習生的需求進行調整&rdquo;。感覺計算機行業競爭很激烈。
+我想我最後打擊的事情是在深圳的華為 HR 大哥評價我的簡歷，學校不夠優秀，實踐雖然可以，但是可能對他們來說技術含量低，又專業不對口，所以建議我不要急著去找實習，要我去考個 C9 的研究生。
+最後還是希望各位面試時盡量放輕鬆，不然容易腦袋死機，語言邏輯等表達不通順。然後提醒一下很多大廠的面試電話是別人打得了給你，你打不了電話給別人。
+關於面試準備工作  註：一定要提前準備 1 個月以上。
+ 我們應該在這裡針對下面兩個部份：
+ 數據結構與算法 對應崗位的八股文 簡歷項目  數據結構與算法 首先，我不是 ACM 的選手，也沒有算法競賽背景，所以說想要在部份過關，我的建議是在 LeetCode(力扣) 上進行刷題練習，很多人會有困惑，&ldquo;要怎麼刷？&quot;，我依序列出順序：
+1. 劍指 Offer 75 題（劍指 Offer 是性價比最高，面試高頻考題）
+2. 在題庫中照題目的出現頻率去刷，優先刷高頻出現率的題，刷題數約 100 題
+其中面試很愛考得重點無非就是 DP(動態規劃)、鏈表、堆棧、隊列、排序(快排與歸併)、二分查找、數組、二叉樹、字符串處理、回溯、DFS、BFS、最短路徑算法(比較少考)。
+你只要做到我所說的上面要求，基本大多數算法面試都能解決，如果之前學的東西都忘了沒關係，你邊刷題邊複習，學的效率很快。
+我是在幾次面試的失敗毒打後，才開始刷 LeetCode，接著發現之前面試的算法題大多都是從劍指 Offer 選出來的。耗時一個月，已經刷了 180 題以上。]]></description>
+</item><item>
     <title>Python 爬蟲實戰教學 - Github 倉庫特徵爬取</title>
     <link>https://huangno1.github.io/python_spider_experience_instruct_github_repos/</link>
     <pubDate>Tue, 04 May 2021 08:03:28 &#43;0800</pubDate>
@@ -146,20 +168,5 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
 這裡是建議自己在本地下載好 JDK 然後 SCP 上傳至服務器端，選擇 Linux x64 Compressed Archive 下載，不要下錯成 Linux ARM 架構的（因為我下錯過，沒仔細看名稱），壓縮包名大致為 jdk-8u271-linux-x64.tar.gz。
  在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
  1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.]]></description>
-</item><item>
-    <title>C&#43;&#43; - 關於多態中的虛函數與純虛函數</title>
-    <link>https://huangno1.github.io/about_cpp_class_virtual_function/</link>
-    <pubDate>Fri, 07 Aug 2020 18:49:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/about_cpp_class_virtual_function/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/about_cpp_class_virtual_function.png" referrerpolicy="no-referrer">
-            </div>前言 大一自己寫 C++ 時碰到的問題，一直沒發表文章，現在趁有空寫一下。
-多態與虛函數  P.S. 大陸叫對象，台灣叫物件。
- 我的理解是多態就是一個類（class）演伸出多種物件（Object），父類相當於模板藍圖的功能。虛函數是用來子類繼承後能夠複寫的函數。
-我們先看一下虛函數嘴臉長怎樣：
-在下面的例子中是一個 Base Class（基類、父類），如果函數前面宣告有添加 virtual 就是虛函數。
-1 2 3 4 5 6  class Shape { public: virtual string toString() const; virtual double getArea() const; }   下面是一個 Circle 子類（superclass）（超生類、派生類），引入 Circle 的 getArea() 和 toString() 是虛函數，我們現在是在子類中重寫（重定義）類的虛構函數（此時你可以將父類的虛構函數想像成模板）。
-1 2 3 4 5 6 7 8 9 10 11 12  class Circle : public Shape { private: double radius; public: Circle(); Circle(double); double getRadius() const; void setRadius(double); double getArea() const; string toString() const; }   實際當我們在使用虛構函數時，是把它當作跳板，去自動便是哪個函式是哪個函式，e.]]></description>
 </item></channel>
 </rss>
