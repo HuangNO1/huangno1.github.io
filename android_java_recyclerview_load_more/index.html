@@ -7,7 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Android Java - 簡易今日頭條 - Load More 加載更多新聞內容 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Android Java - 簡易今日頭條 - Load More 加載更多新聞內容" />
 <meta property="og:description" content="前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 加載更多展示Display_load_more.gif
+&#34; 加載更多展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
 以下是 RecyclerView 設置滾動監聽的參考案例：
 這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
@@ -22,7 +24,9 @@ Display 項目倉庫 簡易今日頭條 - Github
 
 <meta name="twitter:title" content="Android Java - 簡易今日頭條 - Load More 加載更多新聞內容"/>
 <meta name="twitter:description" content="前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 加載更多展示Display_load_more.gif
+&#34; 加載更多展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
 以下是 RecyclerView 設置滾動監聽的參考案例：
 這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
@@ -39,7 +43,7 @@ Display 項目倉庫 簡易今日頭條 - Github
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/android_java_recyclerview_load_more\/"
-        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, UI, Render, Load, More","wordcount":  114 ,
+        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, UI, Render, Load, More","wordcount":  117 ,
         "url": "https:\/\/huangno1.github.io\/android_java_recyclerview_load_more\/","datePublished": "2021-06-15T20:03:28+08:00","dateModified": "2021-06-15T20:03:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,7 +139,7 @@ Display 項目倉庫 簡易今日頭條 - Github
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - Load More 加載更多新聞內容</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 114 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 117 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -161,6 +165,16 @@ Display 項目倉庫 簡易今日頭條 - Github
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>上一篇我們說到了<a href="https://huangno1.github.io/android_java_pull_to_refresh/" target="_blank" rel="noopener noreffer">下拉刷新的實現</a>，這篇我接著講如何<strong>實現上拉加載更多</strong>。</p>
 <h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="./index/Display_load_more.gif" title="Display_load_more.gif" data-thumbnail="./index/Display_load_more.gif" data-sub-html="<h2>加載更多展示</h2><p>Display_load_more.gif</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./index/Display_load_more.gif"
+            data-srcset="./index/Display_load_more.gif, ./index/Display_load_more.gif 1.5x, ./index/Display_load_more.gif 2x"
+            data-sizes="auto"
+            alt="./index/Display_load_more.gif" />
+    </a><figcaption class="image-caption">加載更多展示</figcaption>
+    </figure></p>
 <h2 id="項目倉庫">項目倉庫</h2>
 <p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer">簡易今日頭條 - Github</a></p>
 <h2 id="具體實現">具體實現</h2>

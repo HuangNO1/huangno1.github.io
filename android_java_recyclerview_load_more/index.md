@@ -7,6 +7,8 @@
 
 ## Display
 
+![Display_load_more.gif](./index/Display_load_more.gif "加載更多展示")
+
 ## 項目倉庫
 
 [簡易今日頭條 - Github](https://github.com/HuangNO1/TouTiao_Simple_Android_App)

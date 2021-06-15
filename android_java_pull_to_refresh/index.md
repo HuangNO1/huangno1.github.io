@@ -7,6 +7,8 @@
 
 ## Display
 
+![Display_pull_to_refresh.gif](./index/Display_pull_to_refresh.gif "下拉刷新展示")
+
 ## 項目倉庫
 
 [簡易今日頭條 - Github](https://github.com/HuangNO1/TouTiao_Simple_Android_App)

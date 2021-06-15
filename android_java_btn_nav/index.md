@@ -11,6 +11,8 @@
 
 ## Display
 
+![Display_nav.gif](./index/Display_nav.gif "Bottom Nav 展示")
+
 ## 具體實現
 
 使用 **BottomNavigationView**、**NavController** 與 **NavigationUI.setupWithNavController()** 方法去實現。

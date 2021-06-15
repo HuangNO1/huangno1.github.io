@@ -7,6 +7,8 @@
 
 ## Display
 
+![Display_click_to_detail_page.gif](./index/Display_click_to_detail_page.gif "點擊卡片 Item 進入詳情頁展示")
+
 ## 項目倉庫
 
 [簡易今日頭條 - Github](https://github.com/HuangNO1/TouTiao_Simple_Android_App)

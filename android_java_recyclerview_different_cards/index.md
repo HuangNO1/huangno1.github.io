@@ -11,6 +11,8 @@
 
 ## Display
 
+![Display_recyclerView_different_card_styles.gif](./index/Display_recyclerView_different_card_styles.gif "不同卡片樣式展示")
+
 ## 具體實現
 
 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 `DataModel` ，然後在 `DataModel` 中添加 `type` 成員變量判斷是哪種類型的卡片。

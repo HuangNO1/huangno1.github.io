@@ -7,6 +7,8 @@
 
 ## Display
 
+![Display_image_picasso.gif](./index/Display_image_picasso.gif "圖片緩存與懶加載展示")
+
 ## 項目倉庫
 
 [簡易今日頭條 - Github](https://github.com/HuangNO1/TouTiao_Simple_Android_App)

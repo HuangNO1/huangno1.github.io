@@ -7,7 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Android Java - 簡易今日頭條 - 圖片緩存與懶加載" />
 <meta property="og:description" content="前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 圖片緩存與懶加載展示Display_image_picasso.gif
+&#34; 圖片緩存與懶加載展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
 我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
 1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  " />
@@ -21,7 +23,9 @@ Display 項目倉庫 簡易今日頭條 - Github
 
 <meta name="twitter:title" content="Android Java - 簡易今日頭條 - 圖片緩存與懶加載"/>
 <meta name="twitter:description" content="前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 圖片緩存與懶加載展示Display_image_picasso.gif
+&#34; 圖片緩存與懶加載展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
 我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
 1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  "/>
@@ -37,7 +41,7 @@ Display 項目倉庫 簡易今日頭條 - Github
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/android_java_image_cache_and_lazy_load\/"
-        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, request, OkHttp, Thread, UI, Render, Image, Cache, Picasso, Lazy","wordcount":  33 ,
+        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, request, OkHttp, Thread, UI, Render, Image, Cache, Picasso, Lazy","wordcount":  36 ,
         "url": "https:\/\/huangno1.github.io\/android_java_image_cache_and_lazy_load\/","datePublished": "2021-06-15T18:33:28+08:00","dateModified": "2021-06-15T18:33:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -133,7 +137,7 @@ Display 項目倉庫 簡易今日頭條 - Github
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - 圖片緩存與懶加載</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 33 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 36 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -159,6 +163,16 @@ Display 項目倉庫 簡易今日頭條 - Github
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_recyclerview_different_cards/" target="_blank" rel="noopener noreffer">新聞數據請求渲染</a>的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。</p>
 <h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="./index/Display_image_picasso.gif" title="Display_image_picasso.gif" data-thumbnail="./index/Display_image_picasso.gif" data-sub-html="<h2>圖片緩存與懶加載展示</h2><p>Display_image_picasso.gif</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./index/Display_image_picasso.gif"
+            data-srcset="./index/Display_image_picasso.gif, ./index/Display_image_picasso.gif 1.5x, ./index/Display_image_picasso.gif 2x"
+            data-sizes="auto"
+            alt="./index/Display_image_picasso.gif" />
+    </a><figcaption class="image-caption">圖片緩存與懶加載展示</figcaption>
+    </figure></p>
 <h2 id="項目倉庫">項目倉庫</h2>
 <p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer">簡易今日頭條 - Github</a></p>
 <h2 id="具體實現">具體實現</h2>

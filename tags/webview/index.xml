@@ -13,7 +13,9 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_news_detail_web_view.png" referrerpolicy="no-referrer">
             </div>前言 上一篇我們已經介紹完 RecyclerView 加載更多的實現，而這篇也是最後一篇，關於點擊新聞卡片進入新聞詳情頁(Activity)。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 點擊卡片 Item 進入詳情頁展示Display_click_to_detail_page.gif
+" 點擊卡片 Item 進入詳情頁展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 這裡我是在新聞卡片的適配器裡面去做，將 View 設置點擊事件，然後新增一個新聞活動頁面。
 ui/card/newsCardList/NewsCardAdapter.java 下面的 Code 中我舉出 NoImageCardViewHolder 子類，裡面的構造函數中去做 itemView 的點擊事件，點擊事件涉及到了傳參部份，傳參使用 intent.putExtra() 方法，然後在 NewsDetailActivity 做接收參數。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50  public class NewsCardAdapter extends RecyclerView.]]></description>

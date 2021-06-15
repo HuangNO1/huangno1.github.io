@@ -8,7 +8,9 @@
         <title>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片" />
 <meta property="og:description" content="前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
 項目倉庫 簡易今日頭條 - Github
-Display 具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
+Display 不同卡片樣式展示Display_recyclerView_different_card_styles.gif
+&#34; 不同卡片樣式展示 
+具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
 以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
 layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?" />
@@ -23,7 +25,9 @@ layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerVi
 <meta name="twitter:title" content="Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片"/>
 <meta name="twitter:description" content="前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
 項目倉庫 簡易今日頭條 - Github
-Display 具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
+Display 不同卡片樣式展示Display_recyclerView_different_card_styles.gif
+&#34; 不同卡片樣式展示 
+具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
 以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
 layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?"/>
@@ -39,7 +43,7 @@ layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerVi
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/android_java_recyclerview_different_cards\/"
-        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter","wordcount":  2141 ,
+        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter","wordcount":  2144 ,
         "url": "https:\/\/huangno1.github.io\/android_java_recyclerview_different_cards\/","datePublished": "2021-06-15T15:03:28+08:00","dateModified": "2021-06-15T15:03:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -135,7 +139,7 @@ layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerVi
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2141 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2144 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 11 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -171,6 +175,16 @@ layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerVi
 <h2 id="項目倉庫">項目倉庫</h2>
 <p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer">簡易今日頭條 - Github</a></p>
 <h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="./index/Display_recyclerView_different_card_styles.gif" title="Display_recyclerView_different_card_styles.gif" data-thumbnail="./index/Display_recyclerView_different_card_styles.gif" data-sub-html="<h2>不同卡片樣式展示</h2><p>Display_recyclerView_different_card_styles.gif</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./index/Display_recyclerView_different_card_styles.gif"
+            data-srcset="./index/Display_recyclerView_different_card_styles.gif, ./index/Display_recyclerView_different_card_styles.gif 1.5x, ./index/Display_recyclerView_different_card_styles.gif 2x"
+            data-sizes="auto"
+            alt="./index/Display_recyclerView_different_card_styles.gif" />
+    </a><figcaption class="image-caption">不同卡片樣式展示</figcaption>
+    </figure></p>
 <h2 id="具體實現">具體實現</h2>
 <p>由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 <code>DataModel</code> ，然後在 <code>DataModel</code> 中添加 <code>type</code> 成員變量判斷是哪種類型的卡片。</p>
 <p>以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。</p>

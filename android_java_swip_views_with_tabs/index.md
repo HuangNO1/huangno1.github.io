@@ -11,6 +11,8 @@
 
 ## Display
 
+![Display_tabbed.gif](./index/Display_tabbed.gif "Tab Channel 展示")
+
 ## 具體實現
 
 這裡我一開始使用的是**舊的 API 方法(`ViewPagerFragment`、`PagerAdapter`)**，如果你使用的是：

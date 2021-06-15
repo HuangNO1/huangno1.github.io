@@ -7,7 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容" />
 <meta property="og:description" content="前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 下拉刷新展示Display_pull_to_refresh.gif
+&#34; 下拉刷新展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
 這裡就介紹如何用 Swiperefreshlayout。也可以看 Implementing Pull to Refresh Guide - CODEPATH
 首先要加上依賴
@@ -23,7 +25,9 @@ Display 項目倉庫 簡易今日頭條 - Github
 
 <meta name="twitter:title" content="Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容"/>
 <meta name="twitter:description" content="前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 下拉刷新展示Display_pull_to_refresh.gif
+&#34; 下拉刷新展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
 這裡就介紹如何用 Swiperefreshlayout。也可以看 Implementing Pull to Refresh Guide - CODEPATH
 首先要加上依賴
@@ -41,7 +45,7 @@ Display 項目倉庫 簡易今日頭條 - Github
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/android_java_pull_to_refresh\/"
-        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, UI, Render","wordcount":  209 ,
+        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, UI, Render","wordcount":  212 ,
         "url": "https:\/\/huangno1.github.io\/android_java_pull_to_refresh\/","datePublished": "2021-06-15T19:03:28+08:00","dateModified": "2021-06-15T19:03:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -137,7 +141,7 @@ Display 項目倉庫 簡易今日頭條 - Github
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 209 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 212 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -163,6 +167,16 @@ Display 項目倉庫 簡易今日頭條 - Github
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_image_cache_and_lazy_load/" target="_blank" rel="noopener noreffer">圖片緩存與懶加載</a>的部份。這篇文章就簡要說一下怎麼<strong>實現下拉刷新</strong>。</p>
 <h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="./index/Display_pull_to_refresh.gif" title="Display_pull_to_refresh.gif" data-thumbnail="./index/Display_pull_to_refresh.gif" data-sub-html="<h2>下拉刷新展示</h2><p>Display_pull_to_refresh.gif</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./index/Display_pull_to_refresh.gif"
+            data-srcset="./index/Display_pull_to_refresh.gif, ./index/Display_pull_to_refresh.gif 1.5x, ./index/Display_pull_to_refresh.gif 2x"
+            data-sizes="auto"
+            alt="./index/Display_pull_to_refresh.gif" />
+    </a><figcaption class="image-caption">下拉刷新展示</figcaption>
+    </figure></p>
 <h2 id="項目倉庫">項目倉庫</h2>
 <p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer">簡易今日頭條 - Github</a></p>
 <h2 id="具體實現">具體實現</h2>

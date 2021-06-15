@@ -13,7 +13,9 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_recyclerview_load_more.png" referrerpolicy="no-referrer">
             </div>前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
-Display 項目倉庫 簡易今日頭條 - Github
+Display 加載更多展示Display_load_more.gif
+" 加載更多展示 
+項目倉庫 簡易今日頭條 - Github
 具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
 以下是 RecyclerView 設置滾動監聽的參考案例：
 這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
