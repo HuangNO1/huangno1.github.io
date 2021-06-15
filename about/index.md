@@ -13,9 +13,6 @@ C/C++, Java, Python, Golang, Js, Front end design, Vue, React, Angular, Qt, Flas
 
 ## Contact
 
-- QQ : 2116280484
 - Telegram : @HuangNO1
 - E-mail : fh831.cp9gw@gmail.com
 
-
-> I don't often contact with others by WeChat.
