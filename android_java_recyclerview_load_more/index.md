@@ -7,7 +7,7 @@
 
 ## Display
 
-![Display_load_more.gif](./index/Display_load_more.gif "加載更多展示")
+![Display_load_more.gif](Display_load_more.gif "加載更多展示")
 
 ## 項目倉庫
 
