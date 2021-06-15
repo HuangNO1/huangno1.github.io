@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_pull_to_refresh/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/android_java_pull_to_refresh.png" referrerpolicy="no-referrer">
             </div>前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
 Display 項目倉庫 簡易今日頭條 - Github
 具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
@@ -52,7 +52,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_recycler_view_different_cards/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/android_java_card_list.jpg" referrerpolicy="no-referrer">
             </div>前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
@@ -66,7 +66,7 @@ layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerVi
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_swip_views_with_tabs/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/android_java_tabbed.jpg" referrerpolicy="no-referrer">
             </div>前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
@@ -82,7 +82,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_btn_nav/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/android_java_nav.png" referrerpolicy="no-referrer">
             </div>前言 我接下來會寫一系列關於安卓開發的過程，由於這學期我選修了安卓應用開發，該課程與字節跳動客戶端員工合作，課程的項目設計是 &ldquo;簡易頭條&rdquo;，而我身為安卓零基礎的學生在一週內邊做邊學，最終完成了成果。在 Blog 我所遇到的細節技術實現。這篇文章是關於底部導覽頁的實現。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 使用 BottomNavigationView、NavController 與 NavigationUI.setupWithNavController() 方法去實現。

@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_swip_views_with_tabs/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/android_java_tabbed.jpg" referrerpolicy="no-referrer">
             </div>前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
@@ -27,7 +27,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_btn_nav/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+                <img src="/featuredImage/compressed/android_java_nav.png" referrerpolicy="no-referrer">
             </div>前言 我接下來會寫一系列關於安卓開發的過程，由於這學期我選修了安卓應用開發，該課程與字節跳動客戶端員工合作，課程的項目設計是 &ldquo;簡易頭條&rdquo;，而我身為安卓零基礎的學生在一週內邊做邊學，最終完成了成果。在 Blog 我所遇到的細節技術實現。這篇文章是關於底部導覽頁的實現。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 使用 BottomNavigationView、NavController 與 NavigationUI.setupWithNavController() 方法去實現。
