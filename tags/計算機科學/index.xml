@@ -5,7 +5,7 @@
         <description>計算機科學 - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 10 May 2021 08:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/" rel="self" type="application/rss+xml" /><item>
-    <title>2021 3 - 4 月春招找實習過程心得</title>
+    <title>2021  3 - 4 月春招找實習過程心得</title>
     <link>https://huangno1.github.io/2021_spring_recruitment/</link>
     <pubDate>Mon, 10 May 2021 08:03:28 &#43;0800</pubDate>
     <author>作者</author>
@@ -19,7 +19,7 @@
 我想我最後打擊的事情是在深圳的華為 HR 大哥評價我的簡歷，學校不夠優秀，實踐雖然可以，但是可能對他們來說技術含量低，又專業不對口，所以建議我不要急著去找實習，要我去考個 C9 的研究生。
 最後還是希望各位面試時盡量放輕鬆，不然容易腦袋死機，語言邏輯等表達不通順。然後提醒一下很多大廠的面試電話是別人打得了給你，你打不了電話給別人。
 關於面試準備工作  註：一定要提前準備 1 個月以上。
- 我們應該在這裡針對下面兩個部份：
+ 我們應該在這裡針對下面三個部份：
  數據結構與算法 對應崗位的八股文 簡歷項目  數據結構與算法 首先，我不是 ACM 的選手，也沒有算法競賽背景，所以說想要在部份過關，我的建議是在 LeetCode(力扣) 上進行刷題練習，很多人會有困惑，&ldquo;要怎麼刷？&quot;，我依序列出順序：
 1. 劍指 Offer 75 題（劍指 Offer 是性價比最高，面試高頻考題）
 2. 在題庫中照題目的出現頻率去刷，優先刷高頻出現率的題，刷題數約 100 題

@@ -116,6 +116,121 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_pull_to_refresh/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_image.png"
+        data-srcset="/featuredImage/compressed/android_image.png, /featuredImage/compressed/android_image.png 1.5x, /featuredImage/compressed/android_image.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_image.png"
+        title="/featuredImage/compressed/android_image.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_pull_to_refresh/">Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
+這裡就介紹如何用 Swiperefreshlayout。也可以看 Implementing Pull to Refresh Guide - CODEPATH
+首先要加上依賴
+1 2 3  dependencies { implementation &#34;androidx.swiperefreshlayout:swiperefreshlayout:1.1.0&#34; }   接著在 xml 中需要刷新渲染的 RecyclerView 或是 ListView 加上該組件。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  &lt;!</div><div class="post-footer">
+        <a href="/android_java_pull_to_refresh/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/recyclerview/">RecyclerView</a>,&nbsp;<a href="/tags/card/">Card</a>,&nbsp;<a href="/tags/list/">List</a>,&nbsp;<a href="/tags/adapter/">Adapter</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/render/">Render</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_image_cache_and_lazy_load/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_image.png"
+        data-srcset="/featuredImage/compressed/android_image.png, /featuredImage/compressed/android_image.png 1.5x, /featuredImage/compressed/android_image.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_image.png"
+        title="/featuredImage/compressed/android_image.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_image_cache_and_lazy_load/">Android Java - 簡易今日頭條 - 圖片緩存與懶加載</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
+我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
+1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  </div><div class="post-footer">
+        <a href="/android_java_image_cache_and_lazy_load/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/recyclerview/">RecyclerView</a>,&nbsp;<a href="/tags/card/">Card</a>,&nbsp;<a href="/tags/list/">List</a>,&nbsp;<a href="/tags/adapter/">Adapter</a>,&nbsp;<a href="/tags/request/">request</a>,&nbsp;<a href="/tags/okhttp/">OkHttp</a>,&nbsp;<a href="/tags/thread/">Thread</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/render/">Render</a>,&nbsp;<a href="/tags/image/">Image</a>,&nbsp;<a href="/tags/cache/">Cache</a>,&nbsp;<a href="/tags/picasso/">Picasso</a>,&nbsp;<a href="/tags/lazy/">Lazy</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_request_and_card_list_render/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_image.png"
+        data-srcset="/featuredImage/compressed/android_image.png, /featuredImage/compressed/android_image.png 1.5x, /featuredImage/compressed/android_image.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_image.png"
+        title="/featuredImage/compressed/android_image.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_request_and_card_list_render/">Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
+models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個數據模型，方便後面將數據添入 NewsCardItemDataModel，使邏輯更加清晰。這裡一樣有三種構造函數，分別代表三種不同的卡片類型。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.</div><div class="post-footer">
+        <a href="/android_java_request_and_card_list_render/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/recyclerview/">RecyclerView</a>,&nbsp;<a href="/tags/card/">Card</a>,&nbsp;<a href="/tags/list/">List</a>,&nbsp;<a href="/tags/adapter/">Adapter</a>,&nbsp;<a href="/tags/request/">request</a>,&nbsp;<a href="/tags/okhttp/">OkHttp</a>,&nbsp;<a href="/tags/thread/">Thread</a>,&nbsp;<a href="/tags/ui/">UI</a>,&nbsp;<a href="/tags/render/">Render</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_recycler_view_different_cards/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_image.png"
+        data-srcset="/featuredImage/compressed/android_image.png, /featuredImage/compressed/android_image.png 1.5x, /featuredImage/compressed/android_image.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_image.png"
+        title="/featuredImage/compressed/android_image.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_recycler_view_different_cards/">Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
+項目倉庫 簡易今日頭條 - Github
+Display 具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
+以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
+layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?</div><div class="post-footer">
+        <a href="/android_java_recycler_view_different_cards/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/recyclerview/">RecyclerView</a>,&nbsp;<a href="/tags/card/">Card</a>,&nbsp;<a href="/tags/list/">List</a>,&nbsp;<a href="/tags/adapter/">Adapter</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_swip_views_with_tabs/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_image.png"
+        data-srcset="/featuredImage/compressed/android_image.png, /featuredImage/compressed/android_image.png 1.5x, /featuredImage/compressed/android_image.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_image.png"
+        title="/featuredImage/compressed/android_image.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_swip_views_with_tabs/">Android Java - 簡易今日頭條 - Tabs 頻道頁面切換</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
+項目倉庫 簡易今日頭條 - Github
+Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
+ androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這**兩個 API 是已經棄用(deprecated)**的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
+ androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
+ 註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
+ layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65  &lt;?</div><div class="post-footer">
+        <a href="/android_java_swip_views_with_tabs/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/tabs/">Tabs</a>,&nbsp;<a href="/tags/fragment/">Fragment</a>,&nbsp;<a href="/tags/views/">Views</a>,&nbsp;<a href="/tags/viewpager/">ViewPager</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_btn_nav/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_image.png"
+        data-srcset="/featuredImage/compressed/android_image.png, /featuredImage/compressed/android_image.png 1.5x, /featuredImage/compressed/android_image.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_image.png"
+        title="/featuredImage/compressed/android_image.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_btn_nav/">Android Java - 簡易今日頭條 - 實現底部按鈕導覽切換 Fragment 頁面</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 我接下來會寫一系列關於安卓開發的過程，由於這學期我選修了安卓應用開發，該課程與字節跳動客戶端員工合作，課程的項目設計是 &ldquo;簡易頭條&rdquo;，而我身為安卓零基礎的學生在一週內邊做邊學，最終完成了成果。在 Blog 我所遇到的細節技術實現。這篇文章是關於底部導覽頁的實現。
+項目倉庫 簡易今日頭條 - Github
+Display 具體實現 使用 BottomNavigationView、NavController 與 NavigationUI.setupWithNavController() 方法去實現。
+現在我需要使用三個子頁面(Fragment)分別是首頁(home)、視頻(video)、我的(account)：
+ 注意：目錄的正確需要自己去修改
+ layout/activity.xml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34; xmlns:app=&#34;http://schemas.android.com/apk/res-auto&#34; xmlns:tools=&#34;http://schemas.android.com/tools&#34; android:layout_width=&#34;match_parent&#34; android:layout_height=&#34;match_parent&#34; android:id=&#34;@+id/main_activity&#34; tools:context=&#34;.activity.MainActivity&#34;&gt; &lt;com.google.android.material.bottomnavigation.BottomNavigationView android:id=&#34;@+id/nav_view&#34; android:layout_width=&#34;0dp&#34; android:layout_height=&#34;wrap_content&#34; android:layout_marginStart=&#34;0dp&#34; android:layout_marginEnd=&#34;0dp&#34; android:background=&#34;?</div><div class="post-footer">
+        <a href="/android_java_btn_nav/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/navigation/">Navigation</a>,&nbsp;<a href="/tags/fragment/">Fragment</a>,&nbsp;<a href="/tags/bottom/">Bottom</a>,&nbsp;<a href="/tags/button/">Button</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/2021_spring_recruitment/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -125,7 +240,7 @@
         alt="/featuredImage/compressed/2021_spring_recruitment.jpg"
         title="/featuredImage/compressed/2021_spring_recruitment.jpg" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/2021_spring_recruitment/">2021 3 - 4 月春招找實習過程心得</a>
+        <a href="/2021_spring_recruitment/">2021  3 - 4 月春招找實習過程心得</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-05-10">2021-05-10</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">前言 我將在這篇文章分享我的春招找實習心得，並且分享如何準備應聘。
 背景  985 中南大學計算機學院軟件工程 18 級大三本科生 已修操作系統、計算機網路、數據庫、數據結構、算法等必要課程 時間安排從 7 月份開始能實習 3 - 4 個月 比較萬油精，可以前後端開發，偏好 C/C++ 崗位 (因為 Java 崗太卷了)  心得 這次 2021 年的春招實習，我先後投遞了各個大廠，像是阿里巴巴、騰訊、快手、字節跳動、華為，然而一直沒有好結果，加上自己一開始準備筆試面試並沒有準備多少，對我來說就像是突如其來的考試，最終到了五月份依然沒拿到好的 Offer。我過程有時被撈了又面掛了，剛開始每次面試我都很緊張，因為沒有面試經驗，甚至有一次我緊張到整晚都睡不著，然後面掛了又覺得自己是不是實力不夠，那段期間真的是不斷的自我懷疑，面到後面我都覺得有點無感隨緣了，感覺一切都無所謂了。
 一開始我投的阿里巴巴招聘流程讓人覺得詭譎，說不出來的奇妙感，面試時問的問題過於硬核，然後阿里巴巴的崗位可能是因為內推關係，不能改比較坑。字節面試一面時感受得出面試官的不耐煩，華為的筆試我以為很簡單，結果我那次機考意外的難很多，我又寫題時間分配錯誤以及題意理解錯誤，最終以失敗告終，我或許不適合大廠。
@@ -133,7 +248,7 @@
 我想我最後打擊的事情是在深圳的華為 HR 大哥評價我的簡歷，學校不夠優秀，實踐雖然可以，但是可能對他們來說技術含量低，又專業不對口，所以建議我不要急著去找實習，要我去考個 C9 的研究生。
 最後還是希望各位面試時盡量放輕鬆，不然容易腦袋死機，語言邏輯等表達不通順。然後提醒一下很多大廠的面試電話是別人打得了給你，你打不了電話給別人。
 關於面試準備工作  註：一定要提前準備 1 個月以上。
- 我們應該在這裡針對下面兩個部份：
+ 我們應該在這裡針對下面三個部份：
  數據結構與算法 對應崗位的八股文 簡歷項目  數據結構與算法 首先，我不是 ACM 的選手，也沒有算法競賽背景，所以說想要在部份過關，我的建議是在 LeetCode(力扣) 上進行刷題練習，很多人會有困惑，&ldquo;要怎麼刷？&quot;，我依序列出順序：
 1. 劍指 Offer 75 題（劍指 Offer 是性價比最高，面試高頻考題）
 2. 在題庫中照題目的出現頻率去刷，優先刷高頻出現率的題，刷題數約 100 題
@@ -203,42 +318,6 @@ mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
 1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.</div><div class="post-footer">
         <a href="/archlinux_fail_to_start_mariadb/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/mariadb/">Mariadb</a>,&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/mysql_learn_note_basic/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/mysql_learn_note_basic.png"
-        data-srcset="/featuredImage/compressed/mysql_learn_note_basic.png, /featuredImage/compressed/mysql_learn_note_basic.png 1.5x, /featuredImage/compressed/mysql_learn_note_basic.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/mysql_learn_note_basic.png"
-        title="/featuredImage/compressed/mysql_learn_note_basic.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/mysql_learn_note_basic/">MySQL 的基礎語法使用筆記</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-24">2020-12-24</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div><div class="content">前言 自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。
-MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。
-1 2 3  # 進入 MySQL 指令 # 登入使用者為 root mysql -u root -p   基礎語法 自行修改中文成英文。不要真的輸入中文當資料庫名稱或資料表名稱喔。
-   操作功能 MySQL 語法格式 說明      列出所有資料庫 show databases;     建立資料庫 create database 資料庫名稱;     刪除資料庫 drop database 資料庫名稱;     使用資料庫 use 資料庫名稱;     建立資料表 create table 資料表名稱(</div><div class="post-footer">
-        <a href="/mysql_learn_note_basic/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/vmware_centos_fail_boot_xfs_corruption/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png"
-        data-srcset="/featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png, /featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png 1.5x, /featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png"
-        title="/featuredImage/compressed/vmware_centos_fail_boot_xfs_corruption.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/vmware_centos_fail_boot_xfs_corruption/">VMware Workstation Pro 中 CentOS 7 啟動崩潰</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-24">2020-12-24</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 我因為最近在做雲計算實驗中的 Hadoop + Spark，我在我的 Windows 上用 VMware Workstation 開了三個虛擬機，且都裝了 CentOS7 系統。當時因為我下課結束將筆電蓋住，去實驗室將電腦打開的時候，整個 Windows 系統變得很卡，視窗方面無法移動縮放，我只好強制關機重啟筆電，結果一開機啟動虛擬機就出錯了。
-問題 我的三台 CentOS 虛擬機都出現 CentOS 7 Fails to Boot – XFS Corruption – Enters Emergency Mode 這樣的報錯，看起來是 XFS 文件系統出錯了，錯誤畫面如下：
-CentOS 無法啟動centos_fail_to_boot.jpg
-" CentOS 無法啟動 
-我嘗試了很久想想怎麼修復，爬文看看是哪裡出錯了，終於在一篇文章中找到解決辦法。
-解決  I chose the default boot option and reached a console. Ideally one should create a dump of the damaged partition by running xfs_metadump, restore the dump to an image using xfs_mdrestore, and then perform the repair on that image.</div><div class="post-footer">
-        <a href="/vmware_centos_fail_boot_xfs_corruption/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vmware/">VMware</a>,&nbsp;<a href="/tags/workstation/">Workstation</a>,&nbsp;<a href="/tags/centos/">CentOS</a>,&nbsp;<a href="/tags/boot/">boot</a>,&nbsp;<a href="/tags/xfs/">xfs</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -255,7 +334,7 @@ CentOS 無法啟動centos_fail_to_boot.jpg
                     <span class="page-link" aria-hidden="true">&hellip;</span>
                 </li><li class="page-item ">
                     <span class="page-link">
-                        <a href="/page/6/">6</a>
+                        <a href="/page/5/">5</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

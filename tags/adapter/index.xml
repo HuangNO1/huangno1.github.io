@@ -1,0 +1,63 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Adapter - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/adapter/</link>
+        <description>Adapter - 標籤 - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/adapter/" rel="self" type="application/rss+xml" /><item>
+    <title>Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容</title>
+    <link>https://huangno1.github.io/android_java_pull_to_refresh/</link>
+    <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/android_java_pull_to_refresh/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+            </div>前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
+這裡就介紹如何用 Swiperefreshlayout。也可以看 Implementing Pull to Refresh Guide - CODEPATH
+首先要加上依賴
+1 2 3  dependencies { implementation &#34;androidx.swiperefreshlayout:swiperefreshlayout:1.1.0&#34; }   接著在 xml 中需要刷新渲染的 RecyclerView 或是 ListView 加上該組件。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  &lt;!]]></description>
+</item><item>
+    <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載</title>
+    <link>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</link>
+    <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+            </div>前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
+我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
+1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  ]]></description>
+</item><item>
+    <title>Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染</title>
+    <link>https://huangno1.github.io/android_java_request_and_card_list_render/</link>
+    <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/android_java_request_and_card_list_render/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+            </div>前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
+models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個數據模型，方便後面將數據添入 NewsCardItemDataModel，使邏輯更加清晰。這裡一樣有三種構造函數，分別代表三種不同的卡片類型。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.]]></description>
+</item><item>
+    <title>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</title>
+    <link>https://huangno1.github.io/android_java_recycler_view_different_cards/</link>
+    <pubDate>Tue, 15 Jun 2021 15:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/android_java_recycler_view_different_cards/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
+            </div>前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
+項目倉庫 簡易今日頭條 - Github
+Display 具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
+以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
+layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?]]></description>
+</item></channel>
+</rss>
