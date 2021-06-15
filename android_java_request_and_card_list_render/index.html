@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染" />
+        <title>Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染" />
 <meta property="og:description" content="前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
 Display 項目倉庫 簡易今日頭條 - Github
 具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
@@ -19,7 +19,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染"/>
+<meta name="twitter:title" content="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染"/>
 <meta name="twitter:description" content="前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
 Display 項目倉庫 簡易今日頭條 - Github
 具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
@@ -28,16 +28,16 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/android_java_request_and_card_list_render/" /><link rel="prev" href="https://huangno1.github.io/android_java_recycler_view_different_cards/" /><link rel="next" href="https://huangno1.github.io/android_java_image_cache_and_lazy_load/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/android_java_request_and_card_list_render/" /><link rel="prev" href="https://huangno1.github.io/android_java_recyclerview_different_cards/" /><link rel="next" href="https://huangno1.github.io/android_java_image_cache_and_lazy_load/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染",
+        "headline": "Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染",
         "inLanguage": "zh-cn",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/android_java_request_and_card_list_render\/"
-        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, request, OkHttp, Thread, UI, Render","wordcount":  2292 ,
+        },"genre": "posts","keywords": "Android, Java, Android Studio, RecyclerView, Card, List, Adapter, request, OkHttp, Thread, UI, Render","wordcount":  2291 ,
         "url": "https:\/\/huangno1.github.io\/android_java_request_and_card_list_render\/","datePublished": "2021-06-15T18:03:28+08:00","dateModified": "2021-06-15T18:03:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -131,9 +131,9 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2292 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 2291 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 11 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -564,7 +564,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 // ...
 </code></pre></td></tr></table>
 </div>
-</div><p>下面的 Code 中我分別使用 <code>getUserAgent()</code> 固定 UA，<code>getInitNews()</code> 請求新聞數據，<code>initRenderCardList()</code> 做數據渲染，<code>dealWithResponseBody()</code> 處理請求回來的 <code>ResponseBody</code>，<code>dealWithNewsObject()</code> 處理每個新聞列表，<code>runThread()</code> 負責請求後回到在主 UI 線程裡面進行渲染（也就是<code>initRenderCardList()</code>），這裡的注意點有：</p>
+</div><p>下面的 Code 中我分別使用 <code>getUserAgent()</code> 固定 UA，<code>getInitNews()</code> 請求新聞數據，<code>initRenderCardList()</code> 做數據渲染，<code>dealWithResponseBody()</code> 處理請求回來的 <code>ResponseBody</code>，<code>dealWithNewsObject()</code> 處理每個新聞列表，<code>mHandler</code> 負責請求後回到在主 UI 線程裡面進行渲染（也就是<code>initRenderCardList()</code>），這裡的注意點有：</p>
 <ol>
 <li>
 <p>除了固定 UA 外，需要將請求回來的 <strong><code>Response</code> 中 <code>Header</code> 的 <code>Set-Cookie</code></strong> 加入下一次請求中的 Cookie，這樣避免了<strong>請求回來的數據與原數據重複性</strong>。</p>
@@ -971,11 +971,6 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 </span><span class="lnt">388
 </span><span class="lnt">389
 </span><span class="lnt">390
-</span><span class="lnt">391
-</span><span class="lnt">392
-</span><span class="lnt">393
-</span><span class="lnt">394
-</span><span class="lnt">395
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
@@ -998,7 +993,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 </span><span class="cm"> * create an instance of this fragment.
 </span><span class="cm"> */</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">NewsChannelFragment</span> <span class="kd">extends</span> <span class="n">Fragment</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">BASE_URL</span> <span class="o">=</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">BASE_URL</span> <span class="o">=</span>
             <span class="s">&#34;https://www.toutiao.com/api/pc/feed/?max_behot_time=%d&amp;category=%s&#34;</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">CATEGORY_ATTR</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
             <span class="s">&#34;__all__&#34;</span><span class="o">,</span>
@@ -1011,10 +1006,13 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
             <span class="s">&#34;news_finance&#34;</span><span class="o">,</span>
             <span class="s">&#34;digital&#34;</span>
     <span class="o">};</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">DEFAULT_AVATAR</span> <span class="o">=</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEFAULT_AVATAR</span> <span class="o">=</span>
             <span class="s">&#34;https://img.88icon.com/download/jpg/20200901/84083236c883964781afea41f1ea4e9c_512_511.jpg!88bg&#34;</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">DEFAULT_IMAGE</span> <span class="o">=</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DEFAULT_IMAGE</span> <span class="o">=</span>
             <span class="s">&#34;https://www.asiapacdigital.com/Zh_Cht/img/ap/services/reseller/TouTiao_1.jpg&#34;</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">INIT_OR_REFRESH</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">LOAD_MORE</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">LOAD_FAIL</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">NewsDataModel</span><span class="o">&gt;</span> <span class="n">mNewsDataModelList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
     <span class="kd">private</span> <span class="n">PageViewModel</span> <span class="n">mPageViewModel</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">RecyclerView</span> <span class="n">mCardListRecyclerView</span><span class="o">;</span>
@@ -1079,12 +1077,8 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 
         <span class="n">TextView</span> <span class="n">mSectionLabelTextView</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">text_view_section_label</span><span class="o">);</span>
 
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="c1">// init
-</span><span class="c1"></span>                <span class="n">getInitNews</span><span class="o">();</span>
-            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">JSONException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-            <span class="o">}</span>
+        <span class="c1">// init
+</span><span class="c1"></span>        <span class="n">getInitNews</span><span class="o">();</span>
 
         <span class="n">mPageViewModel</span><span class="o">.</span><span class="na">getCategory</span><span class="o">().</span><span class="na">observe</span><span class="o">(</span><span class="n">getViewLifecycleOwner</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
@@ -1180,10 +1174,8 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
     <span class="cm">/**
 </span><span class="cm">     * a methods to init card list
 </span><span class="cm">     *
-</span><span class="cm">     * @throws IOException
-</span><span class="cm">     * @throws JSONException
 </span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getInitNews</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">JSONException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getInitNews</span><span class="o">()</span> <span class="o">{</span>
         <span class="c1">// init data
 </span><span class="c1"></span>        <span class="n">mNewsDataModelList</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
         <span class="n">mCardDataModelList</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
@@ -1226,7 +1218,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 </span><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">jsonData</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">1</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">mIsLoadingFail</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
             <span class="c1">// run on main ui thread
-</span><span class="c1"></span>            <span class="n">runThread</span><span class="o">();</span>
+</span><span class="c1"></span>            <span class="n">mHander</span><span class="o">.</span><span class="na">sendEmptyMessage</span><span class="o">(</span><span class="n">LOAD_FAIL</span><span class="o">);</span>
             <span class="k">return</span><span class="o">;</span>
         <span class="o">}</span>
         <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="s">&#34;deal with response&#34;</span><span class="o">,</span> <span class="s">&#34;string to JsonObject&#34;</span><span class="o">);</span>
@@ -1239,36 +1231,34 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
         <span class="n">JsonArray</span> <span class="n">newsData</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">getAsJsonArray</span><span class="o">(</span><span class="s">&#34;data&#34;</span><span class="o">);</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">newsData</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
             <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="s">&#34;deal with response&#34;</span><span class="o">,</span> <span class="s">&#34;newsObjects &#34;</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="n">dealWithNewsObject</span><span class="o">(</span><span class="n">newsData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getAsJsonObject</span><span class="o">());</span>
-            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-            <span class="o">}</span>
+            <span class="n">dealWithNewsObject</span><span class="o">(</span><span class="n">newsData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getAsJsonObject</span><span class="o">());</span>
         <span class="o">}</span>
-        <span class="n">runThread</span><span class="o">();</span>
+        <span class="n">mHander</span><span class="o">.</span><span class="na">sendEmptyMessage</span><span class="o">(</span><span class="n">INIT_OR_REFRESH</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="cm">/**
 </span><span class="cm">     * running on main UI thread to render card list
 </span><span class="cm">     */</span>
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">runThread</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Handler</span><span class="o">(</span><span class="n">Looper</span><span class="o">.</span><span class="na">getMainLooper</span><span class="o">());</span>
-
-        <span class="k">new</span> <span class="n">Thread</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-                <span class="c1">// init &amp; refresh
-</span><span class="c1"></span>                <span class="n">handler</span><span class="o">.</span><span class="na">post</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">initRenderCardList</span><span class="o">());</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Handler</span> <span class="n">mHander</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Handler</span><span class="o">(</span><span class="k">new</span> <span class="n">Handler</span><span class="o">.</span><span class="na">Callback</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">handleMessage</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="n">Message</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span> <span class="o">==</span> <span class="n">INIT_OR_REFRESH</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">initRenderCardList</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span> <span class="o">==</span> <span class="n">LOAD_MORE</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">loadMoreRenderCardList</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">what</span> <span class="o">==</span> <span class="n">LOAD_FAIL</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">loadingFail</span><span class="o">();</span>
             <span class="o">}</span>
-        <span class="o">}.</span><span class="na">start</span><span class="o">();</span>
-    <span class="o">}</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">});</span>
 
     <span class="cm">/**
 </span><span class="cm">     * a methods to transfer JsonObject to NewsDataModel
 </span><span class="cm">     *
 </span><span class="cm">     * @param object
-</span><span class="cm">     * @throws JSONException
 </span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dealWithNewsObject</span><span class="o">(</span><span class="n">JsonObject</span> <span class="n">object</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">JSONException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dealWithNewsObject</span><span class="o">(</span><span class="n">JsonObject</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">NewsDataModel</span> <span class="n">temp</span><span class="o">;</span>
         <span class="c1">// id
 </span><span class="c1"></span>        <span class="n">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="s">&#34;deal with news object&#34;</span><span class="o">,</span> <span class="s">&#34;news_id &#34;</span> <span class="o">+</span> <span class="n">object</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;group_id&#34;</span><span class="o">).</span><span class="na">getAsString</span><span class="o">());</span>
@@ -1392,7 +1382,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
                             <a class="link-to-markdown" href="/android_java_request_and_card_list_render/index.md" target="_blank">閱讀原始檔案</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染" data-via="Rem59881439" data-hashtags="Android,Java,Android Studio,RecyclerView,Card,List,Adapter,request,OkHttp,Thread,UI,Render"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-hashtag="Android"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染" data-image="/featuredImage/compressed/android_image.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染" data-via="Rem59881439" data-hashtags="Android,Java,Android Studio,RecyclerView,Card,List,Adapter,request,OkHttp,Thread,UI,Render"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-hashtag="Android"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染" data-image="/featuredImage/compressed/android_image.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/android_java_request_and_card_list_render/" data-title="Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -1404,7 +1394,7 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
         </section>
     </div>
 
-    <div class="post-nav"><a href="/android_java_recycler_view_different_cards/" class="prev" rel="prev" title="Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片"><i class="fas fa-angle-left fa-fw"></i>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</a>
+    <div class="post-nav"><a href="/android_java_recyclerview_different_cards/" class="prev" rel="prev" title="Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片"><i class="fas fa-angle-left fa-fw"></i>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</a>
             <a href="/android_java_image_cache_and_lazy_load/" class="next" rel="next" title="Android Java - 簡易今日頭條 - 圖片緩存與懶加載">Android Java - 簡易今日頭條 - 圖片緩存與懶加載<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>

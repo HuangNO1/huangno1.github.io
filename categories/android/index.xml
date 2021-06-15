@@ -4,10 +4,37 @@
         <link>https://huangno1.github.io/categories/android/</link>
         <description>Android - 分類 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/android/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 21:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/android/" rel="self" type="application/rss+xml" /><item>
+    <title>Android Java - 簡易今日頭條 - 點擊新聞卡片進入新聞詳情頁與 WebView 顯示</title>
+    <link>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</link>
+    <pubDate>Tue, 15 Jun 2021 21:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/android_java_news_detail_web_view.png" referrerpolicy="no-referrer">
+            </div>前言 上一篇我們已經介紹完 RecyclerView 加載更多的實現，而這篇也是最後一篇，關於點擊新聞卡片進入新聞詳情頁(Activity)。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 這裡我是在新聞卡片的適配器裡面去做，將 View 設置點擊事件，然後新增一個新聞活動頁面。
+ui/card/newsCardList/NewsCardAdapter.java 下面的 Code 中我舉出 NoImageCardViewHolder 子類，裡面的構造函數中去做 itemView 的點擊事件，點擊事件涉及到了傳參部份，傳參使用 intent.putExtra() 方法，然後在 NewsDetailActivity 做接收參數。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50  public class NewsCardAdapter extends RecyclerView.]]></description>
+</item><item>
+    <title>Android Java - 簡易今日頭條 - Load More 加載更多新聞內容</title>
+    <link>https://huangno1.github.io/android_java_recyclerview_load_more/</link>
+    <pubDate>Tue, 15 Jun 2021 20:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/android_java_recyclerview_load_more/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/android_java_recyclerview_load_more.png" referrerpolicy="no-referrer">
+            </div>前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
+Display 項目倉庫 簡易今日頭條 - Github
+具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
+以下是 RecyclerView 設置滾動監聽的參考案例：
+這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  // cardList mCardListRecyclerView = view.findViewById(R.id.recycler_view_card_list); mCardListRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { @Override public void onScrollStateChanged(@NonNull @NotNull RecyclerView recyclerView, int newState) { super.onScrollStateChanged(recyclerView, newState); } @Override public void onScrolled(@NonNull @NotNull RecyclerView recyclerView, int dx, int dy) { super.]]></description>
+</item><item>
     <title>Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容</title>
     <link>https://huangno1.github.io/android_java_pull_to_refresh/</link>
-    <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
+    <pubDate>Tue, 15 Jun 2021 19:03:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_pull_to_refresh/</guid>
     <description><![CDATA[<div class="featured-image">
@@ -22,7 +49,7 @@ Display 項目倉庫 簡易今日頭條 - Github
 </item><item>
     <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載</title>
     <link>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</link>
-    <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
+    <pubDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</guid>
     <description><![CDATA[<div class="featured-image">
@@ -33,7 +60,7 @@ Display 項目倉庫 簡易今日頭條 - Github
 我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
 1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  ]]></description>
 </item><item>
-    <title>Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染</title>
+    <title>Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染</title>
     <link>https://huangno1.github.io/android_java_request_and_card_list_render/</link>
     <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
     <author>作者</author>
@@ -47,10 +74,10 @@ models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個�
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.]]></description>
 </item><item>
     <title>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</title>
-    <link>https://huangno1.github.io/android_java_recycler_view_different_cards/</link>
+    <link>https://huangno1.github.io/android_java_recyclerview_different_cards/</link>
     <pubDate>Tue, 15 Jun 2021 15:03:28 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://huangno1.github.io/android_java_recycler_view_different_cards/</guid>
+    <guid>https://huangno1.github.io/android_java_recyclerview_different_cards/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_card_list.jpg" referrerpolicy="no-referrer">
             </div>前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
@@ -70,7 +97,7 @@ layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerVi
             </div>前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
- androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這**兩個 API 是已經棄用(deprecated)**的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
+ androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
  androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
  註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
  layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。

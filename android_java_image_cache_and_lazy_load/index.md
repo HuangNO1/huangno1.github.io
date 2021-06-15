@@ -3,7 +3,7 @@
 
 ## 前言
 
-上次的文章中我寫了關於[新聞數據請求渲染](https://huangno1.github.io/android_java_recycler_view_different_cards/)的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
+上次的文章中我寫了關於[新聞數據請求渲染](https://huangno1.github.io/android_java_recyclerview_different_cards/)的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
 
 ## Display
 

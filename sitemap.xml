@@ -2,31 +2,39 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://huangno1.github.io/tags/adapter/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/android/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/categories/android/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/android_java_pull_to_refresh/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/activity/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/adapter/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/android/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/android/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/android-studio/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/card/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/categories/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/click/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/detail/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/java/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/list/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/posts/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/recyclerview/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/webview/</loc><lastmod>2021-06-15T21:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/android_java_recyclerview_load_more/</loc><lastmod>2021-06-15T20:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/load/</loc><lastmod>2021-06-15T20:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/more/</loc><lastmod>2021-06-15T20:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/render/</loc><lastmod>2021-06-15T20:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/ui/</loc><lastmod>2021-06-15T20:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/android_java_pull_to_refresh/</loc><lastmod>2021-06-15T19:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/cache/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/image/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/lazy/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/okhttp/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/picasso/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/request/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/tags/thread/</loc><lastmod>2021-06-15T18:33:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/android_java_request_and_card_list_render/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/android-studio/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/cache/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/card/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/categories/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/image/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/java/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/lazy/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/list/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/okhttp/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/picasso/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/posts/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/recyclerview/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/render/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/request/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/thread/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/tags/ui/</loc><lastmod>2021-06-15T18:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://huangno1.github.io/android_java_recycler_view_different_cards/</loc><lastmod>2021-06-15T15:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://huangno1.github.io/android_java_recyclerview_different_cards/</loc><lastmod>2021-06-15T15:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/android_java_swip_views_with_tabs/</loc><lastmod>2021-06-15T09:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/fragment/</loc><lastmod>2021-06-15T09:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://huangno1.github.io/tags/tabs/</loc><lastmod>2021-06-15T09:03:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>

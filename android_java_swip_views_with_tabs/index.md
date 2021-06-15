@@ -18,7 +18,7 @@
 - `androidx.viewpager.widget.ViewPager`
 - `androidx.fragment.app.FragmentPagerAdapter`
 
-你會得到一個提示是這**兩個 API 是已經棄用(`deprecated`)**的，尤其是在寫 **`FragmentPagerAdapter`** 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
+你會得到一個提示是這 **兩個 API 是已經棄用(`deprecated`)** 的，尤其是在寫 **`FragmentPagerAdapter`** 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
 
 - `androidx.viewpager2.widget.ViewPager2`
 - `androidx.viewpager2.adapter.FragmentStateAdapter`

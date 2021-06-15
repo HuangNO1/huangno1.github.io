@@ -9,7 +9,7 @@
 <meta property="og:description" content="前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
- androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這**兩個 API 是已經棄用(deprecated)**的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
+ androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
  androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
  註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
  layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。
@@ -26,7 +26,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
 <meta name="twitter:description" content="前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
 項目倉庫 簡易今日頭條 - Github
 Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
- androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這**兩個 API 是已經棄用(deprecated)**的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
+ androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
  androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
  註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
  layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。
@@ -34,7 +34,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/android_java_swip_views_with_tabs/" /><link rel="prev" href="https://huangno1.github.io/android_java_btn_nav/" /><link rel="next" href="https://huangno1.github.io/android_java_recycler_view_different_cards/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/android_java_swip_views_with_tabs/" /><link rel="prev" href="https://huangno1.github.io/android_java_btn_nav/" /><link rel="next" href="https://huangno1.github.io/android_java_recyclerview_different_cards/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -43,7 +43,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/android_java_swip_views_with_tabs\/"
-        },"genre": "posts","keywords": "Android, Java, Android Studio, Tabs, Fragment, Views, ViewPager","wordcount":  1085 ,
+        },"genre": "posts","keywords": "Android, Java, Android Studio, Tabs, Fragment, Views, ViewPager","wordcount":  1087 ,
         "url": "https:\/\/huangno1.github.io\/android_java_swip_views_with_tabs\/","datePublished": "2021-06-15T09:03:28+08:00","dateModified": "2021-06-15T09:03:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -139,7 +139,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Android Java - 簡易今日頭條 - Tabs 頻道頁面切換</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1085 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-15">2021-06-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1087 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -182,7 +182,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
 <li><code>androidx.viewpager.widget.ViewPager</code></li>
 <li><code>androidx.fragment.app.FragmentPagerAdapter</code></li>
 </ul>
-<p>你會得到一個提示是這**兩個 API 是已經棄用(<code>deprecated</code>)**的，尤其是在寫 <strong><code>FragmentPagerAdapter</code></strong> 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：</p>
+<p>你會得到一個提示是這 <strong>兩個 API 是已經棄用(<code>deprecated</code>)</strong> 的，尤其是在寫 <strong><code>FragmentPagerAdapter</code></strong> 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：</p>
 <ul>
 <li><code>androidx.viewpager2.widget.ViewPager2</code></li>
 <li><code>androidx.viewpager2.adapter.FragmentStateAdapter</code></li>
@@ -889,7 +889,7 @@ Display 具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFr
     </div>
 
     <div class="post-nav"><a href="/android_java_btn_nav/" class="prev" rel="prev" title="Android Java - 簡易今日頭條 - 實現底部按鈕導覽切換 Fragment 頁面"><i class="fas fa-angle-left fa-fw"></i>Android Java - 簡易今日頭條 - 實現底部按鈕導覽切換 Fragment 頁面</a>
-            <a href="/android_java_recycler_view_different_cards/" class="next" rel="next" title="Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片">Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/android_java_recyclerview_different_cards/" class="next" rel="next" title="Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片">Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.

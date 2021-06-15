@@ -218,6 +218,10 @@ public class VideoFragment extends Fragment {
 }
 ```
 
+## 項目心得
+
+由於這次的項目因為我本身是安卓零基礎，而我卻使用了一週的時間將整體的 Code 邏輯架構寫好了，這是因為我會使用 Google 用關鍵字搜索，StackOverFlow 大多數時候都能給我比較好的答案，在做項目之前我頂多是有了做過 Qt C++ 的基礎，所以了解了一下安卓的組件生命週期還有哪些控件和布局，我就直接邊做邊學，我覺得這樣子對我的成長和動手能力提升很多，也謝謝字節跳動客戶端開發的大哥們一直提點我的不足。最終得以完成這個項目。
+
 ## Reference
 
 - [簡易今日頭條 - Github](https://github.com/HuangNO1/TouTiao_Simple_Android_App)

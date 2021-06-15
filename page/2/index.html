@@ -116,6 +116,49 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/cs_interview_eight_part_questions/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/cs_interview_eight_part_questions.jpg"
+        data-srcset="/featuredImage/compressed/cs_interview_eight_part_questions.jpg, /featuredImage/compressed/cs_interview_eight_part_questions.jpg 1.5x, /featuredImage/compressed/cs_interview_eight_part_questions.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/cs_interview_eight_part_questions.jpg"
+        title="/featuredImage/compressed/cs_interview_eight_part_questions.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/cs_interview_eight_part_questions/">互聯網公司大廠 – 面試八股文彙整</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-05-03">2021-05-03</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div><div class="content">前言 因為 2021/03 月份我已經是大三了，我開始在春招找實習 Offer，在找實習的期間我在牛課網以及各大平台的面經驗分享中整理出一份八文面試題，整理的過程整整花了我將近一週的時間，希望我整理的內容對各位有幫助。
+註：這篇文章是針對 C/C++ 崗位的面試題，數據結構、算法、操作系統、計算機網路、數據庫對大部分崗位是通用的。
+重要度 重要性: 語言基礎 &gt;= 數據結構 == 算法 &gt; 操作系統 &gt; 計算機網路 &gt; 數據庫 &gt;= 機器學習
+語言基礎 C++ 三大特性 封装性是基础，继承性是关键，多态性是补充，并且多态性存在于继承的环境中。 C++语言中支持数据封装，类是支持数据封装的工具，对象是数据封装的实现。 在封装中，还提供一种对数据访问的控制机制，使得一些数据被隐藏在封装体内，因此具有隐藏性。
+封裝、繼承、多態，簡單說明 封装性:把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 类将成员变量和成员函数封装在类的内部，根据需要设置访问权限，通过成员函数管理内部状态。
+1 2 3 4 5 6 7 8 9 10 11  class Person { private://数据私有  string bame; int num; public://方法公有  void getName() { return name; } };   繼承:继承所表达的是类之间相关的关系，这种关系使得对象可以继承另外一类对象的特征和能力。 继承的作用：避免公用代码的重复开发，减少代码和数据冗余。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  #include &lt;iostream&gt; using namespace std; class Base { public: void printBase(void) { cout&lt;&lt;&#34;Base中的printBase&#34;&lt;&lt;endl; } }; class Son:public Base { }; int main(int argc, char *argv[]) { Son ob; ob.</div><div class="post-footer">
+        <a href="/cs_interview_eight_part_questions/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E4%BA%92%E8%81%AF%E7%B6%B2/">互聯網</a>,&nbsp;<a href="/tags/%E5%A4%A7%E5%BB%A0/">大廠</a>,&nbsp;<a href="/tags/%E9%9D%A2%E8%A9%A6%E9%A1%8C/">面試題</a>,&nbsp;<a href="/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF/">計算機網路</a>,&nbsp;<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%B5%B1/">操作系統</a>,&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/%E6%95%B8%E6%93%9A%E7%B5%90%E6%A7%8B/">數據結構</a>,&nbsp;<a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95/">演算法</a>,&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/c/">C</a>,&nbsp;<a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>,&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/cs/">CS</a>,&nbsp;<a href="/tags/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8/">計算機科學</a>,&nbsp;<a href="/tags/%E8%BB%9F%E4%BB%B6%E5%B7%A5%E7%A8%8B/">軟件工程</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/archlinux_fail_to_start_mariadb/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg"
+        data-srcset="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg, /featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg 1.5x, /featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg"
+        title="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/archlinux_fail_to_start_mariadb/">Mariadb 啟動服務失敗</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-05-03">2021-05-03</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是
+ [SOLVED] Unable to start mariadb.service What to Do if MariaDB Doesn&rsquo;t Start Failed to start MariaDB database server after upgrade to debian 9  今天終於在 ArchLinux-CN Telegram 技術群提問獲得了解決。
+問題 我的 Linux 在某次更新完系統開機階段就會顯示我的數據庫啟動失敗，開機後我試著登入數據庫卻登入失敗。於是試著啟動 mariadb.service 於是出現下面的畫面：
+mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
+" mariadb.service 啟動失敗 
+於是我接著查看 mariadb.service 的 status：
+檢查 mariadb.service statussystemctl_status_mariadb.png
+" 檢查 mariadb.service status 
+依然沒找到問題所在，於是我進一步查看日誌：
+1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.</div><div class="post-footer">
+        <a href="/archlinux_fail_to_start_mariadb/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/database/">Database</a>,&nbsp;<a href="/tags/mariadb/">Mariadb</a>,&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/mysql_learn_note_basic/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -276,41 +319,6 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
  tex '\empty Hello world!\bye' 會生成 texput.dvi 和 texput.log。 pdftex '\empty Hello world!\bye' 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!</div><div class="post-footer">
         <a href="/arhlinux_vscode_latex_install_configuration/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/vscode/">VScode</a>,&nbsp;<a href="/tags/latex/">LaTeX</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/markdown_learn_note_basic_syntax/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/markdown_learn_note_basic_syntax.png"
-        data-srcset="/featuredImage/compressed/markdown_learn_note_basic_syntax.png, /featuredImage/compressed/markdown_learn_note_basic_syntax.png 1.5x, /featuredImage/compressed/markdown_learn_note_basic_syntax.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/markdown_learn_note_basic_syntax.png"
-        title="/featuredImage/compressed/markdown_learn_note_basic_syntax.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/markdown_learn_note_basic_syntax/">Markdown 學習筆記 - 基礎語法</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-07">2020-08-07</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/markdown/"><i class="far fa-folder fa-fw"></i>Markdown</a></span></div><div class="content">前言 Markdown 我認為是非常好的語言，我每次寫 Blog 或是寫項目、作筆記，Markdown 是首選，LaTeX 比較適合拿來寫報告或是論文。我就在這篇寫一下 Markdown 基礎語法，也就是平常經常用到的語法，其實當初學 Markdown 只花了一小時，後面慢慢寫多就習慣了。
-寫 Markdown 的工具：
-我推薦下面幾個：
- Typora：跨平台的 Markdown 編輯器，簡直是利器。 Visual Studio Code：使用 VScode 也可以寫 Markdown，安裝 Markdown All in One 和 Markdown Preview Enhanced 延伸模組，就能夠舒服地寫筆記或文章。 HackMD：線上共筆平台，使用 Markdown，大家在共同寫文檔時可以使用這平台  文本編寫標準 中文文案排版指北 [简体中文 ][繁体中文 ]
-區塊元素 標題 h1 - h6，h1 有兩種寫法。第一種是下一行添加 ===，第二種就是加上 #。
-1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!</div><div class="post-footer">
-        <a href="/markdown_learn_note_basic_syntax/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/markdown/">Markdown</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/js_pointer_object_array_variable_assignment/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png"
-        data-srcset="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png, /featuredImage/compressed/js_pointer_object_array_variable_assignment.png 1.5x, /featuredImage/compressed/js_pointer_object_array_variable_assignment.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png"
-        title="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/js_pointer_object_array_variable_assignment/">JS - Object Array 賦值問題</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-08-06">2020-08-06</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw"></i>前端</a></span></div><div class="content">關於我遇到的問題 這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。
-下面是我用簡單的 Code 描述我遇到的問題，object 是一個 Object Array，然後傳入函數進行局域變量賦值。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.</div><div class="post-footer">
-        <a href="/js_pointer_object_array_variable_assignment/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">JS</a>,&nbsp;<a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>,&nbsp;<a href="/tags/pointer/">Pointer</a>,&nbsp;<a href="/tags/variable/">Variable</a>,&nbsp;<a href="/tags/object/">Object</a>,&nbsp;<a href="/tags/assignment/">Assignment</a>,&nbsp;<a href="/tags/array/">Array</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>

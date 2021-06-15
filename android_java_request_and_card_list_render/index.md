@@ -1,4 +1,4 @@
-# Android Java - 簡易今日頭條 - 簡易今日頭條新聞數據請求與卡片渲染
+# Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染
 
 
 ## 前言
@@ -223,7 +223,7 @@ dependencies {
 ```
 
 
-下面的 Code 中我分別使用 `getUserAgent()` 固定 UA，`getInitNews()` 請求新聞數據，`initRenderCardList()` 做數據渲染，`dealWithResponseBody()` 處理請求回來的 `ResponseBody`，`dealWithNewsObject()` 處理每個新聞列表，`runThread()` 負責請求後回到在主 UI 線程裡面進行渲染（也就是`initRenderCardList()`），這裡的注意點有：
+下面的 Code 中我分別使用 `getUserAgent()` 固定 UA，`getInitNews()` 請求新聞數據，`initRenderCardList()` 做數據渲染，`dealWithResponseBody()` 處理請求回來的 `ResponseBody`，`dealWithNewsObject()` 處理每個新聞列表，`mHandler` 負責請求後回到在主 UI 線程裡面進行渲染（也就是`initRenderCardList()`），這裡的注意點有：
 
 1. 除了固定 UA 外，需要將請求回來的 **`Response` 中 `Header` 的 `Set-Cookie`** 加入下一次請求中的 Cookie，這樣避免了**請求回來的數據與原數據重複性**。
 
@@ -254,7 +254,7 @@ import static com.example.toutiao.ui.card.newsCardList.NewsCardItemDataModel.THR
  * create an instance of this fragment.
  */
 public class NewsChannelFragment extends Fragment {
-    private final static String BASE_URL =
+    private static final String BASE_URL =
             "https://www.toutiao.com/api/pc/feed/?max_behot_time=%d&category=%s";
     private static final String[] CATEGORY_ATTR = new String[]{
             "__all__",
@@ -267,10 +267,13 @@ public class NewsChannelFragment extends Fragment {
             "news_finance",
             "digital"
     };
-    private final static String DEFAULT_AVATAR =
+    private static final String DEFAULT_AVATAR =
             "https://img.88icon.com/download/jpg/20200901/84083236c883964781afea41f1ea4e9c_512_511.jpg!88bg";
-    private final static String DEFAULT_IMAGE =
+    private static final String DEFAULT_IMAGE =
             "https://www.asiapacdigital.com/Zh_Cht/img/ap/services/reseller/TouTiao_1.jpg";
+    private static final int INIT_OR_REFRESH = 0;
+    private static final int LOAD_MORE = 1;
+    private static final int LOAD_FAIL = 2;
     private ArrayList<NewsDataModel> mNewsDataModelList = new ArrayList<>();
     private PageViewModel mPageViewModel;
     private RecyclerView mCardListRecyclerView;
@@ -335,12 +338,8 @@ public class NewsChannelFragment extends Fragment {
 
         TextView mSectionLabelTextView = view.findViewById(R.id.text_view_section_label);
 
-            try {
-                // init
-                getInitNews();
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
+        // init
+        getInitNews();
 
         mPageViewModel.getCategory().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -436,10 +435,8 @@ public class NewsChannelFragment extends Fragment {
     /**
      * a methods to init card list
      *
-     * @throws IOException
-     * @throws JSONException
      */
-    public void getInitNews() throws IOException, JSONException {
+    public void getInitNews() {
         // init data
         mNewsDataModelList.clear();
         mCardDataModelList.clear();
@@ -482,7 +479,7 @@ public class NewsChannelFragment extends Fragment {
         if(jsonData.length() < 1) {
             mIsLoadingFail = true;
             // run on main ui thread
-            runThread();
+            mHander.sendEmptyMessage(LOAD_FAIL);
             return;
         }
         Log.v("deal with response", "string to JsonObject");
@@ -495,36 +492,34 @@ public class NewsChannelFragment extends Fragment {
         JsonArray newsData = result.getAsJsonArray("data");
         for (int i = 0; i < newsData.size(); i++) {
             Log.v("deal with response", "newsObjects " + i);
-            try {
-                dealWithNewsObject(newsData.get(i).getAsJsonObject());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            dealWithNewsObject(newsData.get(i).getAsJsonObject());
         }
-        runThread();
+        mHander.sendEmptyMessage(INIT_OR_REFRESH);
     }
 
     /**
      * running on main UI thread to render card list
      */
-    private void runThread() {
-        Handler handler = new Handler(Looper.getMainLooper());
-
-        new Thread() {
-            public void run() {
-                // init & refresh
-                handler.post(() -> initRenderCardList());
+    private final Handler mHander = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(@NonNull Message msg) {
+            if (msg.what == INIT_OR_REFRESH) {
+                initRenderCardList();
+            } else if (msg.what == LOAD_MORE) {
+                loadMoreRenderCardList();
+            } else if (msg.what == LOAD_FAIL) {
+                loadingFail();
             }
-        }.start();
-    }
+            return false;
+        }
+    });
 
     /**
      * a methods to transfer JsonObject to NewsDataModel
      *
      * @param object
-     * @throws JSONException
      */
-    public void dealWithNewsObject(JsonObject object) throws JSONException {
+    public void dealWithNewsObject(JsonObject object) {
         NewsDataModel temp;
         // id
         Log.v("deal with news object", "news_id " + object.get("group_id").getAsString());
