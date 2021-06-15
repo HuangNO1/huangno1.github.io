@@ -11,7 +11,7 @@
 
 ## Display
 
-![Display_tabbed.gif](./index/Display_tabbed.gif "Tab Channel 展示")
+![Display_tabbed.gif](index/Display_tabbed.gif "Tab Channel 展示")
 
 ## 具體實現
 

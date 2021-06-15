@@ -7,7 +7,7 @@
 
 ## Display
 
-![Display_pull_to_refresh.gif](Display_pull_to_refresh.gif "下拉刷新展示")
+![Display_pull_to_refresh.gif](index/Display_pull_to_refresh.gif "下拉刷新展示")
 
 ## 項目倉庫
 

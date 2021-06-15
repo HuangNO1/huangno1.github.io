@@ -11,7 +11,7 @@
 
 ## Display
 
-![Display_nav.gif](Display_nav.gif "Bottom Nav 展示")
+![Display_nav.gif](index/Display_nav.gif "Bottom Nav 展示")
 
 ## 具體實現
 
