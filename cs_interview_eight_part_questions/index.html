@@ -15,8 +15,8 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  #include &lt;iostream&gt; using namespace std; class Base { public: void printBase(void) { cout&lt;&lt;&#34;Base中的printBase&#34;&lt;&lt;endl; } }; class Son:public Base { }; int main(int argc, char *argv[]) { Son ob; ob." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/cs_interview_eight_part_questions/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-05-03T17:28:28&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-03T17:28:28&#43;08:00" />
+<meta property="article:published_time" content="2021-05-03T17:28:28+08:00" />
+<meta property="article:modified_time" content="2021-05-03T17:28:28+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -41,7 +41,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/cs_interview_eight_part_questions\/"
-        },"genre": "posts","keywords": "互聯網, 大廠, 面試題, 計算機網路, 操作系統, Database, 數據結構, 演算法, MySQL, C, C\u002b\u002b, LeetCode, CS, 計算機科學, 軟件工程","wordcount":  12918 ,
+        },"genre": "posts","keywords": "互聯網, 大廠, 面試題, 計算機網路, 操作系統, Database, 數據結構, 演算法, MySQL, C, C\u002b\u002b, LeetCode, CS, 計算機科學, 軟件工程","wordcount":  13348 ,
         "url": "https:\/\/huangno1.github.io\/cs_interview_eight_part_questions\/","datePublished": "2021-05-03T17:28:28+08:00","dateModified": "2021-05-03T17:28:28+08:00","publisher": {
             "@type": "Organization",
             "name": "Rem Blog","logo": {
@@ -137,8 +137,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">互聯網公司大廠 – 面試八股文彙整</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/moment/"><i class="far fa-folder fa-fw"></i>Moment</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-03">2021-05-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 12918 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 61 分鐘&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-03">2021-05-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 13348 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 63 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -208,6 +208,7 @@
     <li><a href="#計算機網路">計算機網路</a>
       <ul>
         <li><a href="#osi-七层模型">OSI 七层模型</a></li>
+        <li><a href="#tcpip-四層模型">TCP/IP 四層模型</a></li>
         <li><a href="#三次握手和四次挥手">三次握手和四次挥手</a></li>
         <li><a href="#可以两次握手吗">可以两次握手吗</a></li>
         <li><a href="#tcp-里-time-close-和-time-wait状态有什么意义">TCP 里 time close 和 time wait状态有什么意义</a></li>
@@ -217,6 +218,10 @@
         <li><a href="#udp-如何实现可靠性">UDP 如何实现可靠性</a></li>
         <li><a href="#tcp-如何实现端口复用">TCP 如何实现端口复用</a></li>
         <li><a href="#http-10-和-11-的区别">http 1.0 和 1.1 的区别</a></li>
+        <li><a href="#http-101120">HTTP 1.0、1.1、2.0</a></li>
+        <li><a href="#http-與-https">HTTP 與 HTTPS</a></li>
+        <li><a href="#非對稱加密">非對稱加密</a></li>
+        <li><a href="#你知道https用的是对称加密还是非对称加密">你知道，HTTPS用的是对称加密还是非对称加密？</a></li>
         <li><a href="#拥塞控制">拥塞控制</a></li>
         <li><a href="#流量控制">流量控制</a></li>
         <li><a href="#拥塞控制和流量控制的区别">拥塞控制和流量控制的区别</a></li>
@@ -224,6 +229,7 @@
         <li><a href="#nat-的原理">NAT 的原理</a></li>
         <li><a href="#长连接和短连接的区别各自使用场景">长连接和短连接的区别，各自使用场景</a></li>
         <li><a href="#了解哪些http状态码">了解哪些http状态码</a></li>
+        <li><a href="#http-緩存機制">http 緩存機制</a></li>
         <li><a href="#get与-post的区别">get与 post的区别</a></li>
         <li><a href="#dns-的解析过程">DNS 的解析过程</a></li>
         <li><a href="#ping-的过程">ping 的过程</a></li>
@@ -246,6 +252,7 @@
         <li><a href="#b树和b树的区别">B树和B+树的区别</a></li>
         <li><a href="#什么是平衡二叉树">什么是平衡二叉树</a></li>
         <li><a href="#二叉搜索树平衡二叉树红黑树的区别">二叉搜索树，平衡二叉树，红黑树的区别</a></li>
+        <li><a href="#hashmap和hashtable的區別">HashMap和Hashtable的區別</a></li>
         <li><a href="#什么是哈希表哈希函数怎么解决冲突">什么是哈希表，哈希函数，怎么解决冲突</a></li>
         <li><a href="#哈希表構造方式">哈希表構造方式</a></li>
         <li><a href="#順序表">順序表</a></li>
@@ -310,6 +317,7 @@
         <li><a href="#进程间通讯方式">进程间通讯方式</a></li>
         <li><a href="#进程切换的上下文细节">进程切换的上下文细节</a></li>
         <li><a href="#线程切换的上下文细节">线程切换的上下文细节</a></li>
+        <li><a href="#linux-用户态切换到内核态的-3-种方式">Linux 用户态切换到内核态的 3 种方式</a></li>
         <li><a href="#什么是协程">什么是协程</a></li>
         <li><a href="#线程同步的机制">线程同步的机制</a></li>
         <li><a href="#selectpollepoll-的区别">select，poll，epoll 的区别</a></li>
@@ -322,6 +330,7 @@
         <li><a href="#阻塞和非阻塞的区别">阻塞和非阻塞的区别</a></li>
         <li><a href="#死锁的概念发生的必要条件">死锁的概念，发生的必要条件</a></li>
         <li><a href="#怎么处理死锁">怎么处理死锁</a></li>
+        <li><a href="#如何实现多线程的数据同步">如何实现多线程的数据同步</a></li>
         <li><a href="#fork-的原理">fork 的原理</a></li>
         <li><a href="#服务端可以建立连接的最大数目由什么决定-1">服务端可以建立连接的最大数目由什么决定</a></li>
         <li><a href="#知道的系统调用有哪些">知道的系统调用有哪些</a></li>
@@ -364,7 +373,7 @@
 <p><strong>封装性</strong>:<strong>把客观事物封装成抽象的类</strong>，并且类可以把自己的数据和方法只让可信的类或者对象操作，<strong>对不可信的进行信息隐藏</strong>。 <strong>类将成员变量和成员函数封装在类的内部</strong>，根据需要<strong>设置访问权限</strong>，通过成员函数管理内部状态。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -377,7 +386,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Person</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Person</span>
 <span class="p">{</span> 
 <span class="k">private</span><span class="o">:</span><span class="c1">//数据私有
 </span><span class="c1"></span>   <span class="n">string</span> <span class="n">bame</span><span class="p">;</span>
@@ -393,7 +402,7 @@
 </div><p><strong>繼承</strong>:继承所表达的是<strong>类之间相关的关系</strong>，这种关系使得<strong>对象可以继承另外一类对象的特征和能力</strong>。 继承的作用：<strong>避免公用代码的重复开发，减少代码和数据冗余</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -416,7 +425,7 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span> 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Base</span>
@@ -442,7 +451,7 @@
 </div><p><strong>多態</strong>:多态性可以简单地<strong>概括为“一个接口，多种方法”</strong>，字面意思为多种形态。程序在运行时才决定调用的函数，它是面向对象编程领域的<strong>核心概念</strong>。比如<strong>函数重载、运算符重载、虚函数</strong>等。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -469,7 +478,7 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span> 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Base</span>
@@ -521,16 +530,21 @@
 <p>类的静态成员(变量和方法)属于类本身，在类加载的时候就会分配内存，可以通过类名直接去访问；非静态成员（变量和方法）属于类的对象，所以只有在类的对象产生（创建类的实例）时才会分配内存，然后通过类的对象（实例）去访问。</p>
 <p><strong>静态函数只有当程序结束的时候才从内存消失</strong>。而<strong>非静态则是动态加载到内存，不需要的时候就从内存消失</strong>。 据个例子，调用类中的<strong>静态函数</strong>，你<strong>不需要创建对象就可以调用</strong>。而对于非静态的函数，你必须要先创建对象，才能够由对象调用。</p>
 <h3 id="静态成员函数和普通的静态函数的区别可以通过对象实例访问吗">静态成员函数和普通的静态函数的区别，可以通过对象实例访问吗</h3>
-<p>如上，静态成员函数無法透過對象實例訪問，普通的静态函数可以透過對象實例訪問。</p>
+<blockquote>
+<p><a href="https://www.huaweicloud.com/articles/68a2adc30c460edda0e01cbf5f9a450a.html" target="_blank" rel="noopener noreffer">c++静态成员函数与静态数据成员</a></p>
+</blockquote>
+<p>皆可以透過對象實例訪問</p>
+<p>類名：可以調用靜態成員函數，不能調用非靜態成員函數
+對象實例：可以調用靜態成員函數，可以調用非靜態成員函數</p>
 <h3 id="c-的内存管理">C++ 的内存管理</h3>
 <blockquote>
 <p>這個問題有難度，可以說很難，&hellip;看以下知乎回答</p>
 </blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/51855842">https://zhuanlan.zhihu.com/p/51855842</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/51855842" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/51855842</a></p>
 <h3 id="什么是多态实现多态的机制">什么是多态，实现多态的机制</h3>
 <p><strong>虚函数</strong>是C++中用于实现多态(polymorphism)的机制。 核心理念就是<strong>通过基类访问派生类定义的函数</strong>。 多态性指<strong>相同对象收到不同消息或不同对象收到相同消息时产生不同的实现动作</strong>。 C++支持两种多态性：编译时多态性，运行时多态性。</p>
 <h3 id="虚函数表存放的内容">虚函数表存放的内容</h3>
-<p><a href="https://www.jianshu.com/p/64f3b9c22898">https://www.jianshu.com/p/64f3b9c22898</a></p>
+<p><a href="https://www.jianshu.com/p/64f3b9c22898" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/64f3b9c22898</a></p>
 <p>虚函数的地址被存储一张叫做虚表的东西里，我们其实很容易拿到这个虚表。</p>
 <h3 id="什么是纯虚函数">什么是纯虚函数</h3>
 <p>纯虚函数，在虚函数<strong>后加“=0”</strong>，如 virtual void func()=0</p>
@@ -553,7 +567,7 @@
 <p><strong>在C中struct只单纯的用作数据的复合类型</strong>，也就是说，在结构体声明中只能将数据成员放在里面，而<strong>不能将函数放在里面</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -561,7 +575,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="k">struct</span> <span class="n">Base</span><span class="p">{</span>            <span class="c1">//public
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="k">struct</span> <span class="n">Base</span><span class="p">{</span>            <span class="c1">//public
 </span><span class="c1"></span>	<span class="kt">char</span> <span class="n">v1</span><span class="p">;</span>
 	<span class="kt">int</span> <span class="n">v2</span><span class="p">;</span>
 	<span class="kt">double</span> <span class="n">v3</span><span class="p">;</span>
@@ -572,13 +586,13 @@
 </div><p>并且在C结构体中所有成员**默认均是公有类型(public)**也就是说在结构体外部可以直接通过结构体变量对成员进行访问，例如下面C代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="k">struct</span> <span class="n">Base</span> <span class="n">s1</span><span class="p">;</span>		<span class="c1">//在C中定义结构体变量方式
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="k">struct</span> <span class="n">Base</span> <span class="n">s1</span><span class="p">;</span>		<span class="c1">//在C中定义结构体变量方式
 </span><span class="c1"></span><span class="n">s1</span><span class="p">.</span><span class="n">v1</span> <span class="o">=</span> <span class="sc">&#39;A&#39;</span><span class="p">;</span>
 <span class="n">s1</span><span class="p">.</span><span class="n">v2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">s1</span><span class="p">.</span><span class="n">v3</span> <span class="o">=</span> <span class="mf">95.6</span><span class="p">;</span>
@@ -587,7 +601,7 @@
 </div><p><strong>在C结构体声明中不能使用C++访问修饰符，如：public、protected、private 而在C++中可以使用</strong>，例如下面C++代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -598,7 +612,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">struct</span> <span class="nc">BasePlus</span><span class="p">{</span>       <span class="c1">//public
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">struct</span> <span class="nc">BasePlus</span><span class="p">{</span>       <span class="c1">//public
 </span><span class="c1"></span>    <span class="kt">int</span> <span class="n">v0</span><span class="p">;</span>
 <span class="k">private</span><span class="o">:</span>
     <span class="kt">char</span> <span class="n">v1</span><span class="p">;</span>
@@ -618,15 +632,15 @@
 可以实现<strong>C++中内置基本数据类型之间的相互转换</strong>；如果涉及到类的话，static_cast<strong>只能在有相互联系的类型中进行相互转换</strong>,不一定包含虚函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">7.987</span><span class="p">);</span> <span class="c1">//基本数据类型之间相互转换
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">7.987</span><span class="p">);</span> <span class="c1">//基本数据类型之间相互转换
 </span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -644,7 +658,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">A</span> <span class="c1">//类类型之间转换
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">A</span> <span class="c1">//类类型之间转换
 </span><span class="c1"></span><span class="p">{};</span> 
 <span class="k">class</span> <span class="nc">B</span><span class="o">:</span><span class="k">public</span> <span class="n">A</span> 
 <span class="p">{};</span> 
@@ -677,7 +691,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 参考例子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -749,7 +763,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 </span><span class="lnt">70
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt; </span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt; </span><span class="cp">
 </span><span class="cp">#include</span><span class="cpf">&lt;cstring&gt; </span><span class="cp">
 </span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span> 
 <span class="k">class</span> <span class="nc">A</span> 
@@ -829,7 +843,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 <p>格式：可以采用public、protected、private三种不同的继承关键字进行修饰，只要确保包含virtual就可以了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -838,7 +852,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">A</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">A</span>
 <span class="p">{</span>
   <span class="kt">void</span> <span class="nf">f1</span><span class="p">(){};</span>
 <span class="p">};</span>
@@ -851,7 +865,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 <p>虚基类：在虚继承体系中的通过virtual继承而来的基类，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -876,7 +890,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> 
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> 
 <span class="cpf">using namespace std;</span><span class="cp">
 </span><span class="cp"></span><span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
    <span class="k">public</span><span class="o">:</span>    <span class="n">Person</span><span class="p">(){</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;Person构造&#34;</span><span class="o">&lt;&lt;</span><span class="n">ENDL</span><span class="p">;</span> <span class="p">}</span>
@@ -904,7 +918,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 </div><blockquote>
 <p>這問題感覺有點玄，看下面的文章</p>
 </blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/147601339">https://zhuanlan.zhihu.com/p/147601339</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/147601339" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/147601339</a></p>
 <h3 id="继承时的访问权限控制符有啥区别">继承时的访问权限控制符有啥区别</h3>
 <p><strong>public、protected、private</strong></p>
 <table>
@@ -943,22 +957,22 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 <p>可位于赋值号（=）左侧的表达式就是左值；反之，只能位于赋值号右侧的表达式就是右值。举个例子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="mi">5</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">//错误，5 不能为左值
 </span></code></pre></td></tr></table>
 </div>
 </div><p>其中，变量 a 就是一个左值，而字面量 5 就是一个右值。值得一提的是，C++ 中的左值也可以当做右值使用，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// b 是一个左值
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// b 是一个左值
 </span><span class="c1"></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// a、b 都是左值，只不过将 b 可以当做右值使用
 </span></code></pre></td></tr></table>
 </div>
@@ -967,7 +981,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 <p><strong>用法</strong>: 原lvalue值被moved from之后值被转移,所以为空字符串.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -987,7 +1001,7 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">//摘自https://zh.cppreference.com/w/cpp/utility/move
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">//摘自https://zh.cppreference.com/w/cpp/utility/move
 </span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;utility&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
@@ -1010,12 +1024,12 @@ B中需要检测有虚函数的原因：类中存在虚函数，就说明它有�
 </div><p>輸出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">After copy, str is &#34;Hello&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">After copy, str is &#34;Hello&#34;
 After move, str is &#34;&#34;
 The contents of the vector are &#34;Hello&#34;, &#34;Hello&#34;
 </code></pre></td></tr></table>
@@ -1025,7 +1039,7 @@ The contents of the vector are &#34;Hello&#34;, &#34;Hello&#34;
 <blockquote>
 <p>這題感覺簡單 但又覺得有點陷阱，看下面長文章</p>
 </blockquote>
-<p><a href="https://www.cnblogs.com/jiabei521/p/3335676.html">https://www.cnblogs.com/jiabei521/p/3335676.html</a></p>
+<p><a href="https://www.cnblogs.com/jiabei521/p/3335676.html" target="_blank" rel="noopener noreffer">https://www.cnblogs.com/jiabei521/p/3335676.html</a></p>
 <h3 id="sort底层是怎么实现的">sort()底层是怎么实现的</h3>
 <p><strong>数据量大时采用快速排序 Quick Sort</strong>，分段<strong>递归排序</strong>。一旦分段后的数据量小于某个阈值，为避免Quick Sort的递归调用带来过大的额外开销，就改用<strong>插入排序 Insertion Sort</strong>。如果<strong>递归层次过深，还会改用堆排序 Heap Sort</strong>。</p>
 <h3 id="javapythonc的区别">java,python,C++的区别？</h3>
@@ -1049,7 +1063,7 @@ The contents of the vector are &#34;Hello&#34;, &#34;Hello&#34;
 <p>用法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1069,7 +1083,7 @@ The contents of the vector are &#34;Hello&#34;, &#34;Hello&#34;
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span> 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -1092,12 +1106,12 @@ The contents of the vector are &#34;Hello&#34;, &#34;Hello&#34;
 </div><p>輸出</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Max (20,10): 20
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Max (20,10): 20
 Max (0,200): 200
 Max (100,1010): 1010
 </code></pre></td></tr></table>
@@ -1123,7 +1137,7 @@ Max (100,1010): 1010
 <p>fabs () 是 浮點數取絕對值，abs() 是取整數絕對值</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1135,7 +1149,7 @@ Max (100,1010): 1010
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">double</span> <span class="n">dd</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mf">3.141592653589793</span> <span class="o">/</span> <span class="mi">6</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">double</span> <span class="n">dd</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mf">3.141592653589793</span> <span class="o">/</span> <span class="mi">6</span><span class="p">);</span>
 <span class="cm">/*if (dd == 0.5)
 </span><span class="cm">{取决于不同的编译器或者机器平台……这样写，即使有时候是对的，但是就怕习惯，很容易出错。
 </span><span class="cm">}*/</span>
@@ -1152,7 +1166,7 @@ Max (100,1010): 1010
 <p>這裡大概率延伸考 vTable，接著考 vTable 存儲項，難度有點高</p>
 </blockquote>
 <p>对C++ 了解的人都应该知道虚函数（Virtual Function）是通过<strong>一张虚函数表（Virtual Table）来实现的</strong>。简称为V-Table。在这个表中，主是要<strong>一个类的虚函数的地址表</strong>，这张表解决了<strong>继承、覆盖的问题</strong>，保证其容真实反应实际的函数。这样，在有虚函数的类的实例中这个表被分配在了这个实例的内存中，所以，当我们用父类的指针来操作一个子类的时候，这张虚函数表就显得由为重要了，它就像一个地图一样，指明了实际所应该调用的函数。因此有必要知道虚函数在内存中的分布。</p>
-<p><a href="https://jacktang816.github.io/post/virtualfunction/">https://jacktang816.github.io/post/virtualfunction/</a></p>
+<p><a href="https://jacktang816.github.io/post/virtualfunction/" target="_blank" rel="noopener noreffer">https://jacktang816.github.io/post/virtualfunction/</a></p>
 <h3 id="智能指针有哪些auto_ptr讲一下">智能指针有哪些，auto_ptr讲一下</h3>
 <p>auto_ptr, shared_ptr, weak_ptr, unique_ptr 其中后三个是c++11支持，并且第一个已经被c++11弃用</p>
 <p>auto_ptr是C++标准库中(utility)为了<strong>解决资源泄漏的问题提供的一个智能指针类模板</strong>（注意：这只是一种简单的智能指针）
@@ -1188,7 +1202,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p><strong>std::shared_ptr的循环引用</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1211,7 +1225,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;memory&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;memory&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">struct</span> <span class="nc">ListNode</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">_data</span><span class="p">;</span>
@@ -1237,13 +1251,13 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </div><p>輸出</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">1
 1
 2
 2
@@ -1259,7 +1273,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p><strong>如果不是new出来的对象如何通过智能指针管理呢？其实shared_ptr设计了一个删除器来解决这个问题</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1286,7 +1300,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">// 仿函数的删除器
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">// 仿函数的删除器
 </span><span class="c1"></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="k">struct</span> <span class="nc">FreeFunc</span> <span class="p">{</span>
 	<span class="kt">void</span> <span class="nf">operator</span><span class="p">()(</span><span class="n">T</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span>
@@ -1317,7 +1331,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>shared_ptr的一个最大的缺点，或者说，引用计数策略最大的缺点，就是循环引用（cyclic reference），下面是一个典型的事故现场：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1339,7 +1353,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Observer</span><span class="p">;</span> <span class="c1">// 前向声明
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Observer</span><span class="p">;</span> <span class="c1">// 前向声明
 </span><span class="c1"></span><span class="k">class</span> <span class="nc">Subject</span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Observer</span><span class="o">&gt;&gt;</span> <span class="n">observers</span><span class="p">;</span>
@@ -1370,7 +1384,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>下面，是weak_ptr的使用方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1379,7 +1393,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sh</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sh</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="c1">// 用一个shared_ptr初始化
 </span><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">w</span><span class="p">(</span><span class="n">sh</span><span class="p">);</span>
 <span class="c1">// 变出shared_ptr
@@ -1392,7 +1406,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>(1)</p>
 <blockquote>
 <p>第一次看這題感覺有點迷
-看這篇文章 <a href="https://blog.csdn.net/lwfcgz/article/details/50476051">https://blog.csdn.net/lwfcgz/article/details/50476051</a></p>
+看這篇文章 <a href="https://blog.csdn.net/lwfcgz/article/details/50476051" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lwfcgz/article/details/50476051</a></p>
 </blockquote>
 <p>计算机有little endian（小端）和big endian（大端）之分，两张从 维基百科盗来的图就可以说明它们的区别：</p>
 <p>对于32位的整数，<strong>大端机器会在内存的低地址存储高位，在高地址存储低位</strong>。</p>
@@ -1402,10 +1416,10 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p><strong>方法一</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&#34;import sys; print(sys.byteorder)&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&#34;import sys; print(sys.byteorder)&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>终端运行上述代码，我的本本上输出little就表示是小端机器。</p>
@@ -1413,7 +1427,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>写一个简单的C程序，下面这个是从nginx源码抄来的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1429,7 +1443,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mh">0x11223344</span><span class="p">;</span>
     <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
@@ -1447,13 +1461,13 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </div>
 </div><p>(2)</p>
 <blockquote>
-<p><a href="https://blog.csdn.net/szchtx/article/details/42834391">https://blog.csdn.net/szchtx/article/details/42834391</a></p>
+<p><a href="https://blog.csdn.net/szchtx/article/details/42834391" target="_blank" rel="noopener noreffer">https://blog.csdn.net/szchtx/article/details/42834391</a></p>
 </blockquote>
 <p><strong>判断大端模式和小端模式</strong></p>
 <p>使用联合，通过判断首个成员的值，确定是大端还是小端模式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1466,7 +1480,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">bool</span> <span class="nf">IsBigEndian</span><span class="p">(){</span>  
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">bool</span> <span class="nf">IsBigEndian</span><span class="p">(){</span>  
     <span class="k">union</span> <span class="nc">NUM</span><span class="p">{</span>
         <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>  
         <span class="kt">char</span> <span class="n">b</span><span class="p">;</span>  
@@ -1484,13 +1498,13 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p><strong>方法1：使用移位运算。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">uint32_t</span> <span class="nf">reversebytes_uint32t</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">value</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">uint32_t</span> <span class="nf">reversebytes_uint32t</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">value</span><span class="p">){</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x000000FFU</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span> <span class="o">|</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x0000FF00U</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span> <span class="o">|</span> 
         <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x00FF0000U</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">|</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0xFF000000U</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">;</span> 
 <span class="p">}</span>
@@ -1501,7 +1515,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>有了32位的转换方法，对64位，即8个字节的转换同理。不过直接写移位运算未免麻烦，可以直接使用上述函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1510,7 +1524,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">// 先将64位的低32位转成小端模式，再将64位的高32位转成小端模式
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="c1">// 先将64位的低32位转成小端模式，再将64位的高32位转成小端模式
 </span><span class="c1">// 在将原来的低32位放置到高32位，原来的高32位放置到低32位
 </span><span class="c1"></span><span class="kt">uint64_t</span> <span class="nf">reversebytes_uint64t</span><span class="p">(</span><span class="kt">uint64_t</span> <span class="n">value</span><span class="p">){</span>
     <span class="kt">uint32_t</span> <span class="n">high_uint64</span> <span class="o">=</span> <span class="kt">uint64_t</span><span class="p">(</span><span class="n">reversebytes_uint32t</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">(</span><span class="n">value</span><span class="p">)));</span>         <span class="c1">// 低32位转成小端
@@ -1523,7 +1537,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>比如0x12345678，小端模式下可认为是12*(2^32) + 34*(2^16) + 56*(2^8) + 78*(2^0)。在大端模式下，排列顺序发生了变化。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1541,7 +1555,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">uint32_t</span> <span class="nf">changeEndian_uint32t</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">value</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">uint32_t</span> <span class="nf">changeEndian_uint32t</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">value</span><span class="p">){</span>
     <span class="kt">char</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
     
     <span class="kt">uint64_t</span> <span class="n">base</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>                   <span class="c1">// 设置基
@@ -1570,7 +1584,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>扣去內核的使用，你可以分超過系統剩下的記憶體</p>
 <p>Linux 下由 vm.overcommit_memory* 控制</p>
 <blockquote>
-<p><a href="https://en.wikipedia.org/wiki/Virtual_address_space">https://en.wikipedia.org/wiki/Virtual_address_space</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Virtual_address_space" target="_blank" rel="noopener noreffer">https://en.wikipedia.org/wiki/Virtual_address_space</a></p>
 </blockquote>
 <h3 id="构造和析构中可以调用虚函数么调用虚函数的话执行的是父类还是子类的虚函数呢">构造和析构中可以调用虚函数么？调用虚函数的话，执行的是父类还是子类的虚函数呢？</h3>
 <blockquote>
@@ -1610,22 +1624,22 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>假设我们有这样一种继承关系：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">BaseClass</span> <span class="p">{};</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">BaseClass</span> <span class="p">{};</span>
 <span class="k">class</span> <span class="nc">SubClass</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BaseClass</span> <span class="p">{};</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>如果我们以这种方式创建对象：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">SubClass</span><span class="o">*</span> <span class="n">pObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">SubClass</span><span class="o">*</span> <span class="n">pObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="p">();</span>
 <span class="k">delete</span> <span class="n">pObj</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
@@ -1633,18 +1647,18 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p><strong>如果我们以这种方式创建对象：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">BaseClass</span><span class="o">*</span> <span class="n">pObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">BaseClass</span><span class="o">*</span> <span class="n">pObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="p">();</span>
 <span class="k">delete</span> <span class="n">pObj</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>1.若<strong>析构函数是虚函数</strong>(即加上virtual关键词)，<strong>delete时基类和子类都会被释放</strong>；
 2.若<strong>析构函数不是虚函数</strong>(即不加virtual关键词)，<strong>delete时只释放基类，不释放子类</strong>；</p>
 <h3 id="什么是虚表虚表的内存结构布局如何虚表的第一项或第二项是什么">什么是虚表？虚表的内存结构布局如何？虚表的第一项（或第二项）是什么？</h3>
-<p><a href="https://blog.csdn.net/lihao21/article/details/50688337">https://blog.csdn.net/lihao21/article/details/50688337</a></p>
+<p><a href="https://blog.csdn.net/lihao21/article/details/50688337" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lihao21/article/details/50688337</a></p>
 <h3 id="菱形继承类d同时继承b和cb和c又继承自a体系下虚表在各个类中的布局如何如果类b和类c同时有一个成员变了mm如何在d对象的内存地址上分布的是否会相互覆盖">菱形继承（类D同时继承B和C，B和C又继承自A）体系下，虚表在各个类中的布局如何？如果类B和类C同时有一个成员变了m，m如何在D对象的内存地址上分布的？是否会相互覆盖？</h3>
 <blockquote>
 <p>菱形繼承是考虛表的情況下可能會問</p>
@@ -1669,7 +1683,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <p>注意下面情况：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1707,7 +1721,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 
@@ -1748,14 +1762,14 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </div><p>輸出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">构造函数 this = 0x61fe0c
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">构造函数 this = 0x61fe0c
 &amp;t = 0x61fe0c, x = 0
 &amp;t = 0x61fe0c, x = 0
 析构函数 this = 0x61fe0c
@@ -1786,7 +1800,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 <h3 id="看下面的代码说一下输出">看下面的代码，说一下输出：</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1794,7 +1808,7 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
  
 <span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
@@ -1805,11 +1819,11 @@ auto_ptr的实现原理其实就是RAII（Resource Application Immediately Initi
 </div><p>這是右值引入的範例，輸出應該如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">String: 
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">String: 
 Vecter: &#34;Hello&#34;
 </code></pre></td></tr></table>
 </div>
@@ -1818,7 +1832,7 @@ Vecter: &#34;Hello&#34;
 引入了右值引用，转移构造函数（请看这里）后，push_back()右值时就会调用构造函数和转移构造函数。在这上面有进一步优化的空间就是使<strong>用emplace_back，在容器尾部添加一个元素，这个元素原地构造</strong>，不需要触发拷贝构造和转移构造。而且调用形式更加简洁，直接根据参数初始化临时对象的成员。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1876,7 +1890,7 @@ Vecter: &#34;Hello&#34;
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;  </span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;  </span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;  </span><span class="cp">
 </span><span class="cp"></span> 
@@ -1937,7 +1951,7 @@ Vecter: &#34;Hello&#34;
 </div><p>輸出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1948,7 +1962,7 @@ Vecter: &#34;Hello&#34;
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="nl">emplace_back</span><span class="p">:</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="nl">emplace_back</span><span class="p">:</span>
 <span class="n">I</span> <span class="n">am</span> <span class="n">being</span> <span class="n">constructed</span><span class="p">.</span>
  
 <span class="nl">push_back</span><span class="p">:</span>
@@ -1962,8 +1976,16 @@ Vecter: &#34;Hello&#34;
 </div><h2 id="計算機網路">計算機網路</h2>
 <h3 id="osi-七层模型">OSI 七层模型</h3>
 <blockquote>
-<p><a href="https://baike.baidu.com/item/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B">https://baike.baidu.com/item/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B</a></p>
+<p><a href="https://baike.baidu.com/item/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener noreffer">https://baike.baidu.com/item/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B</a></p>
 </blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i1.kknews.cc/SIG=5q4c6g/14190003400pp597q594.jpg"
+        data-srcset="https://i1.kknews.cc/SIG=5q4c6g/14190003400pp597q594.jpg, https://i1.kknews.cc/SIG=5q4c6g/14190003400pp597q594.jpg 1.5x, https://i1.kknews.cc/SIG=5q4c6g/14190003400pp597q594.jpg 2x"
+        data-sizes="auto"
+        alt="https://i1.kknews.cc/SIG=5q4c6g/14190003400pp597q594.jpg"
+        title="https://i1.kknews.cc/SIG=5q4c6g/14190003400pp597q594.jpg" /></p>
 <p><strong>应用层</strong>
 网络服务与最终用户的一个接口。
 协议有：HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP</p>
@@ -1984,6 +2006,22 @@ Vecter: &#34;Hello&#34;
 将比特组合成字节进而组合成帧，用MAC地址访问介质，错误发现但不能纠正。</p>
 <p><strong>物理层</strong>
 建立、维护、断开物理连接。（由底层网络定义协议）</p>
+<h3 id="tcpip-四層模型">TCP/IP 四層模型</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i2.kknews.cc/SIG=277r2s4/141s000548s956rs60pp.jpg"
+        data-srcset="https://i2.kknews.cc/SIG=277r2s4/141s000548s956rs60pp.jpg, https://i2.kknews.cc/SIG=277r2s4/141s000548s956rs60pp.jpg 1.5x, https://i2.kknews.cc/SIG=277r2s4/141s000548s956rs60pp.jpg 2x"
+        data-sizes="auto"
+        alt="https://i2.kknews.cc/SIG=277r2s4/141s000548s956rs60pp.jpg"
+        title="https://i2.kknews.cc/SIG=277r2s4/141s000548s956rs60pp.jpg" /></p>
+<p>1983年1月1日，在網際網路的前身（ARPA網）中，TCP/IP替換舊的網絡控制協議（NCP，Network Control Protocol），從而成為今天的網際網路的基石。最早的TCP/IP由文頓·瑟夫和羅伯特·卡恩兩位開發，慢慢地通過競爭戰勝其他一些網絡協議的方案，比如國際標準化組織ISO的OSI模型。TCP/IP的蓬勃發展發生在1990年代中期。當時一些重要而可靠的工具的出世，例如頁面描述語言HTML和瀏覽器Mosaic，促成了網際網路應用的飛速發展。 隨著網際網路的發展，目前流行的IPv4協議（網際協議版本四）已經接近它的功能上限。IPv4最致命的兩個缺陷在於：</p>
+<p>地址只有32位，IP位址空間有限；</p>
+<p>不支持服務質量（Quality of Service，QoS）的想法，無法管理帶寬和優先級，故而不能很好的支持現今越來越多實時的語音和視頻應用。因此IPv6（網際協議版本六）浮出水面，用以替換IPv4。</p>
+<p>TCP/IP成功的另一個因素在於對為數眾多的低層協議的支持。這些低層協議對應OSI模型中的第一層（物理層）和第二層（數據鏈路層）。每層的所有協議幾乎都有一半數量支持TCP/IP，例如：乙太網（Ethernet）、令牌環（Token Ring）、光纖數據分布接口（FDDI）、端對端協議（PPP）、X.25、幀中繼（Frame Relay）、ATM、Sonet、SDH等。</p>
+<p>TCP/IP參考模型是一個抽象的分層模型，所有的TCP/IP系列網絡協議都被歸類到4個抽象的&quot;層&quot;中。每一抽象層創建在低一層提供的服務上，並且為高一層提供服務。 完成一些特定的任務需要眾多的協議協同工作，這些協議分布在參考模型的不同層中的，因此有時稱它們為一個協議棧。</p>
+<p>傳輸控制協議（TCP）和網際網路協議（IP）是最先被定義出的。其中IP協議只關心如何使得數據能夠跨越本地網絡邊界的問題，高層邏輯上與用戶更為接近，所處理數據更為抽象，它們依賴於低層將數據轉換成最終能夠進行實體控制的形式。</p>
+<p>由於TCP/IP和OSI模型組不能精確地匹配，所以如何將TCP/IP參考模型映射到OSI模型 還沒有一個完全正確的答案。 另外，OSI模型下層還不具備能夠真正占據真正層的位置的能力；在傳輸層和網絡層之間還需要另外一個層（網絡互連層）。</p>
 <h3 id="三次握手和四次挥手">三次握手和四次挥手</h3>
 <p><strong>TCP連接6種標識</strong></p>
 <p>SYN（synchronous）:建立連接</p>
@@ -2005,7 +2043,7 @@ Vecter: &#34;Hello&#34;
 <p><strong>客户端发送一个 TCP 的 SYN 标志位置1的包，指明客户端打算连接的服务器的端口</strong>，以及初始序号 X,保存在包头的序列号(Sequence Number)字段里。
 发送完毕后，客户端进入 <strong>SYN_SEND</strong> 状态。</p>
 <p>2.第二次握手(SYN=1, ACK=1, seq=y, ACKnum=x+1):</p>
-<p><strong>服务器发回确认包(ACK)应答</strong>。<strong>即 SYN 标志位和 ACK 标志位均为1</strong>。服务器端选择自己 ISN 序列号，放到 Seq 域里，同时<strong>将确认序号(Acknowledgement Number)设置为客户的 ISN 加1，即X+1</strong>。 发送完毕后，服务器端进入 <strong>SYN_RCVD</strong> 状态。</p>
+<p><strong>服务器发回确认包(ACK)应答</strong>。<strong>即 SYN 标志位和 ACK 标志位均为1</strong>。服务器端选择自己 ISN 序列号，放 到 Seq 域里，同时<strong>将确认序号(Acknowledgement Number)设置为客户的 ISN 加1，即X+1</strong>。 发送完毕后，服务器端进入 <strong>SYN_RCVD</strong> 状态。</p>
 <p>3.第三次握手(ACK=1，ACKnum=y+1)</p>
 <p><strong>客户端再次发送确认包(ACK)，SYN 标志位为0，ACK 标志位为1</strong>，并且把服务器发来 <strong>ACK 的序号字段+1</strong>，放在确定字段中发送给对方，并且<strong>在数据段放写ISN的+1</strong></p>
 <p>发送完毕后，客户端进入 <strong>ESTABLISHED</strong> 状态，当服务器端接收到这个包时，也进入 ESTABLISHED 状态，<strong>TCP 握手结束</strong>。</p>
@@ -2049,7 +2087,7 @@ Vecter: &#34;Hello&#34;
 <p>如果这两种状态过多，将会出现较高的负载，导致新的连接无法建立，或者导致socket资源耗尽。可以修改内核 TIME_WAIT 的值一定程度解决。</p>
 <h3 id="tcp-和-udp-的区别">TCP 和 UDP 的区别</h3>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/24860273">https://zhuanlan.zhihu.com/p/24860273</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/24860273" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/24860273</a></p>
 </blockquote>
 <p>首先咱们弄清楚，TCP协议和UDP协议与TCP/IP协议的联系，很多人犯糊涂了，
 一直都是说TCP协议与UDP协议的区别，我觉得这是没有从本质上弄清楚网络通信！</p>
@@ -2105,7 +2143,7 @@ Vecter: &#34;Hello&#34;
 <li>TCP 实现可靠的机制</li>
 </ul>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/112317245">https://zhuanlan.zhihu.com/p/112317245</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/112317245" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/112317245</a></p>
 </blockquote>
 <p>**保证数据安全的方法: **</p>
 <p>TCP主要提供了<strong>检验和、序列号/确认应答、超时重传、最大消息长度、滑动窗口控制等方法实现了可靠性传输</strong>。</p>
@@ -2180,7 +2218,7 @@ Vecter: &#34;Hello&#34;
 <p>TCP协议的种种机制保证了数据传输的顺序，然而TCP报文段作为IP数据来传输，<strong>在IP数据报的到达可能会失序，因此TCP报文段的到达也存在失序的可能</strong>。特殊情况下，TCP将对收到的数据进行重新排列，确保顺序正确后再交给应用层。</p>
 <h3 id="udp-如何实现可靠性">UDP 如何实现可靠性</h3>
 <blockquote>
-<p><a href="https://www.jianshu.com/p/6c73a4585eba">https://www.jianshu.com/p/6c73a4585eba</a></p>
+<p><a href="https://www.jianshu.com/p/6c73a4585eba" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/6c73a4585eba</a></p>
 </blockquote>
 <p><strong>概述</strong></p>
 <p><strong>UDP不属于连接协议，具有资源消耗少，处理速度快的优点</strong>，所以通常音频，视频和普通数据在传送时，使用UDP较多，因为即使丢失少量的包，也不会对接受结果产生较大的影响。</p>
@@ -2206,12 +2244,12 @@ Vecter: &#34;Hello&#34;
 <p>有難度</p>
 </blockquote>
 <p>FreeBSD 上 SO_REUSEPORT</p>
-<p><a href="https://blog.csdn.net/ctthuangcheng/article/details/39014675">https://blog.csdn.net/ctthuangcheng/article/details/39014675</a></p>
+<p><a href="https://blog.csdn.net/ctthuangcheng/article/details/39014675" target="_blank" rel="noopener noreffer">https://blog.csdn.net/ctthuangcheng/article/details/39014675</a></p>
 <p>Nginx 中配置端口複用</p>
-<p><a href="https://blog.csdn.net/yang1018679/article/details/106819681">https://blog.csdn.net/yang1018679/article/details/106819681</a></p>
+<p><a href="https://blog.csdn.net/yang1018679/article/details/106819681" target="_blank" rel="noopener noreffer">https://blog.csdn.net/yang1018679/article/details/106819681</a></p>
 <h3 id="http-10-和-11-的区别">http 1.0 和 1.1 的区别</h3>
 <blockquote>
-<p><a href="https://www.jianshu.com/p/95a521b006a8">https://www.jianshu.com/p/95a521b006a8</a></p>
+<p><a href="https://www.jianshu.com/p/95a521b006a8" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/95a521b006a8</a></p>
 </blockquote>
 <p><strong>长连接（PersistentConnection）</strong></p>
 <p>HTTP 1.1支持长连接（PersistentConnection）</p>
@@ -2234,19 +2272,122 @@ Vecter: &#34;Hello&#34;
 <p>HTTP/1.1中引入了<strong>Chunked transfer-coding</strong>来解决上面这个问题，发送方<strong>将消息分割成若干个任意大小的数据块，每个数据块在发送时都会附上块的长度，最后用一个零长度的块作为消息结束的标志</strong>。这种方法允许发送方<strong>只缓冲消息的一个片段，避免缓冲整个消息带来的过载</strong>。</p>
 <p><strong>cache</strong></p>
 <p>HTTP/1.1在1.0的基础上加入了一些cache的新特性，<strong>当缓存对象的Age超过Expire时变为stale对象，cache不需要直接抛弃stale对象，而是与源服务器进行重新激活（revalidation）</strong>。</p>
+<h3 id="http-101120">HTTP 1.0、1.1、2.0</h3>
+<p><strong>http 1.0</strong></p>
+<ul>
+<li>短连接</li>
+<li>每一个请求建立一个TCP连接，请求完成后立马断开连接。这将会导致2个问题：连接无法复用，head of line blocking</li>
+<li>连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。head of line blocking会导致带宽无法被充分利用，以及后续健康请求被阻塞。</li>
+</ul>
+<p><strong>http 1.1</strong></p>
+<ul>
+<li>为解决HTTP 1.0 的痛点而产生。</li>
+<li>长连接</li>
+<li>通过http pipelining实现。多个http 请求可以复用一个TCP连接，服务器端按照FIFO原则来处理不同的Request</li>
+<li>增加connection header</li>
+<li>该header用来说明客户端与服务器端TCP的连接方式，若connection为close则使用短连接，若connection为keep-alive则使用长连接</li>
+<li>身份认证</li>
+<li>状态管理</li>
+<li>Cache缓存等机制相关的请求头和响应头</li>
+<li>增加Host header</li>
+</ul>
+<p><strong>http 2.0</strong></p>
+<ul>
+<li>多路复用 (Multiplexing)</li>
+</ul>
+<p>多路复用允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。在 HTTP/1.1 协议中浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制。超过限制数目的请求会被阻塞。这也是为何一些站点会有多个静态资源 CDN 域名的原因之一，拿 Twitter 为例，http://twimg.com，目的就是变相的解决浏览器针对同一域名的请求限制阻塞问题。而 HTTP/2 的多路复用(Multiplexing) 则允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。因此 HTTP/2 可以很容易的去实现多流并行而不用依赖建立多个 TCP 连接，HTTP/2 把 HTTP 协议通信的基本单位缩小为一个一个的帧，这些帧对应着逻辑流中的消息。并行地在同一个 TCP 连接上双向交换消息。</p>
+<ul>
+<li>二进制分帧</li>
+</ul>
+<p>HTTP/2在 应用层(HTTP/2)和传输层(TCP or UDP)之间增加一个二进制分帧层。在不改动 HTTP/1.x 的语义、方法、状态码、URI 以及首部字段的情况下, 解决了HTTP1.1 的性能限制，改进传输性能，实现低延迟和高吞吐量。在二进制分帧层中， HTTP/2 会将所有传输的信息分割为更小的消息和帧（frame）,并对它们采用二进制格式的编码 ，其中 HTTP1.x 的首部信息会被封装到 HEADER frame，而相应的 Request Body 则封装到 DATA frame 里面。</p>
+<p>HTTP/2 通信都在一个连接上完成，这个连接可以承载任意数量的双向数据流。在过去， HTTP 性能优化的关键并不在于高带宽，而是低延迟。TCP 连接会随着时间进行自我调谐，起初会限制连接的最大速度，如果数据成功传输，会随着时间的推移提高传输的速度。这种调谐则被称为 TCP 慢启动。由于这种原因，让原本就具有突发性和短时性的 HTTP 连接变的十分低效。HTTP/2 通过让所有数据流共用同一个连接，可以更有效地使用 TCP 连接，让高带宽也能真正的服务于 HTTP 的性能提升。</p>
+<p>这种单连接多资源的方式，减少服务端的链接压力,内存占用更少,连接吞吐量更大；而且由于 TCP 连接的减少而使网络拥塞状况得以改善，同时慢启动时间的减少,使拥塞和丢包恢复速度更快。</p>
+<ul>
+<li>首部压缩（Header Compression）</li>
+</ul>
+<p>HTTP/1.1并不支持 HTTP 首部压缩，为此 SPDY 和 HTTP/2 应运而生， SPDY 使用的是通用的DEFLATE 算法，而 HTTP/2 则使用了专门为首部压缩而设计的 HPACK 算法。</p>
+<ul>
+<li>服务端推送（Server Push）</li>
+</ul>
+<p>服务端推送是一种在客户端请求之前发送数据的机制。在 HTTP/2 中，服务器可以对客户端的一个请求发送多个响应。Server Push 让 HTTP1.x 时代使用内嵌资源的优化手段变得没有意义；如果一个请求是由你的主页发起的，服务器很可能会响应主页内容、logo 以及样式表，因为它知道客户端会用到这些东西。这相当于在一个 HTML 文档内集合了所有的资源，不过与之相比，服务器推送还有一个很大的优势：可以缓存！也让在遵循同源的情况下，不同页面之间可以共享缓存资源成为可能。</p>
+<h3 id="http-與-https">HTTP 與 HTTPS</h3>
+<blockquote>
+<p><a href="https://tw.alphacamp.co/blog/http-https-difference" target="_blank" rel="noopener noreffer">https://tw.alphacamp.co/blog/http-https-difference</a></p>
+</blockquote>
+<p>相信大多數的讀者，對這個畫面應該都不陌生吧？當前最熱門的瀏覽器 Google Chrome 從 Chrome 69 開始，會在網站使用 HTTP 作為傳輸協定時，在網址列提示使用者「不安全」，甚至出現上圖的提示畫面，藉此來要求網站開發者盡快將網站轉為透過 HTTPS 傳輸資料，甚至 在今年底的 Chrome 79，將會逐步封鎖 HTTPS 網頁中以 HTTP 下載的內容；但 HTTP 與 HTTPS 的差別到底是什麼？HTTPS 又是如何讓資料傳遞變安全的呢？</p>
+<p>(瞭解網路應用程式操作原理，包括 HTTP、網域、RESTful API、MVC 設計等核心概念)</p>
+<p><strong>HTTP 的資料傳輸</strong></p>
+<p>HTTP 全名是 超文本傳輸協定（HyperText Transfer Protocol），內容只規範了客戶端請求與伺服器回應的標準，實際上是藉由 TCP 作為資料的傳輸方式。</p>
+<p>更多 TCP 的傳輸協議內容及詳細的過程可以參考 這篇文章。</p>
+<p>例如使用者送出了一個請求，經過 TCP 的三次握手之後，資料便能透過 TCP 傳遞給伺服器，並等待伺服器回應；然而這個一來一往的傳輸過程，資料都是 明文；如果傳遞的過程中有惡意竊聽者，資料便有機會被窺探、盜用。</p>
+<p>什麼？你說沒有人會這麼無聊？其實非常多。像是 惡意使用者偽裝成公用無線網路來釣魚，當使用者連上之後，便可以擷取封包，窺探傳輸的內容；再說，即使扣除掉這種不知名的免費無線網路，你也沒辦法確認網路連線到目標伺服器的路上，每個節點都不會窺探、側錄你所傳遞的資料。</p>
+<p>傳遞的內容不加密，就有如在網路上裸奔一樣；為了避免這些事情，我們需要把資料加密。</p>
+<p><strong>加密</strong></p>
+<p>加密 指的是把明文資料轉換成無法讀取的內容 - 密文，並且密文能藉由特定的解密過程，將其回復成明文。</p>
+<p>讓部分開發者時常混淆在一起的是 雜湊，可以參考 這一篇。</p>
+<p><strong>共用金鑰加密</strong></p>
+<p>像是可能大家都有聽過的 凱薩加密法，就是一個非常基本的加密方式：將明文的字母全部位移固定的距離，解密時再位移回來；例如明文是 「EGG」，位移距離（金鑰）為 3，那麼加密後的密文就會是「HJJ」。</p>
+<p>當然，真實的環境不會用這種很容易被解出來的加密方式，而是會透過例如 AES 等方式進行加密；但兩者同樣的是，都會透過同一個金鑰來進行加密與解密，因此我們把這類的加密方式稱為「共用金鑰加密」，或是「對稱式加密」。</p>
+<p>經過共用金鑰加密，資料傳遞就安全了嗎？其實不然。想像一下網路通訊的情況，如果通訊的兩人需要透過共用金鑰加密進行通訊，勢必要先讓兩人都知道要用來加密的金鑰是什麼，那麼當其中一方決定要發起通訊時，就必須要先直接傳遞金鑰給對方，但這個金鑰是沒有加密、可能會被窺探的，如果竊聽者在通取開始前就開始竊聽，便能得到密鑰，後面傳遞的密文，也就可能會被竊聽者窺探。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://ithelp.ithome.com.tw/upload/images/20191014/20111380SnvPeAGC9F.png"
+        data-srcset="https://ithelp.ithome.com.tw/upload/images/20191014/20111380SnvPeAGC9F.png, https://ithelp.ithome.com.tw/upload/images/20191014/20111380SnvPeAGC9F.png 1.5x, https://ithelp.ithome.com.tw/upload/images/20191014/20111380SnvPeAGC9F.png 2x"
+        data-sizes="auto"
+        alt="https://ithelp.ithome.com.tw/upload/images/20191014/20111380SnvPeAGC9F.png"
+        title="https://ithelp.ithome.com.tw/upload/images/20191014/20111380SnvPeAGC9F.png" /></p>
+<p>圖片來自 演算法圖鑑 - 第 5 章：安全性演算法</p>
+<p>看來要安全的進行通訊，就需要其他的加密方式；例如 迪菲-赫爾曼密鑰交換，或是我們接下來要談的「公開金鑰加密」。</p>
+<p><strong>公開金鑰加密</strong></p>
+<p>公開金鑰加密，也有人之稱為「非對稱式加密」；在這個加密規則中，每個通訊者都會有成對的兩把鑰匙：一把「公鑰」，一把「私鑰」，顧名思義，公鑰是所有人都看得到的，而私鑰是只有通訊者自己才看得到的；每個資料被任意一把鑰匙加密後，必須要透過與之配對的另一把鑰匙才能解密；例如我用我的私鑰加密的密文，就只能被我的公鑰解密，反之亦同。</p>
+<p>在這樣的規則下，進行通訊會發生什麼事呢？假想一下：Alice 和 Bob 準備進行通訊，而 Eve 是不懷好意的竊聽者；Alice 把要傳遞的明文經過 Bob 的公鑰進行加密後，再進行傳遞，由於 Bob 的私鑰只有 Bob 擁有，即使 Eve 竊取到了密文，也無法將其解密回明文。</p>
+<p>這樣子是不是就可以安心進行通訊了呢？很遺憾的，還是沒辦法；因為通訊的雙方，雖然看得到對方的公鑰，但沒辦法證明這個公鑰是通訊的對方所擁有。</p>
+<p>我們設想另一個情況：Alice 和 Bob 準備進行通訊，而 Eve 是不懷好意的竊聽者，且 Alice 和 Bob 都把 Eve 當成是通訊的對方；這樣的情境下，Alice 把明文用 Eve 的公鑰加密後，將密文傳遞出來，隨即被 Eve 攔截、解密後，再用 Bob 的公鑰重新加密明文，再傳遞給 Bob，反之亦同，這樣子 Alice 和 Bob 都不會知道有 Eve 的存在，但 Eve 卻成功的取得了通訊內容；這就叫做 中間人攻擊。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://ithelp.ithome.com.tw/upload/images/20191014/20111380msbqu0Yn9V.png"
+        data-srcset="https://ithelp.ithome.com.tw/upload/images/20191014/20111380msbqu0Yn9V.png, https://ithelp.ithome.com.tw/upload/images/20191014/20111380msbqu0Yn9V.png 1.5x, https://ithelp.ithome.com.tw/upload/images/20191014/20111380msbqu0Yn9V.png 2x"
+        data-sizes="auto"
+        alt="https://ithelp.ithome.com.tw/upload/images/20191014/20111380msbqu0Yn9V.png"
+        title="https://ithelp.ithome.com.tw/upload/images/20191014/20111380msbqu0Yn9V.png" /></p>
+<p>圖片來自 演算法圖鑑 - 第 5 章：安全性演算法</p>
+<p>那怎麼辦呢？我們需要一個能證明公鑰屬於誰的方法。</p>
+<p><strong>數位憑證</strong></p>
+<p>因此就出現了 憑證頒發機構，例如 Alice 和 Bob 要準備進行通訊；在開始之前，Alice 必須先提供公鑰 &amp; Email，向憑證頒發機構申請憑證，憑證頒發機構核可後，便會透過 數位簽章 包裹 Alice 提供的資料，製作成 數位憑證。</p>
+<p>憑證的詳細格式可以參考 Wiki - X.509</p>
+<p>當通訊開始時，Alice 會先傳遞數位憑證給 Bob，而 Bob 便可以透過數位簽章，來證明憑證的內容確實是屬於 Alice 的；如此一來，證明公鑰是屬於誰的問題就被解決了，即使竊聽者想要從中竊聽，也因為憑證頒發機構的數位簽章，竊聽者將無從介入通訊過程。</p>
+<p>這樣聽起來，憑證頒發機構非常重要啊，全世界網站這麼多，需要進行通訊的請求自然也非常多，不可能全部都詢問同一個機構吧？沒錯，實際上的憑證頒發，會如同下圖一樣：</p>
+<p>終端數位憑證由中介機構簽發、中介機構的憑證由更上游的中介機構簽發，直到源頭，它的憑證由自己簽發，這樣就形成了一個 信任鏈。</p>
+<p>簡單的說，因為我信任 A，所以 A 擔保的 B、C、D，以及 B 擔保的 E、F、G，我全部都相信。</p>
+<p><strong>HTTPS</strong></p>
+<p>說了這麼多加密，所以到底什麼是 HTTPS？</p>
+<p>HTTPS 全名 超文本傳輸安全協定，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 SSL/TLS 進行加密，藉由類似於前述的加密方式，在 HTTP 之上定義了相對安全的資料傳輸方法。</p>
+<p>由於非對稱加密的運算量較高，傳遞回應較慢；實際的架構上，會透過公開金鑰加密傳遞出共用的金鑰，再透過共用金鑰加密進行後續的傳遞，兼顧了安全性及傳遞速度。
+結語</p>
+<p>今天從加密的方式出發，考慮每種加密通訊過程中可能受到的攻擊，逐步演變成現今最普遍的加密方式，並藉此來說明 HTTP 與 HTTPS 之間的差異，希望能幫助讀者您理解網路通訊中最基礎的安全知識。</p>
+<h3 id="非對稱加密">非對稱加密</h3>
+<blockquote>
+<p><a href="https://academy.binance.com/zt/articles/symmetric-vs-asymmetric-encryption" target="_blank" rel="noopener noreffer">https://academy.binance.com/zt/articles/symmetric-vs-asymmetric-encryption</a></p>
+</blockquote>
+<h3 id="你知道https用的是对称加密还是非对称加密">你知道，HTTPS用的是对称加密还是非对称加密？</h3>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/96494976" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/96494976</a></p>
+</blockquote>
 <h3 id="拥塞控制">拥塞控制</h3>
 <p>前面的問題[TCP 实现可靠的机制]有回答到</p>
 <ul>
 <li>超时重传的时间怎么确定</li>
 </ul>
 <blockquote>
-<p><a href="https://blog.csdn.net/qq_35733751/article/details/80173022">https://blog.csdn.net/qq_35733751/article/details/80173022</a></p>
+<p><a href="https://blog.csdn.net/qq_35733751/article/details/80173022" target="_blank" rel="noopener noreffer">https://blog.csdn.net/qq_35733751/article/details/80173022</a></p>
 </blockquote>
 <h3 id="流量控制">流量控制</h3>
 <blockquote>
 <p>感覺內容有點多
-<a href="https://notfalse.net/24/tcp-flow-control">https://notfalse.net/24/tcp-flow-control</a>
-<a href="https://zhuanlan.zhihu.com/p/37379780">https://zhuanlan.zhihu.com/p/37379780</a></p>
+<a href="https://notfalse.net/24/tcp-flow-control" target="_blank" rel="noopener noreffer">https://notfalse.net/24/tcp-flow-control</a>
+<a href="https://zhuanlan.zhihu.com/p/37379780" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/37379780</a></p>
 </blockquote>
 <p>什么是流量控制？流量控制的目的？</p>
 <p><strong>如果发送者发送数据过快，接收者来不及接收，那么就会有分组丢失</strong>。为了避免分组丢失，控制发送者的发送速度，使得接收者来得及接收，这就是流量控制。流量控制根本目的是防止分组丢失，它是构成TCP可靠性的一方面。</p>
@@ -2269,7 +2410,7 @@ Vecter: &#34;Hello&#34;
 9、浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）</p>
 <h3 id="nat-的原理">NAT 的原理</h3>
 <blockquote>
-<p><a href="https://www.itread01.com/content/1541919215.html">https://www.itread01.com/content/1541919215.html</a></p>
+<p><a href="https://www.itread01.com/content/1541919215.html" target="_blank" rel="noopener noreffer">https://www.itread01.com/content/1541919215.html</a></p>
 </blockquote>
 <p><strong>介紹</strong></p>
 <p>NAT英文全稱是“Network Address Translation”，<strong>中文意思是“網路地址轉換”</strong>，它是一個IETF(Internet Engineering Task Force, Internet工程任務組)標準，允許一個整體機構以一個公用IP（Internet Protocol）地址出現在Internet上。顧名思義，它是一種把內部私有網路地址（IP地址）翻譯成合法網路IP地址的技術。因此我們可以認為，NAT在一定程度上，能夠有效的解決公網地址不足的問題。</p>
@@ -2370,6 +2511,10 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>当一个网站或者网页24—48小时内临时移动到一个新的位置，这时候就要进行302跳转，而使用301跳转的场景就是之前的网站因为某种原因需要移除掉，然后要到新的地址访问，是永久性的。</p>
 <p>清晰明确而言：使用301跳转的大概场景如下：</p>
 <p>**域名到期不想续费（或者发现了更适合网站的域名），想换个域名。**在搜索引擎的搜索结果中出现了不带www的域名，而带www的域名却没有收录，这个时候可以用301重定向来告诉搜索引擎我们目标的域名是哪一个。空间服务器不稳定，换空间的时候。</p>
+<h3 id="http-緩存機制">http 緩存機制</h3>
+<blockquote>
+<p><a href="https://segmentfault.com/a/1190000021716418" target="_blank" rel="noopener noreffer">https://segmentfault.com/a/1190000021716418</a></p>
+</blockquote>
 <h3 id="get与-post的区别">get与 post的区别</h3>
 <blockquote>
 <p>（本标准答案参考自w3schools）</p>
@@ -2384,7 +2529,7 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>8.GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</p>
 <p>9.GET参数通过URL传递，POST放在Request body中</p>
 <blockquote>
-<p><a href="https://www.oschina.net/news/77354/http-get-post-different">https://www.oschina.net/news/77354/http-get-post-different</a></p>
+<p><a href="https://www.oschina.net/news/77354/http-get-post-different" target="_blank" rel="noopener noreffer">https://www.oschina.net/news/77354/http-get-post-different</a></p>
 </blockquote>
 <p>GET和POST还有一个重大区别，简单的说：</p>
 <p><strong>GET产生一个TCP数据包；POST产生两个TCP数据包。</strong></p>
@@ -2443,19 +2588,19 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 </blockquote>
 <h3 id="socket-基础-api-的使用">socket 基础 API 的使用</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/zh13544539220/article/details/44832639">https://blog.csdn.net/zh13544539220/article/details/44832639</a></p>
+<p><a href="https://blog.csdn.net/zh13544539220/article/details/44832639" target="_blank" rel="noopener noreffer">https://blog.csdn.net/zh13544539220/article/details/44832639</a></p>
 </blockquote>
 <p><strong>创建套接字──socket()</strong></p>
 <p>应用程序在使用套接字前，首先必须拥有一个套接字，系统调用socket()向应用程序提供创建套接字的手段，其调用格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">SOCKET</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">socket</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">SOCKET</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">socket</span><span class="p">(</span>
 <span class="kt">int</span> <span class="n">af</span><span class="p">,</span> 
 <span class="kt">int</span> <span class="n">type</span><span class="p">,</span> 
 <span class="kt">int</span> <span class="n">protocol</span><span class="p">);</span>
@@ -2465,13 +2610,13 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>当一个套接字用socket()创建后，存在一个名字空间(地址族),但它没有被命名。bind()将套接字地址（包括本地主机地址和本地端口地址）与所创建的套接字号联系起来，即将名字赋予套接字，以指定本地半相关。其调用格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">bind</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">bind</span><span class="p">(</span>
 <span class="n">SOCKET</span> <span class="n">s</span><span class="p">,</span> 
 <span class="k">const</span> <span class="k">struct</span> <span class="nc">sockaddr</span> <span class="n">FAR</span> <span class="o">*</span> <span class="n">nam</span> <span class="n">e</span><span class="p">,</span>
 <span class="kt">int</span> <span class="n">namelen</span><span class="p">);</span>
@@ -2485,13 +2630,13 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>connect()的调用格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">connect</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">connect</span><span class="p">(</span>
 <span class="n">SOCKET</span> <span class="n">s</span><span class="p">,</span> 
 <span class="k">const</span> <span class="k">struct</span> <span class="nc">sockaddr</span> <span class="n">FAR</span> <span class="o">*</span> <span class="n">name</span><span class="p">,</span>
 <span class="kt">int</span> <span class="n">namelen</span><span class="p">);</span>
@@ -2502,13 +2647,13 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p><strong>accept()的调用格式如下：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">SOCKET</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">accept</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">SOCKET</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">accept</span><span class="p">(</span>
 <span class="n">SOCKET</span> <span class="n">s</span><span class="p">,</span> 
 <span class="k">struct</span> <span class="nc">sockaddr</span> <span class="n">FAR</span><span class="o">*</span> <span class="n">addr</span><span class="p">,</span> 
 <span class="kt">int</span> <span class="n">FAR</span><span class="o">*</span> <span class="n">addrlen</span><span class="p">);</span>
@@ -2524,12 +2669,12 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>此调用用于面向连接服务器，表明它愿意接收连接。listen()需在accept()之前调用，其调用格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">listen</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">listen</span><span class="p">(</span>
 	<span class="n">SOCKET</span> <span class="n">s</span><span class="p">,</span> 
 	<span class="kt">int</span> <span class="n">backlog</span><span class="p">);</span>
 </code></pre></td></tr></table>
@@ -2543,14 +2688,14 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p><strong>send()调用用于钥纪纪数s指定的已连接的数据报或流套接字上发送输出数据，格式如下：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">send</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">send</span><span class="p">(</span>
 	<span class="n">SOCKET</span> <span class="n">s</span><span class="p">,</span>
   	<span class="k">const</span> <span class="kt">char</span> <span class="n">FAR</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> 
 	<span class="kt">int</span> <span class="n">len</span><span class="p">,</span> 
@@ -2564,14 +2709,14 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p><strong>recv()调用用于s指定的已连接的数据报或流套接字上接收输入数据，格式如下：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">recv</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++">    <span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">recv</span><span class="p">(</span>
 	<span class="n">SOCKET</span> <span class="n">s</span><span class="p">,</span> 
 	<span class="kt">char</span> <span class="n">FAR</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> 
 	<span class="kt">int</span> <span class="n">len</span><span class="p">,</span> 
@@ -2586,7 +2731,7 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>select() 调用用来检测一个或多个套接字的状态。对每一个套接字来说，这个调用可以请求读、写或错误状态方面的信息。请求给定状态的套接字集合由一个fd_set结 构指示。在返回时，此结构被更新，以反映那些满足特定条件的套接字的子集，同时， select()调用返回满足条件的套接字的数目，其调用格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -2594,7 +2739,7 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">select</span><span class="p">(</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">select</span><span class="p">(</span>
 <span class="kt">int</span> <span class="n">nfds</span><span class="p">,</span> 
 <span class="n">fd_set</span> <span class="n">FAR</span> <span class="o">*</span> <span class="n">readfds</span><span class="p">,</span> 
 <span class="n">fd_set</span> <span class="n">FAR</span> <span class="o">*</span> <span class="n">writefds</span><span class="p">,</span> 
@@ -2612,17 +2757,17 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p>closesocket()关闭套接字s，并释放分配给该套接字的资源；如果s涉及一个打开的TCP连接，则该连接被释放。closesocket()的调用格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">BOOL</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">closesocket</span><span class="p">(</span><span class="n">SOCKET</span> <span class="n">s</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">BOOL</span> <span class="n">PASCAL</span> <span class="n">FAR</span> <span class="nf">closesocket</span><span class="p">(</span><span class="n">SOCKET</span> <span class="n">s</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>参数s待关闭的套接字描述符。如果没有错误发生，closesocket()返回0。否则返回值SOCKET_ERROR。</p>
 <p>以下是实现一个简单的客户端服务端链接的例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2716,7 +2861,7 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 </span><span class="lnt">92
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">server端</span><span class="err">：</span>  
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">server端</span><span class="err">：</span>  
     
 <span class="cp">#include</span> <span class="cpf">&lt;WINSOCK2.H&gt;  </span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;  </span><span class="cp">
@@ -2823,7 +2968,7 @@ NAT主要可以實現以下幾個功能：<strong>資料包偽裝、平衡負載
 <p><strong>那基本就是infinite</strong></p>
 <p>但還受限於服務器內存</p>
 <blockquote>
-<p><a href="https://www.sohu.com/a/221661481_216613">https://www.sohu.com/a/221661481_216613</a></p>
+<p><a href="https://www.sohu.com/a/221661481_216613" target="_blank" rel="noopener noreffer">https://www.sohu.com/a/221661481_216613</a></p>
 </blockquote>
 <p><strong>client最大tcp连接数</strong></p>
 <p>client每次发起tcp连接请求时，除非绑定端口，通常会让系统选取一个空闲的本地端口（local port），该端口是独占的，不能和其他tcp连接共享。tcp端口的数据类型是unsigned short，因此本地端口个数最大只有65536，端口0有特殊含义，不能使用，这样可用端口最多只有65535，所以在全部作为client端的情况下，一个client最大tcp连接数为65535，这些连接可以连到不同的serverip。</p>
@@ -2855,7 +3000,7 @@ xmppbot 就遇到过中间丢了一个数据包，然后卡在那里的情况
 <p>TCP的缺點：** 慢，效率低，占用系統資源高**，易被攻擊TCP在傳遞數據之前，要先建連接，這會消耗時間，而且在數據傳遞時，確認機制、重傳機制、擁塞控制機制等都會消耗大量的時間，而且要在每台設備上維護所有的傳輸連接，事實上，每個連接都會占用系統的CPU、內存等硬體資源。</p>
 <p>(2)</p>
 <blockquote>
-<p><a href="https://blog.csdn.net/yusiguyuan/article/details/21458135">https://blog.csdn.net/yusiguyuan/article/details/21458135</a></p>
+<p><a href="https://blog.csdn.net/yusiguyuan/article/details/21458135" target="_blank" rel="noopener noreffer">https://blog.csdn.net/yusiguyuan/article/details/21458135</a></p>
 </blockquote>
 <p><strong>什么是慢启动</strong></p>
 <p>最初的TCP的实现方式是， 在连接建立成功后便会向网络中发送大尺寸的数据包，假如网络出现问题，很多这样的大包会积攒在路由器上， 很容易导致网络中路由器缓存空间耗尽，从而发生拥塞。因此现在的TCP协议规定了， 新建立的连接不能够一开始就发送大尺寸的 数据包，而只能从一个小尺寸的包开始发送，在发送和数据被对方确认的过程中去计算对方的接收速度，来 逐步增加每次发送的数据量（最后到达一个稳定的值，进入高速传输阶段。相应的，慢启动过程中，TCP通道处在低速传输阶段 ），以避免上述现象的发生。这个策略就是慢启动。
@@ -2918,7 +3063,7 @@ xmppbot 就遇到过中间丢了一个数据包，然后卡在那里的情况
 <p>栈是先进后出的，但是于堆而言却没有这个特性，<strong>两者都是存放临时数据的地方</strong>。 对于堆，我们可以随心所欲的进行增加变量和删除变量，不要遵循什么次序，只要你喜欢。</p>
 <h3 id="栈为什么比堆快一些">栈为什么比堆快一些</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/AlbenXie/article/details/103824830">https://blog.csdn.net/AlbenXie/article/details/103824830</a></p>
+<p><a href="https://blog.csdn.net/AlbenXie/article/details/103824830" target="_blank" rel="noopener noreffer">https://blog.csdn.net/AlbenXie/article/details/103824830</a></p>
 </blockquote>
 <p>在栈上分配的内存系统会自动地为其释放，例如在函数结束时，局部变量将不复存在，就是系统自动清除栈内存的结果。但堆中分配的内存则不然：一切由你负责，即使你退出了new表达式的所处的函数或者作用域，那块内存还处于被使用状态而不能再利用。好处就是如果你想在不同模块中共享内存，那么这一点正合你意，坏处是如果你不打算再利用这块内存又忘了把它释放掉，那么它就会霸占你宝贵的内存资源直到你的程序退出为止。</p>
 <p>栈是机器系统提供的数据结构，计算机会在底层对栈提供支持：分配专门的寄存器存放栈的地址，压栈出栈都有专门的指令执行，这就决定了栈的效率比较高。堆则是C/C++函数库提供的，它的机制是很复杂的，例如为了分配一块内存，库函数会按照一定的算法（具体的算法可以参考数据结构/操作系统）在堆内存中搜索可用的足够大小的空间，如果没有足够大小的空间（可能是由于内存碎片太多），就有可能调用系统功能去增加程序数据段的内存空间，这样就有机会分到足够大小的内存，然后进行返回。显然，堆的效率比栈要低得多。</p>
@@ -2964,7 +3109,7 @@ xmppbot 就遇到过中间丢了一个数据包，然后卡在那里的情况
 时候，就把数组的大小扩展为2×16=32，即扩大一倍，然后重新计算每个元素在数组中的位置。</p>
 <h3 id="map的内存分配策略">map的内存分配策略</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/weixin_30740581/article/details/97633011">https://blog.csdn.net/weixin_30740581/article/details/97633011</a></p>
+<p><a href="https://blog.csdn.net/weixin_30740581/article/details/97633011" target="_blank" rel="noopener noreffer">https://blog.csdn.net/weixin_30740581/article/details/97633011</a></p>
 </blockquote>
 <blockquote>
 <p>代碼內容過長&hellip;.</p>
@@ -2978,7 +3123,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 无</p>
 <h3 id="b树和b树的区别">B树和B+树的区别</h3>
 <blockquote>
-<p><a href="https://segmentfault.com/a/1190000020416577">https://segmentfault.com/a/1190000020416577</a></p>
+<p><a href="https://segmentfault.com/a/1190000020416577" target="_blank" rel="noopener noreffer">https://segmentfault.com/a/1190000020416577</a></p>
 </blockquote>
 <blockquote>
 <p>自閉中</p>
@@ -2989,12 +3134,49 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 3.所有的叶子节点形成了一个有序链表，更加便于查找。</p>
 <h3 id="什么是平衡二叉树">什么是平衡二叉树</h3>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/56066942">https://zhuanlan.zhihu.com/p/56066942</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/56066942" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/56066942</a></p>
 </blockquote>
 <h3 id="二叉搜索树平衡二叉树红黑树的区别">二叉搜索树，平衡二叉树，红黑树的区别</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/Hansry/article/details/100537495">https://blog.csdn.net/Hansry/article/details/100537495</a></p>
+<p><a href="https://blog.csdn.net/Hansry/article/details/100537495" target="_blank" rel="noopener noreffer">https://blog.csdn.net/Hansry/article/details/100537495</a></p>
 </blockquote>
+<h3 id="hashmap和hashtable的區別">HashMap和Hashtable的區別</h3>
+<blockquote>
+<p><a href="https://sziyu.pixnet.net/blog/post/30233792" target="_blank" rel="noopener noreffer">https://sziyu.pixnet.net/blog/post/30233792</a></p>
+</blockquote>
+<p>HashMap 和 Hashtable 的比較是Java面試中的常見問題，用來考驗程序員是否能夠正確使用集合類以及是否可以隨機應變使用多種思路解決問題。HashMap的工作原理、ArrayList與Vector的比較以及這個問題是有關Java 集合框架的最經典的問題。Hashtable是個過時的集合類，存在於Java API中很久了。在Java 4中被重寫了，實現了Map接口，所以自此以後也成了Java集合框架中的一部分。Hashtable和HashMap在Java面試中相當容易被問到，甚至成為了集合框架面試題中最常被考的問題，所以在參加任何Java面試之前，都不要忘了準備這一題。</p>
+<p>這篇文章中，我們不僅將會看到HashMap和Hashtable的區別，還將看到它們之間的相似之處。
+HashMap和Hashtable的區別</p>
+<p><strong>HashMap和Hashtable都實現了Map接口，但決定用哪一個之前先要弄清楚它們之間的分別。主要的區別有：線程安全性，同步(synchronization)，以及速度。</strong></p>
+<p><strong>HashMap幾乎可以等價於Hashtable</strong>，除了HashMap是非synchronized的，並可以接受null(<strong>HashMap可以接受為null的鍵值(key)和值(value)，而Hashtable則不行</strong>)。
+<strong>HashMap是非synchronized，而Hashtable是synchronized</strong>，這意味著Hashtable是線程安全的，多個線程可以共享一個Hashtable；而如果沒有正確的同步的話，多個線程是不能共享HashMap的。<strong>Java 5提供了ConcurrentHashMap，它是HashTable的替代</strong>，比HashTable的擴展性更好。
+另一個區別是HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。所以當有其它線程改變了HashMap的結構（增加或者移除元素），將會拋出ConcurrentModificationException，但迭代器本身的remove()方法移除元素則不會拋出ConcurrentModificationException異常。但這並不是一個一定發生的行為，要看JVM。這條同樣也是Enumeration和Iterator的區別。
+由於Hashtable是線程安全的也是synchronized，所以在單線程環境下它比HashMap要慢。如果你不需要同步，只需要單一線程，那麼使用HashMap性能要好過Hashtable。
+HashMap不能保證隨著時間的推移Map中的元素次序是不變的。</p>
+<p>要注意的一些重要術語：</p>
+<ol>
+<li>
+<p>sychronized意味著在一次僅有一個線程能夠更改Hashtable。就是說任何線程要更新Hashtable時要首先獲得同步鎖，其它線程要等到同步鎖被釋放之後才能再次獲得同步鎖更新Hashtable。</p>
+</li>
+<li>
+<p>Fail-safe和iterator迭代器相關。如果某個集合對象創建了Iterator或者ListIterator，然後其它的線程試圖「結構上」更改集合對象，將會拋出ConcurrentModificationException異常。但其它線程可以通過set()方法更改集合對象是允許的，因為這並沒有從「結構上」更改集合。但是假如已經從結構上進行了更改，再調用set()方法，將會拋出IllegalArgumentException異常。</p>
+</li>
+<li>
+<p>結構上的更改指的是刪除或者插入一個元素，這樣會影響到map的結構。
+我們能否<strong>讓HashMap同步？</strong></p>
+</li>
+</ol>
+<p>HashMap可以通過下面的語句進行同步：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Map</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizeMap</span><span class="o">(</span><span class="n">hashMap</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>結論</strong></p>
+<p>Hashtable和HashMap有幾個主要的不同：線程安全以及速度。僅在你需要完全的線程安全的時候使用Hashtable，而如果你使用Java 5或以上的話，請使用ConcurrentHashMap吧。</p>
 <h3 id="什么是哈希表哈希函数怎么解决冲突">什么是哈希表，哈希函数，怎么解决冲突</h3>
 <p>哈希表是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组叫做散列表。</p>
 <p><strong>什么是hash冲突？</strong></p>
@@ -3066,7 +3248,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
         title="https://img-blog.csdn.net/20180601233017339" /></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -3312,7 +3494,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">244
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp"># include &lt;stdio.h&gt;
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp"># include &lt;stdio.h&gt;
 </span><span class="cp"># include &lt;stdlib.h&gt; 
 </span><span class="cp"># include &lt;malloc.h&gt;
 </span><span class="cp"># include &lt;string.h&gt;
@@ -3571,7 +3753,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>图示top==0 表示栈空的顺序栈，每次，入栈时先使元素入栈，然后栈顶指针+1，出栈时，先将栈顶指针top&ndash;,然后元素出栈。还可以用top==-1表示栈空，入栈时先使栈顶指针top++，然后元素入栈；出栈时先将栈顶指针top&ndash;，然后元素出栈。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -3676,7 +3858,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">103
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span><span class="cp">#define TRUE 1
 </span><span class="cp">#define FALSE 0
@@ -3804,7 +3986,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>图示为带头结点的单链表，实际上单链表是没有头结点的，头结点只是为了操作方便，在单链表的第一个结点前附设的一个结点使用头指针指向头结点。不带头结点的单链表，头指针指向第一个结点，判空条件为pHead == NULL；</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -4122,7 +4304,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">316
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp"># include &lt;stdio.h&gt;
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp"># include &lt;stdio.h&gt;
 </span><span class="cp"># include &lt;stdlib.h&gt; 
 </span><span class="cp"># include &lt;malloc.h&gt;
 </span><span class="cp"># include &lt;string.h&gt;
@@ -4443,7 +4625,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </div><h3 id="鏈棧">鏈棧</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -4583,7 +4765,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">138
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span><span class="cp">#define TRUE 1
 </span><span class="cp">#define FALSE 0
@@ -4737,7 +4919,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>为了充分利用存储空间，消除这种”假溢出”,可以采用的方法是：将为队列分配的空间看成为一个首尾相接的圆环，并称这种队列为循环队列。 在循环队列中当队尾指针rear 达到最大值Maxsize - 1 时，其队尾指针加1操作，使其指向队头指针，这一过程可以使用数学中的取余运算来实现。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -4856,7 +5038,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">117
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span><span class="cp">#define TRUE 1
 </span><span class="cp">#define FALSE 0
@@ -5030,7 +5212,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -5305,7 +5487,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">273
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;queue&gt; </span><span class="cp">
@@ -5583,7 +5765,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </div><h3 id="堆">堆</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -5664,7 +5846,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">79
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -5748,7 +5930,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </div><h2 id="數據庫">數據庫</h2>
 <h3 id="熟悉基本-sql-操作">熟悉基本 SQL 操作</h3>
 <blockquote>
-<p>我的blog筆記 : <a href="https://huangno1.github.io/mysql_learn_note_basic/">https://huangno1.github.io/mysql_learn_note_basic/</a></p>
+<p>我的blog筆記 : <a href="https://huangno1.github.io/mysql_learn_note_basic/" target="_blank" rel="noopener noreffer">https://huangno1.github.io/mysql_learn_note_basic/</a></p>
 </blockquote>
 <p>1.包括增删改查（insert、delete、update、select语句），排序 order，条件查询（where 子语句），限制查询结果数量（LIMIT语句）等
 2.稍微高级一点的 SQL 操作（如Group by，in，join，left join，多表联合查询，别名的使用，select 子语句等）
@@ -5757,7 +5939,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 5.数据库用户权限控制（权限机制）</p>
 <h3 id="sql-优化技巧">SQL 优化技巧</h3>
 <blockquote>
-<p><a href="https://www.jianshu.com/p/25c958196a0b">https://www.jianshu.com/p/25c958196a0b</a></p>
+<p><a href="https://www.jianshu.com/p/25c958196a0b" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/25c958196a0b</a></p>
 </blockquote>
 <p>1、应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。</p>
 <p>2、对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
@@ -5821,7 +6003,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>30、尽量避免大事务操作，提高系统并发能力。</p>
 <h3 id="mysql中有哪两种存储类型有什么区别">Mysql中有哪两种存储类型有什么区别？</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/qq_35181209/article/details/78030110">https://blog.csdn.net/qq_35181209/article/details/78030110</a></p>
+<p><a href="https://blog.csdn.net/qq_35181209/article/details/78030110" target="_blank" rel="noopener noreffer">https://blog.csdn.net/qq_35181209/article/details/78030110</a></p>
 </blockquote>
 <p><strong>InnoDB：</strong></p>
 <p>（1）具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。</p>
@@ -5834,7 +6016,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>（2）不支持外键。</p>
 <p>（3）MyISAM保存表的具体行数，执行select count(*) from table时只要简单的读出保存好的行数即可。</p>
 <p>（4）对于AUTO_INCREMENT类型的字段，在MyISAM表中，可以和其他字段一起建立联合索引。</p>
-<p>（5）MyISAM存储引擎的读锁和写锁是互斥的，读写操作是串行的。那么，一个进程请求某个MyISAM表的读锁，同时另一个进程也请求同一表的写锁，MySQL如何处理呢？答案是写进程先获得锁。不仅如此，即使读请求先到锁等待队列，写请求后到，写锁也会插到读锁请求之前！这是因为MySQL认为写请求一般比读请求要重要。这也正是MyISAM表不太适合于有大量更新操作和查询操作应用的原因，因为，大量的更新操作会造成查询操作很难获得读锁，从而可能永远阻塞。这种情况有时可能会变得非常糟糕！</p>
+<p>（5）MyISAM存储引擎的读锁和写锁是互斥的，读写操作是串行的。那么，一个进程请求某个MyISAM表的读锁，同时另一 个进程也请求同一表的写锁，MySQL如何处理呢？答案是写进程先获得锁。不仅如此，即使读请求先到锁等待队列，写请求后到，写锁也会插到读锁请求之前！这是因为MySQL认为写请求一般比读请求要重要。这也正是MyISAM表不太适合于有大量更新操作和查询操作应用的原因，因为，大量的更新操作会造成查询操作很难获得读锁，从而可能永远阻塞。这种情况有时可能会变得非常糟糕！</p>
 <p>myisam是有读锁和写锁(2个锁都是表级别锁)。</p>
 <p>MySQL表级锁有两种模式：表共享读锁（Table Read Lock）和表独占写锁（Table Write Lock）。什么意思呢，就是说对MyISAM表进行读操作时，它不会阻塞其他用户对同一表的读请求，但会阻塞对同一表的写操作；而对MyISAM表的写操作，则会阻塞其他用户对同一表的读和写操作。</p>
 <h3 id="innodb所以为什么使用b树而不用b树在innodb中存储数据用什么作为主键可不可以使用uuid为什么">innodb，所以为什么使用B+树，而不用B树，在InnoDB中存储数据用什么作为主键？可不可以使用UUID，为什么？</h3>
@@ -5843,7 +6025,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </blockquote>
 <p><strong>为什么mysql innodb索引是B+树数据结构</strong></p>
 <blockquote>
-<p><a href="https://blog.csdn.net/xuehuagongzi000/article/details/78985844?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=1328696.1340.16166728491645397&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">https://blog.csdn.net/xuehuagongzi000/article/details/78985844?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=1328696.1340.16166728491645397&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control</a></p>
+<p><a href="https://blog.csdn.net/xuehuagongzi000/article/details/78985844?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=1328696.1340.16166728491645397&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control" target="_blank" rel="noopener noreffer">https://blog.csdn.net/xuehuagongzi000/article/details/78985844?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&dist_request_id=1328696.1340.16166728491645397&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control</a></p>
 </blockquote>
 <p>一、为什么mysql innodb索引是B+树数据结构？言简意赅，就是因为：
 1.文件很大，不可能全部存储在内存中，故要存储到磁盘上
@@ -5862,7 +6044,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>总体来说，Mysql选用B+树和MongoDB选用B-树还是以自己的需求来选择的。</p>
 <p><strong>MySQL InnoDB索引的存储结构</strong></p>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/110178282">https://zhuanlan.zhihu.com/p/110178282</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/110178282" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/110178282</a></p>
 </blockquote>
 <h3 id="数据库三大范式是什么">数据库三大范式是什么</h3>
 <p>第一范式：每个列都不可以再拆分。</p>
@@ -5889,13 +6071,13 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p><code>select * from innodbl where id &lt; 20</code> 根据id查询记录，因为 <code>id</code> 字段仅建立了主键索引，因此此SQL执行可选的索引只有主键索引，如果有多个，最终会选一个较优的作为检索的依据。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 增加一个没有建立索引的字段
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 增加一个没有建立索引的字段
 </span><span class="c1"></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">innodb1</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">sex</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">
 </span><span class="w"></span><span class="c1">-- 按sex检索时可选的索引为null
 </span><span class="c1"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">innodb1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">sex</span><span class="o">=</span><span class="s1">&#39;男&#39;</span><span class="p">;</span><span class="w">
@@ -5961,13 +6143,13 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>BTree是最常用的mysql数据库索引算法，也是mysql默认的算法。因为它不仅可以被用在=,&gt;,&gt;=,&lt;,&lt;=和between这些比较操作符上，而且还可以用于like操作符，只要它的查询条件是一个不以通配符开头的常量， 例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 只要它的查询条件是一个不以通配符开头的常量
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 只要它的查询条件是一个不以通配符开头的常量
 </span><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;jack%&#39;</span><span class="p">;</span><span class="w"> 
 </span><span class="w"></span><span class="c1">-- 如果一通配符开头，或者没有使用常量，则不会使用索引，例如： 
 </span><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%jack&#39;</span><span class="p">;</span><span class="w"> 
@@ -6126,7 +6308,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
         alt="https://upload-images.jianshu.io/upload_images/1281379-76c95f147203c797.png?imageMogr2/auto-orient/strip|imageView2/2/w/222"
         title="https://upload-images.jianshu.io/upload_images/1281379-76c95f147203c797.png?imageMogr2/auto-orient/strip|imageView2/2/w/222" /></p>
 <blockquote>
-<p>內容太多，請直接看這個網站 <a href="https://www.jianshu.com/p/c1015f5ffa74">https://www.jianshu.com/p/c1015f5ffa74</a></p>
+<p>內容太多，請直接看這個網站 <a href="https://www.jianshu.com/p/c1015f5ffa74" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/c1015f5ffa74</a></p>
 </blockquote>
 <blockquote>
 <p>簡要回答</p>
@@ -6138,8 +6320,11 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>5，socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口，把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据。socket起源于UNIX，在Unix一切皆文件哲学的思想下，socket是一种”打开—读/写—关闭”模式的实现，服务器和客户端各自维护一个”文件”，在建立连接打开后，可以向自己文件写入内容供对方读取或者读取对方内容，通讯结束时关闭文件。是一种可以网间通信的方式。</p>
 <h3 id="进程切换的上下文细节">进程切换的上下文细节</h3>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/52845869">https://zhuanlan.zhihu.com/p/52845869</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/52845869" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/52845869</a></p>
 </blockquote>
+<p>在 Linux 这边，线程基本上是用户态使用的。内核态很少用这个词，调度单位叫 task
+然后用户态所谓的进程，内核里叫 task group
+然后用户态里也可以实现自己的线程，也就是所谓的绿色线程、协程之类，也有把这种东西叫进程的，比如 Erlang</p>
 <p><strong>什么是 CPU 上下文</strong></p>
 <p>CPU 寄存器和程序计数器就是 CPU 上下文，因为它们都是 CPU 在运行任何任务前，必须的依赖环境。</p>
 <p>CPU 寄存器是 CPU 内置的容量小、但速度极快的内存。程序计数器则是用来存储 CPU 正在执行的指令位置、或者即将执行的下一条指令位置。</p>
@@ -6203,6 +6388,32 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>另外，跟进程上下文切换一样，中断上下文切换也需要消耗 CPU，切换次数过多也会耗费大量的 CPU，甚至严重降低系统的整体性能。所以，当你发现中断次数过多时，就需要注意去排查它是否会给你的系统带来严重的性能问题。</p>
 <h3 id="线程切换的上下文细节">线程切换的上下文细节</h3>
 <p>答案在上面的問題</p>
+<h3 id="linux-用户态切换到内核态的-3-种方式">Linux 用户态切换到内核态的 3 种方式</h3>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/279354447" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/279354447</a></p>
+</blockquote>
+<ul>
+<li><strong>系统调用</strong></li>
+</ul>
+<p>这是用户态进程主动要求切换到内核态的一种方式，用户态进程通过系统调用申请使用操作系统提供的服务程序完成工作，比如 fork() 实际上就是执行了一个创建新进程的系统调用。而系统调用的机制其核心还是使用了操作系统为用户特别开放的一个中断来实现，例如 Linux 的 int 80h 中断。</p>
+<ul>
+<li><strong>中断</strong></li>
+</ul>
+<p>当外围设备完成用户请求的操作后，会向 CPU 发出相应的中断信号，这时 CPU 会暂停执行下一条即将要执行的指令转而去执行与中断信号对应的处理程序，如果先前执行的指令是用户态下的程序，那么这个转换的过程自然也就发生了由用户态到内核态的切换。比如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后续操作等。</p>
+<ul>
+<li><strong>异常</strong></li>
+</ul>
+<p>当 CPU 在执行运行在用户态下的程序时，发生了某些事先不可知的异常，这时会触发由当前运行进程切换到处理此异常的内核相关程序中，也就转到了内核态，比如缺页异常。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic4.zhimg.com/80/v2-30923424421b862e06320403402ae7a3_720w.jpg"
+        data-srcset="https://pic4.zhimg.com/80/v2-30923424421b862e06320403402ae7a3_720w.jpg, https://pic4.zhimg.com/80/v2-30923424421b862e06320403402ae7a3_720w.jpg 1.5x, https://pic4.zhimg.com/80/v2-30923424421b862e06320403402ae7a3_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic4.zhimg.com/80/v2-30923424421b862e06320403402ae7a3_720w.jpg"
+        title="https://pic4.zhimg.com/80/v2-30923424421b862e06320403402ae7a3_720w.jpg" /></p>
+<p>当时大神们在写 Linux 内核的时候，估计还不知道将来虚拟机会大放异彩，大神们想，操作系统一共分两级特权，一个内核态，一个用户态，而 CPU 却有四个等级，好奢侈，好富裕，就敞开了用，内核态运行在第 0 等级，用户态运行在第 3 等级，占了两头，太不会过日子了。</p>
+<p>如果用户态程序做事情，就将扳手掰到第 3 等级，一旦要申请使用更多的资源，就需要申请将扳手掰到第 0 等级，内核才有高权限访问这些资源，申请完资源，返回到用户态，扳手再掰回去，这个程序一直非常顺利的运行着，直到虚拟机的出现。</p>
 <h3 id="什么是协程">什么是协程</h3>
 <p>官方定义如下：</p>
 <blockquote>
@@ -6214,7 +6425,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 注意，这里要划一个重点，协程是一种“伪多线程”，始终记得这一点，可以帮助我们来理解协程会这个概念。</p>
 <h3 id="线程同步的机制">线程同步的机制</h3>
 <blockquote>
-<p><a href="http://kaiyuan.me/2015/08/20/thread_sync/">http://kaiyuan.me/2015/08/20/thread_sync/</a></p>
+<p><a href="http://kaiyuan.me/2015/08/20/thread_sync/" target="_blank" rel="noopener noreffer">http://kaiyuan.me/2015/08/20/thread_sync/</a></p>
 </blockquote>
 <p>当一个程序涉及到多个线程的时候，线程之间的同步和互斥就显得尤其重要。为了避免一个线程中的敏感数据被另一个线程修改，程序中往往需要显式的使用线程同步机制来保证线程运行环境的安全。当前的编程库环境（例如pthread库）就为多线程的同步和互斥提供了多种不同的机制，包括互斥锁，读写锁，自旋锁，条件变量和信号量等等。本文简要记载使用不同的同步机制时应该注意的问题。</p>
 <p><strong>互斥锁</strong></p>
@@ -6236,7 +6447,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>不同于互斥锁，自旋锁和信号量，等待在某个条件变量上的线程将完全依赖于signal()函数发出的信号而唤醒。一旦发出的信号丢失，该阻塞进程将再也没有机会被唤醒了。因此条件变量一般都需要配合互斥锁或者信号量使用，一般情况下等待线程的逻辑如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -6244,7 +6455,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">mutex_lock</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">mutex_lock</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
 <span class="p">...</span>
 <span class="k">if</span><span class="p">(</span><span class="n">conditions</span> <span class="n">are</span> <span class="n">not</span> <span class="n">satisfied</span><span class="p">)</span>
 	<span class="n">cond_var</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex_lock</span><span class="p">);</span> <span class="c1">//wait之后，mutex_lock会被自动释放
@@ -6255,14 +6466,14 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </div><p>而发送信号的线程如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">mutex_lock</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">mutex_lock</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
 <span class="p">...</span>
 <span class="n">cond_var</span><span class="p">.</span><span class="n">signal</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex_lock</span><span class="p">);</span>
 <span class="p">...</span>
@@ -6274,7 +6485,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>信号量是Dijkstra在1965年提出的一种同步的方案。这种方案使用一种特殊的被称作信号量的整形结构来记录某一临界区操作的次数。信号量的实现中一般具有两种操作，分别是P操作和V操作。对一个信号量进行P操作时，首先检查其值是否大于0，如果大于0，则将其值减一之后返回进行后续操作，如果值小于等于0，则该进程将进行阻塞。P操作可以由以下逻辑表示:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -6282,7 +6493,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">function</span> <span class="nf">P</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">function</span> <span class="nf">P</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
     <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
         <span class="n">wait</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">list</span><span class="p">)</span>
@@ -6293,7 +6504,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </div><p>执行V操作时，首先将信号量的值加一，然后检查信号量的值是否大于0，如果大于0，则直接返回执行其他的操作，否则唤醒一个等待在该信号量上的进程。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -6301,7 +6512,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">function</span> <span class="nf">V</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">function</span> <span class="nf">V</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">s</span><span class="p">.</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
     <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">){</span>
         <span class="n">wake</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">list</span><span class="p">);</span>
@@ -6313,7 +6524,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>事实上，信号量可以同时用来进行互斥和同步的操作，通过信号量赋予不同的初始值，可以使用信号量模拟互斥锁的行为。</p>
 <h3 id="selectpollepoll-的区别">select，poll，epoll 的区别</h3>
 <blockquote>
-<p><a href="https://www.cnblogs.com/anker/p/3265058.html">https://www.cnblogs.com/anker/p/3265058.html</a></p>
+<p><a href="https://www.cnblogs.com/anker/p/3265058.html" target="_blank" rel="noopener noreffer">https://www.cnblogs.com/anker/p/3265058.html</a></p>
 </blockquote>
 <p><strong>select，poll，epoll都是IO多路复用的机制</strong>。I/O多路复用就通过一种机制，可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作。<strong>但select，poll，epoll本质上都是同步I/O，因为他们都需要在读写事件就绪后自己负责进行读写，也就是说这个读写过程是阻塞的</strong>，而异步I/O则无需自己负责进行读写，异步I/O的实现会负责把数据从内核拷贝到用户空间。关于这三种IO多路复用的用法，前面三篇总结写的很清楚，并用服务器回射echo程序进行了测试。连接如下所示：</p>
 <p>select：http://www.cnblogs.com/Anker/archive/2013/08/14/3258674.html</p>
@@ -6346,11 +6557,11 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p><strong>2、poll实现</strong></p>
 <p>poll的实现和select非常相似，只是描述fd集合的方式不同，poll使用pollfd结构而不是select的fd_set结构，其他的都差不多。</p>
 <p>关于select和poll的实现分析，可以参考下面几篇博文：</p>
-<p><a href="http://blog.csdn.net/lizhiguo0532/article/details/6568964#comments">http://blog.csdn.net/lizhiguo0532/article/details/6568964#comments</a></p>
-<p><a href="http://blog.csdn.net/lizhiguo0532/article/details/6568968">http://blog.csdn.net/lizhiguo0532/article/details/6568968</a></p>
-<p><a href="http://blog.csdn.net/lizhiguo0532/article/details/6568969">http://blog.csdn.net/lizhiguo0532/article/details/6568969</a></p>
-<p><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-edntwk/index.html?ca=drs-">http://www.ibm.com/developerworks/cn/linux/l-cn-edntwk/index.html?ca=drs-</a></p>
-<p><a href="http://linux.chinaunix.net/techdoc/net/2009/05/03/1109887.shtml">http://linux.chinaunix.net/techdoc/net/2009/05/03/1109887.shtml</a></p>
+<p><a href="http://blog.csdn.net/lizhiguo0532/article/details/6568964#comments" target="_blank" rel="noopener noreffer">http://blog.csdn.net/lizhiguo0532/article/details/6568964#comments</a></p>
+<p><a href="http://blog.csdn.net/lizhiguo0532/article/details/6568968" target="_blank" rel="noopener noreffer">http://blog.csdn.net/lizhiguo0532/article/details/6568968</a></p>
+<p><a href="http://blog.csdn.net/lizhiguo0532/article/details/6568969" target="_blank" rel="noopener noreffer">http://blog.csdn.net/lizhiguo0532/article/details/6568969</a></p>
+<p><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-edntwk/index.html?ca=drs-" target="_blank" rel="noopener noreffer">http://www.ibm.com/developerworks/cn/linux/l-cn-edntwk/index.html?ca=drs-</a></p>
+<p><a href="http://linux.chinaunix.net/techdoc/net/2009/05/03/1109887.shtml" target="_blank" rel="noopener noreffer">http://linux.chinaunix.net/techdoc/net/2009/05/03/1109887.shtml</a></p>
 <p><strong>3、epoll</strong></p>
 <p>epoll既然是对select和poll的改进，就应该能避免上述的三个缺点。那epoll都是怎么解决的呢？在此之前，我们先看一下epoll和select和poll的调用接口上的不同，select和poll都只提供了一个函数——select或者poll函数。而epoll提供了三个函数，epoll_create,epoll_ctl和epoll_wait，epoll_create是创建一个epoll句柄；epoll_ctl是注册要监听的事件类型；epoll_wait则是等待事件的产生。</p>
 <p>对于第一个缺点，epoll的解决方案在epoll_ctl函数中。每次注册新的事件到epoll句柄中时（在epoll_ctl中指定EPOLL_CTL_ADD），会把所有的fd拷贝进内核，而不是在epoll_wait的时候重复拷贝。epoll保证了每个fd在整个过程中只会拷贝一次。</p>
@@ -6361,7 +6572,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>（2）select，poll每次调用都要把fd集合从用户态往内核态拷贝一次，并且要把current往设备等待队列中挂一次，而epoll只要一次拷贝，而且把current往等待队列上挂也只挂一次（在epoll_wait的开始，注意这里的等待队列并不是设备等待队列，只是一个epoll内部定义的等待队列）。这也能节省不少的开销。</p>
 <h3 id="epoll水平触发和边缘触发的区别">epoll水平触发和边缘触发的区别</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/lihao21/article/details/67631516">https://blog.csdn.net/lihao21/article/details/67631516</a></p>
+<p><a href="https://blog.csdn.net/lihao21/article/details/67631516" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lihao21/article/details/67631516</a></p>
 </blockquote>
 <p>epoll也是实现I/O多路复用的一种方法，为了深入了解epoll的原理，我们先来看下epoll水平触发（level trigger，LT，LT为epoll的默认工作模式）与边缘触发（edge trigger，ET）两种工作模式。</p>
 <p>使用脉冲信号来解释LT和ET可能更加贴切。Level是指信号只需要处于水平，就一直会触发；而edge则是指信号为上升沿或者下降沿时触发。说得还有点玄乎，我们以生活中的一个例子来类比LT和ET是如何确定<strong>读操作</strong>是否就绪的。</p>
@@ -6410,15 +6621,15 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>難度高，google 不到答案</p>
 </blockquote>
 <blockquote>
-<p><a href="https://man7.org/linux/man-pages/man7/epoll.7.html">https://man7.org/linux/man-pages/man7/epoll.7.html</a>
-<a href="https://kernel.taobao.org/2019/12/epoll-is-fundamentally-broken/">https://kernel.taobao.org/2019/12/epoll-is-fundamentally-broken/</a>
-擷取自 <a href="https://eli.thegreenplace.net/2017/concurrent-servers-part-3-event-driven/">https://eli.thegreenplace.net/2017/concurrent-servers-part-3-event-driven/</a></p>
+<p><a href="https://man7.org/linux/man-pages/man7/epoll.7.html" target="_blank" rel="noopener noreffer">https://man7.org/linux/man-pages/man7/epoll.7.html</a>
+<a href="https://kernel.taobao.org/2019/12/epoll-is-fundamentally-broken/" target="_blank" rel="noopener noreffer">https://kernel.taobao.org/2019/12/epoll-is-fundamentally-broken/</a>
+擷取自 <a href="https://eli.thegreenplace.net/2017/concurrent-servers-part-3-event-driven/" target="_blank" rel="noopener noreffer">https://eli.thegreenplace.net/2017/concurrent-servers-part-3-event-driven/</a></p>
 </blockquote>
 <p>As an example, let&rsquo;s look at epoll, Linux&rsquo;s solution to the high-volume I/O event notification problem. The key to epoll&rsquo;s efficiency is greater cooperation from the kernel. Instead of using a file descriptor set, epoll_wait fills a buffer with events that are currently ready. Only the ready events are added to the buffer, so there is no need to iterate over all the currently watched file descriptors in the client. This changes the process of discovering which descriptors are ready from O(N) in select&rsquo;s case to O(1).</p>
 <p>A full presentation of the epoll API is not the goal here - there are plenty of online resources for that. As you may have guessed, though, I am going to write yet another version of our concurrent server - this time using epoll instead of select. The full code sample is here. In fact, since the vast majority of the code is the same as select-server, I&rsquo;ll only focus on the novelty - the use of epoll in the main loop:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -6454,7 +6665,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">struct</span> <span class="nc">epoll_event</span> <span class="n">accept_event</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="k">struct</span> <span class="nc">epoll_event</span> <span class="n">accept_event</span><span class="p">;</span>
 <span class="n">accept_event</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">fd</span> <span class="o">=</span> <span class="n">listener_sockfd</span><span class="p">;</span>
 <span class="n">accept_event</span><span class="p">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">EPOLLIN</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">epoll_ctl</span><span class="p">(</span><span class="n">epollfd</span><span class="p">,</span> <span class="n">EPOLL_CTL_ADD</span><span class="p">,</span> <span class="n">listener_sockfd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">accept_event</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -6496,7 +6707,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 <p>This similarity is tempting to exploit by abstracting away the event loop into a library/framework. I&rsquo;m going to resist this itch, because so many great programmers succumbed to it in the past. Instead, in the next post we&rsquo;re going to look at libuv - one of the more popular event loop abstractions emerging recently. Libraries like libuv allow us to write concurrent asynchronous servers without worrying about the greasy details of the underlying system calls.</p>
 <h3 id="如何实现内存池">如何实现内存池</h3>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/64719710">https://zhuanlan.zhihu.com/p/64719710</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/64719710" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/64719710</a></p>
 </blockquote>
 <p><strong>为什么要用内存池</strong></p>
 <p>C++程序默认的内存管理（new，delete，malloc，free）会频繁地在堆上分配和释放内存，导致性能的损失，产生大量的内存碎片，降低内存的利用率。默认的内存管理因为被设计的比较通用，所以在性能上并不能做到极致。</p>
@@ -6521,7 +6732,7 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
         title="https://pic4.zhimg.com/80/v2-72fd972a4be6a953024e114ee1fe45f7_720w.jpg" /></p>
 <h3 id="cpu占用-100怎么排查问题">cpu占用 100%，怎么排查问题</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/pengjunlee/article/details/107150785">https://blog.csdn.net/pengjunlee/article/details/107150785</a></p>
+<p><a href="https://blog.csdn.net/pengjunlee/article/details/107150785" target="_blank" rel="noopener noreffer">https://blog.csdn.net/pengjunlee/article/details/107150785</a></p>
 </blockquote>
 <p><strong>一、引子</strong></p>
 <p>对于互联网公司，线上CPU飙升的问题很常见（例如某个活动开始，流量突然飙升时），按照本文的步骤排查，基本1分钟即可搞定！特此整理排查方法一篇，供大家参考讨论提高。</p>
@@ -6617,18 +6828,18 @@ map所管理的内存地址可以是不连续的。如果key是可以通过&lt;�
 </table>
 <h3 id="动态库和静态库的区别">动态库和静态库的区别</h3>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/71372182">https://zhuanlan.zhihu.com/p/71372182</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/71372182" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/71372182</a></p>
 </blockquote>
 <p><strong>什么是静态库</strong></p>
 <p>前面所提到可重定位目标文件以一种特定的方式打包成一个单独的文件，并且在链接生成可执行文件时，从这个单独的文件中“拷贝”它自己需要的内容到最终的可执行文件中。这个单独的文件，称为静态库。linux中通常以.a(archive)为后缀</p>
 <p>还是拿前面的例子来说，我们使用静态链接构建我们的可执行文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ gcc -c main.c
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ gcc -c main.c
 $ gcc -static -o main main.o -lm
 </code></pre></td></tr></table>
 </div>
@@ -6640,13 +6851,13 @@ $ gcc -static -o main main.o -lm
 <p>如果把-lm放在前面，编译结果如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ gcc -static -lm -o main main.o 
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ gcc -static -lm -o main main.o 
 main.o: In <span class="k">function</span> <span class="sb">`</span>main<span class="s1">&#39;:
 </span><span class="s1">main.c:(.text+0x2f): undefined reference to `exp&#39;</span>
 collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
@@ -6656,11 +6867,11 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
 <p>我们看看最终生成的文件大小：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ ls -lh main
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ ls -lh main
 -rwxrwxr-x <span class="m">1</span> hyb hyb 988K 6月  <span class="m">27</span> 20:22 main
 </code></pre></td></tr></table>
 </div>
@@ -6671,20 +6882,20 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
 <p>通常我们编译的程序默认就是实用动态链接：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ gcc -o main main.c -lm  <span class="c1">#默认使用的是动态链接</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ gcc -o main main.c -lm  <span class="c1">#默认使用的是动态链接</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我们来看最终生成的文件大小：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">lh</span> <span class="n">main</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">lh</span> <span class="n">main</span>
 <span class="o">-</span><span class="n">rwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">hyb</span> <span class="n">hyb</span> <span class="mf">8.5</span><span class="n">K</span> <span class="mi">6</span><span class="err">月</span>  <span class="mi">27</span> <span class="mi">20</span><span class="o">:</span><span class="mi">25</span> <span class="n">main</span>
 </code></pre></td></tr></table>
 </div>
@@ -6692,14 +6903,14 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
 <p>另外我们还可以通过ldd命令来观察可执行文件链接了哪些动态库：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="err">$</span> <span class="n">ldd</span> <span class="n">main</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="err">$</span> <span class="n">ldd</span> <span class="n">main</span>
     <span class="n">linux</span><span class="o">-</span><span class="n">vdso</span><span class="p">.</span><span class="n">so</span><span class="mf">.1</span> <span class="o">=&gt;</span>  <span class="p">(</span><span class="mh">0x00007ffc7b5a2000</span><span class="p">)</span>
     <span class="n">libm</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libm</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span> <span class="p">(</span><span class="mh">0x00007fe9642bf000</span><span class="p">)</span>
     <span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libc</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span> <span class="p">(</span><span class="mh">0x00007fe963ef5000</span><span class="p">)</span>
@@ -6726,7 +6937,7 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
 <p>静态库和动态库具体是何如链接的已经超出了本文的介绍范围，本文仅简单介绍了一些静态库和动态库的区别，另外文中提到的在其他的linux系统，也指的是同样处理器架构的系统。但是了解这些基本信息，就能够帮助我们解决很多编译问题了。更多内容可自己阅读装载，链接方面的书籍。后面的文章也会介绍更多相关信息。</p>
 <h3 id="阻塞和非阻塞的区别">阻塞和非阻塞的区别</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/lengxiao1993/article/details/78154467">https://blog.csdn.net/lengxiao1993/article/details/78154467</a></p>
+<p><a href="https://blog.csdn.net/lengxiao1993/article/details/78154467" target="_blank" rel="noopener noreffer">https://blog.csdn.net/lengxiao1993/article/details/78154467</a></p>
 </blockquote>
 <blockquote>
 <p>进程间的通信时通过 send() 和 receive() 两种基本操作完成的。具体如何实现这两种基础操作，存&gt; 在着不同的设计。
@@ -6765,7 +6976,7 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
 <p>2.非阻塞系统调用（non-blocking I/O system call 与 asynchronous I/O system call） 的存在可以用来实现线程级别的 I/O 并发， 与通过多进程实现的 I/O 并发相比可以减少内存消耗以及进程切换的开销。</p>
 <h3 id="死锁的概念发生的必要条件">死锁的概念，发生的必要条件</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/ZWE7616175/article/details/79881236">https://blog.csdn.net/ZWE7616175/article/details/79881236</a></p>
+<p><a href="https://blog.csdn.net/ZWE7616175/article/details/79881236" target="_blank" rel="noopener noreffer">https://blog.csdn.net/ZWE7616175/article/details/79881236</a></p>
 </blockquote>
 <p><strong>一、死锁概念</strong></p>
 <p>死锁是指两个或多个进程在执行的过程中，因为竞争资源而造成互相等待的现象，若无外力作用，它们都无法推进下去。
@@ -6811,11 +7022,9 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
 <blockquote>
 <p>在上個問題中</p>
 </blockquote>
-<ul>
-<li>如何实现多线程的数据同步</li>
-</ul>
+<h3 id="如何实现多线程的数据同步">如何实现多线程的数据同步</h3>
 <blockquote>
-<p><a href="https://www.jianshu.com/p/54290e809f68">https://www.jianshu.com/p/54290e809f68</a></p>
+<p><a href="https://www.jianshu.com/p/54290e809f68" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/54290e809f68</a></p>
 </blockquote>
 <p><strong>1.应用背景</strong></p>
 <p>程序在设计当中如果采取多线程操作的时候，如果操作的对象是一个的话，由于多个线程共享同一块内存空间，因此经常会遇到数据安全访问的问题，下面看一个经典的问题，银行取钱的问题：</p>
@@ -6862,13 +7071,13 @@ rwl.writeLock().unlock()</p>
 <h3 id="fork-的原理">fork 的原理</h3>
 <p>在Linux中fork函数是非常重要的函数，它的作用是从已经存在的进程中创建一个子进程，而原进程称为父进程。</p>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/36872365">https://zhuanlan.zhihu.com/p/36872365</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/36872365" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/36872365</a></p>
 </blockquote>
 <p><strong>fork的原理</strong></p>
 <p>先通过下面这段代码简单的介绍一下fork这个函数，了解一下它的功能</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -6891,7 +7100,7 @@ rwl.writeLock().unlock()</p>
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -6926,10 +7135,10 @@ rwl.writeLock().unlock()</p>
 <p>看到这个结果是不是很奇怪，为什么if的分支执行到了，else的分支也执行到了。这明显不符合程序执行最基本的原理。这个放到后面再来解释，先来了解一下fork这个函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="n">pid_t</span> <span class="nf">fork</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="n">pid_t</span> <span class="nf">fork</span><span class="p">();</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上面是fork函数的原型，它有三个返回值</p>
@@ -7039,7 +7248,7 @@ fork 是指的是 fork bomb 那种量级的 fork？😂
 <p>Memory Overcommit的意思是作業系統承諾給進程的內存大小超過了實際可用的內存。一個保守的作業系統不會允許memory overcommit，有多少就分配多少，再申請就沒有了，這其實有些浪費內存，因為進程實際使用到的內存往往比申請的內存要少，比如某個進程malloc()了200MB內存，但實際上只用到了100MB，按照UNIX/Linux的算法，物理內存頁的分配發生在使用的瞬間，而不是在申請的瞬間，也就是說未用到的100MB內存根本就沒有分配，這100MB內存就閒置了。下面這個概念很重要，是理解memory overcommit的關鍵：commit(或overcommit)針對的是內存申請，內存申請不等於內存分配，內存只在實際用到的時候才分配。</p>
 <p><strong>file descriptor</strong></p>
 <blockquote>
-<p><a href="https://kkc.github.io/2020/08/22/file-descriptor/">https://kkc.github.io/2020/08/22/file-descriptor/</a></p>
+<p><a href="https://kkc.github.io/2020/08/22/file-descriptor/" target="_blank" rel="noopener noreffer">https://kkc.github.io/2020/08/22/file-descriptor/</a></p>
 </blockquote>
 <p>file descriptor (fd) 基本上是一層介面，可以讓我們去操作 file 和其他 input/output interface (例如 pipe &amp; socket)。</p>
 <h3 id="申请超出总内存大小的内存后在每个进程中堆内存进行读写会发生什么">申请超出总内存大小的内存后，在每个进程中堆内存进行读写，会发生什么</h3>
@@ -7053,21 +7262,21 @@ fork 是指的是 fork bomb 那种量级的 fork？😂
 <p>自閉中</p>
 </blockquote>
 <blockquote>
-<p><a href="https://meik2333.com/posts/linux-many-proc-write-file/">https://meik2333.com/posts/linux-many-proc-write-file/</a></p>
+<p><a href="https://meik2333.com/posts/linux-many-proc-write-file/" target="_blank" rel="noopener noreffer">https://meik2333.com/posts/linux-many-proc-write-file/</a></p>
 </blockquote>
 <h3 id="recv返回值的含义">recv返回值的含义</h3>
 <p><strong>recv方法：</strong></p>
 <p>模型：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"> <span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"> <span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
  <span class="cp">#include</span> <span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
@@ -7109,13 +7318,13 @@ fork 是指的是 fork bomb 那种量级的 fork？😂
 <p>模型：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">ssize_t</span> <span class="nf">send</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span>
@@ -7146,7 +7355,7 @@ fork 是指的是 fork bomb 那种量级的 fork？😂
 </ul>
 <h3 id="linux-常用指令">Linux 常用指令</h3>
 <blockquote>
-<p><a href="https://www.runoob.com/w3cnote/linux-common-command-2.html">https://www.runoob.com/w3cnote/linux-common-command-2.html</a></p>
+<p><a href="https://www.runoob.com/w3cnote/linux-common-command-2.html" target="_blank" rel="noopener noreffer">https://www.runoob.com/w3cnote/linux-common-command-2.html</a></p>
 </blockquote>
 <blockquote>
 <p>特別注意 查看系統指令</p>
@@ -7265,10 +7474,10 @@ y  向前滚动一行
 <p>（1）循环读取逐渐增加的文件内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ping 127.0.0.1 &gt; ping.log <span class="p">&amp;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ping 127.0.0.1 &gt; ping.log <span class="p">&amp;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>后台运行：可使用 jobs -l 查看，也可使用 fg 将其移到前台运行。</p>
@@ -7332,11 +7541,9 @@ a ：所有的用户及群组</p>
 <p>权限代号：</p>
 <p>r ：读权限，用数字4表示
 w ：写权限，用数字2表示
-x ：执行权限，用数字1表示</p>
-<ul>
-<li>：删除权限，用数字0表示
-s ：特殊权限</li>
-</ul>
+x ：执行权限，用数字1表示
+- ：删除权限，用数字0表示
+s ：特殊权限</p>
 <p><strong>19、tar 命令</strong></p>
 <p>用来压缩和解压文件。tar 本身不具有压缩功能，只具有打包功能，有关压缩及解压是调用其它的功能来完成。</p>
 <p>弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件</p>
@@ -7354,14 +7561,14 @@ s ：特殊权限</li>
 <p>有关 gzip 及 bzip2 压缩:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">gzip 实例：压缩 gzip fileName .tar.gz 和.tgz  解压：gunzip filename.gz 或 gzip -d filename.gz
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">gzip 实例：压缩 gzip fileName .tar.gz 和.tgz  解压：gunzip filename.gz 或 gzip -d filename.gz
           对应：tar zcvf filename.tar.gz     tar zxvf filename.tar.gz
 
 bz2实例：压缩 bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzip -d filename.bz2
@@ -7384,10 +7591,10 @@ bz2实例：压缩 bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzi
 <p>（1）显示磁盘使用情况</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">df -l
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">df -l
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>23、ln 命令</strong></p>
@@ -7438,9 +7645,8 @@ bz2实例：压缩 bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzi
 <p>grep 的规则表达式:</p>
 <p>^  #锚定行的开始 如：'^grep&rsquo;匹配所有以grep开头的行。
 $  #锚定行的结束 如：&lsquo;grep$&lsquo;匹配所有以grep结尾的行。
-.  #匹配一个非换行符的字符 如：&lsquo;gr.p&rsquo;匹配gr后接一个任意字符，然后是p。</p>
-<ul>
-<li>#匹配零个或多个先前字符 如：'<em>grep&rsquo;匹配所有一个或多个空格后紧跟grep的行。
+.  #匹配一个非换行符的字符 如：&lsquo;gr.p&rsquo;匹配gr后接一个任意字符，然后是p。<br>
+*  #匹配零个或多个先前字符 如：'<em>grep&rsquo;匹配所有一个或多个空格后紧跟grep的行。
 .</em>   #一起用代表任意字符。<br>
 []   #匹配一个指定范围内的字符，如&rsquo;[Gg]rep&rsquo;匹配Grep和grep。
 [^]  #匹配一个不在指定范围内的字符，如：'[^A-FH-Z]rep&rsquo;匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。<br>
@@ -7452,8 +7658,7 @@ x{m,}  #重复字符x,至少m次，如：&lsquo;o{5,}&lsquo;匹配至少有5个o
 x{m,n}  #重复字符x，至少m次，不多于n次，如：&lsquo;o{5,10}&lsquo;匹配5&ndash;10个o的行。<br>
 \w    #匹配文字和数字字符，也就是[A-Za-z0-9]，如：&lsquo;G\w*p&rsquo;匹配以G后跟零个或多个文字或数字字符，然后是p。<br>
 \W    #\w的反置形式，匹配一个或多个非单词字符，如点号句号等。<br>
-\b    #单词锁定符，如: &lsquo;\bgrep\b&rsquo;只匹配grep。</li>
-</ul>
+\b    #单词锁定符，如: &lsquo;\bgrep\b&rsquo;只匹配grep。</p>
 <p>实例：</p>
 <p>（1）查找指定进程</p>
 <p>ps -ef | grep svn</p>
@@ -7535,7 +7740,7 @@ free -m</p>
 </blockquote>
 <p><strong>考試概率: 快速排序 &gt; 冒泡排序 &gt; 归并排序 &gt; 桶排序</strong></p>
 <blockquote>
-<p><strong>十大经典排序算法</strong> <a href="https://www.runoob.com/w3cnote/ten-sorting-algorithm.html">https://www.runoob.com/w3cnote/ten-sorting-algorithm.html</a></p>
+<p><strong>十大经典排序算法</strong> <a href="https://www.runoob.com/w3cnote/ten-sorting-algorithm.html" target="_blank" rel="noopener noreffer">https://www.runoob.com/w3cnote/ten-sorting-algorithm.html</a></p>
 </blockquote>
 <h3 id="排序的稳定性概念">排序的稳定性，概念</h3>
 <p>这个说错了，我还以为试是问时r[j]之前，而在排序后的序列中，r[i]仍在r[j]之前，则称这种排序算法是稳定的；否则称为不稳定的。</p>
@@ -7555,7 +7760,7 @@ free -m</p>
 <p>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -7577,7 +7782,7 @@ free -m</p>
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">temp</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -7609,7 +7814,7 @@ free -m</p>
 <p>从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -7623,7 +7828,7 @@ free -m</p>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">){</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">key</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
         <span class="n">key</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -7673,7 +7878,7 @@ free -m</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -7707,7 +7912,7 @@ free -m</p>
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="kt">int</span> <span class="nf">min</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="kt">int</span> <span class="nf">min</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">?</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kt">void</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
@@ -7766,7 +7971,7 @@ free -m</p>
 <p><strong>循環解法</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -7811,7 +8016,7 @@ free -m</p>
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_Range</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">_Range</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">Range</span><span class="p">;</span>
 
@@ -7859,7 +8064,7 @@ free -m</p>
 </div><p><strong>遞歸</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -7891,7 +8096,7 @@ free -m</p>
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
     <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
     <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
@@ -7937,7 +8142,7 @@ free -m</p>
 <p><strong>C 的寫法</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -7977,7 +8182,7 @@ free -m</p>
 </span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="c1">//recursive binary search
 </span><span class="c1"></span>
 <span class="kt">int</span> <span class="nf">bisearch</span><span class="p">(</span><span class="kt">int</span> <span class="n">key</span><span class="p">,</span><span class="kt">int</span> <span class="o">*</span><span class="n">list</span><span class="p">,</span><span class="kt">int</span> <span class="n">right</span><span class="p">,</span><span class="kt">int</span> <span class="n">left</span><span class="p">)</span>
@@ -8020,7 +8225,7 @@ free -m</p>
 </div><p><strong>C++ 的寫法</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -8048,7 +8253,7 @@ free -m</p>
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// array 長度 -1
 </span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
@@ -8078,7 +8283,7 @@ free -m</p>
 </div>
 </div><h3 id="二叉树dfsbfs实现c">二叉树DFS/BFS实现（C++）</h3>
 <blockquote>
-<p><a href="https://blog.csdn.net/usstmiracle/article/details/107021776">https://blog.csdn.net/usstmiracle/article/details/107021776</a></p>
+<p><a href="https://blog.csdn.net/usstmiracle/article/details/107021776" target="_blank" rel="noopener noreffer">https://blog.csdn.net/usstmiracle/article/details/107021776</a></p>
 </blockquote>
 <p><strong>深度优先搜索算法（Depth First Search）</strong></p>
 <p>DFS是搜索算法的一种。它沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所有边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。</p>
@@ -8108,7 +8313,7 @@ free -m</p>
 <p>代码实现：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -8261,7 +8466,7 @@ free -m</p>
 </span><span class="lnt">151
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;queue&gt;</span><span class="cp">
 </span><span class="cp">#include</span><span class="cpf">&lt;stack&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -8416,7 +8621,7 @@ free -m</p>
 </div>
 </div><h3 id="dijkstra算法求最短路径">dijkstra算法求最短路径</h3>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/40338107">https://zhuanlan.zhihu.com/p/40338107</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/40338107" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/40338107</a></p>
 </blockquote>
 <p>看这个算法的时候，虽然也是看到各种例子，但是对例子的说明，很多博客写的让我一脸懵，真为自己的智商感到着急。接下去我也将用一个例子来说明这个算法，希望初学者看到我的这篇可以更加浅显易懂。</p>
 <p>先引用别人的关于该算法的定义，有耐心的可以看看，也可以直接跳到例子。</p>
@@ -8487,7 +8692,7 @@ free -m</p>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

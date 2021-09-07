@@ -11,8 +11,8 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
  Sun 公司看別人的語言更新都更新到 xxx 了，自己的 Java 版本還是 1 點幾，讓人感覺很落後，所以在 jdk 1.6 的時候對外發布稱之為 jdk 6.0 ，讓人感覺更先進點。在寫 Java 的人眼裡都是叫 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-01-28T11:27:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-03-04T15:58:26&#43;08:00" />
+<meta property="article:published_time" content="2020-01-28T11:27:28+08:00" />
+<meta property="article:modified_time" content="2020-03-04T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -244,7 +244,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 <p>編輯 <code>~/.local/opt/tomcat/apache-tomcat-8.5.47/bin/startup.sh</code>，於文件末添加 JDK、JRE 配置內容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -254,7 +254,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#java8</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#java8</span>
 <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>~/.local/usr/lib/jvm/jdk1.8.0_241
 <span class="nb">export</span> <span class="nv">JRE_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/jre
 <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">JRE_HOME</span><span class="si">}</span>/lib
@@ -268,7 +268,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 <p>在 <code>~/.profile</code> 添加以下內容，編輯完後執行 <code>source ~/.profile</code> 重新加載環境變量，使配置生效。然後登出登入一次電腦。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,7 +297,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#java8</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#java8</span>
 <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>~/.local/usr/lib/jvm/jdk1.8.0_241
 <span class="nb">export</span> <span class="nv">JRE_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/jre
 <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">JRE_HOME</span><span class="si">}</span>/lib
@@ -344,10 +344,10 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 <p>於 <code>~/.local/opt/tomcat/apache-tomcat-8.5.47</code> 目錄下打開 Konsole，啟動 Tomcat。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">./startup.sh
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">./startup.sh
 </code></pre></td></tr></table>
 </div>
 </div><!-- ![tomcat_startup.png](https://imgpoi.com/i/KL8KL9.png "Tomcat 運行") -->
@@ -404,7 +404,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 <p>編輯 <code>~/.local/opt/maven/apache-maven-3.6.2/conf/</code> 目錄下的 <strong>settings.xml</strong>，於文末添加以下內容。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -412,7 +412,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirror&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirror&gt;</span>
         <span class="nt">&lt;id&gt;</span>nexus-aliyun<span class="nt">&lt;/id&gt;</span>
         <span class="nt">&lt;mirrorOf&gt;</span>*<span class="nt">&lt;/mirrorOf&gt;</span>
         <span class="nt">&lt;name&gt;</span>Nexus aliyun<span class="nt">&lt;/name&gt;</span>
@@ -513,7 +513,7 @@ JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這�
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

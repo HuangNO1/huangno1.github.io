@@ -14,8 +14,8 @@
 1 2 3 4 5 6 7 8 9  h1 標題 === # h1 標題 ## h2 標題 ### h3 標題 #### h4 標題 ##### h5 標題 ###### h6 標題   註解 跟 HTML 一樣的用法使用 &lt;!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/markdown_learn_note_basic_syntax/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-08-07T13:49:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-07T13:49:26&#43;08:00" />
+<meta property="article:published_time" content="2020-08-07T13:49:28+08:00" />
+<meta property="article:modified_time" content="2020-08-07T13:49:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -197,7 +197,7 @@
 <p>h1 - h6，h1 有兩種寫法。第一種是下一行添加 <code>===</code>，第二種就是加上 <code>#</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -208,7 +208,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">h1 標題
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">h1 標題
 ===
 
 <span class="gh"># h1 標題
@@ -223,17 +223,17 @@
 <p>跟 HTML 一樣的用法使用 <code>&lt;!--  --&gt;</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="c">&lt;!-- 我是註解 --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="c">&lt;!-- 我是註解 --&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="引言">引言</h3>
 <p>Markdown使用email形式的區塊引言，<strong>使用 <code>&gt;</code> 的方式添加引言，<code>&gt; &gt;</code> 是二級引言</strong>，引言內也可以使用其他 MD 語法。P.S. 二級引言我平時寫文章或筆記都用不到。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -245,7 +245,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">&gt; </span><span class="ge">This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">&gt; </span><span class="ge">This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
 </span><span class="ge"></span><span class="k">&gt; </span><span class="ge">consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 </span><span class="ge"></span><span class="k">&gt; </span><span class="ge">Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 </span><span class="ge"></span>&gt; 
@@ -277,7 +277,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 <p><strong>使用 <code>*</code>、<code>+</code>、<code>-</code> 皆可輸出無序清單</strong>，但是我比較長使用 <code>-</code>，因為 <code>*</code> 和 <code>+</code> 需要按住 <code>shift</code> 鍵。清單可以多層，二層清單是在下一行空兩格繼續寫清單。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -295,7 +295,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">*</span> Red
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">*</span> Red
 <span class="k">*</span> Green
 <span class="k">*</span> Blue
 
@@ -308,8 +308,8 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 <span class="k">-</span> Blue
 
 <span class="c">&lt;!-- 二層清單 --&gt;</span>
-<span class="ge">* Nulla volutpat aliquam velit
-</span><span class="ge">  *</span> Phasellus iaculis neque
+<span class="k">*</span> Nulla volutpat aliquam velit
+  <span class="k">*</span> Phasellus iaculis neque
   <span class="k">*</span> Purus sodales ultricies
 </code></pre></td></tr></table>
 </div>
@@ -342,12 +342,12 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 <p>使用數字接著一個英文句點：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span> Bird
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span> Bird
 <span class="k">2.</span> McHale
 <span class="k">3.</span> Parish
 </code></pre></td></tr></table>
@@ -364,7 +364,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 <p>下面的 Code：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -372,7 +372,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span> Bird
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span> Bird
 <span class="k">1.</span> McHale
 <span class="k">1.</span> Parish
 <span class="k">3.</span> Bird
@@ -392,7 +392,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 <p>清單項目可以包含多個段落，每個項目下的段落都必須<strong>縮排 4 個空白或是一個 Tab</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -403,7 +403,7 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span>  This is a list item with two paragraphs. Lorem ipsum dolor
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">1.</span>  This is a list item with two paragraphs. Lorem ipsum dolor
     sit amet, consectetuer adipiscing elit. Aliquam hendrerit
     mi posuere lectus.
 
@@ -417,29 +417,29 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
 </div><p>當然，項目清單很可能會不小心產生，像是下面這樣的寫法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">1986.</span> What a great season.
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">1986.</span> What a great season.
 </code></pre></td></tr></table>
 </div>
 </div><p>換句話說，也就是在行首出現<strong>數字－句點－空白</strong>，要避免這樣的狀況，你可以在句點前面加上反斜線。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">1986\. What a great season.
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">1986\. What a great season.
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="程式碼區塊">程式碼區塊</h3>
 <p>縮排 4 個空白或是 1 個 Tab 就可以簡單達到 Code 區塊。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">    print(&#39;Hello&#39;)
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">    print(&#39;Hello&#39;)
 </code></pre></td></tr></table>
 </div>
 </div><p>輸出如下：</p>
@@ -452,19 +452,19 @@ print(&lsquo;Hello&rsquo;)<br/>
 <p>輸出結果如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>使用 ``` 將 Code 區塊包起來</strong>，並在開頭寫明是哪種語言，以方便語法高亮，行內 Code 區塊使用如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">我是 <span class="sb">`行內 Code`</span> 喔！
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">我是 <span class="sb">`行內 Code`</span> 喔！
 </code></pre></td></tr></table>
 </div>
 </div><p>輸出如下：</p>
@@ -473,7 +473,7 @@ print(&lsquo;Hello&rsquo;)<br/>
 <p>你可以<strong>在一行中用三個或以上的星號、減號、底線來建立一個分隔線</strong>，行內不能有其他東西。你也可以在星號中間插入空白。下面每種寫法都可以建立分隔線：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -484,11 +484,11 @@ print(&lsquo;Hello&rsquo;)<br/>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md"><span class="k">*</span> * *
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="k">*</span> * *
 
-***
+<span class="ge">**</span>*
 
-<span class="gs">****</span>*
+<span class="ge">**</span>***
 
 <span class="k">-</span> - -
 
@@ -510,21 +510,21 @@ print(&lsquo;Hello&rsquo;)<br/>
 <p><strong>行內</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">你可以使用 [<span class="nt">Google</span>](<span class="na">https://www.google.com</span>) 搜索引擎
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">你可以使用 [<span class="nt">Google</span>](<span class="na">https://www.google.com</span>) 搜索引擎
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>參考</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">你可以使用 [Google][] 搜索引擎
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">你可以使用 [Google][] 搜索引擎
 
 [Google]: http://google.com/
 </code></pre></td></tr></table>
@@ -533,7 +533,7 @@ print(&lsquo;Hello&rsquo;)<br/>
 <p>斜體與粗體，我都使用 <code>*</code> 和 <code>**</code>，看個人習慣使用哪個符號。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -542,7 +542,7 @@ print(&lsquo;Hello&rsquo;)<br/>
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">*single asterisks*
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">*single asterisks*
 
 <span class="ge">_single underscores_</span>
 
@@ -564,12 +564,12 @@ print(&lsquo;Hello&rsquo;)<br/>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">![<span class="nt">Alt text</span>](<span class="na">/path/to/img.jpg</span>)
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">![<span class="nt">Alt text</span>](<span class="na">/path/to/img.jpg</span>)
 
 ![<span class="nt">Alt text</span>](<span class="na">/path/to/img.jpg &#34;Optional title&#34;</span>)
 </code></pre></td></tr></table>
@@ -578,16 +578,16 @@ print(&lsquo;Hello&rsquo;)<br/>
 <p>Markdown 可以利用<strong>反斜線來插入一些在語法中有其他意義的符號</strong>，例如：如果你想要用星號加在文字旁邊的方式來做出強調效果（但不用 <code>&lt;em&gt;</code> 標籤），你可以在星號的前面加上反斜線：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">\*literal asterisks\*
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">\*literal asterisks\*
 </code></pre></td></tr></table>
 </div>
 </div><p>Markdown支援在下面這些符號前面加上反斜線來幫助插入普通的符號：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -601,7 +601,7 @@ print(&lsquo;Hello&rsquo;)<br/>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">\   反斜線
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">\   反斜線
 `   反引號
 *   星號
 _   底線
@@ -625,13 +625,13 @@ _   底線
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-md" data-lang="md">| 列表1 | 列表2 | 列表 3 | 列表4 |
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">| 列表1 | 列表2 | 列表 3 | 列表4 |
 | --- | :--- | ---: | :---: |
 | ... | ... | ... | --- |
 | ... | ... | ... | --- |
@@ -698,7 +698,7 @@ _   底線
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

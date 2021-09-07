@@ -18,8 +18,8 @@
  關於燒錄方式  2020/01/21 補充燒錄方式。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/archlinux_install_part1_basic/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-09-28T15:24:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-07-29T15:58:26&#43;08:00" />
+<meta property="article:published_time" content="2019-09-28T15:24:28+08:00" />
+<meta property="article:modified_time" content="2020-07-29T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -315,10 +315,10 @@
 <p>在安裝過程我們需要用到網路，我們需要確認我們連的到網路，輸入以下指令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認是否可連上百度</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認是否可連上百度</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你的結果與下圖相同則代表你已連上了網路，按下 <code>Ctrl + C</code> 中止命令，</p>
@@ -337,10 +337,10 @@
 <p>1.插上網線</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="c1">#顯示自己的網路接口</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="c1">#顯示自己的網路接口</span>
 </code></pre></td></tr></table>
 </div>
 </div><!-- ![7.png](https://i.loli.net/2019/09/29/aILSzq6P5vWg8uG.png "顯示網路接口") -->
@@ -357,12 +357,12 @@
 <p><code>enp7s0</code> 是我的有線接口，<code>wlp0s20f3</code> 是我的無線接口，當然這些接口名稱會隨著電腦不同而不同但大多相似。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="nb">set</span> enp7s0 up <span class="c1"># 將有線接口打開</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="nb">set</span> enp7s0 up <span class="c1"># 將有線接口打開</span>
 dhcpcd enp7s0 <span class="c1"># 連接接口</span>
 ping baidu.com <span class="c1"># 再測試一次是否連網</span>
 </code></pre></td></tr></table>
@@ -386,13 +386,13 @@ ping baidu.com <span class="c1"># 再測試一次是否連網</span>
     </figure></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="nb">set</span> enp7s0 down <span class="c1"># 關閉自己電腦的有線接口</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ip link <span class="nb">set</span> enp7s0 down <span class="c1"># 關閉自己電腦的有線接口</span>
 ip link <span class="nb">set</span> enp0s20f0u1 up <span class="c1"># 開啟手機的有線接口</span>
 dhcpcd enp0s20f0u1 <span class="c1"># 連接手機的有線接口</span>
 ping baidu.com <span class="c1"># 測試是否連上網路</span>
@@ -406,11 +406,11 @@ ping baidu.com <span class="c1"># 測試是否連上網路</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">timedatectl set-ntp <span class="nb">true</span> <span class="c1"># 開啟時間同步</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">timedatectl set-ntp <span class="nb">true</span> <span class="c1"># 開啟時間同步</span>
 timedatectl status <span class="c1"># 檢查服務狀態</span>
 </code></pre></td></tr></table>
 </div>
@@ -443,10 +443,10 @@ timedatectl status <span class="c1"># 檢查服務狀態</span>
 <p>我們已經在 Windows 分割好了我們的磁區。我們使用的是 <strong>GPT</strong> 的方案。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">lsblk <span class="c1"># 檢查磁區狀態</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">lsblk <span class="c1"># 檢查磁區狀態</span>
 </code></pre></td></tr></table>
 </div>
 </div><!-- ![11.png](https://i.loli.net/2019/09/30/NMrOdjfom7FBA54.png "檢查磁區分區情況") -->
@@ -468,10 +468,10 @@ timedatectl status <span class="c1"># 檢查服務狀態</span>
 <p><strong>在這裡我們假設你的固態硬碟是 <code>nvme0n1</code> - 割出 40GB 給 <code>root</code>，虛擬硬碟是 <code>sda</code> - 割出 102GB</strong>。輸入以下指令進入管理磁區界面。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">cfdisk /dev/nvme0n1 <span class="c1"># 管理固態硬碟磁區</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">cfdisk /dev/nvme0n1 <span class="c1"># 管理固態硬碟磁區</span>
 </code></pre></td></tr></table>
 </div>
 </div><!-- ![12.png](https://i.loli.net/2019/09/30/Mm78ohqWiusweDQ.png "管理固態硬碟磁區") -->
@@ -491,10 +491,10 @@ timedatectl status <span class="c1"># 檢查服務狀態</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">cfdisk /dev/sda <span class="c1"># 管理虛擬硬碟磁區</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">cfdisk /dev/sda <span class="c1"># 管理虛擬硬碟磁區</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>示意圖我就不放了，方式都跟上個步驟大同小異，分別割出 2GB <code>Type</code> 為 <code>Linux Swap</code> 和 100GB <code>Type</code> 為 <code>Linux home</code> 的分區。</p>
@@ -515,11 +515,11 @@ timedatectl status <span class="c1"># 檢查服務狀態</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.ext4 /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.ext4 /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
 mkfs.ext4 /dev/sda4 <span class="c1">#格式化 home</span>
 </code></pre></td></tr></table>
 </div>
@@ -529,10 +529,10 @@ mkfs.ext4 /dev/sda4 <span class="c1">#格式化 home</span>
 <p><strong>注意：這裡只是提供 EFI 格式化方式，如果你的 EFI 已是 Windows 系統的分區，則不建議格式化該 EFI 分區，會造成原有的 Windows 系統崩潰，直接略過格式化 boot。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.fat -F32 /dev/nvme0n1p1 <span class="c1"># 格式化 boot</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.fat -F32 /dev/nvme0n1p1 <span class="c1"># 格式化 boot</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -540,11 +540,11 @@ mkfs.ext4 /dev/sda4 <span class="c1">#格式化 home</span>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkswap /dev/sda3 <span class="c1"># 格式化 swap</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkswap /dev/sda3 <span class="c1"># 格式化 swap</span>
 swapon /dev/sda3 <span class="c1"># 掛載置換空間</span>
 </code></pre></td></tr></table>
 </div>
@@ -552,7 +552,7 @@ swapon /dev/sda3 <span class="c1"># 掛載置換空間</span>
 <p>因為根目錄 <code>/mnt</code> 已在你的 USB 存在，所以不需要創建。<strong>注意：必須優先掛載 <code>/mnt</code> 再掛載其它目錄</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -560,7 +560,7 @@ swapon /dev/sda3 <span class="c1"># 掛載置換空間</span>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mount /dev/nvme0n1p5 /mnt <span class="c1"># 掛載根目錄 root</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mount /dev/nvme0n1p5 /mnt <span class="c1"># 掛載根目錄 root</span>
 mkdir /mnt/boot <span class="c1"># 創建 /boot 目錄</span>
 mount /dev/nvme0np1 /mnt/boot <span class="c1"># 掛載 /boot</span>
 mkdir /mnt/home <span class="c1"># 創建 /home 目錄</span>
@@ -574,10 +574,10 @@ lsblk <span class="c1"># 查看分區無誤</span>
 <p>編輯 <code>/etc/pacman.d/mirrorlist</code> 文件，將你的所在的鏡像地址優先排在前面，在列表中越前面的地址修先級越高。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/pacman.d/mirrorlist <span class="c1"># 編輯文件</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/pacman.d/mirrorlist <span class="c1"># 編輯文件</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>關於 Vim 的編輯指令可參考 <a href="https://gitbook.tw/chapters/command-line/vim-introduction.html" target="_blank" rel="noopener noreffer">超簡明 Vim 操作介紹</a>，用起來其實不難。</p>
@@ -595,10 +595,10 @@ lsblk <span class="c1"># 查看分區無誤</span>
 <p>關於 Vim 移動整行的指令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">12</span><span class="p">,</span> <span class="m">13</span> <span class="nx">move</span> <span class="m">6</span> # <span class="nx">將第</span> <span class="m">12</span><span class="p">,</span> <span class="m">13</span> <span class="nx">行剪貼至第</span> <span class="m">6</span> <span class="nx">行</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">12</span><span class="p">,</span> <span class="m">13</span> <span class="nx">move</span> <span class="m">6</span> # <span class="nx">將第</span> <span class="m">12</span><span class="p">,</span> <span class="m">13</span> <span class="nx">行剪貼至第</span> <span class="m">6</span> <span class="nx">行</span><span class="err">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>像我目前所在的地區為 China，所以我將 China 的鏡像源都移至最開頭。</p>
@@ -621,22 +621,22 @@ lsblk <span class="c1"># 查看分區無誤</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認此時你是連上網的</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ping baidu.com <span class="c1"># 確認此時你是連上網的</span>
 pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你是第二次裝 ArchLinux 的小夥伴，你執行以上指令可能會遇到下載完後安裝時，顯示 <code>/boot/vmlinuz-linux</code> 已存在，所以無法安裝，這時執行以下指令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">rm /boot/vmlinuz-linux <span class="c1"># 刪除該檔案</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm /boot/vmlinuz-linux <span class="c1"># 刪除該檔案</span>
 pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</span>
 </code></pre></td></tr></table>
 </div>
@@ -648,10 +648,10 @@ pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</s
 <p>執行以下指令生成 <code>fstab</code> 文件（用 <code>-U</code> 或 <code>-L</code> 選項設置 UUID 或卷標）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>我個人強烈建議生成完 <code>fstab</code> 後使用 Vim 查看內容，尤其是重裝 Arch 和重新分配磁區的人一定要查看這份文件。</strong></p>
@@ -660,10 +660,10 @@ pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</s
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /mnt/etc/fstab <span class="c1"># 查看 fstab 文件</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /mnt/etc/fstab <span class="c1"># 查看 fstab 文件</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>請確認這份文件裡只有四份資料（如果有多分割幾個磁區，就可能不是只有四份，你掛載幾個目錄就有幾份資料，不能多不能少）。</p>
@@ -692,11 +692,11 @@ pacstrap /mnt base linux linux-firmware <span class="c1"># 安裝基本系統</s
 <p>如果你的文件有問題且資料混亂執行以下指令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">rm /mnt/etc/fstab <span class="c1"># 移除原文件</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm /mnt/etc/fstab <span class="c1"># 移除原文件</span>
 genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件</span>
 </code></pre></td></tr></table>
 </div>
@@ -708,38 +708,38 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="3-時區">3. 時區</h3>
 <p>設置時區，<code>Region</code> 為你所在的洲，<code>City</code> 為你所在城市。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime <span class="c1"># 設置時區</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime <span class="c1"># 設置時區</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我設定的是台北時間。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 </code></pre></td></tr></table>
 </div>
 </div><p>執行 <code> hwclock</code> 生成 <code>/etc/adjtime</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">hwclock --systohc <span class="c1"># 生成 /etc/adjtime</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">hwclock --systohc <span class="c1"># 生成 /etc/adjtime</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>這個指令假定硬件時間已經設置為 <code>UTF</code> 時間。</p>
@@ -750,23 +750,23 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 <p>編輯 <code>locale.gen</code> 把自己要用的語言註解去掉，也就是去掉開頭的 <code>#</code>，一定要取消註解 <code>en_US.UTF-8 UTF-8</code>，建議取消註解<strong>帶 <code>UTF-8</code> 的語言</strong>，<strong>把 GBK 和 BIG5 註解去掉可以支援更多字</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/locale.gen <span class="c1"># 編輯 locale.gen</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/locale.gen <span class="c1"># 編輯 locale.gen</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>以下是我要取消註解的語言，因為我繁體字和簡體字都很常用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> <span class="nx">UTF</span><span class="m">-8</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> <span class="nx">UTF</span><span class="m">-8</span><span class="err">
 </span><span class="err"></span><span class="nx">zh_CN</span>.<span class="nx">GB18030</span> <span class="nx">GB18030</span><span class="err">
 </span><span class="err"></span><span class="nx">zh_CN</span>.<span class="nx">GBK</span> <span class="nx">GBK</span><span class="err">
 </span><span class="err"></span><span class="nx">zh_TW</span>.<span class="nx">EUC</span><span class="p">-</span><span class="nx">TW</span> <span class="nx">EUC</span><span class="p">-</span><span class="nx">TW</span><span class="err">
@@ -776,56 +776,56 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 </div><p>執行 <code>locale-gen</code> 生成 <code>locale</code> 訊息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"> locale-gen <span class="c1"># 生成 locale 訊息</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"> locale-gen <span class="c1"># 生成 locale 訊息</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接著創建 <code>locale.conf</code> 檔案並編輯 <code>LANG</code> 這一個<strong>語言環境</strong>環境變量為英語 <code>en_US.UTF-8</code>，如果你設為中文的話會造成 tty 出現亂碼。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/locale.conf <span class="c1"># 創建並編輯 locale.conf</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/locale.conf <span class="c1"># 創建並編輯 locale.conf</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>修改語言環境。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">LANG</span><span class="p">=</span><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> # <span class="nx">變量設為英語</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">LANG</span><span class="p">=</span><span class="nx">en_US</span>.<span class="nx">UTF</span><span class="m">-8</span> # <span class="nx">變量設為英語</span><span class="err">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="5-主機名稱與網路">5. 主機名稱與網路</h3>
 <p>創建 <code>hostname</code> 文件設置你的主機名稱。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hostname <span class="c1"># 創建 hostname 文件</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hostname <span class="c1"># 創建 hostname 文件</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>直接在 <code>hostname</code> 填入你主機名稱，<code>myhostname</code>是你的主機名。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">myhostname</span> # <span class="nx">你的主機名稱</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">myhostname</span> # <span class="nx">你的主機名稱</span><span class="err">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>添加對應訊息到 <code>hosts(5)</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hosts <span class="c1"># 編輯 hosts</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/hosts <span class="c1"># 編輯 hosts</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>寫入以下內容，將 <code>myhostname</code> 修改成你前面設定的主機名稱。</p>
@@ -835,12 +835,12 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="m">127</span>.<span class="m">0</span>.<span class="m">0</span>.<span class="m">1</span>	<span class="nx">localhost</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="m">127</span>.<span class="m">0</span>.<span class="m">0</span>.<span class="m">1</span>	<span class="nx">localhost</span><span class="err">
 </span><span class="err"></span><span class="p">:</span>:<span class="m">1</span>		<span class="nx">localhost</span><span class="err">
 </span><span class="err"></span><span class="m">127</span>.<span class="m">0</span>.<span class="m">1</span>.<span class="m">1</span>	<span class="nx">myhostname</span>.<span class="nx">localdomain</span>	<span class="nx">myhostname</span><span class="err">
 </span></code></pre></td></tr></table>
@@ -849,10 +849,10 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 <p>創建 <code>Initramfs</code>，這是用來將內存盤初始化的腳本，例如開關機時掛載與卸載磁區，現在 <code>Initramfs</code>已取代了舊版的 <code>initrd</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkinitcpio -p linux <span class="c1"># 創建 Initramfs</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkinitcpio -p linux <span class="c1"># 創建 Initramfs</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你想深入了解 <code>Initramfs</code>，可以參考 <a href="https://wiki.archlinux.org/index.php/Mkinitcpio_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">mkinitcpio (简体中文) - ArchWiki</a> 和 <a href="https://wiki.gentoo.org/wiki/Initramfs/Guide/zh-cn" target="_blank" rel="noopener noreffer">Initramfs/指南 - gentoo linux</a>。</p>
@@ -861,10 +861,10 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 <p>輸入以下指令後會要求你輸兩次密碼，第二次是確認你的密碼正確，<strong>輸入密碼時文字是隱藏的</strong>，所以不用慌張以為沒有輸入進去。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">passwd <span class="c1"># 設定密碼</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">passwd <span class="c1"># 設定密碼</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="8-安裝引導程序">8. 安裝引導程序</h3>
@@ -875,12 +875,12 @@ genfstab -U /mnt &gt;&gt; /mnt/etc/fstab <span class="c1"># 生成 fstab 文件<
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -Syu <span class="c1"># 現在更新一下系統</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -Syu <span class="c1"># 現在更新一下系統</span>
 sudo pacman -Syy <span class="c1"># 同步數據庫</span>
 sudo pacman -S grub os-prober efibootmgr <span class="c1"># 下載軟體包</span>
 </code></pre></td></tr></table>
@@ -891,10 +891,10 @@ sudo pacman -S grub os-prober efibootmgr <span class="c1"># 下載軟體包</spa
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"> grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>esp --bootloader-id<span class="o">=</span>grub
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"> grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>esp --bootloader-id<span class="o">=</span>grub
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -902,20 +902,20 @@ sudo pacman -S grub os-prober efibootmgr <span class="c1"># 下載軟體包</spa
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot --bootloader-id<span class="o">=</span>grub
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot --bootloader-id<span class="o">=</span>grub
 </code></pre></td></tr></table>
 </div>
 </div><p>然後<strong>掛載</strong>你的 Windows 磁區，你的固態硬碟 C 槽磁區，沒掛載的話到時候產生設定檔會找不到你的 Windows。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkdir /mnt/windows <span class="c1"># 創建 C 槽目錄</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkdir /mnt/windows <span class="c1"># 創建 C 槽目錄</span>
 mount /dev/sdaX1 /mnt/windows <span class="c1"># 掛載到目標磁區</span>
 </code></pre></td></tr></table>
 </div>
@@ -923,30 +923,30 @@ mount /dev/sdaX1 /mnt/windows <span class="c1"># 掛載到目標磁區</span>
 <p>現在我想將我的虛擬硬碟 Wiindows 的 D 槽掛載。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkdir /mnt/Data <span class="c1"># 創建 D 槽目錄</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkdir /mnt/Data <span class="c1"># 創建 D 槽目錄</span>
 mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>然後產生 <code>grub</code> 設定檔。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">grub-mkconfig -o /boot/grub/grub.cfg
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre></td></tr></table>
 </div>
 </div><p>確認設定檔產生無報錯後接著退出 <code>Chroot</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="重要補充">重要補充</h2>
@@ -956,10 +956,10 @@ mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">grub-install --target<span class="o">=</span>i386-pc /dev/sdX
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">grub-install --target<span class="o">=</span>i386-pc /dev/sdX
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="雙-arch-系統">雙 Arch 系統</h3>
@@ -975,7 +975,7 @@ mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
 <p>你需要將你另一個 Arch 系統 <strong>/root</strong> 和 <strong>/boot</strong> 的  UUID 記住。像我的 <code>root</code> 的 UUID 是 <code>a48c597a-d1f2-4f4a-82f8-ba96114912f1</code>、<code>boot</code> 的 UUID 是 <code>1258-CD76</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -992,7 +992,7 @@ mount /dev/sdaX2 /mnt/Data <span class="c1"># 掛載到目標磁區</span>
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">lsblk -f <span class="c1"># 檢查各磁區 UUID</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">lsblk -f <span class="c1"># 檢查各磁區 UUID</span>
 <span class="c1"># 以下是輸出結果</span>
 NAME        FSTYPE FSVER LABEL      UUID                                 FSAVAIL FSUSE% MOUNTPOINT
 sda                                                                                     
@@ -1015,16 +1015,16 @@ nvme0n1
 <p>紀錄後，就編輯 <code>/boot/grub/grub.cfg</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /boot/grub/grub.cfg
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /boot/grub/grub.cfg
 </code></pre></td></tr></table>
 </div>
 </div><p>加上以下內容，並將下面所有的 <code>rootUUID</code> 和 <code>bootUUID</code> 分別改成你另一個 Arch 系統的 <strong>/root</strong> 和 <strong>/boot</strong> 的  UUID。至於開頭的 <code>Arch Linux</code> 可改成自己想取的名字。<code>Advanced options for Arch Linux</code> 也改成你自己想取的名字。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1076,7 +1076,7 @@ nvme0n1
 </span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">menuentry <span class="s1">&#39;Arch Linux&#39;</span> --class arch --class gnu-linux --class gnu --class os <span class="nv">$menuentry_id_option</span> <span class="s1">&#39;gnulinux-simple-rootUUID&#39;</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">menuentry <span class="s1">&#39;Arch Linux&#39;</span> --class arch --class gnu-linux --class gnu --class os <span class="nv">$menuentry_id_option</span> <span class="s1">&#39;gnulinux-simple-rootUUID&#39;</span> <span class="o">{</span>
 	load_video
 	<span class="nb">set</span> <span class="nv">gfxpayload</span><span class="o">=</span>keep
 	insmod gzio
@@ -1135,12 +1135,12 @@ submenu <span class="s1">&#39;Advanced options for Arch Linux&#39;</span> <span 
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">arch-chroot /mnt <span class="c1"># 進入 Chroot</span>
 pacman -S networkmanager <span class="c1"># 安裝 networkmanager</span>
 <span class="nb">exit</span> <span class="c1"># 退出 Chroot</span>
 </code></pre></td></tr></table>
@@ -1162,42 +1162,42 @@ pacman -S networkmanager <span class="c1"># 安裝 networkmanager</span>
 <h3 id="xfs">XFS</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.xfs /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.xfs /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
 mkfs.xfs /dev/sda4 <span class="c1">#格式化 home</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>在安裝 <code>base</code> 時要輸入以下內容，將 <code>xfsprogs</code> 包加入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacstrap /mnt base linux linux-firmware xfsprogs
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacstrap /mnt base linux linux-firmware xfsprogs
 </code></pre></td></tr></table>
 </div>
 </div><p>更多請參考 <a href="https://wiki.archlinux.org/index.php/XFS_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">XFS (简体中文) - ArchWiki</a>。</p>
 <h3 id="btrfs">Btrfs</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.btrfs -L arch-root /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mkfs.btrfs -L arch-root /dev/nvme0n1p5 <span class="c1">#格式化 root</span>
 mkfs.btrfs -L arch-home /dev/sda4 <span class="c1">#格式化 home</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>在安裝 <code>base</code> 時要輸入以下內容，將 <code>btrfs-progs</code> 包加入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacstrap /mnt base linux linux-firmware btrfs-progs
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacstrap /mnt base linux linux-firmware btrfs-progs
 </code></pre></td></tr></table>
 </div>
 </div><p>更多請參考 <a href="https://wiki.archlinux.org/index.php/Btrfs_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">Btrfs (简体中文) - ArchWiki</a>。</p>
@@ -1205,11 +1205,11 @@ mkfs.btrfs -L arch-home /dev/sda4 <span class="c1">#格式化 home</span>
 <p>因為我手速不夠快，如果不小心在還沒完全關機或已經開機狀態下拔下 USB，會造成嚴重錯誤，所以我選擇直接關機再手動開機。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">reboot <span class="c1"># 重開機</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">reboot <span class="c1"># 重開機</span>
 poweroff <span class="c1"># 直接關機</span>
 </code></pre></td></tr></table>
 </div>
@@ -1267,7 +1267,7 @@ poweroff <span class="c1"># 直接關機</span>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

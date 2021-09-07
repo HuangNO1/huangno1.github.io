@@ -17,8 +17,8 @@ Display Tab Channel 展示Display_tabbed.gif
  layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/android_java_swip_views_with_tabs/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-06-15T09:03:28&#43;08:00" />
-<meta property="article:modified_time" content="2021-06-15T09:03:28&#43;08:00" />
+<meta property="article:published_time" content="2021-06-15T09:03:28+08:00" />
+<meta property="article:modified_time" content="2021-06-15T09:03:28+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -207,7 +207,7 @@ Display Tab Channel 展示Display_tabbed.gif
 <p>我需要在 Home Fragment 展示我的 Tabs，然後在 <strong>NewsChannelFragment</strong> 顯示各頁面內容，這裡我們有 <code>TabLayout</code> 和最新的 <code>ViewPager2</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -274,7 +274,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </span><span class="lnt">65
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span class="nt">&lt;androidx.coordinatorlayout.widget.CoordinatorLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
     <span class="na">xmlns:tools=</span><span class="s">&#34;http://schemas.android.com/tools&#34;</span>
     <span class="na">xmlns:app=</span><span class="s">&#34;http://schemas.android.com/apk/res-auto&#34;</span>
@@ -345,7 +345,7 @@ Display Tab Channel 展示Display_tabbed.gif
 <p>這裡就沒有比較需要注意的東西。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -361,7 +361,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 
 <span class="nt">&lt;androidx.coordinatorlayout.widget.CoordinatorLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
     <span class="na">xmlns:app=</span><span class="s">&#34;http://schemas.android.com/apk/res-auto&#34;</span>
@@ -382,7 +382,7 @@ Display Tab Channel 展示Display_tabbed.gif
 <p>這裡的注意點是在 <code>public static NewsChannelFragment newInstance(String category, int index)</code> 方法中返回一個自己的 Fragment 實例對象，還有 <code>onCreate</code> 中的傳參數獲取。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -445,7 +445,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
@@ -511,7 +511,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </div><h3 id="uipagenewschannelpageviewmodeljava"><code>ui/page/newsChannel/PageViewModel.java</code></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -542,7 +542,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">androidx.lifecycle.MutableLiveData</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">androidx.lifecycle.ViewModel</span><span class="o">;</span>
@@ -577,7 +577,7 @@ Display Tab Channel 展示Display_tabbed.gif
 <p>這裡使用的是最新的 API：<code>FragmentStateAdapter</code>。成員變量 <code>mArrayList</code> 是我們的 <code>Fragment</code> 數組，我們渲染多少頻道就有多大。<code>addFragment</code> 方法添加新的 <code>fragment</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -621,7 +621,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.page.newsChannel</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">androidx.annotation.NonNull</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">androidx.fragment.app.Fragment</span><span class="o">;</span>
@@ -669,7 +669,7 @@ Display Tab Channel 展示Display_tabbed.gif
 <p>這是最關鍵的文件，關於設定 <code>TabLayout</code>和 <code>ViewPager2</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -770,7 +770,7 @@ Display Tab Channel 展示Display_tabbed.gif
 </span><span class="lnt">99
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.home</span><span class="o">;</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.example.toutiao.ui.home</span><span class="o">;</span>
 
 <span class="c1">// ...
 </span><span class="c1"></span>
@@ -907,7 +907,7 @@ Display Tab Channel 展示Display_tabbed.gif
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

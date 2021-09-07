@@ -17,8 +17,8 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  &lt;!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/android_java_pull_to_refresh/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-06-15T19:03:28&#43;08:00" />
-<meta property="article:modified_time" content="2021-06-15T19:03:28&#43;08:00" />
+<meta property="article:published_time" content="2021-06-15T19:03:28+08:00" />
+<meta property="article:modified_time" content="2021-06-15T19:03:28+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -185,12 +185,12 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
 <p>首先要加上依賴</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">dependencies {
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">dependencies {
     implementation &#34;androidx.swiperefreshlayout:swiperefreshlayout:1.1.0&#34;
 }
 </code></pre></td></tr></table>
@@ -198,7 +198,7 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
 </div><p>接著在 xml 中需要刷新渲染的 <code>RecyclerView</code> 或是 <code>ListView</code> 加上該組件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -214,7 +214,7 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- ... --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;androidx.swiperefreshlayout.widget.SwipeRefreshLayout</span>
     <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
     <span class="na">android:id=</span><span class="s">&#34;@+id/swiperefresh&#34;</span>
@@ -233,7 +233,7 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
 </div><p>下拉刷新組件都會有個<strong>監聽刷新動作的方法</strong>讓你使用，你可以在組件的相關說明文檔找到。在你的刷新地方進行刷新監聽。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -266,7 +266,7 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimelineActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimelineActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">SwipeRefreshLayout</span> <span class="n">swipeContainer</span><span class="o">;</span>
 
     <span class="nd">@Override</span>
@@ -335,7 +335,7 @@ Display 下拉刷新展示Display_pull_to_refresh.gif
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

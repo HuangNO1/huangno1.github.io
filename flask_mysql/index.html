@@ -11,8 +11,8 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/flask_mysql/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-08-04T22:49:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-05T12:49:26&#43;08:00" />
+<meta property="article:published_time" content="2020-08-04T22:49:28+08:00" />
+<meta property="article:modified_time" content="2020-08-05T12:49:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -169,17 +169,17 @@
 <h2 id="安裝">安裝</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pip install mysql-connector-python
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pip install mysql-connector-python
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="引入連接數據庫">引入、連接數據庫</h2>
 <p>因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -194,7 +194,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">mysql.connector</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">mysql.connector</span>
 <span class="kn">from</span> <span class="nn">mysql.connector</span> <span class="kn">import</span> <span class="n">Error</span>
 
 <span class="c1"># 連接 MySQL 資料庫</span>
@@ -204,7 +204,7 @@
     <span class="n">user</span><span class="o">=</span><span class="s1">&#39;Rem&#39;</span><span class="p">,</span>        <span class="c1"># 帳號</span>
     <span class="n">password</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># 密碼</span>
 
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">buffered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;SELECT DATABASE();&#34;</span><span class="p">)</span>
 <span class="n">record</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 </code></pre></td></tr></table>
@@ -218,7 +218,7 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -282,7 +282,7 @@
 </span><span class="lnt">62
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
 <span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
 <span class="kn">import</span> <span class="nn">mysql.connector</span>
 <span class="kn">from</span> <span class="nn">mysql.connector</span> <span class="kn">import</span> <span class="n">Error</span>
@@ -306,14 +306,14 @@
 <span class="n">captcha</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># 驗證 註冊的 Email</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/validateEmail&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/user/validateEmail&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">user_register_email_validate</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}</span>
         <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
         <span class="n">requestCaptcha</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;captcha&#39;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;requestCaptcha: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">requestCaptcha</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;captcha: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">captcha</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;requestCaptcha: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">requestCaptcha</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;captcha: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">captcha</span><span class="p">))</span>
         <span class="c1"># 如果驗證碼相同</span>
         <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">requestCaptcha</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">captcha</span><span class="p">):</span>
             <span class="k">global</span> <span class="n">registerTempData</span>
@@ -322,14 +322,14 @@
             <span class="c1"># 將緩存的註冊資料加入</span>
             <span class="n">new_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">],</span> <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;username&#34;</span><span class="p">],</span>
                         <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;email&#34;</span><span class="p">],</span> <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;phone&#34;</span><span class="p">],</span> <span class="n">registerTempData</span><span class="p">[</span><span class="s2">&#34;password&#34;</span><span class="p">])</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
             <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">new_data</span><span class="p">)</span>
 
             <span class="c1"># 確認資料有存入資料庫</span>
             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Your account is activated!&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
             <span class="c1"># 初始化</span>
             <span class="n">registerTempData</span> <span class="o">=</span> <span class="p">{</span>
@@ -341,7 +341,7 @@
             <span class="p">}</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;The captcha is not true!&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -355,7 +355,7 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -412,8 +412,8 @@
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 返回用戶資訊</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/getDetail&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 返回用戶資訊</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/user/getDetail&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="nd">@jwt_optional</span>
 <span class="k">def</span> <span class="nf">user_getDetail</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
@@ -428,7 +428,7 @@
         <span class="c1"># 驗證失敗 回傳失敗</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 
@@ -444,12 +444,12 @@
                 <span class="s2">&#34;password&#34;</span><span class="p">:</span> <span class="n">password</span>
             <span class="p">})</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="n">sqlSearchResult</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sqlSearchResult</span><span class="p">)</span>
 
         <span class="c1"># 如果有資料</span>
         <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Searching is Success. Have Data&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="c1"># 將搜到的數據添入 response_object</span>
             <span class="n">response_object</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
                 <span class="s1">&#39;userData&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -464,7 +464,7 @@
         <span class="c1"># 如果沒有資料</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;There is not this account in the database.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -473,7 +473,7 @@
 <p>糊糊搜索最關鍵的地方就是如何將 Keyword 加入 SQL 語句，下面是個實際例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -523,8 +523,8 @@
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 模糊搜索 所有 channelType 是 group 的群 </span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/channels/searchChannels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 模糊搜索 所有 channelType 是 group 的群 </span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/user/channels/searchChannels&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="nd">@jwt_optional</span>
 <span class="k">def</span> <span class="nf">user_channels_search_channels</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
@@ -540,7 +540,7 @@
         <span class="c1"># 驗證失敗 回傳失敗</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 
@@ -560,7 +560,7 @@
         <span class="c1"># 如果有 資料</span>
         <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Get the channel List success.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="c1"># 將資料添加到 response_object</span>
             <span class="n">response_object</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
                 <span class="s1">&#39;searchResult&#39;</span><span class="p">:</span> <span class="n">sqlSearchResult</span>
@@ -568,7 +568,7 @@
         <span class="c1"># 沒有 message</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;There is no data.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -577,7 +577,7 @@
 <p>以些改某個帳戶資料為例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -621,9 +621,9 @@
 </span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 修改更新用戶 phone 資料</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 修改更新用戶 phone 資料</span>
 <span class="c1"># 這裡前端要先判斷輸入的新 Phone 是否跟原本的一樣，如果相同就不准請求</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/update/phone&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/user/update/phone&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="nd">@jwt_optional</span>
 <span class="k">def</span> <span class="nf">user_update_phone</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
@@ -639,7 +639,7 @@
         <span class="c1"># 驗證失敗 回傳失敗</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 
@@ -656,11 +656,11 @@
             <span class="c1"># 確認資料有存入資料庫</span>
             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Update phone success.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="c1"># 沒有找到資料</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Update phone fail.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -669,7 +669,7 @@
 <p>以刪除某帳戶為例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -751,8 +751,8 @@
 </span><span class="lnt">80
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 刪除帳戶</span>
-<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/user/delete&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="c1"># 刪除帳戶</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&#34;/user/delete&#34;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
 <span class="nd">@jwt_optional</span>
 <span class="k">def</span> <span class="nf">user_delete_account</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
@@ -770,7 +770,7 @@
         <span class="c1"># 驗證失敗 回傳失敗</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">current_user</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anonymous user&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 
@@ -781,7 +781,7 @@
         <span class="c1"># 如果沒找到該 id</span>
         <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;This account is not exist.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 
@@ -825,10 +825,10 @@
             <span class="n">jti</span> <span class="o">=</span> <span class="n">get_raw_jwt</span><span class="p">()[</span><span class="s1">&#39;jti&#39;</span><span class="p">]</span>
             <span class="n">blacklist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">jti</span><span class="p">)</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Delete the account success.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Delete the account fail. The password is not true.&#39;</span>
-            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">)</span>
 </code></pre></td></tr></table>
@@ -869,7 +869,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

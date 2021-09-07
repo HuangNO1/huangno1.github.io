@@ -19,8 +19,8 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
  註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/ssh_no_password_connection/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-12-22T16:49:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-12-22T16:49:26&#43;08:00" />
+<meta property="article:published_time" content="2020-12-22T16:49:28+08:00" />
+<meta property="article:modified_time" content="2020-12-22T16:49:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -179,11 +179,11 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
 <p>兩台服務器都編輯 <code>/etc/hosts</code> 文件，添加以下內容，假設各自的公網 IP 是 <code>10.10.15.xx1</code>、<code>10.10.15.xx2</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">10.10.15.xx1 Server1
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">10.10.15.xx1 Server1
 10.10.15.xx2 Server2
 </code></pre></td></tr></table>
 </div>
@@ -196,10 +196,10 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
 <p>先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ssh-keygen -t rsa <span class="c1"># 當前使用者生成密鑰</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ssh-keygen -t rsa <span class="c1"># 當前使用者生成密鑰</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你當前是普通使用者就會在 <code>/home/user/.ssh/</code> 目錄下找到 <code>id_rsa.pub</code> 公鑰。如果是 root 使用者，會在 <code>/root/.ssh/</code> 目錄裡找到。</p>
@@ -207,10 +207,10 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
 <p>我們先將服務器一的公鑰文件傳給服務器二。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1
 </code></pre></td></tr></table>
 </div>
 </div><p>接著在服務器二上面將雙方公鑰合成一個授權驗證文件。</p>
@@ -219,7 +219,7 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -231,7 +231,7 @@ SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，�
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ssh Server2
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ssh Server2
 <span class="nb">cd</span> /root/.ssh
 <span class="c1"># 將自己的公鑰加入</span>
 cat id_rsa.pub &gt;&gt; authorized_keys
@@ -276,7 +276,7 @@ scp ~/.ssh/authorized_keys root@Server1:/root/.ssh/authorized_keys
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

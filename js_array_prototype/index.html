@@ -11,8 +11,8 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  // JS forEach 與 map  // forEach 是對每一項的操作，會影響原來的 array let arr = [1, 2, 3, 4, 5, 6] // 對數組直接進行循環，相當於 for，沒有返回值 // result 不會有返回值 即使寫了 return 也是 undefined let result = arr.forEach((item, index, arr) =&gt; { console.log(item) console.log(index) console.log(arr) return item }) console.log(result)   map() map 則是不會影響原來的 array 值，而是生成新的值返回給新的數組。對 Array 每一項進行加工，加工完成之後返回一個新的數組。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/js_array_prototype/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-08-06T18:49:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-08-06T18:49:26&#43;08:00" />
+<meta property="article:published_time" content="2020-08-06T18:49:28+08:00" />
+<meta property="article:modified_time" content="2020-08-06T18:49:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -160,7 +160,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 <p><strong><code>forEach</code> 是對每一項的操作，會影響原來的 array</strong>，不會有回傳值，即使強制寫 <code>return</code>，也會是空值，例子如下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -176,7 +176,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// JS forEach 與 map
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// JS forEach 與 map
 </span><span class="c1"></span>
 <span class="c1">// forEach 是對每一項的操作，會影響原來的 array
 </span><span class="c1"></span><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
@@ -196,7 +196,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 <p><strong><code>map</code> 則是不會影響原來的 array 值，而是生成新的值返回給新的數組</strong>。對 Array 每一項進行加工，加工完成之後返回一個新的數組。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -205,7 +205,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// map 對數組每一項進行加工，加工完成之後返回一個新的數組
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// map 對數組每一項進行加工，加工完成之後返回一個新的數組
 </span><span class="c1"></span><span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="nx">item</span> <span class="o">+</span> <span class="nx">index</span>
   <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
@@ -218,7 +218,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 <p>顧名思義，過濾，<strong><code>filter</code> 將想要的內容進行篩選</strong>，不想要的過濾，最終得到想要的內容。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -233,7 +233,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// filter 過濾，將想要的內容進行篩選，不想要的過濾，最終得到想要的內容
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// filter 過濾，將想要的內容進行篩選，不想要的過濾，最終得到想要的內容
 </span><span class="c1"></span>
 <span class="kd">let</span> <span class="nx">result2</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="c1">// 通過返回 true 或是 false 進行選擇
@@ -252,7 +252,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 <p>reduce 是對整個 Array 進行整合，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -269,7 +269,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// reduce 是對整個數組進行整合
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// reduce 是對整個數組進行整合
 </span><span class="c1">// 比如你要做一個將術組裡所有的數字進行相加
 </span><span class="c1">// 將數組每一項內容整合後，返回一個內容
 </span><span class="c1"></span>
@@ -289,7 +289,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </div><p>使用箭頭函數進行整合。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -301,7 +301,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
 <span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">accumulator</span><span class="p">,</span> <span class="nx">currentValue</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">accumulator</span> <span class="o">+</span> <span class="nx">currentValue</span><span class="p">;</span>
 
 <span class="c1">// 1 + 2 + 3 + 4
@@ -320,7 +320,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -341,7 +341,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// for...in...主要用於遍歷對象，不適用遍歷數組
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// for...in...主要用於遍歷對象，不適用遍歷數組
 </span><span class="c1">// for...of...可以用來遍歷數組，類數組對象，字符串，set/map, generator
 </span><span class="c1"></span>
 <span class="c1">// for(key of obj) 裡面的是每一項
@@ -398,7 +398,7 @@ forEach() forEach 是對每一項的操作，會影響原來的 array，不會�
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

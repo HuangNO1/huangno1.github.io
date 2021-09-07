@@ -18,8 +18,8 @@ mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
 1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/archlinux_fail_to_start_mariadb/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-05-03T16:03:28&#43;08:00" />
-<meta property="article:modified_time" content="2021-05-03T16:03:28&#43;08:00" />
+<meta property="article:published_time" content="2021-05-03T16:03:28+08:00" />
+<meta property="article:modified_time" content="2021-05-03T16:03:28+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -200,10 +200,10 @@ mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
 <p>依然沒找到問題所在，於是我進一步查看日誌：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">$ journalctl -xeu mariadb.service
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">$ journalctl -xeu mariadb.service
 </code></pre></td></tr></table>
 </div>
 </div><p><figure><a class="lightgallery" href="https://imgpoi.com/i/K86NF9.png" title="journalctl_xeu_mariadb.png" data-thumbnail="https://imgpoi.com/i/K86NF9.png" data-sub-html="<h2>檢查 mariadb.service 日誌</h2><p>journalctl_xeu_mariadb.png</p>">
@@ -221,13 +221,13 @@ mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
 <p>群友沒有比較好的解決方法，於是<strong>建議要不要將數據庫文件刪掉，重新新建新的數據庫</strong>，然後我想想數據庫中也沒有比較重要的數據，平常我做完項目也會習慣性將數據庫導出 <code>*.sql</code> 文件，所以接受了這個方案。具體操作如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 刪除數據庫</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 刪除數據庫</span>
 sudo rm -rf /var/lib/mysql
 <span class="c1"># 添加新的數據庫</span>
 sudo mariadb-install-db --user<span class="o">=</span>mysql --basedir<span class="o">=</span>/usr --datadir<span class="o">=</span>/var/lib/mysql
@@ -282,7 +282,7 @@ sudo mariadb-install-db --user<span class="o">=</span>mysql --basedir<span class
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

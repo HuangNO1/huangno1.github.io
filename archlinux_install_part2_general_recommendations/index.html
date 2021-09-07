@@ -15,8 +15,8 @@
  1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-01-04T15:24:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-07-29T15:58:26&#43;08:00" />
+<meta property="article:published_time" content="2020-01-04T15:24:28+08:00" />
+<meta property="article:modified_time" content="2020-07-29T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -204,12 +204,12 @@
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
 systemctl start NetworkManager <span class="c1"># 啟用 Netmanager</span>
 ping baidu.com <span class="c1"># 確認連網</span>
 </code></pre></td></tr></table>
@@ -222,14 +222,14 @@ ping baidu.com <span class="c1"># 確認連網</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">useradd -G wheel user <span class="c1"># 新增使用者</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">useradd -G wheel user <span class="c1"># 新增使用者</span>
 passwd user <span class="c1"># 設定使用者密碼</span>
 chfn user <span class="c1"># 添加使用者信息，可暫時不填</span>
 mkdir -m <span class="m">700</span> /home/user <span class="c1"># 創建主目錄</span>
@@ -243,11 +243,11 @@ chown user:user /home/user <span class="c1"># 修改使用者與使用者群組<
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sudo <span class="c1"># 安裝 sudo</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sudo <span class="c1"># 安裝 sudo</span>
 nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </code></pre></td></tr></table>
 </div>
@@ -257,11 +257,11 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">root</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">root</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span><span class="err">
 </span><span class="err"></span><span class="nx">user</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span> # <span class="nx">新增使用者</span><span class="err">
 </span></code></pre></td></tr></table>
 </div>
@@ -273,16 +273,16 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 <p>編輯 <code>/etc/pacman.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/pacman.conf
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/pacman.conf
 </code></pre></td></tr></table>
 </div>
 </div><p>在文件末添加<strong>清華大學 CN 源</strong>，並<strong>順便將 multilib 註解去除</strong>，因為後續裝一些軟體需要到這個庫。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -290,7 +290,7 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"># <span class="nx">去掉</span> <span class="nx">multilib</span> <span class="nx">註解</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"># <span class="nx">去掉</span> <span class="nx">multilib</span> <span class="nx">註解</span><span class="err">
 </span><span class="err"></span>[<span class="nx">multilib</span>]<span class="err">
 </span><span class="err"></span><span class="nx">Include</span> <span class="p">=</span> <span class="sr">/etc/</span><span class="nx">pacman</span>.<span class="nx">d</span>/<span class="nx">mirrorlist</span><span class="err">
 </span><span class="err"></span># <span class="nx">添加</span> <span class="nx">CN</span> <span class="nx">源</span><span class="err">
@@ -301,10 +301,10 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </div><p>archlinuxcn-keyring 套件導入 GPG 金鑰。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -Sy archlinuxcn-keyring
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -Sy archlinuxcn-keyring
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="安裝圖形界面">安裝圖形界面</h2>
@@ -312,10 +312,10 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 <p>使用 xorg 啟動桌面環境。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S xorg
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S xorg
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="圖形界面選擇">圖形界面選擇</h3>
@@ -338,10 +338,10 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -349,10 +349,10 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma-meta <span class="c1"># 推薦</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma-meta <span class="c1"># 推薦</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -360,10 +360,10 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma-desktop
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma-desktop
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="gnome">Gnome</h4>
@@ -385,11 +385,11 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gnome <span class="c1"># 推薦</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gnome <span class="c1"># 推薦</span>
 pacman -S gnome gnome-extra <span class="c1"># 不推薦</span>
 </code></pre></td></tr></table>
 </div>
@@ -401,20 +401,20 @@ pacman -S gnome gnome-extra <span class="c1"># 不推薦</span>
 <p>使用 SDDM 登入啟動器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sddm
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sddm
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="gnome-1">Gnome</h4>
 <p>使用 GDM 登入啟動器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gdm
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gdm
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="顯卡衝突">顯卡衝突</h3>
@@ -423,14 +423,14 @@ pacman -S gnome gnome-extra <span class="c1"># 不推薦</span>
 <p>安裝 <code>optimus-manager</code>，幫你自動產生 <code>xorg.conf</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S optimus-manager <span class="c1"># 安裝 optimus-manager</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S optimus-manager <span class="c1"># 安裝 optimus-manager</span>
 systemctl <span class="nb">enable</span> --now optimus-manager
 <span class="c1"># 二選一</span>
 optimus-manager --switch intel <span class="c1"># 切換到內顯</span>
@@ -440,14 +440,14 @@ optimus-manager --switch nvidia <span class="c1"># 切 N 卡</span>
 </div><p>如果你需要<strong>重新選擇圖形界面的驅動方式</strong>，也就是選擇以哪個顯卡驅動，<strong>要刪除 <code>/etc/X11/xorg.conf</code></strong>，再重新設定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">rm /etc/X11/xorg.conf <span class="c1"># 刪除 /etc/X11/xorg.conf</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm /etc/X11/xorg.conf <span class="c1"># 刪除 /etc/X11/xorg.conf</span>
 systemctl <span class="nb">enable</span> --now optimus-manager
 <span class="c1"># 二選一</span>
 optimus-manager --switch intel <span class="c1"># 切換到內顯</span>
@@ -460,11 +460,11 @@ optimus-manager --switch nvidia <span class="c1"># 切 N 卡</span>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start sddm <span class="c1"># 啟用圖形界面</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start sddm <span class="c1"># 啟用圖形界面</span>
 systemctl <span class="nb">enable</span> sddm <span class="c1"># 開機自啟</span>
 </code></pre></td></tr></table>
 </div>
@@ -473,11 +473,11 @@ systemctl <span class="nb">enable</span> sddm <span class="c1"># 開機自啟</s
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start gdm <span class="c1"># 啟用圖形界面</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start gdm <span class="c1"># 啟用圖形界面</span>
 systemctl <span class="nb">enable</span> gdm <span class="c1"># 開機自啟</span>
 </code></pre></td></tr></table>
 </div>
@@ -490,12 +490,12 @@ systemctl <span class="nb">enable</span> gdm <span class="c1"># 開機自啟</sp
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S yay <span class="c1"># 下載安裝 yay</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S yay <span class="c1"># 下載安裝 yay</span>
 pacman -S base-devel <span class="c1"># 下載安裝 base-devel 編譯工具包</span>
 yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </code></pre></td></tr></table>
@@ -503,10 +503,10 @@ yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </div><p>如果有 Nvidia 卡，要先安裝 <code>nvidia</code> 套件，然後重起電腦，讓 arch-prime-git 能偵測到顯卡（Nvidia）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S nvidia <span class="c1"># 安裝 N 卡套件</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S nvidia <span class="c1"># 安裝 N 卡套件</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>先初始化 arch-prime-git。</p>
@@ -515,10 +515,10 @@ yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">prime-select init
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select init
 </code></pre></td></tr></table>
 </div>
 </div><p>這軟件包提供<strong>三種模式</strong>：</p>
@@ -527,10 +527,10 @@ yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> intel
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> intel
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -538,10 +538,10 @@ yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> nvidia
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> nvidia
 </code></pre></td></tr></table>
 </div>
 </div><ol start="3">
@@ -552,7 +552,7 @@ yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -562,7 +562,7 @@ yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> prime
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> prime
 
 <span class="c1"># 跑在核顯上</span>
 glxinfo <span class="p">|</span> grep vendor
@@ -577,10 +577,10 @@ glxinfo <span class="p">|</span> grep vendor
 <p>進入 Plasma，預設會是英文，我推薦使用 Google 的開源字體 <code>Noto Sans CJK</code>，渲染出來的字體很好看。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S noto-fonts-cjk
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S noto-fonts-cjk
 </code></pre></td></tr></table>
 </div>
 </div><p>進入 Plasma 後可以在設置中調整字體了，登出再登入就可以看到中文字體。</p>
@@ -592,49 +592,49 @@ glxinfo <span class="p">|</span> grep vendor
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S fcitx fcitx-im
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S fcitx fcitx-im
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝新酷音輸入法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S fcitx-chewing
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S fcitx-chewing
 </code></pre></td></tr></table>
 </div>
 </div><p>輸入法設定介面。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S kcm-fcitx <span class="c1"># KDE</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S kcm-fcitx <span class="c1"># KDE</span>
 pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>編輯 <code>/etc/profile</code>，開頭加入三行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/profile
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/profile
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">export</span> <span class="nx">XMODIFIERS</span><span class="p">=</span><span class="s2">&#34;@im=fcitx&#34;</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">export</span> <span class="nx">XMODIFIERS</span><span class="p">=</span><span class="s2">&#34;@im=fcitx&#34;</span><span class="err">
 </span><span class="err"></span><span class="nx">export</span> <span class="nx">GTK_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span><span class="err">
 </span><span class="err"></span><span class="nx">export</span> <span class="nx">QT_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span><span class="err">
 </span></code></pre></td></tr></table>
@@ -644,20 +644,20 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 <p><strong>如果你使用的文件系統是 Btrfs 或是 XFS 就不需要下載這東西。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S ntfs-3g
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S ntfs-3g
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="konsole">Konsole</h2>
 <p>進入圖形界面後需要安裝 Konsole 以便輸入指令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S konsole
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S konsole
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="重要補充">重要補充</h2>
@@ -685,11 +685,11 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
 sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;blacklist ideapad_laptop&#34;</span> <span class="c1"># 永久生效</span>
 </code></pre></td></tr></table>
 </div>
@@ -698,13 +698,13 @@ sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span 
 <p>如果你有在更新或下載時，顯示 GPG 失效或錯誤等訊息，可以嘗試用以下方法解決。我也都是靠這方法解決大部份問題。做完以下步驟後用 pacman 同步一下資料庫，然後再試著下載看看。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">rm -rf /etc/pacman.d/gnupg
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm -rf /etc/pacman.d/gnupg
 pacman-key --init
 pacman-key --populate archlinux
 pacman-key --populate archlinuxcn
@@ -758,7 +758,7 @@ pacman-key --populate archlinuxcn
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

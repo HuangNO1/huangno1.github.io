@@ -14,8 +14,8 @@ CentOS 無法啟動centos_fail_to_boot.jpg
 解決  I chose the default boot option and reached a console. Ideally one should create a dump of the damaged partition by running xfs_metadump, restore the dump to an image using xfs_mdrestore, and then perform the repair on that image." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-12-24T12:17:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-12-24T12:17:26&#43;08:00" />
+<meta property="article:published_time" content="2020-12-24T12:17:28+08:00" />
+<meta property="article:modified_time" content="2020-12-24T12:17:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -184,10 +184,10 @@ The repair completed and after a reboot CentOS started successfully.</p>
 <p>根據這些內容，於是我在進入的終端裡輸入了<strong>修復鏡像指令</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">xfs_repair -L /dev/mapper/centos-root
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">xfs_repair -L /dev/mapper/centos-root
 </code></pre></td></tr></table>
 </div>
 </div><p>接著我輸入 <code>exit</code> 登出後，重新進入系統，結果成功啟動 CentOS 7虛擬機，進入圖形界面也沒問題。</p>
@@ -231,7 +231,7 @@ The repair completed and after a reboot CentOS started successfully.</p>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

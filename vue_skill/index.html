@@ -14,8 +14,8 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
  Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/vue_skill/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-07-31T16:49:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-07-31T16:49:26&#43;08:00" />
+<meta property="article:published_time" content="2020-07-31T16:49:28+08:00" />
+<meta property="article:modified_time" content="2020-07-31T16:49:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -235,7 +235,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -258,7 +258,7 @@ Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了�
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vue create demo <span class="c1"># 創建一個 vue-cli 應用</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vue create demo <span class="c1"># 創建一個 vue-cli 應用</span>
 
 <span class="c1"># 按下 Down 再按 Enter 選擇第二項自定義</span>
 Vue CLI v4.4.6
@@ -288,7 +288,7 @@ Vue CLI v4.4.6
 <h3 id="project-結構">Project 結構</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -316,7 +316,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">.
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
 ├── babel.config.js
 ├── .browserslistrc
 ├── .git
@@ -415,7 +415,7 @@ Vue CLI v4.4.6
 <p><strong>new Vue</strong>：這是應用程序的根 Vue 實例。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -423,7 +423,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
     <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
     <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">{}</span>
@@ -433,7 +433,7 @@ Vue CLI v4.4.6
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -441,7 +441,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
   ...
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -452,7 +452,7 @@ Vue CLI v4.4.6
 </div><p><strong>export default</strong>：ES6 語法中的導出，也就是說這是聲明一個之後會被註冊使用的組件，<strong>創建一個本地可註冊的 Vue 組件</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -461,7 +461,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// my-component.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// my-component.js
 </span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
     <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;my-component&#39;</span><span class="p">,</span>
     <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
@@ -472,7 +472,7 @@ Vue CLI v4.4.6
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -490,7 +490,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- another-component.js --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- another-component.js --&gt;</span>
 <span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">my-component</span><span class="p">&gt;&lt;/</span><span class="nt">my-component</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
@@ -513,7 +513,7 @@ Vue CLI v4.4.6
 <p>在 <code>demo/</code>（也就是 Project 根目錄）下新建一個 <code>vue.config.js</code> 檔案，並寫入下列內容。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -525,7 +525,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// vue.config.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// vue.config.js
 </span><span class="c1"></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
     <span class="c1">// 告訴 dev-server 在服務器啟動後打開瀏覽器，將其設置 true 為打開默認瀏覽器
@@ -555,10 +555,10 @@ Vue CLI v4.4.6
 <p><strong>安裝</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">npm install vue-router <span class="c1"># 安裝 vue-router</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">npm install vue-router <span class="c1"># 安裝 vue-router</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>配置說明</strong>：</p>
@@ -571,7 +571,7 @@ Vue CLI v4.4.6
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -606,7 +606,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// src/router/index.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// src/router/index.js
 </span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
 <span class="kr">import</span> <span class="nx">VueRouter</span> <span class="nx">from</span> <span class="s1">&#39;vue-router&#39;</span>
 <span class="kr">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;../views/Home.vue&#39;</span>
@@ -643,7 +643,7 @@ Vue CLI v4.4.6
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -659,7 +659,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// src/main.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// src/main.js
 </span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
 <span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App.vue&#39;</span>
 <span class="kr">import</span> <span class="nx">router</span> <span class="nx">from</span> <span class="s1">&#39;./router&#39;</span> <span class="c1">// 引入 router
@@ -678,7 +678,7 @@ Vue CLI v4.4.6
 </div><p>在需要用道路由管理顯示的組件加入 <code>&lt;router-view/&gt;</code>，<code>&lt;router-link&gt;&lt;/router-link&gt;</code> 用於路由跳轉規則，就像一開始初始化的 <code>src/App.vue</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -713,7 +713,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;nav&#34;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/&#34;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span> |
@@ -751,7 +751,7 @@ Vue CLI v4.4.6
 </div><h4 id="router-配置注意點">Router 配置注意點</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -769,7 +769,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 這裡 Home 組件是需要引入的，但是因為上面的例子有寫，這裡為了方便描述就不寫了
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 這裡 Home 組件是需要引入的，但是因為上面的例子有寫，這裡為了方便描述就不寫了
 </span><span class="c1"></span><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
@@ -805,7 +805,7 @@ Vue CLI v4.4.6
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -843,7 +843,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/sign&#39;</span><span class="p">,</span>
     <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Sign&#39;</span><span class="p">,</span>
@@ -885,7 +885,7 @@ Vue CLI v4.4.6
 <p>下面的寫法可以匹配 404 路由。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -895,7 +895,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
     <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;404&#39;</span><span class="p">,</span>
@@ -909,7 +909,7 @@ Vue CLI v4.4.6
 <p>動態路由會攜帶一個參數，可以用來在<strong>初始化渲染組件時發送請求數據</strong>，會攜帶的參數代表的意義可以是 UserID 或是 UserName&hellip;等，e.g 像是 Github 在查看別人的空間時 URL 上會有使用者的 UserName，所以會根據那個參數請求數據。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -945,7 +945,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/:id/admin&#39;</span><span class="p">,</span>
         <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
@@ -984,14 +984,14 @@ Vue CLI v4.4.6
 </div><p>在上面的任意路由組件寫入 <code>this.$route.params.id</code>，就會顯示是 <code>:id</code> 參數。當然你在寫動態路由的時候可以自己定義參數名，沒有一定要是 <code>id</code>。e.g.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     {{ this.$route.params.id }}
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1002,19 +1002,19 @@ Vue CLI v4.4.6
 <p><strong>跳轉路由</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>返回上個瀏覽器歷史路由</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>攜帶 query string 參數的跳轉路由方式</strong></p>
@@ -1024,14 +1024,14 @@ Vue CLI v4.4.6
 <p>就下面的例子而言，在有 query string 的組件中顯示 <code>this.$route.query.blogId</code> 就會顯示攜帶的參數。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
   <span class="nx">path</span><span class="o">:</span>
     <span class="s2">&#34;/&#34;</span> <span class="o">+</span> <span class="nx">username</span> <span class="o">+</span> <span class="s2">&#34;/blog/read&#34;</span><span class="p">,</span>
   <span class="nx">query</span><span class="o">:</span> <span class="p">{</span> <span class="nx">blogId</span><span class="o">:</span> <span class="nx">blogId</span> <span class="p">},</span>
@@ -1040,14 +1040,14 @@ Vue CLI v4.4.6
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     {{ this.$route.query.blogId }}
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1058,7 +1058,7 @@ Vue CLI v4.4.6
 <p>我在跳轉頁面時會發現，當我按下返回上個歷史頁面，頁面所在的滾輪位置（也就是檢視位置）會不固定，在 Router 的配置文件加入下面的參數能控制跳轉的位置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1075,7 +1075,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
     <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
     <span class="nx">base</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">BASE_URL</span><span class="p">,</span>
     <span class="nx">routes</span><span class="p">,</span>
@@ -1101,16 +1101,16 @@ Vue CLI v4.4.6
 <p><strong>安裝</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm i vue-axios
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">npm i vue-axios
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>註冊組件</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1118,7 +1118,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//  src/main.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">//  src/main.js
 </span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
 <span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
 <span class="kr">import</span> <span class="nx">VueAxios</span> <span class="nx">from</span> <span class="s1">&#39;vue-axios&#39;</span>
@@ -1138,7 +1138,7 @@ Vue CLI v4.4.6
 <h4 id="params">Params</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1166,7 +1166,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="s1">&#39;axios&#39;</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="s1">&#39;axios&#39;</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="c1">// ...
@@ -1198,7 +1198,7 @@ Vue CLI v4.4.6
 <p>這裡要換成這樣的寫法比較方便，這裡設置 <code>Content-Type</code> 為 <code>'multipart/form-data'</code>（<code>'form-data'</code> 也可以）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1234,7 +1234,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="c1">// ...
@@ -1273,7 +1273,7 @@ Vue CLI v4.4.6
 </div><h4 id="純-js">純 Js</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1305,7 +1305,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="c1">// ...
@@ -1341,7 +1341,7 @@ Vue CLI v4.4.6
 <p>下面的例子中，在 <strong><code>header</code> 添加 <code>Authorization</code> 參數</strong>，這裡要注意的是 <strong><code>header</code> 與 <code>data</code> 的參數位置，不管 <code>data</code> 裡面有沒有內容，即使是空的也要添加上去</strong>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1394,7 +1394,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
   <span class="c1">// ...
@@ -1457,7 +1457,7 @@ Vue CLI v4.4.6
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1543,7 +1543,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">84
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nx">glob</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;glob&#39;</span><span class="p">)</span> <span class="c1">// 用于筛选文件
 </span><span class="c1"></span>
 <span class="c1">// 工厂函数 - 配置pages实现多页面获取某文件夹下的html与js
@@ -1632,7 +1632,7 @@ Vue CLI v4.4.6
 </div><p>接著弄多頁面應用的時候，<strong>在 <code>src/</code> 下新建一個 <code>application/</code> 目錄</strong>，然後如果我要新增的是電商平台寵物商店和論壇，<strong>應用名稱分別為 <code>PetStore</code> 和 <code>Communication</code></strong>，就改造成如下目錄結構：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1678,7 +1678,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">.
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
 ├── babel.config.js
 ├── .browserslistrc
 ├── .git
@@ -1736,7 +1736,7 @@ Vue CLI v4.4.6
 <p>有時我們要<strong>用 js 引入相對位置圖片會失敗</strong>，像下面的例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1752,7 +1752,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">:src</span><span class="o">=</span><span class="s">&#34;img&#34;</span><span class="p">/&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1771,7 +1771,7 @@ Vue CLI v4.4.6
 </div><p>之所以會失敗是因為，網頁把根域名當作相對路徑的根目錄，上面的 <code>img: &quot;../assets/image/xxxxx.png&quot;</code> 被識別為 <code>img: &quot;http://localhost:8080/../assets/image/xxxxx.png&quot;</code>，應該要改成如下方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1787,7 +1787,7 @@ Vue CLI v4.4.6
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">:src</span><span class="o">=</span><span class="s">&#34;img&#34;</span><span class="p">/&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1854,7 +1854,7 @@ Vue CLI v4.4.6
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

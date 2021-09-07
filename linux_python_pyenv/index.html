@@ -13,8 +13,8 @@ pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個
  設置代理 1 2 3 4 5 6 7 8 9 10  # set http git config --global http." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/linux_python_pyenv/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-01-27T15:26:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-03-04T15:58:26&#43;08:00" />
+<meta property="article:published_time" content="2020-01-27T15:26:28+08:00" />
+<meta property="article:modified_time" content="2020-03-04T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -180,7 +180,7 @@ pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個
 <h3 id="設置代理">設置代理</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -192,7 +192,7 @@ pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># set http</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># set http</span>
 git config --global http.proxy <span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
 <span class="c1"># set https</span>
 git config --global https.proxy <span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
@@ -207,10 +207,10 @@ npm config delete proxy
 </div><h3 id="下載">下載</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">git clone https://github.com/pyenv/pyenv.git ~/.pyenv <span class="c1"># Basic GitHub Checkout</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">git clone https://github.com/pyenv/pyenv.git ~/.pyenv <span class="c1"># Basic GitHub Checkout</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="環境變量">環境變量</h2>
@@ -221,7 +221,7 @@ npm config delete proxy
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -229,7 +229,7 @@ npm config delete proxy
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># .profile</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># .profile</span>
 <span class="nb">echo</span> <span class="s1">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.profile
 <span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.profile
 <span class="c1"># .zshrc</span>
@@ -242,13 +242,13 @@ npm config delete proxy
 <p>輸入以下指令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># .profile</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># .profile</span>
 <span class="nb">echo</span> -e <span class="s1">&#39;if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval &#34;$(pyenv init -)&#34;\nfi&#39;</span> &gt;&gt; ~/.profile
 <span class="c1"># .zshrc</span>
 <span class="nb">echo</span> -e <span class="s1">&#39;if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval &#34;$(pyenv init -)&#34;\nfi&#39;</span> &gt;&gt; ~/.zshrc
@@ -258,11 +258,11 @@ npm config delete proxy
 <p>先重新加載環境變量文件後，重啟 Shell。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">source</span> ~/.profile
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">source</span> ~/.profile
 <span class="nb">source</span> ~/.zshrc
 </code></pre></td></tr></table>
 </div>
@@ -271,19 +271,19 @@ npm config delete proxy
 <p>我目前要使用 Python 3.7.6 的版本。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pyenv install 3.7.6
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pyenv install 3.7.6
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="設置-shell-默認全局-python-版本">設置 Shell 默認全局 Python 版本</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">pyenv global 3.7.6
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pyenv global 3.7.6
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來重新登出登入電腦。使用 <code>python --version</code> 查看 Python 版本就會發現版本已經變成 <code>3.7.6</code> 了。</p>
@@ -324,7 +324,7 @@ npm config delete proxy
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

@@ -14,8 +14,8 @@
 創建包的一個很重要的工具是 makepkg（由 pacman 提供），它主要做以下工作：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/archlinux_makepkg/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-01-31T11:27:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-03-04T15:58:26&#43;08:00" />
+<meta property="article:published_time" content="2020-01-31T11:27:28+08:00" />
+<meta property="article:modified_time" content="2020-03-04T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -237,10 +237,10 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S base-devel <span class="c1"># 安裝 base-devel</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S base-devel <span class="c1"># 安裝 base-devel</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="下載與測試安裝---觀察紀錄">下載與測試安裝 - 觀察紀錄</h3>
@@ -248,12 +248,12 @@
 <p>大多數軟體作者遵循三步走的安裝慣例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">./configure
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">./configure
 make
 make install
 </code></pre></td></tr></table>
@@ -269,13 +269,13 @@ make install
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">cd</span> ~ <span class="c1"># 進入家目錄</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">cd</span> ~ <span class="c1"># 進入家目錄</span>
 mkdir work <span class="c1"># 新增 work 資料夾</span>
 <span class="nb">cd</span> work/ <span class="c1"># 進入 work 資料夾</span>
 touch PKGBUILD <span class="c1"># 新增 PKGBUILG</span>
@@ -335,7 +335,7 @@ touch PKGBUILD <span class="c1"># 新增 PKGBUILG</span>
 <p>下面是我 <code>usr/share/pacman/PKGBUILD.proto</code> 的內容。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -389,7 +389,7 @@ touch PKGBUILD <span class="c1"># 新增 PKGBUILG</span>
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># This is an example PKGBUILD file. Use this as a start to creating your own,</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># This is an example PKGBUILD file. Use this as a start to creating your own,</span>
 <span class="c1"># and remove these comments. For more information, see &#39;man PKGBUILD&#39;.</span>
 <span class="c1"># NOTE: Please fill out the license field for your package! If it is unknown,</span>
 <span class="c1"># then please put &#39;unknown&#39;.</span>
@@ -461,7 +461,7 @@ package<span class="o">()</span> <span class="o">{</span>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -472,7 +472,7 @@ package<span class="o">()</span> <span class="o">{</span>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">  <span class="nv">optdepends</span><span class="o">=(</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">  <span class="nv">optdepends</span><span class="o">=(</span>
   <span class="s1">&#39;cups: printing support&#39;</span>
   <span class="s1">&#39;sane: scanners support&#39;</span>
   <span class="s1">&#39;libgphoto2: digital cameras support&#39;</span>
@@ -488,10 +488,10 @@ package<span class="o">()</span> <span class="o">{</span>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">  <span class="nv">LC_ALL</span><span class="o">=</span>C pacman -Si <span class="k">$(</span>pactree -rl <span class="s1">&#39;&#39;</span>package<span class="s1">&#39;&#39;</span><span class="k">)</span> 2&gt;/dev/null <span class="p">|</span> grep -q <span class="s2">&#34;^Groups *:.*base-devel&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">  <span class="nv">LC_ALL</span><span class="o">=</span>C pacman -Si <span class="k">$(</span>pactree -rl <span class="s1">&#39;&#39;</span>package<span class="s1">&#39;&#39;</span><span class="k">)</span> 2&gt;/dev/null <span class="p">|</span> grep -q <span class="s2">&#34;^Groups *:.*base-devel&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -505,13 +505,13 @@ package<span class="o">()</span> <span class="o">{</span>
 <p>所以我們應該在 <code>source</code> 填上：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">source</span><span class="o">=(</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">source</span><span class="o">=(</span>
   <span class="s2">&#34;https://statres.quickapp.cn/quickapp/ide/</span><span class="si">${</span><span class="nv">pkgname</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">pkgver</span><span class="si">}</span><span class="s2">.deb&#34;</span>
   <span class="s2">&#34;https://statres.quickapp.cn/quickapp/quickapp/201809/file/201809171830002525474.docx&#34;</span>
 <span class="o">)</span>
@@ -536,20 +536,20 @@ package<span class="o">()</span> <span class="o">{</span>
 <p>這個函數使用通用 Bash 指令<strong>編譯軟體並建立軟體安裝目錄</strong>，在 <code>build()</code> 的第一步就是<strong>進入解壓縮原始碼後的目錄</strong>。<code>makepkg</code> 會在執行 <code>build()</code> 前進入 <code>$srcdir</code>，大多情況第一條指令是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$srcdir</span><span class="s2">/</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$srcdir</span><span class="s2">/</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來編寫編譯要用到的指令，<code>build()</code> 會在 <code>fakeroot</code> 環境下執行，如果你要打包的軟體使用到了配置指令碼 (configure script)，使用參數 <code>--prefix=/usr</code> 是個好習慣，很多軟體在手動編譯安裝的時候會安裝到 <code>/usr/local</code>，但所有的 Arch 包應該安裝到 <code>/usr</code> 目錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">./configure --prefix<span class="o">=</span>/usr
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">./configure --prefix<span class="o">=</span>/usr
 make
 </code></pre></td></tr></table>
 </div>
@@ -560,10 +560,10 @@ make
 <p>最後一步就是把編譯好的檔案放到一個目錄讓 <code>makepkg</code> 可以<strong>檢索並打包</strong>，這個目錄通常是 <code>pkg</code>，一個 <code>fakeroot</code> 環境，<code>pkg</code> 目錄複製了軟體安裝根目錄的階層關係，如果你手動放置了一個檔案到根目錄，那你也要把檔案放在 <code>pkg</code> 中相同的層級結構中，假設你想要把檔案安裝到 <code>/usr/bin</code>，在 <code>fakeroot</code> 環境中對應的路徑應該是 <code>$pkgdir/usr/bin</code>，極少情況會需要使用者手動去安裝檔案，一般情況使用 <code>make install</code> 即可將軟體安裝到正確的路徑，最後一行通常這樣寫：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/&#34;</span> install
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/&#34;</span> install
 </code></pre></td></tr></table>
 </div>
 </div><p><code>makepkg --repackage</code> 只執行 <code>package()</code>，不執行 <code>build()</code>，如果僅修改包的依賴可以用這個指令重新打包以節省時間。</p>
@@ -574,14 +574,14 @@ make
 <p>關於 <strong>license</strong> 我獨立出來補充說明，通常關於該軟體的 license 可以在該 Upstream（包源）找的到，或是下載下來的軟體包說明文件裡有，<strong>如果作者沒有寫 license 就不能隨意上傳 AUR</strong>，然後如果你要上傳的軟體包的 <strong>license</strong> 屬性在 <code>/usr/share/licenses/common</code> 可以找到，則將其值設為該值，e.g. 我有一個準備要上傳的包裡面的作者說明的 license 填的是 <code>GPL</code>，我就只要在那欄填寫 <code>GPL</code>，有多個 license 就填多個，像是 <code>license=('GPT' 'LGPL' 'FDL')</code>，然後 <strong>不需要將該 license 下載下來，也就是填寫 <code>source</code> 的時候不需要將 license 源填上去</strong>，再次強調不需要下載下來，除非 <code>/usr/share/licenses/common</code> 找不到跟該軟體包相符的 license 時候才需要在 <code>source</code> 填寫 license 檔案源，並在後面將 license 下載下來，接著 license 那欄寫 <code>custom</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 通用許可證</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 通用許可證</span>
 $ ls /usr/share/licenses/common
 AGPL    APACHE       CCPL  EPL     FDL1.3  GPL3     LGPL3  MPL2          PSF        W3C
 AGPL3   Artistic2.0  CDDL  FDL     GPL     LGPL     LPPL   PerlArtistic  RUBY       ZPL
@@ -591,16 +591,16 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 </div><p>如果你的 license 需要下載下來，則授權要安裝到 <code>/usr/share/licenses/pkgname/</code>，把下面指令寫入 PKGBUILD 的 <code>package()</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">install -Dm <span class="m">644</span> LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">install -Dm <span class="m">644</span> LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>e.g. quickapp-ide 寫的 <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=quickapp-ide" target="_blank" rel="noopener noreffer">PKGBUILD</a>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -610,7 +610,7 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">package<span class="o">()</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">package<span class="o">()</span> <span class="o">{</span>
   install -Dm <span class="m">644</span> 201809171830002525474.docx <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE.docx&#34;</span>
   <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
   <span class="c1"># install -d opt/quickAppIDE</span>
@@ -624,10 +624,10 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 <p>當我們在 <code>~/work/PKGBUILD</code> 寫完我們的 PKGBUILD 後，接下來就是<strong>更新校驗的值</strong>，這時我們又要回到上面看一下 PKGBUILD 有一個參數是 <code>md5sums</code>/<code>sha1sums</code>/<code>sha256sums</code>，這裡就是我們要填上他的時候，在 Konsole 進入 <code>/work</code> 目錄下輸入以下指令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">makepkg -g &gt;&gt; PKGBUILD
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">makepkg -g &gt;&gt; PKGBUILD
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來你就可以在你寫的 PKGBUILD 文件裡看到文件末以填上 <code>md5sums</code> 屬性的內容。</p>
@@ -641,10 +641,10 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">PKGEXT</span><span class="o">=</span><span class="s1">&#39;.pkg.tar&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">PKGEXT</span><span class="o">=</span><span class="s1">&#39;.pkg.tar&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -652,10 +652,10 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">PKGEXT</span><span class="o">=</span><span class="s1">&#39;.pkg.tar.zst&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nv">PKGEXT</span><span class="o">=</span><span class="s1">&#39;.pkg.tar.zst&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="構建">構建</h3>
@@ -665,10 +665,10 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">makepkg --repackage
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">makepkg --repackage
 </code></pre></td></tr></table>
 </div>
 </div><p>構建完成後如果你是用 <strong>zstd 算法</strong> 你就可以在 <code>/work</code> 產生一個包名為<code>$pkgname-$pkgver.pkg.tar.zst</code>。</p>
@@ -714,7 +714,7 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

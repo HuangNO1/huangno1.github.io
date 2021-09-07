@@ -17,8 +17,8 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
  1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/deploy_springboot_flask_vue_web/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-12-21T16:49:28&#43;08:00" />
-<meta property="article:modified_time" content="2020-12-21T16:49:26&#43;08:00" />
+<meta property="article:published_time" content="2020-12-21T16:49:28+08:00" />
+<meta property="article:modified_time" content="2020-12-21T16:49:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -213,7 +213,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -227,7 +227,7 @@ JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ssh root@1.2.3.4 <span class="c1"># 使用 ssh 連上服務器</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ssh root@1.2.3.4 <span class="c1"># 使用 ssh 連上服務器</span>
 
 <span class="nb">cd</span> /home <span class="c1"># 進入家目錄</span>
 mkdir jdk <span class="c1"># 新建 jdk 資料夾</span>
@@ -244,10 +244,10 @@ tar -zxvf jdk1.8.tar.gz <span class="c1"># 解壓縮</span>
 </div><p>接著你就會看到目錄新增一個 JDK 目錄。下一步我們編輯環境變量：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vi /etc/profile
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vi /etc/profile
 </code></pre></td></tr></table>
 </div>
 </div><p>加入以下內容：</p>
@@ -256,23 +256,23 @@ tar -zxvf jdk1.8.tar.gz <span class="c1"># 解壓縮</span>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># jdk</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># jdk</span>
 <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/home/jdk/jdk1.8.0_271
 <span class="nb">export</span> <span class="nv">JAVA_JRE</span><span class="o">=</span>/home/jdk/jdk1.8.0_271/jre
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">source</span> /etc/profile
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">source</span> /etc/profile
 java -version <span class="c1"># 查看版本</span>
 </code></pre></td></tr></table>
 </div>
@@ -280,7 +280,7 @@ java -version <span class="c1"># 查看版本</span>
 <p>有些服務器默認只有 Python2，但是我們項目需要用到的是 Python3，我在這裡說一下怎麼讓 CentOS7 系統默認使用 Python3，不管系統是 Ubuntu 還是 CentOS 步驟都一樣，只差在安裝 Python3 的方法，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,7 +293,7 @@ java -version <span class="c1"># 查看版本</span>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">python -V <span class="c1"># 先查看 Python 版本</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">python -V <span class="c1"># 先查看 Python 版本</span>
 ls -al /usr/bin/python <span class="c1"># 查看指向</span>
 yum update -y <span class="c1"># 先更新環境</span>
 yum install python3 <span class="c1"># 安裝 python3</span>
@@ -309,13 +309,13 @@ Type <span class="s2">&#34;help&#34;</span>, <span class="s2">&#34;copyright&#34
 </div><p>接下來將系統預設的 Python2.7 改成 Python3.6。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 重新命名備份</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 重新命名備份</span>
 mv /usr/bin/python /usr/bin/python2.7.5
 <span class="c1"># 編輯 yum 避免連接指向錯誤</span>
 vi /usr/bin/yum
@@ -324,31 +324,31 @@ vi /usr/bin/yum
 </div><p>把頭部的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/python
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/python
 </span></code></pre></td></tr></table>
 </div>
 </div><p>改成</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/python2.7.5
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/python2.7.5
 </span></code></pre></td></tr></table>
 </div>
 </div><p>保存退出。然後重新建立新的連結：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">rm -rf /usr/bin/python
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm -rf /usr/bin/python
 rm -rf /usr/bin/py
 <span class="c1"># 複製並重新命名</span>
 mv /usr/bin/python3.6 /usr/bin/python
@@ -359,7 +359,7 @@ mv /usr/bin/python3.6 /usr/bin/python
 <p>我比較偏好使用 MariaDB，這是 MySQL 的加強版。主要是 <code>root</code> 的密碼可以是空白。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -369,7 +369,7 @@ mv /usr/bin/python3.6 /usr/bin/python
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># Installing MariaDB Server 10.4</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># Installing MariaDB Server 10.4</span>
 sudo yum install wget
 wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 chmod +x mariadb_repo_setup
@@ -384,10 +384,10 @@ sudo mysql_secure_installation <span class="c1"># 會要求你設置 root 密碼
 <p>進入 MySQL：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">mysql
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mysql
 </code></pre></td></tr></table>
 </div>
 </div><p>新增一個使用者為 <code>admin</code>，密碼為 <code>password</code>，並擁有所有權限：</p>
@@ -396,55 +396,55 @@ sudo mysql_secure_installation <span class="c1"># 會要求你設置 root 密碼
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>刷新權限：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>退出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">exit</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="n">exit</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h4 id="nginx">Nginx</h4>
 <p>安裝 Nginx：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">yum install nginx
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">yum install nginx
 </code></pre></td></tr></table>
 </div>
 </div><p>我們確認一下 Nginx 是否能正常運行，Nginx 預設的監聽端口是 80。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 輸入以下指令運行 Nginx</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 輸入以下指令運行 Nginx</span>
 nginx
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來在自己的瀏覽器上輸入 <code>1.2.3.4</code> 公網 IP，就會自動跳轉顯示 Nginx 啟動成功畫面。<strong>前提是你已將服務器的 <code>80</code> 端口在防火牆打開了。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -452,7 +452,7 @@ nginx
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">nginx  <span class="c1"># 運行 nginx</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">nginx  <span class="c1"># 運行 nginx</span>
 nginx -t     <span class="c1"># 試配置文件是否有語法錯誤</span>
 nginx -s reopen  <span class="c1"># 重啟 Nginx</span>
 nginx -s reload    <span class="c1"># 重新加載 Nginx 配置文件，然後以優雅方式重啟 Nginx</span>
@@ -464,13 +464,13 @@ nginx -s quit   <span class="c1"># 優雅地停止 Nginx 服务（即處理完�
 <p>我們預先將要部署的項目目錄新建好：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">cd</span> /home
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">cd</span> /home
 mkdir sxblog
 <span class="nb">cd</span> sxblog
 mkdir java python sql vue
@@ -489,24 +489,24 @@ mkdir java python sql vue
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 用 root 登入服務器端</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 用 root 登入服務器端</span>
 scp ./sxblog.sql root@1.2.3.4:/home/sxblog/sql/sxblog.sql
 </code></pre></td></tr></table>
 </div>
 </div><p>接著將該數據庫文件導入數據庫系統：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 連上服務器</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 連上服務器</span>
 ssh root@1.2.3.4
 <span class="c1"># 使用文章上面我新增的使用者</span>
 mysql -u admin -p
@@ -514,12 +514,12 @@ mysql -u admin -p
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">sxblog</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">sxblog</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="k">none</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">sxblog</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="n">sxblog</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">source</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">sxblog</span><span class="o">/</span><span class="k">sql</span><span class="o">/</span><span class="n">sxblog</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
@@ -533,7 +533,7 @@ mysql -u admin -p
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -544,7 +544,7 @@ mysql -u admin -p
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--將應用打包成可以運行的 JAR 包--&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--將應用打包成可以運行的 JAR 包--&gt;</span>
 <span class="nt">&lt;build&gt;</span>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
@@ -559,22 +559,22 @@ mysql -u admin -p
 <p>在<strong>有 <code>pom.xml</code> 的目錄</strong>下執行 Maven 的指令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">maven clean <span class="c1"># 清理</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">maven clean <span class="c1"># 清理</span>
 maven package <span class="c1"># 打包</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來就會看到目錄下出現了一個 <strong><code>target</code> 資料夾</strong>，裡面是打包成 Jar 包的目錄，進入該目錄並在本地運行試試：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 這裡的 xxxx 需要改成你實際打包出來的包名</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 這裡的 xxxx 需要改成你實際打包出來的包名</span>
 java -jar xxxx.jar
 </code></pre></td></tr></table>
 </div>
@@ -584,21 +584,21 @@ java -jar xxxx.jar
 <p>將整個 <code>target</code> 資料夾 SCP 上傳到服務器端。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">scp -r ./target root@1.2.3.4:/home/sxblog/java/target
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">scp -r ./target root@1.2.3.4:/home/sxblog/java/target
 </code></pre></td></tr></table>
 </div>
 </div><p>進入服務器端運行 Jar 包，<strong>使用 <code>nohup</code> 讓該進程在我們退出連結後依然能在後台運行，<code>&gt;temp.txt</code> 是可以指定我們的日誌輸出文件</strong>。如果沒有 nohup 就安裝一下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">ssh root@1.2.3.4
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ssh root@1.2.3.4
 <span class="c1"># 進入 target/ 使用 nohup 運行 JAR</span>
 nohup java -jar xxxx.jar &gt;temp.txt <span class="p">&amp;</span>
 </code></pre></td></tr></table>
@@ -610,40 +610,40 @@ nohup java -jar xxxx.jar &gt;temp.txt <span class="p">&amp;</span>
 <p>關於 Flask 就相對 SpringBoot 的部署簡單很多，不需要經過打包，只需要確認服務器上有穩定的 Python3 版本。我們先將我們的 Flask 源碼目錄 SCP 上傳到雲服務器：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">scp -r ./flask root@1.2.3.4:/home/sxblog/python/flask
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">scp -r ./flask root@1.2.3.4:/home/sxblog/python/flask
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來進入服務器，改一下 Flask 的運行 IP 和端口，將運行的改成：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接著後台運行 Flask：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">nohup python ./flaskApi.py &gt; temp.txt <span class="p">&amp;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">nohup python ./flaskApi.py &gt; temp.txt <span class="p">&amp;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你的 Flask 應用沒有寫 <code>main</code> 函數，需要自己在運行指令那裡指定：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>flaskApi.py
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>flaskApi.py
 nohup flask run -h 0.0.0.0 -p <span class="m">5000</span> &gt; temp.txt <span class="p">&amp;</span>
 </code></pre></td></tr></table>
 </div>
@@ -654,7 +654,7 @@ nohup flask run -h 0.0.0.0 -p <span class="m">5000</span> &gt; temp.txt <span cl
 <p><strong>前端向後端請求的 IP 要修改成服務器上的公網 IP</strong>，這裡非常重要，所以自己平時在寫前端時就應該養成<strong>習慣將請求接口全面的管理</strong>，像我就是使用 vueX 去管理，擷取部份如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -693,7 +693,7 @@ nohup flask run -h 0.0.0.0 -p <span class="m">5000</span> &gt; temp.txt <span cl
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// api.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// api.js
 </span><span class="c1"></span><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">state</span><span class="o">:</span> <span class="p">{</span>
         <span class="c1">// spring flask base url
@@ -737,20 +737,20 @@ nohup flask run -h 0.0.0.0 -p <span class="m">5000</span> &gt; temp.txt <span cl
 <p>在前端的項目目錄<strong>執行 <code>npm run build</code> 就可以將整個項目打包成靜態文件</strong>，並存於項目目錄的 <code>./dist</code> 資料夾。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">npm run build <span class="c1"># 前端打包指令</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">npm run build <span class="c1"># 前端打包指令</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>打包結束後將打包好的靜態文件使用 VScode 的一個 <a href="https://open-vsx.org/extension/ritwickdey/LiveServer" target="_blank" rel="noopener noreffer">Live Server</a> 的 Plugin，使用該 Live Server 對 dist 根目錄的 <code>index.html</code> 進行代理，並在瀏覽器上測試前端是否可以向服務器上的後端進行請求回應，如果沒有問題，就代表 <code>./dist</code> 資料夾可以 SCP 上傳至服務器上了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 上傳至服務器</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 上傳至服務器</span>
 scp -r ./dist root@1.2.3.4:/home/sxblog/vue/dist
 </code></pre></td></tr></table>
 </div>
@@ -758,10 +758,10 @@ scp -r ./dist root@1.2.3.4:/home/sxblog/vue/dist
 <p>接下來我們要使用 Nginx 對前端靜態文件進行代理，我們先編輯 <code>/etc/nginx/nginx.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">vi /etc/nginx/nginx.conf
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vi /etc/nginx/nginx.conf
 </code></pre></td></tr></table>
 </div>
 </div><p>編輯成如下：</p>
@@ -770,7 +770,7 @@ scp -r ./dist root@1.2.3.4:/home/sxblog/vue/dist
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -867,7 +867,7 @@ scp -r ./dist root@1.2.3.4:/home/sxblog/vue/dist
 </span><span class="lnt">95
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">user  root<span class="p">;</span>  <span class="c1"># 用戶</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">user  root<span class="p">;</span>  <span class="c1"># 用戶</span>
 worker_processes auto<span class="p">;</span>
 error_log  /www/wwwlogs/nginx_error.log  crit<span class="p">;</span>
 pid        /www/server/nginx/logs/nginx.pid<span class="p">;</span>
@@ -967,7 +967,7 @@ http
 </div><p>值得注意的是這配置文件尾部是 vue-router 的配置：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -977,7 +977,7 @@ http
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># vue-router 配置</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># vue-router 配置</span>
 location / <span class="o">{</span>
     try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ @router<span class="p">;</span>
     index index.html<span class="p">;</span>
@@ -991,10 +991,10 @@ location @router <span class="o">{</span>
 <p>最後運行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-zsh" data-lang="zsh">nohup nginx <span class="p">&amp;</span>
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">nohup nginx <span class="p">&amp;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>這樣就搭建好一個 Web 項目了。 (〃∀〃)</strong></p>
@@ -1043,7 +1043,7 @@ location @router <span class="o">{</span>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

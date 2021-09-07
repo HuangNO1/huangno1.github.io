@@ -17,8 +17,8 @@
 下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g&#43;&#43; GDB&hellip;等內容及 API。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-04-20T14:22:18&#43;08:00" />
-<meta property="article:modified_time" content="2020-03-04T15:58:26&#43;08:00" />
+<meta property="article:published_time" content="2019-04-20T14:22:18+08:00" />
+<meta property="article:modified_time" content="2020-03-04T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
@@ -226,10 +226,10 @@
 <h3 id="在-konsole-輸入下載指令">在 <code>Konsole</code> 輸入下載指令</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S code
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S code
 </code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -258,10 +258,10 @@
 <h3 id="gcc">GCC</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gcc
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gcc
 </code></pre></td></tr></table>
 </div>
 </div><!-- ![3.png](https://i.loli.net/2019/04/21/5cbc8336b145c.png "安裝 GCC") -->
@@ -279,10 +279,10 @@
 <h3 id="gdb">GDB</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gdb
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S gdb
 </code></pre></td></tr></table>
 </div>
 </div><!-- ![4.png](https://i.loli.net/2019/04/21/5cbc8336a5cc3.png "安裝 GDB") -->
@@ -363,7 +363,7 @@
 <h3 id="settingsjson">settings.json</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -381,7 +381,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
     &#34;workbench.colorTheme&#34;: &#34;One Dark Pro&#34;,
     &#34;workbench.iconTheme&#34;: &#34;vscode-icons&#34;,
     &#34;terminal.integrated.fontFamily&#34;: &#34;Source Code Pro&#34;,
@@ -466,7 +466,7 @@
 <hr>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -484,7 +484,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
     &#34;files.defaultLanguage&#34;: &#34;cpp&#34;, // ctrl+N新建文件后默认的语言
     &#34;editor.formatOnType&#34;: true, // 输入时就进行格式化，默认触发字符较少，分号可以触发
     &#34;editor.formatOnSave&#34;: true, // 每次存檔時，自動執行自動排版功能
@@ -510,7 +510,7 @@
 <hr>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -545,7 +545,7 @@
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
     &#34;configurations&#34;: [
         {
             &#34;name&#34;: &#34;Linux&#34;,
@@ -588,7 +588,7 @@
 <hr>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -678,7 +678,7 @@
 </span><span class="lnt">88
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
     // 使用 IntelliSense 以得知可用的屬性。
     // 暫留以檢視現有屬性的描述。
     // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
@@ -779,7 +779,7 @@
 <hr>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -844,7 +844,7 @@
 </span><span class="lnt">63
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
     &#34;version&#34;: &#34;2.0.0&#34;,
     &#34;tasks&#34;: [
         {
@@ -951,38 +951,38 @@
 <p>編譯標準 C99</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -std<span class="o">=</span>c99 1.c -o 1.out
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gcc -std<span class="o">=</span>c99 1.c -o 1.out
 </code></pre></td></tr></table>
 </div>
 </div><p>執行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./1.out
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">./1.out
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="c-1">C++</h3>
 <p>編譯標準 C++11</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">g++ -std<span class="o">=</span>c++11 1.cpp -o 1.out
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">g++ -std<span class="o">=</span>c++11 1.cpp -o 1.out
 </code></pre></td></tr></table>
 </div>
 </div><p>執行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./1.out
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">./1.out
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="如果有引入其他自定義的標頭檔之實現檔">如果有引入其他自定義的標頭檔之實現檔</h3>
@@ -991,19 +991,19 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
 <p>編譯</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">gcc -std<span class="o">=</span>c99 main.c Circle.cpp -o main.out
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gcc -std<span class="o">=</span>c99 main.c Circle.cpp -o main.out
 </code></pre></td></tr></table>
 </div>
 </div><p>執行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./main.out
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">./main.out
 </code></pre></td></tr></table>
 </div>
 </div><!--##### &copy;copyright by Huang Po-Hsun-->
@@ -1039,7 +1039,7 @@ e.g. 我有 <code>main.c</code> 且引入自定義的 <code>Circle.h</code> 標�
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
