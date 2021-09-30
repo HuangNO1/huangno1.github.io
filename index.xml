@@ -4,9 +4,32 @@
         <link>https://huangno1.github.io/</link>
         <description>Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</lastBuildDate>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 14:29:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Ubuntu 中 Python2 升級到 Python3 &amp; pip 使用</title>
+    <link>https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/</link>
+    <pubDate>Thu, 30 Sep 2021 14:29:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg" referrerpolicy="no-referrer">
+            </div>前言  ]]></description>
+</item><item>
+    <title>類樹梅派上 Ubuntu 連網 IP 問題</title>
+    <link>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</link>
+    <pubDate>Thu, 30 Sep 2021 09:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg" referrerpolicy="no-referrer">
+            </div>前言 題外話：由於我最近已經在上海某家小公司實習了，公司只有 8 個人不到，我是目前公司唯一的研發工程師，剛入職前上一個原本要帶我的研發工程師就跳槽辭職了，以實習薪資來說開的不高，但也不算少了，5000 RMB/Month 包住不包食。
+我在公司上班時要初步探索他們的機器去寫一個網頁開發去控制機器內部的串口或是信息，在初步學習的就遇到 IP 問題。
+網線靜態 IP 連上機器 由於機器沒有無線網卡，但是有兩張網卡，兩個網路接口，預設 IP 是 192.168.3.127、192.168.4.127，我網線將機器和我的筆電連上，並更改我的網卡連線設定，我設置了靜態 IP：
+1 2 3 4 5  # IPv4 # 我接在 eth0 第一個網路接口上，最後一段地址不能跟 eth0 的地址一樣，隨便填了一個 IP Address : 192.168.3.11 NetMask : 255.255.255.0 Broadcast : 0.0.0.0   然後先 ping 192.168.3.127 看通不通，接著 ssh root@192.168.3.127，連接進去，想要去修改這機器的 IP 設定，因為想讓這個機器連上路由器網路。
+機器連路由器上網 用網線將機器和路由器連接後一開始是還沒辦法連網的，ping baidu.com 的掉包率是 100%，在 /etc/network/interfaces 中可以設置相關參數（比較暴力直接），當然你也可以直接輸入指令去控制。我是直接設成動態 IP。
+ 也可以設成靜態 IP 連路由器上網，但是你需要自己去查看路由器的 IP 地址，公司的路由器末 IP 地址 100 - 200 都是可以用的。]]></description>
+</item><item>
     <title>ArchLinx KDE 錢包禁用與解決 WIFI 密碼輸入</title>
     <link>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</link>
     <pubDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</pubDate>
@@ -146,38 +169,5 @@ Display 請求與渲染展示Display_request_and_render.gif
 具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
 models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個數據模型，方便後面將數據添入 NewsCardItemDataModel，使邏輯更加清晰。這裡一樣有三種構造函數，分別代表三種不同的卡片類型。
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.]]></description>
-</item><item>
-    <title>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</title>
-    <link>https://huangno1.github.io/android_java_recyclerview_different_cards/</link>
-    <pubDate>Tue, 15 Jun 2021 15:03:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/android_java_recyclerview_different_cards/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_java_card_list.jpg" referrerpolicy="no-referrer">
-            </div>前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
-項目倉庫 簡易今日頭條 - Github
-Display 不同卡片樣式展示Display_recyclerView_different_card_styles.gif
-" 不同卡片樣式展示 
-具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
-以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
-layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?]]></description>
-</item><item>
-    <title>Android Java - 簡易今日頭條 - Tabs 頻道頁面切換</title>
-    <link>https://huangno1.github.io/android_java_swip_views_with_tabs/</link>
-    <pubDate>Tue, 15 Jun 2021 09:03:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/android_java_swip_views_with_tabs/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_java_tabbed.jpg" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
-項目倉庫 簡易今日頭條 - Github
-Display Tab Channel 展示Display_tabbed.gif
-" Tab Channel 展示 
-具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
- androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
- androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
- 註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
- layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。]]></description>
 </item></channel>
 </rss>

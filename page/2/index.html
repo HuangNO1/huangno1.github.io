@@ -116,6 +116,49 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_recyclerview_different_cards/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_java_card_list.jpg"
+        data-srcset="/featuredImage/compressed/android_java_card_list.jpg, /featuredImage/compressed/android_java_card_list.jpg 1.5x, /featuredImage/compressed/android_java_card_list.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_java_card_list.jpg"
+        title="/featuredImage/compressed/android_java_card_list.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_recyclerview_different_cards/">Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
+項目倉庫 簡易今日頭條 - Github
+Display 不同卡片樣式展示Display_recyclerView_different_card_styles.gif
+" 不同卡片樣式展示 
+具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
+以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
+layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?</div><div class="post-footer">
+        <a href="/android_java_recyclerview_different_cards/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/recyclerview/">RecyclerView</a>,&nbsp;<a href="/tags/card/">Card</a>,&nbsp;<a href="/tags/list/">List</a>,&nbsp;<a href="/tags/adapter/">Adapter</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/android_java_swip_views_with_tabs/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/android_java_tabbed.jpg"
+        data-srcset="/featuredImage/compressed/android_java_tabbed.jpg, /featuredImage/compressed/android_java_tabbed.jpg 1.5x, /featuredImage/compressed/android_java_tabbed.jpg 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/android_java_tabbed.jpg"
+        title="/featuredImage/compressed/android_java_tabbed.jpg" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/android_java_swip_views_with_tabs/">Android Java - 簡易今日頭條 - Tabs 頻道頁面切換</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
+項目倉庫 簡易今日頭條 - Github
+Display Tab Channel 展示Display_tabbed.gif
+" Tab Channel 展示 
+具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
+ androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
+ androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
+ 註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
+ layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。</div><div class="post-footer">
+        <a href="/android_java_swip_views_with_tabs/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/tabs/">Tabs</a>,&nbsp;<a href="/tags/fragment/">Fragment</a>,&nbsp;<a href="/tags/views/">Views</a>,&nbsp;<a href="/tags/viewpager/">ViewPager</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/android_java_btn_nav/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -280,52 +323,6 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 您可以假設除了數字 0 之外，這兩個數都不會以 0 開頭。</div><div class="post-footer">
         <a href="/leetcode_add_two_numbers/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/c/">C</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/leetcode_two_sum/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/leetcode.jpg"
-        data-srcset="/featuredImage/compressed/leetcode.jpg, /featuredImage/compressed/leetcode.jpg 1.5x, /featuredImage/compressed/leetcode.jpg 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/leetcode.jpg"
-        title="/featuredImage/compressed/leetcode.jpg" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/leetcode_two_sum/">LeetCode 題庫 - Two Sum (兩數之和)</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-23">2020-12-23</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/%E6%BC%94%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>演算法</a></span></div><div class="content">前言 最近刷到的簡單題庫題。
-題目 Two Sum (兩數之和)
-題目描述 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-You can return the answer in any order.
-給定一個整數數組 nums 和一個目標值 target，請你在該數組中找出和為目標值的那 兩個 整數，並返回他們的數組下標。
-你可以假設每種輸入只會對應一個答案。但是，數組中同一個元素不能使用兩遍。
-測資 Example 1：
-1 2 3  Input: nums = [2,7,11,15], target = 9 Output: [0,1] Output: Because nums[0] + nums[1] == 9, we return [0, 1].</div><div class="post-footer">
-        <a href="/leetcode_two_sum/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/leetcode/">LeetCode</a>,&nbsp;<a href="/tags/c/">C</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/ssh_no_password_connection/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/ssh_no_password_connection.jpg"
-        data-srcset="/featuredImage/compressed/ssh_no_password_connection.jpg, /featuredImage/compressed/ssh_no_password_connection.jpg 1.5x, /featuredImage/compressed/ssh_no_password_connection.jpg 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/ssh_no_password_connection.jpg"
-        title="/featuredImage/compressed/ssh_no_password_connection.jpg" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/ssh_no_password_connection/">SSH 免密訪問服務器端</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2020-12-22">2020-12-22</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 有些新手不知道怎麼使用 SSH 連接服務器時不需要輸密碼，特此寫一下。
-SSH 前置工作 為了避免麻煩每次用 SSH 連的時候都要輸入 IP，可以在各自域名解析中添加服務器的 IP 給予命名映射。
-兩台服務器都編輯 /etc/hosts 文件，添加以下內容，假設各自的公網 IP 是 10.10.15.xx1、10.10.15.xx2。
-1 2  10.10.15.xx1 Server1 10.10.15.xx2 Server2   這樣子我們在服務器上連接另一個服務器時只需要輸入 ssh Server1、ssh Server2。
-生成密鑰 我們假設有兩台服務器需要互相無密連接，這裡需要生成公鑰和私鑰，然後主機使用者之間共享公鑰。
- 如果是自己的本地電腦不需要輸入密碼連上服務器端，作法大同小異，把自己的電腦當作一台服務器即可。
- 先在本地生成密鑰，兩台服務器上都各自輸入下面指令，過程中如果有需要你輸入什麼，只需要一直輸入 Enter 就好了。
-1  ssh-keygen -t rsa # 當前使用者生成密鑰   如果你當前是普通使用者就會在 /home/user/.ssh/ 目錄下找到 id_rsa.pub 公鑰。如果是 root 使用者，會在 /root/.ssh/ 目錄裡找到。
-互相共享公鑰 我們先將服務器一的公鑰文件傳給服務器二。
-1  scp /root/.ssh/id_rsa.pub root@Server2:/root/.ssh/id_rsa.pub.Server1   接著在服務器二上面將雙方公鑰合成一個授權驗證文件。
- 註：關於 chmod 的權限設置數字計算，可以參考菜鳥教學的文章。</div><div class="post-footer">
-        <a href="/ssh_no_password_connection/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">SSH</a>,&nbsp;<a href="/tags/server/">Server</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>

@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>DHCP - 標籤 - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/dhcp/</link>
+        <description>DHCP - 標籤 - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 09:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/dhcp/" rel="self" type="application/rss+xml" /><item>
+    <title>類樹梅派上 Ubuntu 連網 IP 問題</title>
+    <link>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</link>
+    <pubDate>Thu, 30 Sep 2021 09:03:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg" referrerpolicy="no-referrer">
+            </div>前言 題外話：由於我最近已經在上海某家小公司實習了，公司只有 8 個人不到，我是目前公司唯一的研發工程師，剛入職前上一個原本要帶我的研發工程師就跳槽辭職了，以實習薪資來說開的不高，但也不算少了，5000 RMB/Month 包住不包食。
+我在公司上班時要初步探索他們的機器去寫一個網頁開發去控制機器內部的串口或是信息，在初步學習的就遇到 IP 問題。
+網線靜態 IP 連上機器 由於機器沒有無線網卡，但是有兩張網卡，兩個網路接口，預設 IP 是 192.168.3.127、192.168.4.127，我網線將機器和我的筆電連上，並更改我的網卡連線設定，我設置了靜態 IP：
+1 2 3 4 5  # IPv4 # 我接在 eth0 第一個網路接口上，最後一段地址不能跟 eth0 的地址一樣，隨便填了一個 IP Address : 192.168.3.11 NetMask : 255.255.255.0 Broadcast : 0.0.0.0   然後先 ping 192.168.3.127 看通不通，接著 ssh root@192.168.3.127，連接進去，想要去修改這機器的 IP 設定，因為想讓這個機器連上路由器網路。
+機器連路由器上網 用網線將機器和路由器連接後一開始是還沒辦法連網的，ping baidu.com 的掉包率是 100%，在 /etc/network/interfaces 中可以設置相關參數（比較暴力直接），當然你也可以直接輸入指令去控制。我是直接設成動態 IP。
+ 也可以設成靜態 IP 連路由器上網，但是你需要自己去查看路由器的 IP 地址，公司的路由器末 IP 地址 100 - 200 都是可以用的。]]></description>
+</item></channel>
+</rss>
