@@ -119,14 +119,18 @@
             <a href="/ubuntu_upgrate_py2_to_py3/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg"
-        data-srcset="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg, /featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg 1.5x, /featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg 2x"
+        data-src="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg"
+        data-srcset="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg, /featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg 1.5x, /featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg 2x"
         data-sizes="auto"
-        alt="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg"
-        title="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg" /></a>
+        alt="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg"
+        title="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/ubuntu_upgrate_py2_to_py3/">Ubuntu 中 Python2 升級到 Python3 &amp; pip 使用</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-09-30">2021-09-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言  </div><div class="post-footer">
+        <a href="/ubuntu_upgrate_py2_to_py3/">Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-09-30">2021-09-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class="content">前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
+根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。
+我輸入 sudo apt install python3.6 顯示沒有這個包，然後輸入 sudo add-apt-repository ppa:deadsnakes/ppa 添加列表也顯示沒這語法。
+1 2  sudo apt update sudo apt install python3 # 安裝下來預設是 3.5，沒有更高版本   現在終端機輸入 python -V 還會是 python2.7，這時我們需要重新建立軟連接，在 /usr/bin/ 中會發現我們新安裝的 python3.5 二進制文件。
+1 2 3  sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的 sudo rm /usr/bin/python # 移除 sudo ln -s /usr/bin/python3.5 /usr/bin/python # 建立新的軟連結   接下來輸入 python -V 就是 pyhton3.</div><div class="post-footer">
         <a href="/ubuntu_upgrate_py2_to_py3/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pip/">pip</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">

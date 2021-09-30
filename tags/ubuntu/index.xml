@@ -5,14 +5,18 @@
         <description>Ubuntu - 標籤 - Rem Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 14:29:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
-    <title>Ubuntu 中 Python2 升級到 Python3 &amp; pip 使用</title>
+    <title>Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用</title>
     <link>https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/</link>
     <pubDate>Thu, 30 Sep 2021 14:29:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg" referrerpolicy="no-referrer">
-            </div>前言  ]]></description>
+                <img src="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg" referrerpolicy="no-referrer">
+            </div>前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
+根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。
+我輸入 sudo apt install python3.6 顯示沒有這個包，然後輸入 sudo add-apt-repository ppa:deadsnakes/ppa 添加列表也顯示沒這語法。
+1 2  sudo apt update sudo apt install python3 # 安裝下來預設是 3.5，沒有更高版本   現在終端機輸入 python -V 還會是 python2.7，這時我們需要重新建立軟連接，在 /usr/bin/ 中會發現我們新安裝的 python3.5 二進制文件。
+1 2 3  sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的 sudo rm /usr/bin/python # 移除 sudo ln -s /usr/bin/python3.5 /usr/bin/python # 建立新的軟連結   接下來輸入 python -V 就是 pyhton3.]]></description>
 </item><item>
     <title>類樹梅派上 Ubuntu 連網 IP 問題</title>
     <link>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</link>
