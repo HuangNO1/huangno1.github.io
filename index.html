@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head>
-	<meta name="generator" content="Hugo 0.87.0" />
+	<meta name="generator" content="Hugo 0.88.1" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -116,6 +116,29 @@
         alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" /></a></div><h1 class="home-title">Huang Po-Hsun</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/HuangNO1" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/Rem59881439" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://facebook.com/myRem" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/HuangNO1" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://space.bilibili.com/385686691" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="mailto:fh831.cp9gw@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/archlinux_disable_kde_wallet_and_no_password_wifi/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png"
+        data-srcset="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png, /featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png 1.5x, /featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png"
+        title="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/archlinux_disable_kde_wallet_and_no_password_wifi/">ArchLinx KDE 錢包禁用與解決 WIFI 密碼輸入</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-09-30">2021-09-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div><div class="content">前言 最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。
+解決 KDE Wallet 如果還沒安裝了 KDE 錢包管理就先去安裝它，kwalletmanager。
+1  sudo pacman -S kwalletmanager   安裝完之後需要進入 設定 -&gt; 個人化 -&gt; KDE 錢包 -&gt; 錢包設定，將 開啟 KDE wallet 子系統(E) 的勾選去掉，套用設定，之後就不需要在碰到需要輸入 KDE 錢包密碼了，畢竟我平常也沒用到這個應用。
+KDE 錢包設定kde_wallet_settings.png
+" KDE 錢包設定 
+解決 WIFI 密碼問題 自從 KDE 錢包出現後連帶每次進入進入系統 NetworkManager 都會要我重新輸入 WIFI 密碼，所以想要從根本根治，需要在設定中將其密碼存儲。
+網路設定network_setting.png
+" 網路設定 
+之後每次進入系統連線 WIFI 都不需要輸入密碼了。
+Reference  KDE5: How do i completely disable/remove kdewallet - Archlinux BBS  </div><div class="post-footer">
+        <a href="/archlinux_disable_kde_wallet_and_no_password_wifi/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/kde/">kde</a>,&nbsp;<a href="/tags/wallet/">wallet</a>,&nbsp;<a href="/tags/password/">password</a>,&nbsp;<a href="/tags/wifi/">WIFI</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/novel_expericence_about_evolutionary_fruit/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -315,27 +338,6 @@ Display Tab Channel 展示Display_tabbed.gif
  layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。</div><div class="post-footer">
         <a href="/android_java_swip_views_with_tabs/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/tabs/">Tabs</a>,&nbsp;<a href="/tags/fragment/">Fragment</a>,&nbsp;<a href="/tags/views/">Views</a>,&nbsp;<a href="/tags/viewpager/">ViewPager</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/android_java_btn_nav/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/featuredImage/compressed/android_java_nav.png"
-        data-srcset="/featuredImage/compressed/android_java_nav.png, /featuredImage/compressed/android_java_nav.png 1.5x, /featuredImage/compressed/android_java_nav.png 2x"
-        data-sizes="auto"
-        alt="/featuredImage/compressed/android_java_nav.png"
-        title="/featuredImage/compressed/android_java_nav.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/android_java_btn_nav/">Android Java - 簡易今日頭條 - 實現底部按鈕導覽切換 Fragment 頁面</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2021-06-15">2021-06-15</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/android/"><i class="far fa-folder fa-fw"></i>Android</a></span></div><div class="content">前言 我接下來會寫一系列關於安卓開發的過程，由於這學期我選修了安卓應用開發，該課程與字節跳動客戶端員工合作，課程的項目設計是 &ldquo;簡易頭條&rdquo;，而我身為安卓零基礎的學生在一週內邊做邊學，最終完成了成果。在 Blog 我所遇到的細節技術實現。這篇文章是關於底部導覽頁的實現。
-項目倉庫 簡易今日頭條 - Github
-Display Bottom Nav 展示Display_nav.gif
-" Bottom Nav 展示 
-具體實現 使用 BottomNavigationView、NavController 與 NavigationUI.setupWithNavController() 方法去實現。
-現在我需要使用三個子頁面(Fragment)分別是首頁(home)、視頻(video)、我的(account)：
- 注意：目錄的正確需要自己去修改
- layout/activity.xml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34; xmlns:app=&#34;http://schemas.android.com/apk/res-auto&#34; xmlns:tools=&#34;http://schemas.</div><div class="post-footer">
-        <a href="/android_java_btn_nav/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/android/">Android</a>,&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/android-studio/">Android Studio</a>,&nbsp;<a href="/tags/navigation/">Navigation</a>,&nbsp;<a href="/tags/fragment/">Fragment</a>,&nbsp;<a href="/tags/bottom/">Bottom</a>,&nbsp;<a href="/tags/button/">Button</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -356,7 +358,7 @@ Display Bottom Nav 展示Display_nav.gif
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
