@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS - Rem Blog</title><meta name="Description" content="HuangNO1&#39;s Blog"><meta property="og:url" content="https://huangno1.github.io/dps_for_inverse_problem/">
+  <meta property="og:site_name" content="Rem Blog">
+  <meta property="og:title" content="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS">
+  <meta property="og:description" content="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS 標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題，論文原文，可以搭配原文食用。精讀我感覺需要至少兩天以上
+一、問題背景概要 1.1 逆問題 在科學和工程的諸多領域中，我們經常遇到一類特殊的問題，即“逆問題”。與我們通常從已知原因推斷結果的“正向問題”不同，逆問題旨在從觀測到的結果（測量數據）推斷出其潛在的原因（原始數據）。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-25T22:40:28+08:00">
+    <meta property="article:modified_time" content="2025-06-25T22:40:28+08:00">
+    <meta property="article:tag" content="DPS">
+    <meta property="article:tag" content="CV">
+    <meta property="article:tag" content="Model">
+    <meta property="article:tag" content="DDPM">
+    <meta property="article:tag" content="DIFFUSION">
+    <meta property="article:tag" content="Paper">
+    <meta property="og:image" content="https://huangno1.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://huangno1.github.io/logo.png">
+  <meta name="twitter:title" content="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS">
+  <meta name="twitter:description" content="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS 標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題，論文原文，可以搭配原文食用。精讀我感覺需要至少兩天以上
+一、問題背景概要 1.1 逆問題 在科學和工程的諸多領域中，我們經常遇到一類特殊的問題，即“逆問題”。與我們通常從已知原因推斷結果的“正向問題”不同，逆問題旨在從觀測到的結果（測量數據）推斷出其潛在的原因（原始數據）。">
+<meta name="application-name" content="Rem Blog">
+<meta name="apple-mobile-web-app-title" content="Rem Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/dps_for_inverse_problem/" /><link rel="prev" href="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/huangno1.github.io\/dps_for_inverse_problem\/"
+        },"genre": "posts","keywords": "DPS, CV, Model, DDPM, DIFFUSION, paper","wordcount":  11363 ,
+        "url": "https:\/\/huangno1.github.io\/dps_for_inverse_problem\/","datePublished": "2025-06-25T22:40:28+08:00","dateModified": "2025-06-25T22:40:28+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Huang Po-Hsun"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
+        data-sizes="auto"
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Rem Blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
+        data-sizes="auto"
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">included in <a href="/categories/paper/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Paper</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-06-25">2025-06-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;11363 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;23 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/featuredImage/compressed/Figure7.png"
+        data-srcset="/featuredImage/compressed/Figure7.png, /featuredImage/compressed/Figure7.png 1.5x, /featuredImage/compressed/Figure7.png 2x"
+        data-sizes="auto"
+        alt="/featuredImage/compressed/Figure7.png"
+        title="/featuredImage/compressed/Figure7.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一問題背景概要">一、問題背景概要</a>
+      <ul>
+        <li><a href="#11-逆問題">1.1 逆問題</a></li>
+        <li><a href="#12-擴散模型解決逆問題的難點">1.2 擴散模型解決逆問題的難點</a></li>
+        <li><a href="#13-現有方法的局限性">1.3 現有方法的局限性</a></li>
+      </ul>
+    </li>
+    <li><a href="#二作者的新方法dps">二、作者的新方法DPS</a>
+      <ul>
+        <li><a href="#21-突破性進展近似測量似然">2.1 突破性進展：近似測量似然</a></li>
+        <li><a href="#22-dps在真實場景中的應用">2.2 DPS在真實場景中的應用</a>
+          <ul>
+            <li><a href="#221-處理高斯噪聲標準情況">2.2.1 處理高斯噪聲：標準情況</a></li>
+            <li><a href="#222-泊松噪聲當噪聲依賴於信號時">2.2.2 泊松噪聲：當噪聲依賴於信號時</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-dps超越線性解決複雜的非線性逆問題">2.3 DPS超越線性：解決複雜的非線性逆問題</a></li>
+        <li><a href="#24-dps-的幾何優勢為何在噪聲環境中表現更優">2.4 DPS 的幾何優勢：為何在噪聲環境中表現更優</a></li>
+      </ul>
+    </li>
+    <li><a href="#三理解dps算法邏輯">三、理解DPS算法邏輯</a>
+      <ul>
+        <li><a href="#31-算法1高斯噪聲下的-dps">3.1 算法1：高斯噪聲下的 DPS</a></li>
+        <li><a href="#32-算法2泊松噪聲下的-dps">3.2 算法2：泊松噪聲下的 DPS</a></li>
+      </ul>
+    </li>
+    <li><a href="#四消融研究的實踐啟示">四、消融研究的實踐啟示</a>
+      <ul>
+        <li><a href="#41-步長超參對重建質量的影響">4.1 步長(超參)對重建質量的影響</a></li>
+        <li><a href="#42-泊松噪聲建模的不同方法">4.2 泊松噪聲建模的不同方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#五實驗驗證dps-性能與局限性">五、實驗驗證：DPS 性能與局限性</a>
+      <ul>
+        <li><a href="#51-線性逆問題中的卓越表現">5.1 線性逆問題中的卓越表現</a></li>
+        <li><a href="#52-應對挑戰性非線性逆問題">5.2 應對挑戰性非線性逆問題</a></li>
+        <li><a href="#53-局限性採樣速度與感知-失真權衡">5.3 局限性：採樣速度與感知-失真權衡</a></li>
+      </ul>
+    </li>
+    <li><a href="#六結論dps-的影響與未來">六、結論：DPS 的影響與未來</a></li>
+    <li><a href="#七其它">七、其它</a></li>
+    <li><a href="#八想法">八、想法</a>
+      <ul>
+        <li><a href="#81-提升採樣速度整合其它計算更快的模型">8.1 提升採樣速度(整合其它計算更快的模型)</a></li>
+        <li><a href="#82-推進似然近似與後驗建模dps的近似項修改">8.2 推進似然近似與後驗建模(DPS的近似項修改)</a></li>
+        <li><a href="#83-自適應控制機制">8.3 自適應控制機制</a></li>
+        <li><a href="#84-其他的想法">8.4 其他的想法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS
+標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題，<a href="https://arxiv.org/abs/2209.14687" target="_blank" rel="noopener noreffer ">論文原文</a>，可以搭配原文食用。精讀我感覺需要至少兩天以上</p>
+<h2 id="一問題背景概要">一、問題背景概要</h2>
+<h3 id="11-逆問題">1.1 逆問題</h3>
+<p>在科學和工程的諸多領域中，我們經常遇到一類特殊的問題，即“逆問題”。與我們通常從已知原因推斷結果的“正向問題”不同，逆問題旨在從觀測到的結果（測量數據）推斷出其潛在的原因（原始數據）。</p>
+<p><strong>逆問題的一個核心特徵是其固有的“不適定性”</strong>，這意味著在沒有額外信息的情況下，精確重建原始數據變得不可能。為了克服這種不適定性，貝葉斯框架提供了一種強大的方法：它通過<strong>引入“先驗”知識來約束可能的解決方案空間</strong>。這種先驗知識代表了我們對原始數據特徵的預先認知或假設。</p>
+<h3 id="12-擴散模型解決逆問題的難點">1.2 擴散模型解決逆問題的難點</h3>
+<p>儘管擴散模型在學習數據先驗方面表現出色，但將其直接應用於逆問題仍面臨核心挑戰。在貝葉斯框架下，解決逆問題需要從後驗分布 $p(x∣y)$ 中進行採樣，該後驗分布結合了擴散模型提供的先驗 $p(x)$ 和測量數據提供的似然 $p(y∣x)$ 。根據貝葉斯規則，後驗分布的逆向SDE形式中包含兩項：</p>
+<ul>
+<li>分數函數: ${\nabla}_{x_t} log p_t(x_t)$</li>
+<li>似然梯度: ${\nabla}_{x_t} log p_t(y|x_t)$</li>
+</ul>
+<p>分數函數可以通過預訓練的擴散模型（即 $s_{0\ast}$）直接獲得 。然而，似然梯度卻難以獲得封閉形式的表達式 。其根本原因在於測量數據 $y$ 是直接與乾淨的原始數據 $x_0$ 相關聯的，而不是與擴散過程中的中間噪聲數據 $x_t$ 相關聯 。這種依賴關係使得 $p(y∣x_t)$ 在數學上變得難以處理，無法直接推導出其梯度 。這構成了一個核心障礙，阻礙了擴散模型在逆問題中的直接應用。</p>
+<h3 id="13-現有方法的局限性">1.3 現有方法的局限性</h3>
+<p>為了規避似然項的難處理性，許多現有方法通常採用一種“投影式”策略 。這些方法通常忽略逆向SDE中的似然項，先進行一次無條件更新（僅利用擴散模型的先驗），然後執行一個投影步驟，以強制滿足測量一致性 。這種方法假設測量噪聲可以忽略不計。然而，當測量中存在噪聲時，這些基於投影的方法會<strong>急劇失效</strong> 。Manifold Constrained Gradients (MCG) 等方法在每次梯度更新後都會進行測量子空間的投影，這可能導致樣本偏離生成流形，累積誤差，最終得到錯誤解 。圖7直觀地展示了MCG在噪聲超分辨率任務中因噪聲放大而失敗的情況 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJYUCV.png" title="Figure7.png" data-thumbnail="https://imgpoi.com/i/FJYUCV.png" data-sub-html="<h2>MCG失敗的情況</h2><p>Figure7.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJYUCV.png"
+            data-srcset="https://imgpoi.com/i/FJYUCV.png, https://imgpoi.com/i/FJYUCV.png 1.5x, https://imgpoi.com/i/FJYUCV.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJYUCV.png" />
+    </a><figcaption class="image-caption">MCG失敗的情況</figcaption>
+    </figure></p>
+<p>大多數現有工作都<strong>僅限於解決簡單的線性逆問題</strong> 。例如，一些在譜域中運行擴散模型的方法（如 Kawar 等人的工作）雖然能夠處理噪聲，但它們依賴於奇異值分解（SVD）的計算 。SVD的計算成本高昂，並且當正向模型變得複雜時，甚至可能變得難以承受 。這使得這些方法的適用範圍受到嚴格限制，例如，Kawar 等人（2022）僅考慮了可分離高斯核的去模糊問題，因為它們受限於可以有效執行SVD的逆問題家族 。因此，這些方法無法有效地擴展到非線性逆問題，如傅裡葉相位恢復或非均勻去模糊 。</p>
+<h2 id="二作者的新方法dps">二、作者的新方法DPS</h2>
+<h3 id="21-突破性進展近似測量似然">2.1 突破性進展：近似測量似然</h3>
+<p>擴散後驗採樣（DPS）方法的<strong>核心創新在於其解決測量似然項 $p(y∣x_t)$ 難以處理性的巧妙策略</strong> 。DPS 不再直接計算這個複雜的項，而是通過對其進行近似來使其變得可處理。</p>
+<ol>
+<li>$\hat{x}_0$ 的概念：估計乾淨圖像
+DPS 的核心思想是利用 $p(y∣x_t)\simeq p(y∣\hat{x}_0)$ 這一近似 。這裡的$\hat{x}_0$ 是對乾淨圖像 $x_0$ 的估計，這個估計是基於當前的中間噪聲圖像 $x_t$ 獲得的 。從數學上講，原始的 $p(y∣x_t)$ 可以通過對 $x_0$ 的積分來分解：$p(y|x_t) = \int p(y|x_0)p(x_0|x_t)dx_0$。DPS 的近似方法是將這個關於 $x_0$ 的期望替換為在 $x_0$ 的期望值（即 $x_0$）處評估似然函數 。這種替換將複雜的積分問題簡化為對一個估計值的直接評估，從而極大地簡化了計算。</li>
+</ol>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGJPD.png" title="Figure2.png" data-thumbnail="https://imgpoi.com/i/FJGJPD.png" data-sub-html="<h2>數學關係</h2><p>Figure2.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGJPD.png"
+            data-srcset="https://imgpoi.com/i/FJGJPD.png, https://imgpoi.com/i/FJGJPD.png 1.5x, https://imgpoi.com/i/FJGJPD.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGJPD.png" />
+    </a><figcaption class="image-caption">數學關係</figcaption>
+    </figure></p>
+<ol start="2">
+<li>
+<p>Tweedie 公式：$\hat{x}_0$ 的數學基礎
+對於方差保持型SDE（VP-SDE）這類常見的擴散模型，其正向擴散過程 $x_t = \sqrt{\bar{\alpha}(t)}x_0 + \sqrt{1 - \bar{\alpha}(t)}z$  允許我們推導出給定 $x_t$ 時 $x_0$ 的唯一後驗均值 $\hat{x}_0=E[x_0∣xt]$。這裡，Tweedie 公式發揮了關鍵作用 。Tweedie 公式是一個統計學上的重要結果，它為這種後驗均值提供了一個封閉形式的表達式，並將其與分數函數直接關聯起來。
+具體而言， $\hat{x}<em>0$ 可以近似表示為 $\hat{x}<em>0\simeq\frac{1}{\sqrt{\bar{\alpha}(t)}}(x_t + (1 - \bar{\alpha}(t))s</em>{\theta\ast}(x_t, t))$。這個公式使得在逆向擴散過程中，我們能夠高效地從當前噪聲圖像 $x_t$ 和預訓練分數模型 $s</em>{\theta\ast}$ 中計算出乾淨圖像的估計 $\hat{x}_0$ 。<strong>這是 DPS 能夠有效近似似然項的關鍵一步</strong>。</p>
+</li>
+<li>
+<p>理解**“Jensen 差距”**：量化近似精度
+為了量化 $p(y∣x_t)\simeq p(y∣\hat{x}_0)$ 這一近似的誤差，論文引入了“Jensen 差距”的概念 。Jensen 差距定義為一個函數的期望與期望的函數之間的差值 $(E[f(x)]−f(E[x]))$ 。論文中的定理1給出了在存在高斯噪聲的逆問題中，這個近似誤差（Jensen 差距）的一個上限 。更重要的是，定理1的備註2指出，<strong>隨著測量噪聲 $\sigma$ 的增加，Jensen 差距會趨近於0</strong> 。這意味著，當測量噪聲越大時，DPS 的核心近似 $p(y∣x_t)\simeq p(y∣\hat{x}_0)$ 反而會變得更準確。這與直覺相反，因為通常情況下噪聲越多，問題越難解決。然而，正是這種獨特的性質，使得 DPS 在處理高噪聲場景時表現出卓越的魯棒性，從而解決了先前方法在噪聲環境下失效的局限性 。</p>
+</li>
+</ol>
+<p>以下是定理1原文翻譯解釋:</p>
+<blockquote>
+<p><strong>定理 1.</strong> 對於給定的測量模型 (6) 且 $n \sim \mathcal{N}(0, \sigma^2I)$，我們有
+$$p(y|x_t) \approx p(y|\hat{x}<em>0), \quad \quad \quad \quad \quad (13)$$
+其中近似誤差可以用 Jensen 不等式間隙來量化，其上限由下式給出
+$$\mathcal{J} \le \frac{d}{\sqrt{2\pi\sigma^2}}e^{-1/2\sigma^2} | \nabla_x A(x) |</em>{m_1}, \quad \quad (14)$$
+其中 $|\nabla_x A(x)| := \max_x |\nabla_x A(x)|$ 且 $m_1 := \int |x_0 - \hat{x}_0|p(x_0|x_t) dx_0$ 。</p></blockquote>
+<blockquote>
+<p><strong>解釋：</strong></p>
+<ul>
+<li><strong>定理 1.</strong> (Theorem 1.)：數學論文中常見的定理標題。</li>
+<li><strong>對於給定的測量模型 (6)</strong>
+<figure><a class="lightgallery" href="https://imgpoi.com/i/FJY16B.png" title="model6.png" data-thumbnail="https://imgpoi.com/i/FJY16B.png" data-sub-html="<h2>模型6</h2><p>model6.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJY16B.png"
+            data-srcset="https://imgpoi.com/i/FJY16B.png, https://imgpoi.com/i/FJY16B.png 1.5x, https://imgpoi.com/i/FJY16B.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJY16B.png" />
+    </a><figcaption class="image-caption">模型6</figcaption>
+    </figure></li>
+</ul>
+<p><strong>且 $n \sim \mathcal{N}(0, \sigma^2I)$</strong> (For the given measurement model (6) with $n \sim \mathcal{N}(0, \sigma^2I)$)：描述了定理成立的條件，其中模型 (6) 是指文檔中之前定義的某個測量模型，$n$ 是一個服從均值為 0、協方差為 $\sigma^2I$ 的多元常態分佈的雜訊項。</p>
+<ul>
+<li><strong>我們有</strong> (we have)：引導出定理的主要結論。</li>
+<li><strong>其中近似誤差可以用 Jensen 不等式間隙來量化，其上限由下式給出</strong> (where the approximation error can be quantified with the Jensen gap, which is upper bounded by)：解釋了公式 (13) 中近似的誤差來源，並引入了公式 (14) 給出該誤差的上限。</li>
+<li><strong>其中 $|\nabla_x A(x)| := \max_x |\nabla_x A(x)|$ 且 $m_1 := \int |x_0 - \hat{x}_0|p(x_0|x_t) dx_0$</strong> (where $|\nabla_x A(x)| := \max_x |\nabla_x A(x)|$ and $m_1 := \int |x_0 - \hat{x}_0|p(x_0|x_t) dx_0$)：定義了公式 (14) 中用到的兩個符號的含義，它們是誤差上限計算的組成部分。</li>
+</ul></blockquote>
+<p>定理1的備註2:</p>
+<blockquote>
+<p><strong>備註 2.</strong> 請注意，在大多數反問題中，$|\nabla_x A(x)|$ 是有限的。這不應與反問題的<strong>不適定性</strong>混淆，後者指的是反算子 $A^{-1}$ 的無界性。因此，如果 $m_1$ 也是有限的（這在大多數實際分佈中都是如此），則定理 1 中的 Jensen 不等式間隙在 $\sigma \to \infty$ 時可以趨近於 0，這表明<strong>近似誤差會隨著測量雜訊的增加而減小。這或許能解釋為什麼我們的 DPS 在有雜訊的反問題中表現良好。</strong> 此外，儘管我們已將測量分佈指定為高斯分佈，我們也可以用類似的方式確定其他測量分佈（例如泊松分佈）的 Jensen 不等式間隙。
+透過利用定理 1 的結果，我們可以使用對數似然的近似梯度：
+$$\nabla_{x_t} \log p(y|x_t) \approx \nabla_{x_t} \log p(y|\hat{x}_0), \quad \quad \quad \quad (15)$$
+其中後者現在是可解析處理的，因為測量分佈是已知的。</p></blockquote>
+<blockquote>
+<p><strong>解釋：</strong></p>
+<ul>
+<li><strong>備註 2.</strong> (Remark 2.)：提供額外的說明或見解。</li>
+<li><strong>請注意，在大多數反問題中，$|\nabla_x A(x)|$ 是有限的。</strong> (Note that $|\nabla_x A(x)|$ is finite in most of the inverse problems.)：指出梯度範數的性質。</li>
+<li><strong>這不應與反問題的</strong>不適定性<strong>混淆，後者指的是反算子 $A^{-1}$ 的無界性。</strong> (This should not be confused with the <strong>ill-posedness</strong> of the inverse problems, which refers to the unboundedness of the inverse operator $A^{-1}$.)：澄清一個常見的誤解，區分有限的梯度範數與不適定問題。</li>
+<li><strong>因此，如果 $m_1$ 也是有限的（這在大多數實際分佈中都是如此），則定理 1 中的 Jensen 不等式間隙在 $\sigma \to \infty$ 時可以趨近於 0，這表明</strong>近似誤差會隨著測量雜訊的增加而減小。這或許能解釋為什麼我們的 DPS 在有雜訊的反問題中表現良好。 (Accordingly, if $m_1$ is also finite (which is the case for most of the distribution in practice), the Jensen gap in Theorem 1 can approach to 0 as $\sigma \to \infty$, suggesting that the approximation error reduces with higher measurement noise. This may explain why our DPS works well for noisy inverse problems.)：解釋了當雜訊 ($\sigma$) 增加時，近似誤差反而會減小的原因，並推測這可能解釋了他們的方法 (DPS) 在有雜訊情況下表現良好的原因。</li>
+<li><strong>此外，儘管我們已將測量分佈指定為高斯分佈，我們也可以用類似的方式確定其他測量分佈（例如泊松分佈）的 Jensen 不等式間隙。</strong> (In addition, although we have specified the measurement distribution to be Gaussian, we can also determine the Jensen gap for other measurement distributions (e.g. Poisson) in an analogous fashion.)：指出該方法不僅限於高斯分佈，也適用於其他分佈。</li>
+<li><strong>透過利用定理 1 的結果，我們可以使用對數似然的近似梯度：</strong> (By leveraging the result of Theorem 1, we can use the approximate gradient of the log likelihood:)：引導出下面的數學公式，說明如何應用定理 1 的結果。</li>
+<li><strong>其中後者現在是可解析處理的，因為測量分佈是已知的。</strong> (where the latter is now analytically tractable, as the measurement distribution is given.)：說明公式 (15) 右側項的優勢，即在測量分佈已知的情況下，它變得更容易計算。</li>
+</ul></blockquote>
+<h3 id="22-dps在真實場景中的應用">2.2 DPS在真實場景中的應用</h3>
+<p>DPS 設計的通用性使其能夠靈活適應不同類型的測量噪聲，並處理複雜的非線性逆問題。</p>
+<h4 id="221-處理高斯噪聲標準情況">2.2.1 處理高斯噪聲：標準情況</h4>
+<p>對於受高斯噪聲汙染的測量數據，似然函數通常採用標準高斯分布的形式 。在這種情況下，近似的對數似然梯度可以推導為與 $|y - \mathcal{A}(\hat{x}_0)|_2^2$ 的梯度成比例的項 。其中，$\sigma^2$ 是高斯噪聲的方差，而 $\rho = 1/\sigma^2$ 則作為步長參數，控制著測量一致性項對生成過程的影響 。</p>
+<blockquote>
+<p>$|&hellip;|_2^2$：表示向量的 L2 範數（歐幾里得範數）的平方。通常這代表了兩個向量之間歐幾里得距離的平方，或殘差平方和。</p></blockquote>
+<p>值得強調的是，這個梯度可以通過對正向測量算子$\mathcal{A}(\cdot)$ 和計算 $\hat{x}<em>0$ 的神經網絡進行<strong>自動微分</strong>（即反向傳播）來高效計算 。這意味著即使 $\mathcal{A}(\cdot)$ 是一個複雜的非線性函數，我們也能自動地獲得其梯度，從而將測量信息有效地融入到擴散採樣過程中。最終，後驗梯度近似為 $s</em>{\theta*}(x_t, t) - \rho \nabla_{x_t} |y - \mathcal{A}(\hat{x}_0)|_2^2$。</p>
+<h4 id="222-泊松噪聲當噪聲依賴於信號時">2.2.2 泊松噪聲：當噪聲依賴於信號時</h4>
+<p>泊松噪聲是一種信號依賴型噪聲，在低光照成像等場景中非常常見 。DPS 也能夠有效地處理這類噪聲。雖然泊松似然函數最初由泊松分布的乘積給出，但當測量值足夠大時，泊松模型可以被高精度地近似為高斯分布 。</p>
+<p>這種近似導致似然梯度中出現一個<strong>加權最小二乘項</strong>：$\nabla_{x_t} |y - \mathcal{A}(\hat{x}<em>0)|</em>{\Lambda}^2$ 。這裡的權重矩陣 $\Lambda$ 是一個對角矩陣，其對角線元素 $[\Lambda]_{ii} \triangleq 1/(2y_j)$，這巧妙地考慮了泊松噪聲的信號依賴性 。實驗結果表明，這種加權最小二乘方法在處理泊松逆問題時非常有效 。</p>
+<blockquote>
+<p>$[\Lambda]_{ii}$：表示矩陣 $Lambda$ 的對角線元素（第 i 行第 i 列的元素）。
+$\triangleq$：表示「定義為」或「等於」。</p></blockquote>
+<h3 id="23-dps超越線性解決複雜的非線性逆問題">2.3 DPS超越線性：解決複雜的非線性逆問題</h3>
+<p>與許多先前局限於線性算子的擴散模型方法不同，DPS 具有<strong>完全的通用性</strong> 。只要正向測量算子$\mathcal{A}(\cdot)$是可微分的，其梯度就可以通過自動微分獲得，從而使 DPS 能夠處理複雜的非線性逆問題 。論文中通過解決兩個眾所周知的困難非線性逆問題來證明了這一點：<strong>傅裡葉相位恢復</strong>（僅已知傅裡葉變換的幅度信息）和<strong>非均勻去模糊</strong>（使用神經網絡近似的正向模型）。在這些具有挑戰性的設置中，DPS 均展現出強大的性能。</p>
+<h3 id="24-dps-的幾何優勢為何在噪聲環境中表現更優">2.4 DPS 的幾何優勢：為何在噪聲環境中表現更優</h3>
+<p>論文對 DPS 進行了幾何解釋，並將其與基於投影的方法（如流形約束梯度，MCG）進行了對比 。在擴散模型的背景下，一個去噪步驟（由分數函數 $s_θ$ 執行）可以被理解為向數據流形的正交投影，而梯度步驟則沿著當前流形的切線方向 。</p>
+<p>MCG 等方法在每次更新步驟後，會額外執行一個向測量子空間的投影 。雖然這些投影旨在強制數據一致性，但在噪聲環境中，它們會帶來問題。當測量數據包含噪聲時，強制進行嚴格的測量子空間投影會導致樣本“偏離流形”，並累積誤差，從而放大噪聲並導致不正確的解決方案 。圖3a直觀地展示了這種現象，說明了當測量數據存在噪聲時，樣本如何偏離生成流形 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJG66V.png" title="Figure3.png" data-thumbnail="https://imgpoi.com/i/FJG66V.png" data-sub-html="<h2>DPS的擴散過程區別</h2><p>Figure3.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJG66V.png"
+            data-srcset="https://imgpoi.com/i/FJG66V.png, https://imgpoi.com/i/FJG66V.png 1.5x, https://imgpoi.com/i/FJG66V.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJG66V.png" />
+    </a><figcaption class="image-caption">DPS的擴散過程區別</figcaption>
+    </figure></p>
+<p><a href="https://imgpoi.com/i/FJYUCV.png" target="_blank" rel="noopener noreffer ">圖7</a>進一步通過實驗結果證實了MCG在噪聲超分辨率任務中因噪聲放大而失效 。</p>
+<p>與此形成鮮明對比的是，DPS 不依賴於這種嚴格的測量子空間投影 。這使得它對受損的測量數據更加魯棒，並能夠防止樣本在測量數據存在噪聲時偏離生成流形 。圖3b展示了 DPS 在噪聲設置中保持了更理想的生成路徑 。DPS 可以被視為擴散採樣與流形約束梯度的一種融合版本，但沒有嚴格的測量一致性投影步驟 。這一區別至關重要，因為雖然投影對於無噪聲逆問題有用，但對於有噪聲的逆問題，它們會顯著失效 。</p>
+<p>因此，DPS 的幾何方法通過避免對測量子空間進行嚴格投影，使得樣本在噪聲環境中能夠更接近生成流形，從而直接解決了困擾 MCG 等基於投影方法所面臨的噪聲放大問題。</p>
+<h2 id="三理解dps算法邏輯">三、理解DPS算法邏輯</h2>
+<h3 id="31-算法1高斯噪聲下的-dps">3.1 算法1：高斯噪聲下的 DPS</h3>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGX5M.png" title="algo1.png" data-thumbnail="https://imgpoi.com/i/FJGX5M.png" data-sub-html="<h2>高斯噪聲下的 DPS</h2><p>algo1.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGX5M.png"
+            data-srcset="https://imgpoi.com/i/FJGX5M.png, https://imgpoi.com/i/FJGX5M.png 1.5x, https://imgpoi.com/i/FJGX5M.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGX5M.png" />
+    </a><figcaption class="image-caption">高斯噪聲下的 DPS</figcaption>
+    </figure></p>
+<p>DPS 算法的核心在於其疊代的逆向採樣過程，它將擴散模型的先驗去噪能力與測量數據的一致性約束相結合。以下是高斯噪聲情況下 DPS 算法（算法1）的逐步解釋：</p>
+<ol>
+<li>初始化 ($x_N \sim \mathcal{N}(0, I)$)：算法從一個純高斯噪聲圖像 $x_N$ 開始，這代表了擴散過程的終點 。</li>
+<li>逆向時間循環 (<code>for i=N−1 down to 0</code>)：算法從最終時間步（最噪聲狀態）開始，逐步向初始時間步（最乾淨狀態）疊代 。</li>
+<li>分數模型調用 ($\hat{s} \leftarrow s_\theta(x_i, i)$)：在每個時間步 $i$，算法調用預訓練的神經網絡 $s_θ$（分數模型），輸入當前噪聲圖像 $x_i$ 和時間步 $i$，以獲得分數估計 $\hat{s}$。這個 $\hat{s}$ 指示了如何將 $x_i$ 去噪以使其更接近真實數據分布的方向 。</li>
+<li>計算估計的乾淨圖像 ($\hat{x}_0 \leftarrow \frac{1}{\sqrt{\bar{\alpha}_i}}(x_i + (1 - \bar{\alpha}_i)\hat{s})$)：利用 Tweedie 公式近似，算法根據當前噪聲圖像 $x_i$、分數估計 $\hat{s}$ 以及擴散調度參數 $\bar{\alpha}_i$，計算出當前時間步下對原始乾淨圖像 $x_0$ 的最佳估計 $\hat{s}_0$ 。</li>
+<li>採樣新的隨機噪聲 ($z \sim \mathcal{N}(0, I)$)：為逆向SDE的隨機部分採樣一個新的標準高斯噪聲向量 $z$ 。</li>
+<li>無條件生成更新 ($(x&rsquo;<em>{i-1} \leftarrow \sqrt{\frac{\alpha_i(1-\bar{\alpha}</em>{i-1})}{1-\bar{\alpha}<em>i}}x_i + \sqrt{\frac{\bar{\alpha}</em>{i-1}\beta_i}{1-\bar{\alpha}_i}}\hat{x}_0 + \tilde{\sigma}<em>i z)$)：這是逆向擴散步驟的第一部分，它執行一個基於擴散模型先驗的無條件去噪更新，將 $x_i$ 轉化為一個更乾淨的中間狀態 $x&rsquo;</em>{i-1}$ 。</li>
+<li>應用測量一致性更新 ($x_{i-1} \leftarrow x&rsquo;<em>{i-1} - \zeta_i \nabla</em>{x_i} |y - \mathcal{A}(\hat{x}_0)|<em>2^2$)：這是 DPS 的關鍵步驟。算法從 $x&rsquo;</em>{i-1}$ 中減去一個縮放後的項，該項是測量殘差 $|y - \mathcal{A}(\hat{x}_0)|<em>2^2$ 對 $x_i$ 的梯度。這個梯度項將 $x</em>{i-1}$ 推向與實際測量 y 更一致的方向，其中 $\zeta_i$ 是步長，控制著這種一致性強制的強度 。</li>
+<li>返回 ($\hat{x}_0$)：循環結束後，算法返回最終估計的乾淨圖像 $\hat{x}_0$ 。</li>
+</ol>
+<h3 id="32-算法2泊松噪聲下的-dps">3.2 算法2：泊松噪聲下的 DPS</h3>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGFC2.png" title="algo2.png" data-thumbnail="https://imgpoi.com/i/FJGFC2.png" data-sub-html="<h2>泊松噪聲下的 DPS</h2><p>algo2.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGFC2.png"
+            data-srcset="https://imgpoi.com/i/FJGFC2.png, https://imgpoi.com/i/FJGFC2.png 1.5x, https://imgpoi.com/i/FJGFC2.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGFC2.png" />
+    </a><figcaption class="image-caption">泊松噪聲下的 DPS</figcaption>
+    </figure></p>
+<p>泊松噪聲下的 DPS 算法（算法2）與高斯噪聲下的算法1在結構上非常相似 。主要的區別體現在處理測量一致性項上，以適應泊松噪聲的信號依賴特性。</p>
+<ul>
+<li><strong>核心區別（步驟7）</strong>：在泊松噪聲情況下，測量一致性更新變為 $x_{i-1} \leftarrow x&rsquo;<em>{i-1} - \zeta_i \nabla</em>{x_i} |y - \mathcal{A}(\hat{x}<em>0)|</em>{\Lambda}^2$ 。這裡，L2範數平方被替換為<strong>加權L2範數平方</strong> $|\cdot|<em>{\Lambda}^2$。權重矩陣 $\Lambda$ 的對角線元素 $[\Lambda]</em>{ii} \triangleq 1/(2y_j)$，這使得誤差項根據測量值 $y_j$ 進行加權，從而更準確地反映泊松噪聲的特性 。</li>
+</ul>
+<h2 id="四消融研究的實踐啟示">四、消融研究的實踐啟示</h2>
+<p>DPS 論文中包含的消融研究提供了關於算法實際行為和參數選擇的重要實踐啟示。</p>
+<h3 id="41-步長超參對重建質量的影響">4.1 步長(超參)對重建質量的影響</h3>
+<p>步長 $\zeta_i$ 在 DPS 中扮演著關鍵角色，它平衡了模型對先驗數據分布的遵循程度與對測量數據一致性的強制程度。論文中的消融研究（圖8）表明，$\zeta_i$ 的值過低或過高都會導致重建質量下降 。當 $\zeta_i$ 值過低（例如小於0.1）時，算法生成的圖像與給定測量數據不一致，表明測量信息未能有效融入生成過程 。相反，當 $\zeta_i$ 值過高（例如大於5）時，圖像會出現飽和偽影，並傾向於放大噪聲，這說明模型過度強制了與測量數據的一致性。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJYR5D.png" title="Figure8.png" data-thumbnail="https://imgpoi.com/i/FJYR5D.png" data-sub-html="<h2>超參數的影響</h2><p>Figure8.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJYR5D.png"
+            data-srcset="https://imgpoi.com/i/FJYR5D.png, https://imgpoi.com/i/FJYR5D.png 1.5x, https://imgpoi.com/i/FJYR5D.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJYR5D.png" />
+    </a><figcaption class="image-caption">超參數的影響</figcaption>
+    </figure></p>
+<p>這揭示了一個重要的實踐點：<strong>步長 $\zeta_i$ 在 DPS 中是一個關鍵的超參數</strong>，它在遵循先驗知識和保持數據一致性之間進行權衡。其最優調整，通常是經驗性而非純理論推導（例如，理論上高斯似然的步長應為 $1/\sigma^2$，但實驗表明這並非最佳選擇 ），對於獲得高質量重建至關重要。這凸顯了在應用這些模型時，除了理論基礎，實踐中的調優也扮演著重要的角色。從實驗中得出，將$\zeta_i$ 值設置在 [0.1, 1.0] 範圍內通常能獲得最佳結果 。</p>
+<h3 id="42-泊松噪聲建模的不同方法">4.2 泊松噪聲建模的不同方法</h3>
+<p>對於受泊松噪聲影響的逆問題，論文探討了不同的似然函數公式，包括直接泊松似然（Poisson-direct）、高斯近似泊松似然（Poisson-Gaussian）、簡單的最小二乘法（Poisson-LS）以及論文提出的加權最小二乘法（Poisson-shot）。</p>
+<p>研究發現，直接泊松似然（Poisson-direct）由於其對數項的存在，在實踐中往往不穩定並導致發散 。泊松高斯近似（Poisson-Gaussian）則在加權項上存在問題，阻礙了生成過程的正確收斂 。相比之下，論文提出的加權最小二乘方法（源自泊松噪聲的特定高斯近似）和簡單的最小二乘法（Poisson-LS）都表現出穩定性 。然而，Poisson-LS 傾向於模糊重建中的細節，而論文提出的方法則能更好地保留高頻細節，並且不會改變原始圖像的身份 。</p>
+<p>這項研究表明，即使對於像泊松噪聲這樣已知的噪聲類型，似然項的具體數學公式也會顯著影響算法的穩定性和重建質量。這突顯了在模型設計中，除了簡單的近似之外，還需要仔細考慮數學公式的細微之處。</p>
+<h2 id="五實驗驗證dps-性能與局限性">五、實驗驗證：DPS 性能與局限性</h2>
+<h3 id="51-線性逆問題中的卓越表現">5.1 線性逆問題中的卓越表現</h3>
+<p>DPS 在各種線性逆問題中進行了廣泛的實驗驗證，包括圖像修復（塊狀和隨機掩碼）、超分辨率（4倍）、高斯去模糊和運動去模糊，並分別在FFHQ和ImageNet數據集上測試了高斯和泊松測量噪聲 。定量結果（表1和表2）表明，DPS 在這些任務中顯著優於所有其他對比方法，包括 DDRM、MCG、PnP-ADMM、Score-SDE（ILVR）和 ADMM-TV 。尤其在感知指標（FID和LPIPS）上，DPS 取得了大幅領先 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGKW9.png" title="Table1.png" data-thumbnail="https://imgpoi.com/i/FJGKW9.png" data-sub-html="<h2>表格1</h2><p>Table1.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGKW9.png"
+            data-srcset="https://imgpoi.com/i/FJGKW9.png, https://imgpoi.com/i/FJGKW9.png 1.5x, https://imgpoi.com/i/FJGKW9.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGKW9.png" />
+    </a><figcaption class="image-caption">表格1</figcaption>
+    </figure></p>
+<p>具體而言，MCG 和 Score-SDE 等依賴於測量子空間投影的方法，在存在噪聲的情況下會過度擬合受損的測量數據，導致噪聲放大和重建失敗 。與此形成對比的是，DPS 不依賴於這種投影，因此對受損測量數據表現出更強的魯棒性 。DDRM 雖然對噪聲魯棒，但在測量維度較低的圖像修復任務上表現不佳，並在超分辨率和去模糊任務上產生更模糊的結果 。此外，DDRM 依賴於奇異值分解（SVD），這限制了其僅適用於正向測量矩陣可以高效實現的特定問題（例如，高斯去模糊中的可分離核），而無法處理運動去模糊等更複雜的問題 。DPS 則不受這些限制，可以普遍應用於各種複雜性問題 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJYTEG.png" title="Table2.png" data-thumbnail="https://imgpoi.com/i/FJYTEG.png" data-sub-html="<h2>表格2</h2><p>Table2.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJYTEG.png"
+            data-srcset="https://imgpoi.com/i/FJYTEG.png, https://imgpoi.com/i/FJYTEG.png 1.5x, https://imgpoi.com/i/FJYTEG.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJYTEG.png" />
+    </a><figcaption class="image-caption">表格2</figcaption>
+    </figure></p>
+<p>對於泊松噪聲下的線性逆問題，DPS 也展現出一致的高質量重建能力 。圖5展示了其在泊松噪聲下的超分辨率、高斯去模糊和運動去模糊任務中的出色表現 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJG3WB.png" title="Figure5.png" data-thumbnail="https://imgpoi.com/i/FJG3WB.png" data-sub-html="<h2>圖5</h2><p>Figure5.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJG3WB.png"
+            data-srcset="https://imgpoi.com/i/FJG3WB.png, https://imgpoi.com/i/FJG3WB.png 1.5x, https://imgpoi.com/i/FJG3WB.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJG3WB.png" />
+    </a><figcaption class="image-caption">圖5</figcaption>
+    </figure></p>
+<h3 id="52-應對挑戰性非線性逆問題">5.2 應對挑戰性非線性逆問題</h3>
+<p>DPS 還被應用於更具挑戰性的非線性逆問題：傅裡葉相位恢復和非均勻去模糊 。</p>
+<ul>
+<li>
+<p><strong>相位恢復</strong>：表3的定量結果顯示，DPS 在相位恢復任務中實現了高度準確的重建，能夠捕獲大部分高頻細節 。儘管相位恢復問題本身具有非唯一性，且重建質量可能依賴於初始化（如HIO），但 DPS 在生成多個樣本並選取最佳結果的策略下，顯著優於其他標準方法，如過採樣平滑（OSS）、混合輸入輸出（HIO）和誤差減小（ER）算法 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGNN5.png" title="Table3" data-thumbnail="https://imgpoi.com/i/FJGNN5.png" data-sub-html="<h2>表格3</h2><p>Table3</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGNN5.png"
+            data-srcset="https://imgpoi.com/i/FJGNN5.png, https://imgpoi.com/i/FJGNN5.png 1.5x, https://imgpoi.com/i/FJGNN5.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGNN5.png" />
+    </a><figcaption class="image-caption">表格3</figcaption>
+    </figure></p>
+</li>
+<li>
+<p><strong>非均勻去模糊</strong>：對於非均勻去模糊任務，DPS 再次表現最佳，生成了高度逼真的圖像樣本（表4，圖6）。其他方法，如基於GAN先驗的 BKS-styleGAN2 扭曲了圖像身份，基於 Hyper-Laplacian 先驗的 BKS-generic 無法有效去除偽影和噪聲，而 MCG 則再次出現了噪聲放大現象 。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJXZU5.png" title="Table4.png" data-thumbnail="https://imgpoi.com/i/FJXZU5.png" data-sub-html="<h2>表4</h2><p>Table4.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJXZU5.png"
+            data-srcset="https://imgpoi.com/i/FJXZU5.png, https://imgpoi.com/i/FJXZU5.png 1.5x, https://imgpoi.com/i/FJXZU5.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJXZU5.png" />
+    </a><figcaption class="image-caption">表4</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGHEE.png" title="Figure4.png" data-thumbnail="https://imgpoi.com/i/FJGHEE.png" data-sub-html="<h2>圖4</h2><p>Figure4.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGHEE.png"
+            data-srcset="https://imgpoi.com/i/FJGHEE.png, https://imgpoi.com/i/FJGHEE.png 1.5x, https://imgpoi.com/i/FJGHEE.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGHEE.png" />
+    </a><figcaption class="image-caption">圖4</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJGONG.png" title="Figure6.png" data-thumbnail="https://imgpoi.com/i/FJGONG.png" data-sub-html="<h2>圖6</h2><p>Figure6.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJGONG.png"
+            data-srcset="https://imgpoi.com/i/FJGONG.png, https://imgpoi.com/i/FJGONG.png 1.5x, https://imgpoi.com/i/FJGONG.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJGONG.png" />
+    </a><figcaption class="image-caption">圖6</figcaption>
+    </figure></p>
+</li>
+</ul>
+<h3 id="53-局限性採樣速度與感知-失真權衡">5.3 局限性：採樣速度與感知-失真權衡</h3>
+<p>儘管 DPS 取得了顯著的性能提升，但論文也坦誠地指出了其固有的局限性：</p>
+<ol>
+<li>
+<p><strong>採樣速度</strong>：DPS 繼承了基於擴散模型方法的特性，即計算成本較高且相對較慢 。圖11b的運行時分析顯示，DPS 在單次重建時間上比 DDRM 和 PnP-ADMM 等方法更長 。這反映了底層生成建模範式的固有局限性。然而，論文也指出，這種速度瓶頸可以通過整合更先進的採樣器來緩解 。計算成本和採樣速度仍然是包括 DPS 在內的擴散模型的一個重要瓶頸，這凸顯了生成模型領域在不犧牲質量的前提下提高效率的持續研究方向。</p>
+<p><figure><a class="lightgallery" href="https://imgpoi.com/i/FJYPPE.png" title="Figure11.png" data-thumbnail="https://imgpoi.com/i/FJYPPE.png" data-sub-html="<h2>圖11</h2><p>Figure11.png</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://imgpoi.com/i/FJYPPE.png"
+            data-srcset="https://imgpoi.com/i/FJYPPE.png, https://imgpoi.com/i/FJYPPE.png 1.5x, https://imgpoi.com/i/FJYPPE.png 2x"
+            data-sizes="auto"
+            alt="https://imgpoi.com/i/FJYPPE.png" />
+    </a><figcaption class="image-caption">圖11</figcaption>
+    </figure></p>
+</li>
+<li>
+<p><strong>感知-失真權衡</strong>：DPS 在感知質量指標（如 FID 和 LPIPS）上表現出色，能夠保留圖像的高頻細節（如鬍鬚、頭髮、紋理），這使得重建結果在視覺上更具吸引力 。然而，這種優勢有時會以傳統失真指標（如 PSNR 和 SSIM）的略低分數作為代價 。這體現了圖像處理領域中著名的“感知-失真權衡”現象 。在這種權衡中，旨在優化人類感知質量的方法（例如，保留清晰細節）可能會導致更高的像素級誤差。DPS 在感知指標上的優越表現，但同時在失真指標上略低，正是這一權衡的例證。這表明，對於以人類感知為最終目標的任務，即使犧牲一些純粹的數學失真，保留高頻細節通常是更受歡迎的選擇。</p>
+</li>
+<li>
+<p><strong>相位恢復的魯棒性</strong>：雖然 DPS 在相位恢復任務中表現良好，但由於該問題的固有限制和隨機性，重建質量的魯棒性不如線性逆問題和非均勻去模糊 。在某些情況下，後驗樣本中可能會出現失敗，這通常需要通過生成多個樣本並選擇最佳結果來彌補 。</p>
+</li>
+</ol>
+<blockquote>
+<p>「魯棒性」強調的是系統在「非理想」或「不利」條件下的抵抗能力和生存能力。 它與「穩定性」有相似之處，但通常更強調對持續性或更廣泛擾動的承受力。一個魯棒的系統，是能打逆風球、抗風險的系統。</p></blockquote>
+<h2 id="六結論dps-的影響與未來">六、結論：DPS 的影響與未來</h2>
+<p>擴散後驗採樣（DPS）提供了一個強大且通用的框架，用於解決圖像處理中的各種噪聲（包括信號依賴型和非信號依賴型）和非線性逆問題 。通過巧妙地近似難以處理的測量似然項，並利用 Tweedie 公式和自動微分的強大功能，DPS 克服了現有方法在處理噪聲和非線性場景時的關鍵局限性 。其獨特的幾何方法避免了過度強制測量一致性，從而在噪聲環境中保持了更理想的生成路徑，有效防止了噪聲放大 。</p>
+<p>廣泛的實驗驗證表明，DPS 在超分辨率、圖像修復、去模糊和相位恢復等任務中，尤其是在感知質量方面，顯著優於現有最先進的方法 。這為醫學成像、科學成像等多個領域中的實際應用開闢了新的可能性，這些領域經常面臨高噪聲和複雜非線性測量模型帶來的挑戰。</p>
+<p>儘管 DPS 仍面臨採樣速度相對較慢的挑戰，這是擴散模型固有的特性，但這一領域的研究正在積極探索更高效的採樣器 。未來的工作可以進一步探索如何穩定採樣過程，特別是對於像相位恢復這樣高度不適定的問題，以及如何進一步提高計算效率，從而使其在實時或資源受限的應用中更具可行性。DPS 的出現，無疑是擴散模型在逆問題解決領域邁出的重要一步，預示著該領域未來發展的巨大潛力。</p>
+<h2 id="七其它">七、其它</h2>
+<p>簡短快速了解的好文推薦<a href="https://zhuanlan.zhihu.com/p/679027278" target="_blank" rel="noopener noreffer ">Diffusion Posterior Sampling for General noisy inverse problems（ICLR,23）- 知乎</a></p>
+<h2 id="八想法">八、想法</h2>
+<p>我們回歸到DPS的本質就是把原本的<strong>DDPM擴散擴散模型</strong>的最後複雜項替換，改用近似項取代大量的複雜計算項$p(y|x_t)$，目前作者也很清楚DPS的缺點仍然很明顯: 採樣速度、傳統失真指標低、魯棒性，可能的修正方向:</p>
+<h3 id="81-提升採樣速度整合其它計算更快的模型">8.1 提升採樣速度(整合其它計算更快的模型)</h3>
+<p>為了解決 DPS 的採樣速度限制，整合先進的採樣器是關鍵方向。</p>
+<ol>
+<li>**使用去噪擴散隱式模型（DDIM）加速採樣：**DDIM 是最早透過引入更靈活的非馬爾可夫採樣路徑來加速擴散模型採樣的方法之一，它允許在不重新訓練的情況下跳過疊代步驟 。DPS 當前的實作基於類似 DDPM 的祖先採樣。採用 DDIM 的非馬爾可夫特性可以顯著減少神經網路函數評估（NFE）次數。文獻中指出，DDRM（採用 DDIM 採樣）在低 NFE 情況下（NFE ≤ 100）的性能優於 DPS 。這表明在這些情況下，DDIM 採樣可以直接提升 DPS 的採樣速度而不犧牲品質。</li>
+<li>**高階常微分方程（ODE）求解器（例如 DPM-Solver、DPM-Solver++）：**從擴散機率模型（DPMs）中採樣可以視為求解相應的擴散 ODEs 。DPM-Solver 及其變體（DPM-Solver++、DPM-Solver-v3）被設計為快速、高階的 ODE 求解器，具有收斂階數保證，能夠在僅 10-20 次 NFE 內生成高品質樣本 。DPM-Solver++ 特別解決了高階採樣器在引導尺度增大時的不穩定性問題，使其適用於逆向問題中的引導採樣 。當前 DPS 演算法採用離散設定，類似於 Euler-Maruyama 離散化 。用更先進的 ODE 求解器替換它可以大幅減少高品質重建所需的步數（N），直接解決  中指出的 DPS 的主要限制。</li>
+<li>**減少神經網路函數評估（NFE）的策略：**除了 DDIM 和 DPM-Solver 之外，其他方法如知識蒸餾（knowledge distillation）或調整方差排程（variance schedule）也可以權衡採樣速度和樣本品質 。像「最短路徑擴散模型（ShortDF）」這樣的方法將去噪視為一個最短路徑問題，旨在最小化重建誤差，以減少 NFE 。 指出，高 NFE 數量（1000 NFE）是主要的實際瓶頸。整合這些 NFE 減少策略將使 DPS 更適用於即時或資源受限的應用。</li>
+</ol>
+<p>將 DDIM 和 DPM-Solver 等先進採樣器整合到 DPS 中，不僅是速度的優化；它代表著後驗採樣 SDE 數值求解方式的根本性轉變，有可能提高連續時間逆向過程近似的準確性，尤其是在低 NFE 情況下。這可以透過在更快速度下實現更好的保真度來緩解「感知-失真權衡」。更精密的數值積分方法（如 DDIM 和 DPM-Solver）能夠以更少的步驟實現高品質，因為它們被設計為更準確或確定性地近似連續時間過程。這種更精確的離散近似意味著演算法所採取的離散步驟能更好地反映真實的連續後驗採樣路徑。其更廣泛的影響是，如果離散近似更準確，它可能會減少累積誤差，從而導致重建中的偽影或品質下降（例如  中指出的 DDRM 的模糊性）。這可能導致感知-失真權衡的更好平衡，在提高速度的同時產生既感知愉悅又失真準確的結果。</p>
+<h3 id="82-推進似然近似與後驗建模dps的近似項修改">8.2 推進似然近似與後驗建模(DPS的近似項修改)</h3>
+<p>精煉似然項近似</p>
+<ol>
+<li>
+<p>超越 Jensen 差距：DPS 透過 $p(y∣x_t)\simeq p(y∣\hat{x}_0)$ 來近似似然函數，其中 $\hat{x}_0$ 是後驗均值。這種近似的誤差由 Jensen 差距量化 。儘管 Jensen 差距有上限且隨量測雜訊的增加而減小，這表示在高雜訊情境下近似可能較準確，但這也暗示在低雜訊情境下近似可能不夠精確 。</p>
+<p>近期研究<a href="https://arxiv.org/html/2402.02149v1" target="_blank" rel="noopener noreffer ">Improving Diffusion Models for Inverse Problems  Using Optimal Posterior Covariance</a>發現，現有的擴散模型在近似條件後驗均值時，通常對難以處理的去噪後驗採用具有手動設定各向同性協方差的高斯近似。透過使用基於最大似然估計（MLE）的更具原則性的協方差，可以顯著提升重建性能，而無需進行超參數調整。這涉及推導逆向過程協方差的閉合形式公式並對其進行近似。這種數學公式化將涉及擴展當前的 $\hat{x}_0$ 公式 ，以納入協方差項 $Cov(x_0∣x_t)$。文獻指出 $Cov(x_0∣x_t)$ 取決於 $Hessian H=\nabla^2\log p(y∣x_0)$，雖然這不能直接獲得，但可以透過近似方法（例如對梯度向量進行有限差分法）來估計 。</p>
+</li>
+<li>
+<p>探索難以處理似然的混合近似：似然函數 $p(y∣x_t)$ 難以處理，因為 $x_t$ 透過複雜的擴散過程依賴於 $x_0$ 。為了解決擴散模型在逆向問題中似然函數難以處理的問題，已經提出了一種新穎的這些中間分佈的混合近似方法 。這種方法旨在解決 DPS 及相關工作中近似似然梯度的誤差。DPS 當前框架依賴於似然的點估計（$\hat{x}_0$）。混合近似可以提供更豐富、更準確的真實後驗表示，尤其是在後驗是多模態或高度非高斯的情況下。</p>
+</li>
+</ol>
+<h3 id="83-自適應控制機制">8.3 自適應控制機制</h3>
+<p>DPS 對似然梯度的步長 $\zeta_i$(或 $\rho$) 敏感，當前固定步長排程，儘管經過經驗調整，但限制了其普遍適用性。自適應排程可以根據擴散過程的當前狀態、雜訊水平或量測一致性誤差動態調整$\zeta_i$。</p>
+<ul>
+<li>基於學習的量測引導步長優化方法:擴散狀態引導投影梯度（DiffStateGrad）將量測梯度投影到子空間上，以提高對步長選擇和雜訊的穩健性 。它特別有助於防止樣本在步長較大時偏離資料流形，從而降低失敗率 。可學習線性外推（LLE）是一種輕量級方法，透過高階 ODE 求解器中的線性子空間搜索，普遍增強了基於擴散的逆向演算法。這旨在以有限的步驟提升性能 。時間序列擴散模型的自適應雜訊排程（ANT）根據資料集統計資訊自動預設適當的雜訊排程，旨在線性地減少擴散步驟中的非平穩性 。儘管 ANT 側重於時間序列，但根據資料特性調整雜訊排程的原則是可轉移的。這些方法直接解決了 DPS 的超參數敏感性。與手動調整不同，學習或自適應機制可以確保在整個生成過程中採用最佳步長，從而使重建在各種逆向問題和雜訊條件下更穩定和穩健。</li>
+</ul>
+<p>正規化?不太清楚</p>
+<h3 id="84-其他的想法">8.4 其他的想法</h3>
+<p>問了下GPT，說是可以再從</p>
+<ol>
+<li>增強對多樣雜訊模型和非適定性的穩健性</li>
+<li>任務特定適應與混合生成先驗(e.g. 強化學習（RL）進行自適應分數函數學習、針對分佈外（OOD）情境和有限資料集的基於補丁、基於重建損失的優化策略)</li>
+</ol>
+<p>這方面我讀的論文也不是很多，沒有想法，嗚嗚嗚。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-06-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/dps_for_inverse_problem/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS" data-hashtags="DPS,CV,Model,DDPM,DIFFUSION,paper"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-hashtag="DPS"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS" data-image="/featuredImage/compressed/Figure7.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://huangno1.github.io/dps_for_inverse_problem/" data-title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fhuangno1.github.io%2fdps_for_inverse_problem%2f&amp;text=DIFFUSION%20POSTERIOR%20SAMPLING%20FOR%20GENERAL%20NOISY%20INVERSE%20PROBLEMS" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/dps/">DPS</a>,&nbsp;<a href="/tags/cv/">CV</a>,&nbsp;<a href="/tags/model/">Model</a>,&nbsp;<a href="/tags/ddpm/">DDPM</a>,&nbsp;<a href="/tags/diffusion/">DIFFUSION</a>,&nbsp;<a href="/tags/paper/">Paper</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/ubuntu_upgrate_py2_to_py3/" class="prev" rel="prev" title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Ubuntu 中 Python2 升級到 Python3 & pip 安裝使用</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

@@ -1,61 +1,53 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Archlinux 安裝 Part 2 - 安裝後工作 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Archlinux 安裝 Part 2 - 安裝後工作" />
-<meta property="og:description" content="前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
-確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。
- 註：注意使用 systemctl 啟用 networkmanager 服務時要注意大小寫，開頭要大寫。
- 1 2 3  systemctl enable NetworkManager # 設定開機自啟 systemctl start NetworkManager # 啟用 Netmanager ping baidu.com # 確認連網   添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。
-另一方面，我們無法使用超級使用者進入圖形界面。
- 註：將以下的所有 user 改成自己的使用者名稱。
- 1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-01-04T15:24:28+08:00" />
-<meta property="article:modified_time" content="2020-07-29T15:58:26+08:00" />
+        <title>Archlinux 安裝 Part 2 - 安裝後工作 - Rem Blog</title><meta name="Description" content="HuangNO1&#39;s Blog"><meta property="og:url" content="https://huangno1.github.io/archlinux_install_part2_general_recommendations/">
+  <meta property="og:site_name" content="Rem Blog">
+  <meta property="og:title" content="Archlinux 安裝 Part 2 - 安裝後工作">
+  <meta property="og:description" content="前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
+確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-01-04T15:24:28+08:00">
+    <meta property="article:modified_time" content="2020-10-20T16:46:36+08:00">
+    <meta property="article:tag" content="ArchLinux">
+    <meta property="article:tag" content="Linux">
+    <meta property="og:image" content="https://huangno1.github.io/logo.png">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
-
-<meta name="twitter:title" content="Archlinux 安裝 Part 2 - 安裝後工作"/>
-<meta name="twitter:description" content="前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
-確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。
- 註：注意使用 systemctl 啟用 networkmanager 服務時要注意大小寫，開頭要大寫。
- 1 2 3  systemctl enable NetworkManager # 設定開機自啟 systemctl start NetworkManager # 啟用 Netmanager ping baidu.com # 確認連網   添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。
-另一方面，我們無法使用超級使用者進入圖形界面。
- 註：將以下的所有 user 改成自己的使用者名稱。
- 1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://huangno1.github.io/logo.png">
+  <meta name="twitter:title" content="Archlinux 安裝 Part 2 - 安裝後工作">
+  <meta name="twitter:description" content="前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
+確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。">
+<meta name="application-name" content="Rem Blog">
+<meta name="apple-mobile-web-app-title" content="Rem Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" /><link rel="prev" href="https://huangno1.github.io/joker_movie_moment/" /><link rel="next" href="https://huangno1.github.io/archlinux_install_part3_install_some_software_and_mac_style/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" /><link rel="prev" href="https://huangno1.github.io/joker_movie_moment/" /><link rel="next" href="https://huangno1.github.io/archlinux_install_part3_install_some_software_and_mac_style/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "Archlinux 安裝 Part 2 - 安裝後工作",
-        "inLanguage": "zh-cn",
+        "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/archlinux_install_part2_general_recommendations\/"
-        },"genre": "posts","keywords": "ArchLinux, Linux","wordcount":  755 ,
-        "url": "https:\/\/huangno1.github.io\/archlinux_install_part2_general_recommendations\/","datePublished": "2020-01-04T15:24:28+08:00","dateModified": "2020-07-29T15:58:26+08:00","publisher": {
+        },"genre": "posts","keywords": "ArchLinux, Linux","wordcount":  2897 ,
+        "url": "https:\/\/huangno1.github.io\/archlinux_install_part2_general_recommendations\/","datePublished": "2020-01-04T15:24:28+08:00","dateModified": "2020-10-20T16:46:36+08:00","publisher": {
             "@type": "Organization",
-            "name": "Rem Blog","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
-                    "width":  528 ,
-                    "height":  560 
-                }},"author": {
+            "name": ""},"author": {
                 "@type": "Person",
                 "name": "Huang Po-Hsun"
             },"description": ""
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -63,28 +55,27 @@
             <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -94,11 +85,11 @@
                 <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -106,39 +97,37 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                <i class="fas fa-adjust fa-fw"></i>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目錄</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Archlinux 安裝 Part 2 - 安裝後工作</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/archlinux/"><i class="far fa-folder fa-fw"></i>ArchLinux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-01-04">2020-01-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 755 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 4 分鐘&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Archlinux 安裝 Part 2 - 安裝後工作</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">included in <a href="/categories/archlinux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ArchLinux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-01-04">2020-01-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2897 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -146,10 +135,10 @@
         data-srcset="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png, /featuredImage/compressed/archlinux_install_part2_general_recommendations.png 1.5x, /featuredImage/compressed/archlinux_install_part2_general_recommendations.png 2x"
         data-sizes="auto"
         alt="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png"
-        title="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png" /></div><div class="details toc" id="toc-static"  kept="">
+        title="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目錄</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -200,125 +189,91 @@
 <h2 id="確認連網">確認連網</h2>
 <p>我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。</p>
 <blockquote>
-<p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
-systemctl start NetworkManager <span class="c1"># 啟用 Netmanager</span>
-ping baidu.com <span class="c1"># 確認連網</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="添加使用者">添加使用者</h2>
+<p>註：注意使用 <code>systemctl</code> 啟用 <strong>networkmanager</strong> 服務時要注意大小寫，開頭要大寫。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> NetworkManager <span class="c1"># 設定開機自啟</span>
+</span></span><span class="line"><span class="cl">systemctl start NetworkManager <span class="c1"># 啟用 Netmanager</span>
+</span></span><span class="line"><span class="cl">ping baidu.com <span class="c1"># 確認連網</span></span></span></code></pre></div></div>
+<h2 id="添加使用者">添加使用者</h2>
 <p>在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。</p>
 <p>另一方面，我們<strong>無法使用超級使用者進入圖形界面</strong>。</p>
 <blockquote>
-<p>註：將以下的所有 <code>user</code> 改成自己的使用者名稱。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">useradd -G wheel user <span class="c1"># 新增使用者</span>
-passwd user <span class="c1"># 設定使用者密碼</span>
-chfn user <span class="c1"># 添加使用者信息，可暫時不填</span>
-mkdir -m <span class="m">700</span> /home/user <span class="c1"># 創建主目錄</span>
-chown user:user /home/user <span class="c1"># 修改使用者與使用者群組</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="sudo-安裝">sudo 安裝</h2>
+<p>註：將以下的所有 <code>user</code> 改成自己的使用者名稱。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">useradd -G wheel user <span class="c1"># 新增使用者</span>
+</span></span><span class="line"><span class="cl">passwd user <span class="c1"># 設定使用者密碼</span>
+</span></span><span class="line"><span class="cl">chfn user <span class="c1"># 添加使用者信息，可暫時不填</span>
+</span></span><span class="line"><span class="cl">mkdir -m <span class="m">700</span> /home/user <span class="c1"># 創建主目錄</span>
+</span></span><span class="line"><span class="cl">chown user:user /home/user <span class="c1"># 修改使用者與使用者群組</span></span></span></code></pre></div></div>
+<h2 id="sudo-安裝">sudo 安裝</h2>
 <p>為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 <code>/etc/sudoers</code>。</p>
 <blockquote>
-<p>註：這裡不能使用 vim 編輯，會顯示權限不足，是只讀狀態，所以要改用 nano。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sudo <span class="c1"># 安裝 sudo</span>
-nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>接著將上一步驟的使用者添加到 sudo。添加  <code>user ALL = (ALL) ALL</code> 在 <code>root</code> 下面。</p>
+<p>註：這裡不能使用 vim 編輯，會顯示權限不足，是只讀狀態，所以要改用 nano。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S sudo <span class="c1"># 安裝 sudo</span>
+</span></span><span class="line"><span class="cl">nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span></span></span></code></pre></div></div>
+<p>接著將上一步驟的使用者添加到 sudo。添加  <code>user ALL = (ALL) ALL</code> 在 <code>root</code> 下面。</p>
 <blockquote>
-<p>註：將 <code>user</code> 改成上一步驟你新增的使用者名稱。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">root</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span><span class="err">
-</span><span class="err"></span><span class="nx">user</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span> # <span class="nx">新增使用者</span><span class="err">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="添加-archlinuxcn-源">添加 ArchLinuxcn 源</h2>
+<p>註：將 <code>user</code> 改成上一步驟你新增的使用者名稱。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">root</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span>
+</span></span><span class="line"><span class="cl"><span class="nx">user</span> <span class="nx">ALL</span> <span class="p">=</span> <span class="p">(</span><span class="nx">ALL</span><span class="p">)</span> <span class="nx">ALL</span> # <span class="nx">新增使用者</span></span></span></code></pre></div></div>
+<h2 id="添加-archlinuxcn-源">添加 ArchLinuxcn 源</h2>
 <blockquote>
-<p>註：2020/07/29 <strong>關於 GPG 金鑰遇到的問題解決方法，我已經補充到此文末的重要補充</strong></p>
-</blockquote>
+<p>註：2020/07/29 <strong>關於 GPG 金鑰遇到的問題解決方法，我已經補充到此文末的重要補充</strong></p></blockquote>
 <p>Archlinuxcn 庫有很多平常實用的工具，但是官方倉庫沒有的東西。</p>
 <p>編輯 <code>/etc/pacman.conf</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">nano /etc/pacman.conf
-</code></pre></td></tr></table>
-</div>
-</div><p>在文件末添加<strong>清華大學 CN 源</strong>，並<strong>順便將 multilib 註解去除</strong>，因為後續裝一些軟體需要到這個庫。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"># <span class="nx">去掉</span> <span class="nx">multilib</span> <span class="nx">註解</span><span class="err">
-</span><span class="err"></span>[<span class="nx">multilib</span>]<span class="err">
-</span><span class="err"></span><span class="nx">Include</span> <span class="p">=</span> <span class="sr">/etc/</span><span class="nx">pacman</span>.<span class="nx">d</span>/<span class="nx">mirrorlist</span><span class="err">
-</span><span class="err"></span># <span class="nx">添加</span> <span class="nx">CN</span> <span class="nx">源</span><span class="err">
-</span><span class="err"></span>[<span class="nx">archlinuxcn</span>]<span class="err">
-</span><span class="err"></span><span class="nx">Server</span> <span class="p">=</span> <span class="nx">https</span>:<span class="sr">//</span><span class="nx">mirrors</span>.<span class="nx">ustc</span>.<span class="nx">edu</span>.<span class="nx">cn</span><span class="sr">/archlinuxcn/</span>$<span class="nx">arch</span><span class="err">
-</span></code></pre></td></tr></table>
-</div>
-</div><p>archlinuxcn-keyring 套件導入 GPG 金鑰。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -Sy archlinuxcn-keyring
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="安裝圖形界面">安裝圖形界面</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">nano /etc/pacman.conf</span></span></code></pre></div></div>
+<p>在文件末添加<strong>清華大學 CN 源</strong>，並<strong>順便將 multilib 註解去除</strong>，因為後續裝一些軟體需要到這個庫。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"># <span class="nx">去掉</span> <span class="nx">multilib</span> <span class="nx">註解</span>
+</span></span><span class="line"><span class="cl">[<span class="nx">multilib</span>]
+</span></span><span class="line"><span class="cl"><span class="nx">Include</span> <span class="p">=</span> <span class="sr">/etc/</span><span class="nx">pacman</span>.<span class="nx">d</span>/<span class="nx">mirrorlist</span>
+</span></span><span class="line"><span class="cl"># <span class="nx">添加</span> <span class="nx">CN</span> <span class="nx">源</span>
+</span></span><span class="line"><span class="cl">[<span class="nx">archlinuxcn</span>]
+</span></span><span class="line"><span class="cl"><span class="nx">Server</span> <span class="p">=</span> <span class="nx">https</span>:<span class="sr">//</span><span class="nx">mirrors</span>.<span class="nx">ustc</span>.<span class="nx">edu</span>.<span class="nx">cn</span><span class="sr">/archlinuxcn/</span>$<span class="nx">arch</span></span></span></code></pre></div></div>
+<p>archlinuxcn-keyring 套件導入 GPG 金鑰。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -Sy archlinuxcn-keyring</span></span></code></pre></div></div>
+<h2 id="安裝圖形界面">安裝圖形界面</h2>
 <h3 id="xorg">Xorg</h3>
 <p>使用 xorg 啟動桌面環境。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S xorg
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="圖形界面選擇">圖形界面選擇</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S xorg</span></span></code></pre></div></div>
+<h3 id="圖形界面選擇">圖形界面選擇</h3>
 <p>我比較推薦 KDE Plasma 或是 Gnome，兩者是最大主流，但因為 KDE 比 Gnome 乾淨，所以我選擇了 KDE Plasma。</p>
 <h4 id="kde-plasma">KDE Plasma</h4>
 <!-- ![01.png](https://i.loli.net/2020/01/05/GMmSkxldPv4s9tT.png "KDE Plasma") -->
@@ -336,37 +291,31 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 <ul>
 <li>基本包</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S plasma</span></span></code></pre></div></div>
+<ul>
 <li>完整包</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma-meta <span class="c1"># 推薦</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S plasma-meta <span class="c1"># 推薦</span></span></span></code></pre></div></div>
+<ul>
 <li>最簡安裝包（僅有桌面軟體）</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S plasma-desktop
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="gnome">Gnome</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S plasma-desktop</span></span></code></pre></div></div>
+<h4 id="gnome">Gnome</h4>
 <!-- ![02.png](https://i.loli.net/2020/01/05/PjDCeAH1p2yiIkn.png "Gnome") -->
 <p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLJJHV.png" title="02.png" data-thumbnail="https://imgpoi.com/i/KLJJHV.png" data-sub-html="<h2>Gnome</h2><p>02.png</p>">
         <img
@@ -381,293 +330,221 @@ nano /etc/sudoers <span class="c1"># 編輯 /etc/sudoers</span>
 <p>Gnome 桌面只要安裝 gnome 包即可，還有一個 gnome-extra 包可以提供額外的常用軟體和幾個遊戲，你可以安裝時選擇你要的軟體，沒必要全選，當然也可以不装這个包。</p>
 <p><strong>私人強烈建議不安裝 gnome-extra 這個包，太多垃圾了，我後面刪得很累</strong></p>
 <blockquote>
-<p>註：在輸入 pacman 下載安裝指令時套件之間的空格不影響其指令執行。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gnome <span class="c1"># 推薦</span>
-pacman -S gnome gnome-extra <span class="c1"># 不推薦</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="啟動器">啟動器</h3>
+<p>註：在輸入 pacman 下載安裝指令時套件之間的空格不影響其指令執行。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S gnome <span class="c1"># 推薦</span>
+</span></span><span class="line"><span class="cl">pacman -S gnome gnome-extra <span class="c1"># 不推薦</span></span></span></code></pre></div></div>
+<h3 id="啟動器">啟動器</h3>
 <blockquote>
-<p>安裝啟動器後先別急進入圖形界面，如果你是雙顯卡會有顯卡衝突。</p>
-</blockquote>
+<p>安裝啟動器後先別急進入圖形界面，如果你是雙顯卡會有顯卡衝突。</p></blockquote>
 <h4 id="kde-plasma-1">KDE Plasma</h4>
 <p>使用 SDDM 登入啟動器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S sddm
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="gnome-1">Gnome</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S sddm</span></span></code></pre></div></div>
+<h4 id="gnome-1">Gnome</h4>
 <p>使用 GDM 登入啟動器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S gdm
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="顯卡衝突">顯卡衝突</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S gdm</span></span></code></pre></div></div>
+<h3 id="顯卡衝突">顯卡衝突</h3>
 <p>相信如果你的筆電是<strong>雙顯卡</strong>，那很有可能遇到雙顯卡衝突，像我的是 <strong>Intel 和 nvidia 衝突</strong>，一般我會建議使用 Intel 內顯去驅動圖形界面。當然因為我的筆記型電腦是聯想 Y7000，所以對於顯卡的處理很麻煩。</p>
 <h4 id="一般處理方法">一般處理方法</h4>
 <p>安裝 <code>optimus-manager</code>，幫你自動產生 <code>xorg.conf</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S optimus-manager <span class="c1"># 安裝 optimus-manager</span>
-systemctl <span class="nb">enable</span> --now optimus-manager
-<span class="c1"># 二選一</span>
-optimus-manager --switch intel <span class="c1"># 切換到內顯</span>
-optimus-manager --switch nvidia <span class="c1"># 切 N 卡</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>如果你需要<strong>重新選擇圖形界面的驅動方式</strong>，也就是選擇以哪個顯卡驅動，<strong>要刪除 <code>/etc/X11/xorg.conf</code></strong>，再重新設定。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm /etc/X11/xorg.conf <span class="c1"># 刪除 /etc/X11/xorg.conf</span>
-systemctl <span class="nb">enable</span> --now optimus-manager
-<span class="c1"># 二選一</span>
-optimus-manager --switch intel <span class="c1"># 切換到內顯</span>
-optimus-manager --switch nvidia <span class="c1"># 切 N 卡</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>重啟電腦後使用啟動器進入圖形界面如果沒有問題就可以啟用自動啟動圖形界面。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S optimus-manager <span class="c1"># 安裝 optimus-manager</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now optimus-manager
+</span></span><span class="line"><span class="cl"><span class="c1"># 二選一</span>
+</span></span><span class="line"><span class="cl">optimus-manager --switch intel <span class="c1"># 切換到內顯</span>
+</span></span><span class="line"><span class="cl">optimus-manager --switch nvidia <span class="c1"># 切 N 卡</span></span></span></code></pre></div></div>
+<p>如果你需要<strong>重新選擇圖形界面的驅動方式</strong>，也就是選擇以哪個顯卡驅動，<strong>要刪除 <code>/etc/X11/xorg.conf</code></strong>，再重新設定。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">rm /etc/X11/xorg.conf <span class="c1"># 刪除 /etc/X11/xorg.conf</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now optimus-manager
+</span></span><span class="line"><span class="cl"><span class="c1"># 二選一</span>
+</span></span><span class="line"><span class="cl">optimus-manager --switch intel <span class="c1"># 切換到內顯</span>
+</span></span><span class="line"><span class="cl">optimus-manager --switch nvidia <span class="c1"># 切 N 卡</span></span></span></code></pre></div></div>
+<p>重啟電腦後使用啟動器進入圖形界面如果沒有問題就可以啟用自動啟動圖形界面。</p>
 <ol>
 <li>KDE Plasma</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start sddm <span class="c1"># 啟用圖形界面</span>
-systemctl <span class="nb">enable</span> sddm <span class="c1"># 開機自啟</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">systemctl start sddm <span class="c1"># 啟用圖形界面</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> sddm <span class="c1"># 開機自啟</span></span></span></code></pre></div></div>
+<ol start="2">
 <li>Gnome</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">systemctl start gdm <span class="c1"># 啟用圖形界面</span>
-systemctl <span class="nb">enable</span> gdm <span class="c1"># 開機自啟</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="聯想-y7000-的方法">聯想 Y7000 的方法</h4>
-<p>因為 <code>optimus-manager</code> 無法解決<strong>聯想 Y7000 的顯卡衝突</strong>，關於這裡的解決方法我是詢問 Telegram <a href="https://t.me/archlinuxcn_group" target="_blank" rel="noopener noreffer">#archlinux-cn</a> 群中的 <strong>@HiyoriCao</strong> 大佬才得以解決。我因為不能使用獨顯進入圖形界面，所以就一直是用一個模式（核顯）。</p>
-<p>首先 yay 大佬的包 &ndash; <a href="https://aur.archlinux.org/packages/arch-prime-git/" target="_blank" rel="noopener noreffer"><strong>arch-prime-git</strong></a></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">systemctl start gdm <span class="c1"># 啟用圖形界面</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> gdm <span class="c1"># 開機自啟</span></span></span></code></pre></div></div>
+<h4 id="聯想-y7000-的方法">聯想 Y7000 的方法</h4>
+<p>因為 <code>optimus-manager</code> 無法解決<strong>聯想 Y7000 的顯卡衝突</strong>，關於這裡的解決方法我是詢問 Telegram <a href="https://t.me/archlinuxcn_group" target="_blank" rel="noopener noreffer ">#archlinux-cn</a> 群中的 <strong>@HiyoriCao</strong> 大佬才得以解決。我因為不能使用獨顯進入圖形界面，所以就一直是用一個模式（核顯）。</p>
+<p>首先 yay 大佬的包 &ndash; <a href="https://aur.archlinux.org/packages/arch-prime-git/" target="_blank" rel="noopener noreffer "><strong>arch-prime-git</strong></a></p>
 <blockquote>
 <p>註：yay 可以直接從 AUR 倉庫上下載用戶上傳的最新軟件包。</p>
-<p>註：Arch 使用者軟體倉庫 (AUR) 是由社群推動的使用者軟體庫。它包含了軟體包描述單 (PKGBUILD)，可以用 makepkg 從原始碼編譯軟體包，並透過 Pacman 安裝。 透過 AUR 可以在社群間分享、組織新進軟體包，熱門的軟體包有機會被收錄進 community[broken link: invalid section] 軟體庫。這份文件將解釋如何存取、使用 AUR。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S yay <span class="c1"># 下載安裝 yay</span>
-pacman -S base-devel <span class="c1"># 下載安裝 base-devel 編譯工具包</span>
-yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>如果有 Nvidia 卡，要先安裝 <code>nvidia</code> 套件，然後重起電腦，讓 arch-prime-git 能偵測到顯卡（Nvidia）。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S nvidia <span class="c1"># 安裝 N 卡套件</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>先初始化 arch-prime-git。</p>
+<p>註：Arch 使用者軟體倉庫 (AUR) 是由社群推動的使用者軟體庫。它包含了軟體包描述單 (PKGBUILD)，可以用 makepkg 從原始碼編譯軟體包，並透過 Pacman 安裝。 透過 AUR 可以在社群間分享、組織新進軟體包，熱門的軟體包有機會被收錄進 community[broken link: invalid section] 軟體庫。這份文件將解釋如何存取、使用 AUR。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S yay <span class="c1"># 下載安裝 yay</span>
+</span></span><span class="line"><span class="cl">pacman -S base-devel <span class="c1"># 下載安裝 base-devel 編譯工具包</span>
+</span></span><span class="line"><span class="cl">yay -S arch-prime-git <span class="c1"># 下載 arch-prime-git</span></span></span></code></pre></div></div>
+<p>如果有 Nvidia 卡，要先安裝 <code>nvidia</code> 套件，然後重起電腦，讓 arch-prime-git 能偵測到顯卡（Nvidia）。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S nvidia <span class="c1"># 安裝 N 卡套件</span></span></span></code></pre></div></div>
+<p>先初始化 arch-prime-git。</p>
 <blockquote>
-<p>註：這個指令貌似要在一般使用者中執行，不能是 Root 使用者（超級使用者），如果在 Root 使用者下無法執行 init，就輸入 <code>exit</code> 指令登出，重新以一般使用者登入。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select init
-</code></pre></td></tr></table>
-</div>
-</div><p>這軟件包提供<strong>三種模式</strong>：</p>
+<p>註：這個指令貌似要在一般使用者中執行，不能是 Root 使用者（超級使用者），如果在 Root 使用者下無法執行 init，就輸入 <code>exit</code> 指令登出，重新以一般使用者登入。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">prime-select init</span></span></code></pre></div></div>
+<p>這軟件包提供<strong>三種模式</strong>：</p>
 <ol>
 <li>只用核顯</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> intel
-</code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">prime-select <span class="nb">set</span> intel</span></span></code></pre></div></div>
+<ol start="2">
 <li>只用獨顯</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> nvidia
-</code></pre></td></tr></table>
-</div>
-</div><ol start="3">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">prime-select <span class="nb">set</span> nvidia</span></span></code></pre></div></div>
+<ol start="3">
 <li>動態切換</li>
 </ol>
 <blockquote>
-<p>註：在設置環境變量的時候不能添加到 <code>./profile</code>，因為這樣會設成全局變量，失去了動態切換的意義，在 Linux 上很少程序需要用到獨顯，除非是遊戲或是 Tenserflow 使用獨顯訓練。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">prime-select <span class="nb">set</span> prime
-
-<span class="c1"># 跑在核顯上</span>
-glxinfo <span class="p">|</span> grep vendor
-
-<span class="c1"># 跑在獨顯上</span>
-<span class="nb">export</span> <span class="nv">NV_PRIME_RENDER_OFFLOAD</span><span class="o">=</span><span class="m">1</span> <span class="c1"># 設置環境變量</span>
-<span class="nv">GLX_VENDOR_LIBRARY_NAME</span><span class="o">=</span>nvidia glxinfo <span class="p">|</span> grep vendor
-</code></pre></td></tr></table>
-</div>
-</div><p>接著試著重啟電腦進入圖形界面，如果沒問題就啟用自啟圖形界面。</p>
+<p>註：在設置環境變量的時候不能添加到 <code>./profile</code>，因為這樣會設成全局變量，失去了動態切換的意義，在 Linux 上很少程序需要用到獨顯，除非是遊戲或是 Tenserflow 使用獨顯訓練。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">prime-select <span class="nb">set</span> prime
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 跑在核顯上</span>
+</span></span><span class="line"><span class="cl">glxinfo <span class="p">|</span> grep vendor
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 跑在獨顯上</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NV_PRIME_RENDER_OFFLOAD</span><span class="o">=</span><span class="m">1</span> <span class="c1"># 設置環境變量</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GLX_VENDOR_LIBRARY_NAME</span><span class="o">=</span>nvidia glxinfo <span class="p">|</span> grep vendor</span></span></code></pre></div></div>
+<p>接著試著重啟電腦進入圖形界面，如果沒問題就啟用自啟圖形界面。</p>
 <h2 id="中文字體">中文字體</h2>
 <p>進入 Plasma，預設會是英文，我推薦使用 Google 的開源字體 <code>Noto Sans CJK</code>，渲染出來的字體很好看。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S noto-fonts-cjk
-</code></pre></td></tr></table>
-</div>
-</div><p>進入 Plasma 後可以在設置中調整字體了，登出再登入就可以看到中文字體。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S noto-fonts-cjk</span></span></code></pre></div></div>
+<p>進入 Plasma 後可以在設置中調整字體了，登出再登入就可以看到中文字體。</p>
 <h2 id="中文輸入法">中文輸入法</h2>
 <p>我這裡選擇 <code>Fcitx</code>。這裡我參考了 @cheergo （Chun Yu）寫的文章內容。</p>
 <blockquote>
 <p>註：Fcitx (Flexible Input Method Framework) ── 即小企鵝輸入法，它是一個以 GPL 方式發布的輸入法平台，可以通過安裝引擎支持多種輸入法，支持簡入繁出，是在 Linux 操作系統中常用的中文輸入法。它的優點是，短小精悍、跟程序的兼容性比較好。</p>
-<p>註：Linux KDE 上切換輸入法的快捷建是 <code>Ctrl</code> + <code>Space</code>。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S fcitx fcitx-im
-</code></pre></td></tr></table>
-</div>
-</div><p>安裝新酷音輸入法。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S fcitx-chewing
-</code></pre></td></tr></table>
-</div>
-</div><p>輸入法設定介面。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S kcm-fcitx <span class="c1"># KDE</span>
-pacman -S fcitx-configtool <span class="c1"># GNOME</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>編輯 <code>/etc/profile</code>，開頭加入三行。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">vim /etc/profile
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">export</span> <span class="nx">XMODIFIERS</span><span class="p">=</span><span class="s2">&#34;@im=fcitx&#34;</span><span class="err">
-</span><span class="err"></span><span class="nx">export</span> <span class="nx">GTK_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span><span class="err">
-</span><span class="err"></span><span class="nx">export</span> <span class="nx">QT_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span><span class="err">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="ntfs-3g">NTFS-3G</h2>
+<p>註：Linux KDE 上切換輸入法的快捷建是 <code>Ctrl</code> + <code>Space</code>。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S fcitx fcitx-im</span></span></code></pre></div></div>
+<p>安裝新酷音輸入法。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S fcitx-chewing</span></span></code></pre></div></div>
+<p>輸入法設定介面。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S kcm-fcitx <span class="c1"># KDE</span>
+</span></span><span class="line"><span class="cl">pacman -S fcitx-configtool <span class="c1"># GNOME</span></span></span></code></pre></div></div>
+<p>編輯 <code>/etc/profile</code>，開頭加入三行。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">vim /etc/profile</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">XMODIFIERS</span><span class="p">=</span><span class="s2">&#34;@im=fcitx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">GTK_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">export</span> <span class="nx">QT_IM_MODULE</span><span class="p">=</span><span class="s2">&#34;fcitx&#34;</span></span></span></code></pre></div></div>
+<h2 id="ntfs-3g">NTFS-3G</h2>
 <p>為了能掛載病讀取外部磁碟（e.g. HDD、SSD），需要安裝 <code>ntfs-3g</code>。</p>
 <p><strong>如果你使用的文件系統是 Btrfs 或是 XFS 就不需要下載這東西。</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S ntfs-3g
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="konsole">Konsole</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S ntfs-3g</span></span></code></pre></div></div>
+<h2 id="konsole">Konsole</h2>
 <p>進入圖形界面後需要安裝 Konsole 以便輸入指令。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">pacman -S konsole
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="重要補充">重要補充</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">pacman -S konsole</span></span></code></pre></div></div>
+<h2 id="重要補充">重要補充</h2>
 <h3 id="聯想-y7000-的連網問題">聯想 Y7000 的連網問題</h3>
-<p>聯想筆電通常在連無線網路上有一個坑 - <strong>Networkmanager 無法啟用無線網卡</strong>，算是&hellip;聯想筆電的特色，這裡我感謝 Telegram <a href="https://t.me/archlinuxcn_group" target="_blank" rel="noopener noreffer">#archlinux-cn</a> 群中的 <strong>@Asterism</strong> 大佬幫助我解決問題。</p>
+<p>聯想筆電通常在連無線網路上有一個坑 - <strong>Networkmanager 無法啟用無線網卡</strong>，算是&hellip;聯想筆電的特色，這裡我感謝 Telegram <a href="https://t.me/archlinuxcn_group" target="_blank" rel="noopener noreffer ">#archlinux-cn</a> 群中的 <strong>@Asterism</strong> 大佬幫助我解決問題。</p>
 <p>許多筆記本電腦都有一個硬體按鈕（或開關）來關閉無線網卡，但是，網卡也可能被內核阻止。 可以由 <strong>Rfkill</strong> 處理。通常來說你需要<strong>禁用 ideapod_laptop</strong>。</p>
 <p>先輸入 <code>rfkill list</code> 查看關於筆電的硬件開關。</p>
 <blockquote>
-<p><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat" target="_blank" rel="noopener noreffer">關於 Rfkill</a></p>
-</blockquote>
+<p><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat" target="_blank" rel="noopener noreffer ">關於 Rfkill</a></p></blockquote>
 <!-- ![03.png](https://i.loli.net/2020/01/15/WLsrNmj6I41ZGyf.png "硬件狀態")  -->
 <p><figure><a class="lightgallery" href="https://imgpoi.com/i/KLJ6VE.png" title="03.png" data-thumbnail="https://imgpoi.com/i/KLJ6VE.png" data-sub-html="<h2>硬件狀態</h2><p>03.png</p>">
         <img
@@ -681,95 +558,82 @@ pacman -S fcitx-configtool <span class="c1"># GNOME</span>
     </figure></p>
 <p>這張圖片是我已經處理過的狀態，關於 <strong>Wireless LAN</strong> 的軟體與硬體禁止皆為 NO，但如果是還沒處理之前我的 <strong>Soft blocked</strong>（軟卡禁止）為 <code>no</code>、<strong>Hard blocked</strong>（硬卡禁止）為 <code>yes</code>。</p>
 <blockquote>
-<p>註：<code>modprobe</code> 是內核模塊，想了解更多可以參考 <a href="https://wiki.archlinux.org/index.php/Kernel_module_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">Kernel module (简体中文) - ArchWiki</a></p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
-sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;blacklist ideapad_laptop&#34;</span> <span class="c1"># 永久生效</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>接著再次輸入 <code>rfkill list</code> 查看狀態，如果發現 <code>Wireless LAN</code> 的 <code>Soft blocked</code> 和 <code>Hard blocked</code> 都是 <code>no</code>就行了，無線網路也能連結了。</p>
+<p>註：<code>modprobe</code> 是內核模塊，想了解更多可以參考 <a href="https://wiki.archlinux.org/index.php/Kernel_module_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">Kernel module (简体中文) - ArchWiki</a></p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo modprobe -r ideapad_laptop <span class="c1"># 禁用 ideapod_laptop</span>
+</span></span><span class="line"><span class="cl">sudo tee /etc/modprobe.d/ideapad.conf <span class="o">&lt;&lt;&lt;</span> <span class="s2">&#34;blacklist ideapad_laptop&#34;</span> <span class="c1"># 永久生效</span></span></span></code></pre></div></div>
+<p>接著再次輸入 <code>rfkill list</code> 查看狀態，如果發現 <code>Wireless LAN</code> 的 <code>Soft blocked</code> 和 <code>Hard blocked</code> 都是 <code>no</code>就行了，無線網路也能連結了。</p>
 <h3 id="pacman-中-archlinux-cn-無法更新下載">pacman 中 archlinux-cn 無法更新下載</h3>
 <p>如果你有在更新或下載時，顯示 GPG 失效或錯誤等訊息，可以嘗試用以下方法解決。我也都是靠這方法解決大部份問題。做完以下步驟後用 pacman 同步一下資料庫，然後再試著下載看看。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">rm -rf /etc/pacman.d/gnupg
-pacman-key --init
-pacman-key --populate archlinux
-pacman-key --populate archlinuxcn
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">rm -rf /etc/pacman.d/gnupg
+</span></span><span class="line"><span class="cl">pacman-key --init
+</span></span><span class="line"><span class="cl">pacman-key --populate archlinux
+</span></span><span class="line"><span class="cl">pacman-key --populate archlinuxcn</span></span></code></pre></div></div>
+<h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://wiki.archlinux.org/index.php/General_recommendations_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">General recommendations (简体中文) - ArchWiki</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Users_and_groups_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">Users and groups (简体中文) - ArchWiki</a></li>
-<li><a href="https://www.tianqiweiqi.com/arch-linux-down-install.html" target="_blank" rel="noopener noreffer">Arch Linux下载与安装配置 - 天祺圍棋</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/NVIDIA_Optimus_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">NVIDIA Optimus (简体中文) - ArchWiki</a></li>
-<li><a href="https://ywnz.com/linuxjc/2677.html" target="_blank" rel="noopener noreffer">在Arch Linux上使用aurman、yay、pakku、aurutils来替代Yaourt - ywnz</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Arch_User_Repository_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">Arch User Repository (正體中文) - ArchWiki</a></li>
-<li><a href="https://gitlab.com/NickCao/ArchPrime/blob/master/README.md" target="_blank" rel="noopener noreffer">Archlinux nvidia-prime like package</a></li>
-<li><a href="https://aur.archlinux.org/packages/arch-prime-git/" target="_blank" rel="noopener noreffer">arch-prime-git - AUR</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Fcitx_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">Fcitx (简体中文) - ArchWiki</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/NTFS-3G_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">NTFS-3G (简体中文) - ArchWiki</a></li>
-<li><a href="https://www.slant.co/versus/12539/12540/~gnome_vs_kde" target="_blank" rel="noopener noreffer">gnome_vs_kde</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat" target="_blank" rel="noopener noreffer">Redirect to:Network configuration/Wireless#Rfkill caveat - ArchWiki</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Kernel_module_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">Kernel module (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/General_recommendations_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">General recommendations (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Users_and_groups_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">Users and groups (简体中文) - ArchWiki</a></li>
+<li><a href="https://www.tianqiweiqi.com/arch-linux-down-install.html" target="_blank" rel="noopener noreffer ">Arch Linux下载与安装配置 - 天祺圍棋</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/NVIDIA_Optimus_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">NVIDIA Optimus (简体中文) - ArchWiki</a></li>
+<li><a href="https://ywnz.com/linuxjc/2677.html" target="_blank" rel="noopener noreffer ">在Arch Linux上使用aurman、yay、pakku、aurutils来替代Yaourt - ywnz</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Arch_User_Repository_%28%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">Arch User Repository (正體中文) - ArchWiki</a></li>
+<li><a href="https://gitlab.com/NickCao/ArchPrime/blob/master/README.md" target="_blank" rel="noopener noreffer ">Archlinux nvidia-prime like package</a></li>
+<li><a href="https://aur.archlinux.org/packages/arch-prime-git/" target="_blank" rel="noopener noreffer ">arch-prime-git - AUR</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Fcitx_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">Fcitx (简体中文) - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/NTFS-3G_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">NTFS-3G (简体中文) - ArchWiki</a></li>
+<li><a href="https://www.slant.co/versus/12539/12540/~gnome_vs_kde" target="_blank" rel="noopener noreffer ">gnome_vs_kde</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Network_configuration/Wireless#Rfkill_caveat" target="_blank" rel="noopener noreffer ">Redirect to:Network configuration/Wireless#Rfkill caveat - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Kernel_module_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">Kernel module (简体中文) - ArchWiki</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2020-07-29</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+                <span>Updated on 2020-10-20</span>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/archlinux_install_part2_general_recommendations/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/archlinux_install_part2_general_recommendations/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-via="Rem59881439" data-hashtags="ArchLinux,Linux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-hashtag="ArchLinux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-image="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-hashtags="ArchLinux,Linux"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-hashtag="ArchLinux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-image="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://huangno1.github.io/archlinux_install_part2_general_recommendations/" data-title="Archlinux 安裝 Part 2 - 安裝後工作" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fhuangno1.github.io%2farchlinux_install_part2_general_recommendations%2f&amp;text=Archlinux%20%e5%ae%89%e8%a3%9d%20Part%202%20-%20%e5%ae%89%e8%a3%9d%e5%be%8c%e5%b7%a5%e4%bd%9c" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/joker_movie_moment/" class="prev" rel="prev" title="影片賞析 -- 小丑（Joker）"><i class="fas fa-angle-left fa-fw"></i>影片賞析 -- 小丑（Joker）</a>
-            <a href="/archlinux_install_part3_install_some_software_and_mac_style/" class="next" rel="next" title="Archlinux 安裝 Part 3 - 基本軟體包安裝與 Mac 風界面設計">Archlinux 安裝 Part 3 - 基本軟體包安裝與 Mac 風界面設計<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/joker_movie_moment/" class="prev" rel="prev" title="影片賞析 -- 小丑（Joker）"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>影片賞析 -- 小丑（Joker）</a>
+            <a href="/archlinux_install_part3_install_some_software_and_mac_style/" class="next" rel="next" title="Archlinux 安裝 Part 3 - 基本軟體包安裝與 Mac 風界面設計">Archlinux 安裝 Part 3 - 基本軟體包安裝與 Mac 風界面設計<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
+</article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
-                <i class="fas fa-comment fa-fw"></i>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

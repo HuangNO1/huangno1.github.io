@@ -1,61 +1,56 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Python 解決羅馬數字轉換 NPSC 模擬試題 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Python 解決羅馬數字轉換 NPSC 模擬試題" />
-<meta property="og:description" content="前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
-題目 這是高中生解題系統基礎題庫裡的 a013 題目
-內容 如果生活在數世紀之前的古羅馬，你應該用過 V 來表示五。V 和 5 這兩個符號都可以用來表示數目五。用來表示數目的符號稱作數字。而羅馬人用來表示數目的符號就是羅馬數字。
-以下是七個基本的羅馬數字︰
-   羅馬數字 數目     I 1   V 5   X 10   L 50   C 100   D 500   M 1,000    所有其他的數目都是由這些數字組合而成。數目都是由左寫到右，通常值是等於組成的羅馬數字加起來。
-例如十七可以表示為
-1 2  X &#43; V &#43; I &#43; I = XVII 10 &#43; 5 &#43; 1 &#43; 1 = 17   表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/python_rome_number_programming/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-07-30T23:17:28+08:00" />
-<meta property="article:modified_time" content="2020-07-30T23:17:26+08:00" />
+        <title>Python 解決羅馬數字轉換 NPSC 模擬試題 - Rem Blog</title><meta name="Description" content="HuangNO1&#39;s Blog"><meta property="og:url" content="https://huangno1.github.io/python_rome_number_programming/">
+  <meta property="og:site_name" content="Rem Blog">
+  <meta property="og:title" content="Python 解決羅馬數字轉換 NPSC 模擬試題">
+  <meta property="og:description" content="前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
+題目 這是高中生解題系統基礎題庫裡的 a013 題目">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-07-30T23:17:28+08:00">
+    <meta property="article:modified_time" content="2020-07-31T14:07:33+08:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="進制">
+    <meta property="article:tag" content="演算法">
+    <meta property="article:tag" content="NPSC">
+    <meta property="article:tag" content="羅馬數字">
+    <meta property="og:image" content="https://huangno1.github.io/logo.png">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
-
-<meta name="twitter:title" content="Python 解決羅馬數字轉換 NPSC 模擬試題"/>
-<meta name="twitter:description" content="前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
-題目 這是高中生解題系統基礎題庫裡的 a013 題目
-內容 如果生活在數世紀之前的古羅馬，你應該用過 V 來表示五。V 和 5 這兩個符號都可以用來表示數目五。用來表示數目的符號稱作數字。而羅馬人用來表示數目的符號就是羅馬數字。
-以下是七個基本的羅馬數字︰
-   羅馬數字 數目     I 1   V 5   X 10   L 50   C 100   D 500   M 1,000    所有其他的數目都是由這些數字組合而成。數目都是由左寫到右，通常值是等於組成的羅馬數字加起來。
-例如十七可以表示為
-1 2  X &#43; V &#43; I &#43; I = XVII 10 &#43; 5 &#43; 1 &#43; 1 = 17   表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://huangno1.github.io/logo.png">
+  <meta name="twitter:title" content="Python 解決羅馬數字轉換 NPSC 模擬試題">
+  <meta name="twitter:description" content="前言 因為我家人正在學習寫 Python，我教導他去刷題庫，結果在高中生解題系統要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。
+題目 這是高中生解題系統基礎題庫裡的 a013 題目">
+<meta name="application-name" content="Rem Blog">
+<meta name="apple-mobile-web-app-title" content="Rem Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/python_rome_number_programming/" /><link rel="prev" href="https://huangno1.github.io/linux_npm_configuration/" /><link rel="next" href="https://huangno1.github.io/hugo_theme_change/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/python_rome_number_programming/" /><link rel="prev" href="https://huangno1.github.io/linux_npm_configuration/" /><link rel="next" href="https://huangno1.github.io/hugo_theme_change/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "Python 解決羅馬數字轉換 NPSC 模擬試題",
-        "inLanguage": "zh-cn",
+        "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/python_rome_number_programming\/"
-        },"genre": "posts","keywords": "Python, 進制, 演算法, NPSC, 羅馬數字","wordcount":  1225 ,
-        "url": "https:\/\/huangno1.github.io\/python_rome_number_programming\/","datePublished": "2020-07-30T23:17:28+08:00","dateModified": "2020-07-30T23:17:26+08:00","publisher": {
+        },"genre": "posts","keywords": "Python, 進制, 演算法, NPSC, 羅馬數字","wordcount":  2748 ,
+        "url": "https:\/\/huangno1.github.io\/python_rome_number_programming\/","datePublished": "2020-07-30T23:17:28+08:00","dateModified": "2020-07-31T14:07:33+08:00","publisher": {
             "@type": "Organization",
-            "name": "Rem Blog","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
-                    "width":  528 ,
-                    "height":  560 
-                }},"author": {
+            "name": ""},"author": {
                 "@type": "Person",
                 "name": "Huang Po-Hsun"
             },"description": ""
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -63,28 +58,27 @@
             <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -94,11 +88,11 @@
                 <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -106,39 +100,37 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                <i class="fas fa-adjust fa-fw"></i>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目錄</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Python 解決羅馬數字轉換 NPSC 模擬試題</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-30">2020-07-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1225 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Python 解決羅馬數字轉換 NPSC 模擬試題</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-07-30">2020-07-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2748 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -146,10 +138,10 @@
         data-srcset="/featuredImage/compressed/python_rome_number_programming.jpg, /featuredImage/compressed/python_rome_number_programming.jpg 1.5x, /featuredImage/compressed/python_rome_number_programming.jpg 2x"
         data-sizes="auto"
         alt="/featuredImage/compressed/python_rome_number_programming.jpg"
-        title="/featuredImage/compressed/python_rome_number_programming.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+        title="/featuredImage/compressed/python_rome_number_programming.jpg" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目錄</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -175,63 +167,60 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
-<p>因為我家人正在學習寫 Python，我教導他去刷題庫，結果在<a href="https://zerojudge.tw/" target="_blank" rel="noopener noreffer">高中生解題系統</a>要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。</p>
+<p>因為我家人正在學習寫 Python，我教導他去刷題庫，結果在<a href="https://zerojudge.tw/" target="_blank" rel="noopener noreffer ">高中生解題系統</a>要解某個基礎題庫的題目時卡住了，我只好幫他解一下題目。</p>
 <h2 id="題目">題目</h2>
-<p>這是高中生解題系統基礎題庫裡的 <a href="https://zerojudge.tw/ShowProblem?problemid=a013" target="_blank" rel="noopener noreffer">a013 題目</a></p>
+<p>這是高中生解題系統基礎題庫裡的 <a href="https://zerojudge.tw/ShowProblem?problemid=a013" target="_blank" rel="noopener noreffer ">a013 題目</a></p>
 <h3 id="內容">內容</h3>
 <p>如果生活在數世紀之前的古羅馬，你應該用過 V 來表示五。V 和 5 這兩個符號都可以用來表示數目五。用來表示數目的符號稱作數字。而羅馬人用來表示數目的符號就是羅馬數字。</p>
 <p>以下是七個基本的羅馬數字︰</p>
 <table>
-<thead>
-<tr>
-<th>羅馬數字</th>
-<th>數目</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>I</td>
-<td>1</td>
-</tr>
-<tr>
-<td>V</td>
-<td>5</td>
-</tr>
-<tr>
-<td>X</td>
-<td>10</td>
-</tr>
-<tr>
-<td>L</td>
-<td>50</td>
-</tr>
-<tr>
-<td>C</td>
-<td>100</td>
-</tr>
-<tr>
-<td>D</td>
-<td>500</td>
-</tr>
-<tr>
-<td>M</td>
-<td>1,000</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>羅馬數字</th>
+          <th>數目</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>I</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>V</td>
+          <td>5</td>
+      </tr>
+      <tr>
+          <td>X</td>
+          <td>10</td>
+      </tr>
+      <tr>
+          <td>L</td>
+          <td>50</td>
+      </tr>
+      <tr>
+          <td>C</td>
+          <td>100</td>
+      </tr>
+      <tr>
+          <td>D</td>
+          <td>500</td>
+      </tr>
+      <tr>
+          <td>M</td>
+          <td>1,000</td>
+      </tr>
+  </tbody>
 </table>
 <p>所有其他的數目都是由這些數字組合而成。數目都是由左寫到右，通常值是等於組成的羅馬數字加起來。</p>
 <p>例如十七可以表示為</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">X + V + I + I = XVII
-10 + 5 + 1 + 1 = 17
-</code></pre></td></tr></table>
-</div>
-</div><p>表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">X + V + I + I = XVII
+</span></span><span class="line"><span class="cl">10 + 5 + 1 + 1 = 17</span></span></code></pre></div></div>
+<p>表示羅馬數字可以使用減法來取代加法的規則。例如四可以不用四個一相加來表示 IIII，而採用五減一來表示 IV。利用這類規則，羅馬人能夠減化許多數目的表示方式，例如 IX 取代 VIIII 表示 9，及 CD 取代 CCCC 表示 400。</p>
 <p>今日我們並不確定羅馬符號的起源為何。例如符號 V 的起源主要有兩個理論。有些學者認為五最早是用握拳、拇指在外的手勢來表示。最後以象形文字書寫而簡化為 V。</p>
 <p>另一個理論認為 X 源自在 10 條線加上交叉線。因此五可以表示為 X 的一半，或是 V。</p>
 <p>羅馬數字可以很容易地用來相加或相減，但算起乘除法就相當不順手。這就是為什麼現在羅馬數字並不常用的原因了。
@@ -248,30 +237,23 @@
 公開 測資點#0 (100%): 1.0s , &lt;1K</p>
 <h3 id="範例輸入輸出">範例輸入輸出</h3>
 <p><strong>Input</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">I I
-MM II
-#
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>Output</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ZERO
-MCMXCVIII
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="題目理解">題目理解</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">I I
+</span></span><span class="line"><span class="cl">MM II
+</span></span><span class="line"><span class="cl">#</span></span></code></pre></div></div>
+<p><strong>Output</strong></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ZERO
+</span></span><span class="line"><span class="cl">MCMXCVIII</span></span></code></pre></div></div>
+<h2 id="題目理解">題目理解</h2>
 <p>首先我們仔細觀察輸出說明，雖然說要輸出到檔案，其實只要用 <code>print()</code> 輸出就好，然後根據測資，我們可以確定輸入輸出之間的 Code 是要我們寫<strong>羅馬數字相減後得到之差的絕對值</strong>，考我們<strong>羅馬數字與十進制數字之間的轉換</strong>，難度也沒用到什麼演算法，但是如果不熟悉就會出現邏輯錯誤。這題主要是可慮到細節的注意。</p>
 <h2 id="程序設計思路">程序設計思路</h2>
 <ol>
@@ -298,505 +280,258 @@ MCMXCVIII
 </ol>
 <h2 id="源碼">源碼</h2>
 <blockquote>
-<p>我這裡都有寫好註解喔 Σ(*ﾟдﾟﾉ)ﾉ</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span><span class="lnt">165
-</span><span class="lnt">166
-</span><span class="lnt">167
-</span><span class="lnt">168
-</span><span class="lnt">169
-</span><span class="lnt">170
-</span><span class="lnt">171
-</span><span class="lnt">172
-</span><span class="lnt">173
-</span><span class="lnt">174
-</span><span class="lnt">175
-</span><span class="lnt">176
-</span><span class="lnt">177
-</span><span class="lnt">178
-</span><span class="lnt">179
-</span><span class="lnt">180
-</span><span class="lnt">181
-</span><span class="lnt">182
-</span><span class="lnt">183
-</span><span class="lnt">184
-</span><span class="lnt">185
-</span><span class="lnt">186
-</span><span class="lnt">187
-</span><span class="lnt">188
-</span><span class="lnt">189
-</span><span class="lnt">190
-</span><span class="lnt">191
-</span><span class="lnt">192
-</span><span class="lnt">193
-</span><span class="lnt">194
-</span><span class="lnt">195
-</span><span class="lnt">196
-</span><span class="lnt">197
-</span><span class="lnt">198
-</span><span class="lnt">199
-</span><span class="lnt">200
-</span><span class="lnt">201
-</span><span class="lnt">202
-</span><span class="lnt">203
-</span><span class="lnt">204
-</span><span class="lnt">205
-</span><span class="lnt">206
-</span><span class="lnt">207
-</span><span class="lnt">208
-</span><span class="lnt">209
-</span><span class="lnt">210
-</span><span class="lnt">211
-</span><span class="lnt">212
-</span><span class="lnt">213
-</span><span class="lnt">214
-</span><span class="lnt">215
-</span><span class="lnt">216
-</span><span class="lnt">217
-</span><span class="lnt">218
-</span><span class="lnt">219
-</span><span class="lnt">220
-</span><span class="lnt">221
-</span><span class="lnt">222
-</span><span class="lnt">223
-</span><span class="lnt">224
-</span><span class="lnt">225
-</span><span class="lnt">226
-</span><span class="lnt">227
-</span><span class="lnt">228
-</span><span class="lnt">229
-</span><span class="lnt">230
-</span><span class="lnt">231
-</span><span class="lnt">232
-</span><span class="lnt">233
-</span><span class="lnt">234
-</span><span class="lnt">235
-</span><span class="lnt">236
-</span><span class="lnt">237
-</span><span class="lnt">238
-</span><span class="lnt">239
-</span><span class="lnt">240
-</span><span class="lnt">241
-</span><span class="lnt">242
-</span><span class="lnt">243
-</span><span class="lnt">244
-</span><span class="lnt">245
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 題源：</span>
-<span class="c1"># https://zerojudge.tw/ShowProblem?problemid=a013</span>
-<span class="c1"># 羅馬數字</span>
-
-<span class="c1"># 羅馬數字代表的意思</span>
-<span class="n">I</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">V</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">X</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">L</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">C</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">D</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="n">M</span> <span class="o">=</span> <span class="mi">1000</span>
-
-<span class="c1"># 數字轉羅馬</span>
-<span class="c1"># 注意 4 和 9 要特別處理</span>
-
-
-<span class="k">def</span> <span class="nf">number_translate_rome</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="c1"># 如果相減是 0</span>
-    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&#34;ZERO&#34;</span>
-
-    <span class="c1"># 轉換的結果</span>
-    <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
-    <span class="c1"># 紀錄正在處理的位數</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># 取最小位</span>
-        <span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
-        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="n">temp</span><span class="p">)</span>
-        <span class="c1"># 當前位數 +1</span>
-        <span class="n">times</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="c1"># 不同位有不同的處理方法</span>
-
-        <span class="c1"># 個位數</span>
-        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># 1 - 4</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="c1"># 4</span>
-                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;IV&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                    <span class="c1"># 1 - 3</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
-                            <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;I&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                <span class="c1"># 5 - 9</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># 9</span>
-                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;IX&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                    <span class="c1"># 5 - 8</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;V&#34;</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)):</span>
-                            <span class="n">x</span> <span class="o">+=</span> <span class="s2">&#34;I&#34;</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rome</span>
-        <span class="c1"># 十位數</span>
-        <span class="k">elif</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># 10 - 40</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="c1"># 40</span>
-                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;XL&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                    <span class="c1"># 10 - 30</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
-                            <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;X&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                <span class="c1"># 50 - 90</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># 90</span>
-                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;XC&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                    <span class="c1"># 50 - 80</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;L&#34;</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)):</span>
-                            <span class="n">x</span> <span class="o">+=</span> <span class="s2">&#34;X&#34;</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rome</span>
-        <span class="c1"># 百位數</span>
-        <span class="k">elif</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># 100 - 400</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="c1"># 400 CD</span>
-                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;CD&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                    <span class="c1"># 100 - 300</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
-                            <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;C&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                <span class="c1"># 500 - 900</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># 900 CM</span>
-                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;CM&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-                    <span class="c1"># 500 - 800</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;D&#34;</span>
-                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)):</span>
-                            <span class="n">x</span> <span class="o">+=</span> <span class="s2">&#34;C&#34;</span>
-                        <span class="n">rome</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rome</span>
-        <span class="c1"># 千位數</span>
-        <span class="k">elif</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># 測資不超過 4000</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
-                    <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;M&#34;</span> <span class="o">+</span> <span class="n">rome</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span>
-
-    <span class="k">return</span> <span class="n">rome</span>
-
-
-<span class="c1"># 羅馬轉數字</span>
-<span class="c1"># 考慮到 4 和 9 的減位</span>
-<span class="c1"># 注意 要先將字符串反轉 羅馬數字要從尾部開始計算</span>
-<span class="k">def</span> <span class="nf">rome_translate_number</span><span class="p">(</span><span class="n">rome</span><span class="p">):</span>
-    <span class="c1"># 轉換結果</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="c1"># print(rome)</span>
-    <span class="c1"># 反轉 string</span>
-    <span class="n">rome</span> <span class="o">=</span> <span class="n">rome</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    
-    <span class="c1"># 用 for 迴圈</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;I&#34;</span><span class="p">:</span>
-            <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;V&#34;</span><span class="p">:</span>
-            <span class="c1"># 避免 string index out of range</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># 4 IV</span>
-                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;I&#34;</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">4</span>
-                    <span class="c1"># 將 I 也納入這次計算字符，跳過下一個字符的檢測</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">5</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">number</span> <span class="o">+=</span> <span class="mi">5</span>
-        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;X&#34;</span><span class="p">:</span>
-            <span class="c1"># 避免 string index out of range</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># 9 IX</span>
-                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;I&#34;</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">9</span>
-                    <span class="c1"># 將 I 也納入這次計算字符，跳過下一個字符的檢測</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">10</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">number</span> <span class="o">+=</span> <span class="mi">10</span>
-        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;L&#34;</span><span class="p">:</span>
-            <span class="c1"># 避免 string index out of range</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># 40 XL</span>
-                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;X&#34;</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">40</span>
-                    <span class="c1"># 將 X 也納入這次計算字符，跳過下一個字符的檢測</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">50</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">number</span> <span class="o">+=</span> <span class="mi">50</span>
-        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;C&#34;</span><span class="p">:</span>
-            <span class="c1"># 避免 string index out of range</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># 90 XC</span>
-                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;X&#34;</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">90</span>
-                    <span class="c1"># 將 X 也納入這次計算字符，跳過下一個字符的檢測</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">100</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">number</span> <span class="o">+=</span> <span class="mi">100</span>
-        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;D&#34;</span><span class="p">:</span>
-            <span class="c1"># 避免 string index out of range</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># 400 CD</span>
-                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;C&#34;</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">400</span>
-                    <span class="c1"># 將 C 也納入這次計算字符，跳過下一個字符的檢測</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">500</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">number</span> <span class="o">+=</span> <span class="mi">500</span>
-        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;M&#34;</span><span class="p">:</span>
-            <span class="c1"># 避免 string index out of range</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="c1"># 900 CM</span>
-                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;C&#34;</span><span class="p">:</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">900</span>
-                    <span class="c1"># 將 C 也納入這次計算字符，跳過下一個字符的檢測</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># print(rome[i + 1])</span>
-                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1000</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">number</span> <span class="o">+=</span> <span class="mi">1000</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-        <span class="c1"># 下一個</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="c1"># print(number)</span>
-    <span class="k">return</span> <span class="n">number</span>
-
-
-<span class="c1"># 相減運算</span>
-<span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">rome_list</span><span class="p">):</span>
-    <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rome_translate_number</span><span class="p">(</span><span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rome_translate_number</span><span class="p">(</span><span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="c1"># print(&#34;rome_list : %d, %d&#34; % (rome_list[0], rome_list[1]))</span>
-
-    <span class="c1"># 數字相減</span>
-    <span class="n">num_result</span> <span class="o">=</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> \
-        <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="c1"># print(&#34;num_result: %d&#34; % num_result)</span>
-
-    <span class="k">return</span> <span class="n">number_translate_rome</span><span class="p">(</span><span class="n">num_result</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">rome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-
-        <span class="c1"># 結束</span>
-        <span class="k">if</span> <span class="n">rome</span> <span class="o">==</span> <span class="s2">&#34;#&#34;</span><span class="p">:</span>
-            <span class="k">break</span>
-
-        <span class="c1"># string 分割</span>
-        <span class="n">rome_list</span> <span class="o">=</span> <span class="n">rome</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-        <span class="c1"># print(&#34;rome1 %s , rome2 %s&#34; % (rome_list[0], rome_list[1]))</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">rome_list</span><span class="p">)</span>
-        <span class="c1"># print(&#34;end result: %s&#34; % result)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">result</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="運行結果">運行結果</h2>
+<p>我這裡都有寫好註解喔 Σ(*ﾟдﾟﾉ)ﾉ</p></blockquote>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 題源：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># https://zerojudge.tw/ShowProblem?problemid=a013</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 羅馬數字</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 羅馬數字代表的意思</span>
+</span></span><span class="line"><span class="cl"><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">V</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">L</span> <span class="o">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="n">C</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl"><span class="n">M</span> <span class="o">=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 數字轉羅馬</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 注意 4 和 9 要特別處理</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">number_translate_rome</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 如果相減是 0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s2">&#34;ZERO&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 轉換的結果</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 紀錄正在處理的位數</span>
+</span></span><span class="line"><span class="cl">    <span class="n">times</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 取最小位</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 當前位數 +1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">times</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 不同位有不同的處理方法</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 個位數</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 1 - 4</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 4</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;IV&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 1 - 3</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;I&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 5 - 9</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 9</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;IX&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 5 - 8</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;V&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">x</span> <span class="o">+=</span> <span class="s2">&#34;I&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 十位數</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 10 - 40</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 40</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;XL&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 10 - 30</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;X&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 50 - 90</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 90</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;XC&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 50 - 80</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;L&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">x</span> <span class="o">+=</span> <span class="s2">&#34;X&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 百位數</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 100 - 400</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 400 CD</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;CD&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 100 - 300</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;C&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 500 - 900</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 900 CM</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">temp</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;CM&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 500 - 800</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;D&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">x</span> <span class="o">+=</span> <span class="s2">&#34;C&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rome</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 千位數</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">times</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">temp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 測資不超過 4000</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">temp</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">rome</span> <span class="o">=</span> <span class="s2">&#34;M&#34;</span> <span class="o">+</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">number</span> <span class="o">/=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rome</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 羅馬轉數字</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 考慮到 4 和 9 的減位</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 注意 要先將字符串反轉 羅馬數字要從尾部開始計算</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">rome_translate_number</span><span class="p">(</span><span class="n">rome</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 轉換結果</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># print(rome)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 反轉 string</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rome</span> <span class="o">=</span> <span class="n">rome</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># 用 for 迴圈</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;I&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;V&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 避免 string index out of range</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 4 IV</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;I&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 將 I 也納入這次計算字符，跳過下一個字符的檢測</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">number</span> <span class="o">+=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;X&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 避免 string index out of range</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 9 IX</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;I&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">9</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 將 I 也納入這次計算字符，跳過下一個字符的檢測</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">number</span> <span class="o">+=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;L&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 避免 string index out of range</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 40 XL</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;X&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">40</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 將 X 也納入這次計算字符，跳過下一個字符的檢測</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">number</span> <span class="o">+=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;C&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 避免 string index out of range</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 90 XC</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;X&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">90</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 將 X 也納入這次計算字符，跳過下一個字符的檢測</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">number</span> <span class="o">+=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;D&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 避免 string index out of range</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 400 CD</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;C&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">400</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 將 C 也納入這次計算字符，跳過下一個字符的檢測</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">number</span> <span class="o">+=</span> <span class="mi">500</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;M&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 避免 string index out of range</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rome</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 900 CM</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">rome</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;C&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">900</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 將 C 也納入這次計算字符，跳過下一個字符的檢測</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># print(rome[i + 1])</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">number</span> <span class="o">+=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 下一個</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># print(number)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">number</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 相減運算</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">rome_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rome_translate_number</span><span class="p">(</span><span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rome_translate_number</span><span class="p">(</span><span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># print(&#34;rome_list : %d, %d&#34; % (rome_list[0], rome_list[1]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 數字相減</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_result</span> <span class="o">=</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> \
+</span></span><span class="line"><span class="cl">        <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rome_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># print(&#34;num_result: %d&#34; % num_result)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">number_translate_rome</span><span class="p">(</span><span class="n">num_result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 結束</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">rome</span> <span class="o">==</span> <span class="s2">&#34;#&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># string 分割</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rome_list</span> <span class="o">=</span> <span class="n">rome</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;rome1 %s , rome2 %s&#34; % (rome_list[0], rome_list[1]))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">rome_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;end result: %s&#34; % result)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">result</span><span class="p">)</span></span></span></code></pre></div></div>
+<h2 id="運行結果">運行結果</h2>
 <p><figure><a class="lightgallery" href="https://imgpoi.com/i/KL4KW2.png" title="1.png" data-thumbnail="https://imgpoi.com/i/KL4KW2.png" data-sub-html="<h2>運行結果</h2><p>1.png</p>">
         <img
             class="lazyload"
@@ -811,52 +546,48 @@ MCMXCVIII
 <p>其實我在高中剛接觸 Code 時，也寫過這題，當時怎麼寫就是寫不出來，明明測資輸入輸出都是正確的，我那時的邏輯思路沒有現在那麼好，現在因為接觸大量的 Code，所以寫 Code 都會具有強烈邏輯性和很多註解。祝各位也能順利解決這題，沒有你想像中的難。</p>
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://zerojudge.tw/ShowProblem?problemid=a013" target="_blank" rel="noopener noreffer">高中生解題系統 a013 題目</a></li>
+<li><a href="https://zerojudge.tw/ShowProblem?problemid=a013" target="_blank" rel="noopener noreffer ">高中生解題系統 a013 題目</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2020-07-30</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+                <span>Updated on 2020-07-31</span>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/python_rome_number_programming/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/python_rome_number_programming/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-via="Rem59881439" data-hashtags="Python,進制,演算法,NPSC,羅馬數字"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/python_rome_number_programming/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-image="/featuredImage/compressed/python_rome_number_programming.jpg"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-hashtags="Python,進制,演算法,NPSC,羅馬數字"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/python_rome_number_programming/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-image="/featuredImage/compressed/python_rome_number_programming.jpg"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://huangno1.github.io/python_rome_number_programming/" data-title="Python 解決羅馬數字轉換 NPSC 模擬試題" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fhuangno1.github.io%2fpython_rome_number_programming%2f&amp;text=Python%20%e8%a7%a3%e6%b1%ba%e7%be%85%e9%a6%ac%e6%95%b8%e5%ad%97%e8%bd%89%e6%8f%9b%20NPSC%20%e6%a8%a1%e6%93%ac%e8%a9%a6%e9%a1%8c" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/%E9%80%B2%E5%88%B6/">進制</a>,&nbsp;<a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95/">演算法</a>,&nbsp;<a href="/tags/npsc/">NPSC</a>,&nbsp;<a href="/tags/%E7%BE%85%E9%A6%AC%E6%95%B8%E5%AD%97/">羅馬數字</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/%E9%80%B2%E5%88%B6/">進制</a>,&nbsp;<a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95/">演算法</a>,&nbsp;<a href="/tags/npsc/">NPSC</a>,&nbsp;<a href="/tags/%E7%BE%85%E9%A6%AC%E6%95%B8%E5%AD%97/">羅馬數字</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/linux_npm_configuration/" class="prev" rel="prev" title="Linux 配置 npm"><i class="fas fa-angle-left fa-fw"></i>Linux 配置 npm</a>
-            <a href="/hugo_theme_change/" class="next" rel="next" title="Rem Blog 的構造改革過程心得">Rem Blog 的構造改革過程心得<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/linux_npm_configuration/" class="prev" rel="prev" title="Linux 配置 npm"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux 配置 npm</a>
+            <a href="/hugo_theme_change/" class="next" rel="next" title="Rem Blog 的構造改革過程心得">Rem Blog 的構造改革過程心得<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
+</article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
-                <i class="fas fa-comment fa-fw"></i>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

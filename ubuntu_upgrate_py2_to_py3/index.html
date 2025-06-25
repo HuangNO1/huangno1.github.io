@@ -1,57 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" />
-<meta property="og:description" content="前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
-根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。
-我輸入 sudo apt install python3.6 顯示沒有這個包，然後輸入 sudo add-apt-repository ppa:deadsnakes/ppa 添加列表也顯示沒這語法。
-1 2  sudo apt update sudo apt install python3 # 安裝下來預設是 3.5，沒有更高版本   現在終端機輸入 python -V 還會是 python2.7，這時我們需要重新建立軟連接，在 /usr/bin/ 中會發現我們新安裝的 python3.5 二進制文件。
-1 2 3  sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的 sudo rm /usr/bin/python # 移除 sudo ln -s /usr/bin/python3.5 /usr/bin/python # 建立新的軟連結   接下來輸入 python -V 就是 pyhton3." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-30T14:29:28+08:00" />
-<meta property="article:modified_time" content="2021-09-30T14:29:28+08:00" />
+        <title>Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用 - Rem Blog</title><meta name="Description" content="HuangNO1&#39;s Blog"><meta property="og:url" content="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/">
+  <meta property="og:site_name" content="Rem Blog">
+  <meta property="og:title" content="Ubuntu 中 Python2 升級到 Python3 & pip 安裝使用">
+  <meta property="og:description" content="前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
+根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-09-30T14:29:28+08:00">
+    <meta property="article:modified_time" content="2021-09-30T16:29:08+08:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Ubuntu">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Pip">
+    <meta property="og:image" content="https://huangno1.github.io/logo.png">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
-
-<meta name="twitter:title" content="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"/>
-<meta name="twitter:description" content="前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
-根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。
-我輸入 sudo apt install python3.6 顯示沒有這個包，然後輸入 sudo add-apt-repository ppa:deadsnakes/ppa 添加列表也顯示沒這語法。
-1 2  sudo apt update sudo apt install python3 # 安裝下來預設是 3.5，沒有更高版本   現在終端機輸入 python -V 還會是 python2.7，這時我們需要重新建立軟連接，在 /usr/bin/ 中會發現我們新安裝的 python3.5 二進制文件。
-1 2 3  sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的 sudo rm /usr/bin/python # 移除 sudo ln -s /usr/bin/python3.5 /usr/bin/python # 建立新的軟連結   接下來輸入 python -V 就是 pyhton3."/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://huangno1.github.io/logo.png">
+  <meta name="twitter:title" content="Ubuntu 中 Python2 升級到 Python3 & pip 安裝使用">
+  <meta name="twitter:description" content="前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
+根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。">
+<meta name="application-name" content="Rem Blog">
+<meta name="apple-mobile-web-app-title" content="Rem Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" /><link rel="prev" href="https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" /><link rel="prev" href="https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/" /><link rel="next" href="https://huangno1.github.io/dps_for_inverse_problem/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "Ubuntu 中 Python2 升級到 Python3 \u0026 pip 安裝使用",
-        "inLanguage": "zh-cn",
+        "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/ubuntu_upgrate_py2_to_py3\/"
-        },"genre": "posts","keywords": "Linux, Ubuntu, Python, pip","wordcount":  447 ,
-        "url": "https:\/\/huangno1.github.io\/ubuntu_upgrate_py2_to_py3\/","datePublished": "2021-09-30T14:29:28+08:00","dateModified": "2021-09-30T14:29:28+08:00","publisher": {
+        },"genre": "posts","keywords": "Linux, Ubuntu, Python, pip","wordcount":  1412 ,
+        "url": "https:\/\/huangno1.github.io\/ubuntu_upgrate_py2_to_py3\/","datePublished": "2021-09-30T14:29:28+08:00","dateModified": "2021-09-30T16:29:08+08:00","publisher": {
             "@type": "Organization",
-            "name": "Rem Blog","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
-                    "width":  528 ,
-                    "height":  560 
-                }},"author": {
+            "name": ""},"author": {
                 "@type": "Person",
                 "name": "Huang Po-Hsun"
             },"description": ""
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -59,28 +57,27 @@
             <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -90,11 +87,11 @@
                 <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -102,39 +99,37 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                <i class="fas fa-adjust fa-fw"></i>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目錄</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-30">2021-09-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 447 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Ubuntu 中 Python2 升級到 Python3 & pip 安裝使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-09-30">2021-09-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1412 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -142,10 +137,10 @@
         data-srcset="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg, /featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg 1.5x, /featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg 2x"
         data-sizes="auto"
         alt="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg"
-        title="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg" /></div><div class="details toc" id="toc-static"  kept="">
+        title="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目錄</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -166,159 +161,112 @@
 <h2 id="根據-apt-get-中的-python3-版本更新">根據 apt-get 中的 Python3 版本更新</h2>
 <p>這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 <code>3.5</code>。</p>
 <p>我輸入 <code>sudo apt install python3.6</code> 顯示沒有這個包，然後輸入 <code>sudo add-apt-repository ppa:deadsnakes/ppa</code> 添加列表也顯示沒這語法。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo apt update
-sudo apt install python3 <span class="c1"># 安裝下來預設是 3.5，沒有更高版本</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>現在終端機輸入 <code>python -V</code> 還會是 <code>python2.7</code>，這時我們需要重新建立軟連接，在 <code>/usr/bin/</code> 中會發現我們新安裝的 <code>python3.5</code> 二進制文件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo cp /usr/bin/python /usr/bin/python_bak <span class="c1"># 備份舊的</span>
-sudo rm /usr/bin/python <span class="c1"># 移除</span>
-sudo ln -s /usr/bin/python3.5 /usr/bin/python <span class="c1"># 建立新的軟連結</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>接下來輸入 <code>python -V</code> 就是 <code>pyhton3.5</code> 的版本了。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install python3 <span class="c1"># 安裝下來預設是 3.5，沒有更高版本</span></span></span></code></pre></div></div>
+<p>現在終端機輸入 <code>python -V</code> 還會是 <code>python2.7</code>，這時我們需要重新建立軟連接，在 <code>/usr/bin/</code> 中會發現我們新安裝的 <code>python3.5</code> 二進制文件。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo cp /usr/bin/python /usr/bin/python_bak <span class="c1"># 備份舊的</span>
+</span></span><span class="line"><span class="cl">sudo rm /usr/bin/python <span class="c1"># 移除</span>
+</span></span><span class="line"><span class="cl">sudo ln -s /usr/bin/python3.5 /usr/bin/python <span class="c1"># 建立新的軟連結</span></span></span></code></pre></div></div>
+<p>接下來輸入 <code>python -V</code> 就是 <code>pyhton3.5</code> 的版本了。</p>
 <h2 id="安裝更高的-python3-版本">安裝更高的 Python3 版本</h2>
 <blockquote>
-<p>f&quot;{X.x}&quot; 這樣的 f string 語法是 Python3.6 以上才有的。所以才想要裝更高的版本。</p>
-</blockquote>
+<p>f&quot;{X.x}&quot; 這樣的 f string 語法是 Python3.6 以上才有的。所以才想要裝更高的版本。</p></blockquote>
 <p>因為我想要在這個機器上安裝更高的 Python 版本，我要裝 Python 3.9.7。</p>
 <p>由於要自己下載 Python，未編譯的包，然而有牆的限制，所以我建議先在自己的電腦上將 Python 3.9 的壓縮包（<code>Python-3.9.7.tar.xz</code>）下載下來，然後 SCP 傳到機器上。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 上傳到機器</span>
-scp Python-3.9.7.tar.xz root@192.168.3.127:/home/Python-3.9.7.tar.xz
-</code></pre></td></tr></table>
-</div>
-</div><p>SSH 連上機器後，進入機器解壓縮。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">ssh root@192.168.3.127
-<span class="nb">cd</span> /home
-tar xvf Python-3.9.7.tar.xz <span class="c1"># 解壓縮</span>
-<span class="nb">cd</span> Python-3.9.7
-</code></pre></td></tr></table>
-</div>
-</div><p>安裝相關插件補丁：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># 上傳到機器</span>
+</span></span><span class="line"><span class="cl">scp Python-3.9.7.tar.xz root@192.168.3.127:/home/Python-3.9.7.tar.xz</span></span></code></pre></div></div>
+<p>SSH 連上機器後，進入機器解壓縮。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">ssh root@192.168.3.127
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home
+</span></span><span class="line"><span class="cl">tar xvf Python-3.9.7.tar.xz <span class="c1"># 解壓縮</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> Python-3.9.7</span></span></code></pre></div></div>
+<p>安裝相關插件補丁：</p>
 <blockquote>
-<p><strong>一定要安裝這些補丁</strong>，不然編譯安裝 Pyhton 時會報錯。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo apt-get install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev <span class="se">\
-</span><span class="se"></span>zlib1g-dev libssl-dev openssl libgdbm-dev libgdbm-compat-dev liblzma-dev libreadline-dev <span class="se">\
-</span><span class="se"></span>libncursesw5-dev libffi-dev uuid-dev
-</code></pre></td></tr></table>
-</div>
-</div><p>接著進入 Python3.9.7 目錄，設定安裝目錄：</p>
+<p><strong>一定要安裝這些補丁</strong>，不然編譯安裝 Pyhton 時會報錯。</p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo apt-get install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>zlib1g-dev libssl-dev openssl libgdbm-dev libgdbm-compat-dev liblzma-dev libreadline-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>libncursesw5-dev libffi-dev uuid-dev</span></span></code></pre></div></div>
+<p>接著進入 Python3.9.7 目錄，設定安裝目錄：</p>
 <p>我是直接輸入 <code>./configure</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 預設安裝位置</span>
-./configure
-<span class="c1"># 指定安裝位置</span>
-./configure --prefix<span class="o">=</span>/usr/local
-<span class="c1"># 運行多個測試來優化 Python 二進制文件，會使構建變慢</span>
-./configure --enable-optimizations
-</code></pre></td></tr></table>
-</div>
-</div><p>編譯構建：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 構建</span>
-sudo make
-<span class="c1"># 開四個線程去編譯</span>
-sudo make -j <span class="m">4</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>接著安裝，安裝的過程會比較慢，至少我等了很久：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># 預設安裝位置</span>
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定安裝位置</span>
+</span></span><span class="line"><span class="cl">./configure --prefix<span class="o">=</span>/usr/local
+</span></span><span class="line"><span class="cl"><span class="c1"># 運行多個測試來優化 Python 二進制文件，會使構建變慢</span>
+</span></span><span class="line"><span class="cl">./configure --enable-optimizations</span></span></code></pre></div></div>
+<p>編譯構建：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># 構建</span>
+</span></span><span class="line"><span class="cl">sudo make
+</span></span><span class="line"><span class="cl"><span class="c1"># 開四個線程去編譯</span>
+</span></span><span class="line"><span class="cl">sudo make -j <span class="m">4</span></span></span></code></pre></div></div>
+<p>接著安裝，安裝的過程會比較慢，至少我等了很久：</p>
 <blockquote>
-<p>我一不小心就都運行了@@，安裝了兩次，總之最後有產生 <code>python3.9</code> 在 <code>/usr/local/bin</code></p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 直接覆蓋 python3</span>
-sudo make install
-<span class="c1"># 會產生新的版本</span>
-sudo make altinstall
-</code></pre></td></tr></table>
-</div>
-</div><p>由於我安裝的 Python 二進制文件在 <code>/usr/local/bin/pyhton3.9</code>，建立新的軟連結要注意文件安裝在哪裡。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的
-sudo rm /usr/bin/python # 移除
-sudo ln -s /usr/local/bin/python3.9 /usr/bin/python # 建立新的軟連結
-</code></pre></td></tr></table>
-</div>
-</div><p>接下來輸入 <code>python -V</code>，就是 <code>python3.9.7</code> 了。</p>
+<p>我一不小心就都運行了@@，安裝了兩次，總之最後有產生 <code>python3.9</code> 在 <code>/usr/local/bin</code></p></blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># 直接覆蓋 python3</span>
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span><span class="line"><span class="cl"><span class="c1"># 會產生新的版本</span>
+</span></span><span class="line"><span class="cl">sudo make altinstall</span></span></code></pre></div></div>
+<p>由於我安裝的 Python 二進制文件在 <code>/usr/local/bin/pyhton3.9</code>，建立新的軟連結要注意文件安裝在哪裡。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的
+</span></span><span class="line"><span class="cl">sudo rm /usr/bin/python # 移除
+</span></span><span class="line"><span class="cl">sudo ln -s /usr/local/bin/python3.9 /usr/bin/python # 建立新的軟連結</span></span></code></pre></div></div>
+<p>接下來輸入 <code>python -V</code>，就是 <code>python3.9.7</code> 了。</p>
 <h2 id="安裝-pip">安裝 pip</h2>
 <p>不知道為什麼 <code>pip3</code> 不能 <code>-i</code> 使用國內鏡像，還有安裝包上的限制，<code>pip3</code> 就很多指令顯示無效，所以我還是想要直接使用 <code>pip</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo apt-get install software-properties-common
-sudo apt-get update
-sudo apt-get install python-pip
-</code></pre></td></tr></table>
-</div>
-</div><p>這樣 pip 就裝好了。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo apt-get install software-properties-common
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install python-pip</span></span></code></pre></div></div>
+<p>這樣 pip 就裝好了。</p>
 <p>如果需要設置國內鏡像源建議設置<strong>阿里云</strong>的。</p>
 <ul>
 <li>清华：https://pypi.tuna.tsinghua.edu.cn/simple</li>
@@ -328,125 +276,100 @@ sudo apt-get install python-pip
 <li>山东理工大学：http://pypi.sdutlinux.org/</li>
 <li>豆瓣：http://pypi.douban.com/simple/</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 臨時使用鏡像安裝某個包</span>
-pip install -i http://mirrors.aliyun.com/pypi/simple/ flask
-</code></pre></td></tr></table>
-</div>
-</div><p>如果想要永久使用就在 <code>~/.pip/pip.conf</code> 填入以下內容，沒有可以自己創建。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="o">[</span>global<span class="o">]</span>
-index-url <span class="o">=</span> http://mirrors.aliyun.com/pypi/simple/
-<span class="o">[</span>install<span class="o">]</span>
-trusted-host<span class="o">=</span>mirrors.aliyun.com
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="其它可能遇到的問題">其它可能遇到的問題</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># 臨時使用鏡像安裝某個包</span>
+</span></span><span class="line"><span class="cl">pip install -i http://mirrors.aliyun.com/pypi/simple/ flask</span></span></code></pre></div></div>
+<p>如果想要永久使用就在 <code>~/.pip/pip.conf</code> 填入以下內容，沒有可以自己創建。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="o">[</span>global<span class="o">]</span>
+</span></span><span class="line"><span class="cl">index-url <span class="o">=</span> http://mirrors.aliyun.com/pypi/simple/
+</span></span><span class="line"><span class="cl"><span class="o">[</span>install<span class="o">]</span>
+</span></span><span class="line"><span class="cl">trusted-host<span class="o">=</span>mirrors.aliyun.com</span></span></code></pre></div></div>
+<h2 id="其它可能遇到的問題">其它可能遇到的問題</h2>
 <h3 id="安裝套件時報錯">安裝套件時報錯</h3>
 <p>如果你們出現下面的類似錯誤：<code>ImportError: No module named '_ctypes'</code>，那代表你們沒有安裝 <code>libffi-devel</code> 這個套件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-   File <span class="s2">&#34;&lt;stdin&gt;&#34;</span>, line 1, in &lt;module&gt;
-   File <span class="s2">&#34;/usr/local/lib/python3.4/multiprocessing/context.py&#34;</span>, line 132, in Value
-      from .sharedctypes import Value
-   File <span class="s2">&#34;/usr/local/lib/python3.4/multiprocessing/sharedctypes.py&#34;</span>, line 10, in &lt;
-module&gt;
-   import ctypes
-   File <span class="s2">&#34;/usr/local/lib/python3.4/ctypes/__init__.py&#34;</span>, line 7, in &lt;module&gt;
-      from _ctypes import Union, Structure, Array
-ImportError: No module named <span class="s1">&#39;_ctypes&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>重新安裝好套件後，再重新裝一次 Python 就好了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo apt-get install libffi-dev <span class="c1"># 安裝套件</span>
-sudo make install <span class="c1"># 安裝 python</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   File <span class="s2">&#34;&lt;stdin&gt;&#34;</span>, line 1, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">   File <span class="s2">&#34;/usr/local/lib/python3.4/multiprocessing/context.py&#34;</span>, line 132, in Value
+</span></span><span class="line"><span class="cl">      from .sharedctypes import Value
+</span></span><span class="line"><span class="cl">   File <span class="s2">&#34;/usr/local/lib/python3.4/multiprocessing/sharedctypes.py&#34;</span>, line 10, in &lt;
+</span></span><span class="line"><span class="cl">module&gt;
+</span></span><span class="line"><span class="cl">   import ctypes
+</span></span><span class="line"><span class="cl">   File <span class="s2">&#34;/usr/local/lib/python3.4/ctypes/__init__.py&#34;</span>, line 7, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">      from _ctypes import Union, Structure, Array
+</span></span><span class="line"><span class="cl">ImportError: No module named <span class="s1">&#39;_ctypes&#39;</span></span></span></code></pre></div></div>
+<p>重新安裝好套件後，再重新裝一次 Python 就好了。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo apt-get install libffi-dev <span class="c1"># 安裝套件</span>
+</span></span><span class="line"><span class="cl">sudo make install <span class="c1"># 安裝 python</span></span></span></code></pre></div></div>
+<h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://www.jianshu.com/p/2262cbe52b3c" target="_blank" rel="noopener noreffer">ubuntu 如何升级python 2.7 到 3.5 - 簡書</a></li>
-<li><a href="https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get" target="_blank" rel="noopener noreffer">How do I install Python 3.6 using apt-get? - ask ubuntu</a></li>
-<li><a href="https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/" target="_blank" rel="noopener noreffer">How to Install Python 3.9 on Ubuntu 20.04 - Linuxize</a></li>
-<li><a href="https://askubuntu.com/questions/1047445/altinstall-error" target="_blank" rel="noopener noreffer">altinstall error - ask ubuntu</a></li>
-<li><a href="https://blog.csdn.net/zyklbr/article/details/116355040" target="_blank" rel="noopener noreffer">ubuntu 18.04 安装python3.9.4 + pip21.1.1 - CSDN</a></li>
-<li><a href="https://stackoverflow.com/questions/55422929/e-unable-to-locate-package-python-pip-on-ubuntu-18-04" target="_blank" rel="noopener noreffer">&ldquo;E: Unable to locate package python-pip&rdquo; on Ubuntu 18.04 [duplicate] - stack overflow</a></li>
-<li><a href="https://stackoverflow.com/questions/27022373/python3-importerror-no-module-named-ctypes-when-using-value-from-module-mul" target="_blank" rel="noopener noreffer">Python3: ImportError: No module named &lsquo;_ctypes&rsquo; when using Value from module multiprocessing - stack overflow</a></li>
-<li><a href="https://blog.csdn.net/a12355556/article/details/108307340" target="_blank" rel="noopener noreffer">python学习笔记 pip安装加速&amp;&amp;python淘宝镜像安装包 - CSDN</a></li>
+<li><a href="https://www.jianshu.com/p/2262cbe52b3c" target="_blank" rel="noopener noreffer ">ubuntu 如何升级python 2.7 到 3.5 - 簡書</a></li>
+<li><a href="https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get" target="_blank" rel="noopener noreffer ">How do I install Python 3.6 using apt-get? - ask ubuntu</a></li>
+<li><a href="https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/" target="_blank" rel="noopener noreffer ">How to Install Python 3.9 on Ubuntu 20.04 - Linuxize</a></li>
+<li><a href="https://askubuntu.com/questions/1047445/altinstall-error" target="_blank" rel="noopener noreffer ">altinstall error - ask ubuntu</a></li>
+<li><a href="https://blog.csdn.net/zyklbr/article/details/116355040" target="_blank" rel="noopener noreffer ">ubuntu 18.04 安装python3.9.4 + pip21.1.1 - CSDN</a></li>
+<li><a href="https://stackoverflow.com/questions/55422929/e-unable-to-locate-package-python-pip-on-ubuntu-18-04" target="_blank" rel="noopener noreffer ">&ldquo;E: Unable to locate package python-pip&rdquo; on Ubuntu 18.04 [duplicate] - stack overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/27022373/python3-importerror-no-module-named-ctypes-when-using-value-from-module-mul" target="_blank" rel="noopener noreffer ">Python3: ImportError: No module named &lsquo;_ctypes&rsquo; when using Value from module multiprocessing - stack overflow</a></li>
+<li><a href="https://blog.csdn.net/a12355556/article/details/108307340" target="_blank" rel="noopener noreffer ">python学习笔记 pip安装加速&amp;&amp;python淘宝镜像安装包 - CSDN</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-09-30</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+                <span>Updated on 2021-09-30</span>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/ubuntu_upgrate_py2_to_py3/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/ubuntu_upgrate_py2_to_py3/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-via="Rem59881439" data-hashtags="Linux,Ubuntu,Python,pip"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-image="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-hashtags="Linux,Ubuntu,Python,pip"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-image="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/" data-title="Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fhuangno1.github.io%2fubuntu_upgrate_py2_to_py3%2f&amp;text=Ubuntu%20%e4%b8%ad%20Python2%20%e5%8d%87%e7%b4%9a%e5%88%b0%20Python3%20%26%20pip%20%e5%ae%89%e8%a3%9d%e4%bd%bf%e7%94%a8" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pip/">pip</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pip/">Pip</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/ubuntu_switch_network_interfaces_to_dhcp_or_static/" class="prev" rel="prev" title="類樹梅派上 Ubuntu 連網 IP 問題"><i class="fas fa-angle-left fa-fw"></i>類樹梅派上 Ubuntu 連網 IP 問題</a></div>
+    <div class="post-nav"><a href="/ubuntu_switch_network_interfaces_to_dhcp_or_static/" class="prev" rel="prev" title="類樹梅派上 Ubuntu 連網 IP 問題"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>類樹梅派上 Ubuntu 連網 IP 問題</a>
+            <a href="/dps_for_inverse_problem/" class="next" rel="next" title="DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS">DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
+</article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
-                <i class="fas fa-comment fa-fw"></i>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

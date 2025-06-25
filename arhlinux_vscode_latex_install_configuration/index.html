@@ -1,55 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" />
-<meta property="og:description" content="前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
-安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。
-1 2 3 4 5  sudo pacman -S texlive-most # 安裝約 12 個包 sudo pacman -S texlive-core # 只裝核心 sudo pacman -S texlive-langchinese # 安裝中文支持   測試安裝 進入特定資料夾，輸入下面兩行指令測試是否安裝成功，
- tex &#39;\empty Hello world!\bye&#39; 會生成 texput.dvi 和 texput.log。 pdftex &#39;\empty Hello world!\bye&#39; 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-08-07T16:49:28+08:00" />
-<meta property="article:modified_time" content="2020-08-07T16:49:26+08:00" />
+        <title>在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫 - Rem Blog</title><meta name="Description" content="HuangNO1&#39;s Blog"><meta property="og:url" content="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/">
+  <meta property="og:site_name" content="Rem Blog">
+  <meta property="og:title" content="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫">
+  <meta property="og:description" content="前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
+安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-08-07T16:49:28+08:00">
+    <meta property="article:modified_time" content="2021-09-30T11:37:10+08:00">
+    <meta property="article:tag" content="ArchLinux">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="VScode">
+    <meta property="article:tag" content="LaTeX">
+    <meta property="og:image" content="https://huangno1.github.io/logo.png">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
-
-<meta name="twitter:title" content="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫"/>
-<meta name="twitter:description" content="前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
-安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。
-1 2 3 4 5  sudo pacman -S texlive-most # 安裝約 12 個包 sudo pacman -S texlive-core # 只裝核心 sudo pacman -S texlive-langchinese # 安裝中文支持   測試安裝 進入特定資料夾，輸入下面兩行指令測試是否安裝成功，
- tex &#39;\empty Hello world!\bye&#39; 會生成 texput.dvi 和 texput.log。 pdftex &#39;\empty Hello world!\bye&#39; 會生成 texput.pdf。  1 2  tex &#39;\empty Hello world!"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://huangno1.github.io/logo.png">
+  <meta name="twitter:title" content="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫">
+  <meta name="twitter:description" content="前言 紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。
+安裝環境 你可以直接安裝集合包，texlive-most 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 texlive-core 是必裝的。texlive-langchinese 是中文宏包 CTeX，讓 LaTeX 支持中文。">
+<meta name="application-name" content="Rem Blog">
+<meta name="apple-mobile-web-app-title" content="Rem Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" /><link rel="prev" href="https://huangno1.github.io/markdown_learn_note_basic_syntax/" /><link rel="next" href="https://huangno1.github.io/about_cpp_class_virtual_function/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" /><link rel="prev" href="https://huangno1.github.io/markdown_learn_note_basic_syntax/" /><link rel="next" href="https://huangno1.github.io/about_cpp_class_virtual_function/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫",
-        "inLanguage": "zh-cn",
+        "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/arhlinux_vscode_latex_install_configuration\/"
-        },"genre": "posts","keywords": "ArchLinux, Linux, VScode, LaTeX","wordcount":  644 ,
-        "url": "https:\/\/huangno1.github.io\/arhlinux_vscode_latex_install_configuration\/","datePublished": "2020-08-07T16:49:28+08:00","dateModified": "2020-08-07T16:49:26+08:00","publisher": {
+        },"genre": "posts","keywords": "ArchLinux, Linux, VScode, LaTeX","wordcount":  1192 ,
+        "url": "https:\/\/huangno1.github.io\/arhlinux_vscode_latex_install_configuration\/","datePublished": "2020-08-07T16:49:28+08:00","dateModified": "2021-09-30T11:37:10+08:00","publisher": {
             "@type": "Organization",
-            "name": "Rem Blog","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
-                    "width":  528 ,
-                    "height":  560 
-                }},"author": {
+            "name": ""},"author": {
                 "@type": "Person",
                 "name": "Huang Po-Hsun"
             },"description": ""
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -57,28 +57,27 @@
             <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -88,11 +87,11 @@
                 <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -100,39 +99,37 @@
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                <i class="fas fa-adjust fa-fw"></i>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目錄</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/latex/"><i class="far fa-folder fa-fw"></i>LaTeX</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-07">2020-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 644 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 4 分鐘&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">included in <a href="/categories/latex/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LaTeX</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-08-07">2020-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1192 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -140,10 +137,10 @@
         data-srcset="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png, /featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png 1.5x, /featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png 2x"
         data-sizes="auto"
         alt="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png"
-        title="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png" /></div><div class="details toc" id="toc-static"  kept="">
+        title="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目錄</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -159,41 +156,32 @@
             </div><div class="content" id="content"><h2 id="前言">前言</h2>
 <p>紀錄一下我在 ArchLinux 上配置 LaTeX 的過程。</p>
 <h2 id="安裝環境">安裝環境</h2>
-<p>你可以直接安裝集合包，<a href="https://www.archlinux.org/groups/x86_64/texlive-most/" target="_blank" rel="noopener noreffer">texlive-most</a> 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 <a href="https://www.archlinux.org/packages/extra/any/texlive-core/" target="_blank" rel="noopener noreffer">texlive-core</a> 是必裝的。<strong><a href="https://www.archlinux.org/packages/extra/any/texlive-langchinese/" target="_blank" rel="noopener noreffer">texlive-langchinese</a></strong> 是中文宏包 CTeX，讓 LaTeX 支持中文。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">sudo pacman -S texlive-most <span class="c1"># 安裝約 12 個包</span>
-
-sudo pacman -S texlive-core <span class="c1"># 只裝核心</span>
-
-sudo pacman -S texlive-langchinese <span class="c1"># 安裝中文支持</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="測試安裝">測試安裝</h2>
+<p>你可以直接安裝集合包，<a href="https://www.archlinux.org/groups/x86_64/texlive-most/" target="_blank" rel="noopener noreffer ">texlive-most</a> 包含很多 Tex Live 應用，但是這樣很佔空間，要安裝 2GB 的硬碟空間，所以你也可以選擇自己想要裝的部份，其中 <a href="https://www.archlinux.org/packages/extra/any/texlive-core/" target="_blank" rel="noopener noreffer ">texlive-core</a> 是必裝的。<strong><a href="https://www.archlinux.org/packages/extra/any/texlive-langchinese/" target="_blank" rel="noopener noreffer ">texlive-langchinese</a></strong> 是中文宏包 CTeX，讓 LaTeX 支持中文。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo pacman -S texlive-most <span class="c1"># 安裝約 12 個包</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo pacman -S texlive-core <span class="c1"># 只裝核心</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo pacman -S texlive-langchinese <span class="c1"># 安裝中文支持</span></span></span></code></pre></div></div>
+<h2 id="測試安裝">測試安裝</h2>
 <p>進入特定資料夾，輸入下面兩行指令測試是否安裝成功，</p>
 <ul>
 <li><code>tex '\empty Hello world!\bye'</code> 會生成 <code>texput.dvi</code> 和 <code>texput.log</code>。</li>
 <li><code>pdftex '\empty Hello world!\bye'</code> 會生成 <code>texput.pdf</code>。</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">tex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
-pdftex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="vscode-配置">VScode 配置</h2>
-<p>先安裝好 <a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" target="_blank" rel="noopener noreffer">LaTeX Workshop</a> 這擴充套件。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
+</span></span><span class="line"><span class="cl">pdftex <span class="s1">&#39;\empty Hello world!\bye&#39;</span></span></span></code></pre></div></div>
+<h2 id="vscode-配置">VScode 配置</h2>
+<p>先安裝好 <a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" target="_blank" rel="noopener noreffer ">LaTeX Workshop</a> 這擴充套件。</p>
 <p><figure><a class="lightgallery" href="https://imgpoi.com/i/KL09OV.png" title="latex_workshop.png" data-thumbnail="https://imgpoi.com/i/KL09OV.png" data-sub-html="<h2>LaTeX Workshop</h2><p>latex_workshop.png</p>">
         <img
             class="lazyload"
@@ -207,301 +195,162 @@ pdftex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
 <p><strong>設定</strong></p>
 <p>接著按下 <code>ctrl</code> + <code>,</code> 進入 VScode 的使用者設置，並點擊右上角的設定文件（JSON），添加下面的設定：</p>
 <p>下面設定需要修改的地方是要找到 <code>xelatex</code>、<code>pdflatex</code>、<code>bibtex</code> 裝在哪裡，並替換下面 <code>latex-workshop.latex.tools</code> 中每一項的 <code>command</code>，輸入以下指令可以找到位置：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">where xelatex
-<span class="c1"># 輸出 /usr/bin/xelatex</span>
-<span class="c1"># 依此類推</span>
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>跟在 Windows 上的設定差在 <code>command</code>，改成相對應的路徑。</p>
-</blockquote>
-<p>設定 JSON：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
-    <span class="c1">// ...
-</span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.recipes&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;xelatex&#34;</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;pdflatex&#34;</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;xelatex-&gt;bibtex-&gt;xelatex*2&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;bibtex&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;xelatex&#34;</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;pdflatex-&gt;bibtex-&gt;pdflatex*2&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;bibtex&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;pdflatex&#34;</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;/usr/bin/xelatex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;args&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;-shell-escape&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;%DOC%.tex&#34;</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;/usr/bin/pdflatex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;args&#34;</span><span class="o">:</span> <span class="p">[</span>
-              <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
-              <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
-              <span class="s2">&#34;-file-line-error&#34;</span><span class="p">,</span>
-              <span class="s2">&#34;%DOC%&#34;</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;bibtex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;/usr/bin/bibtex&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;args&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;%DOCFILE%&#34;</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>這邊主要使用兩個指令：<code>xelatex</code> 及 <code>bibtex</code>，平常都是使用 <code>xelatex</code> 來編譯，只有寫某些文章需要編譯 <code>reference</code> 時才會用到 <code>bibtex</code>。</p>
-</blockquote>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">where xelatex
+</span></span><span class="line"><span class="cl"><span class="c1"># 輸出 /usr/bin/xelatex</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 依此類推</span></span></span></code></pre></div></div>
 <blockquote>
-<p>為了方便何時該用哪種，上述 config 的 recipes 便派上用場，可以看到日常使用的部分我給此 recipe 取名 ”hw”，如果要編論文而需要 reference ，則會採用 ”thesis”，它會依序執行<code>xelatex</code> → <code>bibtex</code> → <code>xelatex</code> → <code>xelatex</code>，這是 LaTeX 中為了正確編出 <code>reference</code> 的用法。</p>
-</blockquote>
+<p>跟在 Windows 上的設定差在 <code>command</code>，改成相對應的路徑。</p></blockquote>
+<p>設定 JSON：</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.recipes&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;xelatex&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;pdflatex&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;xelatex-&gt;bibtex-&gt;xelatex*2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;bibtex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;xelatex&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;pdflatex-&gt;bibtex-&gt;pdflatex*2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;bibtex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;pdflatex&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;xelatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;/usr/bin/xelatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;args&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;-shell-escape&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;%DOC%.tex&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;pdflatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;/usr/bin/pdflatex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;args&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">              <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="s2">&#34;-file-line-error&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="s2">&#34;%DOC%&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;bibtex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;/usr/bin/bibtex&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;args&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;%DOCFILE%&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<blockquote>
+<p>這邊主要使用兩個指令：<code>xelatex</code> 及 <code>bibtex</code>，平常都是使用 <code>xelatex</code> 來編譯，只有寫某些文章需要編譯 <code>reference</code> 時才會用到 <code>bibtex</code>。</p></blockquote>
+<blockquote>
+<p>為了方便何時該用哪種，上述 config 的 recipes 便派上用場，可以看到日常使用的部分我給此 recipe 取名 ”hw”，如果要編論文而需要 reference ，則會採用 ”thesis”，它會依序執行<code>xelatex</code> → <code>bibtex</code> → <code>xelatex</code> → <code>xelatex</code>，這是 LaTeX 中為了正確編出 <code>reference</code> 的用法。</p></blockquote>
 <h2 id="hello-world">Hello World</h2>
 <p>下面是一個我擷取我之前寫的報告作為簡單例子，有我經常用的設定。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[12pt, a4paper]</span><span class="nb">{</span>report<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>ctex<span class="nb">}</span> <span class="c">% 中文的宏包
-</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>indentfirst<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span> <span class="c">% 插入圖片的宏包
-</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span> <span class="c">% 設置圖片浮動位置的宏包
-</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>subfigure<span class="nb">}</span> <span class="c">% 插入多圖時用子圖顯示宏包
-</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span> <span class="c">% 代碼塊宏包
-</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>color<span class="nb">}</span> <span class="c">% 代碼高亮
-</span><span class="c"></span><span class="k">\usepackage</span><span class="na">[colorlinks,linkcolor=blue]</span><span class="nb">{</span>hyperref<span class="nb">}</span> <span class="c">% URL 包
-</span><span class="c"></span><span class="k">\usepackage</span><span class="na">[pdf]</span><span class="nb">{</span>graphviz<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>alphalph<span class="nb">}</span>
-<span class="k">\renewcommand*</span><span class="nb">{</span><span class="k">\thesubfigure</span><span class="nb">}{</span>(<span class="k">\arabic</span><span class="nb">{</span>subfigure<span class="nb">}</span>)<span class="nb">}</span>
-
-<span class="k">\definecolor</span><span class="nb">{</span>dkgreen<span class="nb">}{</span>rgb<span class="nb">}{</span>0,0.6,0<span class="nb">}</span>
-<span class="k">\definecolor</span><span class="nb">{</span>gray<span class="nb">}{</span>rgb<span class="nb">}{</span>0.5,0.5,0.5<span class="nb">}</span>
-<span class="k">\definecolor</span><span class="nb">{</span>mauve<span class="nb">}{</span>rgb<span class="nb">}{</span>0.58,0,0.82<span class="nb">}</span>
-
-<span class="k">\lstset</span><span class="nb">{</span> <span class="c">%
-</span><span class="c"></span>    <span class="c">%language=Octave,                % the language of the code
-</span><span class="c"></span>    basicstyle=<span class="k">\scriptsize\Hack</span>,           <span class="c">% the size of the fonts that are used for the code
-</span><span class="c"></span>    numbers=none,                   <span class="c">% where to put the line-numbers
-</span><span class="c"></span>    numberstyle=<span class="k">\tiny\color</span><span class="nb">{</span>gray<span class="nb">}</span>,  <span class="c">% the style that is used for the line-numbers
-</span><span class="c"></span>    stepnumber=2,                   <span class="c">% the step between two line-numbers. If it&#39;s 1, each line 
-</span><span class="c"></span>                                    <span class="c">% will be numbered
-</span><span class="c"></span>    numbersep=3pt,                  <span class="c">% how far the line-numbers are from the code
-</span><span class="c"></span>    backgroundcolor=<span class="k">\color</span><span class="nb">{</span>white<span class="nb">}</span>,      <span class="c">% choose the background color. You must add \usepackage{color}
-</span><span class="c"></span>    showspaces=false,               <span class="c">% show spaces adding particular underscores
-</span><span class="c"></span>    showstringspaces=false,         <span class="c">% underline spaces within strings
-</span><span class="c"></span>    showtabs=false,                 <span class="c">% show tabs within strings adding particular underscores
-</span><span class="c"></span>    frame=single,                   <span class="c">% adds a frame around the code
-</span><span class="c"></span>    rulecolor=<span class="k">\color</span><span class="nb">{</span>black<span class="nb">}</span>,        <span class="c">% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
-</span><span class="c"></span>    tabsize=2,                      <span class="c">% sets default tabsize to 2 spaces
-</span><span class="c"></span>    captionpos=b,                   <span class="c">% sets the caption-position to bottom
-</span><span class="c"></span>    breaklines=true,                <span class="c">% sets automatic line breaking
-</span><span class="c"></span>    breakatwhitespace=false,        <span class="c">% sets if automatic breaks should only happen at whitespace
-</span><span class="c"></span>    title=<span class="k">\lstname</span>,                   <span class="c">% show the filename of files included with \lstinputlisting;
-</span><span class="c"></span>                                    <span class="c">% also try caption instead of title
-</span><span class="c"></span>    keywordstyle=<span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}</span>,          <span class="c">% keyword style
-</span><span class="c"></span>    commentstyle=<span class="k">\color</span><span class="nb">{</span>dkgreen<span class="nb">}</span>,       <span class="c">% comment style
-</span><span class="c"></span>    stringstyle=<span class="k">\color</span><span class="nb">{</span>mauve<span class="nb">}</span>,         <span class="c">% string literal style
-</span><span class="c"></span>    escapeinside=<span class="nb">{</span><span class="k">\%*</span><span class="nb">}{</span>*<span class="nb">}</span>,            <span class="c">% if you want to add LaTeX within your code
-</span><span class="c"></span>    morekeywords=<span class="nb">{</span>*,...<span class="nb">}</span>               <span class="c">% if you want to add more keywords to the set
-</span><span class="c"></span><span class="nb">}</span>
-<span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK TC<span class="nb">}</span> <span class="c">% 主要字體 Noto Serif
-</span><span class="c"></span><span class="k">\newfontfamily\Hack</span><span class="nb">{</span>Hack<span class="nb">}</span> <span class="c">% 代碼字體
-</span><span class="c"></span><span class="k">\author</span><span class="nb">{</span>Huang Po-Hsun<span class="nb">}</span>
-<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
-<span class="k">\title</span><span class="nb">{</span>數據庫系統 SSD7 實驗報告<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-
-<span class="k">\maketitle</span>
-
-<span class="k">\tableofcontents</span>
-
-<span class="k">\part</span><span class="nb">{</span>實驗一、數據庫與表的基本操作<span class="nb">}</span>
-
-<span class="k">\section</span><span class="nb">{</span>實驗目的<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
-    <span class="k">\item</span> 熟练掌握一种DBMS的使用方法，完成数据库的创建、删除和连接；数据表的建立、删除；表结构的修改。
-    <span class="k">\item</span> 加深对表的实体完整性、参照完整性和用户自定义完整性的理解。
-<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
-
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="畫面">畫面</h2>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-latex">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="k">\documentclass</span><span class="na">[12pt, a4paper]</span><span class="nb">{</span>report<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>ctex<span class="nb">}</span> <span class="c">% 中文的宏包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>indentfirst<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span> <span class="c">% 插入圖片的宏包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span> <span class="c">% 設置圖片浮動位置的宏包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>subfigure<span class="nb">}</span> <span class="c">% 插入多圖時用子圖顯示宏包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span> <span class="c">% 代碼塊宏包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>color<span class="nb">}</span> <span class="c">% 代碼高亮
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="na">[colorlinks,linkcolor=blue]</span><span class="nb">{</span>hyperref<span class="nb">}</span> <span class="c">% URL 包
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\usepackage</span><span class="na">[pdf]</span><span class="nb">{</span>graphviz<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>alphalph<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\renewcommand*</span><span class="nb">{</span><span class="k">\thesubfigure</span><span class="nb">}{</span>(<span class="k">\arabic</span><span class="nb">{</span>subfigure<span class="nb">}</span>)<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\definecolor</span><span class="nb">{</span>dkgreen<span class="nb">}{</span>rgb<span class="nb">}{</span>0,0.6,0<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\definecolor</span><span class="nb">{</span>gray<span class="nb">}{</span>rgb<span class="nb">}{</span>0.5,0.5,0.5<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\definecolor</span><span class="nb">{</span>mauve<span class="nb">}{</span>rgb<span class="nb">}{</span>0.58,0,0.82<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\lstset</span><span class="nb">{</span> <span class="c">%
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    <span class="c">%language=Octave,                % the language of the code
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    basicstyle=<span class="k">\scriptsize\Hack</span>,           <span class="c">% the size of the fonts that are used for the code
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    numbers=none,                   <span class="c">% where to put the line-numbers
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    numberstyle=<span class="k">\tiny\color</span><span class="nb">{</span>gray<span class="nb">}</span>,  <span class="c">% the style that is used for the line-numbers
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    stepnumber=2,                   <span class="c">% the step between two line-numbers. If it&#39;s 1, each line 
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>                                    <span class="c">% will be numbered
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    numbersep=3pt,                  <span class="c">% how far the line-numbers are from the code
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    backgroundcolor=<span class="k">\color</span><span class="nb">{</span>white<span class="nb">}</span>,      <span class="c">% choose the background color. You must add \usepackage{color}
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    showspaces=false,               <span class="c">% show spaces adding particular underscores
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    showstringspaces=false,         <span class="c">% underline spaces within strings
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    showtabs=false,                 <span class="c">% show tabs within strings adding particular underscores
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    frame=single,                   <span class="c">% adds a frame around the code
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    rulecolor=<span class="k">\color</span><span class="nb">{</span>black<span class="nb">}</span>,        <span class="c">% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    tabsize=2,                      <span class="c">% sets default tabsize to 2 spaces
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    captionpos=b,                   <span class="c">% sets the caption-position to bottom
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    breaklines=true,                <span class="c">% sets automatic line breaking
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    breakatwhitespace=false,        <span class="c">% sets if automatic breaks should only happen at whitespace
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    title=<span class="k">\lstname</span>,                   <span class="c">% show the filename of files included with \lstinputlisting;
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>                                    <span class="c">% also try caption instead of title
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    keywordstyle=<span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}</span>,          <span class="c">% keyword style
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    commentstyle=<span class="k">\color</span><span class="nb">{</span>dkgreen<span class="nb">}</span>,       <span class="c">% comment style
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    stringstyle=<span class="k">\color</span><span class="nb">{</span>mauve<span class="nb">}</span>,         <span class="c">% string literal style
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    escapeinside=<span class="nb">{</span><span class="k">\%*</span><span class="nb">}{</span>*<span class="nb">}</span>,            <span class="c">% if you want to add LaTeX within your code
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>    morekeywords=<span class="nb">{</span>*,...<span class="nb">}</span>               <span class="c">% if you want to add more keywords to the set
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK TC<span class="nb">}</span> <span class="c">% 主要字體 Noto Serif
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\newfontfamily\Hack</span><span class="nb">{</span>Hack<span class="nb">}</span> <span class="c">% 代碼字體
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">\author</span><span class="nb">{</span>Huang Po-Hsun<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\title</span><span class="nb">{</span>數據庫系統 SSD7 實驗報告<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\maketitle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\tableofcontents</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\part</span><span class="nb">{</span>實驗一、數據庫與表的基本操作<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>實驗目的<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\item</span> 熟练掌握一种DBMS的使用方法，完成数据库的创建、删除和连接；数据表的建立、删除；表结构的修改。
+</span></span><span class="line"><span class="cl">    <span class="k">\item</span> 加深对表的实体完整性、参照完整性和用户自定义完整性的理解。
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span></span></span></code></pre></div></div>
+<h2 id="畫面">畫面</h2>
 <p>這是實際寫 LaTeX 的畫面。</p>
 <p><figure><a class="lightgallery" href="https://imgpoi.com/i/KL0G2E.png" title="preview.png" data-thumbnail="https://imgpoi.com/i/KL0G2E.png" data-sub-html="<h2>編寫畫面</h2><p>preview.png</p>">
         <img
@@ -515,53 +364,49 @@ pdftex <span class="s1">&#39;\empty Hello world!\bye&#39;</span>
     </figure></p>
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://wiki.archlinux.org/index.php/TeX_Live_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer">TeX Live (简体中文) - ArchWiki</a></li>
-<li><a href="https://shaynechen.gitlab.io/vscode-latex/" target="_blank" rel="noopener noreffer">LaTeX Workshop – 在VSCode中編輯及編譯LaTeX</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/TeX_Live_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener noreffer ">TeX Live (简体中文) - ArchWiki</a></li>
+<li><a href="https://shaynechen.gitlab.io/vscode-latex/" target="_blank" rel="noopener noreffer ">LaTeX Workshop – 在VSCode中編輯及編譯LaTeX</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2020-08-07</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+                <span>Updated on 2021-09-30</span>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/arhlinux_vscode_latex_install_configuration/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/arhlinux_vscode_latex_install_configuration/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-via="Rem59881439" data-hashtags="ArchLinux,Linux,VScode,LaTeX"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-hashtag="ArchLinux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-image="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-hashtags="ArchLinux,Linux,VScode,LaTeX"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-hashtag="ArchLinux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-image="/featuredImage/compressed/arhlinux_vscode_latex_install_configuration.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://huangno1.github.io/arhlinux_vscode_latex_install_configuration/" data-title="在 ArchLinux 上搭建 LaTeX 環境並使用 VScode 編寫" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fhuangno1.github.io%2farhlinux_vscode_latex_install_configuration%2f&amp;text=%e5%9c%a8%20ArchLinux%20%e4%b8%8a%e6%90%ad%e5%bb%ba%20LaTeX%20%e7%92%b0%e5%a2%83%e4%b8%a6%e4%bd%bf%e7%94%a8%20VScode%20%e7%b7%a8%e5%af%ab" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/vscode/">VScode</a>,&nbsp;<a href="/tags/latex/">LaTeX</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/archlinux/">ArchLinux</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/vscode/">VScode</a>,&nbsp;<a href="/tags/latex/">LaTeX</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/markdown_learn_note_basic_syntax/" class="prev" rel="prev" title="Markdown 學習筆記 - 基礎語法"><i class="fas fa-angle-left fa-fw"></i>Markdown 學習筆記 - 基礎語法</a>
-            <a href="/about_cpp_class_virtual_function/" class="next" rel="next" title="C&#43;&#43; - 關於多態中的虛函數與純虛函數">C&#43;&#43; - 關於多態中的虛函數與純虛函數<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/markdown_learn_note_basic_syntax/" class="prev" rel="prev" title="Markdown 學習筆記 - 基礎語法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Markdown 學習筆記 - 基礎語法</a>
+            <a href="/about_cpp_class_virtual_function/" class="next" rel="next" title="C&#43;&#43; - 關於多態中的虛函數與純虛函數">C++ - 關於多態中的虛函數與純虛函數<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
+</article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
-                <i class="fas fa-comment fa-fw"></i>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

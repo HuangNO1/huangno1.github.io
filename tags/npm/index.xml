@@ -1,67 +1,57 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>npm - 標籤 - Rem Blog</title>
+        <title>Npm - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/npm/</link>
-        <description>npm - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Npm - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/npm/" rel="self" type="application/rss+xml" /><item>
     <title>部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</title>
     <link>https://huangno1.github.io/deploy_springboot_flask_vue_web/</link>
     <pubDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/deploy_springboot_flask_vue_web/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg" referrerpolicy="no-referrer">
-            </div>前言 由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 MD-Blog 個人空間系統項目進行 Web 測試，過程中我將那個項目部署到了阿里雲的雲服務器上。這篇文章我紀錄一下我部署 Web 的過程。
-購買服務器 因為我是用學生優惠等方式白嫖到了半年的阿里雲雲服務器，所以這方面其實沒怎麼出錢，幸好在軟件測試項目結題才到期，不過用學生優惠購買最低配的雲服務器，三個月也只需要 28 元人民幣，騰訊雲我因為過不了實名認證就算了（&hellip;這裡我要吐嘈一下連雲服務器都要實名認證）。
-總之購買好雲服務器後新增好實例，通常我是建議使用 CentOS7 作為服務器的操作系統，進入雲服務器的控制台，你會看到服務器的公網 IP、私網 IP 和密碼，密碼可以重新修改。
-這裡我們假設我們服務器的公網 IP 是 1.2.3.4。
-部署項目前的工作 安裝環境 在配置之前我們需要將我們的 JDK、Python、MySQL、Nginx 在服務器端配置完畢。
-JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 版本一致，不然在運行後端 JAR 包時會報版本錯誤及不兼容的問題，要選擇 JDK1.8 以上的版本。
-這裡是建議自己在本地下載好 JDK 然後 SCP 上傳至服務器端，選擇 Linux x64 Compressed Archive 下載，不要下錯成 Linux ARM 架構的（因為我下錯過，沒仔細看名稱），壓縮包名大致為 jdk-8u271-linux-x64.tar.gz。
- 在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
- 1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 <strong>MD-Blog 個人空間系統</strong>項目進行 Web 測試，過程中我將那個項目部署到了<strong>阿里雲的雲服務器</strong>上。這篇文章我紀錄一下我部署 Web 的過程。</p>]]></description>
+</item>
+<item>
     <title>React 學習筆記 - JSX、組件、渲染、路由、Redux</title>
     <link>https://huangno1.github.io/react_learn_note/</link>
     <pubDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/react_learn_note/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/react_learn_note.png" referrerpolicy="no-referrer">
-            </div>前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
-建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
- 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
- npx
-1  npx create-react-app my-app   npm
-1  npm init react-app my-app   Yarn
- Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
- 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。</p>
+<h2 id="建立一個-hello-world">建立一個 Hello World</h2>
+<p>在終端機輸入下面的指令，會在該目錄下<strong>生成一個名為 my-app 的 React 應用目錄</strong>。</p>
+<blockquote>
+<p>註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。</p>]]></description>
+</item>
+<item>
     <title>Vue 技巧與經驗 - 項目構建、組件、路由、請求</title>
     <link>https://huangno1.github.io/vue_skill/</link>
     <pubDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/vue_skill/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/vue_skill.png" referrerpolicy="no-referrer">
-            </div>前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
-這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
-Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
- 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。</p>]]></description>
+</item>
+<item>
     <title>Linux 配置 npm</title>
     <link>https://huangno1.github.io/linux_npm_configuration/</link>
     <pubDate>Thu, 06 Feb 2020 11:27:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/linux_npm_configuration/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/linux_npm_configuration.png" referrerpolicy="no-referrer">
-            </div>前言 npm（Node Package Manager）是 node 包管理器，是 Node.js 預設的、以 JavaScript 編寫的軟體套件管理系統。相信各位在開發 Vue 或是快應用等方面都會用到 npm，這裡我寫一下關於 npm 在 Linux 上的配置，因為在 Linux 使用 npm，因為在使用 npm 安裝套件時會發生權限不足問題還有下載源速度過慢，我將在這篇文章教大家如何配置 npm。
-安裝 npm 裝 npm 時，會幫你也裝 nodeJS等相關依賴。
-1  sudo pacman -S npm   npm 本地化  在家目錄建立資料夾  1  mkdir ~/.npm-global   設置 npm 的目標資料夾  1  npm config set prefix &#39;~/.npm-global&#39;   加入本地環境變量  如果你有安裝使用 ZSH，也需要在 ~/.zshrc 引入環境變量。
-1 2  vim ~/.]]></description>
-</item></channel>
+            </div><!--2020/02/06 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p><strong>npm</strong>（Node Package Manager）是 <strong>node 包管理器</strong>，是 <code>Node.js</code> 預設的、以 <code>JavaScript</code> 編寫的軟體套件管理系統。相信各位在開發 Vue 或是快應用等方面都會用到 npm，這裡我寫一下關於 npm 在 Linux 上的配置，因為在 Linux 使用 npm，因為在使用 npm 安裝套件時會發生權限不足問題還有下載源速度過慢，我將在這篇文章教大家如何配置 npm。</p>]]></description>
+</item>
+</channel>
 </rss>

@@ -1,92 +1,104 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Web - 標籤 - Rem Blog</title>
+        <title>Web - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/web/</link>
-        <description>Web - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Web - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/web/" rel="self" type="application/rss+xml" /><item>
     <title>部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</title>
     <link>https://huangno1.github.io/deploy_springboot_flask_vue_web/</link>
     <pubDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/deploy_springboot_flask_vue_web/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg" referrerpolicy="no-referrer">
-            </div>前言 由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 MD-Blog 個人空間系統項目進行 Web 測試，過程中我將那個項目部署到了阿里雲的雲服務器上。這篇文章我紀錄一下我部署 Web 的過程。
-購買服務器 因為我是用學生優惠等方式白嫖到了半年的阿里雲雲服務器，所以這方面其實沒怎麼出錢，幸好在軟件測試項目結題才到期，不過用學生優惠購買最低配的雲服務器，三個月也只需要 28 元人民幣，騰訊雲我因為過不了實名認證就算了（&hellip;這裡我要吐嘈一下連雲服務器都要實名認證）。
-總之購買好雲服務器後新增好實例，通常我是建議使用 CentOS7 作為服務器的操作系統，進入雲服務器的控制台，你會看到服務器的公網 IP、私網 IP 和密碼，密碼可以重新修改。
-這裡我們假設我們服務器的公網 IP 是 1.2.3.4。
-部署項目前的工作 安裝環境 在配置之前我們需要將我們的 JDK、Python、MySQL、Nginx 在服務器端配置完畢。
-JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 版本一致，不然在運行後端 JAR 包時會報版本錯誤及不兼容的問題，要選擇 JDK1.8 以上的版本。
-這裡是建議自己在本地下載好 JDK 然後 SCP 上傳至服務器端，選擇 Linux x64 Compressed Archive 下載，不要下錯成 Linux ARM 架構的（因為我下錯過，沒仔細看名稱），壓縮包名大致為 jdk-8u271-linux-x64.tar.gz。
- 在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
- 1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 <strong>MD-Blog 個人空間系統</strong>項目進行 Web 測試，過程中我將那個項目部署到了<strong>阿里雲的雲服務器</strong>上。這篇文章我紀錄一下我部署 Web 的過程。</p>]]></description>
+</item>
+<item>
     <title>React 學習筆記 - JSX、組件、渲染、路由、Redux</title>
     <link>https://huangno1.github.io/react_learn_note/</link>
     <pubDate>Wed, 05 Aug 2020 21:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/react_learn_note/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/react_learn_note.png" referrerpolicy="no-referrer">
-            </div>前言 因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。
-建立一個 Hello World 在終端機輸入下面的指令，會在該目錄下生成一個名為 my-app 的 React 應用目錄。
- 註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。
- npx
-1  npx create-react-app my-app   npm
-1  npm init react-app my-app   Yarn
- Yarn 0.25+ 才能使用 yarn create &lt;starter-kit-package&gt;
- 1  yarn create react-app my-app   Project 結構 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  my-app ├── README.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>因為我前段時間學了 React，我會在這邊文章紀錄我學到的內容。</p>
+<h2 id="建立一個-hello-world">建立一個 Hello World</h2>
+<p>在終端機輸入下面的指令，會在該目錄下<strong>生成一個名為 my-app 的 React 應用目錄</strong>。</p>
+<blockquote>
+<p>註：npx 是 npm 5.2+ 或更高版本附帶的包運行器工具。</p>]]></description>
+</item>
+<item>
     <title>Flask 跨域設置</title>
     <link>https://huangno1.github.io/flask_cors/</link>
     <pubDate>Wed, 05 Aug 2020 20:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/flask_cors/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/flask_cors.png" referrerpolicy="no-referrer">
-            </div>前言 關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
-安裝 跨域有 flask_cors 這個工具。
-1  pip install flask_cors   配置 1 2 3 4 5 6 7 8 9  from flask import Flask, jsonify, request from flask_cors import CORS app = Flask(__name__) # enable CORS CORS(app) if __name__ == &#34;__main__&#34;: app.run(debug=True)   ]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。</p>
+<h2 id="安裝">安裝</h2>
+<p>跨域有 <strong>flask_cors</strong> 這個工具。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install flask_cors</span></span></code></pre></div></div>
+<h2 id="配置">配置</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-py">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># enable CORS</span>
+</span></span><span class="line"><span class="cl"><span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></span></span></code></pre></div></div>]]></description>
+</item>
+<item>
     <title>Flask 中使用 JWT</title>
     <link>https://huangno1.github.io/flask_jwt/</link>
     <pubDate>Wed, 05 Aug 2020 13:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/flask_jwt/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/flask_jwt.png" referrerpolicy="no-referrer">
-            </div>前言 因為我寫的上一篇文章是&quot;Flask 中使用 MySQL&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
-Cookie Session  Cookie 和 LocalStorage 最大的區別是 Cookie 可以設置時效性，而LocalStorage 不行。
- 在 JWT 授權認證技術還沒出來之前，我們是使用 Cookie 和 Session 來做驗證，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
- JWT 理論部份 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：
- JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
-e.g.
-1 2 3  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. eyJlbWFpbCI6Imhpcm9AZ21haWwuY29tIn0. WAKjPd_0qcEG3dA9pEwAiw-0ADb8VwqFlSWiIYJTymo   header 存放 token 型別與加密方式 。]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>因為我寫的上一篇文章是&quot;<strong>Flask 中使用 MySQL</strong>&quot;，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。</p>
+<h2 id="cookie-session">Cookie Session</h2>
+<blockquote>
+<p>Cookie 和 LocalStorage 最大的區別是 <strong>Cookie 可以設置時效性</strong>，而LocalStorage 不行。</p>]]></description>
+</item>
+<item>
     <title>Flask 中使用 MySQL</title>
     <link>https://huangno1.github.io/flask_mysql/</link>
     <pubDate>Tue, 04 Aug 2020 22:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/flask_mysql/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
-            </div>前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
-安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
-1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說<a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener noreffer "> Flask 官方文檔</a>寫得很好。因為 <strong>Flask 官方教學是使用 Sqlite 做為數據庫</strong>，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。</p>]]></description>
+</item>
+<item>
     <title>Vue 技巧與經驗 - 項目構建、組件、路由、請求</title>
     <link>https://huangno1.github.io/vue_skill/</link>
     <pubDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/vue_skill/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/vue_skill.png" referrerpolicy="no-referrer">
-            </div>前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
-這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
-Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
- 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。</p>]]></description>
+</item>
+</channel>
 </rss>

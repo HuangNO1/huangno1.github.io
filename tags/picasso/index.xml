@@ -1,23 +1,21 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Picasso - 標籤 - Rem Blog</title>
+        <title>Picasso - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/picasso/</link>
-        <description>Picasso - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Picasso - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/picasso/" rel="self" type="application/rss+xml" /><item>
     <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載</title>
     <link>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</link>
     <pubDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
-Display 圖片緩存與懶加載展示Display_image_picasso.gif
-" 圖片緩存與懶加載展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
-我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
-1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  ]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_recyclerview_different_cards/" target="_blank" rel="noopener noreffer ">新聞數據請求渲染</a>的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" title="Display_image_picasso.gif" data-thumbnail="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" data-sub-html="<h2>圖片緩存與懶加載展示</h2><p>Display_image_picasso.gif</p>]]></description>
+</item>
+</channel>
 </rss>

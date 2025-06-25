@@ -1,24 +1,21 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Load - 標籤 - Rem Blog</title>
+        <title>Load - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/load/</link>
-        <description>Load - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Load - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 20:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/load/" rel="self" type="application/rss+xml" /><item>
     <title>Android Java - 簡易今日頭條 - Load More 加載更多新聞內容</title>
     <link>https://huangno1.github.io/android_java_recyclerview_load_more/</link>
     <pubDate>Tue, 15 Jun 2021 20:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_recyclerview_load_more/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_recyclerview_load_more.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
-Display 加載更多展示Display_load_more.gif
-" 加載更多展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
-以下是 RecyclerView 設置滾動監聽的參考案例：
-這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  // cardList mCardListRecyclerView = view.findViewById(R.id.recycler_view_card_list); mCardListRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { @Override public void onScrollStateChanged(@NonNull @NotNull RecyclerView recyclerView, int newState) { super.onScrollStateChanged(recyclerView, newState); } @Override public void onScrolled(@NonNull @NotNull RecyclerView recyclerView, int dx, int dy) { super.]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇我們說到了<a href="https://huangno1.github.io/android_java_pull_to_refresh/" target="_blank" rel="noopener noreffer ">下拉刷新的實現</a>，這篇我接著講如何<strong>實現上拉加載更多</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_recyclerview_load_more/index/Display_load_more.gif" title="Display_load_more.gif" data-thumbnail="/android_java_recyclerview_load_more/index/Display_load_more.gif" data-sub-html="<h2>加載更多展示</h2><p>Display_load_more.gif</p>]]></description>
+</item>
+</channel>
 </rss>

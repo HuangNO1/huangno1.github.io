@@ -1,26 +1,21 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>WIFI - 標籤 - Rem Blog</title>
+        <title>WIFI - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/wifi/</link>
-        <description>WIFI - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>WIFI - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/wifi/" rel="self" type="application/rss+xml" /><item>
     <title>ArchLinx KDE 錢包禁用與解決 WIFI 密碼輸入</title>
     <link>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</link>
     <pubDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png" referrerpolicy="no-referrer">
-            </div>前言 最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。
-解決 KDE Wallet 如果還沒安裝了 KDE 錢包管理就先去安裝它，kwalletmanager。
-1  sudo pacman -S kwalletmanager   安裝完之後需要進入 設定 -&gt; 個人化 -&gt; KDE 錢包 -&gt; 錢包設定，將 開啟 KDE wallet 子系統(E) 的勾選去掉，套用設定，之後就不需要在碰到需要輸入 KDE 錢包密碼了，畢竟我平常也沒用到這個應用。
-KDE 錢包設定kde_wallet_settings.png
-" KDE 錢包設定 
-解決 WIFI 密碼問題 自從 KDE 錢包出現後連帶每次進入進入系統 NetworkManager 都會要我重新輸入 WIFI 密碼，所以想要從根本根治，需要在設定中將其密碼存儲。
-網路設定network_setting.png
-" 網路設定 
-之後每次進入系統連線 WIFI 都不需要輸入密碼了。
-Reference  KDE5: How do i completely disable/remove kdewallet - Archlinux BBS  ]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。</p>
+<h2 id="解決-kde-wallet">解決 KDE Wallet</h2>
+<p>如果還沒安裝了 KDE 錢包管理就先去安裝它，<code>kwalletmanager</code>。</p>]]></description>
+</item>
+</channel>
 </rss>

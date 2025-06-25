@@ -1,26 +1,19 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Mariadb - 標籤 - Rem Blog</title>
+        <title>Mariadb - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/mariadb/</link>
-        <description>Mariadb - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Mariadb - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 16:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/mariadb/" rel="self" type="application/rss+xml" /><item>
     <title>Mariadb 啟動服務失敗</title>
     <link>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</link>
     <pubDate>Mon, 03 May 2021 16:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg" referrerpolicy="no-referrer">
-            </div>前言 在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是
- [SOLVED] Unable to start mariadb.service What to Do if MariaDB Doesn&rsquo;t Start Failed to start MariaDB database server after upgrade to debian 9  今天終於在 ArchLinux-CN Telegram 技術群提問獲得了解決。
-問題 我的 Linux 在某次更新完系統開機階段就會顯示我的數據庫啟動失敗，開機後我試著登入數據庫卻登入失敗。於是試著啟動 mariadb.service 於是出現下面的畫面：
-mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
-" mariadb.service 啟動失敗 
-於是我接著查看 mariadb.service 的 status：
-檢查 mariadb.service statussystemctl_status_mariadb.png
-" 檢查 mariadb.service status 
-依然沒找到問題所在，於是我進一步查看日誌：
-1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是</p>]]></description>
+</item>
+</channel>
 </rss>

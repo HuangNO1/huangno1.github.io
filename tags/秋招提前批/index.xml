@@ -1,32 +1,19 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>秋招提前批 - 標籤 - Rem Blog</title>
+        <title>秋招提前批 - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/%E7%A7%8B%E6%8B%9B%E6%8F%90%E5%89%8D%E6%89%B9/</link>
-        <description>秋招提前批 - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>秋招提前批 - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 07 Sep 2021 18:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/%E7%A7%8B%E6%8B%9B%E6%8F%90%E5%89%8D%E6%89%B9/" rel="self" type="application/rss+xml" /><item>
     <title>2021 年 7 月字節跳動安卓崗位 - 提前批面試經驗（已涼）</title>
     <link>https://huangno1.github.io/an_interview_experience_about_bytedance_android_2021_07/</link>
     <pubDate>Tue, 07 Sep 2021 18:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/an_interview_experience_about_bytedance_android_2021_07/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/an_interview_experience_about_bytedance_android_2021_07.jpg" referrerpolicy="no-referrer">
-            </div>前言 現在已經度過了一整個暑假，我也從大三變成了大四生，已經九月份了，感慨三四年這樣就過去了，在這暑假期間我已也投過一家南京小公司實習（透過本專業的教授），但最後考慮到薪資問題就拒絕了後續（主要是薪資談不攏），也在七月份度過了兩到三週中興通訊的在校合作實訓，反正能拿到 4 學分的實習學分，不過實訓內容說實在一言難盡，我也不在這篇文章提出。
-這篇文章主要是針對上學期大三下的時候我因為選了安卓應用開發的選修課，字節跳動的員工內推我，讓我可以面試。
- 我在這裡還是想吐嘈一下，不管哪個公司說什麼有實習機會都不要太相信，因為大多數都只是幫你內推而已，中興通訊的實訓原本也是說有實習名額，HR 也說可以是直接內定的 Offer 名額，然而也只是內推，包括這篇文章提到的字節跳動也是一樣，一開始說有實習機會，最後所有同學都去要了簡歷給內推。
- 我荒廢了這個暑假後，才開始想寫這篇文章重新整理一下心態，也因為太久沒有更新 Blog 文章，所以有些過意不去。
-面試前準備 在內推面試時，已經是學期末要期末考的時候了，說實在，時間很緊，我要同時準備期末考和面試，所以我將技術面一面跟字節跳動 HR 溝通在期末考結束後一週，在一週的時間內閱讀大量的面經還有之前自己整理的八股文內容，還有自己找到的一些八股文內容，由於內推人有說字節跳動的安卓崗可以不會安卓，接受初學者，但是必須至少要精通一門語言，然後如果能精通 Java 當然是更好，所以我沒有特別準備安卓相關的問題。
-技術面面經 字節跳動 - 技術中台 - 安卓客戶端實習生
-業務一面(50 分鐘)，牛課網平台面試
- 簡單自我介紹一下  xxxxxx
-根據我的安卓項目問關於安卓應用開發課程是怎麼跟字節跳動客戶端合作的，學了多久安卓  老師與字節客戶端的人員進行合作，先是有理論課，後面有實踐課，給了一個大作業，完成業務需求&hellip;blabla
-學了一個月安卓
-你在安卓項目中做了哪些構想  像是頁面的構思，歡迎界面與主界面 主界面有不同的頻道，像是推薦、數碼。每個頻道有自己的&hellip;.blabla
-還做了點擴展&hellip;blabla
-你這個項目中有哪些難點，怎麼實現的 可以說明一下嗎  像是一個列表中要展示三種不同的卡片&hellip;blabla&hellip;dataModel recyclerview
-請問你是 java 比較熟還是 C++ 比就熟  C++ 比較熟悉，但是 Java 有一定的基礎
-面試官：那我問你一些 java 的問題
-請問 java 的線程狀態你能說一下嗎  (fuxk you 怎麼一開始就這麼難)java的線程有像是堵塞 同步之類的狀態，線程同步可以使用 排斥鎖 自旋鎖 讀寫鎖，排斥鎖像是 synchronized，堵塞的話就是資源被一個線程被鎖住 下一個線程無法使用資源，等鎖釋放才能讓下一個線程進行操作&hellip;blabla]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>現在已經度過了一整個暑假，我也從大三變成了大四生，已經九月份了，感慨三四年這樣就過去了，在這暑假期間我已也投過一家南京小公司實習（透過本專業的教授），但最後考慮到薪資問題就拒絕了後續（主要是薪資談不攏），也在七月份度過了兩到三週中興通訊的在校合作實訓，反正能<strong>拿到 4 學分的實習學分</strong>，不過實訓內容說實在一言難盡，我也不在這篇文章提出。</p>]]></description>
+</item>
+</channel>
 </rss>

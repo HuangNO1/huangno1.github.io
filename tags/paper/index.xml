@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Paper - Tag - Rem Blog</title>
+        <link>https://huangno1.github.io/tags/paper/</link>
+        <description>Paper - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 25 Jun 2025 22:40:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/paper/" rel="self" type="application/rss+xml" /><item>
+    <title>DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS</title>
+    <link>https://huangno1.github.io/dps_for_inverse_problem/</link>
+    <pubDate>Wed, 25 Jun 2025 22:40:28 &#43;0800</pubDate>
+    <author>Huang Po-Hsun</author>
+    <guid>https://huangno1.github.io/dps_for_inverse_problem/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/Figure7.png" referrerpolicy="no-referrer">
+            </div><p>DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS
+標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題，<a href="https://arxiv.org/abs/2209.14687" target="_blank" rel="noopener noreffer ">論文原文</a>，可以搭配原文食用。精讀我感覺需要至少兩天以上</p>
+<h2 id="一問題背景概要">一、問題背景概要</h2>
+<h3 id="11-逆問題">1.1 逆問題</h3>
+<p>在科學和工程的諸多領域中，我們經常遇到一類特殊的問題，即“逆問題”。與我們通常從已知原因推斷結果的“正向問題”不同，逆問題旨在從觀測到的結果（測量數據）推斷出其潛在的原因（原始數據）。</p>]]></description>
+</item>
+</channel>
+</rss>

@@ -1,64 +1,54 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Database - 標籤 - Rem Blog</title>
+        <title>Database - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/database/</link>
-        <description>Database - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Database - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 03 May 2021 17:28:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/database/" rel="self" type="application/rss+xml" /><item>
     <title>互聯網公司大廠 – 面試八股文彙整</title>
     <link>https://huangno1.github.io/cs_interview_eight_part_questions/</link>
     <pubDate>Mon, 03 May 2021 17:28:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/cs_interview_eight_part_questions/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/cs_interview_eight_part_questions.jpg" referrerpolicy="no-referrer">
-            </div>前言 因為 2021/03 月份我已經是大三了，我開始在春招找實習 Offer，在找實習的期間我在牛課網以及各大平台的面經驗分享中整理出一份八文面試題，整理的過程整整花了我將近一週的時間，希望我整理的內容對各位有幫助。
-註：這篇文章是針對 C/C++ 崗位的面試題，數據結構、算法、操作系統、計算機網路、數據庫對大部分崗位是通用的。
-重要度 重要性: 語言基礎 &gt;= 數據結構 == 算法 &gt; 操作系統 &gt; 計算機網路 &gt; 數據庫 &gt;= 機器學習
-語言基礎 C++ 三大特性 封装性是基础，继承性是关键，多态性是补充，并且多态性存在于继承的环境中。 C++语言中支持数据封装，类是支持数据封装的工具，对象是数据封装的实现。 在封装中，还提供一种对数据访问的控制机制，使得一些数据被隐藏在封装体内，因此具有隐藏性。
-封裝、繼承、多態，簡單說明 封装性:把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 类将成员变量和成员函数封装在类的内部，根据需要设置访问权限，通过成员函数管理内部状态。
-1 2 3 4 5 6 7 8 9 10 11  class Person { private://数据私有  string bame; int num; public://方法公有  void getName() { return name; } };   繼承:继承所表达的是类之间相关的关系，这种关系使得对象可以继承另外一类对象的特征和能力。 继承的作用：避免公用代码的重复开发，减少代码和数据冗余。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  #include &lt;iostream&gt; using namespace std; class Base { public: void printBase(void) { cout&lt;&lt;&#34;Base中的printBase&#34;&lt;&lt;endl; } }; class Son:public Base { }; int main(int argc, char *argv[]) { Son ob; ob.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>因為 2021/03 月份我已經是大三了，我開始在春招找實習 Offer，在找實習的期間我在牛課網以及各大平台的面經驗分享中整理出一份八文面試題，整理的過程整整花了我將近一週的時間，希望我整理的內容對各位有幫助。</p>]]></description>
+</item>
+<item>
     <title>Mariadb 啟動服務失敗</title>
     <link>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</link>
     <pubDate>Mon, 03 May 2021 16:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_fail_to_start_mariadb/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_fail_to_start_mariadb.jpg" referrerpolicy="no-referrer">
-            </div>前言 在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是
- [SOLVED] Unable to start mariadb.service What to Do if MariaDB Doesn&rsquo;t Start Failed to start MariaDB database server after upgrade to debian 9  今天終於在 ArchLinux-CN Telegram 技術群提問獲得了解決。
-問題 我的 Linux 在某次更新完系統開機階段就會顯示我的數據庫啟動失敗，開機後我試著登入數據庫卻登入失敗。於是試著啟動 mariadb.service 於是出現下面的畫面：
-mariadb.service 啟動失敗systemctl_start_mariadb_service_failed.png
-" mariadb.service 啟動失敗 
-於是我接著查看 mariadb.service 的 status：
-檢查 mariadb.service statussystemctl_status_mariadb.png
-" 檢查 mariadb.service status 
-依然沒找到問題所在，於是我進一步查看日誌：
-1  $ journalctl -xeu mariadb.service   檢查 mariadb.service 日誌journalctl_xeu_mariadb.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>在半年前，因為我的 ArchLinux 發行版系統在某次滾完系統後，我的 Mariadb 數據庫系統崩潰了，無法啟動服務，當時找了一下解決辦法，依然沒解決，網上雖然也有看到有些人也碰到跟我相似的問題，但都沒有具體好的解決辦法，像是</p>]]></description>
+</item>
+<item>
     <title>MySQL 的基礎語法使用筆記</title>
     <link>https://huangno1.github.io/mysql_learn_note_basic/</link>
     <pubDate>Thu, 24 Dec 2020 15:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/mysql_learn_note_basic/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/mysql_learn_note_basic.png" referrerpolicy="no-referrer">
-            </div>前言 自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。
-MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。
-1 2 3  # 進入 MySQL 指令 # 登入使用者為 root mysql -u root -p   基礎語法 自行修改中文成英文。不要真的輸入中文當資料庫名稱或資料表名稱喔。
-   操作功能 MySQL 語法格式 說明      列出所有資料庫 show databases;     建立資料庫 create database 資料庫名稱;     刪除資料庫 drop database 資料庫名稱;     使用資料庫 use 資料庫名稱;     建立資料表 create table 資料表名稱(]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。</p>
+<h2 id="mysql-使用工具">MySQL 使用工具</h2>
+<p>我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。</p>]]></description>
+</item>
+<item>
     <title>Flask 中使用 MySQL</title>
     <link>https://huangno1.github.io/flask_mysql/</link>
     <pubDate>Tue, 04 Aug 2020 22:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/flask_mysql/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/flask_mysql.png" referrerpolicy="no-referrer">
-            </div>前言 我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說Flask 官方文檔寫得很好。因為 Flask 官方教學是使用 Sqlite 做為數據庫，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。
-安裝 1  pip install mysql-connector-python   引入、連接數據庫 因為是 MySQL，所以自己要在自己的電腦本地數據庫寫好要用的數據庫。下面的連接參數要自己改。
-1 2 3 4 5 6 7 8 9 10 11 12 13  import mysql.connector from mysql.connector import Error # 連接 MySQL 資料庫 connection = mysql.connector.connect( host=&#39;localhost&#39;, # 主機名稱 database=&#39;myTelegram&#39;, # 資料庫名稱 user=&#39;Rem&#39;, # 帳號 password=&#39;&#39;) # 密碼 cursor = connection.cursor(buffered=True) cursor.execute(&#34;SELECT DATABASE();&#34;) record = cursor.]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>我一開始學 Flask 時是看 Flask 的官方教學學的，不得不說<a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener noreffer "> Flask 官方文檔</a>寫得很好。因為 <strong>Flask 官方教學是使用 Sqlite 做為數據庫</strong>，但是我想要使用 MySQL，在自己網上搜索，加上自己的鑽研手做，這裡紀錄我摸索的結果。因為我偏好使用原生 SQL 語法，所以下面的數據庫操作都是原生語句，例子也是我之前做的某個項目裡面拿出來的。</p>]]></description>
+</item>
+</channel>
 </rss>

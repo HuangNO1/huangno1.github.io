@@ -1,30 +1,54 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Array - 標籤 - Rem Blog</title>
+        <title>Array - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/array/</link>
-        <description>Array - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Array - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/array/" rel="self" type="application/rss+xml" /><item>
     <title>JS - Object Array 賦值問題</title>
     <link>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</link>
     <pubDate>Thu, 06 Aug 2020 23:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/js_pointer_object_array_variable_assignment/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/js_pointer_object_array_variable_assignment.png" referrerpolicy="no-referrer">
-            </div>關於我遇到的問題 這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。
-下面是我用簡單的 Code 描述我遇到的問題，object 是一個 Object Array，然後傳入函數進行局域變量賦值。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  let object = [ { name: &#34;John&#34;, age: 18 }, { name: &#34;Amy&#34;, age: 20 }, ] function Test(object) { let newOne = object; for (let i = 0; i &lt; newOne.length; i++) { newOne[i].name = &#34;Rose&#34;; } } Test(object) console.]]></description>
-</item><item>
+            </div><h2 id="關於我遇到的問題">關於我遇到的問題</h2>
+<p>這是我在寫小 DEMO 發現的，關於 JS 的賦值問題，這裡涉及到了 Pointer。</p>
+<p>下面是我用簡單的 Code 描述我遇到的問題，<code>object</code> 是一個 Object Array，然後傳入函數進行局域變量賦值。</p>]]></description>
+</item>
+<item>
     <title>JS - forEach()、map()、filter()、reduce()、循環遍歷</title>
     <link>https://huangno1.github.io/js_array_prototype/</link>
     <pubDate>Thu, 06 Aug 2020 18:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/js_array_prototype/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/js_array_prototype.png" referrerpolicy="no-referrer">
-            </div>前言 在這篇文章筆記紀錄一下 JS 的 Array 屬性。
-forEach() forEach 是對每一項的操作，會影響原來的 array，不會有回傳值，即使強制寫 return，也會是空值，例子如下。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  // JS forEach 與 map  // forEach 是對每一項的操作，會影響原來的 array let arr = [1, 2, 3, 4, 5, 6] // 對數組直接進行循環，相當於 for，沒有返回值 // result 不會有返回值 即使寫了 return 也是 undefined let result = arr.forEach((item, index, arr) =&gt; { console.log(item) console.log(index) console.log(arr) return item }) console.log(result)   map() map 則是不會影響原來的 array 值，而是生成新的值返回給新的數組。對 Array 每一項進行加工，加工完成之後返回一個新的數組。]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>在這篇文章筆記紀錄一下 JS 的 Array 屬性。</p>
+<h2 id="foreach">forEach()</h2>
+<p><strong><code>forEach</code> 是對每一項的操作，會影響原來的 array</strong>，不會有回傳值，即使強制寫 <code>return</code>，也會是空值，例子如下。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-js">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// JS forEach 與 map
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// forEach 是對每一項的操作，會影響原來的 array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 對數組直接進行循環，相當於 for，沒有返回值
+</span></span></span><span class="line"><span class="cl"><span class="c1">// result 不會有返回值 即使寫了 return 也是 undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">item</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span></span></span></code></pre></div></div>
+<h2 id="map">map()</h2>
+<p><strong><code>map</code> 則是不會影響原來的 array 值，而是生成新的值返回給新的數組</strong>。對 Array 每一項進行加工，加工完成之後返回一個新的數組。</p>]]></description>
+</item>
+</channel>
 </rss>

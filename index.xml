@@ -2,176 +2,134 @@
     <channel>
         <title>Rem Blog</title>
         <link>https://huangno1.github.io/</link>
-        <description>Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 14:29:28 &#43;0800</lastBuildDate>
+        <description>HuangNO1&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 25 Jun 2025 22:40:28 &#43;0800</lastBuildDate>
             <atom:link href="https://huangno1.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS</title>
+    <link>https://huangno1.github.io/dps_for_inverse_problem/</link>
+    <pubDate>Wed, 25 Jun 2025 22:40:28 &#43;0800</pubDate>
+    <author>Huang Po-Hsun</author>
+    <guid>https://huangno1.github.io/dps_for_inverse_problem/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/featuredImage/compressed/Figure7.png" referrerpolicy="no-referrer">
+            </div><p>DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS
+標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題，<a href="https://arxiv.org/abs/2209.14687" target="_blank" rel="noopener noreffer ">論文原文</a>，可以搭配原文食用。精讀我感覺需要至少兩天以上</p>
+<h2 id="一問題背景概要">一、問題背景概要</h2>
+<h3 id="11-逆問題">1.1 逆問題</h3>
+<p>在科學和工程的諸多領域中，我們經常遇到一類特殊的問題，即“逆問題”。與我們通常從已知原因推斷結果的“正向問題”不同，逆問題旨在從觀測到的結果（測量數據）推斷出其潛在的原因（原始數據）。</p>]]></description>
+</item>
+<item>
     <title>Ubuntu 中 Python2 升級到 Python3 &amp; pip 安裝使用</title>
     <link>https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/</link>
     <pubDate>Thu, 30 Sep 2021 14:29:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/ubuntu_upgrate_py2_to_py3/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/ubuntu_upgrate_py2_to_py3.jpg" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。
-根據 apt-get 中的 Python3 版本更新 這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 3.5。
-我輸入 sudo apt install python3.6 顯示沒有這個包，然後輸入 sudo add-apt-repository ppa:deadsnakes/ppa 添加列表也顯示沒這語法。
-1 2  sudo apt update sudo apt install python3 # 安裝下來預設是 3.5，沒有更高版本   現在終端機輸入 python -V 還會是 python2.7，這時我們需要重新建立軟連接，在 /usr/bin/ 中會發現我們新安裝的 python3.5 二進制文件。
-1 2 3  sudo cp /usr/bin/python /usr/bin/python_bak # 備份舊的 sudo rm /usr/bin/python # 移除 sudo ln -s /usr/bin/python3.5 /usr/bin/python # 建立新的軟連結   接下來輸入 python -V 就是 pyhton3.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇文章是寫到我在上海實習時在熟悉機器的網路配置，然而這是又到了我配置 Python 環境的踩坑之路。</p>
+<h2 id="根據-apt-get-中的-python3-版本更新">根據 apt-get 中的 Python3 版本更新</h2>
+<p>這機器上的 Ubuntu，因為用 apt-get 更新後的 Python3 版本只有到 <code>3.5</code>。</p>]]></description>
+</item>
+<item>
     <title>類樹梅派上 Ubuntu 連網 IP 問題</title>
     <link>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</link>
     <pubDate>Thu, 30 Sep 2021 09:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/ubuntu_switch_network_interfaces_to_dhcp_or_static/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/ubuntu_switch_network_interfaces_to_dhcp_or_static.jpg" referrerpolicy="no-referrer">
-            </div>前言 題外話：由於我最近已經在上海某家小公司實習了，公司只有 8 個人不到，我是目前公司唯一的研發工程師，剛入職前上一個原本要帶我的研發工程師就跳槽辭職了，以實習薪資來說開的不高，但也不算少了，5000 RMB/Month 包住不包食。
-我在公司上班時要初步探索他們的機器去寫一個網頁開發去控制機器內部的串口或是信息，在初步學習的就遇到 IP 問題。
-網線靜態 IP 連上機器 由於機器沒有無線網卡，但是有兩張網卡，兩個網路接口，預設 IP 是 192.168.3.127、192.168.4.127，我網線將機器和我的筆電連上，並更改我的網卡連線設定，我設置了靜態 IP：
-1 2 3 4 5  # IPv4 # 我接在 eth0 第一個網路接口上，最後一段地址不能跟 eth0 的地址一樣，隨便填了一個 IP Address : 192.168.3.11 NetMask : 255.255.255.0 Broadcast : 0.0.0.0   然後先 ping 192.168.3.127 看通不通，接著 ssh root@192.168.3.127，連接進去，想要去修改這機器的 IP 設定，因為想讓這個機器連上路由器網路。
-機器連路由器上網 用網線將機器和路由器連接後一開始是還沒辦法連網的，ping baidu.com 的掉包率是 100%，在 /etc/network/interfaces 中可以設置相關參數（比較暴力直接），當然你也可以直接輸入指令去控制。我是直接設成動態 IP。
- 也可以設成靜態 IP 連路由器上網，但是你需要自己去查看路由器的 IP 地址，公司的路由器末 IP 地址 100 - 200 都是可以用的。]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>題外話：由於我最近已經在上海某家小公司實習了，公司只有 8 個人不到，我是目前公司唯一的研發工程師，剛入職前上一個原本要帶我的研發工程師就跳槽辭職了，以實習薪資來說開的不高，但也不算少了，5000 RMB/Month 包住不包食。</p>]]></description>
+</item>
+<item>
     <title>ArchLinx KDE 錢包禁用與解決 WIFI 密碼輸入</title>
     <link>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</link>
     <pubDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png" referrerpolicy="no-referrer">
-            </div>前言 最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。
-解決 KDE Wallet 如果還沒安裝了 KDE 錢包管理就先去安裝它，kwalletmanager。
-1  sudo pacman -S kwalletmanager   安裝完之後需要進入 設定 -&gt; 個人化 -&gt; KDE 錢包 -&gt; 錢包設定，將 開啟 KDE wallet 子系統(E) 的勾選去掉，套用設定，之後就不需要在碰到需要輸入 KDE 錢包密碼了，畢竟我平常也沒用到這個應用。
-KDE 錢包設定kde_wallet_settings.png
-" KDE 錢包設定 
-解決 WIFI 密碼問題 自從 KDE 錢包出現後連帶每次進入進入系統 NetworkManager 都會要我重新輸入 WIFI 密碼，所以想要從根本根治，需要在設定中將其密碼存儲。
-網路設定network_setting.png
-" 網路設定 
-之後每次進入系統連線 WIFI 都不需要輸入密碼了。
-Reference  KDE5: How do i completely disable/remove kdewallet - Archlinux BBS  ]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。</p>
+<h2 id="解決-kde-wallet">解決 KDE Wallet</h2>
+<p>如果還沒安裝了 KDE 錢包管理就先去安裝它，<code>kwalletmanager</code>。</p>]]></description>
+</item>
+<item>
     <title>小說閱讀感想 - 進化果實 不知不覺踏上勝利的人生</title>
     <link>https://huangno1.github.io/novel_expericence_about_evolutionary_fruit/</link>
     <pubDate>Thu, 09 Sep 2021 08:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/novel_expericence_about_evolutionary_fruit/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/novel_expericence_about_evolutionary_fruit.jpg" referrerpolicy="no-referrer">
-            </div>前言 因為在暑假閒閒沒事幹，又看到這個小說要在今年 2021 十月動畫化製作決定的消息，所以我打算重新閱讀這個小說，這小說的第一卷是我在國中（初中）的時候，跟別人借來看的小說，當時覺得蠻好看的。然而我當時只看了第一卷，就沒有後續了，後面也沒有繼續追這小說，難得經過好幾年，竟然在今年重新見到這個小說的身影，如果沒有動畫化消息我就完全忘記有這個作品。
-  心得 不得不說我在重新讀這篇小說第一卷的時候，還是保有當時第一次看的新鮮感，雖然現在龍傲天作品已經滿天飛了，我也進入審美疲勞，開始追求像是 &laquo; RE:從零開始的異世界生活 &raquo;、&laquo; 無職轉生～到了異世界就拿出真本事～ &raquo; 這類至少不是主角一開始就等級拉好拉滿的作品，第一卷的男主體臭薰死，還有關於狀態欄的描述看著真的很搞笑，我也憋不住並揚起嘴角，當我讀到猩猩向男主求婚的時候，不自覺想到高中時生物學講到那些快絕種的公猩猩，給牠們安排一些母猿類的生物，老師就說在猩猩眼裡其它類的異性長怎樣，好比在我們人類眼裡異性的猴子長怎樣。第一卷的高潮還是在尾部的那些公爵故事，最後也留下了些許伏筆。這時我就覺得進化果實真是厲害，然而整篇小說寫得就很像 RPG 世界，有 Level、技能、稱號&hellip;，我又在讀完第一卷的時候查了一下該小說有沒有完結，幸好還在繼續連載，當我小說讀上癮的時候是停不下來的。
-進入到第二卷的時候，又出現一個新的後宮，就是阿爾托莉亞（剛好我正在玩 FGO，我心裡 OX 這不是亞瑟王嗎），關於阿爾的背景故事蠻讓我覺得心疼的，不過幸好最後也得到 Happy End，男主也在迷宮打倒了黑龍神，在我看到男主拿到那個戒指乘上負的功能就想到可以給阿爾的劇情了，整篇劇情給我的感覺就很舒適，這時後宮也算是我覺得剛剛好的情況，也不算太多。我還在心想後面會出新的後宮還是怎樣，結果不出我所料，後面又出了個驢子後宮，然而像這種後宮越還越多的作品中就會出現一個現象，就是對於人物的描述漸漸不夠細膩，因為太多人物了，很多時候還差點忘了有這個角色，這部作品很明顯慢慢出現這樣的情況。
-EPUB 閱讀器epub_novel.jpg
-" EPUB 閱讀器 
- 順便說一下，我是使用 ReadEra 這樣的 EBUP 閱讀器讀小說，很方便，不過是需要自己提前先將小說下載下來放到文件夾裡，這 App 才能掃描到。
- 第四五六卷開始，我慢慢厭倦男主的龍傲天劇情了，不是說龍傲天是個錯誤，畢竟龍傲天也是看的爽就好（像是 &laquo; 一拳超人 &raquo;），重要的是劇情的設計，但不能那麼的無腦，缺乏其它元素，在魔法學院與學姐和某辣妹相遇，展開新的一輪後宮起火，然而作者對於某帝國的大部分成員還有很多勇者的描述大多是 &ldquo;無腦、低智商、壞心眼、驕傲自大&rdquo;，透過刻意降低反面角色的智商來突顯男主角的厲害（力拔山兮氣蓋世 是吧？），關於勇者學長偶像群找碴後因為喝錯藥導致性無能這檔事，我有點無語，過於無腦了。
-在魔法學院篇中的放牛班級，讓我覺得怎麼描述有點像 &laquo; 歡迎來到實力主義至上教室 &raquo; 透過學生的應試能力來進行分班，我這裡是覺得其實成績不好並不表示一個人如何，但不代表抽煙喝酒當混混的那種就是好的，我相信每個人在國中的時候班上或多或少有這種年輕的小混混同學，但上了高中後因為考高中成績導致的環境優化，所以不常見到這樣的同學了，我不會去否定成績不好的同學，說不定他們在其他的地方有長處是需要我們去學習，我想這個尤其可以在我們專業表現出來，成績好的不代表 Coding 很強，Coding 強的同學成績不一定好。
-在我閱讀到第七卷的時候，我其實看到男主角因為學園季被帶到冥界，並且將在場所有人都復活了的橋斷，我開始忍不住想棄坑，我這裡比較想要看到的劇情是男主透過與死者相遇，並且在死亡中認識到自己的不足與無力，跨越心中的一道坎，而非像小孩子一樣哭鬧就有糖吃的情況，將所有人給復活實在是太瞎了，包括將所有的死者給復活，這完全就跟作者寫得一段話一樣：&ldquo;這是對死者的褻瀆&rdquo;，我可以理解他想要將自己父母都復活的心情，但劇情也不能就這樣演吧，這樣就完全失去作品的深度。
-最後我在第七卷的某段劇情，就是後宮起火的時候，一堆女的爭誰是男主角第一第二夫人，我感覺我最後的底線被跨越了。所以作者美紅&hellip;Goodbye～
-結語 我覺得可惜了一個好作品，明明可以繼續擴展作品的深度，像是阿爾那部份我覺得寫得還可以更深，然而整部作品還是走向搞笑無腦的方向，最終結束在這第七卷，我也不會再去追這個作者的其它作品。當然或許有人覺得這個作品很不錯，因人而異。
-總結該作品後期特色：無敵龍傲天、無腦後宮、無腦反派、無腦劇情。不用帶腦子去看。]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>因為在暑假閒閒沒事幹，又看到這個小說要在今年 2021 十月動畫化製作決定的消息，所以我打算重新閱讀這個小說，這小說的第一卷是我在國中（初中）的時候，跟別人借來看的小說，當時覺得蠻好看的。然而我當時只看了第一卷，就沒有後續了，後面也沒有繼續追這小說，難得經過好幾年，竟然在今年重新見到這個小說的身影，如果沒有動畫化消息我就完全忘記有這個作品。</p>]]></description>
+</item>
+<item>
     <title>2021 年 7 月字節跳動安卓崗位 - 提前批面試經驗（已涼）</title>
     <link>https://huangno1.github.io/an_interview_experience_about_bytedance_android_2021_07/</link>
     <pubDate>Tue, 07 Sep 2021 18:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/an_interview_experience_about_bytedance_android_2021_07/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/an_interview_experience_about_bytedance_android_2021_07.jpg" referrerpolicy="no-referrer">
-            </div>前言 現在已經度過了一整個暑假，我也從大三變成了大四生，已經九月份了，感慨三四年這樣就過去了，在這暑假期間我已也投過一家南京小公司實習（透過本專業的教授），但最後考慮到薪資問題就拒絕了後續（主要是薪資談不攏），也在七月份度過了兩到三週中興通訊的在校合作實訓，反正能拿到 4 學分的實習學分，不過實訓內容說實在一言難盡，我也不在這篇文章提出。
-這篇文章主要是針對上學期大三下的時候我因為選了安卓應用開發的選修課，字節跳動的員工內推我，讓我可以面試。
- 我在這裡還是想吐嘈一下，不管哪個公司說什麼有實習機會都不要太相信，因為大多數都只是幫你內推而已，中興通訊的實訓原本也是說有實習名額，HR 也說可以是直接內定的 Offer 名額，然而也只是內推，包括這篇文章提到的字節跳動也是一樣，一開始說有實習機會，最後所有同學都去要了簡歷給內推。
- 我荒廢了這個暑假後，才開始想寫這篇文章重新整理一下心態，也因為太久沒有更新 Blog 文章，所以有些過意不去。
-面試前準備 在內推面試時，已經是學期末要期末考的時候了，說實在，時間很緊，我要同時準備期末考和面試，所以我將技術面一面跟字節跳動 HR 溝通在期末考結束後一週，在一週的時間內閱讀大量的面經還有之前自己整理的八股文內容，還有自己找到的一些八股文內容，由於內推人有說字節跳動的安卓崗可以不會安卓，接受初學者，但是必須至少要精通一門語言，然後如果能精通 Java 當然是更好，所以我沒有特別準備安卓相關的問題。
-技術面面經 字節跳動 - 技術中台 - 安卓客戶端實習生
-業務一面(50 分鐘)，牛課網平台面試
- 簡單自我介紹一下  xxxxxx
-根據我的安卓項目問關於安卓應用開發課程是怎麼跟字節跳動客戶端合作的，學了多久安卓  老師與字節客戶端的人員進行合作，先是有理論課，後面有實踐課，給了一個大作業，完成業務需求&hellip;blabla
-學了一個月安卓
-你在安卓項目中做了哪些構想  像是頁面的構思，歡迎界面與主界面 主界面有不同的頻道，像是推薦、數碼。每個頻道有自己的&hellip;.blabla
-還做了點擴展&hellip;blabla
-你這個項目中有哪些難點，怎麼實現的 可以說明一下嗎  像是一個列表中要展示三種不同的卡片&hellip;blabla&hellip;dataModel recyclerview
-請問你是 java 比較熟還是 C++ 比就熟  C++ 比較熟悉，但是 Java 有一定的基礎
-面試官：那我問你一些 java 的問題
-請問 java 的線程狀態你能說一下嗎  (fuxk you 怎麼一開始就這麼難)java的線程有像是堵塞 同步之類的狀態，線程同步可以使用 排斥鎖 自旋鎖 讀寫鎖，排斥鎖像是 synchronized，堵塞的話就是資源被一個線程被鎖住 下一個線程無法使用資源，等鎖釋放才能讓下一個線程進行操作&hellip;blabla]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>現在已經度過了一整個暑假，我也從大三變成了大四生，已經九月份了，感慨三四年這樣就過去了，在這暑假期間我已也投過一家南京小公司實習（透過本專業的教授），但最後考慮到薪資問題就拒絕了後續（主要是薪資談不攏），也在七月份度過了兩到三週中興通訊的在校合作實訓，反正能<strong>拿到 4 學分的實習學分</strong>，不過實訓內容說實在一言難盡，我也不在這篇文章提出。</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 點擊新聞卡片進入新聞詳情頁與 WebView 顯示</title>
     <link>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</link>
     <pubDate>Tue, 15 Jun 2021 21:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_news_detail_web_view.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇我們已經介紹完 RecyclerView 加載更多的實現，而這篇也是最後一篇，關於點擊新聞卡片進入新聞詳情頁(Activity)。
-Display 點擊卡片 Item 進入詳情頁展示Display_click_to_detail_page.gif
-" 點擊卡片 Item 進入詳情頁展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 這裡我是在新聞卡片的適配器裡面去做，將 View 設置點擊事件，然後新增一個新聞活動頁面。
-ui/card/newsCardList/NewsCardAdapter.java 下面的 Code 中我舉出 NoImageCardViewHolder 子類，裡面的構造函數中去做 itemView 的點擊事件，點擊事件涉及到了傳參部份，傳參使用 intent.putExtra() 方法，然後在 NewsDetailActivity 做接收參數。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50  public class NewsCardAdapter extends RecyclerView.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇我們已經介紹完 <a href="https://huangno1.github.io/android_java_recyclerview_load_more/" target="_blank" rel="noopener noreffer ">RecyclerView 加載更多的實現</a>，而這篇也是最後一篇，關於<strong>點擊新聞卡片進入新聞詳情頁(Activity)</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_click_card_item_move_to_detail_page/index/Display_click_to_detail_page.gif" title="Display_click_to_detail_page.gif" data-thumbnail="/android_click_card_item_move_to_detail_page/index/Display_click_to_detail_page.gif" data-sub-html="<h2>點擊卡片 Item 進入詳情頁展示</h2><p>Display_click_to_detail_page.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - Load More 加載更多新聞內容</title>
     <link>https://huangno1.github.io/android_java_recyclerview_load_more/</link>
     <pubDate>Tue, 15 Jun 2021 20:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_recyclerview_load_more/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_recyclerview_load_more.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
-Display 加載更多展示Display_load_more.gif
-" 加載更多展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
-以下是 RecyclerView 設置滾動監聽的參考案例：
-這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  // cardList mCardListRecyclerView = view.findViewById(R.id.recycler_view_card_list); mCardListRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { @Override public void onScrollStateChanged(@NonNull @NotNull RecyclerView recyclerView, int newState) { super.onScrollStateChanged(recyclerView, newState); } @Override public void onScrolled(@NonNull @NotNull RecyclerView recyclerView, int dx, int dy) { super.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇我們說到了<a href="https://huangno1.github.io/android_java_pull_to_refresh/" target="_blank" rel="noopener noreffer ">下拉刷新的實現</a>，這篇我接著講如何<strong>實現上拉加載更多</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_recyclerview_load_more/index/Display_load_more.gif" title="Display_load_more.gif" data-thumbnail="/android_java_recyclerview_load_more/index/Display_load_more.gif" data-sub-html="<h2>加載更多展示</h2><p>Display_load_more.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容</title>
     <link>https://huangno1.github.io/android_java_pull_to_refresh/</link>
     <pubDate>Tue, 15 Jun 2021 19:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_pull_to_refresh/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_pull_to_refresh.png" referrerpolicy="no-referrer">
-            </div>前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
-Display 下拉刷新展示Display_pull_to_refresh.gif
-" 下拉刷新展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
-這裡就介紹如何用 Swiperefreshlayout。也可以看 Implementing Pull to Refresh Guide - CODEPATH
-首先要加上依賴
-1 2 3  dependencies { implementation &#34;androidx.swiperefreshlayout:swiperefreshlayout:1.1.0&#34; }   接著在 xml 中需要刷新渲染的 RecyclerView 或是 ListView 加上該組件。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  &lt;!]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_image_cache_and_lazy_load/" target="_blank" rel="noopener noreffer ">圖片緩存與懶加載</a>的部份。這篇文章就簡要說一下怎麼<strong>實現下拉刷新</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_pull_to_refresh/index/Display_pull_to_refresh.gif" title="Display_pull_to_refresh.gif" data-thumbnail="/android_java_pull_to_refresh/index/Display_pull_to_refresh.gif" data-sub-html="<h2>下拉刷新展示</h2><p>Display_pull_to_refresh.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載</title>
     <link>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</link>
     <pubDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
-Display 圖片緩存與懶加載展示Display_image_picasso.gif
-" 圖片緩存與懶加載展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
-我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
-1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  ]]></description>
-</item><item>
-    <title>Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染</title>
-    <link>https://huangno1.github.io/android_java_request_and_card_list_render/</link>
-    <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://huangno1.github.io/android_java_request_and_card_list_render/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
-Display 請求與渲染展示Display_request_and_render.gif
-" 請求與渲染展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
-models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個數據模型，方便後面將數據添入 NewsCardItemDataModel，使邏輯更加清晰。這裡一樣有三種構造函數，分別代表三種不同的卡片類型。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_recyclerview_different_cards/" target="_blank" rel="noopener noreffer ">新聞數據請求渲染</a>的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" title="Display_image_picasso.gif" data-thumbnail="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" data-sub-html="<h2>圖片緩存與懶加載展示</h2><p>Display_image_picasso.gif</p>]]></description>
+</item>
+</channel>
 </rss>

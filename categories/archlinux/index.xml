@@ -1,136 +1,121 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ArchLinux - 分類 - Rem Blog</title>
+        <title>ArchLinux - Category - Rem Blog</title>
         <link>https://huangno1.github.io/categories/archlinux/</link>
-        <description>ArchLinux - 分類 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>ArchLinux - Category - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/archlinux/" rel="self" type="application/rss+xml" /><item>
     <title>ArchLinx KDE 錢包禁用與解決 WIFI 密碼輸入</title>
     <link>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</link>
     <pubDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png" referrerpolicy="no-referrer">
-            </div>前言 最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。
-解決 KDE Wallet 如果還沒安裝了 KDE 錢包管理就先去安裝它，kwalletmanager。
-1  sudo pacman -S kwalletmanager   安裝完之後需要進入 設定 -&gt; 個人化 -&gt; KDE 錢包 -&gt; 錢包設定，將 開啟 KDE wallet 子系統(E) 的勾選去掉，套用設定，之後就不需要在碰到需要輸入 KDE 錢包密碼了，畢竟我平常也沒用到這個應用。
-KDE 錢包設定kde_wallet_settings.png
-" KDE 錢包設定 
-解決 WIFI 密碼問題 自從 KDE 錢包出現後連帶每次進入進入系統 NetworkManager 都會要我重新輸入 WIFI 密碼，所以想要從根本根治，需要在設定中將其密碼存儲。
-網路設定network_setting.png
-" 網路設定 
-之後每次進入系統連線 WIFI 都不需要輸入密碼了。
-Reference  KDE5: How do i completely disable/remove kdewallet - Archlinux BBS  ]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。</p>
+<h2 id="解決-kde-wallet">解決 KDE Wallet</h2>
+<p>如果還沒安裝了 KDE 錢包管理就先去安裝它，<code>kwalletmanager</code>。</p>]]></description>
+</item>
+<item>
     <title>Arch Linux 打包教學</title>
     <link>https://huangno1.github.io/archlinux_makepkg/</link>
     <pubDate>Fri, 31 Jan 2020 11:27:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_makepkg/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_makepkg.png" referrerpolicy="no-referrer">
-            </div>前言 這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 *.deb 的 Ubuntu 版本，我當時將 *.deb 轉成 tar.gz 適用 Arch 發行版的包失敗，當時我是看這網站使用 Debtap 工具，雖然最後成功轉成 tar.gz，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 dkpg，然而實際上寫 PKGBUILD 才是最好的方法，當時是我朋友將快應用的官方 IDE 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 Arch Linux 打包教學，但他這篇卻沒有給出實例，讓大多數第一次打包的人看不懂，就跟看官方文檔一樣。網上詳細優質的打包教學少之又少，這次我藉著一個機會體會到打包的過程，為了紀錄這過程，我寫了這篇教學。
- 本次文章參考了 ArchWiki 的 Creating packages (简体中文)、PKGBUILD (简体中文) 和書術方隅。你可以認為我這篇是這三篇的綜合進化版。
- 簡述 創建 PKGBUILD – 一個包創建描述文件，由 makepkg 使用來從原始碼創建二進位制包。Arch 套裝軟體標準包含當前規則和提高套裝軟體質量的方法。如果已經有了 PKGBUILD 文件，請參考 makepkg (簡體中文)。
- 打包前一定要先 Google 一下你要打包的軟體包是不是已經有人上傳到 AUR 了。
- 準備工作 必需的軟體包 首先，確定你已安裝必須的工具包。安裝 base-devel 應該足夠了；它包含 make 和 makepkg 其它一些從原始碼編譯時所需要的工具。
-創建包的一個很重要的工具是 makepkg（由 pacman 提供），它主要做以下工作：]]></description>
-</item><item>
+            </div><!--2020/01/31 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>這次之所以會有本次教學，是因為我大二上參加 2019 服創比賽，因為快應用開發 IDE 只有 <code>*.deb</code> 的 Ubuntu 版本，我當時將 <code>*.deb</code> 轉成 <code>tar.gz</code> 適用 Arch 發行版的包失敗，當時我是看<a href="https://linux.cn/article-9769-1.html" target="_blank" rel="noopener noreffer ">這網站</a>使用 <strong>Debtap</strong> 工具，雖然最後成功轉成 <code>tar.gz</code>，但是安裝時卻輸出該包的結構損壞，我也有在網上看到有建議 <strong>dkpg</strong>，然而實際上<strong>寫 PKGBUILD 才是最好的方法</strong>，當時是我朋友將<a href="https://aur.archlinux.org/packages/quickapp-ide/" target="_blank" rel="noopener noreffer ">快應用的官方 IDE</a> 打包到 AUR 上，最後安裝成功，打包中途他也遇到很多坑，最後他寫了一篇 <a href="https://junyussh.github.io/p/arch-linux-package-quick-start/" target="_blank" rel="noopener noreffer ">Arch Linux 打包教學</a>，但他這篇卻沒有給出實例，讓大多數第一次打包的人看不懂，就跟看官方文檔一樣。網上詳細優質的打包教學少之又少，這次我藉著一個機會體會到打包的過程，為了紀錄這過程，我寫了這篇教學。</p>]]></description>
+</item>
+<item>
     <title>Archlinux KDE 動態桌布</title>
     <link>https://huangno1.github.io/archlinux_kde_video_wallpaper/</link>
     <pubDate>Wed, 15 Jan 2020 15:26:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_kde_video_wallpaper/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_kde_video_wallpaper.png" referrerpolicy="no-referrer">
-            </div>前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。
-當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）。最後終於在一篇 Github 項目中看到黑屏的處理方法，無意間那些 KDE Video Wallpaper 插件都可以用了。
-如果執意想使用 vlc 或是 xwinwrap + mplayer 的讀者可以參考某人的 Blog：设置 Linux 动态桌面的几种办法 - 簡書
-Plasma Video Wallpaper WuSiYu / Plasma Video Wallpaper 這是 Github 上看到的項目，這也是因為我看到他在 B 站上的視頻才知道有這個項目。
-完整項目使用過程他已經在他 Github 項目的 README.md 說得很清楚了。
-先將項目下載解壓，進入項目目錄輸入以下指令：
- 如果沒有安裝 cmake、make 就裝一下，如果有權限問題就給權限。
- 1 2 3 4  sudo pacman -S cmake make # 安裝 cmake make cmake .]]></description>
-</item><item>
+            </div><!--2020/01/15 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p><strong>Wallpapaer Engine</strong> 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 <strong>Windows</strong>，關於 <strong>KDE 動態桌布</strong>可能大家會有疑慮，<strong>Plasma KDE</strong> 究竟能不能實現<strong>動態桌布</strong>？答案是<strong>可以的</strong>，在這篇我將分享我完成動態桌布的過程。</p>]]></description>
+</item>
+<item>
     <title>Archlinux 安裝 Part 4 - 程序員終端標配 oh-my-zsh</title>
     <link>https://huangno1.github.io/archlinux_install_part4_on_my_zsh/</link>
     <pubDate>Sun, 05 Jan 2020 15:26:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_install_part4_on_my_zsh/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_install_part4_on_my_zsh.png" referrerpolicy="no-referrer">
-            </div>前言 我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 Bash，然而 bash 過於單調，也沒有自動補全，這時我們就需要開源項目 oh-my-zsh，在這篇教學我會寫一下，我配置 oh-my-zsh 的過程。
-我的 Konsole 我的終端機02.png
-" 我的終端機 
-Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
-設定透明度01.png
-" 設定透明度 
-在外觀與修復中，可以調整透明度。我調成不透明度 80%。
-安裝 zsh 1  sudo pacman -S zsh   查看系統當前使用的 Shell 1  echo $SHELL # 查看指令   1  /bin/bash # 輸出結果   看系統是否裝了 zsh 1  cat /etc/shells # 輸入指令   1 2 3 4 5 6 7 8  # Pathnames of valid login shells.]]></description>
-</item><item>
+            </div><!--2020/01/05 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 <strong>Bash</strong>，然而 <code>bash</code> 過於單調，也沒有自動補全，這時我們就需要開源項目 <code>oh-my-zsh</code>，在這篇教學我會寫一下，我配置 <code>oh-my-zsh</code> 的過程。</p>]]></description>
+</item>
+<item>
     <title>Archlinux 安裝 Part 3 - 基本軟體包安裝與 Mac 風界面設計</title>
     <link>https://huangno1.github.io/archlinux_install_part3_install_some_software_and_mac_style/</link>
     <pubDate>Sun, 05 Jan 2020 15:25:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_install_part3_install_some_software_and_mac_style/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_install_part3_install_some_software_and_mac_style.png" referrerpolicy="no-referrer">
-            </div>前言 我們在 Part 2 中已將基本的圖形界面以及中文字體等配置好，接下來我會在這篇中推薦一些實用的軟體與界面風格。
-文本編輯器 Kate 可作為記事本使用。
-1  sudo pacman -S kate   Typora 美化你的文本，編寫 Markdowm 語言，具有跨平台優點，Linux 上的 *.docx 拿到 Windows 上的 Office 容易走版，使用 Markdown 寫的文件不會有這問題。
-1  sudo pacman -S typora   Visual Studio Code 一個輕快的編輯器，讓你的開發效率迅速提升。
- 在 AUR 中 VScode 軟體包稱作 code。
- 1  sudo pacman -S code   辦公軟體 WPS Office 作為在 Linux 上的最佳 MS 替代品，因為 MS 的 Office 不開源，所以無法在 Linux 使用 MS Office。WPS 在 Linux 不會有廣告，所以放心。]]></description>
-</item><item>
+            </div><!--2020/01/05 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>我們在 Part 2 中已將基本的圖形界面以及中文字體等配置好，接下來我會在這篇中推薦一些實用的軟體與界面風格。</p>
+<h2 id="文本編輯器">文本編輯器</h2>
+<h3 id="kate">Kate</h3>
+<p>可作為記事本使用。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo pacman -S kate</span></span></code></pre></div></div>
+<h3 id="typora"><a href="https://www.typora.io/" target="_blank" rel="noopener noreffer ">Typora</a></h3>
+<p>美化你的文本，編寫 Markdowm 語言，具有跨平台優點，Linux 上的 <code>*.docx</code> 拿到 Windows 上的 Office 容易走版，使用 Markdown 寫的文件不會有這問題。</p>]]></description>
+</item>
+<item>
     <title>Archlinux 安裝 Part 2 - 安裝後工作</title>
     <link>https://huangno1.github.io/archlinux_install_part2_general_recommendations/</link>
     <pubDate>Sat, 04 Jan 2020 15:24:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_install_part2_general_recommendations/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_install_part2_general_recommendations.png" referrerpolicy="no-referrer">
-            </div>前言 我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。
-確認連網 我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。
- 註：注意使用 systemctl 啟用 networkmanager 服務時要注意大小寫，開頭要大寫。
- 1 2 3  systemctl enable NetworkManager # 設定開機自啟 systemctl start NetworkManager # 啟用 Netmanager ping baidu.com # 確認連網   添加使用者 在上一期教學我們已經設定了超級使用者，即 Root，但是使用 Root 進行日常操作是不安全的，應創建用戶組進行日常操作，僅在系統管理時使用 Root。
-另一方面，我們無法使用超級使用者進入圖形界面。
- 註：將以下的所有 user 改成自己的使用者名稱。
- 1 2 3 4 5  useradd -G wheel user # 新增使用者 passwd user # 設定使用者密碼 chfn user # 添加使用者信息，可暫時不填 mkdir -m 700 /home/user # 創建主目錄 chown user:user /home/user # 修改使用者與使用者群組   sudo 安裝 為了安全，我們可以使用 sudo 進行 root 權限操作，編輯 /etc/sudoers。]]></description>
-</item><item>
+            </div><!--2020/01/04 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>我們已經在 Part 1 將基本的系統裝好了，接下來是安裝完的後續步驟。</p>
+<h2 id="確認連網">確認連網</h2>
+<p>我們在上次的安裝教學 Part 1 已經在尾部補充將 networkmanager 裝上了，所以你不需要像上次教學那麼繁瑣，基本插網線就能連到。</p>]]></description>
+</item>
+<item>
     <title>Archlinux 安裝 Part 1 - Windows &amp; Archlinux 雙系統</title>
     <link>https://huangno1.github.io/archlinux_install_part1_basic/</link>
     <pubDate>Sat, 28 Sep 2019 15:24:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_install_part1_basic/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_install_part1_basic.png" referrerpolicy="no-referrer">
-            </div>前言 我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。
-由於我的電腦型號是聯想 y7000，所以遇到的坑真的很多，我會按特殊情況講解，雖然 Installation guide - ArchWiki 的安裝指南已經很詳細了，但對於剛接觸的新手根本是火星文 :(
-因為我這是專給小白寫的文章，所以寫了很多細節和注意點，如果你是高手，覺得我寫了很多廢話，那請你忍耐吧，也可以選擇不看我的文章，直接去看 ArchWiki。
-安裝前準備 1. 至 清華大學 Archlinux 軟件鏡像站下載最新版的 archlinux*.ios 鏡像 清華大學鏡像站1.png
-" 清華大學鏡像站 
-2. 下載 Rufus - 用來匯入 Archlinux 鏡像至 USB Refus 官網2.png
-" Refus 官網 
-3. 準備一個至少 8G 的 USB 使用 Rufus 將 Arch 鏡像匯入在目標 USB 裝置。
- 註：在此只需修改您的目標 USB 和鏡像源即可，按下開始鍵進行匯入。
- 關於燒錄方式  2020/01/21 補充燒錄方式。]]></description>
-</item><item>
+            </div><!--2019/09/28 edited by Huang Po-Hsun-->
+<!--![0.png](https://i.loli.net/2019/09/30/6qMYyrcQNoIm2aR.png)-->
+<h2 id="前言">前言</h2>
+<p>我分享一下如何安裝 Arch Linux 的方法，因為我之前裝 Arch Linux 時踩了很多坑，加上我是小白，所以遇到的問題很多，我會在這篇文章中教導各位如何安裝 Arch Linux 在各位的電腦，優雅地使用 Arch Linux 發行版，這篇文章是面向小白向的教學文，這篇只會提及如何安裝，至於初始化與其餘部份會另外寫篇文章。</p>]]></description>
+</item>
+<item>
     <title>在 Archlinux 搭建 VScode C/C&#43;&#43; 開發環境（GCC）及 調試（GDB）</title>
     <link>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</link>
     <pubDate>Sat, 20 Apr 2019 14:22:18 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_vscode_build_gdb_gcc/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/visual_studio_code_2019_icons_preview.png" referrerpolicy="no-referrer">
-            </div>前言 相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 Linux 中的 GDB 配置在 VScode 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 Linux 環境下從安裝 VScode 到配置環境變量與 GDB 調試。
-肥宅的 Linux 發行版資訊 肥宅使用的發行版是 ArchLinux，圖形界面是 KDE Plasma。
-系統資訊1.png
-" 系統資訊 
-下載安裝 VScode 在 Konsole 輸入下載指令 1  sudo pacman -S code    註：因爲圖形界面的使用者一定是一般使用者，不可能是超級使用者，所以在輸 pacman 前面要加上 sudo。
- 安裝 VScode2.png
-" 安裝 VScode 
-輸入 y 並按下 Enter。
-下載 GCC GDB  註：肥宅是在 Windows OS 用習慣了 MinGW-w64，但在 Linux 這樣配置並不是很好的選擇，如果你使用 GCC 或 Clang 會跟 Linux 兼容性高。MinGW-w64 軟件包包含 gcc g++ GDB&hellip;等內容及 API。]]></description>
-</item></channel>
+            </div><!-- 在 Archlinux 搭建 VScode C/C++ 開發環境（GCC）及 調試（GDB）
+=== -->
+<!--2019/04/09 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>相信我，肥宅我看了很多網站上教學，都是老舊的廢文，甚至如果照做就有可能造成出錯的問題。還有很多文章也沒有詳細講解該如何配置，關於 <code>Linux</code> 中的 <code>GDB</code> 配置在 <code>VScode</code> 的文章少之又少，錯誤百出。因此肥宅在這教導各位正確地在 <code>Linux</code> 環境下從安裝 <code>VScode</code> 到配置環境變量與 <code>GDB</code> 調試。</p>]]></description>
+</item>
+</channel>
 </rss>

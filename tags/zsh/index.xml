@@ -1,24 +1,20 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>zsh - 標籤 - Rem Blog</title>
+        <title>Zsh - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/zsh/</link>
-        <description>zsh - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Zsh - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Sun, 05 Jan 2020 15:26:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/zsh/" rel="self" type="application/rss+xml" /><item>
     <title>Archlinux 安裝 Part 4 - 程序員終端標配 oh-my-zsh</title>
     <link>https://huangno1.github.io/archlinux_install_part4_on_my_zsh/</link>
     <pubDate>Sun, 05 Jan 2020 15:26:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_install_part4_on_my_zsh/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_install_part4_on_my_zsh.png" referrerpolicy="no-referrer">
-            </div>前言 我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 Bash，然而 bash 過於單調，也沒有自動補全，這時我們就需要開源項目 oh-my-zsh，在這篇教學我會寫一下，我配置 oh-my-zsh 的過程。
-我的 Konsole 我的終端機02.png
-" 我的終端機 
-Konsole 透明度設置 在標題欄點擊滑鼠右鍵。
-設定透明度01.png
-" 設定透明度 
-在外觀與修復中，可以調整透明度。我調成不透明度 80%。
-安裝 zsh 1  sudo pacman -S zsh   查看系統當前使用的 Shell 1  echo $SHELL # 查看指令   1  /bin/bash # 輸出結果   看系統是否裝了 zsh 1  cat /etc/shells # 輸入指令   1 2 3 4 5 6 7 8  # Pathnames of valid login shells.]]></description>
-</item></channel>
+            </div><!--2020/01/05 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>我想我在 Linux 上用最多也最重要的就是終端機 Konsole 了，我們默認的是 <strong>Bash</strong>，然而 <code>bash</code> 過於單調，也沒有自動補全，這時我們就需要開源項目 <code>oh-my-zsh</code>，在這篇教學我會寫一下，我配置 <code>oh-my-zsh</code> 的過程。</p>]]></description>
+</item>
+</channel>
 </rss>

@@ -1,52 +1,45 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>request - 標籤 - Rem Blog</title>
+        <title>Request - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/request/</link>
-        <description>request - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Request - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/request/" rel="self" type="application/rss+xml" /><item>
     <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載</title>
     <link>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</link>
     <pubDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
-Display 圖片緩存與懶加載展示Display_image_picasso.gif
-" 圖片緩存與懶加載展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
-我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
-1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  ]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_recyclerview_different_cards/" target="_blank" rel="noopener noreffer ">新聞數據請求渲染</a>的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" title="Display_image_picasso.gif" data-thumbnail="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" data-sub-html="<h2>圖片緩存與懶加載展示</h2><p>Display_image_picasso.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染</title>
     <link>https://huangno1.github.io/android_java_request_and_card_list_render/</link>
     <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_request_and_card_list_render/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
-Display 請求與渲染展示Display_request_and_render.gif
-" 請求與渲染展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
-models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個數據模型，方便後面將數據添入 NewsCardItemDataModel，使邏輯更加清晰。這裡一樣有三種構造函數，分別代表三種不同的卡片類型。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇文章中我介紹了如何<a href="https://huangno1.github.io/android_java_recycler_view_different_cards/" target="_blank" rel="noopener noreffer ">在 RecyclerView 中渲染三種不同的卡片樣式</a>，這次我們加上了<strong>數據請求渲染</strong>，使該頁面是動態加載的。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_request_and_card_list_render/index/Display_request_and_render.gif" title="Display_request_and_render.gif" data-thumbnail="/android_java_request_and_card_list_render/index/Display_request_and_render.gif" data-sub-html="<h2>請求與渲染展示</h2><p>Display_request_and_render.gif</p>]]></description>
+</item>
+<item>
     <title>Vue 技巧與經驗 - 項目構建、組件、路由、請求</title>
     <link>https://huangno1.github.io/vue_skill/</link>
     <pubDate>Fri, 31 Jul 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/vue_skill/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/vue_skill.png" referrerpolicy="no-referrer">
-            </div>前言 經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。
-這文章不會教你 Vue 基礎語法等詳細的基礎部份。所以在看這篇文章時需要一些 Vue 基礎。
-如果因為沒有範例觀摩的話，可以看我在 2020/06/30 - 2020/07/17 暑假實訓寫的個人空間系統 - Blog 前端。
-Vue-cli 腳手架使用 創建應用  用了 CDN 引入就不能用 Vue-cli 了，整個的結構差太多，通常 CDN 引入就是 Demo 或是很小的專案某部分用來代替 JQuery 用。
- 大部分開發還是使用 Vue-cli 比較方便。關於使用 Vue-cli 現在使用 npm 可以自己選擇要裝哪些東西，使用越來越方便，通常我是建議自定義，因為 eslint 的標準太高了，每次打開瀏覽器 Console 就一堆警告。所以在後面的選擇將 Linter / Formatter 這一項按空白鍵（Space）去掉。目前我開發項目初始構建只需要下列三個就暫時夠用了：
- Babel：自由開源的 JavaScript 編譯器、轉譯器。 Router：Vue 的路由。 Vuex：組件狀態管理。   關於怎麼裝 npm 和 vue-cli，我想 npm 就網上下載安裝，vue-cli 就執行 npm install -g @vue/cli 指令進行安裝。]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>經過許久寫 VueJS 的經驗，實在是有些技巧我想要紀錄下來，畢竟當時我摸索了很久，從一開始的不擅長到後面的熟練，經歷的 Project 很多。希望能幫助新手快速掌握 VueJS。</p>]]></description>
+</item>
+</channel>
 </rss>

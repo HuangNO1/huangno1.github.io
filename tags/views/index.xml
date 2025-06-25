@@ -1,25 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Views - 標籤 - Rem Blog</title>
+        <title>Views - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/views/</link>
-        <description>Views - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Views - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 15 Jun 2021 09:03:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/views/" rel="self" type="application/rss+xml" /><item>
     <title>Android Java - 簡易今日頭條 - Tabs 頻道頁面切換</title>
     <link>https://huangno1.github.io/android_java_swip_views_with_tabs/</link>
     <pubDate>Tue, 15 Jun 2021 09:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_swip_views_with_tabs/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_tabbed.jpg" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
-項目倉庫 簡易今日頭條 - Github
-Display Tab Channel 展示Display_tabbed.gif
-" Tab Channel 展示 
-具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
- androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
- androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
- 註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
- layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇文章我寫了關於<a href="https://huangno1.github.io/android_java_btn_nav/" target="_blank" rel="noopener noreffer ">底部導覽頁的切換</a>，這次換到關於簡易今日頭條中的 <strong>Tab Channel 切換</strong>。</p>
+<h2 id="項目倉庫">項目倉庫</h2>
+<p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer ">簡易今日頭條 - Github</a></p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_swip_views_with_tabs/index/Display_tabbed.gif" title="Display_tabbed.gif" data-thumbnail="/android_java_swip_views_with_tabs/index/Display_tabbed.gif" data-sub-html="<h2>Tab Channel 展示</h2><p>Display_tabbed.gif</p>]]></description>
+</item>
+</channel>
 </rss>

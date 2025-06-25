@@ -1,40 +1,41 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>演算法 - 分類 - Rem Blog</title>
+        <title>演算法 - Category - Rem Blog</title>
         <link>https://huangno1.github.io/categories/%E6%BC%94%E7%AE%97%E6%B3%95/</link>
-        <description>演算法 - 分類 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>演算法 - Category - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Wed, 23 Dec 2020 18:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/categories/%E6%BC%94%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
     <title>LeetCode 題庫 - Add Two Numbers (兩數相加)</title>
     <link>https://huangno1.github.io/leetcode_add_two_numbers/</link>
     <pubDate>Wed, 23 Dec 2020 18:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/leetcode_add_two_numbers/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/leetcode.jpg" referrerpolicy="no-referrer">
-            </div>前言 是個難度適中的題目。
-題目 Add Two Numbers (兩數相加)
-題目描述 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-給出兩個非空的鏈表用來表示兩個非負的整數。其中，它們各自的位數是按照逆序的方式存儲的，並且它們的每個節點只能存儲一位數字。
-如果，我們將這兩個數相加起來，則會返回一個新的鍊表來表示它們的和。
-您可以假設除了數字 0 之外，這兩個數都不會以 0 開頭。]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>是個難度適中的題目。</p>
+<h2 id="題目">題目</h2>
+<p><a href="https://leetcode.com/problems/add-two-numbers/" target="_blank" rel="noopener noreffer ">Add Two Numbers (兩數相加)</a></p>
+<h2 id="題目描述">題目描述</h2>
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>]]></description>
+</item>
+<item>
     <title>LeetCode 題庫 - Two Sum (兩數之和)</title>
     <link>https://huangno1.github.io/leetcode_two_sum/</link>
     <pubDate>Wed, 23 Dec 2020 04:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/leetcode_two_sum/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/leetcode.jpg" referrerpolicy="no-referrer">
-            </div>前言 最近刷到的簡單題庫題。
-題目 Two Sum (兩數之和)
-題目描述 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-You can return the answer in any order.
-給定一個整數數組 nums 和一個目標值 target，請你在該數組中找出和為目標值的那 兩個 整數，並返回他們的數組下標。
-你可以假設每種輸入只會對應一個答案。但是，數組中同一個元素不能使用兩遍。
-測資 Example 1：
-1 2 3  Input: nums = [2,7,11,15], target = 9 Output: [0,1] Output: Because nums[0] + nums[1] == 9, we return [0, 1].]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>最近刷到的簡單題庫題。</p>
+<h2 id="題目">題目</h2>
+<p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener noreffer ">Two Sum (兩數之和)</a></p>
+<h2 id="題目描述">題目描述</h2>
+<p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>You can return the answer in any order.</p>]]></description>
+</item>
+</channel>
 </rss>

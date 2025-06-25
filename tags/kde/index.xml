@@ -1,42 +1,33 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>kde - 標籤 - Rem Blog</title>
+        <title>Kde - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/kde/</link>
-        <description>kde - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Kde - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/kde/" rel="self" type="application/rss+xml" /><item>
     <title>ArchLinx KDE 錢包禁用與解決 WIFI 密碼輸入</title>
     <link>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</link>
     <pubDate>Thu, 30 Sep 2021 08:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_disable_kde_wallet_and_no_password_wifi/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_disable_kde_wallet_and_no_password_wifi.png" referrerpolicy="no-referrer">
-            </div>前言 最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。
-解決 KDE Wallet 如果還沒安裝了 KDE 錢包管理就先去安裝它，kwalletmanager。
-1  sudo pacman -S kwalletmanager   安裝完之後需要進入 設定 -&gt; 個人化 -&gt; KDE 錢包 -&gt; 錢包設定，將 開啟 KDE wallet 子系統(E) 的勾選去掉，套用設定，之後就不需要在碰到需要輸入 KDE 錢包密碼了，畢竟我平常也沒用到這個應用。
-KDE 錢包設定kde_wallet_settings.png
-" KDE 錢包設定 
-解決 WIFI 密碼問題 自從 KDE 錢包出現後連帶每次進入進入系統 NetworkManager 都會要我重新輸入 WIFI 密碼，所以想要從根本根治，需要在設定中將其密碼存儲。
-網路設定network_setting.png
-" 網路設定 
-之後每次進入系統連線 WIFI 都不需要輸入密碼了。
-Reference  KDE5: How do i completely disable/remove kdewallet - Archlinux BBS  ]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>最近滾系統時發現萬惡的 KDE 錢包又出現了，然後每次進入系統都要輸入 KDE 錢包和 WIFI 密碼，讓我很難受，於是就有了這篇文章（別說我在摸魚水文章 @@。</p>
+<h2 id="解決-kde-wallet">解決 KDE Wallet</h2>
+<p>如果還沒安裝了 KDE 錢包管理就先去安裝它，<code>kwalletmanager</code>。</p>]]></description>
+</item>
+<item>
     <title>Archlinux KDE 動態桌布</title>
     <link>https://huangno1.github.io/archlinux_kde_video_wallpaper/</link>
     <pubDate>Wed, 15 Jan 2020 15:26:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/archlinux_kde_video_wallpaper/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/archlinux_kde_video_wallpaper.png" referrerpolicy="no-referrer">
-            </div>前言 Wallpapaer Engine 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 Windows，關於 KDE 動態桌布可能大家會有疑慮，Plasma KDE 究竟能不能實現動態桌布？答案是可以的，在這篇我將分享我完成動態桌布的過程。
-當然，我也嘗試過使用 vlc 和 xwinwrap + mplayer，尤其是 xwinwrap 最折騰我，包括開機自啟，最後的效果都讓我不滿意。但是目前網上（包含 KDE 官網）所有關於 KDE 動態桌布的項目不是使用上不美觀或是沒效果（黑屏）。最後終於在一篇 Github 項目中看到黑屏的處理方法，無意間那些 KDE Video Wallpaper 插件都可以用了。
-如果執意想使用 vlc 或是 xwinwrap + mplayer 的讀者可以參考某人的 Blog：设置 Linux 动态桌面的几种办法 - 簡書
-Plasma Video Wallpaper WuSiYu / Plasma Video Wallpaper 這是 Github 上看到的項目，這也是因為我看到他在 B 站上的視頻才知道有這個項目。
-完整項目使用過程他已經在他 Github 項目的 README.md 說得很清楚了。
-先將項目下載解壓，進入項目目錄輸入以下指令：
- 如果沒有安裝 cmake、make 就裝一下，如果有權限問題就給權限。
- 1 2 3 4  sudo pacman -S cmake make # 安裝 cmake make cmake .]]></description>
-</item></channel>
+            </div><!--2020/01/15 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p><strong>Wallpapaer Engine</strong> 是非常優秀的動態桌布軟體，可惜的是這軟體不僅是需付費，也只支援 <strong>Windows</strong>，關於 <strong>KDE 動態桌布</strong>可能大家會有疑慮，<strong>Plasma KDE</strong> 究竟能不能實現<strong>動態桌布</strong>？答案是<strong>可以的</strong>，在這篇我將分享我完成動態桌布的過程。</p>]]></description>
+</item>
+</channel>
 </rss>

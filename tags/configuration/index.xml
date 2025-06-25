@@ -1,8 +1,0 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>配置 - 標籤 - Rem Blog</title>
-        <link>https://huangno1.github.io/tags/configuration/</link>
-        <description>配置 - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
-            <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><atom:link href="https://huangno1.github.io/tags/configuration/" rel="self" type="application/rss+xml" /></channel>
-</rss>

@@ -1,159 +1,125 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Android - 標籤 - Rem Blog</title>
+        <title>Android - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/android/</link>
-        <description>Android - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Android - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Tue, 07 Sep 2021 18:17:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/android/" rel="self" type="application/rss+xml" /><item>
     <title>2021 年 7 月字節跳動安卓崗位 - 提前批面試經驗（已涼）</title>
     <link>https://huangno1.github.io/an_interview_experience_about_bytedance_android_2021_07/</link>
     <pubDate>Tue, 07 Sep 2021 18:17:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/an_interview_experience_about_bytedance_android_2021_07/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/an_interview_experience_about_bytedance_android_2021_07.jpg" referrerpolicy="no-referrer">
-            </div>前言 現在已經度過了一整個暑假，我也從大三變成了大四生，已經九月份了，感慨三四年這樣就過去了，在這暑假期間我已也投過一家南京小公司實習（透過本專業的教授），但最後考慮到薪資問題就拒絕了後續（主要是薪資談不攏），也在七月份度過了兩到三週中興通訊的在校合作實訓，反正能拿到 4 學分的實習學分，不過實訓內容說實在一言難盡，我也不在這篇文章提出。
-這篇文章主要是針對上學期大三下的時候我因為選了安卓應用開發的選修課，字節跳動的員工內推我，讓我可以面試。
- 我在這裡還是想吐嘈一下，不管哪個公司說什麼有實習機會都不要太相信，因為大多數都只是幫你內推而已，中興通訊的實訓原本也是說有實習名額，HR 也說可以是直接內定的 Offer 名額，然而也只是內推，包括這篇文章提到的字節跳動也是一樣，一開始說有實習機會，最後所有同學都去要了簡歷給內推。
- 我荒廢了這個暑假後，才開始想寫這篇文章重新整理一下心態，也因為太久沒有更新 Blog 文章，所以有些過意不去。
-面試前準備 在內推面試時，已經是學期末要期末考的時候了，說實在，時間很緊，我要同時準備期末考和面試，所以我將技術面一面跟字節跳動 HR 溝通在期末考結束後一週，在一週的時間內閱讀大量的面經還有之前自己整理的八股文內容，還有自己找到的一些八股文內容，由於內推人有說字節跳動的安卓崗可以不會安卓，接受初學者，但是必須至少要精通一門語言，然後如果能精通 Java 當然是更好，所以我沒有特別準備安卓相關的問題。
-技術面面經 字節跳動 - 技術中台 - 安卓客戶端實習生
-業務一面(50 分鐘)，牛課網平台面試
- 簡單自我介紹一下  xxxxxx
-根據我的安卓項目問關於安卓應用開發課程是怎麼跟字節跳動客戶端合作的，學了多久安卓  老師與字節客戶端的人員進行合作，先是有理論課，後面有實踐課，給了一個大作業，完成業務需求&hellip;blabla
-學了一個月安卓
-你在安卓項目中做了哪些構想  像是頁面的構思，歡迎界面與主界面 主界面有不同的頻道，像是推薦、數碼。每個頻道有自己的&hellip;.blabla
-還做了點擴展&hellip;blabla
-你這個項目中有哪些難點，怎麼實現的 可以說明一下嗎  像是一個列表中要展示三種不同的卡片&hellip;blabla&hellip;dataModel recyclerview
-請問你是 java 比較熟還是 C++ 比就熟  C++ 比較熟悉，但是 Java 有一定的基礎
-面試官：那我問你一些 java 的問題
-請問 java 的線程狀態你能說一下嗎  (fuxk you 怎麼一開始就這麼難)java的線程有像是堵塞 同步之類的狀態，線程同步可以使用 排斥鎖 自旋鎖 讀寫鎖，排斥鎖像是 synchronized，堵塞的話就是資源被一個線程被鎖住 下一個線程無法使用資源，等鎖釋放才能讓下一個線程進行操作&hellip;blabla]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>現在已經度過了一整個暑假，我也從大三變成了大四生，已經九月份了，感慨三四年這樣就過去了，在這暑假期間我已也投過一家南京小公司實習（透過本專業的教授），但最後考慮到薪資問題就拒絕了後續（主要是薪資談不攏），也在七月份度過了兩到三週中興通訊的在校合作實訓，反正能<strong>拿到 4 學分的實習學分</strong>，不過實訓內容說實在一言難盡，我也不在這篇文章提出。</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 點擊新聞卡片進入新聞詳情頁與 WebView 顯示</title>
     <link>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</link>
     <pubDate>Tue, 15 Jun 2021 21:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_click_card_item_move_to_detail_page/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_news_detail_web_view.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇我們已經介紹完 RecyclerView 加載更多的實現，而這篇也是最後一篇，關於點擊新聞卡片進入新聞詳情頁(Activity)。
-Display 點擊卡片 Item 進入詳情頁展示Display_click_to_detail_page.gif
-" 點擊卡片 Item 進入詳情頁展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 這裡我是在新聞卡片的適配器裡面去做，將 View 設置點擊事件，然後新增一個新聞活動頁面。
-ui/card/newsCardList/NewsCardAdapter.java 下面的 Code 中我舉出 NoImageCardViewHolder 子類，裡面的構造函數中去做 itemView 的點擊事件，點擊事件涉及到了傳參部份，傳參使用 intent.putExtra() 方法，然後在 NewsDetailActivity 做接收參數。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50  public class NewsCardAdapter extends RecyclerView.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇我們已經介紹完 <a href="https://huangno1.github.io/android_java_recyclerview_load_more/" target="_blank" rel="noopener noreffer ">RecyclerView 加載更多的實現</a>，而這篇也是最後一篇，關於<strong>點擊新聞卡片進入新聞詳情頁(Activity)</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_click_card_item_move_to_detail_page/index/Display_click_to_detail_page.gif" title="Display_click_to_detail_page.gif" data-thumbnail="/android_click_card_item_move_to_detail_page/index/Display_click_to_detail_page.gif" data-sub-html="<h2>點擊卡片 Item 進入詳情頁展示</h2><p>Display_click_to_detail_page.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - Load More 加載更多新聞內容</title>
     <link>https://huangno1.github.io/android_java_recyclerview_load_more/</link>
     <pubDate>Tue, 15 Jun 2021 20:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_recyclerview_load_more/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_recyclerview_load_more.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇我們說到了下拉刷新的實現，這篇我接著講如何實現上拉加載更多。
-Display 加載更多展示Display_load_more.gif
-" 加載更多展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 這裡需要使用 RecyclerView 的監聽滾動方法，當無法在往下滾動的時候，就調用加載更多的方法。
-以下是 RecyclerView 設置滾動監聽的參考案例：
-這裡使用了 addOnScrollListener 方法做滾動監聽，接著在 onScrolled 方法中做處理，!recyclerView.canScrollVertically(1) 代表 recyclerView 已經無法繼續往下滾了。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  // cardList mCardListRecyclerView = view.findViewById(R.id.recycler_view_card_list); mCardListRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { @Override public void onScrollStateChanged(@NonNull @NotNull RecyclerView recyclerView, int newState) { super.onScrollStateChanged(recyclerView, newState); } @Override public void onScrolled(@NonNull @NotNull RecyclerView recyclerView, int dx, int dy) { super.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇我們說到了<a href="https://huangno1.github.io/android_java_pull_to_refresh/" target="_blank" rel="noopener noreffer ">下拉刷新的實現</a>，這篇我接著講如何<strong>實現上拉加載更多</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_recyclerview_load_more/index/Display_load_more.gif" title="Display_load_more.gif" data-thumbnail="/android_java_recyclerview_load_more/index/Display_load_more.gif" data-sub-html="<h2>加載更多展示</h2><p>Display_load_more.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - Pull To Refresh 刷新新聞內容</title>
     <link>https://huangno1.github.io/android_java_pull_to_refresh/</link>
     <pubDate>Tue, 15 Jun 2021 19:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_pull_to_refresh/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_pull_to_refresh.png" referrerpolicy="no-referrer">
-            </div>前言 上次的文章中我寫了關於圖片緩存與懶加載的部份。這篇文章就簡要說一下怎麼實現下拉刷新。
-Display 下拉刷新展示Display_pull_to_refresh.gif
-" 下拉刷新展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 刷新的部份我是推薦使用 AndroidX 官方的方法： Swiperefreshlayout，具體說明可參考官方的 Swiperefreshlayout - Android Developers，雖然我一開始有考慮過網上一堆酷炫的第三方刷新頭，但是那些東西其實很多都是過時的，並不支持 AndroidX，使用上也有很多問題，或許你覺得 Swiperefreshlayout 很丑？但是包括 Bilibili 等手機應用大都是使用這個組件。而我目前使用的是 Github 上別人的開源項目 tuesda/CircleRefreshLayout - Github，因為這項目是已經過時的，所以我自己將該項目下載下來自己修改過時的 API，將其套用在自己的項目上，然而這項目依然有一些問題存在，但作者似乎也沒打算更新？
-這裡就介紹如何用 Swiperefreshlayout。也可以看 Implementing Pull to Refresh Guide - CODEPATH
-首先要加上依賴
-1 2 3  dependencies { implementation &#34;androidx.swiperefreshlayout:swiperefreshlayout:1.1.0&#34; }   接著在 xml 中需要刷新渲染的 RecyclerView 或是 ListView 加上該組件。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  &lt;!]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_image_cache_and_lazy_load/" target="_blank" rel="noopener noreffer ">圖片緩存與懶加載</a>的部份。這篇文章就簡要說一下怎麼<strong>實現下拉刷新</strong>。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_pull_to_refresh/index/Display_pull_to_refresh.gif" title="Display_pull_to_refresh.gif" data-thumbnail="/android_java_pull_to_refresh/index/Display_pull_to_refresh.gif" data-sub-html="<h2>下拉刷新展示</h2><p>Display_pull_to_refresh.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 圖片緩存與懶加載</title>
     <link>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</link>
     <pubDate>Tue, 15 Jun 2021 18:33:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_image_cache_and_lazy_load/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上次的文章中我寫了關於新聞數據請求渲染的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。
-Display 圖片緩存與懶加載展示Display_image_picasso.gif
-" 圖片緩存與懶加載展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 圖片的緩存最直接的方法就是將圖片下載到本地緩存，然後顯示到圖片，然而網上有一個 API 是 square/picasso - Github，實現原理可以看 Picasso从使用到原理详解 - JasonWang&rsquo;s Blog，這篇文章講的很好。Picasso 可以將我們的圖片進行二級緩存，並檢查內存是否有這張圖片，如果有就無需下載，沒有就進行 OkHttp 在線程池的子線程請求（也就是異步請求回調函數使用的線程）。
-我是將圖片緩存寫到了 ui/card/newsCardList/NewsCardItemDataModel.java 中的 RecyclerView.ViewHolder 子類中 bindData()，這裡就只寫一下簡單的使用方式。
-1  Picasso.get().load(dataModel.getAvatar()).into(mAvatarView);   Reference  簡易今日頭條 - Github  ]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上次的文章中我寫了關於<a href="https://huangno1.github.io/android_java_recyclerview_different_cards/" target="_blank" rel="noopener noreffer ">新聞數據請求渲染</a>的部份。這篇文章就簡要說一下怎麼做到圖片緩存與懶加載。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" title="Display_image_picasso.gif" data-thumbnail="/android_java_image_cache_and_lazy_load/index/Display_image_picasso.gif" data-sub-html="<h2>圖片緩存與懶加載展示</h2><p>Display_image_picasso.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 新聞數據請求與卡片渲染</title>
     <link>https://huangno1.github.io/android_java_request_and_card_list_render/</link>
     <pubDate>Tue, 15 Jun 2021 18:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_request_and_card_list_render/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_image.png" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章中我介紹了如何在 RecyclerView 中渲染三種不同的卡片樣式，這次我們加上了數據請求渲染，使該頁面是動態加載的。
-Display 請求與渲染展示Display_request_and_render.gif
-" 請求與渲染展示 
-項目倉庫 簡易今日頭條 - Github
-具體實現 關於卡片渲染細節我已經在 RecyclerView 顯示多種寫過了，所以這裡專注於怎麼使用 OkHttp 進行數據請求，與重新回到主 UI Thread 進行卡片渲染。
-models/news/NewsDataModel.java 這個類是為了請求回來的數據做一個數據模型，方便後面將數據添入 NewsCardItemDataModel，使邏輯更加清晰。這裡一樣有三種構造函數，分別代表三種不同的卡片類型。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175  package com.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇文章中我介紹了如何<a href="https://huangno1.github.io/android_java_recycler_view_different_cards/" target="_blank" rel="noopener noreffer ">在 RecyclerView 中渲染三種不同的卡片樣式</a>，這次我們加上了<strong>數據請求渲染</strong>，使該頁面是動態加載的。</p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_request_and_card_list_render/index/Display_request_and_render.gif" title="Display_request_and_render.gif" data-thumbnail="/android_java_request_and_card_list_render/index/Display_request_and_render.gif" data-sub-html="<h2>請求與渲染展示</h2><p>Display_request_and_render.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - RecyclerView 渲染多種不同樣式的新聞卡片</title>
     <link>https://huangno1.github.io/android_java_recyclerview_different_cards/</link>
     <pubDate>Tue, 15 Jun 2021 15:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_recyclerview_different_cards/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_card_list.jpg" referrerpolicy="no-referrer">
-            </div>前言 上篇文章中我講述了如何實現Tabs 頻道頁面切換，接下來我們進一步實現 Tab Channel 中的新聞卡片列表渲染。
-項目倉庫 簡易今日頭條 - Github
-Display 不同卡片樣式展示Display_recyclerView_different_card_styles.gif
-" 不同卡片樣式展示 
-具體實現 由於一種的渲染方法比較簡單，通常設計者是卡在顯示多種類型的 RecyclerView Item，在多種卡片 item 的設計這裡我只需要設計一種 DataModel ，然後在 DataModel 中添加 type 成員變量判斷是哪種類型的卡片。
-以下我舉出實現的 Example，簡化的部份 Code，這裡的 Code 去掉： HTTP 請求的渲染、Pull To ReFresh、Load More。後面會再一一舉例。
-layout/fragment_news_channel.xml 在需要渲染列表的地方加上 RecyclerView 組件。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上篇文章中我講述了如何實現<a href="https://huangno1.github.io/android_java_swip_views_with_tabs/" target="_blank" rel="noopener noreffer ">Tabs 頻道頁面切換</a>，接下來我們進一步實現 Tab Channel 中的<strong>新聞卡片列表渲染</strong>。</p>
+<h2 id="項目倉庫">項目倉庫</h2>
+<p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer ">簡易今日頭條 - Github</a></p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_recyclerview_different_cards/index/Display_recyclerView_different_card_styles.gif" title="Display_recyclerView_different_card_styles.gif" data-thumbnail="/android_java_recyclerview_different_cards/index/Display_recyclerView_different_card_styles.gif" data-sub-html="<h2>不同卡片樣式展示</h2><p>Display_recyclerView_different_card_styles.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - Tabs 頻道頁面切換</title>
     <link>https://huangno1.github.io/android_java_swip_views_with_tabs/</link>
     <pubDate>Tue, 15 Jun 2021 09:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_swip_views_with_tabs/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_tabbed.jpg" referrerpolicy="no-referrer">
-            </div>前言 上一篇文章我寫了關於底部導覽頁的切換，這次換到關於簡易今日頭條中的 Tab Channel 切換。
-項目倉庫 簡易今日頭條 - Github
-Display Tab Channel 展示Display_tabbed.gif
-" Tab Channel 展示 
-具體實現 這裡我一開始使用的是舊的 API 方法(ViewPagerFragment、PagerAdapter)，如果你使用的是：
- androidx.viewpager.widget.ViewPager androidx.fragment.app.FragmentPagerAdapter  你會得到一個提示是這 兩個 API 是已經棄用(deprecated) 的，尤其是在寫 FragmentPagerAdapter 類的時候，Android Studio 會在父類類名上刪除線(Strikethrough)，所以我們需要切換到新的 API：
- androidx.viewpager2.widget.ViewPager2 androidx.viewpager2.adapter.FragmentStateAdapter  那我們來開始看具體寫法，可以參考官方文檔Create swipe views with tabs using ViewPager2 - Android developers。
- 註：由於這個的 tabbed 項目需求的頁面是相同的，都是展示新聞卡片，所以我們就只需要設計一個 Fragment 類，但是如果我們需要每個新聞頻道 Tab 頁面有不同的設計，就需要設計多個 Fragment 類。
- layout/fragment_home.xml 我需要在 Home Fragment 展示我的 Tabs，然後在 NewsChannelFragment 顯示各頁面內容，這裡我們有 TabLayout 和最新的 ViewPager2。]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>上一篇文章我寫了關於<a href="https://huangno1.github.io/android_java_btn_nav/" target="_blank" rel="noopener noreffer ">底部導覽頁的切換</a>，這次換到關於簡易今日頭條中的 <strong>Tab Channel 切換</strong>。</p>
+<h2 id="項目倉庫">項目倉庫</h2>
+<p><a href="https://github.com/HuangNO1/TouTiao_Simple_Android_App" target="_blank" rel="noopener noreffer ">簡易今日頭條 - Github</a></p>
+<h2 id="display">Display</h2>
+<p><figure><a class="lightgallery" href="/android_java_swip_views_with_tabs/index/Display_tabbed.gif" title="Display_tabbed.gif" data-thumbnail="/android_java_swip_views_with_tabs/index/Display_tabbed.gif" data-sub-html="<h2>Tab Channel 展示</h2><p>Display_tabbed.gif</p>]]></description>
+</item>
+<item>
     <title>Android Java - 簡易今日頭條 - 實現底部按鈕導覽切換 Fragment 頁面</title>
     <link>https://huangno1.github.io/android_java_btn_nav/</link>
     <pubDate>Tue, 15 Jun 2021 08:03:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/android_java_btn_nav/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/android_java_nav.png" referrerpolicy="no-referrer">
-            </div>前言 我接下來會寫一系列關於安卓開發的過程，由於這學期我選修了安卓應用開發，該課程與字節跳動客戶端員工合作，課程的項目設計是 &ldquo;簡易頭條&rdquo;，而我身為安卓零基礎的學生在一週內邊做邊學，最終完成了成果。在 Blog 我所遇到的細節技術實現。這篇文章是關於底部導覽頁的實現。
-項目倉庫 簡易今日頭條 - Github
-Display Bottom Nav 展示Display_nav.gif
-" Bottom Nav 展示 
-具體實現 使用 BottomNavigationView、NavController 與 NavigationUI.setupWithNavController() 方法去實現。
-現在我需要使用三個子頁面(Fragment)分別是首頁(home)、視頻(video)、我的(account)：
- 注意：目錄的正確需要自己去修改
- layout/activity.xml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  &lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34; xmlns:app=&#34;http://schemas.android.com/apk/res-auto&#34; xmlns:tools=&#34;http://schemas.]]></description>
-</item></channel>
+            </div><h2 id="前言">前言</h2>
+<p>我接下來會寫一系列關於安卓開發的過程，由於這學期我選修了安卓應用開發，該課程與字節跳動客戶端員工合作，課程的項目設計是 <strong>&ldquo;簡易頭條&rdquo;</strong>，而我身為安卓零基礎的學生在一週內邊做邊學，最終完成了成果。在 Blog 我所遇到的細節技術實現。這篇文章是關於底部導覽頁的實現。</p>]]></description>
+</item>
+</channel>
 </rss>

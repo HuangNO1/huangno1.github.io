@@ -1,21 +1,20 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>pyenv - 標籤 - Rem Blog</title>
+        <title>Pyenv - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/pyenv/</link>
-        <description>pyenv - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Pyenv - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 27 Jan 2020 15:26:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/pyenv/" rel="self" type="application/rss+xml" /><item>
     <title>在 Linux 上控制 Python 版本 - pyenv</title>
     <link>https://huangno1.github.io/linux_python_pyenv/</link>
     <pubDate>Mon, 27 Jan 2020 15:26:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/linux_python_pyenv/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/linux_python_pyenv.png" referrerpolicy="no-referrer">
-            </div>前言 在 Linux 開發 Python 相關的項目，你是不是會碰到關於 Python 版本之類的問題？像是開發 Tensorflow 的時候碰到版本問題，原本 Python 3.7 可以支援 Tensorflow，但是忽然 Python 從 3.7 更新到 3.8.0，這時 Python 3.8 不支援 Tensorflow，你苦惱了，千辛萬苦的項目因為系統更新而導致版本不支援使項目暫停開發，這時 pyenv 將成為你的救星，如果你硬是不肯更新系統 Python 版本，你的系統將會得不到最新的體驗與安全並處於危險的不穩定狀態，系統更新真的很重要。
-pyenv 是很棒的 Python 版本控制工具，讓你的電腦可以安裝多個 Python 版本。pyenv 是 Github 上的開源項目，關於使用須知該項目的 README.md 寫得很詳細。我這篇文章就分享一下我在 Arch Linux 的安裝方式。
-安裝 從 Github 倉庫上直接 clone 下來。你也可以選擇直接在瀏覽器上下來。然後壓縮包解壓將文件內的文件放入 ~/.pyenv。
- 註：如果你在國內網使用 Github 網速過於緩慢，建議開 Proxy，然後給 Git 設置代理。
- 設置代理 1 2 3 4 5 6 7 8 9 10  # set http git config --global http.]]></description>
-</item></channel>
+            </div><!--2020/01/27 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>在 Linux 開發 Python 相關的項目，你是不是會碰到關於 Python 版本之類的問題？像是開發 Tensorflow 的時候碰到版本問題，<strong>原本 Python 3.7 可以支援 Tensorflow，但是忽然 Python 從 3.7 更新到 3.8.0</strong>，這時 Python 3.8 不支援 Tensorflow，你苦惱了，千辛萬苦的項目因為系統更新而導致版本不支援使項目暫停開發，這時 <strong>pyenv</strong> 將成為你的救星，如果你硬是不肯更新系統 Python 版本，你的系統將會得不到最新的體驗與安全並處於危險的不穩定狀態，系統更新真的很重要。</p>]]></description>
+</item>
+</channel>
 </rss>

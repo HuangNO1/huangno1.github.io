@@ -1,36 +1,31 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Maven - 標籤 - Rem Blog</title>
+        <title>Maven - Tag - Rem Blog</title>
         <link>https://huangno1.github.io/tags/maven/</link>
-        <description>Maven - 標籤 - Rem Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
+        <description>Maven - Tag - Rem Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fh831.cp9gw@gmail.com (Huang Po-Hsun)</managingEditor>
             <webMaster>fh831.cp9gw@gmail.com (Huang Po-Hsun)</webMaster><lastBuildDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</lastBuildDate><atom:link href="https://huangno1.github.io/tags/maven/" rel="self" type="application/rss+xml" /><item>
     <title>部署 SpringBoot、Flask 與 Vue 前端與雙後端完全分離 Web 項目</title>
     <link>https://huangno1.github.io/deploy_springboot_flask_vue_web/</link>
     <pubDate>Mon, 21 Dec 2020 16:49:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/deploy_springboot_flask_vue_web/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/deploy_springboot_flask_vue_web.jpg" referrerpolicy="no-referrer">
-            </div>前言 由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 MD-Blog 個人空間系統項目進行 Web 測試，過程中我將那個項目部署到了阿里雲的雲服務器上。這篇文章我紀錄一下我部署 Web 的過程。
-購買服務器 因為我是用學生優惠等方式白嫖到了半年的阿里雲雲服務器，所以這方面其實沒怎麼出錢，幸好在軟件測試項目結題才到期，不過用學生優惠購買最低配的雲服務器，三個月也只需要 28 元人民幣，騰訊雲我因為過不了實名認證就算了（&hellip;這裡我要吐嘈一下連雲服務器都要實名認證）。
-總之購買好雲服務器後新增好實例，通常我是建議使用 CentOS7 作為服務器的操作系統，進入雲服務器的控制台，你會看到服務器的公網 IP、私網 IP 和密碼，密碼可以重新修改。
-這裡我們假設我們服務器的公網 IP 是 1.2.3.4。
-部署項目前的工作 安裝環境 在配置之前我們需要將我們的 JDK、Python、MySQL、Nginx 在服務器端配置完畢。
-JDK 注意：服務器安裝的 JDK 環境必須跟你的打包時使用的 JDK 版本一致，不然在運行後端 JAR 包時會報版本錯誤及不兼容的問題，要選擇 JDK1.8 以上的版本。
-這裡是建議自己在本地下載好 JDK 然後 SCP 上傳至服務器端，選擇 Linux x64 Compressed Archive 下載，不要下錯成 Linux ARM 架構的（因為我下錯過，沒仔細看名稱），壓縮包名大致為 jdk-8u271-linux-x64.tar.gz。
- 在用 SCP 上傳前要先進入服務器新增好資料夾，如果 SCP 上傳時指定到不存在的資料夾時，不會自動幫你新建一個新的資料夾。
- 1 2 3 4 5 6 7 8 9 10 11 12  ssh root@1.]]></description>
-</item><item>
+            </div><h2 id="前言">前言</h2>
+<p>由於這學期我選修了軟件測試的課程，我們以十人小組為單位，對我在暑假實訓所參與的 <strong>MD-Blog 個人空間系統</strong>項目進行 Web 測試，過程中我將那個項目部署到了<strong>阿里雲的雲服務器</strong>上。這篇文章我紀錄一下我部署 Web 的過程。</p>]]></description>
+</item>
+<item>
     <title>在 Linux 配置 Java 開發環境到虛擬硬碟 - Java8、Tomcat8、Maven3、IntelliJ IDEA</title>
     <link>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</link>
     <pubDate>Tue, 28 Jan 2020 11:27:28 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>Huang Po-Hsun</author>
     <guid>https://huangno1.github.io/linux_java_tomcat_maven_intellijidea_install_configuration/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/featuredImage/compressed/linux_java_tomcat_maven_intellijIDEA_install_configuration.png" referrerpolicy="no-referrer">
-            </div>前言 我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個適用於你的電腦的 Linux SSD (root) 空間不夠的情況，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 /home。如果覺得自己 SSD 夠用，就直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ，畢竟會有人覺得我這樣的做法讓系統管理有點髒。不過關於環境變量的配置可以參考我這篇文章，不管是裝在 SSD 還是 HDD。
-JDK 版本選擇 JDK 1.xxx 和 JDK xxx.0 比如 jdk 1.8 和 jdk 8  參考自這網站的介紹。
- Sun 公司看別人的語言更新都更新到 xxx 了，自己的 Java 版本還是 1 點幾，讓人感覺很落後，所以在 jdk 1.6 的時候對外發布稱之為 jdk 6.0 ，讓人感覺更先進點。在寫 Java 的人眼裡都是叫 1.]]></description>
-</item></channel>
+            </div><!--2020/01/28 edited by Huang Po-Hsun-->
+<h2 id="前言">前言</h2>
+<p>我在這篇會分享我是如何在 Arch 上配置 Java 的開發環境。再來我必須說的是，我這個<strong>適用於你的電腦的 Linux SSD (root) 空間不夠的情況</strong>，大部分的人是 Windows 與 Linux 雙系統，像我只能把 SSD 割 30GB 給我 Linux (這是因為我電腦上的 Windows 有被廠商更改過，限制了割出的量)，而虛擬硬碟卻可以割到 100GB 以上，我會教大家如何將 Java 環境裝到 <strong>/home</strong>。如果覺得自己 SSD 夠用，就<strong>直接從 AUR 上 yay 下來，直接略過此次教學 (ﾒ ﾟ皿ﾟ)ﾒ</strong>，畢竟會有人覺得我這樣的做法讓系統管理有點髒。不過關於環境變量的配置可以參考我這篇文章，不管是裝在 SSD 還是 HDD。</p>]]></description>
+</item>
+</channel>
 </rss>

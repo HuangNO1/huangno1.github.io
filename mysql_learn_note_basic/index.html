@@ -1,55 +1,53 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>MySQL 的基礎語法使用筆記 - Rem Blog</title><meta name="Description" content=""><meta property="og:title" content="MySQL 的基礎語法使用筆記" />
-<meta property="og:description" content="前言 自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。
-MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。
-1 2 3  # 進入 MySQL 指令 # 登入使用者為 root mysql -u root -p   基礎語法 自行修改中文成英文。不要真的輸入中文當資料庫名稱或資料表名稱喔。
-   操作功能 MySQL 語法格式 說明      列出所有資料庫 show databases;     建立資料庫 create database 資料庫名稱;     刪除資料庫 drop database 資料庫名稱;     使用資料庫 use 資料庫名稱;     建立資料表 create table 資料表名稱(" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://huangno1.github.io/mysql_learn_note_basic/" /><meta property="og:image" content="https://huangno1.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-12-24T15:17:28+08:00" />
-<meta property="article:modified_time" content="2020-12-24T15:17:26+08:00" />
+        <title>MySQL 的基礎語法使用筆記 - Rem Blog</title><meta name="Description" content="HuangNO1&#39;s Blog"><meta property="og:url" content="https://huangno1.github.io/mysql_learn_note_basic/">
+  <meta property="og:site_name" content="Rem Blog">
+  <meta property="og:title" content="MySQL 的基礎語法使用筆記">
+  <meta property="og:description" content="前言 自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。
+MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-12-24T15:17:28+08:00">
+    <meta property="article:modified_time" content="2020-12-24T16:27:24+08:00">
+    <meta property="article:tag" content="MySQL">
+    <meta property="article:tag" content="Database">
+    <meta property="og:image" content="https://huangno1.github.io/logo.png">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://huangno1.github.io/logo.png"/>
-
-<meta name="twitter:title" content="MySQL 的基礎語法使用筆記"/>
-<meta name="twitter:description" content="前言 自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。
-MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。
-1 2 3  # 進入 MySQL 指令 # 登入使用者為 root mysql -u root -p   基礎語法 自行修改中文成英文。不要真的輸入中文當資料庫名稱或資料表名稱喔。
-   操作功能 MySQL 語法格式 說明      列出所有資料庫 show databases;     建立資料庫 create database 資料庫名稱;     刪除資料庫 drop database 資料庫名稱;     使用資料庫 use 資料庫名稱;     建立資料表 create table 資料表名稱("/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://huangno1.github.io/logo.png">
+  <meta name="twitter:title" content="MySQL 的基礎語法使用筆記">
+  <meta name="twitter:description" content="前言 自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。
+MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。">
+<meta name="application-name" content="Rem Blog">
+<meta name="apple-mobile-web-app-title" content="Rem Blog">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/mysql_learn_note_basic/" /><link rel="prev" href="https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/" /><link rel="next" href="https://huangno1.github.io/archlinux_fail_to_start_mariadb/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://huangno1.github.io/mysql_learn_note_basic/" /><link rel="prev" href="https://huangno1.github.io/vmware_centos_fail_boot_xfs_corruption/" /><link rel="next" href="https://huangno1.github.io/archlinux_fail_to_start_mariadb/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "MySQL 的基礎語法使用筆記",
-        "inLanguage": "zh-cn",
+        "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/huangno1.github.io\/mysql_learn_note_basic\/"
-        },"genre": "posts","keywords": "MySQL, Database","wordcount":  381 ,
-        "url": "https:\/\/huangno1.github.io\/mysql_learn_note_basic\/","datePublished": "2020-12-24T15:17:28+08:00","dateModified": "2020-12-24T15:17:26+08:00","publisher": {
+        },"genre": "posts","keywords": "MySQL, Database","wordcount":  1565 ,
+        "url": "https:\/\/huangno1.github.io\/mysql_learn_note_basic\/","datePublished": "2020-12-24T15:17:28+08:00","dateModified": "2020-12-24T16:27:24+08:00","publisher": {
             "@type": "Organization",
-            "name": "Rem Blog","logo": {
-                    "@type": "ImageObject",
-                    "url": "https:\/\/huangno1.github.io\/images\/avatar.png",
-                    "width":  528 ,
-                    "height":  560 
-                }},"author": {
+            "name": ""},"author": {
                 "@type": "Person",
                 "name": "Huang Po-Hsun"
             },"description": ""
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -57,28 +55,27 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
             <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -88,11 +85,11 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
                 <a href="/" title="Rem Blog"><img
         class="lazyload logo"
         src="/svg/loading.min.svg"
-        data-src="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        data-srcset="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 1.5x, https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp 2x"
+        data-src="/icon/avatar.png"
+        data-srcset="/icon/avatar.png, /icon/avatar.png 1.5x, /icon/avatar.png 2x"
         data-sizes="auto"
-        alt="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp"
-        title="https://www.gravatar.com/avatar/1b2e937d26fa273fd402e042f2139949?s=240&amp;d=mp" />Rem Blog</a>
+        alt="/icon/avatar.png"
+        title="/icon/avatar.png" />Rem Blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -100,39 +97,37 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
         </div>
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章或標題..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw"></i>
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw"></i>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
+                        Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                <i class="fas fa-adjust fa-fw"></i>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://github.com/HuangNO1" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目錄</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">MySQL 的基礎語法使用筆記</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-24">2020-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 381 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL 的基礎語法使用筆記</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://huangno1.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Huang Po-Hsun</a></span>&nbsp;<span class="post-category">included in <a href="/categories/mysql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>MySQL</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-12-24">2020-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1565 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -140,10 +135,10 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
         data-srcset="/featuredImage/compressed/mysql_learn_note_basic.png, /featuredImage/compressed/mysql_learn_note_basic.png 1.5x, /featuredImage/compressed/mysql_learn_note_basic.png 2x"
         data-sizes="auto"
         alt="/featuredImage/compressed/mysql_learn_note_basic.png"
-        title="/featuredImage/compressed/mysql_learn_note_basic.png" /></div><div class="details toc" id="toc-static"  kept="">
+        title="/featuredImage/compressed/mysql_learn_note_basic.png" /></div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目錄</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -160,235 +155,229 @@ MySQL 使用工具 我自己是比較偏好使用 MariaDB，因人而異，總�
 <p>自己經常用資料庫（數據庫），但是語法如果太久沒用都會忘光光，我就在這篇文章當作一個小抄，不然每次碰到 MySQL 語法問題都要 Google 一下語法使用，很麻煩。</p>
 <h2 id="mysql-使用工具">MySQL 使用工具</h2>
 <p>我自己是比較偏好使用 MariaDB，因人而異，總之我這篇文章就略過什麼 MySQL 安裝過程，這些都是自己探索安裝一下就可以了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="c1"># 進入 MySQL 指令</span>
-<span class="c1"># 登入使用者為 root</span>
-mysql -u root -p
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="基礎語法">基礎語法</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="c1"># 進入 MySQL 指令</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 登入使用者為 root</span>
+</span></span><span class="line"><span class="cl">mysql -u root -p</span></span></code></pre></div></div>
+<h2 id="基礎語法">基礎語法</h2>
 <p>自行修改中文成英文。不要真的輸入中文當資料庫名稱或資料表名稱喔。</p>
 <table>
-<thead>
-<tr>
-<th>操作功能</th>
-<th>MySQL 語法格式</th>
-<th>說明</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>列出所有資料庫</td>
-<td>show databases;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>建立資料庫</td>
-<td>create database 資料庫名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>刪除資料庫</td>
-<td>drop database 資料庫名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>使用資料庫</td>
-<td>use 資料庫名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>建立資料表</td>
-<td>create table 資料表名稱(<br />sn integer auto_increment primary key,<br />name char(20), <br />mail char(50), <br />home char(50), <br />messages char(50)<br />);</td>
-<td>常用資料庫資料型態<br />1. INT (整數) <br />2. CHAR (1~255字元字串) <br />3. VARCHAR (不超過255字元不定長度字串) <br />4. TEXT (不定長度字串最多65535字元)</td>
-<td></td>
-</tr>
-<tr>
-<td>列出所有資料表</td>
-<td>show tables;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>列出資料表欄位資訊</td>
-<td>describe 資料表名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>修改資料表欄位</td>
-<td>alter table 資料表名稱 change column 原來欄位名稱 新欄位名稱資料型態;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>新增資料表欄位</td>
-<td>alter table 資料表名稱 add column 欄位名稱 資料型態;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>刪除資料表欄位</td>
-<td>alter table 資料表名稱 drop column 欄位名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>刪除資料表</td>
-<td>drop table 資料表名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>清空資料表</td>
-<td>truncate table 資料表名稱;</td>
-<td>只清除資料並保留結構、欄位、索引 …</td>
-<td></td>
-</tr>
-<tr>
-<td>插入欄位資料</td>
-<td>insert into 資料表名稱(欄位1,欄位2,欄位3,欄位4, &hellip;&hellip; 欄位N)<br />values(&lsquo;值1&rsquo;,&lsquo;值2&rsquo;,&lsquo;值3&rsquo;,&lsquo;值4&rsquo;, &hellip;&hellip; &lsquo;值N&rsquo;);</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>更新修改欄位資料</td>
-<td>update 資料表名稱 <br />set 欄位1=&lsquo;值1&rsquo;,欄位2=&lsquo;值2&rsquo;,欄位3=&lsquo;值3&rsquo;,&hellip; 欄位N=&lsquo;值N&rsquo; <br />where 條件式 (例如 sn=&lsquo;5&rsquo; 或 name=&lsquo;塔司尼&rsquo; );</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢單一欄位資料</td>
-<td>select 欄位名 from 資料表名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢多個欄位資料</td>
-<td>select 欄位名, 欄位名, 欄位名 from 資料表名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢欄位資料的唯一值</td>
-<td>select distinct 欄位名 from 資料表名稱;</td>
-<td>重複值只列一次</td>
-<td></td>
-</tr>
-<tr>
-<td>查詢所有欄位資料</td>
-<td>select * from 資料表名稱;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>條件式查詢</td>
-<td>select * from 資料表名稱 where 條件式 (例如 sn=&lsquo;5&rsquo;);</td>
-<td>（=, &lt;, &gt;, !=）</td>
-<td></td>
-</tr>
-<tr>
-<td>條件式查詢 and</td>
-<td>select * from 資料表名稱 where 條件式1 and 條件式2;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>條件式查詢 or</td>
-<td>select * from 資料表名稱 where 條件式1 or 條件式2;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢某一範圍 between</td>
-<td>select * from 資料表名稱 where 欄位名 between 值1 and 值2;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢空值欄位的資料</td>
-<td>select * from 資料表名稱 where 欄位名 is null;</td>
-<td>相反： 	not null;</td>
-<td></td>
-</tr>
-<tr>
-<td>查詢特定筆數資料</td>
-<td>select * from 資料表名稱 limit 8, 10;</td>
-<td>第9筆開始選取10筆</td>
-<td></td>
-</tr>
-<tr>
-<td>查詢結果遞增排序</td>
-<td>select * from 資料表名稱 order by 欄位名;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢結果遞減排序</td>
-<td>select * from 資料表名稱 order by 欄位名 desc ;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢比對字串列出單一欄位</td>
-<td>select 欄位名 from 資料表名稱 where 欄位名 like &lsquo;%字串%';</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>查詢比對字串列出所有欄位</td>
-<td>select * from 資料表名稱 where 欄位名 like &lsquo;%字串%';</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>刪除條件值資料</td>
-<td>delete from 資料表名稱 where 條件式 (例如 sn=&lsquo;5&rsquo; 或 id=&lsquo;91001&rsquo; );</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>刪除條件值資料</td>
-<td>delete from 資料表名稱 where 條件式1 and 條件式2;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>刪除條件值資料</td>
-<td>delete from 資料表名稱 where 條件式1 or 條件式2;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>比對刪除條件值資料</td>
-<td>delete from 資料表名稱 where 欄位名 like &lsquo;%字串%';</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>操作功能</th>
+          <th>MySQL 語法格式</th>
+          <th>說明</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>列出所有資料庫</td>
+          <td>show databases;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>建立資料庫</td>
+          <td>create database 資料庫名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>刪除資料庫</td>
+          <td>drop database 資料庫名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>使用資料庫</td>
+          <td>use 資料庫名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>建立資料表</td>
+          <td>create table 資料表名稱(<br />sn integer auto_increment primary key,<br />name char(20), <br />mail char(50), <br />home char(50), <br />messages char(50)<br />);</td>
+          <td>常用資料庫資料型態<br />1. INT (整數) <br />2. CHAR (1~255字元字串) <br />3. VARCHAR (不超過255字元不定長度字串) <br />4. TEXT (不定長度字串最多65535字元)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>列出所有資料表</td>
+          <td>show tables;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>列出資料表欄位資訊</td>
+          <td>describe 資料表名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>修改資料表欄位</td>
+          <td>alter table 資料表名稱 change column 原來欄位名稱 新欄位名稱資料型態;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>新增資料表欄位</td>
+          <td>alter table 資料表名稱 add column 欄位名稱 資料型態;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>刪除資料表欄位</td>
+          <td>alter table 資料表名稱 drop column 欄位名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>刪除資料表</td>
+          <td>drop table 資料表名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>清空資料表</td>
+          <td>truncate table 資料表名稱;</td>
+          <td>只清除資料並保留結構、欄位、索引 …</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>插入欄位資料</td>
+          <td>insert into 資料表名稱(欄位1,欄位2,欄位3,欄位4, &hellip;&hellip; 欄位N)<br />values(&lsquo;值1&rsquo;,&lsquo;值2&rsquo;,&lsquo;值3&rsquo;,&lsquo;值4&rsquo;, &hellip;&hellip; &lsquo;值N&rsquo;);</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>更新修改欄位資料</td>
+          <td>update 資料表名稱 <br />set 欄位1=&lsquo;值1&rsquo;,欄位2=&lsquo;值2&rsquo;,欄位3=&lsquo;值3&rsquo;,&hellip; 欄位N=&lsquo;值N&rsquo; <br />where 條件式 (例如 sn=&lsquo;5&rsquo; 或 name=&lsquo;塔司尼&rsquo; );</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢單一欄位資料</td>
+          <td>select 欄位名 from 資料表名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢多個欄位資料</td>
+          <td>select 欄位名, 欄位名, 欄位名 from 資料表名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢欄位資料的唯一值</td>
+          <td>select distinct 欄位名 from 資料表名稱;</td>
+          <td>重複值只列一次</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢所有欄位資料</td>
+          <td>select * from 資料表名稱;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>條件式查詢</td>
+          <td>select * from 資料表名稱 where 條件式 (例如 sn=&lsquo;5&rsquo;);</td>
+          <td>（=, &lt;, &gt;, !=）</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>條件式查詢 and</td>
+          <td>select * from 資料表名稱 where 條件式1 and 條件式2;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>條件式查詢 or</td>
+          <td>select * from 資料表名稱 where 條件式1 or 條件式2;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢某一範圍 between</td>
+          <td>select * from 資料表名稱 where 欄位名 between 值1 and 值2;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢空值欄位的資料</td>
+          <td>select * from 資料表名稱 where 欄位名 is null;</td>
+          <td>相反： 	not null;</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢特定筆數資料</td>
+          <td>select * from 資料表名稱 limit 8, 10;</td>
+          <td>第9筆開始選取10筆</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢結果遞增排序</td>
+          <td>select * from 資料表名稱 order by 欄位名;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢結果遞減排序</td>
+          <td>select * from 資料表名稱 order by 欄位名 desc ;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢比對字串列出單一欄位</td>
+          <td>select 欄位名 from 資料表名稱 where 欄位名 like &lsquo;%字串%&rsquo;;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>查詢比對字串列出所有欄位</td>
+          <td>select * from 資料表名稱 where 欄位名 like &lsquo;%字串%&rsquo;;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>刪除條件值資料</td>
+          <td>delete from 資料表名稱 where 條件式 (例如 sn=&lsquo;5&rsquo; 或 id=&lsquo;91001&rsquo; );</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>刪除條件值資料</td>
+          <td>delete from 資料表名稱 where 條件式1 and 條件式2;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>刪除條件值資料</td>
+          <td>delete from 資料表名稱 where 條件式1 or 條件式2;</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>比對刪除條件值資料</td>
+          <td>delete from 資料表名稱 where 欄位名 like &lsquo;%字串%&rsquo;;</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="匯出資料庫">匯出資料庫</h2>
 <p><strong>mysqldump</strong> 是個匯出 Database (資料庫) 的指令，也是 IT 人員最常用到的 MySQL 資料庫匯出方法之一。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mysqldump -u root -p 資料庫名稱 &gt; database_name.sql
-</code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">mysqldump -u root -p 資料庫名稱 &gt; database_name.sql</span></span></code></pre></div></div>
+<ul>
 <li>&ndash;all-databases: 匯出所有資料庫。</li>
 <li>&ndash;no-data: 不匯出資料。</li>
 <li>&ndash;routine: 匯出 stored routines (預存程序) 和自訂函數。</li>
@@ -399,90 +388,76 @@ mysql -u root -p
 <h2 id="匯入資料庫">匯入資料庫</h2>
 <p>匯入 <code>*.sql</code> 最簡單的辦法的辦法就是進入 MySQL 建立一個資料庫並使用該資料庫，然後直接加載 <code>*.sql</code>。</p>
 <p>進入 MySQL：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh">mysql -u root -p
-</code></pre></td></tr></table>
-</div>
-</div><p>建立並加載資料表，加載的資料庫位置是在檔案系統中的絕對位置。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">source</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="新建資料庫使用者">新建資料庫使用者</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-zsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">mysql -u root -p</span></span></code></pre></div></div>
+<p>建立並加載資料表，加載的資料庫位置是在檔案系統中的絕對位置。</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">source</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span></span></span></code></pre></div></div>
+<h2 id="新建資料庫使用者">新建資料庫使用者</h2>
 <p>我一般是建議新建一個跟 root 擁有一樣權限的使用者。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">exit</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">exit</span></span></span></code></pre></div></div>
+<h2 id="reference">Reference</h2>
 <ul>
-<li><a href="http://note.drx.tw/2012/12/mysql-syntax.html" target="_blank" rel="noopener noreffer">MySQL 語法匯整 - 凍仁的筆記</a></li>
-<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-18-04" target="_blank" rel="noopener noreffer">How To Install MariaDB on Ubuntu 18.04 - Digital Ocean</a></li>
+<li><a href="http://note.drx.tw/2012/12/mysql-syntax.html" target="_blank" rel="noopener noreffer ">MySQL 語法匯整 - 凍仁的筆記</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-18-04" target="_blank" rel="noopener noreffer ">How To Install MariaDB on Ubuntu 18.04 - Digital Ocean</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2020-12-24</span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
+                <span>Updated on 2020-12-24</span>
+            </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/mysql_learn_note_basic/index.md" target="_blank">閱讀原始檔案</a>
+                            <a class="link-to-markdown" href="/mysql_learn_note_basic/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-via="Rem59881439" data-hashtags="MySQL,Database"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-hashtag="MySQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-image="/featuredImage/compressed/mysql_learn_note_basic.png"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on X" data-sharer="x" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-hashtags="MySQL,Database"><i class="fab fa-x-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Threads" data-sharer="threads" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記"><i class="fab fa-threads fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-hashtag="MySQL"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-image="/featuredImage/compressed/mysql_learn_note_basic.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Diaspora" data-sharer="diaspora" data-url="https://huangno1.github.io/mysql_learn_note_basic/" data-title="MySQL 的基礎語法使用筆記" data-description=""><i class="fab fa-diaspora fa-fw" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fhuangno1.github.io%2fmysql_learn_note_basic%2f&amp;text=MySQL%20%e7%9a%84%e5%9f%ba%e7%a4%8e%e8%aa%9e%e6%b3%95%e4%bd%bf%e7%94%a8%e7%ad%86%e8%a8%98" target="_blank" title="Share on Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/mysql/">MySQL</a>,&nbsp;<a href="/tags/database/">Database</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/vmware_centos_fail_boot_xfs_corruption/" class="prev" rel="prev" title="VMware Workstation Pro 中 CentOS 7 啟動崩潰"><i class="fas fa-angle-left fa-fw"></i>VMware Workstation Pro 中 CentOS 7 啟動崩潰</a>
-            <a href="/archlinux_fail_to_start_mariadb/" class="next" rel="next" title="Mariadb 啟動服務失敗">Mariadb 啟動服務失敗<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/vmware_centos_fail_boot_xfs_corruption/" class="prev" rel="prev" title="VMware Workstation Pro 中 CentOS 7 啟動崩潰"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>VMware Workstation Pro 中 CentOS 7 啟動崩潰</a>
+            <a href="/archlinux_fail_to_start_mariadb/" class="next" rel="next" title="Mariadb 啟動服務失敗">Mariadb 啟動服務失敗<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
+</article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://huangno1.github.io" target="_blank">Huang Po-Hsun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
-                <i class="fas fa-comment fa-fw"></i>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://remblog.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/twemoji/twemoji.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本網站使用 Cookies 來改善你的瀏覽體驗."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
-            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-            gtag('config', 'UA-138697151-2', { 'anonymize_ip': true });
-        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-138697151-2" async></script></body>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script src="/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/js/theme.min.js"></script></body>
 </html>
