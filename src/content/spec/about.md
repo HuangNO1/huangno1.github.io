@@ -21,3 +21,7 @@ BTW, 這個Blog使用的主題：[Fuwari](https://github.com/saicaca/fuwari).
 特別感謝這位作者，讓我從 Hugo 換到 Astro。
 
 ::github{repo="saicaca/fuwari"}
+
+> ### Sources of images used in this site
+> - Avatar：[「私」](https://www.pixiv.net/artworks/117867484) by [ｻｻﾞﾅﾐ。](https://www.pixiv.net/users/16252763)
+> - Bannar：[越南峴港(Da Nang)](https://imgpoi.com/i/FSAIGE.png) by [HuangNO1](https://github.com/HuangNO1)
