@@ -13,6 +13,7 @@ category:  Paper
 image: ./index/compressed/Figure7.png
 lang: zh-TW
 ---
+## 前言
 
 DIFFUSION POSTERIOR SAMPLING FOR GENERAL NOISY INVERSE PROBLEMS
 標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題，[論文原文](https://arxiv.org/abs/2209.14687)，可以搭配原文食用。精讀我感覺需要至少兩天以上
