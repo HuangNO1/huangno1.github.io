@@ -496,7 +496,7 @@ DiffPIR 屬於變數分解 (Variable-splitting) 方法，它將逆問題分解�
 
 - **Prior 2: 領域相關先驗 (TCIR 颱風衛星圖片)**
 
-  - **數據集**: TCIR (假設您已擁有或可獲取此颱風衛星圖片數據集)。
+  - **數據集**: TCIR (已擁有此颱風衛星圖片數據集)。
   - **目標**: 訓練另一個 DDPM 來學習衛星圖片特有的結構和模式，例如雲層的形態、氣旋的螺旋結構等。儘管不是直接的黑洞圖像，但它比 CIFAR10 更接近高空或天文視角的圖像數據，有助於過渡。
   - **模型架構**: 同 Prior 1，或根據 TCIR 數據特性進行調整。
   - **訓練目標**: 同 Prior 1。
@@ -507,7 +507,7 @@ DiffPIR 屬於變數分解 (Variable-splitting) 方法，它將逆問題分解�
 
 - **多先驗融合策略 (Multi-Prior Fusion Strategy)**:
   - **思想**: 在去噪步驟中，動態地結合兩個預訓練先驗（CIFAR10 先驗的去噪器 $D\_theta,CIFAR$ 和 TCIR 先亞的去噪器 $D\_theta,TCIR$）的輸出。
-  - **方法**: 可以採用加權平均的方式融合兩個去噪器的噪聲預測 $epsilon\_textpred$。權重可以固定，也可以根據時間步 t 或當前圖像的特徵動態調整。例如，在去噪早期（大 t），通用先驗可能更有用；在去噪後期（小 t），領域相關先驗可能更重要。
+  - **方法**: 可以採用加權平均的方式融合兩個去噪器的噪聲預測 $epsilon\_textpred$。權重可以固定，也可以根據時間步 t 或當前圖像的特徵動態調整。例如，在去噪早期（大 $t$），通用先驗可能更有用；在去噪後期（小 t），領域相關先驗可能更重要。
 
 - **黑洞數值穩定性修正 (Numerical Stability Correction for Black Hole)**:
   - **問題**: 黑洞成像的前向模型 $G$（特別是當它涉及複雜物理模擬或 PDE 求解時，如在InverseBench: Benchmarking Plug-and-Play Diffusion Priors for Inverse Problems in Physical Sciences 論文中提及的「Full Waveform Inversion」和「Navier-Stokes equation」中所述）可能對輸入有嚴格的數值穩定性條件（例如 CFL 條件）。如果傳遞給 $G$ 的圖像 $x_0$ 不符合這些條件，前向模擬可能會失敗或產生無意義的結果。傳統 PnPDP 方法可能未考慮這些穩定性條件。
