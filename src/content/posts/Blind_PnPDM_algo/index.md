@@ -9,7 +9,7 @@ draft: false
 description: "中文標題-盲逆問題的即插即用後驗採樣：Blind-PnPDM 框架"
 license: ""
 tags: ["Blind-PnPDM", "CV", "Model", "DDPM", "DIFFUSION", "paper"]
-category:  Paper
+category:  Research
 image: ./index/compressed/Figure1.png
 lang: zh-TW
 ---

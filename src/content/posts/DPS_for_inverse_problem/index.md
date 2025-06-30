@@ -9,7 +9,7 @@ draft: false
 description: "標題中文-擴散後驗採樣 (DPS)：解決噪聲逆問題"
 license: ""
 tags: ["DPS", "CV", "Model", "DDPM", "DIFFUSION", "paper"]
-category:  Paper
+category:  Research
 image: ./index/compressed/Figure7.png
 lang: zh-TW
 ---

@@ -9,7 +9,7 @@ draft: false
 description: "中文標題-DiffPIR：基於去噪擴散模型的即插即用影像復原技術"
 license: ""
 tags: ["DiffPir", "CV", "Model", "DDPM", "DIFFUSION", "paper"]
-category:  Paper
+category:  Research
 image: ./index/compressed/Figure5.png
 lang: zh-TW
 ---

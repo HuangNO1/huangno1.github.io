@@ -9,7 +9,7 @@ draft: false
 description: "中文標題-插即用擴散模型 (PnP-DM)：貝葉斯機率成像"
 license: ""
 tags: ["PnPDM", "CV", "Model", "DDPM", "DIFFUSION", "paper"]
-category:  Paper
+category:  Research
 image: ./index/compressed/Figure1.png
 lang: zh-TW
 ---

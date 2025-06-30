@@ -8,8 +8,8 @@ lastmod: 2025-06-29T15:00:28+08:00
 draft: false
 description: ""
 license: ""
-tags: ["PnP", "CV", "Model", "DDPM", "DIFFUSION", "paper"]
-category: Paper
+tags: ["PnP", "CV", "Model", "DDPM", "DIFFUSION", "Work"]
+category: Research
 image: ./index/compressed/dms_pnp.jpg
 lang: zh-TW
 ---
