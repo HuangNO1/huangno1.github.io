@@ -42,7 +42,7 @@ lang: zh-TW
     * Chung et al. 提出的 DPS 算法，通過在擴散模型的逆向採樣 SDE 中直接添加一個「似然得分」項 $\nabla_{x_t} \log p_t(y|x_t)$，有效地將觀測數據的約束融入生成過程。DPS 是一種指導式方法，其有效性在圖像修復等多種逆問題中得到了驗證。DPS 的簡潔與高效啟發了我們在 MP-DPS-SC 中採用類似的似然引導機制。
 
 4.  **前沿科學逆問題的獨特挑戰與缺陷的啟發**：
-    * [cite_start]傳統 PnPDP 方法主要在自然圖像修復任務上進行評估，如圖像修補、超解析度和去模糊。然而，黑洞成像等物理科學領域的逆問題，其前向模型往往高度非線性、計算昂貴，且可能對輸入存在嚴格的物理或數值穩定性條件。例如，INVERSE-BENCH 基準測試框架中涵蓋的全波形反演 (Full Waveform Inversion, FWI) 和 Navier-Stokes 方程的反演就面臨數值穩定性挑戰，其輸入必須滿足 Courant-Friedrichs-Lewy (CFL) 條件以產生穩定解。Zheng et al. 在 INVERSEBENCH 中明確指出，現有 PnPDP 方法在此類問題上可能表現不佳，甚至出現數值不穩定性，例如 DAPS 和 PnP-DM 在 FWI 和 Navier-Stokes 問題上表現不佳，且對超參數高度敏感，微小的步長調整就可能導致完全失效。這對我們引入穩定性校正機制產生了直接啟發。
+    * 傳統 PnPDP 方法主要在自然圖像修復任務上進行評估，如圖像修補、超解析度和去模糊。然而，黑洞成像等物理科學領域的逆問題，其前向模型往往高度非線性、計算昂貴，且可能對輸入存在嚴格的物理或數值穩定性條件。例如，INVERSE-BENCH 基準測試框架中涵蓋的全波形反演 (Full Waveform Inversion, FWI) 和 Navier-Stokes 方程的反演就面臨數值穩定性挑戰，其輸入必須滿足 Courant-Friedrichs-Lewy (CFL) 條件以產生穩定解。Zheng et al. 在 INVERSEBENCH 中明確指出，現有 PnPDP 方法在此類問題上可能表現不佳，甚至出現數值不穩定性，例如 DAPS 和 PnP-DM 在 FWI 和 Navier-Stokes 問題上表現不佳，且對超參數高度敏感，微小的步長調整就可能導致完全失效。這對我們引入穩定性校正機制產生了直接啟發。
 
 綜上所述，MP-DPS-SC 算法的啟發，是融合了 DPMs 作為強大生成先驗的能力、PnPDP 框架的靈活性、DPS 算法高效似然引導的機制，以及對複雜科學逆問題中數值穩定性挑戰的深刻認識，旨在構建一個更通用、更魯棒的黑洞成像解決方案。
 

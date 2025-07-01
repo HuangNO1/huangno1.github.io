@@ -1,5 +1,5 @@
 ---
-title: "將 h5 格式的圖片Dataset解壓出圖片腳本"
+title: "將 h5 格式的圖片 Dataset 解壓出圖片腳本"
 published: 2025-07-01T22:00:28+08:00
 # 副標題
 subtitle: ""
