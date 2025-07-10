@@ -9,7 +9,7 @@ draft: false
 description: ""
 license: ""
 tags: ["tmux", "terminal"]
-category:  Research
+category:  Linux
 image: ./index/compressed/tmux-panes.png
 lang: zh-TW
 ---
