@@ -678,7 +678,7 @@ final = (stacked * weights).sum(dim=1)  # (B, C, H, W)
 
 ### 5.1 流程架構圖
 
-<!-- 图片无法顺利上传到图床 -->
+<!-- 圖片無法順利上傳到圖床 -->
 
 ![V3.png](https://imgpoi.com/i/8IPLVE.png)
 
@@ -1224,8 +1224,35 @@ method:
 
 ### 5.3 實驗結果
 
-> 因為目前還沒有更多的 Prior 訓練出來，這裡待更新
+我因為自己設計的MoE_DPS的V3版本Router因為之前要訓練Prior，所以一直沒有資源可以調試驗證，今天難得就把V3跑跑看能不能訓練出Router，發現會爆顯存但是師兄已經說過我設計的架構其實是不可用的，我們實際想要的不是MoE的思想，而是類似集成學習（Ensemble larning），但是又不是集成學習，所以暫時也不打算繼續調試V3，進度很趕，但是我還是順便把V2給測試了：
 
+**V2的測試（Router有Transformer Encoder）**
+我使用的Prior有以下，這些Prior都提前手動resize到64*64訓出來的：
+
+```yaml
+expert_priors:
+  - checkpoints/cifar10_100k.pt
+  - checkpoints/tcir_100k.pt
+  - checkpoints/Flower_Classification_V2_100k.pt
+  - checkpoints/flowers_100k.pt
+  - checkpoints/Flowers_Dataset_100k.pt
+  - checkpoints/Fruit_Classification_100k.pt
+  - checkpoints/Galaxy_zoo_split_100k.pt
+  - checkpoints/galaxy_zoo2_100k.pt
+  - checkpoints/Human_Faces_100k.pt
+  - checkpoints/Pretty_Face_100k.pt
+  - checkpoints/Star_Galaxy_Classification_Data_100k.pt
+  - checkpoints/Stress_Detection_Through_Iris_v1_100k.pt
+```
+
+|  Top-K   | psnr  | Final metric results |
+|  ----  | ----  | ---- |
+| 2  | 9.604681921308353 | `[2025-07-13 18:35:32,206][utils.helper][INFO] - Final metric results: {'cp_chi2': 57.72336516141891, 'cp_chi2_std': 128.85988815672584, 'camp_chi2': 448.9530269742012, 'camp_chi2_std': 1465.880910127826, 'psnr': 9.604681921308353, 'psnr_std': 1.5628210516575156, 'blur_psnr (f=10)': 9.604682188034058, 'blur_psnr (f=10)_std': 1.562821134822804, 'blur_psnr (f=15)': 11.0180721616745, 'blur_psnr (f=15)_std': 1.735264194542514, 'blur_psnr (f=20)': 11.803821592330932, 'blur_psnr (f=20)_std': 1.9313266876374349}...` |
+| 3  | 9.384628724100963 | `[2025-07-13 18:52:20,662][utils.helper][INFO] - Final metric results: {'cp_chi2': 66.08063945055008, 'cp_chi2_std': 130.43754026674176, 'camp_chi2': 588.2249845147132, 'camp_chi2_std': 1582.8932770596857, 'psnr': 9.384628724100963, 'psnr_std': 1.8851630062741853, 'blur_psnr (f=10)': 9.384628887176513, 'blur_psnr (f=10)_std': 1.8851631329054186, 'blur_psnr (f=15)': 10.81467140197754, 'blur_psnr (f=15)_std': 1.999706829276188, 'blur_psnr (f=20)': 11.592675695419311, 'blur_psnr (f=20)_std': 2.1566037509003237}...` |
+| 4  | 9.653339646736235 | `[2025-07-13 19:35:18,437][utils.helper][INFO] - Final metric results: {'cp_chi2': 67.73039571523667, 'cp_chi2_std': 153.0329317845099, 'camp_chi2': 208.92955838203432, 'camp_chi2_std': 778.3560173957392, 'psnr': 9.653339646736235, 'psnr_std': 1.7299705422418872, 'blur_psnr (f=10)': 9.65333996772766, 'blur_psnr (f=10)_std': 1.7299707265484745, 'blur_psnr (f=15)': 10.972465562820435, 'blur_psnr (f=15)_std': 1.882743000045943, 'blur_psnr (f=20)': 11.730897061824798, 'blur_psnr (f=20)_std': 2.043529332985071}...` |
+| 5  | 9.420167746069437 | `[2025-07-14 00:08:35,209][utils.helper][INFO] - Final metric results: {'cp_chi2': 60.64260640859604, 'cp_chi2_std': 121.21446586857735, 'camp_chi2': 459.2475729942322, 'camp_chi2_std': 1326.5611478303344, 'psnr': 9.420167746069437, 'psnr_std': 1.7715246437122023, 'blur_psnr (f=10)': 9.420168051719665, 'blur_psnr (f=10)_std': 1.77152472766505, 'blur_psnr (f=15)': 10.722562670707703, 'blur_psnr (f=15)_std': 1.9167290163454769, 'blur_psnr (f=20)': 11.444581513404847, 'blur_psnr (f=20)_std': 2.077268711432607}...` |
+
+結論：未經過微調的Router，只能保證至少選擇的專家是當前比較好的，當專家激活數越多，效果也沒有說越好越壞，另外我也發現如果使用Top-k策略其實也不合理，top-k大部分步驟中會偏好選更好的專家，導致其它閒置的專家沒有用處，其實這時也能重新再思考一下單純的係數相乘是否合理，我在這裡打上問號
 
 ## 六、結語
 
