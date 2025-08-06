@@ -16,7 +16,7 @@ lang: zh-TW
 
 ## 一、前言
 
-針對師兄和小伙伴們寫的ICCV 2025的論文草稿，題為![《Subjective Camera 1.0: Bridging Human Cognition and Visual Reconstruction through Sequence-Aware Sketch-Guided Diffusion》](https://arxiv.org/abs/2506.23711)，我因為閱讀之後想要在此篇文章梳理一下質疑點
+針對師兄和小伙伴們寫的ICCV 2025的論文草稿，題為[《Subjective Camera 1.0: Bridging Human Cognition and Visual Reconstruction through Sequence-Aware Sketch-Guided Diffusion》](https://arxiv.org/abs/2506.23711)，我因為閱讀之後想要在此篇文章梳理一下質疑點
 
 ## 二、論文概要 (Summary)
 
