@@ -150,7 +150,7 @@ $$
 | 項 | AFDPS (本文) | FK Corrector |
 | :--- | :--- | :--- |
 | **飄移項 (Drift)** | $-E(t) + V(t)(\frac{1}{2}(\nabla_x\mu_t)^2-\nabla_x^2\mu_t)$ | $E(t)+V(t)\nabla_x^2\mu_t$ |
-| **重加權項 (Reweighting)** | $\phi(t) - V(t)\|\|\nabla_x\mu_t\|\|_2^2$ | $\phi(t)-V(t)\|\|\nabla_x\mu_t\|\|_2^2$ |
+| **重加權項 (Reweighting)** | $\phi(t) - V(t)\|\nabla_x\mu_t\|_2^2$ | $\phi(t)-V(t)\|\nabla_x\mu_t\|_2^2$ |
 
 從上表可以一目了然地看到，AFDPS的飄移項中明確包含了 $V(t)\nabla^2\mu_t$ 這一項。這個「引導項」直接作用於粒子的運動軌跡，將其拉向高概似區域。相較之下，FK-Corrector的飄移項僅包含先驗動力學，它將所有的概似資訊都放入了重加權項中。這種結構上的差異是AFDPS性能優越的關鍵原因之一，因為它更主動、直接地利用了觀測數據來指導採樣路徑。
 
