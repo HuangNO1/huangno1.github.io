@@ -10,7 +10,7 @@ description: "論文中文--透過基於擴散的抽樣求解逆問題：一種�
 license: ""
 tags: ["inverse", "CV", "DPS", "Model", "DDPM", "AFDPS" ,"DIFFUSION", "Paper"]
 category:  Research
-image: ./index/compressed/Figure2.png
+image: ./index/compressed/fig2.png
 lang: zh-TW
 ---
 
