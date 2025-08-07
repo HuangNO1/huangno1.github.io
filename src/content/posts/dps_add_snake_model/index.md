@@ -8,7 +8,7 @@ lastmod: 2025-08-06T22:50:28+08:00
 draft: false
 description: ""
 license: ""
-tags: ["snake", "dps", "CV", "Model", "sequence", "DIFFUSION"]
+tags: ["snake", "DPS", "CV", "Model", "sequence", "DIFFUSION"]
 category:  Research
 image: ./index/compressed/snake_model_on_blackhole.png
 lang: zh-TW
