@@ -9,7 +9,7 @@ draft: false
 description: "踏入 PyTorch 的第一步！本篇筆記將帶你從最基礎的數據結構開始，理解標量、向量、矩陣與張量的概念，並學會如何使用 PyTorch Tensor 進行基本數據操作與預處理。"
 license: ""
 tags: ["pytorch", "tensor", "numpy", "data", "preprocessing"]
-category: Photography
+category: DeepLearning
 image: ./index/compressed/cover.png
 lang: zh-TW
 ---
