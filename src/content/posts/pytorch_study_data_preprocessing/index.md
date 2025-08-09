@@ -69,6 +69,99 @@ tensor_from_data = torch.tensor(data)
 print(f"Tensor from list:\n {tensor_from_data}")
 ```
 
+### PyTorch Tensor 的常用創建方法
+
+除了從現有數據創建 Tensor，PyTorch 還提供了許多便捷的方法來創建特定類型的 Tensor：
+
+```python
+import torch
+
+# 創建全零張量
+zeros_tensor = torch.zeros(3, 4)
+print(f"Zeros tensor (3x4):\n {zeros_tensor}")
+
+# 創建全一張量
+ones_tensor = torch.ones(2, 3)
+print(f"Ones tensor (2x3):\n {ones_tensor}")
+
+# 創建單位矩陣
+eye_tensor = torch.eye(3)
+print(f"Identity matrix (3x3):\n {eye_tensor}")
+
+# 創建隨機張量 (0-1 均勻分佈)
+rand_tensor = torch.rand(2, 3)
+print(f"Random tensor (uniform 0-1):\n {rand_tensor}")
+
+# 創建標準常態分佈隨機張量
+randn_tensor = torch.randn(2, 3)
+print(f"Random tensor (normal distribution):\n {randn_tensor}")
+
+# 創建等差數列
+arange_tensor = torch.arange(0, 10, 2)  # 從0到10，步長為2
+print(f"Arange tensor: {arange_tensor}")
+
+# 創建線性等分數列
+linspace_tensor = torch.linspace(0, 1, 5)  # 在0到1之間創建5個等間距的數
+print(f"Linspace tensor: {linspace_tensor}")
+
+# 創建與現有張量相同形狀的張量
+existing_tensor = torch.tensor([[1, 2], [3, 4]])
+zeros_like = torch.zeros_like(existing_tensor)
+ones_like = torch.ones_like(existing_tensor)
+print(f"Zeros like existing tensor:\n {zeros_like}")
+print(f"Ones like existing tensor:\n {ones_like}")
+```
+
+### NumPy 的常用操作
+
+既然我們經常在 NumPy 和 PyTorch 之間切換，了解 NumPy 的常用操作也很重要：
+
+```python
+import numpy as np
+
+# NumPy 的創建方法 (與 PyTorch 非常相似)
+np_zeros = np.zeros((3, 4))
+np_ones = np.ones((2, 3))
+np_eye = np.eye(3)
+np_random = np.random.rand(2, 3)
+np_randn = np.random.randn(2, 3)
+np_arange = np.arange(0, 10, 2)
+np_linspace = np.linspace(0, 1, 5)
+
+print(f"NumPy zeros:\n {np_zeros}")
+print(f"NumPy arange: {np_arange}")
+
+# NumPy 特有的常用操作
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+# 形狀操作
+print(f"Original shape: {arr.shape}")
+reshaped = arr.reshape(3, 2)
+print(f"Reshaped (3x2):\n {reshaped}")
+
+# 展平
+flattened = arr.flatten()
+print(f"Flattened: {flattened}")
+
+# 轉置
+transposed = arr.T
+print(f"Transposed:\n {transposed}")
+
+# 統計操作
+print(f"Sum of all elements: {arr.sum()}")
+print(f"Sum along axis 0: {arr.sum(axis=0)}")  # 按列求和
+print(f"Sum along axis 1: {arr.sum(axis=1)}")  # 按行求和
+print(f"Mean: {arr.mean()}")
+print(f"Max: {arr.max()}")
+print(f"Min: {arr.min()}")
+
+# 條件操作
+condition_result = arr > 3
+print(f"Elements > 3:\n {condition_result}")
+filtered = arr[arr > 3]
+print(f"Filtered values > 3: {filtered}")
+```
+
 ## 張量的基本概念：標量、向量、矩陣
 
 ![tensor.png](https://imgpoi.com/i/ABRGZ2.png)
@@ -205,6 +298,85 @@ print(f"Matrix multiplication result:\n {z5}")
 ```
 
 **重要提醒**：矩陣乘法要求第一個矩陣的列數等於第二個矩陣的行數。對於上面的例子，兩個都是 2×2 矩陣，所以可以相乘，結果也是 2×2 矩陣。
+
+### 廣播機制 (Broadcasting)
+
+到目前為止，我們討論的運算都是在相同形狀的張量之間進行的。但在實際應用中，我們經常需要在不同形狀的張量間進行運算。這時候，**廣播機制 (Broadcasting)** 就派上用場了。
+
+廣播允許 PyTorch (和 NumPy) 自動擴展較小的張量，使其能夠與較大的張量進行元素對元素的運算，而不需要顯式地複製數據。
+
+#### 廣播的基本規則
+
+廣播遵循以下規則：
+1. 從最後一個維度開始比較兩個張量的形狀
+2. 如果兩個維度相等，或其中一個為 1，則該維度兼容
+3. 如果其中一個張量在某個維度上缺失，則視為大小為 1
+
+讓我們通過一些例子來理解：
+
+```python
+# 標量與張量的廣播
+tensor = torch.tensor([[1, 2, 3], [4, 5, 6]])  # 形狀 (2, 3)
+scalar = 10
+
+# 標量會自動廣播到與張量相同的形狀
+result = tensor + scalar
+print(f"Original tensor:\n {tensor}")
+print(f"Result (tensor + scalar):\n {result}")
+# 相當於 tensor + [[10, 10, 10], [10, 10, 10]]
+```
+
+```python
+# 向量與矩陣的廣播
+matrix = torch.tensor([[1, 2, 3], [4, 5, 6]])  # 形狀 (2, 3)
+vector = torch.tensor([10, 20, 30])            # 形狀 (3,)
+
+# vector 會自動廣播成 (2, 3) 的形狀
+result = matrix + vector
+print(f"Matrix:\n {matrix}")
+print(f"Vector: {vector}")
+print(f"Result (matrix + vector):\n {result}")
+# 相當於 matrix + [[10, 20, 30], [10, 20, 30]]
+```
+
+```python
+# 更複雜的廣播例子
+a = torch.tensor([[1], [2], [3]])  # 形狀 (3, 1)
+b = torch.tensor([10, 20])         # 形狀 (2,)
+
+# 廣播後的結果形狀為 (3, 2)
+result = a + b
+print(f"Tensor a (3, 1):\n {a}")
+print(f"Tensor b (2,): {b}")
+print(f"Result shape: {result.shape}")
+print(f"Result:\n {result}")
+# a 廣播為 [[1, 1], [2, 2], [3, 3]]
+# b 廣播為 [[10, 20], [10, 20], [10, 20]]
+```
+
+#### 廣播的實際應用
+
+在數據預處理中，廣播機制非常有用，例如：
+
+```python
+# 數據標準化 (Normalization)
+data = torch.randn(100, 5)  # 100 個樣本，每個有 5 個特徵
+
+# 計算每個特徵的平均值和標準差
+mean = data.mean(dim=0, keepdim=True)  # 形狀 (1, 5)
+std = data.std(dim=0, keepdim=True)    # 形狀 (1, 5)
+
+# 透過廣播進行標準化
+normalized_data = (data - mean) / std
+print(f"Original data shape: {data.shape}")
+print(f"Mean shape: {mean.shape}")
+print(f"Normalized data shape: {normalized_data.shape}")
+```
+
+**廣播的優勢**：
+- **記憶體效率**：不需要實際複製數據
+- **計算效率**：充分利用底層優化的向量化運算
+- **代碼簡潔**：讓數學表達式更直觀
 
 ## 數據預處理入門
 
