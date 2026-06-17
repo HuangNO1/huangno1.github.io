@@ -508,6 +508,147 @@ window.onresize = () => {
 </script>
 
 <script>
+import mermaid from "mermaid"
+
+let mermaidHooksBound = false
+let mermaidThemeObserver: MutationObserver | undefined
+
+function getMermaidConfig() {
+	const isDark = document.documentElement.classList.contains("dark")
+	const palette = isDark
+		? {
+			text: "#e5e7eb",
+			primary: "#8b9dff",
+			card: "#1f2937",
+			panel: "#111827",
+			page: "#0f172a",
+			divider: "#475569",
+			pie2: "#60a5fa",
+			pie3: "#34d399",
+			pie4: "#fbbf24",
+			pie5: "#f472b6",
+			pie6: "#a78bfa",
+		}
+		: {
+			text: "#1f2937",
+			primary: "#4f46e5",
+			card: "#ffffff",
+			panel: "#f8fafc",
+			page: "#ffffff",
+			divider: "#cbd5e1",
+			pie2: "#93c5fd",
+			pie3: "#6ee7b7",
+			pie4: "#fde68a",
+			pie5: "#f9a8d4",
+			pie6: "#c4b5fd",
+		}
+
+	return {
+		startOnLoad: false,
+		securityLevel: "loose" as const,
+		theme: "base" as const,
+		fontFamily: "inherit",
+		themeVariables: {
+			darkMode: isDark,
+			background: "transparent",
+			fontFamily: "inherit",
+			textColor: palette.text,
+			titleColor: palette.text,
+			mainBkg: palette.card,
+			secondBkg: palette.panel,
+			tertiaryColor: palette.page,
+			primaryColor: palette.card,
+			primaryBorderColor: palette.primary,
+			primaryTextColor: palette.text,
+			secondaryColor: palette.panel,
+			secondaryBorderColor: palette.primary,
+			secondaryTextColor: palette.text,
+			tertiaryBorderColor: palette.divider,
+			tertiaryTextColor: palette.text,
+			lineColor: palette.primary,
+			defaultLinkColor: palette.primary,
+			edgeLabelBackground: palette.page,
+			clusterBkg: palette.panel,
+			clusterBorder: palette.divider,
+			nodeBorder: palette.primary,
+			pie1: palette.primary,
+			pie2: palette.pie2,
+			pie3: palette.pie3,
+			pie4: palette.pie4,
+			pie5: palette.pie5,
+			pie6: palette.pie6,
+			pieSectionTextColor: palette.text,
+			pieTitleTextColor: palette.text,
+			pieOuterStrokeColor: palette.divider,
+			labelColor: palette.text,
+		},
+	}
+}
+
+async function renderMermaidDiagrams() {
+	const diagrams = document.querySelectorAll(".mermaid-diagram") as NodeListOf<HTMLElement>
+	if (!diagrams.length) return
+
+	mermaid.initialize(getMermaidConfig())
+
+	for (const [index, diagram] of Array.from(diagrams).entries()) {
+		const source = diagram.dataset.mermaidSource
+		if (!source) continue
+
+		try {
+			const { svg, bindFunctions } = await mermaid.render(
+				`mermaid-${index}-${Math.random().toString(36).slice(2, 8)}`,
+				decodeURIComponent(source),
+			)
+			diagram.classList.remove("is-error")
+			diagram.innerHTML = svg
+			bindFunctions?.(diagram)
+		} catch (error) {
+			console.error("[Mermaid] Failed to render diagram.", error)
+			diagram.classList.add("is-error")
+			diagram.textContent = decodeURIComponent(source)
+		}
+	}
+}
+
+function setupMermaidThemeObserver() {
+	if (mermaidThemeObserver) return
+
+	mermaidThemeObserver = new MutationObserver((mutations) => {
+		for (const mutation of mutations) {
+			if (mutation.type === "attributes" && mutation.attributeName === "class") {
+				renderMermaidDiagrams()
+				break
+			}
+		}
+	})
+
+	mermaidThemeObserver.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ["class"],
+	})
+}
+
+function setupMermaid() {
+	renderMermaidDiagrams()
+	setupMermaidThemeObserver()
+
+	if (mermaidHooksBound || !window.swup?.hooks) return
+
+	window.swup.hooks.on("page:view", () => {
+		renderMermaidDiagrams()
+	})
+	mermaidHooksBound = true
+}
+
+if (window.swup) {
+	setupMermaid()
+} else {
+	document.addEventListener("swup:enable", setupMermaid)
+}
+</script>
+
+<script>
 import PhotoSwipeLightbox from "photoswipe/lightbox"
 import "photoswipe/style.css"
 
