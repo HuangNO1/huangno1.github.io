@@ -38,7 +38,7 @@
     "astro-icon": "^1.1.5",
     "hastscript": "^9.0.1",
     "katex": "^0.16.22",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.2.0",
     "mdast-util-to-string": "^4.0.0",
     "mermaid": "^11.15.0",
     "overlayscrollbars": "^2.11.4",
