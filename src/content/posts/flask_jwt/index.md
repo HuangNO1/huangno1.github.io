@@ -16,16 +16,15 @@ lang: zh-TW
 
 ## 前言
 
-因為我寫的上一篇文章是"**Flask 中使用 MySQL**"，文章內容有提及 JWT 的使用，這篇就是寫一下我在 JWT 上的使用。
+因為我上一篇文章是 [Flask 中使用 MySQL](https://huangno1.github.io/flask_mysql/)，內容裡有提到 JWT，所以這篇補充整理一下我在 Flask 專案裡使用 JWT 的方式。
 
 ## Cookie Session
 
-> Cookie 和 LocalStorage 最大的區別是 **Cookie 可以設置時效性**，而LocalStorage 不行。
+> Cookie 和 LocalStorage 最大的區別是 **Cookie 可以設置時效性**，而 LocalStorage 不行。
 
 在 JWT 授權認證技術還沒出來之前，我們是**使用 Cookie 和 Session 來做驗證**，分別是前端（Front End）和後端（Back End）的本地存儲。過程如下：
 
-<!-- ```mermaid -->
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
     participant Front End
     participant Back End
@@ -41,8 +40,7 @@ sequenceDiagram
     Note right of Back End: Remove SessionID from Session
     Back End->>Front End: Response
     Note left of Front End: Remove SessionID from cookie
-{{< /mermaid >}}
-<!-- ``` -->
+```
 
 ## JWT
 
@@ -50,8 +48,7 @@ sequenceDiagram
 
 因為 Cookie Session 這種方式太過繁瑣，所以出來了 JWT 這樣的技術，原名 (JSON Web Tokens)，就是帶時效的 Token。主要差別是，Server 端不需要存 Session，大致情形如下：
 
-<!-- ```mermaid -->
-{{< mermaid >}}
+```mermaid
 sequenceDiagram
     participant Front End
     participant Back End
@@ -67,8 +64,7 @@ sequenceDiagram
     Note right of Back End: Add the token to blacklist
     Back End->>Front End: Response
     Note left of Front End: Remove token from localStorage
-{{< /mermaid >}}
-<!-- ``` -->
+```
 
 JWT 主要分為三段，個別為 header、payload 與 signature，中間以 . 做區隔，每一段都是透過 Base64Url 去編碼，中間的 payload 有時候會加密。
 
@@ -137,6 +133,8 @@ JWT 的主要目的只是「 確立資料來源以及可信度 」。因此在�
 
 ### 實作部份
 
+> 註：以下範例已調整為 `flask-jwt-extended` 4.x 的寫法，和目前官方文件一致。
+
 #### 安裝
 
 ```bash
@@ -149,9 +147,9 @@ pip install flask-jwt-extended
 
 **注意點：**
 
-- `@jwt_required` 裝飾器是用來判斷請求 Header 是否帶有 Token。
+- `@jwt_required()` 裝飾器是用來判斷請求 Header 是否帶有 Token。
 - 下面例子的 `/login` 使用 `create_access_token()` 生成 Token。
-- `/protected` 是獲取放在 請求 Header 的 Token 判是否正確，相對的，可以看 `/user/update/phone`。
+- `/protected` 會驗證放在請求 Header 的 Token 是否正確，相對的也可以看 `/user/update/phone`。
 - 前端請求需要**在 Header 添加 `Authorization: Bearer <access_token>`**，關於 Axios 怎麼在請求 Header 添加 Token 我之前有在 **[Vue 技巧與經驗](https://huangno1.github.io/vue_skill/#header-%E5%B8%B6-token-%E7%9A%84%E8%AB%8B%E6%B1%82)** 這篇文章的請求部份寫到。
 - 生成 Token 的依據（identity）不能是密碼，可以是 UserName 或是 UserID。
 - 一般 Token 的時效是 15 分鐘左右，如果想要延長可以設置。
@@ -161,8 +159,7 @@ pip install flask-jwt-extended
 from flask import Flask, jsonify, request
 # 引入 JWT
 from flask_jwt_extended import (
-    JWTManager, jwt_required, create_access_token,
-    get_jwt_identity
+    JWTManager, create_access_token, get_jwt_identity, jwt_required
 )
 
 app = Flask(__name__)
@@ -226,7 +223,7 @@ def user_login():
 # Protect a view with jwt_required, which requires a valid access token
 # in the request to access.
 @app.route('/protected', methods=['GET'])
-@jwt_required
+@jwt_required()
 def protected():
     # Access the identity of the current user with get_jwt_identity
     current_user = get_jwt_identity()
@@ -236,7 +233,7 @@ def protected():
 # 修改更新用戶 phone 資料
 # 這裡前端要先判斷輸入的新 Phone 是否跟原本的一樣，如果相同就不准請求
 @app.route("/user/update/phone", methods=['GET', 'POST'])
-@jwt_required
+@jwt_required()
 def user_update_phone():
     if request.method == 'POST':
         response_object = {'status': 'success'}
@@ -282,13 +279,12 @@ if __name__ == '__main__':
 
 ### 部份保護 route
 
-`@jwt_required` 裝飾器是該 route 接收到的請求 Header 必須要有 JWT Token，`jwt_optional()` 裝飾器，可以使需要保護的數據與不被保護的數據同時在 route 中使用（官方說法），但跟 `@jwt_required` 裝飾器一樣是 Token 如果失效會回傳失效訊息。
+`@jwt_required()` 裝飾器會要求該 route 接收到的請求 Header 必須帶有 JWT Token。如果你希望同一個 route 在「有 Token」和「沒 Token」兩種情況下都能工作，可以改用 `@jwt_required(optional=True)`。不過只要請求裡帶來的是失效或不可驗證的 Token，依然會回傳錯誤訊息。
 
 ```py
 from flask import Flask, jsonify, request
 from flask_jwt_extended import (
-    JWTManager, jwt_optional, create_access_token,
-    get_jwt_identity
+    JWTManager, create_access_token, get_jwt_identity, jwt_required
 )
 
 app = Flask(__name__)
@@ -315,7 +311,7 @@ def login():
 
 
 @app.route('/partially-protected', methods=['GET'])
-@jwt_optional
+@jwt_required(optional=True)
 def partially_protected():
     # If no JWT is sent in with the request, get_jwt_identity()
     # will return None
@@ -330,9 +326,9 @@ if __name__ == '__main__':
     app.run()
 ```
 
-### 黑名單（Black List）
+### 黑名單（Blocklist）
 
-應用場景是當我們之前的 Token 錯誤或失效（如果有設置自動登入，一般 Token 會設置 7 天有效），或是登出、重新登入、登入等，都需要將舊的 Token 加入黑名單。
+應用場景是當先前的 Token 已失效，或是使用者登出、重新登入後，希望舊 Token 不再可用。`flask-jwt-extended` 新版文件目前使用 `blocklist` 這個名稱，概念上就是把已撤銷的 Token 記錄下來。
 
 ```py
 from flask import Flask, request, jsonify
@@ -340,18 +336,14 @@ from flask import Flask, request, jsonify
 from flask_jwt_extended import (
     JWTManager, jwt_required, get_jwt_identity,
     create_access_token, create_refresh_token,
-    jwt_refresh_token_required, get_raw_jwt
+    get_jwt
 )
 
 
 # Setup flask
 app = Flask(__name__)
 
-# Enable blacklisting and specify what kind of tokens to check
-# against the blacklist
 app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this!
-app.config['JWT_BLACKLIST_ENABLED'] = True
-app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
 jwt = JWTManager(app)
 
 # A storage engine to save revoked tokens. In production if
@@ -360,25 +352,24 @@ jwt = JWTManager(app)
 # great option. In this example, we will be using an in memory
 # store, just to show you how this might work. For more
 # complete examples, check out these:
-# https://github.com/vimalloc/flask-jwt-extended/blob/master/examples/redis_blacklist.py
-# https://github.com/vimalloc/flask-jwt-extended/tree/master/examples/database_blacklist
-blacklist = set()
+# https://flask-jwt-extended.readthedocs.io/en/latest/blocklist_and_token_revoking.html
+blocklist = set()
 
 
-# For this example, we are just checking if the tokens jti
-# (unique identifier) is in the blacklist set. This could
+# For this example, we are just checking if the token jti
+# (unique identifier) is in the blocklist set. This could
 # be made more complex, for example storing all tokens
-# into the blacklist with a revoked status when created,
+# into the blocklist with a revoked status when created,
 # and returning the revoked status in this call. This
 # would allow you to have a list of all created tokens,
-# and to consider tokens that aren't in the blacklist
+# and to consider tokens that aren't in the blocklist
 # (aka tokens you didn't create) as revoked. These are
 # just two options, and this can be tailored to whatever
 # your application needs.
-@jwt.token_in_blacklist_loader
-def check_if_token_in_blacklist(decrypted_token):
-    jti = decrypted_token['jti']
-    return jti in blacklist
+@jwt.token_in_blocklist_loader
+def check_if_token_in_blocklist(jwt_header, jwt_payload):
+    jti = jwt_payload['jti']
+    return jti in blocklist
 
 
 # Standard login endpoint
@@ -399,7 +390,7 @@ def login():
 # Standard refresh endpoint. A blacklisted refresh token
 # will not be able to access this endpoint
 @app.route('/refresh', methods=['POST'])
-@jwt_refresh_token_required
+@jwt_required(refresh=True)
 def refresh():
     current_user = get_jwt_identity()
     ret = {
@@ -410,26 +401,26 @@ def refresh():
 
 # Endpoint for revoking the current users access token
 @app.route('/logout', methods=['DELETE'])
-@jwt_required
+@jwt_required()
 def logout():
-    jti = get_raw_jwt()['jti']
-    blacklist.add(jti)
+    jti = get_jwt()['jti']
+    blocklist.add(jti)
     return jsonify({"msg": "Successfully logged out"}), 200
 
 
 # Endpoint for revoking the current users refresh token
 @app.route('/logout2', methods=['DELETE'])
-@jwt_refresh_token_required
+@jwt_required(refresh=True)
 def logout2():
-    jti = get_raw_jwt()['jti']
-    blacklist.add(jti)
+    jti = get_jwt()['jti']
+    blocklist.add(jti)
     return jsonify({"msg": "Successfully logged out"}), 200
 
 
 # This will now prevent users with blacklisted tokens from
 # accessing this endpoint
 @app.route('/protected', methods=['GET'])
-@jwt_required
+@jwt_required()
 def protected():
     return jsonify({'hello': 'world'})
 

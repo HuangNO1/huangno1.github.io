@@ -16,11 +16,11 @@ lang: zh-TW
 
 ## 前言
 
-關於 Flask 跨域接收請求的設置真的蠻好配置的，我想並不難，但我還是稍微寫一下，避免新手不知道怎麼做。
+Flask 接收跨域請求其實不難，通常只要搭配 `flask-cors` 就能快速完成設定。這篇簡單記錄一下最基本的做法，避免剛接觸 Flask 的人一時找不到方向。
 
 ## 安裝
 
-跨域有 **flask_cors** 這個工具。
+Flask 常見的跨域套件是 `flask-cors`。
 
 ```bash
 pip install flask_cors
@@ -29,12 +29,18 @@ pip install flask_cors
 ## 配置
 
 ```py
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-# enable CORS
+# 啟用 CORS，預設會允許所有來源
 CORS(app)
+
+
+@app.route("/api/ping", methods=["GET"])
+def ping():
+    return jsonify({"message": "pong"})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
